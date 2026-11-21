@@ -1,0 +1,50 @@
+diff --git a/base/nhbot_dt736_abi/dive_logic.py b/base/nhbot_dt736_abi/dive_logic.py
+index d6d8622..8ac321f 100644
+--- a/base/nhbot_dt736_abi/dive_logic.py
++++ b/base/nhbot_dt736_abi/dive_logic.py
+@@ -3760,6 +3760,10 @@ class DiveLogic:
+             key = level.key()
+             spot = (agent.blstats.y, agent.blstats.x)
+             zone = WAND_RESERVE and self._wand_zone()
++            if agent.character.role == Character.MONK:
++                agent.log(f'DIG_WAND_DIAG actual zap pos={tuple(map(int, spot))} item={arg.text!r} '
++                          f'uses={arg.uses!r} known_empty={agent.inventory.is_known_empty(arg)} '
++                          f'zone={zone} hp={agent.blstats.hitpoints}/{agent.blstats.max_hitpoints}')
+             if zone:
+                 self._reserve_zaps += 1
+             agent.log(f'DIVE zapping {arg.text!r} down to escape'
+@@ -3907,6 +3911,34 @@ class DiveLogic:
+             if freeze is not None:
+                 return freeze   # MEDUSA_FREEZE: no moat neighbour left -> no flood roll can come up wet
+             if max_wet > 0 and wand is not None:
++                if agent.character.role == Character.MONK and not self._wand_zone():
++                    dry = None
++                    dis = agent.last_bfs_dis
++                    if agent.last_bfs_step == agent.step_count and dis is not None:
++                        dry = []
++                        known_water = np.isin(level.objects, tuple(WET)) | np.isin(agent.glyphs, tuple(WET))
++                        candidates = ((dis >= 0) & np.isin(level.objects, tuple(PLAIN_FLOOR))
++                                      & ~level.shop & ~level.shop_interior & ~agent.monster_tracker.monster_mask)
++                        for py, px in zip(*candidates.nonzero()):
++                            py, px = int(py), int(px)
++                            if ((py, px) in level.stair_destination or
++                                    (level.key(), (py, px)) in self._bad_dig_spots):
++                                continue
++                            neighbourhood = np.s_[max(py - 1, 0):py + 2, max(px - 1, 0):px + 2]
++                            if not (known_water[neighbourhood] | (level.objects[neighbourhood] == -1)).any():
++                                dry.append((int(dis[py, px]), py, px))
++                        dry.sort()
++                    y, x = int(bl.y), int(bl.x)
++                    adjacent = [(m[3].mname, int(m[0])) for m in monsters
++                                if max(abs(m[1] - y), abs(m[2] - x)) <= 2]
++                    reserved = WAND_RESERVE and not (
++                        bl.hitpoints < WAND_RESERVE_HP * bl.max_hitpoints and adjacent)
++                    agent.log(f'DIG_WAND_DIAG wet fallback pos={(y, x)} max_wet={max_wet} '
++                              f'here_wet={self._wet_neighbours(y, x)} open_crawl={self._crawl_exits(y, x)} '
++                              f'potential_crawl={self._crawl_exits(y, x, count_monsters=False)} '
++                              f'dry_alternatives={None if dry is None else dry[:8]} '
++                              f'pick={tool.text!r} wand={wand.text!r} uses={wand.uses!r} '
++                              f'reserved={reserved} nearby={adjacent} all_count={len(monsters)}')
+                 return ('zap', wand)
+             if DROWN_GUARD and self._wet_neighbours(bl.y, bl.x) > 0:
+                 # a flood here drowns us unless a free land square is next to us (drown -> crawl_destination):
