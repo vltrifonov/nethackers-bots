@@ -1,0 +1,92 @@
+diff --git a/d_CleverShovel_e13ed40/autoascend/dive_logic.py b/d_CleverShovel_e13ed40/autoascend/dive_logic.py
+index a758bef..5bc5261 100755
+--- a/d_CleverShovel_e13ed40/autoascend/dive_logic.py
++++ b/d_CleverShovel_e13ed40/autoascend/dive_logic.py
+@@ -913,6 +913,7 @@ class DiveLogic:
+         self._approach_count = {}          # level key -> (window start turn, approach moves in that window)
+         self._town_levels = set()          # Mines level keys where the Watch, a shopkeeper or a priest was seen
+         self._visit_start = (None, 0)      # (level key, turn) we arrived on the current level
++        self._fall_arrival = None
+         self._visit_pos = (None, None)     # (level key, (y, x)) where we arrived on it (WAND_RESERVE: castle region)
+         self._door_heard = {}              # level key -> last turn 'You hear a door open.' (the castle's soldiers)
+         self._sleep_room = None            # DIVE_SLEEPERS: (level key, turn) of the last special-room entry message
+@@ -1168,6 +1169,7 @@ class DiveLogic:
+             msg_all = agent.message
+             if 'trap door opens up under you' in msg_all or 'hole under you' in msg_all or \
+                     'You fall through' in msg_all:
++                self._fall_arrival = (key, turn)
+                 old_level = agent.levels.get(prev[0])
+                 if old_level is not None:
+                     old_level.objects[prev[1]] = SS.S_trap_door
+@@ -2255,17 +2257,27 @@ class DiveLogic:
+         vkey, vpos = self._visit_pos
+         pos = vpos if vkey == key and vpos is not None else (agent.blstats.y, agent.blstats.x)
+         medusa = self.medusa_level
+-        if medusa is None and turn == self._visit_start[1]:
+-            return   # (maybe not known yet: look again)
+         if level.dungeon_number != Level.DUNGEONS_OF_DOOM or agent.blstats.depth < 25 or int(pos[1]) > 9 or \
+-                medusa is None or tuple(medusa) == tuple(key) or medusa[1] >= level.level_number or \
+-                self.castle.castle_key == key:
++                self.castle.castle_key is not None:
++            self._landing_ear[key] = {'state': 'no'}
++            return
++        if medusa is None:
++            # A witnessed deep fall into the western landing region can reach the Castle
++            # before Medusa was recognized. Listen for this floor's doors before digging.
++            if self._fall_arrival != self._visit_start:
++                return
++        elif medusa[1] >= level.level_number:
++            self._landing_ear[key] = {'state': 'no'}
++            return
++        from .castle_cross import _known_lasting_lift
++        # Preserve the usual crossing timing for a kit that already affords a lasting lift.
++        if self.castle._floating() or _known_lasting_lift(self.castle) is not None:
+             self._landing_ear[key] = {'state': 'no'}
+             return
+         marked = key not in self.undiggable
+         self.undiggable.add(key)
+         self._landing_ear[key] = {'state': 'listen', 't0': self._visit_start[1], 'marked': marked,
+-                                  'h0': max(0, len(agent._message_history) - 3)}
++                                  'h0': len(agent._message_history), 'arrival_message': agent.message}
+         agent.log(f'LANDING listening for the castle at depth {agent.blstats.depth} (landed at bot x {int(pos[1])}, '
+                   f'Medusa {medusa})')
+ 
+@@ -2282,8 +2294,10 @@ class DiveLogic:
+         if self.castle.castle_key == key:
+             st['state'] = 'castle'   # recognised some other way (a zap down's pit, a known lift's listen)
+             return
+-        heard = [m for m in agent._message_history[st['h0']:] + [agent.message or '']
+-                 if any(s in m for s in self._EAR_SOUNDS)]
++        messages = agent._message_history[st['h0']:]
++        if agent.message and agent.message != st['arrival_message']:
++            messages.append(agent.message)
++        heard = [m for m in messages if any(s in m for s in self._EAR_SOUNDS)]
+         if heard:
+             st['state'] = 'castle'
+             inv = '; '.join(f'{agent.inventory.items.get_letter(i)} - {i.text}' for i in agent.inventory.items.all_items)
+diff --git a/d_CleverShovel_e13ed40/autoascend/jf_config.py b/d_CleverShovel_e13ed40/autoascend/jf_config.py
+index 7c3345c..d21c7d8 100755
+--- a/d_CleverShovel_e13ed40/autoascend/jf_config.py
++++ b/d_CleverShovel_e13ed40/autoascend/jf_config.py
+@@ -968,7 +968,7 @@ LANDING_SCARE_KEEP1 = False
+ # it also exposes the castle's wish race (the wish kit 8/10). Repeated on main 21bb946 with castle-lift's CL_STRIP (no
+ # strip rest stop with a shark on our tail) + WISH_ROUTE_FIRST + SCARE_READ_ID (ld3-ear, 449 paired): 31 vs 36
+ # (+9/-14); CL_STRIP alone 33 vs 36 (+0/-3). Keep off until the crossing has an answer to the sharks.
+-LANDING_EAR = False
++LANDING_EAR = True
+ LANDING_EAR_WAIT = 4
+ # LANDING_CRUSH_FIRST (castle-entry): a kit with a tonal instrument (the crusher armed: PASSTUNE_CRUSHER, an instrument in
+ # the pack, the tune not yet known, not given up, not afloat) walks out of the west maze to the crusher square BEFORE it
+diff --git a/nethackers.solution.json b/nethackers.solution.json
+index 591a72c..bdf05b1 100644
+--- a/nethackers.solution.json
++++ b/nethackers.solution.json
+@@ -3,6 +3,8 @@
+   "name": "daglar-zLeadersSeed407717",
+   "root": ".",
+   "parents": [
++    "github.com/daglar-dragomirov/nethacker@9a387c4fb6b8c166e2e6e63617bd6e588f40fddc",
++    "github.com/vltrifonov/nethackers-bots@7dc9765687263926925d01c76ceb2e324137e92e",
+     "github.com/daglar-dragomirov/nethacker@ccfb1251179bad749ece88d384956363ffb2db56",
+     "github.com/daglar-dragomirov/nethacker@44b29b9299c5dcfb76e3fc6081004727c58db19a",
+     "github.com/DT6A/nethacker@37f9da35d0dbf98ed15bf89735bd601f0c0eac02",
