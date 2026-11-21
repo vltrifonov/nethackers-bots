@@ -1,0 +1,107 @@
+diff --git a/base/nhbot/agent.py b/base/nhbot/agent.py
+index 279060a..3496581 100644
+--- a/base/nhbot/agent.py
++++ b/base/nhbot/agent.py
+@@ -2159,9 +2159,10 @@ class Agent:
+         except Exception:
+             return False
+ 
+-    def engrave(self, text):
++    def engrave(self, text, *, marker=None):
+         assert '\r' not in text
+         ret = False
++        letter = '-' if marker is None else self.inventory.items.get_letter(marker)
+ 
+         def gen():
+             nonlocal ret
+@@ -2169,15 +2170,21 @@ class Agent:
+                 self._forbidden_engrave_position = (self.blstats.y, self.blstats.x)
+                 yield A.Command.ESC
+                 return
+-            yield '-'
++            yield letter
+             if 'Do you want to add to the current engraving?' in self.single_message:
+                 yield 'n'
+             while self._observation['misc'][2]:
+                 yield ' '
+-            if 'What do you want to write in the dust here?' not in self.single_message:
+-                self._forbidden_engrave_position = (self.blstats.y, self.blstats.x)
++            dust = 'What do you want to write in the dust here?' in self.single_message
++            ink = marker is not None and self.single_message.startswith('What do you want to scribble on ')
++            if not (dust or ink):
++                if marker is None:
++                    self._forbidden_engrave_position = (self.blstats.y, self.blstats.x)
+                 yield A.Command.ESC
+                 return
++            if marker is not None:
++                # A dried marker still gives the ordinary dust prompt. Use it without reopening the menu.
++                self.log('DIVE marker ward: ink prompt' if ink else 'DIVE marker ward: dust fallback')
+             yield from text
+             yield '\r'
+             ret = True
+diff --git a/base/nhbot/dive_logic.py b/base/nhbot/dive_logic.py
+index 19e4ceb..37e63a2 100644
+--- a/base/nhbot/dive_logic.py
++++ b/base/nhbot/dive_logic.py
+@@ -6414,9 +6414,31 @@ class DiveLogic:
+         self.__dict__.setdefault('_engrave_turn', {})[spot] = bl.time
+         agent.log(f'DIVE Elbereth before digging{" (blind)" if blind else ""}'
+                   f'{" in the pit" if spot[3] else ""}: {[m[3].mname for m in near]}')
+-        agent.engrave('Elbereth')
++        marker = self._blind_pit_ward_marker(spot) if blind and near else None
++        if marker is None:
++            agent.engrave('Elbereth')
++        else:
++            self._medusa_marker_attempt_level = spot[0]
++            agent.engrave('Elbereth', marker=marker)
+         return True
+ 
++    def _blind_pit_ward_marker(self, spot):
++        agent = self.agent
++        char = agent.character
++        prop = char.prop
++        if char.role != Character.BARBARIAN or char.race != Character.ORC or not spot[3] or \
++                not self.on_medusa_level() or self.levitating() or prop.confusion or prop.stun or prop.hallu or \
++                getattr(self, '_medusa_marker_attempt_level', None) == spot[0]:
++            return None
++        for item in agent.inventory.items:
++            if item.category != nh.TOOL_CLASS or not item.is_unambiguous() or item.object.name != 'magic marker' or \
++                    item.status == Item.CURSED or item.shop_status != Item.NOT_SHOP:
++                continue
++            charges = (item.uses or '').rpartition(':')[2]
++            if not charges.lstrip('-').isdigit() or int(charges) >= 4:
++                return item
++        return None
++
+     def _boulder_blocks_dig(self, key, spot):
+         """DIG_BOULDER_FIX: 'There isn't enough room to dig in here' since our last apply on this square (it arrives a
+         step after the apply): a boulder lies on it -- give the square up (see DIG_BOULDER_FIX)."""
+diff --git a/base/nhbot/item/inventory.py b/base/nhbot/item/inventory.py
+index 89f4cf3..b0701ec 100644
+--- a/base/nhbot/item/inventory.py
++++ b/base/nhbot/item/inventory.py
+@@ -607,7 +607,8 @@ class Inventory:
+                     # LOOK is necessary even when 'Things that are here' popup is present for some very rare cases
+                     self.agent.step(A.Command.LOOK)
+ 
+-                if 'Something is ' in self.agent.message and 'You read: "' in self.agent.message:
++                if ('Something is ' in self.agent.message or "There's some graffiti on " in self.agent.message) and \
++                        'You read: "' in self.agent.message:
+                     index = self.agent.message.index('You read: "') + len('You read: "')
+                     assert '"' in self.agent.message[index:]
+                     engraving = self.agent.message[index: index + self.agent.message[index:].index('"')]
+diff --git a/nethackers.solution.json b/nethackers.solution.json
+index 83a8163..2ce06c2 100644
+--- a/nethackers.solution.json
++++ b/nethackers.solution.json
+@@ -1,8 +1,9 @@
+ {
+   "schema": "nethackers.solution/v1",
+-  "name": "daglar-zLeadersSeed281339",
++  "name": "Orc Barbarian marker for an urgent Medusa ward",
+   "root": ".",
+   "parents": [
++    "github.com/daglar-dragomirov/nethacker@50f00b994bf58fc632956d8080f7e3baedae5849",
+     "github.com/daglar-dragomirov/nethacker@ccfb1251179bad749ece88d384956363ffb2db56",
+     "github.com/daglar-dragomirov/nethacker@44b29b9299c5dcfb76e3fc6081004727c58db19a",
+     "github.com/DT6A/nethacker@37f9da35d0dbf98ed15bf89735bd601f0c0eac02",
