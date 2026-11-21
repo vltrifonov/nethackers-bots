@@ -1,0 +1,56 @@
+name: NetHackers independent panel monk-female-combined-holdout
+
+on:
+  push:
+    branches: [codex/frontier-diagnostics/monk-female-combined-holdout]
+
+permissions:
+  contents: write
+
+jobs:
+  evaluate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - arm: leader
+            repository: vltrifonov/nethackers-bots
+            commit: 6bd408f8a925e2f6723e9ab0ca0e1fd4c957f6c9
+          - arm: candidate
+            repository: vltrifonov/nethackers-bots
+            commit: be79bce09a88e6295ab222d71b32a76f3799fe46
+    env:
+      ARM: ${{ matrix.arm }}
+      BOT_REPOSITORY: ${{ matrix.repository }}
+      BOT_COMMIT: ${{ matrix.commit }}
+      OBJECTIVE: mon-hum-law-fem
+    steps:
+      - name: Run the pinned NetHackers arena
+        shell: bash
+        run: |
+          git init --quiet "$RUNNER_TEMP/bots"
+          git -C "$RUNNER_TEMP/bots" fetch --quiet --depth 1 "https://github.com/$BOT_REPOSITORY.git" "$BOT_COMMIT"
+          test "$(git -C "$RUNNER_TEMP/bots" rev-parse FETCH_HEAD)" = "$BOT_COMMIT"
+          mkdir -p "$RUNNER_TEMP/solution" "$RUNNER_TEMP/evidence"
+          git -C "$RUNNER_TEMP/bots" archive "$BOT_COMMIT" | tar -xf - -C "$RUNNER_TEMP/solution"
+          python3 -m venv "$RUNNER_TEMP/nethackers"
+          "$RUNNER_TEMP/nethackers/bin/pip" install --quiet 'git+https://github.com/dunnolab/nethackers.git@fdea69aeeecd1f561d9f29eaccf9510ec1e743de'
+          git init --quiet "$RUNNER_TEMP/campaign"
+          git -C "$RUNNER_TEMP/campaign" fetch --quiet --depth 1 "https://github.com/$GITHUB_REPOSITORY.git" "$GITHUB_SHA"
+          git -C "$RUNNER_TEMP/campaign" show "$GITHUB_SHA:evaluate_holdout.py" > "$RUNNER_TEMP/evaluate_holdout.py"
+          "$RUNNER_TEMP/nethackers/bin/python" "$RUNNER_TEMP/evaluate_holdout.py" "$RUNNER_TEMP/solution" "$RUNNER_TEMP/evidence/research.json" "$OBJECTIVE"
+          printf '%s\n' "$BOT_COMMIT" > "$RUNNER_TEMP/evidence/source-commit.txt"
+      - name: Save independent research evaluation
+        shell: bash
+        working-directory: ${{ runner.temp }}/evidence
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          git init --quiet --initial-branch=results
+          git add research.json source-commit.txt
+          git -c user.name='github-actions[bot]' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' commit --quiet -m "Gnome Ranger independent research panel evidence for $OBJECTIVE"
+          git -c credential.helper= \
+            -c 'credential.helper=!credential() { printf "username=x-access-token\npassword=%s\n" "$GITHUB_TOKEN"; }; credential' \
+            push "https://github.com/$GITHUB_REPOSITORY.git" "HEAD:refs/heads/codex/frontier-trace/monk-female-combined-holdout/$ARM"
