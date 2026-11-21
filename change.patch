@@ -1,0 +1,60 @@
+diff --git a/nethackers.solution.json b/nethackers.solution.json
+index 70ac5be..ba5af6b 100644
+--- a/nethackers.solution.json
++++ b/nethackers.solution.json
+@@ -1,8 +1,9 @@
+ {
+   "schema": "nethackers.solution/v1",
+-  "name": "daglar-zPublicValkCurrentTourFaint1000",
++  "name": "Caveman preserve a read ward after ranged damage",
+   "root": ".",
+   "parents": [
++    "github.com/daglar-dragomirov/nethacker@eb0a06a4a6a1cb0570d7ba06b6f910336f159404",
+     "github.com/daglar-dragomirov/nethacker@eab9a9c4f4e09bce096d5762e895fec51b63784d",
+     "github.com/daglar-dragomirov/nethacker@ccfb1251179bad749ece88d384956363ffb2db56",
+     "github.com/daglar-dragomirov/nethacker@44b29b9299c5dcfb76e3fc6081004727c58db19a",
+diff --git a/nhbot_dt448_main/dive_logic.py b/nhbot_dt448_main/dive_logic.py
+index d6d8622..38609f1 100644
+--- a/nhbot_dt448_main/dive_logic.py
++++ b/nhbot_dt448_main/dive_logic.py
+@@ -6427,18 +6427,20 @@ class DiveLogic:
+         tries = self.__dict__.setdefault('_elbereth_tries', {})
+         # ELBERETH_REWRITE_FIX: the writes up to the last whole read-back don't count against the cap
+         held = self.__dict__.setdefault('_elbereth_held', {})
++        spot = (agent.current_level().key(), bl.y, bl.x, self._in_own_pit())
+         if not blind and (agent.inventory.engraving_below_me or '').lower() == 'elbereth':
++            if spot[3]:
++                self._dig_ward_readback = (spot, tries.get(spot, 0), bl.time)
+             if jf_config.ELBERETH_REWRITE_FIX:
+-                spot = (agent.current_level().key(), bl.y, bl.x, self._in_own_pit())
+                 held[spot] = tries.get(spot, 0)
+             return False
+-        near = [m for m in agent.get_visible_monsters()
++        visible = agent.get_visible_monsters()
++        near = [m for m in visible
+                 if max(abs(m[1] - bl.y), abs(m[2] - bl.x)) <= ELBERETH_DIG_RADIUS and
+                 not self._melee_ignores_elbereth(m[3])]
+         # Weak or Fainting: a faint leaves us helpless for turns in the middle of a dig (base-jf14 s8: a troll,
+         # base-jf16 s13: a giant ant, base-jf16 s9: a panther -- all Elbereth-respecting -- killed fainted
+         # diggers); the engraving holds them off while we're out
+-        spot = (agent.current_level().key(), bl.y, bl.x, self._in_own_pit())
+         # the pit erased the Elbereth we needed before it: the monsters that made us engrave are still around
+         # even if out of sight now (base-public s14: an invisible ogre king hit us in the fresh pit; s1: a
+         # chameleon)
+@@ -6455,6 +6457,16 @@ class DiveLogic:
+             last = self.__dict__.setdefault('_engrave_turn', {}).get(spot)
+             if tries.get(spot, 0) >= ELBERETH_TRIES_BLIND or (last is not None and not self._hurt_since(last)):
+                 return False
++            # A fresh ray can hurt through an intact ward. Keep the recently read-back ward while
++            # finishing this pit if no visible attacker has reached melee range.
++            readback = getattr(self, '_dig_ward_readback', None)
++            if spot[3] and last is not None and self.on_medusa_level() and readback is not None and \
++                    readback[:2] == (spot, tries.get(spot, 0)) and \
++                    bl.time - readback[2] <= jf_config.RANGED_BREAK_TURNS and self._ranged_hit_turn == bl.time and \
++                    not (agent.character.prop.confusion or agent.character.prop.hallu) and \
++                    not any(utils.adjacent((bl.y, bl.x), (m[1], m[2])) for m in visible):
++                agent.log('DIVE keeping confirmed Elbereth in the pit after a ranged hit')
++                return False
+         elif tries.get(spot, 0) - (held.get(spot, 0) if jf_config.ELBERETH_REWRITE_FIX else 0) >= ELBERETH_TRIES_ESCAPE:
+             return False
+         tries[spot] = tries.get(spot, 0) + 1
