@@ -1,0 +1,51 @@
+diff --git a/base/nhbot/known_items.py b/base/nhbot/known_items.py
+index 3b33212..672a1e0 100644
+--- a/base/nhbot/known_items.py
++++ b/base/nhbot/known_items.py
+@@ -46,7 +46,7 @@ wand was empty); jf50 s14 unchanged (its wand of fire was known empty).
+ """
+ import nle.nethack as nh
+ 
+-from . import castle_power, jf_config, utils
++from . import castle_power, jf_config, jf_log, utils
+ from . import objects as O
+ from .combat.monster_utils import WEAK_MONSTERS
+ from .glyph import G, MON
+@@ -294,6 +294,8 @@ class KnownItemsGuard:
+         if not jf_config.KNOWN_ITEMS or not self._in_scope():
+             return None
+         danger = self._danger()
++        if jf_log.enabled():
++            self._trace_pit_danger(danger)
+         if danger is None or self.mino._prayer_first():
+             return None
+         turn = self.agent.blstats.time
+@@ -302,6 +304,28 @@ class KnownItemsGuard:
+                 return plan + (danger,)
+         return None
+ 
++    def _trace_pit_danger(self, danger):
++        agent = self.agent
++        bl = agent.blstats
++        if bl.hitpoints * 3 > bl.max_hitpoints or not agent.in_pit():
++            return
++        key = (agent.current_level().key(), bl.time, bl.hitpoints)
++        if getattr(self, '_trace_pit_danger_key', None) == key:
++            return
++        self._trace_pit_danger_key = key
++
++        from . import power_route
++        scroll = self._tele_scroll()
++        near = [(m[3].mname, _cheb((m[1], m[2]), (bl.y, bl.x))) for m in agent.get_visible_monsters()
++                if _cheb((m[1], m[2]), (bl.y, bl.x)) <= RANGED_REACH]
++        samples = [(int(t), int(hp)) for t, hp in self.dive._hp_history[-5:]]
++        agent.log(f'PIT_KNOWN_DIAG samples={samples} danger={None if danger is None else danger[1:]} '
++                  f'critical={agent._critically_low_hp()} near={near[:12]} elbereth={self._on_elbereth()} '
++                  f'hurt_on_elbereth={self.dive._hurt_on_elbereth} shot_recently={self.dive.shot_recently()} '
++                  f'own_pit={self.dive._in_own_pit()} prayer_first={self.mino._prayer_first()} '
++                  f'teleport_ok={self._teleport_ok()} control={power_route.tc_known(agent)} '
++                  f'unpaid={self._unpaid()} scroll={None if scroll is None else scroll.text!r}')
++
+     # ------------------------------------------------------------------ acting
+ 
+     def _act(self, plan):
