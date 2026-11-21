@@ -1,0 +1,79 @@
+diff --git a/base/nhbot_wizard16a_armor_erosion/agent.py b/base/nhbot_wizard16a_armor_erosion/agent.py
+index bc63d61..26e90f2 100644
+--- a/base/nhbot_wizard16a_armor_erosion/agent.py
++++ b/base/nhbot_wizard16a_armor_erosion/agent.py
+@@ -2316,7 +2316,7 @@ class Agent:
+ 
+         return ret
+ 
+-    def bfs(self, y=None, x=None, force_squeeze=False, open_mask=None):
++    def bfs(self, y=None, x=None, force_squeeze=False, open_mask=None, *, avoid_monsters=False):
+         # open_mask (grind-audit stall fixes, dive_logic._stall_unblock): squares to treat as walkable on top of the
+         # usual rules (a sessile monster's or a boulder's square) -- computed fresh, never cached; None: as before
+         if y is None:
+@@ -2324,7 +2324,8 @@ class Agent:
+         if x is None:
+             x = self.blstats.x
+ 
+-        if open_mask is None and not force_squeeze and self.last_bfs_step == self.step_count and \
++        use_cache = open_mask is None and not force_squeeze and not avoid_monsters
++        if use_cache and self.last_bfs_step == self.step_count and \
+                 y == self.blstats.y and x == self.blstats.x:
+             return self.last_bfs_dis.copy()
+ 
+@@ -2379,6 +2380,8 @@ class Agent:
+                     walkable[my, mx] = False
+         if open_mask is not None:
+             walkable |= open_mask
++        if avoid_monsters:
++            walkable &= ~self.monster_tracker.monster_mask & ~utils.isin(self.glyphs, G.PETS)
+ 
+         walkable_diagonally = walkable & ~utils.isin(level.objects, G.DOORS) & (level.objects != -1) \
+             & ~level.intact_doors
+@@ -2392,7 +2395,7 @@ class Agent:
+                         can_squeeze=can_squeeze,
+                         )
+ 
+-        if y == self.blstats.y and x == self.blstats.x and not force_squeeze and open_mask is None:
++        if use_cache and y == self.blstats.y and x == self.blstats.x:
+             self.last_bfs_dis = dis
+             self.last_bfs_step = self.step_count
+ 
+diff --git a/base/nhbot_wizard16a_armor_erosion/dive_logic.py b/base/nhbot_wizard16a_armor_erosion/dive_logic.py
+index ee19e7b..2a04795 100644
+--- a/base/nhbot_wizard16a_armor_erosion/dive_logic.py
++++ b/base/nhbot_wizard16a_armor_erosion/dive_logic.py
+@@ -2766,7 +2766,17 @@ class DiveLogic:
+         start = (bl.y, bl.x, level.key())
+         try:
+             if (bl.y, bl.x) != (y, x):
+-                agent.go_to(y, x, max_steps=1)
++                # Use the original step once. Only replan if its occupant blocks it.
++                step = agent.path(bl.y, bl.x, y, x, dis=dis)[1]
++                if agent.monster_tracker.monster_mask[step] or agent.glyphs[step] in G.PETS:
++                    clear_dis = agent.bfs(avoid_monsters=True)
++                    target = min((p for p in ups if 0 <= clear_dis[p] <= reach),
++                                 key=lambda p: clear_dis[p], default=None)
++                    if target is None:
++                        return
++                    y, x = target
++                    step = agent.path(bl.y, bl.x, y, x, dis=clear_dis)[1]
++                agent.move(*step)
+             if (agent.blstats.y, agent.blstats.x) == (y, x):
+                 agent.move('<')
+         finally:
+diff --git a/nethackers.solution.json b/nethackers.solution.json
+index 63a1a97..8aadba3 100644
+--- a/nethackers.solution.json
++++ b/nethackers.solution.json
+@@ -1,8 +1,9 @@
+ {
+   "schema": "nethackers.solution/v1",
+-  "name": "daglar-zLeadersSeed231289",
++  "name": "vltrifonov-elf-wizard-retreat",
+   "root": ".",
+   "parents": [
++    "github.com/daglar-dragomirov/nethacker@297f0c613a0ccc9116bcb1393c9b48dd149fb75e",
+     "github.com/daglar-dragomirov/nethacker@ccfb1251179bad749ece88d384956363ffb2db56",
+     "github.com/daglar-dragomirov/nethacker@44b29b9299c5dcfb76e3fc6081004727c58db19a",
+     "github.com/DT6A/nethacker@37f9da35d0dbf98ed15bf89735bd601f0c0eac02",
