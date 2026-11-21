@@ -1,0 +1,74 @@
+diff --git a/base/nhbot/known_items.py b/base/nhbot/known_items.py
+index 3b33212..50a0cc5 100644
+--- a/base/nhbot/known_items.py
++++ b/base/nhbot/known_items.py
+@@ -117,6 +117,30 @@ class KnownItemsGuard:
+             return None
+         return adjacent, ('critical' if critical else 'burst'), loss
+ 
++    def _pit_scroll_danger(self):
++        # An interrupted dig can leave two state updates many turns apart. At the first update back,
++        # the usual two-turn burst history contains only the damage already taken in the pit.
++        agent = self.agent
++        bl = agent.blstats
++        hp = int(bl.hitpoints)
++        if hp * 3 > bl.max_hitpoints or agent.character.prop.confusion or \
++                not self.dive._in_own_pit() or not self.dive.shot_recently() or \
++                self.dive._hurt_on_elbereth != bl.time:
++            return None
++        history = self.dive._hp_history
++        if len(history) < 2 or history[-1][0] != bl.time:
++            return None
++        previous_turn, previous_hp = history[-2]
++        loss = int(previous_hp) - hp
++        if bl.time - previous_turn <= jf_config.KNOWN_ITEMS_BURST_TURNS or loss < hp:
++            return None
++        pos = (int(bl.y), int(bl.x))
++        adjacent = [m for m in agent.get_visible_monsters() if m[3].mname not in WEAK_MONSTERS and
++                    _cheb((m[1], m[2]), pos) == 1]
++        if adjacent:
++            return adjacent, 'pit under fire', loss
++        return None
++
+     def _on_elbereth(self):
+         """An Elbereth under us that we can read back (not while blind: dust can't be felt)."""
+         agent = self.agent
+@@ -294,10 +318,22 @@ class KnownItemsGuard:
+         if not jf_config.KNOWN_ITEMS or not self._in_scope():
+             return None
+         danger = self._danger()
++        pit_escape = danger is None
++        if pit_escape:
++            danger = self._pit_scroll_danger()
+         if danger is None or self.mino._prayer_first():
+             return None
++        if pit_escape:
++            if not self._teleport_ok() or self._unpaid():
++                return None
++            scroll = self._tele_scroll()
++            if scroll is None:
++                return None
++            candidates = [('read', scroll, 'known scroll of teleportation')]
++        else:
++            candidates = self._candidates(*danger)
+         turn = self.agent.blstats.time
+-        for plan in self._candidates(*danger):
++        for plan in candidates:
+             if self._blocked.get(self._block_key(plan), -1) < turn:
+                 return plan + (danger,)
+         return None
+diff --git a/nethackers.solution.json b/nethackers.solution.json
+index 760f7d2..b2fb5c9 100644
+--- a/nethackers.solution.json
++++ b/nethackers.solution.json
+@@ -1,8 +1,9 @@
+ {
+   "schema": "nethackers.solution/v1",
+-  "name": "daglar-zLeadersSeed483541",
++  "name": "Caveman teleport after waking under fire",
+   "root": ".",
+   "parents": [
++    "github.com/daglar-dragomirov/nethacker@634578a62f1da20dac73d914bfd74aa9594bd3fb",
+     "github.com/daglar-dragomirov/nethacker@ccfb1251179bad749ece88d384956363ffb2db56",
+     "github.com/daglar-dragomirov/nethacker@44b29b9299c5dcfb76e3fc6081004727c58db19a",
+     "github.com/DT6A/nethacker@37f9da35d0dbf98ed15bf89735bd601f0c0eac02",
