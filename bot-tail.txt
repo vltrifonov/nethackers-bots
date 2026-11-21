@@ -1,0 +1,58 @@
+[s38 t1 d1 0:1 xl1 hp11/11] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(10), np.int64(21)) acts=[SPACE:10 ESC:3 FIRE:3 LOOK:3 AUTOPICKUP:2] gotos=[]
+[s38 t1 d1 0:1 xl1 hp11/11] DIVE level (np.int64(0), np.int64(1)) depth 1
+[s153 t48 d1 0:1 xl1 hp11/11] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/base/nhbot_orc_800e/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/nhbot_orc_800e/agent.py", line 311, in preempt
+    next(iterator)
+  File "/sol/base/nhbot_orc_800e/strategy.py", line 68, in f
+    next(it)
+  File "/sol/base/nhbot_orc_800e/utils.py", line 134, in f
+    next(it)
+  File "/sol/base/nhbot_orc_800e/agent.py", line 3303, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/base/nhbot_orc_800e/item/inventory.py", line 871, in eat
+    raise AgentPanic('no such food is lying here')
+nhbot_orc_800e.exceptions.AgentPanic: no such food is lying here
+
+[s213 t72 d1 0:1 xl1 hp9/11] UNSEEN PET may be at (11, 24): last seen [(11, 25)] 1 turns ago, no throw
+[s214 t73 d1 0:1 xl1 hp9/11] UNSEEN PET may be at (11, 23): last seen [(11, 25)] 2 turns ago, no throw
+[s225 t83 d1 0:1 xl1 hp9/11] PANIC AgentPanic: agent position do not match after "move": expected (11, 23), got (10, 22)
+Traceback (most recent call last):
+  File "/sol/base/nhbot_orc_800e/strategy.py", line 165, in f
+    next(gen)
+  File "/sol/base/nhbot_orc_800e/strategy.py", line 100, in f
+    next(v1)
+  File "/sol/base/nhbot_orc_800e/utils.py", line 134, in f
+    next(it)
+  File "/sol/base/nhbot_orc_800e/item/inventory.py", line 1732, in check_items
+    self.agent.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 0, 255), is_path=True))
+  File "/sol/base/nhbot_orc_800e/agent.py", line 2531, in go_to
+    self.move(y, x)
+  File "/sol/base/nhbot_orc_800e/agent.py", line 2084, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+nhbot_orc_800e.exceptions.AgentPanic: agent position do not match after "move": expected (11, 23), got (10, 22)
+
+[s497 t271 d1 0:1 xl1 hp11/11] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/base/nhbot_orc_800e/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/nhbot_orc_800e/agent.py", line 311, in preempt
+    next(iterator)
+  File "/sol/base/nhbot_orc_800e/strategy.py", line 68, in f
+    next(it)
+  File "/sol/base/nhbot_orc_800e/utils.py", line 134, in f
+    next(it)
+  File "/sol/base/nhbot_orc_800e/agent.py", line 3303, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/base/nhbot_orc_800e/item/inventory.py", line 871, in eat
+    raise AgentPanic('no such food is lying here')
+nhbot_orc_800e.exceptions.AgentPanic: no such food is lying here
+
+[s634 t375 d1 0:1 xl1 hp5/11] PRAY hp=5/11 hunger=1 gap=None reason=hp model[ok200=1.00 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=11 p_answered=1.00]
+[s640 t378 d1 0:1 xl1 hp15/15] PRAY result ok model[ok200=0.22 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=11] prayers=1 failures=0
+[s645 t379 d1 0:1 xl1 hp10/15] ELBERETH rest start: ['kobold']
+[s645 t379 d1 0:1 xl1 hp10/15] REST_CONTEXT pos=(10, 24) AC=7 message='You hit the kobold.  The kobold thrusts his silver spear. The kobold hits!' falling=True diving=False threat=[(2, 11, 23, 'kobold', 0, 1, 6)]
