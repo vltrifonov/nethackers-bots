@@ -1,0 +1,187 @@
+diff --git a/CHANGES.md b/CHANGES.md
+index 4d6cbb5..60b5ba7 100644
+--- a/CHANGES.md
++++ b/CHANGES.md
+@@ -1,3 +1,10 @@
++# Reactive Elf Priest loot routes
++
++Keep the original path to optional floor items until two recent loot approaches
++on the same level have run into tracked monsters. Use the Human Priest’s scoped
++monster-aware route while that evidence is fresh, then resume ordinary pathing
++when an approach makes progress or the evidence expires.
++
+ # zLeadersSeed407717 (Claude, 2026-10-26)
+ 
+ Identity router. Default base/ = github.com/daglar-dragomirov/nethacker@eab9a9c4f4e09bce096d5762e895fec51b63784d (unmodified).
+diff --git a/base/nhbot/agent.py b/base/nhbot/agent.py
+index 07e0857..552270f 100644
+--- a/base/nhbot/agent.py
++++ b/base/nhbot/agent.py
+@@ -2316,7 +2316,7 @@ class Agent:
+ 
+         return ret
+ 
+-    def bfs(self, y=None, x=None, force_squeeze=False, open_mask=None):
++    def bfs(self, y=None, x=None, force_squeeze=False, open_mask=None, *, avoid_monsters=False):
+         # open_mask (grind-audit stall fixes, dive_logic._stall_unblock): squares to treat as walkable on top of the
+         # usual rules (a sessile monster's or a boulder's square) -- computed fresh, never cached; None: as before
+         if y is None:
+@@ -2324,7 +2324,8 @@ class Agent:
+         if x is None:
+             x = self.blstats.x
+ 
+-        if open_mask is None and not force_squeeze and self.last_bfs_step == self.step_count and \
++        use_cache = open_mask is None and not force_squeeze and not avoid_monsters
++        if use_cache and self.last_bfs_step == self.step_count and \
+                 y == self.blstats.y and x == self.blstats.x:
+             return self.last_bfs_dis.copy()
+ 
+@@ -2379,6 +2380,8 @@ class Agent:
+                     walkable[my, mx] = False
+         if open_mask is not None:
+             walkable |= open_mask
++        if avoid_monsters:
++            walkable &= ~self.monster_tracker.monster_mask
+ 
+         walkable_diagonally = walkable & ~utils.isin(level.objects, G.DOORS) & (level.objects != -1) \
+             & ~level.intact_doors
+@@ -2392,7 +2395,7 @@ class Agent:
+                         can_squeeze=can_squeeze,
+                         )
+ 
+-        if y == self.blstats.y and x == self.blstats.x and not force_squeeze and open_mask is None:
++        if use_cache and y == self.blstats.y and x == self.blstats.x:
+             self.last_bfs_dis = dis
+             self.last_bfs_step = self.step_count
+ 
+@@ -2473,14 +2476,15 @@ class Agent:
+             return True
+ 
+     def go_to(self, y, x, stop_one_before=False, max_steps=None,
+-              debug_tiles_args=None, callback=lambda: False, fast=False):
++              debug_tiles_args=None, callback=lambda: False, fast=False, *, avoid_monsters=False):
+         # STATUS heartbeat: which strategy keeps walking where (stall diagnoses)
+         self._hb_gotos[(y, x, sys._getframe(1).f_code.co_name)] += 1
+         assert not stop_one_before or (self.blstats.y != y or self.blstats.x != x)
+         assert max_steps is None or not fast
+ 
+-        if stop_one_before and self.bfs()[y, x] == -1:
+-            dis = self.bfs()
++        distances = (lambda: self.bfs(avoid_monsters=True)) if avoid_monsters else self.bfs
++        if stop_one_before and distances()[y, x] == -1:
++            dis = distances()
+             best_p = None
+             for ny, nx in self.neighbors(y, x):
+                 if dis[ny, nx] != -1 and (best_p is None or dis[best_p] > dis[ny, nx]):
+@@ -2490,7 +2494,10 @@ class Agent:
+             y, x = best_p
+             stop_one_before = False
+ 
+-        assert self.bfs()[y, x] != -1
++        if distances()[y, x] == -1:
++            if avoid_monsters:
++                return
++            raise AssertionError
+ 
+         if callback():
+             return
+@@ -2498,10 +2505,12 @@ class Agent:
+         stuck_replans = 0   # GOTO_TARGET_FIX re-plans that took no step (see below)
+         cont = True
+         while cont and (self.blstats.y, self.blstats.x) != (y, x):
+-            dis = self.bfs()
++            dis = distances()
+             if dis[y, x] == -1:
++                if avoid_monsters:
++                    return
+                 raise AgentPanic('end point is no longer accessible')
+-            path = self.path(self.blstats.y, self.blstats.x, y, x)
++            path = self.path(self.blstats.y, self.blstats.x, y, x, dis=dis if avoid_monsters else None)
+             orig_path = path
+             path = path[1:]
+             if stop_one_before:
+@@ -2522,6 +2531,8 @@ class Agent:
+                 ty, tx = y, x
+                 steps_before = steps_taken
+                 for y, x in path:
++                    if avoid_monsters and self.monster_tracker.monster_mask[y, x]:
++                        return
+                     if self.monster_tracker.peaceful_monster_mask[y, x]:
+                         cont = True
+                         break
+diff --git a/base/nhbot/item/inventory.py b/base/nhbot/item/inventory.py
+index 89f4cf3..3de9825 100644
+--- a/base/nhbot/item/inventory.py
++++ b/base/nhbot/item/inventory.py
+@@ -1709,13 +1709,22 @@ class Inventory:
+     @utils.debug_log('inventory.check_items')
+     @Strategy.wrap
+     def check_items(self):
+-        mask = utils.isin(self.agent.glyphs, G.OBJECTS, G.BODIES, G.STATUES)
++        agent = self.agent
++        mask = utils.isin(agent.glyphs, G.OBJECTS, G.BODIES, G.STATUES)
+         if not mask.any():
+             yield False
+ 
+-        dis = self.agent.bfs()
+-
+-        mask &= self.agent.current_level().item_count == 0
++        level = agent.current_level()
++        key = level.key()
++        retry_turns = 20
++        blockages = getattr(self, '_loot_blockages', None)
++        if blockages is not None and (blockages[0] != key or
++                                      not 0 <= agent.blstats.time - blockages[1] < retry_turns):
++            blockages = None
++        avoid_monsters = blockages is not None and blockages[2] >= 2
++        dis = agent.bfs(avoid_monsters=True) if avoid_monsters else agent.bfs()
++
++        mask &= level.item_count == 0
+         if not mask.any():
+             yield False
+ 
+@@ -1725,11 +1734,25 @@ class Inventory:
+         yield True
+ 
+         nonzero_y, nonzero_x = (mask & (dis == dis[mask].min())).nonzero()
+-        i = self.agent.rng.randint(len(nonzero_y))
++        i = agent.rng.randint(len(nonzero_y))
+         target_y, target_x = nonzero_y[i], nonzero_x[i]
++        start = (agent.blstats.y, agent.blstats.x)
+ 
+-        with self.agent.env.debug_tiles(mask, color=(255, 0, 0, 128)):
+-            self.agent.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 0, 255), is_path=True))
++        blocked = False
++        try:
++            with agent.env.debug_tiles(mask, color=(255, 0, 0, 128)):
++                agent.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 0, 255), is_path=True),
++                            avoid_monsters=avoid_monsters)
++        except AgentPanic as error:
++            blocked = str(error).startswith('Monster on a next tile when moving: ')
++            if blocked and agent.current_level().key() == key:
++                turn = agent.blstats.time
++                recent = blockages is not None and 0 <= turn - blockages[1] < retry_turns
++                self._loot_blockages = (key, turn, blockages[2] + 1 if recent else 1)
++            raise
++        finally:
++            if agent.current_level().key() != key or (not blocked and (agent.blstats.y, agent.blstats.x) != start):
++                self._loot_blockages = None
+ 
+     @utils.debug_log('inventory.go_to_unchecked_containers')
+     @Strategy.wrap
+diff --git a/nethackers.solution.json b/nethackers.solution.json
+index 591a72c..c77250b 100644
+--- a/nethackers.solution.json
++++ b/nethackers.solution.json
+@@ -1,8 +1,10 @@
+ {
+   "schema": "nethackers.solution/v1",
+-  "name": "daglar-zLeadersSeed407717",
++  "name": "elf-priest-reactive-loot",
+   "root": ".",
+   "parents": [
++    "github.com/daglar-dragomirov/nethacker@9a387c4fb6b8c166e2e6e63617bd6e588f40fddc",
++    "github.com/vltrifonov/nethackers-bots@ffe67f7dba206f4aa0fdf2d52414b6c5eec44dec",
+     "github.com/daglar-dragomirov/nethacker@ccfb1251179bad749ece88d384956363ffb2db56",
+     "github.com/daglar-dragomirov/nethacker@44b29b9299c5dcfb76e3fc6081004727c58db19a",
+     "github.com/DT6A/nethacker@37f9da35d0dbf98ed15bf89735bd601f0c0eac02",
