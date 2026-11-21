@@ -1,0 +1,434 @@
+[s38 t1 d1 0:1 xl1 hp12/12] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(3), np.int64(8)) acts=[SPACE:10 ESC:3 FIRE:3 LOOK:3 AUTOPICKUP:2] gotos=[]
+[s38 t1 d1 0:1 xl1 hp12/12] DIVE level (np.int64(0), np.int64(1)) depth 1
+[s291 t185 d1 0:1 xl1 hp12/12] PANIC AgentPanic: agent position do not match after "move": expected (15, 37), got (15, 36)
+Traceback (most recent call last):
+  File "/sol/hed/nhbot/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/hed/nhbot/agent.py", line 300, in preempt
+    val = f()
+          ^^^
+  File "/sol/hed/nhbot/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/hed/nhbot/exploration_logic.py", line 523, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/hed/nhbot/agent.py", line 2531, in go_to
+    self.move(y, x)
+  File "/sol/hed/nhbot/agent.py", line 2084, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+nhbot.exceptions.AgentPanic: agent position do not match after "move": expected (15, 37), got (15, 36)
+
+[s335 t210 d1 0:1 xl1 hp12/12] PANIC AgentPanic: agent position do not match after "move": expected (11, 47), got (11, 46)
+Traceback (most recent call last):
+  File "/sol/hed/nhbot/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/hed/nhbot/agent.py", line 300, in preempt
+    val = f()
+          ^^^
+  File "/sol/hed/nhbot/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/hed/nhbot/exploration_logic.py", line 523, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/hed/nhbot/agent.py", line 2531, in go_to
+    self.move(y, x)
+  File "/sol/hed/nhbot/agent.py", line 2084, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+nhbot.exceptions.AgentPanic: agent position do not match after "move": expected (11, 47), got (11, 46)
+
+[s453 t275 d1 0:1 xl1 hp12/12] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/hed/nhbot/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/hed/nhbot/agent.py", line 311, in preempt
+    next(iterator)
+  File "/sol/hed/nhbot/strategy.py", line 68, in f
+    next(it)
+  File "/sol/hed/nhbot/utils.py", line 134, in f
+    next(it)
+  File "/sol/hed/nhbot/agent.py", line 3303, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/hed/nhbot/item/inventory.py", line 871, in eat
+    raise AgentPanic('no such food is lying here')
+nhbot.exceptions.AgentPanic: no such food is lying here
+
+[s628 t423 d1 0:1 xl1 hp12/12] PANIC AgentPanic: agent position do not match after "move": expected (5, 13), got (5, 14)
+Traceback (most recent call last):
+  File "/sol/hed/nhbot/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/hed/nhbot/agent.py", line 300, in preempt
+    val = f()
+          ^^^
+  File "/sol/hed/nhbot/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/hed/nhbot/exploration_logic.py", line 523, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/hed/nhbot/agent.py", line 2531, in go_to
+    self.move(y, x)
+  File "/sol/hed/nhbot/agent.py", line 2084, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+nhbot.exceptions.AgentPanic: agent position do not match after "move": expected (5, 13), got (5, 14)
+
+[s648 t424 d1 0:1 xl1 hp12/12] PANIC AgentPanic: agent position do not match after "move": expected (5, 13), got (5, 14)
+Traceback (most recent call last):
+  File "/sol/hed/nhbot/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/hed/nhbot/agent.py", line 300, in preempt
+    val = f()
+          ^^^
+  File "/sol/hed/nhbot/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/hed/nhbot/exploration_logic.py", line 523, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/hed/nhbot/agent.py", line 2531, in go_to
+    self.move(y, x)
+  File "/sol/hed/nhbot/agent.py", line 2084, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+nhbot.exceptions.AgentPanic: agent position do not match after "move": expected (5, 13), got (5, 14)
+
+[s717 t504 d1 0:1 xl1 hp12/12] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(6), np.int64(2)) acts=[SEARCH:150 SPACE:66 W:56 E:53 SW:36] gotos=[open_visit_search(4, 9):11 check_items(4, 49):6 check_items(15, 34):5]
+[s721 t511 d1 0:1 xl1 hp12/12] PANIC AgentPanic: agent position do not match after "move": expected (8, 3), got (7, 2)
+Traceback (most recent call last):
+  File "/sol/hed/nhbot/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/hed/nhbot/agent.py", line 300, in preempt
+    val = f()
+          ^^^
+  File "/sol/hed/nhbot/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/hed/nhbot/exploration_logic.py", line 523, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/hed/nhbot/agent.py", line 2531, in go_to
+    self.move(y, x)
+  File "/sol/hed/nhbot/agent.py", line 2084, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+nhbot.exceptions.AgentPanic: agent position do not match after "move": expected (8, 3), got (7, 2)
+
+[s789 t587 d1 0:1 xl1 hp12/12] PANIC AgentPanic: agent position do not match after "move": expected (13, 5), got (13, 6)
+Traceback (most recent call last):
+  File "/sol/hed/nhbot/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/hed/nhbot/agent.py", line 300, in preempt
+    val = f()
+          ^^^
+  File "/sol/hed/nhbot/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/hed/nhbot/exploration_logic.py", line 523, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/hed/nhbot/agent.py", line 2531, in go_to
+    self.move(y, x)
+  File "/sol/hed/nhbot/agent.py", line 2084, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+nhbot.exceptions.AgentPanic: agent position do not match after "move": expected (13, 5), got (13, 6)
+
+[s896 t705 d1 0:1 xl1 hp12/12] UNSEEN PET may be at (9, 19): last seen [(10, 20)] 1 turns ago, no throw
+[s968 t778 d1 0:1 xl1 hp12/12] PANIC AgentPanic: agent position do not match after "move": expected (15, 27), got (16, 28)
+Traceback (most recent call last):
+  File "/sol/hed/nhbot/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/hed/nhbot/agent.py", line 300, in preempt
+    val = f()
+          ^^^
+  File "/sol/hed/nhbot/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/hed/nhbot/exploration_logic.py", line 523, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/hed/nhbot/agent.py", line 2531, in go_to
+    self.move(y, x)
+  File "/sol/hed/nhbot/agent.py", line 2084, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+nhbot.exceptions.AgentPanic: agent position do not match after "move": expected (15, 27), got (16, 28)
+
+[s1115 t872 d1 0:1 xl1 hp12/12] PRAY hp=12/12 hunger=3 gap=None reason=None model[ok200=1.00 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=13 p_answered=1.00]
+[s1119 t875 d1 0:1 xl1 hp12/12] PRAY result ok model[ok200=0.22 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=13] prayers=1 failures=0
+[s1208 t1004 d1 0:1 xl1 hp12/12] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(2), np.int64(44)) acts=[SEARCH:108 NUM_5:72 SPACE:45 E:41 LOOK:27] gotos=[open_visit_search(2, 41):4 open_visit_search(8, 3):3 open_visit_search(2, 42):3]
+[s1537 t1502 d1 0:1 xl1 hp12/12] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(2), np.int64(48)) acts=[NUM_5:77 SEARCH:77 E:54 W:51 EXTCMD:10] gotos=[open_visit_search(2, 45):6 open_visit_search(2, 46):6 open_visit_search(2, 47):6]
+[s1716 t1755 d1 0:1 xl1 hp12/12] FAINT guard (Weak, idle): Elbereth vs [] hp=12/12
+[s1744 t1765 d1 0:1 xl1 hp12/12] FAINT guard (Weak, idle): Elbereth vs [] hp=12/12
+[s1766 t1769 d1 0:1 xl1 hp12/12] FAINT guard (Weak, idle): Elbereth vs [] hp=12/12
+[s1782 t1770 d1 0:1 xl1 hp12/12] FAINT guard (Weak, idle): Elbereth vs [] hp=12/12
+[s2023 t2014 d1 0:1 xl1 hp12/12] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=4 pos=(np.int64(2), np.int64(42)) acts=[SEARCH:104 SPACE:88 LOOK:74 W:42 NUM_5:37] gotos=[open_visit_search(2, 49):3 open_visit_search(2, 50):3 open_visit_search(2, 51):3]
+[s2095 t2136 d1 0:1 xl1 hp12/12] PRAY hp=12/12 hunger=4 gap=1261 reason=faint-long spell=352 model[ok200=0.98 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=13 p_answered=0.98]
+[s2101 t2139 d1 0:1 xl1 hp12/12] PRAY result ok model[ok200=0.22 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=13] prayers=2 failures=0
+[s2101 t2139 d1 0:1 xl1 hp12/12] HOLD over: wiping our Elbereth at (np.int64(2), np.int64(42))
+[s2364 t2501 d1 0:1 xl1 hp12/12] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(2), np.int64(51)) acts=[SEARCH:68 NUM_5:52 E:50 W:41 SPACE:34] gotos=[open_visit_search(2, 41):5 open_visit_search(2, 43):4 open_visit_search(2, 44):4]
+[s2719 t3001 d1 0:1 xl1 hp12/12] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=2 pos=(np.int64(2), np.int64(52)) acts=[NUM_5:71 SEARCH:71 W:67 E:64 EAT:11] gotos=[open_visit_search(2, 52):7 open_visit_search(2, 53):5 open_visit_search(3, 54):5]
+[s2759 t3056 d1 0:1 xl1 hp12/12] FAINT guard (Weak, idle): Elbereth vs [] hp=12/12
+[s2962 t3246 d1 0:1 xl1 hp12/12] FAINT guard (Fainting, idle): Elbereth vs [] hp=12/12
+[s2978 t3247 d1 0:1 xl1 hp12/12] FAINT guard (Fainting, idle): Elbereth vs [] hp=12/12
+[s3008 t3252 d1 0:1 xl1 hp12/12] FAINT guard (Fainting, idle): Elbereth vs [] hp=12/12
+[s3089 t3352 d1 0:1 xl1 hp12/12] FAINT guard (Fainting, idle): Elbereth vs [] hp=12/12
+[s3141 t3436 d1 0:1 xl1 hp12/12] PRAY hp=12/12 hunger=4 gap=1297 reason=faint-long spell=354 model[ok200=0.98 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=22 p_answered=0.98]
+[s3147 t3439 d1 0:1 xl1 hp12/12] PRAY result ok model[ok200=0.22 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=22] prayers=3 failures=0
+[s3147 t3439 d1 0:1 xl1 hp12/12] HOLD over: wiping our Elbereth at (np.int64(2), np.int64(45))
+[s3199 t3500 d1 0:1 xl1 hp12/12] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(2), np.int64(54)) acts=[SPACE:112 SEARCH:99 LOOK:94 EAT:19 E:18] gotos=[open_visit_search(2, 53):2 open_visit_search(3, 54):2 open_visit_search(2, 54):2]
+[s3551 t4004 d1 0:1 xl1 hp12/12] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(2), np.int64(47)) acts=[W:74 NUM_5:70 SEARCH:70 E:70 EXTCMD:9] gotos=[open_visit_search(2, 41):6 open_visit_search(2, 43):6 open_visit_search(2, 44):6]
+[s3770 t4319 d1 0:1 xl1 hp12/12] FAINT guard (Weak, idle): Elbereth vs [] hp=12/12
+[s3859 t4380 d1 0:1 xl1 hp12/12] FAINT guard (Fainting, idle): Elbereth vs [] hp=12/12
+[s3875 t4381 d1 0:1 xl1 hp12/12] FAINT guard (Fainting, idle): Elbereth vs [] hp=12/12
+[s3971 t4475 d1 0:1 xl1 hp12/12] FAINT guard (Fainting, idle): Elbereth vs [] hp=12/12
+[s4022 t4500 d1 0:1 xl1 hp12/12] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=4 pos=(np.int64(2), np.int64(54)) acts=[SEARCH:98 SPACE:70 LOOK:59 E:50 NUM_5:46] gotos=[open_visit_search(2, 48):4 open_visit_search(2, 49):4 open_visit_search(2, 50):4]
+[s4051 t4551 d1 0:1 xl1 hp12/12] FAINT guard (Fainting, idle): Elbereth vs [] hp=12/12
+[s4145 t4689 d1 0:1 xl1 hp12/12] FAINT guard (Fainting, idle): Elbereth vs [] hp=12/12
+[s4161 t4709 d1 0:1 xl1 hp12/12] PRAY hp=12/12 hunger=4 gap=1270 reason=faint-long spell=361 model[ok200=0.98 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=22 p_answered=0.98]
+[s4165 t4712 d1 0:1 xl1 hp12/12] PRAY result ok model[ok200=0.22 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=22] prayers=4 failures=0
+[s4367 t5000 d1 0:1 xl1 hp12/12] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(2), np.int64(45)) acts=[SEARCH:66 W:46 NUM_5:40 SPACE:39 E:38] gotos=[open_visit_search(3, 54):4 open_visit_search(2, 41):4 open_visit_search(2, 42):3]
+[s4726 t5502 d1 0:1 xl1 hp12/12] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=2 pos=(np.int64(2), np.int64(48)) acts=[NUM_5:72 SEARCH:72 E:70 W:64 EXTCMD:10] gotos=[open_visit_search(2, 42):6 open_visit_search(2, 43):6 open_visit_search(2, 44):6]
+[s4784 t5590 d1 0:1 xl1 hp12/12] FAINT guard (Weak, idle): Elbereth vs [] hp=12/12
+[s5003 t5786 d1 0:1 xl1 hp12/12] FAINT guard (Fainting, idle): Elbereth vs [] hp=12/12
+[s5042 t5839 d1 0:1 xl1 hp12/12] FAINT guard (Fainting, idle): Elbereth vs [] hp=12/12
+[s5083 t5878 d1 0:1 xl1 hp12/12] FAINT guard (Fainting, idle): Elbereth vs [] hp=12/12
+[s5104 t5897 d1 0:1 xl1 hp12/12] FAINT guard (Fainting, idle): Elbereth vs [] hp=12/12
+[s5174 t5970 d1 0:1 xl1 hp12/12] PRAY hp=12/12 hunger=4 gap=1258 reason=faint-long spell=352 model[ok200=0.98 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=27 p_answered=0.98]
+[s5178 t5973 d1 0:1 xl1 hp12/12] PRAY result ok model[ok200=0.22 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=27] prayers=5 failures=0
+[s5200 t6003 d1 0:1 xl1 hp12/12] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(2), np.int64(53)) acts=[SPACE:107 SEARCH:101 LOOK:94 E:22 EAT:19] gotos=[open_visit_search(2, 49):2 open_visit_search(2, 50):2 open_visit_search(2, 51):2]
+[s5549 t6500 d1 0:1 xl1 hp12/12] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(2), np.int64(44)) acts=[W:72 NUM_5:70 SEARCH:70 E:63 EXTCMD:9] gotos=[open_visit_search(3, 54):6 open_visit_search(2, 45):6 open_visit_search(2, 41):6]
+[s5799 t6853 d1 0:1 xl1 hp12/12] FAINT guard (Weak, idle): Elbereth vs [] hp=12/12
+[s5844 t6882 d1 0:1 xl1 hp12/12] FAINT guard (Fainting, idle): Elbereth vs [] hp=12/12
+[s5860 t6883 d1 0:1 xl1 hp12/12] FAINT guard (Fainting, idle): Elbereth vs [] hp=12/12
+[s5876 t6884 d1 0:1 xl1 hp12/12] FAINT guard (Fainting, idle): Elbereth vs [] hp=12/12
+[s5900 t6885 d1 0:1 xl1 hp12/12] FAINT guard (Fainting, idle): Elbereth vs [] hp=12/12
+[s5916 t6886 d1 0:1 xl1 hp12/12] FAINT guard (Fainting, idle): Elbereth vs [] hp=12/12
+[s5932 t6887 d1 0:1 xl1 hp12/12] FAINT guard (Fainting, idle): Elbereth vs [] hp=12/12
+[s5948 t6888 d1 0:1 xl1 hp12/12] FAINT guard (Fainting, idle): Elbereth vs [] hp=12/12
+[s5995 t6920 d1 0:1 xl1 hp12/12] FAINT guard (Fainting, idle): Elbereth vs [] hp=12/12
+[s6011 t6921 d1 0:1 xl1 hp12/12] FAINT guard (Fainting, idle): Elbereth vs [] hp=12/12
+[s6027 t6922 d1 0:1 xl1 hp12/12] FAINT guard (Fainting, idle): Elbereth vs [] hp=12/12
+[s6140 t7014 d1 0:1 xl1 hp12/12] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=4 pos=(np.int64(2), np.int64(42)) acts=[SEARCH:94 SPACE:84 W:60 LOOK:58 E:57] gotos=[open_visit_search(2, 46):4 open_visit_search(2, 47):4 open_visit_search(2, 49):4]
+[s6140 t7014 d1 0:1 xl1 hp12/12] FAINT guard (Fainting, idle): Elbereth vs [] hp=12/12
+[s6173 t7050 d1 0:1 xl1 hp12/12] FAINT guard (Fainting, idle): Elbereth vs [] hp=12/12
+[s6289 t7246 d1 0:1 xl1 hp12/12] PRAY hp=12/12 hunger=4 gap=1273 reason=faint-long spell=364 model[ok200=0.98 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=27 p_answered=0.98]
+[s6295 t7249 d1 0:1 xl1 hp12/12] PRAY result ok model[ok200=0.22 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=27] prayers=6 failures=0
+[s6295 t7249 d1 0:1 xl1 hp12/12] HOLD over: wiping our Elbereth at (np.int64(2), np.int64(42))
+[s6474 t7502 d1 0:1 xl1 hp12/12] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(2), np.int64(54)) acts=[SEARCH:65 SPACE:48 E:37 LOOK:37 NUM_5:37] gotos=[open_visit_search(2, 43):3 open_visit_search(2, 44):3 open_visit_search(2, 46):3]
+[s6831 t8000 d1 0:1 xl1 hp12/12] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=2 pos=(np.int64(2), np.int64(46)) acts=[W:78 NUM_5:69 SEARCH:69 E:65 EXTCMD:10] gotos=[open_visit_search(2, 45):6 open_visit_search(2, 41):6 open_visit_search(2, 43):6]
+[s6919 t8130 d1 0:1 xl1 hp12/12] FAINT guard (Weak, idle): Elbereth vs [] hp=12/12
+[s6933 t8131 d1 0:1 xl1 hp12/12] FAINT guard (Weak, idle): Elbereth vs [] hp=12/12
+[s6949 t8132 d1 0:1 xl1 hp12/12] FAINT guard (Weak, idle): Elbereth vs [] hp=12/12
+[s6971 t8136 d1 0:1 xl1 hp12/12] FAINT guard (Weak, idle): Elbereth vs [] hp=12/12
+[s6987 t8137 d1 0:1 xl1 hp12/12] FAINT guard (Weak, idle): Elbereth vs [] hp=12/12
+[s7003 t8138 d1 0:1 xl1 hp12/12] FAINT guard (Weak, idle): Elbereth vs [] hp=12/12
+[s7331 t8508 d1 0:1 xl1 hp12/12] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=4 pos=(np.int64(2), np.int64(53)) acts=[SPACE:113 SEARCH:106 LOOK:94 E:25 EAT:21] gotos=[open_visit_search(2, 47):2 open_visit_search(2, 49):2 open_visit_search(2, 50):2]
+[s7331 t8508 d1 0:1 xl1 hp12/12] PRAY hp=12/12 hunger=4 gap=1259 reason=faint-long spell=350 model[ok200=0.98 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=27 p_answered=0.98]
+[s7337 t8511 d1 0:1 xl1 hp12/12] PRAY result ok model[ok200=0.22 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=27] prayers=7 failures=0
+[s7337 t8511 d1 0:1 xl1 hp12/12] HOLD over: wiping our Elbereth at (np.int64(2), np.int64(53))
+[s7702 t9000 d1 0:1 xl2 hp14/14] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(2), np.int64(43)) acts=[W:77 NUM_5:68 SEARCH:68 E:61 SPACE:14] gotos=[open_visit_search(3, 54):6 open_visit_search(2, 54):6 open_visit_search(2, 45):6]
+[s7979 t9389 d1 0:1 xl2 hp14/14] FAINT guard (Weak, idle): Elbereth vs [] hp=14/14
+[s8003 t9396 d1 0:1 xl2 hp14/14] FAINT guard (Weak, idle): Elbereth vs [] hp=14/14
+[s8070 t9457 d1 0:1 xl2 hp14/14] FAINT guard (Fainting, idle): Elbereth vs [] hp=14/14
+[s8150 t9500 d1 0:1 xl2 hp14/14] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=4 pos=(np.int64(2), np.int64(43)) acts=[SEARCH:89 W:57 NUM_5:56 E:53 SPACE:48] gotos=[open_visit_search(2, 43):5 open_visit_search(2, 44):4 open_visit_search(2, 46):4]
+[s8160 t9516 d1 0:1 xl2 hp14/14] FAINT guard (Fainting, idle): Elbereth vs [] hp=14/14
+[s8285 t9718 d1 0:1 xl2 hp14/14] FAINT guard (Fainting, idle): Elbereth vs [] hp=14/14
+[s8339 t9788 d1 0:1 xl2 hp14/14] PRAY hp=14/14 hunger=4 gap=1277 reason=faint-long spell=370 model[ok200=0.98 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=37 p_answered=0.98]
+[s8345 t9791 d1 0:1 xl2 hp14/14] PRAY result ok model[ok200=0.22 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=37] prayers=8 failures=0
+[s8345 t9791 d1 0:1 xl2 hp14/14] HOLD over: wiping our Elbereth at (np.int64(2), np.int64(43))
+[s8501 t10000 d1 0:1 xl2 hp14/14] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(2), np.int64(48)) acts=[SEARCH:72 SPACE:60 LOOK:50 E:31 NUM_5:30] gotos=[open_visit_search(2, 44):3 open_visit_search(2, 46):3 open_visit_search(2, 47):3]
+[s8523 t10029 d1 0:1 xl2 hp13/14] RANGED hit: holds and Elbereth waits off for 8 turns
+[s8863 t10500 d1 0:1 xl2 hp14/14] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(2), np.int64(54)) acts=[NUM_5:71 SEARCH:71 E:67 W:67 EXTCMD:10] gotos=[open_visit_search(2, 49):6 open_visit_search(2, 50):6 open_visit_search(2, 51):6]
+[s8986 t10672 d1 0:1 xl2 hp14/14] FAINT guard (Weak, idle): Elbereth vs [] hp=14/14
+[s9000 t10673 d1 0:1 xl2 hp14/14] FAINT guard (Weak, idle): Elbereth vs [] hp=14/14
+[s9161 t10794 d1 0:1 xl2 hp14/14] FAINT guard (Fainting, idle): Elbereth vs [] hp=14/14
+[s9179 t10795 d1 0:1 xl2 hp14/14] FAINT guard (Fainting, idle): Elbereth vs [] hp=14/14
+[s9201 t10809 d1 0:1 xl2 hp14/14] FAINT guard (Fainting, idle): Elbereth vs [] hp=14/14
+[s9229 t10841 d1 0:1 xl2 hp14/14] FAINT guard (Fainting, idle): Elbereth vs [] hp=14/14
+[s9245 t10842 d1 0:1 xl2 hp14/14] FAINT guard (Fainting, idle): Elbereth vs [] hp=14/14
+[s9261 t10857 d1 0:1 xl2 hp14/14] FAINT guard (Fainting, idle): Elbereth vs [] hp=14/14
+[s9340 t10936 d1 0:1 xl2 hp14/14] FAINT guard (Fainting, idle): Elbereth vs [] hp=14/14
+[s9379 t10976 d1 0:1 xl2 hp14/14] FAINT guard (Fainting, idle): Elbereth vs [] hp=14/14
+[s9406 t10997 d1 0:1 xl2 hp14/14] FAINT guard (Fainting, idle): Elbereth vs [] hp=14/14
+[s9424 t11016 d1 0:1 xl2 hp14/14] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=4 pos=(np.int64(3), np.int64(54)) acts=[SPACE:113 SEARCH:92 LOOK:84 W:37 E:35] gotos=[open_visit_search(2, 45):2 open_visit_search(2, 41):2 open_visit_search(2, 42):2]
+[s9436 t11037 d1 0:1 xl2 hp14/14] FAINT guard (Fainting, idle): Elbereth vs [] hp=14/14
+[s9455 t11057 d1 0:1 xl2 hp14/14] PRAY hp=14/14 hunger=4 gap=1266 reason=faint-long spell=357 model[ok200=0.98 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=37 p_answered=0.98]
+[s9461 t11060 d1 0:1 xl2 hp14/14] PRAY result ok model[ok200=0.22 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=37] prayers=9 failures=0
+[s9461 t11060 d1 0:1 xl2 hp14/14] HOLD over: wiping our Elbereth at (np.int64(3), np.int64(54))
+[s9775 t11504 d1 0:1 xl2 hp14/14] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(2), np.int64(51)) acts=[W:66 SEARCH:65 E:63 NUM_5:63 SPACE:14] gotos=[open_visit_search(2, 54):5 open_visit_search(2, 45):5 open_visit_search(2, 41):5]
+[s10087 t11940 d1 0:1 xl2 hp14/14] FAINT guard (Weak, idle): Elbereth vs [] hp=14/14
+[s10201 t12000 d1 0:1 xl2 hp14/14] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=4 pos=(np.int64(2), np.int64(45)) acts=[SEARCH:89 W:70 E:64 NUM_5:61 SPACE:34] gotos=[open_visit_search(2, 52):5 open_visit_search(2, 53):5 open_visit_search(2, 54):5]
+[s10362 t12179 d1 0:1 xl2 hp14/14] FAINT guard (Fainting, idle): Elbereth vs [] hp=14/14
+[s10378 t12180 d1 0:1 xl2 hp14/14] FAINT guard (Fainting, idle): Elbereth vs [] hp=14/14
+[s10450 t12272 d1 0:1 xl2 hp14/14] FAINT guard (Fainting, idle): Elbereth vs [] hp=14/14
+[s10473 t12293 d1 0:1 xl2 hp14/14] FAINT guard (Fainting, idle): Elbereth vs [] hp=14/14
+[s10489 t12294 d1 0:1 xl2 hp14/14] FAINT guard (Fainting, idle): Elbereth vs [] hp=14/14
+[s10507 t12315 d1 0:1 xl2 hp14/14] PRAY hp=14/14 hunger=4 gap=1255 reason=starve-deadline est=-153 model[ok200=0.98 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=37 p_answered=0.98]
+[s10513 t12318 d1 0:1 xl2 hp14/14] PRAY result ok model[ok200=0.22 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=37] prayers=10 failures=0
+[s10513 t12318 d1 0:1 xl2 hp14/14] HOLD over: wiping our Elbereth at (np.int64(2), np.int64(45))
+[s10652 t12500 d1 0:1 xl2 hp14/14] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(2), np.int64(44)) acts=[SPACE:90 SEARCH:88 LOOK:72 W:31 E:30] gotos=[open_visit_search(2, 46):2 open_visit_search(2, 47):2 open_visit_search(2, 48):2]
+[s10993 t13004 d1 0:1 xl2 hp14/14] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(2), np.int64(53)) acts=[E:74 NUM_5:73 SEARCH:73 W:65 EXTCMD:9] gotos=[open_visit_search(2, 46):6 open_visit_search(2, 47):6 open_visit_search(2, 48):6]
+[s11132 t13198 d1 0:1 xl2 hp14/14] FAINT guard (Weak, idle): Elbereth vs [] hp=14/14
+[s11222 t13260 d1 0:1 xl2 hp14/14] FAINT guard (Fainting, idle): Elbereth vs [] hp=14/14
+[s11240 t13261 d1 0:1 xl2 hp14/14] FAINT guard (Fainting, idle): Elbereth vs [] hp=14/14
+[s11399 t13427 d1 0:1 xl2 hp14/14] FAINT guard (Fainting, idle): Elbereth vs [] hp=14/14
+[s11460 t13508 d1 0:1 xl2 hp14/14] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=4 pos=(np.int64(3), np.int64(54)) acts=[SEARCH:100 SPACE:94 LOOK:78 W:30 NUM_5:29] gotos=[open_visit_search(3, 54):3 open_visit_search(2, 54):2 open_visit_search(2, 43):2]
+[s11509 t13560 d1 0:1 xl2 hp14/14] FAINT guard (Fainting, idle): Elbereth vs [] hp=14/14
+[s11536 t13582 d1 0:1 xl2 hp14/14] PRAY hp=14/14 hunger=4 gap=1264 reason=faint-long spell=355 model[ok200=0.98 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=37 p_answered=0.98]
+[s11540 t13585 d1 0:1 xl2 hp14/14] PRAY result ok model[ok200=0.22 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=37] prayers=11 failures=0
+[s11838 t14000 d1 0:1 xl2 hp14/14] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(2), np.int64(46)) acts=[SEARCH:73 W:66 E:60 NUM_5:58 SPACE:26] gotos=[open_visit_search(2, 42):6 open_visit_search(2, 54):5 open_visit_search(2, 43):5]
+[s12172 t14463 d1 0:1 xl2 hp14/14] FAINT guard (Weak, idle): Elbereth vs [] hp=14/14
+[s12186 t14464 d1 0:1 xl2 hp14/14] FAINT guard (Weak, idle): Elbereth vs [] hp=14/14
+[s12267 t14500 d1 0:1 xl2 hp14/14] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=4 pos=(np.int64(2), np.int64(48)) acts=[SEARCH:83 E:71 NUM_5:67 W:67 SPACE:31] gotos=[open_visit_search(2, 47):6 open_visit_search(2, 48):6 open_visit_search(2, 49):5]
+[s12402 t14635 d1 0:1 xl2 hp14/14] FAINT guard (Fainting, idle): Elbereth vs [] hp=14/14
+[s12424 t14636 d1 0:1 xl2 hp14/14] FAINT guard (Fainting, idle): Elbereth vs [] hp=14/14
+[s12495 t14750 d1 0:1 xl2 hp14/14] FAINT guard (Fainting, idle): Elbereth vs [] hp=14/14
+[s12511 t14769 d1 0:1 xl2 hp14/14] FAINT guard (Fainting, idle): Elbereth vs [] hp=14/14
+[s12577 t14841 d1 0:1 xl2 hp14/14] PRAY hp=14/14 hunger=4 gap=1256 reason=faint-long spell=351 model[ok200=0.98 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=42 p_answered=0.98]
+[s12583 t14844 d1 0:1 xl2 hp14/14] PRAY result ok model[ok200=0.22 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=42] prayers=12 failures=0
+[s12583 t14844 d1 0:1 xl2 hp14/14] HOLD over: wiping our Elbereth at (np.int64(2), np.int64(48))
+[s12706 t15003 d1 0:1 xl2 hp14/14] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(2), np.int64(44)) acts=[SEARCH:90 SPACE:90 LOOK:78 W:30 E:26] gotos=[open_visit_search(2, 49):2 open_visit_search(2, 50):2 open_visit_search(2, 51):2]
+[s13062 t15504 d1 0:1 xl2 hp14/14] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(2), np.int64(50)) acts=[E:81 W:75 NUM_5:69 SEARCH:69 EXTCMD:10] gotos=[open_visit_search(2, 46):6 open_visit_search(2, 47):6 open_visit_search(2, 49):6]
+[s13218 t15724 d1 0:1 xl2 hp14/14] FAINT guard (Weak, idle): Elbereth vs [] hp=14/14
+[s13379 t15821 d1 0:1 xl2 hp14/14] FAINT guard (Fainting, idle): Elbereth vs [] hp=14/14
+[s13412 t15840 d1 0:1 xl2 hp14/14] FAINT guard (Fainting, idle): Elbereth vs [] hp=14/14
+[s13454 t15876 d1 0:1 xl2 hp14/14] FAINT guard (Fainting, idle): Elbereth vs [] hp=14/14
+[s13501 t15917 d1 0:1 xl2 hp14/14] FAINT guard (Fainting, idle): Elbereth vs [] hp=14/14
+[s13524 t15934 d1 0:1 xl2 hp14/14] FAINT guard (Fainting, idle): Elbereth vs [] hp=14/14
+[s13578 t15982 d1 0:1 xl2 hp14/14] FAINT guard (Fainting, idle): Elbereth vs [] hp=14/14
+[s13603 t16001 d1 0:1 xl2 hp14/14] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=4 pos=(np.int64(2), np.int64(48)) acts=[SPACE:105 SEARCH:103 LOOK:86 W:43 E:41] gotos=[open_visit_search(2, 51):3 open_visit_search(2, 52):3 open_visit_search(2, 53):3]
+[s13609 t16021 d1 0:1 xl2 hp14/14] FAINT guard (Fainting, idle): Elbereth vs [] hp=14/14
+[s13625 t16022 d1 0:1 xl2 hp14/14] FAINT guard (Fainting, idle): Elbereth vs [] hp=14/14
+[s13677 t16110 d1 0:1 xl2 hp14/14] PRAY hp=14/14 hunger=4 gap=1266 reason=faint-long spell=357 model[ok200=0.98 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=42 p_answered=0.98]
+[s13689 t16113 d1 0:1 xl2 hp14/14] PRAY result ok model[ok200=0.22 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=42] prayers=13 failures=0
+[s13689 t16113 d1 0:1 xl2 hp14/14] HOLD over: wiping our Elbereth at (np.int64(2), np.int64(48))
+[s13971 t16500 d1 0:1 xl2 hp14/14] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(3), np.int64(54)) acts=[SEARCH:65 E:59 W:56 NUM_5:54 SPACE:27] gotos=[open_visit_search(2, 43):4 open_visit_search(2, 45):4 open_visit_search(2, 41):4]
+[s14325 t16994 d1 0:1 xl2 hp14/14] FAINT guard (Weak, idle): Elbereth vs [] hp=14/14
+[s14349 t17001 d1 0:1 xl2 hp14/14] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=3 pos=(np.int64(2), np.int64(53)) acts=[W:76 SEARCH:71 E:71 NUM_5:69 EAT:11] gotos=[open_visit_search(2, 54):5 open_visit_search(2, 43):5 open_visit_search(2, 45):5]
+[s14389 t17038 d1 0:1 xl2 hp14/14] FAINT guard (Fainting, idle): Elbereth vs [] hp=14/14
+[s14405 t17039 d1 0:1 xl2 hp14/14] FAINT guard (Fainting, idle): Elbereth vs [] hp=14/14
+[s14521 t17117 d1 0:1 xl2 hp14/14] FAINT guard (Fainting, idle): Elbereth vs [] hp=14/14
+[s14538 t17132 d1 0:1 xl2 hp14/14] FAINT guard (Fainting, idle): Elbereth vs [] hp=14/14
+[s14554 t17147 d1 0:1 xl2 hp14/14] FAINT guard (Fainting, idle): Elbereth vs [] hp=14/14
+[s14730 t17372 d1 0:1 xl2 hp14/14] PRAY hp=14/14 hunger=4 gap=1259 reason=faint-long spell=350 model[ok200=0.98 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=42 p_answered=0.98]
+[s14736 t17375 d1 0:1 xl2 hp14/14] PRAY result ok model[ok200=0.22 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=42] prayers=14 failures=0
+[s14736 t17375 d1 0:1 xl2 hp14/14] HOLD over: wiping our Elbereth at (np.int64(2), np.int64(53))
+[s14840 t17500 d1 0:1 xl2 hp14/14] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(2), np.int64(43)) acts=[SPACE:110 SEARCH:97 LOOK:91 W:31 EAT:20] gotos=[open_visit_search(3, 54):2 open_visit_search(2, 54):2 open_visit_search(2, 43):2]
+[s14879 t17547 d1 0:1 xl2 hp14/14] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/hed/nhbot/item/inventory.py", line 602, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/hed/nhbot/agent.py", line 190, in atom_operation
+    self.update_state()
+  File "/sol/hed/nhbot/agent.py", line 700, in update_state
+    self.call_update_functions()
+  File "/sol/hed/nhbot/agent.py", line 711, in call_update_functions
+    func()
+  File "/sol/hed/nhbot/item/inventory.py", line 159, in f
+    raise AgentPanic('items below me changed')
+nhbot.exceptions.AgentPanic: items below me changed
+
+[s15225 t18000 d1 0:1 xl2 hp14/14] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(2), np.int64(45)) acts=[W:78 E:73 NUM_5:66 SEARCH:66 SPACE:14] gotos=[open_visit_search(2, 45):6 open_visit_search(2, 41):5 open_visit_search(2, 42):5]
+[s15587 t18502 d1 0:1 xl2 hp14/14] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=3 pos=(np.int64(2), np.int64(44)) acts=[W:79 E:73 NUM_5:68 SEARCH:68 EXTCMD:10] gotos=[open_visit_search(2, 41):6 open_visit_search(2, 42):6 open_visit_search(2, 44):6]
+[s15587 t18502 d1 0:1 xl2 hp14/14] FAINT guard (Weak, idle): Elbereth vs [] hp=14/14
+[s15705 t18584 d1 0:1 xl2 hp14/14] FAINT guard (Fainting, idle): Elbereth vs [] hp=14/14
+[s15762 t18620 d1 0:1 xl2 hp14/14] FAINT guard (Fainting, idle): Elbereth vs [] hp=14/14
+[s15809 t18656 d1 0:1 xl2 hp14/14] FAINT guard (Fainting, idle): Elbereth vs [] hp=14/14
+[s15825 t18657 d1 0:1 xl2 hp14/14] FAINT guard (Fainting, idle): Elbereth vs [] hp=14/14
+[s15984 t18872 d1 0:1 xl2 hp14/14] FAINT guard (Fainting, idle): Elbereth vs [] hp=14/14
+[s16024 t18897 d1 0:1 xl2 hp14/14] PRAY hp=14/14 hunger=4 gap=1522 reason=faint-long spell=370 model[ok200=0.99 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=47 p_answered=0.99]
+[s16030 t18900 d1 0:1 xl2 hp14/14] PRAY result ok model[ok200=0.22 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=47] prayers=15 failures=0
+[s16030 t18900 d1 0:1 xl2 hp14/14] HOLD over: wiping our Elbereth at (np.int64(2), np.int64(44))
+[s16123 t19000 d1 0:1 xl2 hp14/14] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(2), np.int64(47)) acts=[SPACE:143 LOOK:99 SEARCH:97 E:26 W:21] gotos=[open_visit_search(2, 46):2 open_visit_search(2, 47):2 eat_corpses_from_ground(2, 48):1]
+[s16486 t19500 d1 0:1 xl2 hp14/14] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(2), np.int64(52)) acts=[W:77 E:76 NUM_5:67 SEARCH:67 EXTCMD:10] gotos=[open_visit_search(2, 49):6 open_visit_search(2, 50):6 open_visit_search(2, 51):6]
+[s16685 t19777 d1 0:1 xl2 hp14/14] FAINT guard (Weak, idle): Elbereth vs [] hp=14/14
+[s16852 t19897 d1 0:1 xl2 hp14/14] FAINT guard (Fainting, idle): Elbereth vs [] hp=14/14
+[s16882 t19916 d1 0:1 xl2 hp14/14] FAINT guard (Fainting, idle): Elbereth vs [] hp=14/14
+[s16939 t20002 d1 0:1 xl2 hp14/14] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=4 pos=(np.int64(2), np.int64(54)) acts=[SEARCH:93 SPACE:72 LOOK:61 W:46 E:45] gotos=[open_visit_search(2, 45):3 open_visit_search(2, 41):3 open_visit_search(2, 42):3]
+[s17046 t20176 d1 0:1 xl2 hp14/14] PRAY hp=14/14 hunger=4 gap=1276 reason=faint-long spell=370 model[ok200=0.98 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=57 p_answered=0.98]
+[s17058 t20179 d1 0:1 xl2 hp14/14] PRAY result ok model[ok200=0.22 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=57] prayers=16 failures=0
+[s17058 t20179 d1 0:1 xl2 hp14/14] HOLD over: wiping our Elbereth at (np.int64(2), np.int64(54))
+[s17312 t20500 d1 0:1 xl2 hp14/14] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(2), np.int64(43)) acts=[SEARCH:67 W:63 E:51 SPACE:42 NUM_5:40] gotos=[open_visit_search(2, 43):5 open_visit_search(2, 45):3 open_visit_search(2, 48):3]
+[s17694 t21000 d1 0:1 xl2 hp14/14] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=2 pos=(np.int64(2), np.int64(45)) acts=[E:87 W:87 NUM_5:64 SEARCH:64 EXTCMD:9] gotos=[open_visit_search(2, 45):5 open_visit_search(2, 48):5 open_visit_search(2, 41):5]
+[s17734 t21055 d1 0:1 xl2 hp14/14] FAINT guard (Weak, idle): Elbereth vs [] hp=14/14
+[s17786 t21083 d1 0:1 xl2 hp14/14] FAINT guard (Fainting, idle): Elbereth vs [] hp=14/14
+[s17837 t21105 d1 0:1 xl2 hp14/14] FAINT guard (Fainting, idle): Elbereth vs [] hp=14/14
+[s18022 t21280 d1 0:1 xl2 hp14/14] FAINT guard (Fainting, idle): Elbereth vs [] hp=14/14
+[s18144 t21439 d1 0:1 xl2 hp14/14] PRAY hp=14/14 hunger=4 gap=1260 reason=faint-long spell=356 model[ok200=0.98 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=72 p_answered=0.98]
+[s18149 t21442 d1 0:1 xl2 hp14/14] PRAY result FAILED model[ok200=0.32 naughty=1.00 ugangr=1.00 luck>=0=0.00 record=72] prayers=17 failures=1
+[s18149 t21442 d1 0:1 xl2 hp14/14] DIVE phase starts (milestone BE_ON_FIRST_LEVEL, rescue)
+[s18149 t21442 d1 0:1 xl2 hp14/14] DIVE task descend
+[s18149 t21442 d1 0:1 xl2 hp14/14] DIVE stuck in task 'descend' on level (np.int64(0), np.int64(1)) for 21441 turns; up stairs (y,x,dist)=[(3, 8, -1)]
+You see no objects here.
+
+    #                           ----
+ ---|-----                      |..|     ######@#######
+ |......<|                      |.$|            ------#
+ |........#                     ----            |....|`
+ -.-------######   #                            |....|
+  #                #-----                       |....|
+  ##               #|...|                       |....|
+   ###             #|...-#                      |....|
+  ---.--           #|...|#                     #.....|
+  |.....############....|##                    #------
+  |....|         ###|...| #                #####
+  |....|         #  |...| #              ###
+  |.....##########  ----- #              #
+  ------                  ## -------- ##*#
+                           ##|.)..+.-##
+                            #|..>...|
+                            #|......|
+                            #-....F.|
+                             -|------
+                              #
+Agent the Footpad              St:11 Dx:18 Co:13 In:11 Wi:13 Ch:9 Chaotic S:144
+Dlvl:1 $:0 HP:14(14) Pw:4(4) AC:6 Xp:2/36 T:21442 Fainting
+[s18149 t21442 d1 0:1 xl2 hp14/14] STALL TRACE reachable=15 down stairs=[(16, 32, -1)]
+[s18149 t21442 d1 0:1 xl2 hp14/14] STALL TRACE (y,x,dist,glyph,object_id,terrain,walkable,door,monster): [(0, 39, -1, 2359, None, -1, False, False, False), (0, 40, -1, 2359, None, -1, False, False, False), (0, 41, -1, 2359, None, -1, False, False, False), (0, 42, -1, 2359, None, -1, False, False, False), (0, 43, -1, 2359, None, -1, False, False, False), (0, 44, -1, 2359, None, -1, False, False, False), (0, 45, -1, 2359, None, -1, False, False, False), (0, 46, -1, 2359, None, -1, False, False, False), (0, 47, -1, 2359, None, -1, False, False, False), (0, 48, -1, 2359, None, -1, False, False, False), (0, 49, -1, 2359, None, -1, False, False, False), (0, 50, -1, 2359, None, -1, False, False, False), (0, 51, -1, 2359, None, -1, False, False, False), (0, 52, -1, 2359, None, -1, False, False, False), (0, 53, -1, 2359, None, -1, False, False, False), (0, 54, -1, 2359, None, -1, False, False, False), (0, 55, -1, 2359, None, -1, False, False, False), (0, 56, -1, 2359, None, -1, False, False, False), (1, 39, -1, 2359, None, -1, False, False, False), (1, 40, -1, 2359, None, 2359, False, False, False), (1, 41, -1, 2359, None, 2359, False, False, False), (1, 42, -1, 2359, None, 2359, False, False, False), (1, 43, -1, 2359, None, 2359, False, False, False), (1, 44, -1, 2359, None, 2359, False, False, False), (1, 45, -1, 2359, None, 2359, False, False, False), (1, 46, -1, 2359, None, 2359, False, False, False), (1, 47, -1, 2359, None, 2359, False, False, False), (1, 48, -1, 2359, None, 2359, False, False, False), (1, 49, -1, 2359, None, 2359, False, False, False), (1, 50, -1, 2359, None, 2359, False, False, False), (1, 51, -1, 2359, None, 2359, False, False, False), (1, 52, -1, 2359, None, 2359, False, False, False), (1, 53, -1, 2359, None, 2359, False, False, False), (1, 54, -1, 2359, None, 2359, False, False, False), (1, 55, -1, 2359, None, 2359, False, False, False), (1, 56, -1, 2359, None, -1, False, False, False), (2, 39, -1, 2359, None, 2359, False, False, False), (2, 40, -1, 2359, None, 2359, False, False, False), (2, 41, 6, 2380, None, 2380, True, False, False), (2, 42, 5, 2380, None, 2380, True, False, False), (2, 43, 4, 2380, None, 2380, True, False, False), (2, 44, 3, 2380, None, 2380, True, False, False), (2, 45, 2, 2380, None, 2380, True, False, False), (2, 46, 1, 2380, None, 2380, True, False, False), (2, 47, 0, 337, None, 2380, True, False, False), (2, 48, 1, 2380, None, 2380, True, False, False), (2, 49, 2, 2380, None, 2380, True, False, False), (2, 50, 3, 2380, None, 2380, True, False, False), (2, 51, 4, 2380, None, 2380, True, False, False), (2, 52, 5, 2380, None, 2380, True, False, False), (2, 53, 6, 2380, None, 2380, True, False, False), (2, 54, 7, 2380, None, 2380, True, False, False), (2, 55, -1, 2359, None, 2359, False, False, False), (2, 56, -1, 2359, None, -1, False, False, False), (3, 39, -1, 2359, None, 2380, True, False, False), (3, 40, -1, 2359, None, 2359, False, False, False), (3, 41, -1, 2359, None, 2359, False, False, False), (3, 42, -1, 2359, None, 2359, False, False, False), (3, 43, -1, 2359, None, 2359, False, False, False), (3, 44, -1, 2359, None, 2359, False, False, False), (3, 45, -1, 2359, None, 2359, False, False, False), (3, 46, -1, 2359, None, 2359, False, False, False), (3, 47, -1, 2359, None, 2359, False, False, False), (3, 48, -1, 2362, None, 2362, False, False, False), (3, 49, -1, 2361, None, 2361, False, False, False), (3, 50, -1, 2361, None, 2361, False, False, False), (3, 51, -1, 2361, None, 2361, False, False, False), (3, 52, -1, 2361, None, 2361, False, False, False), (3, 53, -1, 2363, None, 2363, False, False, False), (3, 54, 7, 2380, None, 2380, True, False, False), (3, 55, -1, 2359, None, 2359, False, False, False), (3, 56, -1, 2359, None, -1, False, False, False), (4, 39, -1, 2359, None, 2359, False, False, False), (4, 40, -1, 2359, None, 2359, False, False, False), (4, 41, -1, 2359, None, 2359, False, False, False), (4, 42, -1, 2359, None, 2359, False, False, False), (4, 43, -1, 2359, None, -1, False, False, False), (4, 44, -1, 2359, None, -1, False, False, False), (4, 45, -1, 2359, None, -1, False, False, False), (4, 46, -1, 2359, None, -1, False, False, False), (4, 47, -1, 2359, None, -1, False, False, False), (4, 48, -1, 2360, None, 2360, False, False, False), (4, 49, -1, 2379, None, 2379, True, False, False), (4, 50, -1, 2379, None, 2379, True, False, False), (4, 51, -1, 2379, None, 2379, True, False, False), (4, 52, -1, 2379, None, 2379, True, False, False), (4, 53, -1, 2360, None, 2360, False, False, False), (4, 54, -1, 2353, 447, 2380, True, False, False), (4, 55, -1, 2359, None, 2359, False, False, False), (4, 56, -1, 2359, None, -1, False, False, False), (5, 52, -1, 2379, None, 2379, True, False, False), (5, 53, -1, 2360, None, 2360, False, False, False), (5, 54, -1, 2359, None, -1, False, False, False), (5, 55, -1, 2359, None, -1, False, False, False), (5, 56, -1, 2359, None, -1, False, False, False)]
+[s18149 t21442 d1 0:1 xl2 hp14/14] DIVE stairs cut off: walking through known traps
+[s18167 t21511 d1 0:1 xl2 hp14/14] STATUS milestone=BE_ON_FIRST_LEVEL diving=True hunger=4 pos=(np.int64(2), np.int64(48)) acts=[SPACE:122 LOOK:104 SEARCH:101 E:18 EAT:17] gotos=[open_visit_search(2, 45):1 open_visit_search(2, 48):1 open_visit_search(2, 41):1]
+[s18180 t21537 d1 0:1 xl3 hp19/19] DIVE stairs cut off: walking through known traps
+[s18187 t21543 d1 0:1 xl3 hp19/19] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/hed/nhbot/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/hed/nhbot/agent.py", line 311, in preempt
+    next(iterator)
+  File "/sol/hed/nhbot/strategy.py", line 68, in f
+    next(it)
+  File "/sol/hed/nhbot/utils.py", line 134, in f
+    next(it)
+  File "/sol/hed/nhbot/agent.py", line 3303, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/hed/nhbot/item/inventory.py", line 871, in eat
+    raise AgentPanic('no such food is lying here')
+nhbot.exceptions.AgentPanic: no such food is lying here
+
+[s18378 t22021 d1 0:1 xl3 hp19/19] STATUS milestone=BE_ON_FIRST_LEVEL diving=True hunger=4 pos=(np.int64(2), np.int64(43)) acts=[W:33 E:31 SPACE:26 NUM_5:22 SEARCH:22] gotos=[open_visit_search(2, 49):2 open_visit_search(2, 50):2 open_visit_search(2, 51):2]
+[s18389 t22051 d1 0:1 xl3 hp19/19] DIVE replanning task 'descend' after 500 turns of exploring
+[s18389 t22051 d1 0:1 xl3 hp19/19] DIVE stuck in task 'descend' on level (np.int64(0), np.int64(1)) for 22050 turns; up stairs (y,x,dist)=[(3, 8, -1)]
+You faint from lack of food.  You regain consciousness.
+
+    #                           ----
+ ---|-----                      |..|     #@############
+ |......<|                      |.$|            ------#
+ |........#                     ----            |....|`
+ -.-------######   #                            |....|
+  #                #-----                       |....|
+  ##               #|...|                       |....|
+   ###             #|...-#                      |....|
+  ---.--           #|...|#                     #.....|
+  |.....############....|##                    #------
+  |....|         ###|...| #                #####
+  |....|         #  |...| #              ###
+  |.....##########  ----- #              #
+  ------                  ## -------- ##*#
+                           ##|.)..+.-##
+                            #|..>...|
+                            #|......|
+                            #-....F.|
+                             -|------
+                              #
+Agent the Cutpurse             St:11 Dx:18 Co:13 In:11 Wi:13 Ch:9 Chaotic S:160
+Dlvl:1 $:0 HP:19(19) Pw:10(10) AC:6 Xp:3/40 T:22051 Fainting Deaf
+[s18389 t22051 d1 0:1 xl3 hp19/19] STALL TRACE reachable=15 down stairs=[(16, 32, -1)]
+[s18389 t22051 d1 0:1 xl3 hp19/19] STALL TRACE (y,x,dist,glyph,object_id,terrain,walkable,door,monster): [(0, 39, -1, 2359, None, -1, False, False, False), (0, 40, -1, 2359, None, -1, False, False, False), (0, 41, -1, 2359, None, -1, False, False, False), (0, 42, -1, 2359, None, -1, False, False, False), (0, 43, -1, 2359, None, -1, False, False, False), (0, 44, -1, 2359, None, -1, False, False, False), (0, 45, -1, 2359, None, -1, False, False, False), (0, 46, -1, 2359, None, -1, False, False, False), (0, 47, -1, 2359, None, -1, False, False, False), (0, 48, -1, 2359, None, -1, False, False, False), (0, 49, -1, 2359, None, -1, False, False, False), (0, 50, -1, 2359, None, -1, False, False, False), (0, 51, -1, 2359, None, -1, False, False, False), (0, 52, -1, 2359, None, -1, False, False, False), (0, 53, -1, 2359, None, -1, False, False, False), (0, 54, -1, 2359, None, -1, False, False, False), (0, 55, -1, 2359, None, -1, False, False, False), (0, 56, -1, 2359, None, -1, False, False, False), (1, 39, -1, 2359, None, -1, False, False, False), (1, 40, -1, 2359, None, 2359, False, False, False), (1, 41, -1, 2359, None, 2359, False, False, False), (1, 42, -1, 2359, None, 2359, False, False, False), (1, 43, -1, 2359, None, 2359, False, False, False), (1, 44, -1, 2359, None, 2359, False, False, False), (1, 45, -1, 2359, None, 2359, False, False, False), (1, 46, -1, 2359, None, 2359, False, False, False), (1, 47, -1, 2359, None, 2359, False, False, False), (1, 48, -1, 2359, None, 2359, False, False, False), (1, 49, -1, 2359, None, 2359, False, False, False), (1, 50, -1, 2359, None, 2359, False, False, False), (1, 51, -1, 2359, None, 2359, False, False, False), (1, 52, -1, 2359, None, 2359, False, False, False), (1, 53, -1, 2359, None, 2359, False, False, False), (1, 54, -1, 2359, None, 2359, False, False, False), (1, 55, -1, 2359, None, 2359, False, False, False), (1, 56, -1, 2359, None, -1, False, False, False), (2, 39, -1, 2359, None, 2359, False, False, False), (2, 40, -1, 2359, None, 2359, False, False, False), (2, 41, 1, 2380, None, 2380, True, False, False), (2, 42, 0, 337, None, 2380, True, False, False), (2, 43, 1, 2380, None, 2380, True, False, False), (2, 44, 2, 2380, None, 2380, True, False, False), (2, 45, 3, 2380, None, 2380, True, False, False), (2, 46, 4, 2380, None, 2380, True, False, False), (2, 47, 5, 2380, None, 2380, True, False, False), (2, 48, 6, 2380, None, 2380, True, False, False), (2, 49, 7, 2380, None, 2380, True, False, False), (2, 50, 8, 2380, None, 2380, True, False, False), (2, 51, 9, 2380, None, 2380, True, False, False), (2, 52, 10, 2380, None, 2380, True, False, False), (2, 53, 11, 2380, None, 2380, True, False, False), (2, 54, 12, 2380, None, 2380, True, False, False), (2, 55, -1, 2359, None, 2359, False, False, False), (2, 56, -1, 2359, None, -1, False, False, False), (3, 39, -1, 2359, None, 2380, True, False, False), (3, 40, -1, 2359, None, 2359, False, False, False), (3, 41, -1, 2359, None, 2359, False, False, False), (3, 42, -1, 2359, None, 2359, False, False, False), (3, 43, -1, 2359, None, 2359, False, False, False), (3, 44, -1, 2359, None, 2359, False, False, False), (3, 45, -1, 2359, None, 2359, False, False, False), (3, 46, -1, 2359, None, 2359, False, False, False), (3, 47, -1, 2359, None, 2359, False, False, False), (3, 48, -1, 2362, None, 2362, False, False, False), (3, 49, -1, 2361, None, 2361, False, False, False), (3, 50, -1, 2361, None, 2361, False, False, False), (3, 51, -1, 2361, None, 2361, False, False, False), (3, 52, -1, 2361, None, 2361, False, False, False), (3, 53, -1, 2363, None, 2363, False, False, False), (3, 54, 12, 2380, None, 2380, True, False, False), (3, 55, -1, 2359, None, 2359, False, False, False), (3, 56, -1, 2359, None, -1, False, False, False), (4, 39, -1, 2359, None, 2359, False, False, False), (4, 40, -1, 2359, None, 2359, False, False, False), (4, 41, -1, 2359, None, 2359, False, False, False), (4, 42, -1, 2359, None, 2359, False, False, False), (4, 43, -1, 2359, None, -1, False, False, False), (4, 44, -1, 2359, None, -1, False, False, False), (4, 45, -1, 2359, None, -1, False, False, False), (4, 46, -1, 2359, None, -1, False, False, False), (4, 47, -1, 2359, None, -1, False, False, False), (4, 48, -1, 2360, None, 2360, False, False, False), (4, 49, -1, 2379, None, 2379, True, False, False), (4, 50, -1, 2379, None, 2379, True, False, False), (4, 51, -1, 2379, None, 2379, True, False, False), (4, 52, -1, 2379, None, 2379, True, False, False), (4, 53, -1, 2360, None, 2360, False, False, False), (4, 54, -1, 2353, 447, 2380, True, False, False), (4, 55, -1, 2359, None, 2359, False, False, False), (4, 56, -1, 2359, None, -1, False, False, False), (5, 52, -1, 2379, None, 2379, True, False, False), (5, 53, -1, 2360, None, 2360, False, False, False), (5, 54, -1, 2359, None, -1, False, False, False), (5, 55, -1, 2359, None, -1, False, False, False), (5, 56, -1, 2359, None, -1, False, False, False)]
+[s18389 t22051 d1 0:1 xl3 hp19/19] DIVE stairs cut off: walking through known traps
+[s18483 t22526 d1 0:1 xl3 hp19/19] STATUS milestone=BE_ON_FIRST_LEVEL diving=True hunger=4 pos=(np.int64(2), np.int64(51)) acts=[SPACE:14 E:12 NUM_5:9 SEARCH:9 EXTCMD:9] gotos=[open_visit_search(2, 42):2 open_visit_search(2, 46):1 open_visit_search(2, 49):1]
+[s18491 t22558 d1 0:1 xl3 hp19/19] DIVE replanning task 'descend' after 500 turns of exploring
+[s18491 t22558 d1 0:1 xl3 hp19/19] DIVE stairs cut off: walking through known traps
