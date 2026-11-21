@@ -1,0 +1,134 @@
+[s26 t1 d1 0:1 xl1 hp11/11] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(5), np.int64(27)) acts=[SPACE:8 ESC:4 AUTOPICKUP:2 ATTRIBUTES:1 ENHANCE:1] gotos=[]
+[s26 t1 d1 0:1 xl1 hp11/11] DIVE level (np.int64(0), np.int64(1)) depth 1
+[s262 t143 d1 0:1 xl1 hp11/11] PANIC AgentPanic: agent position do not match after "move": expected (10, 69), got (9, 69)
+Traceback (most recent call last):
+  File "/sol/base/nhbot_dt448_main/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/nhbot_dt448_main/agent.py", line 300, in preempt
+    val = f()
+          ^^^
+  File "/sol/base/nhbot_dt448_main/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/base/nhbot_dt448_main/exploration_logic.py", line 523, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/base/nhbot_dt448_main/agent.py", line 2531, in go_to
+    self.move(y, x)
+  File "/sol/base/nhbot_dt448_main/agent.py", line 2084, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+nhbot_dt448_main.exceptions.AgentPanic: agent position do not match after "move": expected (10, 69), got (9, 69)
+
+[s300 t155 d1 0:1 xl1 hp11/11] PANIC AgentPanic: agent position do not match after "move": expected (13, 75), got (13, 74)
+Traceback (most recent call last):
+  File "/sol/base/nhbot_dt448_main/strategy.py", line 165, in f
+    next(gen)
+  File "/sol/base/nhbot_dt448_main/strategy.py", line 100, in f
+    next(v1)
+  File "/sol/base/nhbot_dt448_main/utils.py", line 134, in f
+    next(it)
+  File "/sol/base/nhbot_dt448_main/item/inventory.py", line 1732, in check_items
+    self.agent.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 0, 255), is_path=True))
+  File "/sol/base/nhbot_dt448_main/agent.py", line 2531, in go_to
+    self.move(y, x)
+  File "/sol/base/nhbot_dt448_main/agent.py", line 2084, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+nhbot_dt448_main.exceptions.AgentPanic: agent position do not match after "move": expected (13, 75), got (13, 74)
+
+[s453 t271 d1 0:1 xl1 hp11/11] PANIC AgentPanic: agent position do not match after "move": expected (14, 56), got (14, 57)
+Traceback (most recent call last):
+  File "/sol/base/nhbot_dt448_main/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/nhbot_dt448_main/agent.py", line 300, in preempt
+    val = f()
+          ^^^
+  File "/sol/base/nhbot_dt448_main/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/base/nhbot_dt448_main/exploration_logic.py", line 523, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/base/nhbot_dt448_main/agent.py", line 2531, in go_to
+    self.move(y, x)
+  File "/sol/base/nhbot_dt448_main/agent.py", line 2084, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+nhbot_dt448_main.exceptions.AgentPanic: agent position do not match after "move": expected (14, 56), got (14, 57)
+
+[s639 t363 d1 0:1 xl1 hp8/11] ELBERETH rest start: ['jackal', 'jackal']
+[s717 t381 d1 0:1 xl1 hp5/11] PRAY hp=5/11 hunger=1 gap=None reason=hp model[ok200=1.00 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=11 p_answered=1.00]
+[s724 t384 d1 0:1 xl1 hp12/12] PRAY result ok model[ok200=0.22 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=11] prayers=1 failures=0
+[s867 t477 d1 0:1 xl1 hp7/12] PANIC AgentPanic: agent position do not match after "move": expected (7, 26), got (7, 25)
+Traceback (most recent call last):
+  File "/sol/base/nhbot_dt448_main/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/nhbot_dt448_main/agent.py", line 311, in preempt
+    next(iterator)
+  File "/sol/base/nhbot_dt448_main/utils.py", line 134, in f
+    next(it)
+  File "/sol/base/nhbot_dt448_main/agent.py", line 2868, in fight2
+    wait_counter = self._fight2_perform_action(best_action, wait_counter)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/nhbot_dt448_main/agent.py", line 2971, in _fight2_perform_action
+    self.move(target_y, target_x)
+  File "/sol/base/nhbot_dt448_main/agent.py", line 2084, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+nhbot_dt448_main.exceptions.AgentPanic: agent position do not match after "move": expected (7, 26), got (7, 25)
+
+[s886 t478 d1 0:1 xl1 hp5/12] DOOM prayer: gap 94 p_hp=0.43 p_die3=1.00
+[s886 t478 d1 0:1 xl1 hp5/12] PRAY hp=5/12 hunger=1 gap=94 reason=hp-doom p_hp=0.43 p_die3=1.00 model[ok200=0.43 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=12 p_answered=0.43]
+[s891 t481 d1 0:1 xl1 hp4/12] PRAY result FAILED model[ok200=0.32 naughty=1.00 ugangr=1.00 luck>=0=0.00 record=12] prayers=2 failures=1
+[s891 t481 d1 0:1 xl1 hp4/12] DIVE phase starts (milestone BE_ON_FIRST_LEVEL, rescue)
+[s894 t481 d1 0:1 xl1 hp4/12] LAST RESORT: reading unknown 'a scroll labeled XOR OTA'
+[s904 t483 d1 0:1 xl1 hp1/12] PANIC AgentPanic: agent position do not match after "move": expected (6, 26), got (7, 25)
+Traceback (most recent call last):
+  File "/sol/base/nhbot_dt448_main/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/nhbot_dt448_main/agent.py", line 311, in preempt
+    next(iterator)
+  File "/sol/base/nhbot_dt448_main/utils.py", line 134, in f
+    next(it)
+  File "/sol/base/nhbot_dt448_main/agent.py", line 2868, in fight2
+    wait_counter = self._fight2_perform_action(best_action, wait_counter)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/nhbot_dt448_main/agent.py", line 2971, in _fight2_perform_action
+    self.move(target_y, target_x)
+  File "/sol/base/nhbot_dt448_main/agent.py", line 2084, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+nhbot_dt448_main.exceptions.AgentPanic: agent position do not match after "move": expected (6, 26), got (7, 25)
+
+[s948 t486 d1 0:1 xl1 hp1/12] ELBERETH rest start: ['newt', 'newt']
+[s972 t490 d1 0:1 xl1 hp1/12] DIVE task rest
+[s977 t510 d1 0:1 xl1 hp3/12] STATUS milestone=BE_ON_FIRST_LEVEL diving=True hunger=1 pos=(np.int64(7), np.int64(25)) acts=[SEARCH:177 SPACE:161 W:62 E:52 ESC:46] gotos=[check_items(4, 39):8 check_items(14, 76):7 open_visit_search(3, 35):6]
+[s1026 t593 d1 0:1 xl1 hp8/12] DIVE task descend
+[s1096 t655 d1 0:1 xl1 hp12/12] PANIC AgentPanic: agent position do not match after "move": expected (9, 12), got (9, 11)
+Traceback (most recent call last):
+  File "/sol/base/nhbot_dt448_main/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/nhbot_dt448_main/agent.py", line 300, in preempt
+    val = f()
+          ^^^
+  File "/sol/base/nhbot_dt448_main/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/base/nhbot_dt448_main/exploration_logic.py", line 523, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/base/nhbot_dt448_main/agent.py", line 2531, in go_to
+    self.move(y, x)
+  File "/sol/base/nhbot_dt448_main/agent.py", line 2084, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+nhbot_dt448_main.exceptions.AgentPanic: agent position do not match after "move": expected (9, 12), got (9, 11)
+
+[s1129 t673 d1 0:1 xl1 hp12/12] DIVE going down stairs at (np.int64(7), np.int64(4))
+[s1134 t674 d2 0:2 xl1 hp12/12] DIVE level (np.int64(0), np.int64(2)) depth 2
+[s1173 t705 d2 0:2 xl1 hp12/12] DIVE going down stairs at (np.int64(9), np.int64(28))
+[s1184 t706 d3 0:3 xl1 hp12/12] DIVE level (np.int64(0), np.int64(3)) depth 3
+[s1275 t761 d3 0:3 xl1 hp12/12] ENGRAVE 'a zinc wand': ['death', 'sleep'] (text written: True)
+[s1384 t834 d3 0:3 xl1 hp5/12] KNOWN_ITEMS zap (known sleep or death at the fox): critical, hp 5/12, lost 4 in 2 turns, next to us ['fox'], depth 3 (use 1)
+[s1390 t835 d3 0:3 xl1 hp5/12] KNOWN_ITEMS zap -> 'The sleep ray hits the fox.'
+[s1390 t835 d3 0:3 xl1 hp5/12] ELBERETH rest start: ['fox']
+[s1432 t841 d3 0:3 xl1 hp6/12] ELBERETH rest start: ['giant rat', 'fox']
+[s1478 t847 d3 0:3 xl1 hp6/12] ELBERETH rest start: ['giant rat', 'fox']
+[s1523 t857 d3 0:3 xl1 hp4/12] KNOWN_ITEMS zap (known sleep at the giant rat): critical, hp 4/12, lost 3 in 2 turns, next to us ['giant rat'], depth 3 (use 2)
+[s1526 t858 d3 0:3 xl1 hp4/12] KNOWN_ITEMS zap -> 'The sleep ray hits the giant rat.  The sleep ray bounces!'
+[s1526 t858 d3 0:3 xl1 hp4/12] RETREAT upstairs at hp 4/12
+[s1536 t859 d3 0:3 xl1 hp4/12] RETREAT upstairs at hp 4/12
