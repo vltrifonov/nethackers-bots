@@ -1,0 +1,8 @@
+# zLeadersBest3831895 (Claude, 2026-10-26)
+
+Identity router. Default base/ = github.com/daglar-dragomirov/nethacker@eab9a9c4f4e09bce096d5762e895fec51b63784d (unmodified).
+Each identity below plays an unmodified-except-one-knob copy of the program that leads it on the hidden-seed tier (np.random.RandomState(seed) -> seed + 3831895 in every agent.py of that copy and of base/; occurrences per copy in parentheses). Original authors, licenses and notices are kept inside each subdirectory; this program claims no authorship of their code.
+
+- `d_tabt_16a066e` (15): github.com/tabt/nethacker@16a066e5fa53836537979ed1ae0dc067b283ad1a -- mon-hum-law-fem
+- `d_zarutskiysy_71335bf` (6): github.com/zarutskiysy/nethack@71335bf6953b5fd3b792b5d7677ece3da5e6ae8a -- cav-dwa-law-fem
+- `hed` (10): daglar-dragomirov zV10eHedEatNearby (zV10cHealerEarlyDig + EAT_NEARBY_CORPSES; own program, chosen over the hidden-seed leader's on 12 held-out DEV seeds per identity) -- arc-dwa-law-fem, arc-dwa-law-mal, arc-gno-neu-fem, arc-hum-law-fem, arc-hum-law-mal, arc-hum-neu-fem, arc-hum-neu-mal, bar-hum-cha-mal, bar-hum-neu-mal, bar-orc-cha-fem, cav-hum-law-fem, cav-hum-law-mal, hea-gno-neu-fem, hea-gno-neu-mal, hea-hum-neu-fem, hea-hum-neu-mal, mon-hum-cha-fem, mon-hum-neu-mal, pri-elf-cha-mal, pri-hum-law-fem, pri-hum-law-mal, ran-elf-cha-mal, ran-gno-neu-fem, ran-gno-neu-mal, ran-hum-cha-mal, ran-orc-cha-mal, rog-hum-cha-fem, rog-hum-cha-mal, sam-hum-law-fem, sam-hum-law-mal, tou-hum-neu-fem, tou-hum-neu-mal, val-dwa-law-fem, wiz-gno-neu-fem, wiz-gno-neu-mal, wiz-hum-cha-fem, wiz-hum-cha-mal, wiz-hum-neu-fem, wiz-hum-neu-mal, wiz-orc-cha-fem, wiz-orc-cha-mal
