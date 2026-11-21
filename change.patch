@@ -1,0 +1,93 @@
+diff --git a/nethackers.solution.json b/nethackers.solution.json
+index 3275a1a..0d8cee8 100644
+--- a/nethackers.solution.json
++++ b/nethackers.solution.json
+@@ -1,8 +1,9 @@
+ {
+   "schema": "nethackers.solution/v1",
+-  "name": "daglar-zPublicValkCurrentChaos130",
++  "name": "Ranger retreat from a damaging doorway",
+   "root": ".",
+   "parents": [
++    "github.com/daglar-dragomirov/nethacker@bbc39a937a547049146f8a6afabbb9db37f0d960",
+     "github.com/daglar-dragomirov/nethacker@eab9a9c4f4e09bce096d5762e895fec51b63784d",
+     "github.com/daglar-dragomirov/nethacker@ccfb1251179bad749ece88d384956363ffb2db56",
+     "github.com/daglar-dragomirov/nethacker@44b29b9299c5dcfb76e3fc6081004727c58db19a",
+diff --git a/pf_s25p8/agent.py b/pf_s25p8/agent.py
+index d54f80e..a6eea4a 100644
+--- a/pf_s25p8/agent.py
++++ b/pf_s25p8/agent.py
+@@ -78,6 +78,8 @@ class Agent:
+         self._last_resort_stairs_turn = -10 ** 9
+         self._last_resort_dig_turn = -1   # LAST_RESORT_DIG: at most one zap per turn
+         self._last_resort_zapped = set()  # LR_WAND_ONCE: glyphs of unknown wands the last resort already zapped
++        self._doorway_entry = None
++        self._doorway_retreats = set()
+         self.prayer_failed = False
+         self._monk_meat_meals = 0
+         self._previous_glyphs = None
+@@ -1989,6 +1991,13 @@ class Agent:
+ 
+         else:
+             from_y, from_x = self.blstats.y, self.blstats.x
++            if self.character.role == Character.RANGER and not self.global_logic.dive.diving and \
++                    dir in ('n', 's', 'e', 'w'):
++                level = self.current_level()
++                origin, doorway = (from_y, from_x), (expected_y, expected_x)
++                if level.dungeon_number == Level.DUNGEONS_OF_DOOM and level.objects[origin] == SS.S_room and \
++                        level.objects[doorway] == SS.S_ndoor and self.glyphs[doorway] == SS.S_ndoor:
++                    self._doorway_entry = (level.key(), origin, doorway, self.blstats.time, self.blstats.hitpoints)
+             self.direction(dir)
+ 
+             if self.blstats.y != expected_y or self.blstats.x != expected_x:
+@@ -3072,6 +3081,33 @@ class Agent:
+         low_hp = hp_ratio < 0.5 and (self.blstats.max_hitpoints - self.blstats.hitpoints > 25)
+         return self.blstats.energy >= 15 and low_hp
+ 
++    def _damaging_doorway_retreat(self):
++        """Step back into the room if a slower melee attacker punishes a doorway entry."""
++        if self._doorway_entry is None:
++            return None
++        key, origin, doorway, turn, hp = self._doorway_entry
++        bl = self.blstats
++        level = self.current_level()
++        prop = self.character.prop
++        if (level.key(), (bl.y, bl.x), bl.time) != (key, doorway, turn + 1) or \
++                (key, doorway) in self._doorway_retreats or hp - bl.hitpoints < max(8, bl.max_hitpoints / 5) or \
++                self.global_logic.dive.diving or bl.carrying_capacity >= 2 or \
++                prop.blind or prop.confusion or prop.stun or prop.hallu or prop.polymorph or \
++                level.shop[origin] or level.shop[doorway] or self.monster_tracker.monster_mask[origin] or \
++                self.glyphs[origin] != SS.S_room or self.bfs()[origin] != 1:
++            return None
++        threats = self.global_logic.dive._near_hostiles(radius=2)
++        if len(threats) != 1:
++            return None
++        _, y, x, monster, glyph = threats[0]
++        dy, dx = y - bl.y, x - bl.x
++        if max(abs(dy), abs(dx)) != 1 or not nh.glyph_is_monster(glyph) or monster.mmove >= 12 or \
++                dy * (bl.y - origin[0]) + dx * (bl.x - origin[1]) != 1 or \
++                not re.search(rf'\bThe {re.escape(monster.mname)} (hits|bites|claws|kicks|stings|butts)!',
++                              self.message, re.IGNORECASE):
++            return None
++        return origin
++
+     @utils.debug_log('emergency_strategy')
+     @Strategy.wrap
+     def emergency_strategy(self):
+@@ -3312,6 +3348,16 @@ class Agent:
+                             self.type_text(self.inventory.items.get_letter(item))
+                         return
+ 
++        retreat = self._damaging_doorway_retreat()
++        if retreat is not None:
++            yield True
++            key, _, doorway, _, _ = self._doorway_entry
++            self._doorway_entry = None
++            self._doorway_retreats.add((key, doorway))
++            self.log(f'DOORWAY RETREAT: stepping back into the room at {retreat}')
++            self.move(*retreat)
++            return
++
+         # if self.inventory.engraving_below_me.lower() != 'elbereth' and self.can_engrave() and \
+         #         (self.blstats.hitpoints < 1 / 5 * self.blstats.max_hitpoints or self.blstats.hitpoints < 5):
+         #     yield True
