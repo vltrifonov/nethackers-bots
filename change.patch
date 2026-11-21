@@ -1,0 +1,66 @@
+diff --git a/nhbot/known_items.py b/nhbot/known_items.py
+index cbb712b..21cc8b0 100644
+--- a/nhbot/known_items.py
++++ b/nhbot/known_items.py
+@@ -385,12 +385,61 @@ class KnownItemsGuard:
+             return
+         raise ValueError(kind)
+ 
++    def _trace_unicorn_sleep_ray(self, plan):
++        from .combat import fight_heur
++
++        agent = self.agent
++        bl = agent.blstats
++        y, x = int(bl.y), int(bl.x)
++        if bl.hitpoints == bl.max_hitpoints or 'unicorn' not in agent.message.lower():
++            return
++        monsters = agent.get_visible_monsters()
++        targets = [m for m in monsters if m[3].mname == 'white unicorn' and
++                   _cheb((m[1], m[2]), (y, x)) == 1]
++        if len(targets) != 1:
++            return
++        wand, _ = self.mino._wand(('sleep',))
++        if wand is None:
++            return
++        target = targets[0]
++        stamp = (bl.time, y, x, bl.hitpoints, int(target[1]), int(target[2]))
++        if stamp == getattr(self, '_traced_unicorn_sleep', None):
++            return
++        self._traced_unicorn_sleep = stamp
++        dy, dx = int(target[1]) - y, int(target[2]) - x
++        level = agent.current_level()
++        tracker = agent.monster_tracker
++        height, width = level.walkable.shape
++        trace = []
++        for i in range(1, 14):
++            py, px = y + i * dy, x + i * dx
++            if not (0 <= py < height and 0 <= px < width):
++                break
++            glyph = int(agent.glyphs[py, px])
++            trace.append((py, px, glyph, int(level.objects[py, px]), bool(level.walkable[py, px]),
++                          bool(tracker.monster_mask[py, px]), bool(tracker.peaceful_monster_mask[py, px]),
++                          glyph in G.PETS))
++        path = [(int(py), int(px), m, float(hits)) for py, px, m, hits in
++                fight_heur.simulate_wand_path(agent, wand, monsters, dy, dx)
++                if isinstance(m, str)]
++        free_run = self._free_run_behind(target, dy, dx)
++        agent.log(f'UNICORN SLEEP TRACE pos={(y, x)} delta={(dy, dx)} item={wand.text!r} '
++                  f'plan={None if plan is None else plan[0]} critical={agent._critically_low_hp()} '
++                  f'ward={self._on_elbereth()} free_run={free_run}/{jf_config.KNOWN_ITEMS_RAY_RUN} '
++                  f'peaceful_line={self._line_hits_peaceful(dy, dx)} '
++                  f'watch={fight_heur.missiles_risk_the_watch(agent)} modeled_contacts={path} '
++                  f'line_tiles[y,x,glyph,remembered,walkable,monster,peaceful,pet]={trace}')
++
+     def strategy(self):
+         def f():
+             if not jf_config.KNOWN_ITEMS:
+                 yield False
+                 return
+             plan = self._plan()
++            try:
++                self._trace_unicorn_sleep_ray(plan)
++            except Exception as error:
++                self.agent.log(f'UNICORN SLEEP TRACE unavailable: {error}')
+             if plan is None:
+                 yield False
+                 return
