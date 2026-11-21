@@ -1,0 +1,46 @@
+diff --git a/base/nhbot/agent.py b/base/nhbot/agent.py
+index a42cc96..e67f608 100644
+--- a/base/nhbot/agent.py
++++ b/base/nhbot/agent.py
+@@ -3351,9 +3351,41 @@ class Agent:
+         low_hp = hp_ratio < 0.5 and (self.blstats.max_hitpoints - self.blstats.hitpoints > 25)
+         return self.blstats.energy >= 15 and low_hp
+ 
++    def _trace_fire_contact_mobility(self):
++        if 'You are suddenly very hot!' not in self.message:
++            return
++        bl = self.blstats
++        y, x = int(bl.y), int(bl.x)
++        stamp = (int(bl.time), y, x, int(bl.hitpoints))
++        if stamp == getattr(self, '_traced_fire_contact', None):
++            return
++        self._traced_fire_contact = stamp
++        level = self.current_level()
++        dive = self.global_logic.dive
++        distance = self.bfs()
++        tracker = self.monster_tracker
++        tiles = []
++        for py, px in ((y, x), (y - 1, x), (y + 1, x), (y, x - 1), (y, x + 1)):
++            if not (0 <= py < self.glyphs.shape[0] and 0 <= px < self.glyphs.shape[1]):
++                continue
++            tile = (py, px)
++            tiles.append((py, px, int(self.glyphs[tile]), int(level.objects[tile]), bool(level.seen[tile]),
++                          bool(level.walkable[tile]), bool(level.forbidden[tile]), int(distance[tile]),
++                          bool(tracker.monster_mask[tile]), bool(tracker.peaceful_monster_mask[tile])))
++        threats = [(int(m[1]), int(m[2]), m[3].mname, int(m[4])) for m in self.get_visible_monsters()
++                   if max(abs(m[1] - y), abs(m[2] - x)) <= 2]
++        self.log(f'FIRE CONTACT MOBILITY pit={self.in_pit()} own_pit={dive._in_own_pit()} '
++                 f'trap_memory={getattr(self, "_in_pit_at", None)} dig_pit={dive._pit_at} '
++                 f'levitating={dive.levitating()} threats={threats} '
++                 f'tiles[y,x,glyph,terrain,seen,walkable,forbidden,bfs,monster,peaceful]={tiles}')
++
+     @utils.debug_log('emergency_strategy')
+     @Strategy.wrap
+     def emergency_strategy(self):
++        try:
++            self._trace_fire_contact_mobility()
++        except Exception as error:
++            self.log(f'FIRE CONTACT MOBILITY unavailable: {error}')
+         # a cockatrice's touch or hiss starts delayed stoning: a few turns to eat a lizard
+         # or acidic corpse, and prayer fixes it as major trouble even outside the safe window
+         if self.character.prop.stoned:
