@@ -1,0 +1,38 @@
+diff --git a/base/nhbot_knight_c48_abi/combat/fight_heur.py b/base/nhbot_knight_c48_abi/combat/fight_heur.py
+index 4973738..3a907f6 100644
+--- a/base/nhbot_knight_c48_abi/combat/fight_heur.py
++++ b/base/nhbot_knight_c48_abi/combat/fight_heur.py
+@@ -460,6 +460,10 @@ def in_gehennom(agent):
+ 
+ 
+ def elbereth_action(agent, monsters):
++    dive = agent.global_logic.dive
++    # Match the ranged veto on waiting under an engraving.
++    if dive.shot_recently():
++        return []
+     if agent.inventory.engraving_below_me.lower() == 'elbereth':
+         return []
+     if in_gehennom(agent):
+@@ -467,7 +471,6 @@ def elbereth_action(agent, monsters):
+     if not agent.can_engrave():
+         return []
+     adj_monsters_count = 0
+-    dive = agent.global_logic.dive
+     for monster in monsters:
+         _, my, mx, mon, _ = monster
+         if mon.mname in ONLY_RANGED_SLOW_MONSTERS:
+diff --git a/nethackers.solution.json b/nethackers.solution.json
+index 899e548..017d8c6 100644
+--- a/nethackers.solution.json
++++ b/nethackers.solution.json
+@@ -1,8 +1,9 @@
+ {
+   "schema": "nethackers.solution/v1",
+-  "name": "daglar-zLeadersBest4412576",
++  "name": "Knight ward admission after ranged hits",
+   "root": ".",
+   "parents": [
++    "github.com/daglar-dragomirov/nethacker@4f803662c2608bf8d165175ab771cae77006e35b",
+     "github.com/daglar-dragomirov/nethacker@ccfb1251179bad749ece88d384956363ffb2db56",
+     "github.com/daglar-dragomirov/nethacker@44b29b9299c5dcfb76e3fc6081004727c58db19a",
+     "github.com/DT6A/nethacker@37f9da35d0dbf98ed15bf89735bd601f0c0eac02",
