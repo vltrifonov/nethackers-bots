@@ -1,0 +1,58 @@
+diff --git a/d_CleverShovel_911c949/pf_base/dive_logic.py b/d_CleverShovel_911c949/pf_base/dive_logic.py
+index e6934c1..f51183e 100755
+--- a/d_CleverShovel_911c949/pf_base/dive_logic.py
++++ b/d_CleverShovel_911c949/pf_base/dive_logic.py
+@@ -1668,6 +1668,39 @@ class DiveLogic:
+                        zip(*utils.isin(self.agent.current_level().objects, G.STAIR_UP).nonzero())]
+                 self.agent.log(f'DIVE stuck in task {name!r} on level {self.agent.current_level().key()} '
+                                f'for {self.turns_on_level()} turns; up stairs (y,x,dist)={ups}\n{screen}')
++                if name == 'return to main dungeon' and self.agent.current_level().dungeon_number == Level.GNOMISH_MINES:
++                    self._log_mines_return_map(self.agent.current_level(), dis)
++
++    def _log_mines_return_map(self, level, dis):
++        """Public diagnostic for a remembered exit cut off in the observed map."""
++        agent = self.agent
++        exits = set(zip(*utils.isin(level.objects, G.STAIR_UP).nonzero()))
++        for position, destination in level.stair_destination.items():
++            if destination is None:
++                continue
++            dungeon, number = destination[0]
++            if (dungeon == level.dungeon_number and number == level.level_number - 1) or (
++                    dungeon == Level.DUNGEONS_OF_DOOM and level.level_number == 1):
++                exits.add(position)
++        if not exits or any(dis[position] >= 0 for position in exits):
++            return
++        tiles = np.full(dis.shape, '?', dtype='<U1')
++        tiles[level.seen] = '#'
++        tiles[level.walkable] = '.'
++        tiles[level.forbidden] = 'X'
++        tiles[level.intact_doors] = 'D'
++        tiles[level.shop | level.shop_interior] = '$'
++        tiles[utils.isin(level.objects, G.TRAPS)] = '^'
++        tiles[utils.isin(level.objects, FALL_TRAPS)] = 'v'
++        tiles[utils.isin(agent.glyphs, G.BOULDER)] = 'O'
++        tiles[agent.monster_tracker.monster_mask | utils.isin(agent.glyphs, G.PETS)] = 'm'
++        for position in exits:
++            tiles[position] = '<'
++        tiles[agent.blstats.y, agent.blstats.x] = '@'
++        terrain = '\n'.join(''.join(row) for row in tiles)
++        reachability = '\n'.join(''.join(row) for row in np.where(dis >= 0, '.', ' '))
++        agent.log('RETURN map ? unknown # known blocked . known walkable X forbidden D door $ shop '
++                  f'^ trap v fall O boulder m monster < exit @ hero\n{terrain}\nRETURN reachable\n{reachability}')
+ 
+     def plan_step(self):
+         agent = self.agent
+@@ -2461,8 +2494,11 @@ class DiveLogic:
+ 
+     def use_mines(self):
+         # with a pick-axe, digging the main dungeon beats banking Mines' End
+-        return MINES_ROUTE and not self.mines_done and \
+-            self.agent.character.race in (Character.DWARF, Character.GNOME) and \
++        character = self.agent.character
++        native_route = character.race in (Character.DWARF, Character.GNOME)
++        # Adapt hed's MINES_TOOL_TRIP to planned Wizard dives that need a tool.
++        wizard_tool_trip = self.diving and not self.rescue and character.role == Character.WIZARD
++        return MINES_ROUTE and not self.mines_done and (native_route or wizard_tool_trip) and \
+             (not self.diving or self.digging_tool() is None)
+ 
+     def _stairs_down(self, level):
