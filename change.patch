@@ -1,0 +1,104 @@
+diff --git a/nethackers.solution.json b/nethackers.solution.json
+index 51a6536..d5fcdca 100644
+--- a/nethackers.solution.json
++++ b/nethackers.solution.json
+@@ -1,8 +1,9 @@
+ {
+   "schema": "nethackers.solution/v1",
+-  "name": "daglar-zV10cHedDt9000Tf1000DigXL6",
++  "name": "Wizard safe sleep ray after fast melee damage",
+   "root": ".",
+   "parents": [
++    "github.com/daglar-dragomirov/nethacker@ead9da7ef7f9668dd3725d24e29205faaf9aec4f",
+     "github.com/daglar-dragomirov/nethacker@a368786dc2650f8cd878b1226ac5815e719f164d",
+     "github.com/zarutskiysy/nethack@14a3bbd871061d63bda57da6c82af91f46959d21",
+     "github.com/zarutskiysy/nethack@94c4c1cd21c51f9feec0eaabd9c63831a8ee3316",
+diff --git a/nhbot/known_items.py b/nhbot/known_items.py
+index cbb712b..3e4a4bf 100644
+--- a/nhbot/known_items.py
++++ b/nhbot/known_items.py
+@@ -44,10 +44,13 @@ next to the mumak, then the castle), jf52 s9 0.075 -> 0.466 (read blind at 27/75
+ 0.126 -> 0.393, jf49 s7 0.379 -> 0.466; jf54 s1 unchanged (5 striking zaps killed the sergeant and a soldier, then the
+ wand was empty); jf50 s14 unchanged (its wand of fire was known empty).
+ """
++import re
++
+ import nle.nethack as nh
+ 
+ from . import castle_power, jf_config, utils
+ from . import objects as O
++from .character import Character
+ from .combat.monster_utils import WEAK_MONSTERS
+ from .glyph import G, MON
+ from .item import Item
+@@ -72,6 +75,7 @@ class KnownItemsGuard:
+         self.mino = mino
+         self._attempts = {}   # (kind, item glyph) -> (turn, tries in that turn)
+         self._blocked = {}    # (kind, item glyph) -> turn until which that action isn't planned
++        self._last_fast_sleep_turn = -10 ** 9
+         self.uses = 0         # actions taken (logged)
+ 
+     # ------------------------------------------------------------------ state
+@@ -319,13 +323,52 @@ class KnownItemsGuard:
+         item = arg[0] if isinstance(arg, tuple) and arg and hasattr(arg[0], 'glyphs') else arg
+         return (kind, item.glyphs[0] if hasattr(item, 'glyphs') else None)
+ 
++    def _fast_adjacent_sleep_plan(self):
++        """A healthy-looking diver can still lose two exchanges before the normal rescue gate opens."""
++        from .combat import fight_heur
++        from .dive_logic import RETREAT_WINDOW
++
++        agent = self.agent
++        bl = agent.blstats
++        prop = agent.character.prop
++        if agent.character.role != Character.WIZARD or bl.carrying_capacity >= 4 or \
++                prop.blind or prop.hallu or prop.confusion or prop.stun or agent._critically_low_hp() or \
++                bl.time - self._last_fast_sleep_turn <= 2 * RETREAT_WINDOW or \
++                not self.dive._fast_hp_loss() or self._on_elbereth() or self.mino._prayer_first():
++            return None
++        threats = self.dive._near_hostiles(radius=2)
++        if len(threats) != 1:
++            return None
++        target = threats[0]
++        _, y, x, monster, glyph = target
++        if _cheb((y, x), (bl.y, bl.x)) != 1 or not nh.glyph_is_monster(glyph) or monster.mmove < 24 or \
++                not re.search(rf'\bThe {re.escape(monster.mname)} (hits|bites|claws|kicks|stings|butts)!',
++                              agent.message, re.IGNORECASE):
++            return None
++        recent = [hp for t, hp in self.dive._hp_history if t >= bl.time - jf_config.KNOWN_ITEMS_BURST_TURNS]
++        danger = (threats, 'fast-melee', max(recent, default=bl.hitpoints) - bl.hitpoints)
++        # Reuse the existing item priority and ray/innate-resistance checks. The early option can spend only sleep.
++        plan = next(self._candidates(*danger), None)
++        if plan is None or plan[0] != 'zap':
++            return None
++        wand = plan[1][0]
++        if wand.object != _W['sleep'] or wand.status == Item.CURSED or \
++                not re.search(r'\(\d+:[1-9]\d*\)', wand.text):
++            return None
++        path = fight_heur.simulate_wand_path(agent, wand, agent.get_visible_monsters(), y - bl.y, x - bl.x)
++        if any(contact in ('self', 'pet', 'peaceful') and hits > 0 for _, _, contact, hits in path):
++            return None
++        if self._blocked.get(self._block_key(plan), -1) >= bl.time:
++            return None
++        return plan + (danger,)
++
+     def _plan(self):
+         """(kind, arg, why, danger) or None. Side-effect free: it runs as the preempt condition on every step."""
+         if not jf_config.KNOWN_ITEMS or not self._in_scope():
+             return None
+         danger = self._danger()
+         if danger is None:
+-            return None
++            return self._fast_adjacent_sleep_plan()
+         turn = self.agent.blstats.time
+         for plan in self._candidates(*danger):
+             if self._blocked.get(self._block_key(plan), -1) < turn:
+@@ -338,6 +381,8 @@ class KnownItemsGuard:
+         agent = self.agent
+         dive = self.dive
+         kind, arg, why, (adjacent, trigger, loss) = plan
++        if trigger == 'fast-melee':
++            self._last_fast_sleep_turn = agent.blstats.time
+         bkey = self._block_key(plan[:3])
+         t, n = self._attempts.get(bkey, (None, 0))
+         n = n + 1 if t == agent.blstats.time else 1
