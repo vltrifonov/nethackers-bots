@@ -1,0 +1,68 @@
+diff --git a/autoascend/agent.py b/autoascend/agent.py
+index ec07157..5d628bf 100644
+--- a/autoascend/agent.py
++++ b/autoascend/agent.py
+@@ -2803,9 +2803,25 @@ class Agent:
+         # Climbing may take several attempts; a stationary result is expected.
+         self.direction(self.calc_direction(self.blstats.y, self.blstats.x, *target))
+ 
++    def _trace_healer_recovery(self, action=None):
++        """Record the healing kit and actions for deep Healer diagnostics."""
++        bl = self.blstats
++        if not jf_log.enabled() or self.character.role != Character.HEALER or bl.depth < 20:
++            return
++        if action is not None:
++            self.log(f'HEAL choice {action}')
++            return
++        if bl.hitpoints >= 0.75 * bl.max_hitpoints or getattr(self, '_heal_trace_turn', None) == bl.time:
++            return
++        self._heal_trace_turn = bl.time
++        potions = [item.text for item in self.inventory.items if item.category == nh.POTION_CLASS]
++        recent = self.global_logic.dive._hp_history[-4:]
++        self.log(f'HEAL kit: energy={bl.energy} capacity={bl.carrying_capacity} recent_hp={recent} potions={potions}')
++
+     @utils.debug_log('emergency_strategy')
+     @Strategy.wrap
+     def emergency_strategy(self):
++        self._trace_healer_recovery()
+         # Astra's health-first rule: heal before the next adjacent attack can
+         # cross the old one-third-HP threshold. Potions are reliable in armor.
+         if self.character.role == Character.HEALER and not self.character.prop.polymorph and \
+@@ -2818,11 +2834,14 @@ class Agent:
+                        i.status != Item.CURSED and i.shop_status == Item.NOT_SHOP]
+             if potions:
+                 yield True
+-                self.inventory.quaff(max(potions, key=lambda i: strength[i.object.name]))
++                item = max(potions, key=lambda i: strength[i.object.name])
++                self._trace_healer_recovery(f'quaff {item.text!r} for close threat')
++                self.inventory.quaff(item)
+                 return
+         if self.astra_deep_blind_cure_due():
+             yield True
+             self._astra_blind_cure_turn = self.blstats.time
++            self._trace_healer_recovery('cast extra healing')
+             self.cast('extra healing', direction=(0, 0))
+             return
+         sleep_target = self.astra_sleep_target()
+@@ -2836,11 +2855,13 @@ class Agent:
+         # spell failure rates and conserve potions for depleted energy.
+         if self.should_cast_extra_heal():
+             yield True
++            self._trace_healer_recovery('cast extra healing')
+             self.cast('extra healing', direction=(0, 0))
+             return
+ 
+         if self.should_cast_heal():
+             yield True
++            self._trace_healer_recovery('cast healing')
+             self.cast('healing', direction=(0, 0))
+             return
+ 
+@@ -2880,6 +2901,7 @@ class Agent:
+                  or self.blstats.hitpoints < 8) and items and not poly_buffer
+         ):
+             yield True
++            self._trace_healer_recovery(f'quaff {items[0].text!r} for critical HP')
+             self.inventory.quaff(items[0])
+             return
+ 
