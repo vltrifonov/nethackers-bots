@@ -24,3 +24,5 @@ These additional roots have source review and bounded native diagnostic evidence
 All four preserve the42 reviewed source files exactly. Diagnostic continuation is selected development evidence, not a complete game, independent score improvement or current frontier advance. The conservative parser/container policies and historical cache-runtime metadata limits remain; no unsupported official-image claim is made.
 
 The branch is prepared locally while network access is blocked. It has not been pushed or registered. Later combined/cache/parser experiments may supersede these descriptive candidates after their own reviews and completed evaluations.
+
+Each candidate now has a distinct intended repository commit in `program-references.json`. The local harness keys programs by repository and commit, so different solution folders at one commit would share one program identity. These references preserve every source byte and are preparation only; they have not been registered.
