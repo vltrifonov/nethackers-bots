@@ -1,0 +1,53 @@
+diff --git a/CHANGES.md b/CHANGES.md
+index ee5c942..b1fcb6d 100644
+--- a/CHANGES.md
++++ b/CHANGES.md
+@@ -1,5 +1,9 @@
+ # Changes over the parent engine (pf_s25p)
+ 
++- Give the Ranger's safe point-blank shot the same Elbereth target focus as melee. Rangers
++  can fire their wielded launcher at an adjacent elf or soldier without spending a turn
++  switching weapons.
++
+ - **v9p (private-safe router)**: v5 plus only the specialist routes that beat nhbot on the hub's VERIFIED (private-seed)
+   tier -- Gnomish Archeologists on pf_v36, neutral human Rangers and the female elven Ranger on pf_s25p8, Knights on
+   pf_s25p8 -- and no daglar profile for Rangers, Rogues and Tourists (every Ranger and Rogue identity scored lower with
+diff --git a/nethackers.solution.json b/nethackers.solution.json
+index aabb3d4..863c778 100644
+--- a/nethackers.solution.json
++++ b/nethackers.solution.json
+@@ -1,8 +1,9 @@
+ {
+   "schema": "nethackers.solution/v1",
+-  "name": "daglar-zEmergencyMeal",
++  "name": "ranger-ready-shot-focus",
+   "root": ".",
+   "parents": [
++    "github.com/daglar-dragomirov/nethacker@e32ac09fc71382f9108bd507169a7669eb762d21",
+     "github.com/zarutskiysy/nethack@9c1cc902b6d9d88e6a14e0c9e5dc7494d9882bcd",
+     "github.com/zarutskiysy/nethack@00cf417f05ec9c20846b848cd70243af67695c54",
+     "github.com/zarutskiysy/nethack@14a3bbd871061d63bda57da6c82af91f46959d21",
+diff --git a/nhbot/combat/fight_heur.py b/nhbot/combat/fight_heur.py
+index 8dc4cfd..ab96f25 100644
+--- a/nhbot/combat/fight_heur.py
++++ b/nhbot/combat/fight_heur.py
+@@ -141,8 +141,7 @@ def ranger_point_blank(agent, launcher, ammo):
+ 
+ 
+ def ranger_point_blank_priority(agent, monster, default):
+-    """The shot's priority: one above what melee_monster_priority gives with a melee weapon in hand (16 when
+-    HP > 8 or the monster is faster), so it wins over melee, which would first swap to the dagger."""
++    """Prefer a ready shot over switching weapons to hit the same adjacent target."""
+     try:
+         _, _, _, mon, _ = monster
+         if mon.mname in WEAK_MONSTERS or mon.mname in ONLY_RANGED_SLOW_MONSTERS or \
+@@ -153,6 +152,9 @@ def ranger_point_blank_priority(agent, monster, default):
+             ret += 15
+         if 'were' in mon.mname:
+             ret += 1
++        # Apply the same target focus as melee so it cannot force a weapon swap.
++        if focus_ignorer(agent, mon):
++            ret += jf_config.AT_FOCUS
+         return ret
+     except Exception:
+         return default
