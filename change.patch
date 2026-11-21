@@ -1,0 +1,68 @@
+diff --git a/nethackers.solution.json b/nethackers.solution.json
+index 51a6536..c214c1f 100644
+--- a/nethackers.solution.json
++++ b/nethackers.solution.json
+@@ -1,8 +1,9 @@
+ {
+   "schema": "nethackers.solution/v1",
+-  "name": "daglar-zV10cHedDt9000Tf1000DigXL6",
++  "name": "Wizard prepare a fainting descent with invisibility",
+   "root": ".",
+   "parents": [
++    "github.com/daglar-dragomirov/nethacker@ead9da7ef7f9668dd3725d24e29205faaf9aec4f",
+     "github.com/daglar-dragomirov/nethacker@a368786dc2650f8cd878b1226ac5815e719f164d",
+     "github.com/zarutskiysy/nethack@14a3bbd871061d63bda57da6c82af91f46959d21",
+     "github.com/zarutskiysy/nethack@94c4c1cd21c51f9feec0eaabd9c63831a8ee3316",
+diff --git a/nhbot/dive_logic.py b/nhbot/dive_logic.py
+index d2674a7..1453e55 100644
+--- a/nhbot/dive_logic.py
++++ b/nhbot/dive_logic.py
+@@ -921,6 +921,7 @@ class DiveLogic:
+         self._last_pos = None              # (level key, (y, x)) at the previous update
+         self._arrived = None               # (level key, turn) of the last stairs arrival
+         self._arrival_pending = None       # ARRIVAL_FIX: (level key, '>' position, turn) of a stairs descent
++        self._faint_descent_invis_tried = False
+         self._arrival_square = None        # ARRIVAL_FIX: (level key, position) of the '<' we arrived on
+         self._crowd_retreats = {}          # ARRIVAL_FIX: (level key, '>' position) above -> crowd retreats taken
+         self._avoid_stairs_until = {}      # (level key, (y, x)) -> turn: don't take this '>' before
+@@ -6606,6 +6607,31 @@ class DiveLogic:
+                     agent.current_level().dungeon_number == Level.DUNGEONS_OF_DOOM:
+                 self.castle.on_bottom(key)
+ 
++    def _prepare_fainting_descent(self):
++        """Prepare once for an exposed arrival when starvation can cause a faint on the next level."""
++        agent = self.agent
++        bl = agent.blstats
++        level = agent.current_level()
++        prop = agent.character.prop
++        if self._faint_descent_invis_tried or not self.diving or agent.character.role != Character.WIZARD or \
++                level.dungeon_number != Level.DUNGEONS_OF_DOOM or level.shop[bl.y, bl.x] or \
++                bl.hunger_state != Hunger.FAINTING or not self.starving() or getattr(agent, '_cfp_invis', False) or \
++                bl.carrying_capacity >= 4 or self.levitating() or prop.blind or prop.confusion or prop.stun or \
++                prop.hallu or prop.polymorph or self._near_hostiles(radius=4):
++            return False
++        items = agent.inventory.items
++        if any(item.category == nh.ARMOR_CLASS and item.equipped and 'mummy wrapping' in item.text for item in items):
++            return False
++        wand = next((item for item in items if self.castle._usable_wand(item, 'make invisible') and
++                     item.status != Item.CURSED and item.shop_status != Item.UNPAID and
++                     re.search(r'\(\d+:[1-9]\d*\)', item.text)), None)
++        if wand is None:
++            return False
++        self._faint_descent_invis_tried = True
++        agent.log('FAINTING DESCENT: using the known wand of make invisible before taking the stairs')
++        agent.zap(wand, '.')
++        return True
++
+     def descend(self):
+         agent = self.agent
+         if self.try_dig_down():
+@@ -6629,6 +6655,8 @@ class DiveLogic:
+                 return
+             if self.rest_if_hurt():
+                 return
++            if self._prepare_fainting_descent():
++                return
+             agent.log(f'DIVE going down stairs at {(y, x)}')
+             above = (agent.current_level().key(), (y, x))
+             if ARRIVAL_FIX:
