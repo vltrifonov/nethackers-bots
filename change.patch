@@ -1,0 +1,62 @@
+diff --git a/base/nhbot/agent.py b/base/nhbot/agent.py
+index 821526f..e02c2da 100644
+--- a/base/nhbot/agent.py
++++ b/base/nhbot/agent.py
+@@ -3351,6 +3351,18 @@ class Agent:
+         low_hp = hp_ratio < 0.5 and (self.blstats.max_hitpoints - self.blstats.hitpoints > 25)
+         return self.blstats.energy >= 15 and low_hp
+ 
++    def _heal_after_blind_pit_hit(self):
++        bl = self.blstats
++        dive = self.global_logic.dive
++        if self.character.role != Character.RANGER or self.character.race != Character.ORC or not dive.diving or \
++                bl.hitpoints >= 0.4 * bl.max_hitpoints or not self.character.prop.blind or \
++                'It suddenly gets dark.' not in (self.message or '') or not dive._in_own_pit() or not self._hurt_recently(2):
++            return None
++        # A fresh blinding hit can be the last opportunity to heal before further attacks inside the pit.
++        return next((item for item in self.inventory.items if item.category == nh.POTION_CLASS and
++                     item.is_unambiguous() and item.object.name in ('extra healing', 'full healing') and
++                     item.status in (Item.UNCURSED, Item.BLESSED) and item.shop_status != Item.UNPAID), None)
++
+     @utils.debug_log('emergency_strategy')
+     @Strategy.wrap
+     def emergency_strategy(self):
+@@ -3421,14 +3433,15 @@ class Agent:
+ 
+         items = [item for item in flatten_items(self.inventory.items) if item.is_unambiguous() and
+                  item.category == nh.POTION_CLASS and item.object.name in ['healing', 'extra healing', 'full healing']]
+-        if (
+-                (self.blstats.hitpoints < 1 / 3 * self.blstats.max_hitpoints
+-                 or self.blstats.hitpoints < 8) and items and not poly_buffer
+-        ):
+-            yield True
+-            self.inventory.quaff(items[0])
+-            self._deep_pray_after_heal()
+-            return
++        if not poly_buffer:
++            bl = self.blstats
++            ordinary_heal = bl.hitpoints < bl.max_hitpoints / 3 or bl.hitpoints < 8
++            potion = items[0] if ordinary_heal and items else self._heal_after_blind_pit_hit()
++            if potion is not None:
++                yield True
++                self.inventory.quaff(potion)
++                self._deep_pray_after_heal()
++                return
+ 
+         items = [item for item in flatten_items(self.inventory.items) if item.is_unambiguous() and
+                  item.category == nh.POTION_CLASS and item.object.name in ['fruit juice']]
+diff --git a/nethackers.solution.json b/nethackers.solution.json
+index 1acf36d..afd4432 100644
+--- a/nethackers.solution.json
++++ b/nethackers.solution.json
+@@ -1,8 +1,9 @@
+ {
+   "schema": "nethackers.solution/v1",
+-  "name": "daglar-zLeadersSeed862571",
++  "name": "Ranger emergency healing after a blinding hit",
+   "root": ".",
+   "parents": [
++    "github.com/daglar-dragomirov/nethacker@5fd55f032566cde0641ecf08fffba5f26de70fad",
+     "github.com/daglar-dragomirov/nethacker@ccfb1251179bad749ece88d384956363ffb2db56",
+     "github.com/daglar-dragomirov/nethacker@44b29b9299c5dcfb76e3fc6081004727c58db19a",
+     "github.com/DT6A/nethacker@37f9da35d0dbf98ed15bf89735bd601f0c0eac02",
