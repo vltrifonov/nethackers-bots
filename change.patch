@@ -1,0 +1,74 @@
+diff --git a/base/nhbot_dt736_abi/agent.py b/base/nhbot_dt736_abi/agent.py
+index 807d10a..c3bd468 100644
+--- a/base/nhbot_dt736_abi/agent.py
++++ b/base/nhbot_dt736_abi/agent.py
+@@ -3055,9 +3055,12 @@ class Agent:
+     @utils.debug_log('engulfed_fight')
+     @Strategy.wrap
+     def engulfed_fight(self):
+-        if not utils.any_in(self.glyphs, G.SWALLOW):
++        mask = utils.isin(self.glyphs, G.SWALLOW)
++        if not mask.any():
+             yield False
+         yield True
++        if self._wait_out_energy_vortex(mask):
++            return
+         if jf_config.ENGULF_WIELD:
+             # a dig-diver is swallowed with the pick-axe in hand (base-jf25 s13: 'You begin bashing monsters
+             # with your pick-axe' inside a fire vortex, dead 2 turns later): every blow from inside hits, so
+@@ -3073,6 +3076,40 @@ class Agent:
+                 break
+             assert self.melee_attack(*list(zip(*mask.nonzero()))[0])
+ 
++    def _wait_out_energy_vortex(self, mask):
++        """A Monk with a badly rusted digging tool can wait for an energy vortex to expel them."""
++        bl = self.blstats
++        prop = self.character.prop
++        if (self.character.role != Character.MONK or bl.experience_level >= 15
++                or bl.hitpoints <= max(24, bl.max_hitpoints // 2) or prop.blind or prop.hallu or prop.polymorph):
++            return False
++        glyph = int(self.glyphs[mask][0])
++        # Each species has eight consecutive swallow glyphs.
++        species = (glyph - nh.GLYPH_SWALLOW_OFF) // 8
++        if nh.permonst(species).mname != 'energy vortex':
++            return False
++        main = self.inventory.items.main_hand
++        if (main is None or not main.is_unambiguous() or main.object.name not in ('pick-axe', 'dwarvish mattock')
++                or not any(mark in (main.text or '') for mark in ('very rusty', 'thoroughly rusty'))):
++            return False
++        if any(i.category in (nh.SCROLL_CLASS, nh.WAND_CLASS) and i.is_unambiguous()
++               and i.object.name == 'teleportation' and i.status != Item.CURSED and i.shop_status == Item.NOT_SHOP
++               and (i.category == nh.SCROLL_CLASS or not self.inventory.is_known_empty(i))
++               for i in self.inventory.items):
++            return False
++
++        # The vortex's active electric hit is 1d6. Melee adds a much larger passive shock.
++        # The native non-digesting engulf timer progresses on its attacks.
++        self.log('ENGULFED: waiting for the energy vortex to expel us')
++        for _ in range(6):
++            self.step(A.MiscDirection.WAIT)
++            mask = utils.isin(self.glyphs, G.SWALLOW)
++            if not mask.any():
++                return True
++            if self.blstats.hitpoints <= 18 or (int(self.glyphs[mask][0]) - nh.GLYPH_SWALLOW_OFF) // 8 != species:
++                break
++        return False
++
+     def _is_corpse_editable(self, monster_id, age_turn):
+         permonst = MON.permonst(monster_id)
+ 
+diff --git a/nethackers.solution.json b/nethackers.solution.json
+index b0f8eec..07dc672 100644
+--- a/nethackers.solution.json
++++ b/nethackers.solution.json
+@@ -1,8 +1,9 @@
+ {
+   "schema": "nethackers.solution/v1",
+-  "name": "daglar-zLeadersBest5043751",
++  "name": "Monk safe energy-vortex expulsion",
+   "root": ".",
+   "parents": [
++    "github.com/daglar-dragomirov/nethacker@e1bfef1de515185acc69a4ed8c1148954a98063b",
+     "github.com/daglar-dragomirov/nethacker@ccfb1251179bad749ece88d384956363ffb2db56",
+     "github.com/daglar-dragomirov/nethacker@44b29b9299c5dcfb76e3fc6081004727c58db19a",
+     "github.com/DT6A/nethacker@37f9da35d0dbf98ed15bf89735bd601f0c0eac02",
