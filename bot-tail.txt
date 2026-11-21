@@ -1,0 +1,2196 @@
+erform_action(3, 45):2 check_items(3, 51):2 open_visit_search(3, 18):2]
+[s8411 t6519 d3 0:3 xl6 hp61/65] LYCAN infected (kind rat)
+[s8427 t6525 d3 0:3 xl6 hp62/65] LYCAN cured
+[s8535 t6576 d3 0:3 xl6 hp65/65] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/item/inventory.py", line 614, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/base/pf_valk37f_armor/agent.py", line 175, in atom_operation
+    self.update_state()
+  File "/sol/base/pf_valk37f_armor/agent.py", line 655, in update_state
+    self.call_update_functions()
+  File "/sol/base/pf_valk37f_armor/agent.py", line 666, in call_update_functions
+    func()
+  File "/sol/base/pf_valk37f_armor/item/inventory.py", line 155, in f
+    raise AgentPanic('items below me changed')
+pf_valk37f_armor.exceptions.AgentPanic: items below me changed
+
+[s9146 t7000 d3 0:3 xl6 hp65/65] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(15), np.int64(15)) acts=[SPACE:129 W:69 SW:69 E:59 NE:49] gotos=[check_items(3, 22):21 open_visit_search(8, 21):15 open_visit_search(15, 17):5]
+[s9172 t7016 d3 0:3 xl6 hp65/65] FIGHT stall of 51 turns ended (contact): ['dwarf zombie', 'giant rat', 'gray ooze']
+[s9198 t7042 d3 0:3 xl6 hp65/65] FIGHT stall of 25 turns ended (contact): ['gray ooze']
+[s9253 t7091 d3 0:3 xl6 hp65/65] PANIC AgentPanic: Monster on a next tile when moving: (6,24)
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_valk37f_armor/agent.py", line 285, in preempt
+    val = f()
+          ^^^
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/base/pf_valk37f_armor/exploration_logic.py", line 490, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/base/pf_valk37f_armor/agent.py", line 2012, in go_to
+    self.move(y, x)
+  File "/sol/base/pf_valk37f_armor/agent.py", line 1651, in move
+    raise AgentPanic(f'Monster on a next tile when moving: ({expected_y},{expected_x})')
+pf_valk37f_armor.exceptions.AgentPanic: Monster on a next tile when moving: (6,24)
+
+[s9286 t7105 d3 0:3 xl6 hp65/65] DIVE attacking a peaceful dwarf at (5, 19) for its digging tool (digger=False, align~45)
+[s9288 t7106 d3 0:3 xl6 hp65/65] ALIGN estimate 44 (cap 45) after -1
+[s9324 t7130 d3 0:3 xl6 hp65/65] DIVE killed a dwarf (1); piles to check: [(np.int64(3), np.int64(22)), (np.int64(4), np.int64(21)), (np.int64(5), np.int64(18))]
+[s9324 t7130 d3 0:3 xl6 hp65/65] ALIGN estimate 32 (cap 45) after -12
+[s9324 t7130 d3 0:3 xl6 hp65/65] DWARF died near [(3, 22), (4, 21)]: piles to check
+[s9351 t7132 d3 0:3 xl6 hp65/65] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/item/inventory.py", line 614, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/base/pf_valk37f_armor/agent.py", line 175, in atom_operation
+    self.update_state()
+  File "/sol/base/pf_valk37f_armor/agent.py", line 655, in update_state
+    self.call_update_functions()
+  File "/sol/base/pf_valk37f_armor/agent.py", line 666, in call_update_functions
+    func()
+  File "/sol/base/pf_valk37f_armor/item/inventory.py", line 155, in f
+    raise AgentPanic('items below me changed')
+pf_valk37f_armor.exceptions.AgentPanic: items below me changed
+
+[s9466 t7170 d3 0:3 xl6 hp65/65] DIVE checked the pile at (np.int64(3), np.int64(22)): tool None
+[s9472 t7171 d3 0:3 xl6 hp65/65] DIVE checked the pile at (np.int64(4), np.int64(21)): tool None
+[s9600 t7292 d3 0:3 xl6 hp65/65] PRAY hp=65/65 hunger=3 gap=2513 reason=None
+[s9808 t7500 d3 0:3 xl6 hp65/65] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(7), np.int64(20)) acts=[SPACE:94 SEARCH:66 E:56 W:47 N:39] gotos=[check_items(6, 24):29 _visit_tool_spot(5, 18):20 open_visit_search(7, 20):3]
+[s9907 t7585 d3 0:3 xl6 hp57/65] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/item/inventory.py", line 614, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/base/pf_valk37f_armor/agent.py", line 175, in atom_operation
+    self.update_state()
+  File "/sol/base/pf_valk37f_armor/agent.py", line 655, in update_state
+    self.call_update_functions()
+  File "/sol/base/pf_valk37f_armor/agent.py", line 666, in call_update_functions
+    func()
+  File "/sol/base/pf_valk37f_armor/item/inventory.py", line 155, in f
+    raise AgentPanic('items below me changed')
+pf_valk37f_armor.exceptions.AgentPanic: items below me changed
+
+[s10162 t7819 d3 0:3 xl6 hp65/65] PANIC AgentPanic: position changed
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/agent.py", line 1636, in direction
+    self.step(action)
+  File "/sol/base/pf_valk37f_armor/agent.py", line 451, in step
+    self.update(observation, additional_action_iterator)
+  File "/sol/base/pf_valk37f_armor/agent.py", line 614, in update
+    self.update_state(allow_update=self._atom_operation_allow_update or not self.in_atom_operation,
+  File "/sol/base/pf_valk37f_armor/agent.py", line 655, in update_state
+    self.call_update_functions()
+  File "/sol/base/pf_valk37f_armor/agent.py", line 666, in call_update_functions
+    func()
+  File "/sol/base/pf_valk37f_armor/agent.py", line 183, in f
+    raise AgentPanic('position changed')
+pf_valk37f_armor.exceptions.AgentPanic: position changed
+
+[s10189 t7824 d3 0:3 xl6 hp65/65] FIGHT stall of 28 turns ended (contact): ['giant rat', 'leprechaun']
+[s10263 t7866 d3 0:3 xl6 hp65/65] INTRINSIC teleportitis
+[s10264 t7866 d3 0:3 xl6 hp65/65] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/item/inventory.py", line 614, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/base/pf_valk37f_armor/agent.py", line 175, in atom_operation
+    self.update_state()
+  File "/sol/base/pf_valk37f_armor/agent.py", line 655, in update_state
+    self.call_update_functions()
+  File "/sol/base/pf_valk37f_armor/agent.py", line 666, in call_update_functions
+    func()
+  File "/sol/base/pf_valk37f_armor/item/inventory.py", line 155, in f
+    raise AgentPanic('items below me changed')
+pf_valk37f_armor.exceptions.AgentPanic: items below me changed
+
+[s10286 t7869 d3 0:3 xl6 hp65/65] PANIC AgentPanic: agent position do not match after "move": expected (7, 64), got (6, 65)
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_valk37f_armor/agent.py", line 283, in preempt
+    val = f.run()
+          ^^^^^^^
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 48, in run
+    next(gen)
+  File "/sol/base/pf_valk37f_armor/exploration_logic.py", line 490, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/base/pf_valk37f_armor/agent.py", line 2012, in go_to
+    self.move(y, x)
+  File "/sol/base/pf_valk37f_armor/agent.py", line 1683, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_valk37f_armor.exceptions.AgentPanic: agent position do not match after "move": expected (7, 64), got (6, 65)
+
+[s10428 t7945 d3 0:3 xl6 hp60/65] RANGED hit: holds and Elbereth waits off for 8 turns
+[s10428 t7945 d3 0:3 xl6 hp60/65] FIGHT stall of 25 turns ended (hurt): ['kobold']
+[s10450 t7953 d3 0:3 xl6 hp61/65] PANIC AgentPanic: agent position do not match after "move": expected (8, 69), got (3, 24)
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 165, in f
+    next(gen)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 100, in f
+    next(v1)
+  File "/sol/base/pf_valk37f_armor/utils.py", line 138, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/item/inventory.py", line 1582, in check_items
+    self.agent.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 0, 255), is_path=True))
+  File "/sol/base/pf_valk37f_armor/agent.py", line 2012, in go_to
+    self.move(y, x)
+  File "/sol/base/pf_valk37f_armor/agent.py", line 1683, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_valk37f_armor.exceptions.AgentPanic: agent position do not match after "move": expected (8, 69), got (3, 24)
+
+[s10519 t7982 d3 0:3 xl6 hp65/65] PANIC AgentPanic: agent position do not match after "move": expected (3, 51), got (4, 19)
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 165, in f
+    next(gen)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 100, in f
+    next(v1)
+  File "/sol/base/pf_valk37f_armor/utils.py", line 138, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/item/inventory.py", line 1582, in check_items
+    self.agent.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 0, 255), is_path=True))
+  File "/sol/base/pf_valk37f_armor/agent.py", line 2012, in go_to
+    self.move(y, x)
+  File "/sol/base/pf_valk37f_armor/agent.py", line 1683, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_valk37f_armor.exceptions.AgentPanic: agent position do not match after "move": expected (3, 51), got (4, 19)
+
+[s10558 t8000 d3 0:3 xl6 hp65/65] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(3), np.int64(37)) acts=[E:116 SPACE:106 SEARCH:47 WHATIS:41 MOVEFAR:41] gotos=[check_items(8, 67):5 open_visit_search(14, 48):3 open_visit_search(14, 50):3]
+[s10734 t8099 d3 0:3 xl6 hp65/65] PANIC AgentPanic: agent position do not match after "move": expected (13, 66), got (4, 17)
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_valk37f_armor/agent.py", line 296, in preempt
+    next(iterator)
+  File "/sol/base/pf_valk37f_armor/utils.py", line 138, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/agent.py", line 2276, in fight2
+    wait_counter = self._fight2_perform_action(best_action, wait_counter)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_valk37f_armor/agent.py", line 2347, in _fight2_perform_action
+    self.move(target_y, target_x)
+  File "/sol/base/pf_valk37f_armor/agent.py", line 1683, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_valk37f_armor.exceptions.AgentPanic: agent position do not match after "move": expected (13, 66), got (4, 17)
+
+[s10758 t8100 d3 0:3 xl6 hp65/65] FIGHT stall of 23 turns ended (contact): ['dwarf zombie', 'leprechaun']
+[s11004 t8224 d3 0:3 xl7 hp79/79] PANIC AgentPanic: agent position do not match after "move": expected (12, 75), got (7, 19)
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_valk37f_armor/agent.py", line 283, in preempt
+    val = f.run()
+          ^^^^^^^
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 48, in run
+    next(gen)
+  File "/sol/base/pf_valk37f_armor/exploration_logic.py", line 246, in go_to_strategy
+    return self.agent.go_to(y, x, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_valk37f_armor/agent.py", line 2012, in go_to
+    self.move(y, x)
+  File "/sol/base/pf_valk37f_armor/agent.py", line 1683, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_valk37f_armor.exceptions.AgentPanic: agent position do not match after "move": expected (12, 75), got (7, 19)
+
+[s11038 t8237 d2 0:2 xl7 hp79/79] DIVE level (np.int64(0), np.int64(2)) depth 2
+[s11065 t8263 d2 0:2 xl7 hp79/79] FIGHT stall of 25 turns ended (gap): ['leprechaun']
+[s11079 t8275 d2 0:2 xl7 hp79/79] PANIC AgentPanic: position changed
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/agent.py", line 1611, in search
+    with self.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/base/pf_valk37f_armor/agent.py", line 175, in atom_operation
+    self.update_state()
+  File "/sol/base/pf_valk37f_armor/agent.py", line 655, in update_state
+    self.call_update_functions()
+  File "/sol/base/pf_valk37f_armor/agent.py", line 666, in call_update_functions
+    func()
+  File "/sol/base/pf_valk37f_armor/agent.py", line 183, in f
+    raise AgentPanic('position changed')
+pf_valk37f_armor.exceptions.AgentPanic: position changed
+
+[s11106 t8293 d2 0:2 xl7 hp79/79] PANIC AgentPanic: position changed
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/agent.py", line 1611, in search
+    with self.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/base/pf_valk37f_armor/agent.py", line 175, in atom_operation
+    self.update_state()
+  File "/sol/base/pf_valk37f_armor/agent.py", line 655, in update_state
+    self.call_update_functions()
+  File "/sol/base/pf_valk37f_armor/agent.py", line 666, in call_update_functions
+    func()
+  File "/sol/base/pf_valk37f_armor/agent.py", line 183, in f
+    raise AgentPanic('position changed')
+pf_valk37f_armor.exceptions.AgentPanic: position changed
+
+[s11452 t8500 d2 0:2 xl7 hp79/79] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(5), np.int64(6)) acts=[SPACE:143 E:141 SEARCH:76 SW:50 NUM_5:45] gotos=[check_items(12, 74):6 _fight2_perform_action(12, 63):3 open_visit_search(3, 56):3]
+[s11763 t8695 d2 0:2 xl7 hp79/79] FIGHT stall of 30 turns ended (contact): ['cave spider', 'kitten', 'rabid rat', 'rothe']
+[s11841 t8754 d2 0:2 xl7 hp79/79] EAT corpse 80 at (np.int64(7), np.int64(62)) refused; backoff
+[s11895 t8818 d2 0:2 xl7 hp79/79] PANIC AgentPanic: position changed
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/agent.py", line 1611, in search
+    with self.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/base/pf_valk37f_armor/agent.py", line 175, in atom_operation
+    self.update_state()
+  File "/sol/base/pf_valk37f_armor/agent.py", line 655, in update_state
+    self.call_update_functions()
+  File "/sol/base/pf_valk37f_armor/agent.py", line 666, in call_update_functions
+    func()
+  File "/sol/base/pf_valk37f_armor/agent.py", line 183, in f
+    raise AgentPanic('position changed')
+pf_valk37f_armor.exceptions.AgentPanic: position changed
+
+[s11951 t8841 d2 0:2 xl7 hp79/79] PANIC AgentPanic: position changed
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/agent.py", line 1611, in search
+    with self.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/base/pf_valk37f_armor/agent.py", line 175, in atom_operation
+    self.update_state()
+  File "/sol/base/pf_valk37f_armor/agent.py", line 655, in update_state
+    self.call_update_functions()
+  File "/sol/base/pf_valk37f_armor/agent.py", line 666, in call_update_functions
+    func()
+  File "/sol/base/pf_valk37f_armor/agent.py", line 183, in f
+    raise AgentPanic('position changed')
+pf_valk37f_armor.exceptions.AgentPanic: position changed
+
+[s11979 t8856 d2 0:2 xl7 hp79/79] PANIC AgentPanic: position changed
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/agent.py", line 1611, in search
+    with self.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/base/pf_valk37f_armor/agent.py", line 175, in atom_operation
+    self.update_state()
+  File "/sol/base/pf_valk37f_armor/agent.py", line 655, in update_state
+    self.call_update_functions()
+  File "/sol/base/pf_valk37f_armor/agent.py", line 666, in call_update_functions
+    func()
+  File "/sol/base/pf_valk37f_armor/agent.py", line 183, in f
+    raise AgentPanic('position changed')
+pf_valk37f_armor.exceptions.AgentPanic: position changed
+
+[s12056 t8923 d2 0:2 xl7 hp79/79] PANIC AgentPanic: position changed
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/agent.py", line 1611, in search
+    with self.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/base/pf_valk37f_armor/agent.py", line 175, in atom_operation
+    self.update_state()
+  File "/sol/base/pf_valk37f_armor/agent.py", line 655, in update_state
+    self.call_update_functions()
+  File "/sol/base/pf_valk37f_armor/agent.py", line 666, in call_update_functions
+    func()
+  File "/sol/base/pf_valk37f_armor/agent.py", line 183, in f
+    raise AgentPanic('position changed')
+pf_valk37f_armor.exceptions.AgentPanic: position changed
+
+[s12099 t8937 d2 0:2 xl7 hp79/79] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/item/inventory.py", line 614, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/base/pf_valk37f_armor/agent.py", line 175, in atom_operation
+    self.update_state()
+  File "/sol/base/pf_valk37f_armor/agent.py", line 655, in update_state
+    self.call_update_functions()
+  File "/sol/base/pf_valk37f_armor/agent.py", line 666, in call_update_functions
+    func()
+  File "/sol/base/pf_valk37f_armor/item/inventory.py", line 155, in f
+    raise AgentPanic('items below me changed')
+pf_valk37f_armor.exceptions.AgentPanic: items below me changed
+
+[s12164 t8975 d2 0:2 xl7 hp79/79] PANIC AgentPanic: position changed
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/agent.py", line 1611, in search
+    with self.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/base/pf_valk37f_armor/agent.py", line 175, in atom_operation
+    self.update_state()
+  File "/sol/base/pf_valk37f_armor/agent.py", line 655, in update_state
+    self.call_update_functions()
+  File "/sol/base/pf_valk37f_armor/agent.py", line 666, in call_update_functions
+    func()
+  File "/sol/base/pf_valk37f_armor/agent.py", line 183, in f
+    raise AgentPanic('position changed')
+pf_valk37f_armor.exceptions.AgentPanic: position changed
+
+[s12222 t9000 d2 0:2 xl7 hp79/79] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(6), np.int64(47)) acts=[SPACE:113 SEARCH:99 NUM_5:76 E:47 W:47] gotos=[open_visit_search(3, 56):5 open_visit_search(6, 8):2 open_visit_search(3, 9):2]
+[s12224 t9004 d2 0:2 xl7 hp79/79] PANIC AgentPanic: position changed
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/agent.py", line 1611, in search
+    with self.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/base/pf_valk37f_armor/agent.py", line 175, in atom_operation
+    self.update_state()
+  File "/sol/base/pf_valk37f_armor/agent.py", line 655, in update_state
+    self.call_update_functions()
+  File "/sol/base/pf_valk37f_armor/agent.py", line 666, in call_update_functions
+    func()
+  File "/sol/base/pf_valk37f_armor/agent.py", line 183, in f
+    raise AgentPanic('position changed')
+pf_valk37f_armor.exceptions.AgentPanic: position changed
+
+[s12316 t9038 d2 0:2 xl7 hp79/79] PANIC AgentPanic: position changed
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/agent.py", line 1611, in search
+    with self.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/base/pf_valk37f_armor/agent.py", line 175, in atom_operation
+    self.update_state()
+  File "/sol/base/pf_valk37f_armor/agent.py", line 655, in update_state
+    self.call_update_functions()
+  File "/sol/base/pf_valk37f_armor/agent.py", line 666, in call_update_functions
+    func()
+  File "/sol/base/pf_valk37f_armor/agent.py", line 183, in f
+    raise AgentPanic('position changed')
+pf_valk37f_armor.exceptions.AgentPanic: position changed
+
+[s12601 t9292 d2 0:2 xl7 hp79/79] PANIC AgentPanic: position changed
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/agent.py", line 1611, in search
+    with self.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/base/pf_valk37f_armor/agent.py", line 175, in atom_operation
+    self.update_state()
+  File "/sol/base/pf_valk37f_armor/agent.py", line 655, in update_state
+    self.call_update_functions()
+  File "/sol/base/pf_valk37f_armor/agent.py", line 666, in call_update_functions
+    func()
+  File "/sol/base/pf_valk37f_armor/agent.py", line 183, in f
+    raise AgentPanic('position changed')
+pf_valk37f_armor.exceptions.AgentPanic: position changed
+
+[s12636 t9309 d2 0:2 xl7 hp79/79] DIVE attacking a peaceful dwarf at (8, 46) for its digging tool (digger=False, align~55)
+[s12638 t9310 d2 0:2 xl7 hp79/79] ALIGN estimate 54 (cap 56) after -1
+[s12674 t9339 d2 0:2 xl7 hp79/79] PANIC AgentPanic: position changed
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/agent.py", line 1611, in search
+    with self.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/base/pf_valk37f_armor/agent.py", line 175, in atom_operation
+    self.update_state()
+  File "/sol/base/pf_valk37f_armor/agent.py", line 655, in update_state
+    self.call_update_functions()
+  File "/sol/base/pf_valk37f_armor/agent.py", line 666, in call_update_functions
+    func()
+  File "/sol/base/pf_valk37f_armor/agent.py", line 183, in f
+    raise AgentPanic('position changed')
+pf_valk37f_armor.exceptions.AgentPanic: position changed
+
+[s12845 t9446 d2 0:2 xl7 hp79/79] PRAY hp=79/79 hunger=3 gap=2151 reason=None
+[s12867 t9462 d2 0:2 xl7 hp79/79] PANIC AgentPanic: position changed
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/agent.py", line 1611, in search
+    with self.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/base/pf_valk37f_armor/agent.py", line 175, in atom_operation
+    self.update_state()
+  File "/sol/base/pf_valk37f_armor/agent.py", line 655, in update_state
+    self.call_update_functions()
+  File "/sol/base/pf_valk37f_armor/agent.py", line 666, in call_update_functions
+    func()
+  File "/sol/base/pf_valk37f_armor/agent.py", line 183, in f
+    raise AgentPanic('position changed')
+pf_valk37f_armor.exceptions.AgentPanic: position changed
+
+[s12919 t9502 d2 0:2 xl7 hp79/79] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(6), np.int64(40)) acts=[SEARCH:129 SPACE:102 NUM_5:87 E:38 SW:36] gotos=[_fight2_perform_action(15, 47):3 open_visit_search(16, 46):3 open_visit_search(12, 39):3]
+[s13196 t9697 d2 0:2 xl7 hp79/79] PANIC AgentPanic: agent position do not match after "move": expected (6, 6), got (18, 29)
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_valk37f_armor/agent.py", line 285, in preempt
+    val = f()
+          ^^^
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/base/pf_valk37f_armor/exploration_logic.py", line 490, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/base/pf_valk37f_armor/agent.py", line 2012, in go_to
+    self.move(y, x)
+  File "/sol/base/pf_valk37f_armor/agent.py", line 1683, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_valk37f_armor.exceptions.AgentPanic: agent position do not match after "move": expected (6, 6), got (18, 29)
+
+[s13443 t9849 d2 0:2 xl7 hp79/79] PANIC AgentPanic: position changed
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/agent.py", line 1611, in search
+    with self.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/base/pf_valk37f_armor/agent.py", line 175, in atom_operation
+    self.update_state()
+  File "/sol/base/pf_valk37f_armor/agent.py", line 655, in update_state
+    self.call_update_functions()
+  File "/sol/base/pf_valk37f_armor/agent.py", line 666, in call_update_functions
+    func()
+  File "/sol/base/pf_valk37f_armor/agent.py", line 183, in f
+    raise AgentPanic('position changed')
+pf_valk37f_armor.exceptions.AgentPanic: position changed
+
+[s13672 t9977 d2 0:2 xl7 hp79/79] EAT corpse 159 at (np.int64(15), np.int64(47)) refused; backoff
+[s13673 t9977 d2 0:2 xl7 hp79/79] PANIC AgentPanic: agent position do not match after "move": expected (14, 46), got (15, 47)
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_valk37f_armor/agent.py", line 285, in preempt
+    val = f()
+          ^^^
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/base/pf_valk37f_armor/exploration_logic.py", line 490, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/base/pf_valk37f_armor/agent.py", line 2012, in go_to
+    self.move(y, x)
+  File "/sol/base/pf_valk37f_armor/agent.py", line 1683, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_valk37f_armor.exceptions.AgentPanic: agent position do not match after "move": expected (14, 46), got (15, 47)
+
+[s13719 t10004 d2 0:2 xl7 hp79/79] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(12), np.int64(46)) acts=[SPACE:121 SEARCH:102 E:82 NUM_5:76 SW:40] gotos=[open_visit_search(17, 35):3 open_visit_search(12, 44):3 open_visit_search(3, 3):2]
+[s13865 t10125 d2 0:2 xl7 hp79/79] PANIC AgentPanic: position changed
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/agent.py", line 1611, in search
+    with self.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/base/pf_valk37f_armor/agent.py", line 175, in atom_operation
+    self.update_state()
+  File "/sol/base/pf_valk37f_armor/agent.py", line 655, in update_state
+    self.call_update_functions()
+  File "/sol/base/pf_valk37f_armor/agent.py", line 666, in call_update_functions
+    func()
+  File "/sol/base/pf_valk37f_armor/agent.py", line 183, in f
+    raise AgentPanic('position changed')
+pf_valk37f_armor.exceptions.AgentPanic: position changed
+
+[s13903 t10153 d2 0:2 xl7 hp79/79] PANIC AgentPanic: position changed
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/agent.py", line 1611, in search
+    with self.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/base/pf_valk37f_armor/agent.py", line 175, in atom_operation
+    self.update_state()
+  File "/sol/base/pf_valk37f_armor/agent.py", line 655, in update_state
+    self.call_update_functions()
+  File "/sol/base/pf_valk37f_armor/agent.py", line 666, in call_update_functions
+    func()
+  File "/sol/base/pf_valk37f_armor/agent.py", line 183, in f
+    raise AgentPanic('position changed')
+pf_valk37f_armor.exceptions.AgentPanic: position changed
+
+[s13920 t10153 d2 0:2 xl7 hp79/79] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_valk37f_armor/agent.py", line 285, in preempt
+    val = f()
+          ^^^
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/base/pf_valk37f_armor/exploration_logic.py", line 490, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/base/pf_valk37f_armor/agent.py", line 1984, in go_to
+    raise AgentPanic('end point is no longer accessible')
+pf_valk37f_armor.exceptions.AgentPanic: end point is no longer accessible
+
+[s14159 t10325 d2 0:2 xl7 hp65/79] PANIC AgentPanic: position changed
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/agent.py", line 1611, in search
+    with self.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/base/pf_valk37f_armor/agent.py", line 175, in atom_operation
+    self.update_state()
+  File "/sol/base/pf_valk37f_armor/agent.py", line 655, in update_state
+    self.call_update_functions()
+  File "/sol/base/pf_valk37f_armor/agent.py", line 666, in call_update_functions
+    func()
+  File "/sol/base/pf_valk37f_armor/agent.py", line 183, in f
+    raise AgentPanic('position changed')
+pf_valk37f_armor.exceptions.AgentPanic: position changed
+
+[s14189 t10335 d2 0:2 xl7 hp67/79] PANIC AgentPanic: position changed
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/agent.py", line 1611, in search
+    with self.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/base/pf_valk37f_armor/agent.py", line 175, in atom_operation
+    self.update_state()
+  File "/sol/base/pf_valk37f_armor/agent.py", line 655, in update_state
+    self.call_update_functions()
+  File "/sol/base/pf_valk37f_armor/agent.py", line 666, in call_update_functions
+    func()
+  File "/sol/base/pf_valk37f_armor/agent.py", line 183, in f
+    raise AgentPanic('position changed')
+pf_valk37f_armor.exceptions.AgentPanic: position changed
+
+[s14275 t10407 d2 0:2 xl7 hp79/79] PANIC AgentPanic: position changed
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/agent.py", line 1611, in search
+    with self.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/base/pf_valk37f_armor/agent.py", line 175, in atom_operation
+    self.update_state()
+  File "/sol/base/pf_valk37f_armor/agent.py", line 655, in update_state
+    self.call_update_functions()
+  File "/sol/base/pf_valk37f_armor/agent.py", line 666, in call_update_functions
+    func()
+  File "/sol/base/pf_valk37f_armor/agent.py", line 183, in f
+    raise AgentPanic('position changed')
+pf_valk37f_armor.exceptions.AgentPanic: position changed
+
+[s14372 t10501 d2 0:2 xl7 hp79/79] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(11), np.int64(39)) acts=[SEARCH:112 NUM_5:83 SPACE:65 E:41 NW:37] gotos=[open_visit_search(12, 50):3 open_visit_search(14, 53):3 open_visit_search(17, 58):3]
+[s14398 t10520 d2 0:2 xl7 hp79/79] PANIC AgentPanic: position changed
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/agent.py", line 1611, in search
+    with self.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/base/pf_valk37f_armor/agent.py", line 175, in atom_operation
+    self.update_state()
+  File "/sol/base/pf_valk37f_armor/agent.py", line 655, in update_state
+    self.call_update_functions()
+  File "/sol/base/pf_valk37f_armor/agent.py", line 666, in call_update_functions
+    func()
+  File "/sol/base/pf_valk37f_armor/agent.py", line 183, in f
+    raise AgentPanic('position changed')
+pf_valk37f_armor.exceptions.AgentPanic: position changed
+
+[s14439 t10539 d2 0:2 xl7 hp79/79] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_valk37f_armor/agent.py", line 285, in preempt
+    val = f()
+          ^^^
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/base/pf_valk37f_armor/exploration_logic.py", line 490, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/base/pf_valk37f_armor/agent.py", line 1984, in go_to
+    raise AgentPanic('end point is no longer accessible')
+pf_valk37f_armor.exceptions.AgentPanic: end point is no longer accessible
+
+[s14598 t10621 d2 0:2 xl7 hp79/79] PANIC AgentPanic: position changed
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/agent.py", line 1611, in search
+    with self.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/base/pf_valk37f_armor/agent.py", line 175, in atom_operation
+    self.update_state()
+  File "/sol/base/pf_valk37f_armor/agent.py", line 655, in update_state
+    self.call_update_functions()
+  File "/sol/base/pf_valk37f_armor/agent.py", line 666, in call_update_functions
+    func()
+  File "/sol/base/pf_valk37f_armor/agent.py", line 183, in f
+    raise AgentPanic('position changed')
+pf_valk37f_armor.exceptions.AgentPanic: position changed
+
+[s14955 t10906 d2 0:2 xl7 hp79/79] PANIC AgentPanic: agent position do not match after "move": expected (15, 28), got (12, 5)
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_valk37f_armor/agent.py", line 296, in preempt
+    next(iterator)
+  File "/sol/base/pf_valk37f_armor/utils.py", line 138, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/agent.py", line 2276, in fight2
+    wait_counter = self._fight2_perform_action(best_action, wait_counter)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_valk37f_armor/agent.py", line 2347, in _fight2_perform_action
+    self.move(target_y, target_x)
+  File "/sol/base/pf_valk37f_armor/agent.py", line 1683, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_valk37f_armor.exceptions.AgentPanic: agent position do not match after "move": expected (15, 28), got (12, 5)
+
+[s14988 t10917 d2 0:2 xl7 hp79/79] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 190, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 165, in f
+    next(gen)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 100, in f
+    next(v1)
+  File "/sol/base/pf_valk37f_armor/utils.py", line 138, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/item/inventory.py", line 1582, in check_items
+    self.agent.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 0, 255), is_path=True))
+  File "/sol/base/pf_valk37f_armor/agent.py", line 1984, in go_to
+    raise AgentPanic('end point is no longer accessible')
+pf_valk37f_armor.exceptions.AgentPanic: end point is no longer accessible
+
+[s15097 t11002 d2 0:2 xl7 hp79/79] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(12), np.int64(30)) acts=[SEARCH:94 NUM_5:84 SPACE:80 E:61 W:54] gotos=[open_visit_search(18, 12):4 open_visit_search(16, 5):3 open_visit_search(17, 4):3]
+[s15106 t11012 d2 0:2 xl7 hp79/79] PANIC AgentPanic: position changed
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/agent.py", line 1611, in search
+    with self.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/base/pf_valk37f_armor/agent.py", line 175, in atom_operation
+    self.update_state()
+  File "/sol/base/pf_valk37f_armor/agent.py", line 655, in update_state
+    self.call_update_functions()
+  File "/sol/base/pf_valk37f_armor/agent.py", line 666, in call_update_functions
+    func()
+  File "/sol/base/pf_valk37f_armor/agent.py", line 183, in f
+    raise AgentPanic('position changed')
+pf_valk37f_armor.exceptions.AgentPanic: position changed
+
+[s15135 t11017 d2 0:2 xl7 hp79/79] PANIC AgentPanic: agent position do not match after "move": expected (15, 31), got (17, 33)
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/agent.py", line 296, in preempt
+    next(iterator)
+  File "/sol/base/pf_valk37f_armor/utils.py", line 138, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/agent.py", line 2276, in fight2
+    wait_counter = self._fight2_perform_action(best_action, wait_counter)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_valk37f_armor/agent.py", line 2421, in _fight2_perform_action
+    self.go_to(target_y, target_x, stop_one_before=True, max_steps=1,
+  File "/sol/base/pf_valk37f_armor/agent.py", line 2012, in go_to
+    self.move(y, x)
+  File "/sol/base/pf_valk37f_armor/agent.py", line 1683, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_valk37f_armor.exceptions.AgentPanic: agent position do not match after "move": expected (15, 31), got (17, 33)
+
+[s15169 t11030 d2 0:2 xl7 hp79/79] EAT corpse 155 at (np.int64(14), np.int64(28)) refused; backoff
+[s15171 t11030 d2 0:2 xl7 hp79/79] PANIC AgentPanic: agent position do not match after "move": expected (15, 27), got (14, 28)
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_valk37f_armor/agent.py", line 285, in preempt
+    val = f()
+          ^^^
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/base/pf_valk37f_armor/exploration_logic.py", line 490, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/base/pf_valk37f_armor/agent.py", line 2012, in go_to
+    self.move(y, x)
+  File "/sol/base/pf_valk37f_armor/agent.py", line 1683, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_valk37f_armor.exceptions.AgentPanic: agent position do not match after "move": expected (15, 27), got (14, 28)
+
+[s15197 t11039 d2 0:2 xl7 hp79/79] PANIC AgentPanic: position changed
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/agent.py", line 1611, in search
+    with self.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/base/pf_valk37f_armor/agent.py", line 175, in atom_operation
+    self.update_state()
+  File "/sol/base/pf_valk37f_armor/agent.py", line 655, in update_state
+    self.call_update_functions()
+  File "/sol/base/pf_valk37f_armor/agent.py", line 666, in call_update_functions
+    func()
+  File "/sol/base/pf_valk37f_armor/agent.py", line 183, in f
+    raise AgentPanic('position changed')
+pf_valk37f_armor.exceptions.AgentPanic: position changed
+
+[s15273 t11112 d2 0:2 xl7 hp79/79] PANIC AgentPanic: position changed
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/agent.py", line 1611, in search
+    with self.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/base/pf_valk37f_armor/agent.py", line 175, in atom_operation
+    self.update_state()
+  File "/sol/base/pf_valk37f_armor/agent.py", line 655, in update_state
+    self.call_update_functions()
+  File "/sol/base/pf_valk37f_armor/agent.py", line 666, in call_update_functions
+    func()
+  File "/sol/base/pf_valk37f_armor/agent.py", line 183, in f
+    raise AgentPanic('position changed')
+pf_valk37f_armor.exceptions.AgentPanic: position changed
+
+[s15289 t11113 d2 0:2 xl7 hp79/79] PANIC AgentPanic: agent position do not match after "move": expected (17, 11), got (9, 51)
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_valk37f_armor/agent.py", line 285, in preempt
+    val = f()
+          ^^^
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/base/pf_valk37f_armor/exploration_logic.py", line 490, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/base/pf_valk37f_armor/agent.py", line 2012, in go_to
+    self.move(y, x)
+  File "/sol/base/pf_valk37f_armor/agent.py", line 1683, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_valk37f_armor.exceptions.AgentPanic: agent position do not match after "move": expected (17, 11), got (9, 51)
+
+[s15412 t11209 d2 0:2 xl7 hp79/79] PANIC AgentPanic: position changed
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/agent.py", line 1611, in search
+    with self.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/base/pf_valk37f_armor/agent.py", line 175, in atom_operation
+    self.update_state()
+  File "/sol/base/pf_valk37f_armor/agent.py", line 655, in update_state
+    self.call_update_functions()
+  File "/sol/base/pf_valk37f_armor/agent.py", line 666, in call_update_functions
+    func()
+  File "/sol/base/pf_valk37f_armor/agent.py", line 183, in f
+    raise AgentPanic('position changed')
+pf_valk37f_armor.exceptions.AgentPanic: position changed
+
+[s15456 t11248 d2 0:2 xl7 hp79/79] PANIC AgentPanic: agent position do not match after "move": expected (6, 63), got (5, 46)
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_valk37f_armor/agent.py", line 285, in preempt
+    val = f()
+          ^^^
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/base/pf_valk37f_armor/exploration_logic.py", line 490, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/base/pf_valk37f_armor/agent.py", line 2012, in go_to
+    self.move(y, x)
+  File "/sol/base/pf_valk37f_armor/agent.py", line 1683, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_valk37f_armor.exceptions.AgentPanic: agent position do not match after "move": expected (6, 63), got (5, 46)
+
+[s15664 t11369 d2 0:2 xl7 hp73/79] EAT corpse 0 at (np.int64(14), np.int64(36)) refused; backoff
+[s15680 t11378 d2 0:2 xl7 hp75/79] EAT corpse 0 at (np.int64(15), np.int64(36)) refused; backoff
+[s15682 t11378 d2 0:2 xl7 hp75/79] PANIC AgentPanic: agent position do not match after "move": expected (16, 35), got (15, 36)
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_valk37f_armor/agent.py", line 285, in preempt
+    val = f()
+          ^^^
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/base/pf_valk37f_armor/exploration_logic.py", line 490, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/base/pf_valk37f_armor/agent.py", line 2012, in go_to
+    self.move(y, x)
+  File "/sol/base/pf_valk37f_armor/agent.py", line 1683, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_valk37f_armor.exceptions.AgentPanic: agent position do not match after "move": expected (16, 35), got (15, 36)
+
+[s15715 t11392 d2 0:2 xl7 hp78/79] PRAY hp=78/79 hunger=3 gap=1943 reason=None
+[s15720 t11396 d2 0:2 xl7 hp78/79] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_valk37f_armor/agent.py", line 285, in preempt
+    val = f()
+          ^^^
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/base/pf_valk37f_armor/exploration_logic.py", line 490, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/base/pf_valk37f_armor/agent.py", line 1984, in go_to
+    raise AgentPanic('end point is no longer accessible')
+pf_valk37f_armor.exceptions.AgentPanic: end point is no longer accessible
+
+[s15754 t11415 d2 0:2 xl7 hp79/79] PANIC AgentPanic: position changed
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/agent.py", line 1611, in search
+    with self.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/base/pf_valk37f_armor/agent.py", line 175, in atom_operation
+    self.update_state()
+  File "/sol/base/pf_valk37f_armor/agent.py", line 655, in update_state
+    self.call_update_functions()
+  File "/sol/base/pf_valk37f_armor/agent.py", line 666, in call_update_functions
+    func()
+  File "/sol/base/pf_valk37f_armor/agent.py", line 183, in f
+    raise AgentPanic('position changed')
+pf_valk37f_armor.exceptions.AgentPanic: position changed
+
+[s15886 t11500 d2 0:2 xl7 hp79/79] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(17), np.int64(30)) acts=[SPACE:108 SEARCH:107 NUM_5:85 W:54 SW:50] gotos=[_fight2_perform_action(14, 28):6 open_visit_search(17, 35):3 open_visit_search(7, 64):3]
+[s15937 t11533 d2 0:2 xl7 hp79/79] PANIC AgentPanic: agent position do not match after "move": expected (15, 32), got (18, 22)
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_valk37f_armor/agent.py", line 296, in preempt
+    next(iterator)
+  File "/sol/base/pf_valk37f_armor/utils.py", line 138, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/agent.py", line 2276, in fight2
+    wait_counter = self._fight2_perform_action(best_action, wait_counter)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_valk37f_armor/agent.py", line 2347, in _fight2_perform_action
+    self.move(target_y, target_x)
+  File "/sol/base/pf_valk37f_armor/agent.py", line 1683, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_valk37f_armor.exceptions.AgentPanic: agent position do not match after "move": expected (15, 32), got (18, 22)
+
+[s15964 t11541 d2 0:2 xl7 hp79/79] FIGHT stall of 33 turns ended (contact): ['floating eye', 'giant ant']
+[s15978 t11549 d2 0:2 xl7 hp79/79] PANIC AgentPanic: agent position do not match after "move": expected (14, 24), got (17, 9)
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_valk37f_armor/agent.py", line 285, in preempt
+    val = f()
+          ^^^
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/base/pf_valk37f_armor/exploration_logic.py", line 490, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/base/pf_valk37f_armor/agent.py", line 2012, in go_to
+    self.move(y, x)
+  File "/sol/base/pf_valk37f_armor/agent.py", line 1683, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_valk37f_armor.exceptions.AgentPanic: agent position do not match after "move": expected (14, 24), got (17, 9)
+
+[s16068 t11597 d2 0:2 xl7 hp79/79] PANIC AgentPanic: agent position do not match after "move": expected (5, 9), got (16, 47)
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 165, in f
+    next(gen)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 100, in f
+    next(v1)
+  File "/sol/base/pf_valk37f_armor/utils.py", line 138, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/item/inventory.py", line 1582, in check_items
+    self.agent.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 0, 255), is_path=True))
+  File "/sol/base/pf_valk37f_armor/agent.py", line 2012, in go_to
+    self.move(y, x)
+  File "/sol/base/pf_valk37f_armor/agent.py", line 1683, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_valk37f_armor.exceptions.AgentPanic: agent position do not match after "move": expected (5, 9), got (16, 47)
+
+[s16152 t11622 d2 0:2 xl7 hp79/79] PANIC AgentPanic: agent position do not match after "move": expected (15, 19), got (16, 65)
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/agent.py", line 296, in preempt
+    next(iterator)
+  File "/sol/base/pf_valk37f_armor/utils.py", line 138, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/agent.py", line 2276, in fight2
+    wait_counter = self._fight2_perform_action(best_action, wait_counter)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_valk37f_armor/agent.py", line 2421, in _fight2_perform_action
+    self.go_to(target_y, target_x, stop_one_before=True, max_steps=1,
+  File "/sol/base/pf_valk37f_armor/agent.py", line 2012, in go_to
+    self.move(y, x)
+  File "/sol/base/pf_valk37f_armor/agent.py", line 1683, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_valk37f_armor.exceptions.AgentPanic: agent position do not match after "move": expected (15, 19), got (16, 65)
+
+[s16195 t11637 d2 0:2 xl7 hp79/79] FIGHT stall of 23 turns ended (contact): ['floating eye', 'jackal', 'large kobold']
+[s16395 t11717 d2 0:2 xl7 hp79/79] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/item/inventory.py", line 614, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/base/pf_valk37f_armor/agent.py", line 175, in atom_operation
+    self.update_state()
+  File "/sol/base/pf_valk37f_armor/agent.py", line 655, in update_state
+    self.call_update_functions()
+  File "/sol/base/pf_valk37f_armor/agent.py", line 666, in call_update_functions
+    func()
+  File "/sol/base/pf_valk37f_armor/item/inventory.py", line 155, in f
+    raise AgentPanic('items below me changed')
+pf_valk37f_armor.exceptions.AgentPanic: items below me changed
+
+[s16455 t11742 d2 0:2 xl7 hp79/79] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 190, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 165, in f
+    next(gen)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 100, in f
+    next(v1)
+  File "/sol/base/pf_valk37f_armor/utils.py", line 138, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/item/inventory.py", line 1582, in check_items
+    self.agent.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 0, 255), is_path=True))
+  File "/sol/base/pf_valk37f_armor/agent.py", line 1984, in go_to
+    raise AgentPanic('end point is no longer accessible')
+pf_valk37f_armor.exceptions.AgentPanic: end point is no longer accessible
+
+[s16509 t11765 d2 0:2 xl7 hp79/79] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/item/inventory.py", line 614, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/base/pf_valk37f_armor/agent.py", line 175, in atom_operation
+    self.update_state()
+  File "/sol/base/pf_valk37f_armor/agent.py", line 655, in update_state
+    self.call_update_functions()
+  File "/sol/base/pf_valk37f_armor/agent.py", line 666, in call_update_functions
+    func()
+  File "/sol/base/pf_valk37f_armor/item/inventory.py", line 155, in f
+    raise AgentPanic('items below me changed')
+pf_valk37f_armor.exceptions.AgentPanic: items below me changed
+
+[s16575 t11787 d2 0:2 xl7 hp79/79] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 190, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 165, in f
+    next(gen)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 100, in f
+    next(v1)
+  File "/sol/base/pf_valk37f_armor/utils.py", line 138, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/item/inventory.py", line 1582, in check_items
+    self.agent.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 0, 255), is_path=True))
+  File "/sol/base/pf_valk37f_armor/agent.py", line 1984, in go_to
+    raise AgentPanic('end point is no longer accessible')
+pf_valk37f_armor.exceptions.AgentPanic: end point is no longer accessible
+
+[s16608 t11795 d2 0:2 xl7 hp79/79] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 190, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 165, in f
+    next(gen)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 100, in f
+    next(v1)
+  File "/sol/base/pf_valk37f_armor/utils.py", line 138, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/item/inventory.py", line 1582, in check_items
+    self.agent.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 0, 255), is_path=True))
+  File "/sol/base/pf_valk37f_armor/agent.py", line 1984, in go_to
+    raise AgentPanic('end point is no longer accessible')
+pf_valk37f_armor.exceptions.AgentPanic: end point is no longer accessible
+
+[s16644 t11803 d2 0:2 xl7 hp79/79] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 190, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 165, in f
+    next(gen)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 100, in f
+    next(v1)
+  File "/sol/base/pf_valk37f_armor/utils.py", line 138, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/item/inventory.py", line 1582, in check_items
+    self.agent.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 0, 255), is_path=True))
+  File "/sol/base/pf_valk37f_armor/agent.py", line 1984, in go_to
+    raise AgentPanic('end point is no longer accessible')
+pf_valk37f_armor.exceptions.AgentPanic: end point is no longer accessible
+
+[s16680 t11811 d2 0:2 xl7 hp79/79] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 190, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 165, in f
+    next(gen)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 100, in f
+    next(v1)
+  File "/sol/base/pf_valk37f_armor/utils.py", line 138, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/item/inventory.py", line 1582, in check_items
+    self.agent.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 0, 255), is_path=True))
+  File "/sol/base/pf_valk37f_armor/agent.py", line 1984, in go_to
+    raise AgentPanic('end point is no longer accessible')
+pf_valk37f_armor.exceptions.AgentPanic: end point is no longer accessible
+
+[s16716 t11819 d2 0:2 xl7 hp79/79] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 190, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 165, in f
+    next(gen)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 100, in f
+    next(v1)
+  File "/sol/base/pf_valk37f_armor/utils.py", line 138, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/item/inventory.py", line 1582, in check_items
+    self.agent.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 0, 255), is_path=True))
+  File "/sol/base/pf_valk37f_armor/agent.py", line 1984, in go_to
+    raise AgentPanic('end point is no longer accessible')
+pf_valk37f_armor.exceptions.AgentPanic: end point is no longer accessible
+
+[s16749 t11825 d2 0:2 xl7 hp79/79] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 190, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 165, in f
+    next(gen)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 100, in f
+    next(v1)
+  File "/sol/base/pf_valk37f_armor/utils.py", line 138, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/item/inventory.py", line 1582, in check_items
+    self.agent.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 0, 255), is_path=True))
+  File "/sol/base/pf_valk37f_armor/agent.py", line 1984, in go_to
+    raise AgentPanic('end point is no longer accessible')
+pf_valk37f_armor.exceptions.AgentPanic: end point is no longer accessible
+
+[s16785 t11831 d2 0:2 xl7 hp79/79] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 190, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 165, in f
+    next(gen)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 100, in f
+    next(v1)
+  File "/sol/base/pf_valk37f_armor/utils.py", line 138, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/item/inventory.py", line 1582, in check_items
+    self.agent.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 0, 255), is_path=True))
+  File "/sol/base/pf_valk37f_armor/agent.py", line 1984, in go_to
+    raise AgentPanic('end point is no longer accessible')
+pf_valk37f_armor.exceptions.AgentPanic: end point is no longer accessible
+
+[s16818 t11839 d2 0:2 xl7 hp79/79] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 190, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 165, in f
+    next(gen)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 100, in f
+    next(v1)
+  File "/sol/base/pf_valk37f_armor/utils.py", line 138, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/item/inventory.py", line 1582, in check_items
+    self.agent.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 0, 255), is_path=True))
+  File "/sol/base/pf_valk37f_armor/agent.py", line 1984, in go_to
+    raise AgentPanic('end point is no longer accessible')
+pf_valk37f_armor.exceptions.AgentPanic: end point is no longer accessible
+
+[s16891 t11858 d2 0:2 xl7 hp79/79] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 190, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 165, in f
+    next(gen)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 100, in f
+    next(v1)
+  File "/sol/base/pf_valk37f_armor/utils.py", line 138, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/item/inventory.py", line 1582, in check_items
+    self.agent.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 0, 255), is_path=True))
+  File "/sol/base/pf_valk37f_armor/agent.py", line 1984, in go_to
+    raise AgentPanic('end point is no longer accessible')
+pf_valk37f_armor.exceptions.AgentPanic: end point is no longer accessible
+
+[s16927 t11866 d2 0:2 xl7 hp79/79] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 190, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 165, in f
+    next(gen)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 100, in f
+    next(v1)
+  File "/sol/base/pf_valk37f_armor/utils.py", line 138, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/item/inventory.py", line 1582, in check_items
+    self.agent.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 0, 255), is_path=True))
+  File "/sol/base/pf_valk37f_armor/agent.py", line 1984, in go_to
+    raise AgentPanic('end point is no longer accessible')
+pf_valk37f_armor.exceptions.AgentPanic: end point is no longer accessible
+
+[s16963 t11873 d2 0:2 xl7 hp79/79] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 190, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 165, in f
+    next(gen)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 100, in f
+    next(v1)
+  File "/sol/base/pf_valk37f_armor/utils.py", line 138, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/item/inventory.py", line 1582, in check_items
+    self.agent.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 0, 255), is_path=True))
+  File "/sol/base/pf_valk37f_armor/agent.py", line 1984, in go_to
+    raise AgentPanic('end point is no longer accessible')
+pf_valk37f_armor.exceptions.AgentPanic: end point is no longer accessible
+
+[s16996 t11880 d2 0:2 xl7 hp79/79] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 190, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 165, in f
+    next(gen)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 100, in f
+    next(v1)
+  File "/sol/base/pf_valk37f_armor/utils.py", line 138, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/item/inventory.py", line 1582, in check_items
+    self.agent.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 0, 255), is_path=True))
+  File "/sol/base/pf_valk37f_armor/agent.py", line 1984, in go_to
+    raise AgentPanic('end point is no longer accessible')
+pf_valk37f_armor.exceptions.AgentPanic: end point is no longer accessible
+
+[s17032 t11888 d2 0:2 xl7 hp79/79] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 190, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 165, in f
+    next(gen)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 100, in f
+    next(v1)
+  File "/sol/base/pf_valk37f_armor/utils.py", line 138, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/item/inventory.py", line 1582, in check_items
+    self.agent.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 0, 255), is_path=True))
+  File "/sol/base/pf_valk37f_armor/agent.py", line 1984, in go_to
+    raise AgentPanic('end point is no longer accessible')
+pf_valk37f_armor.exceptions.AgentPanic: end point is no longer accessible
+
+[s17065 t11895 d2 0:2 xl7 hp79/79] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 190, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 165, in f
+    next(gen)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 100, in f
+    next(v1)
+  File "/sol/base/pf_valk37f_armor/utils.py", line 138, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/item/inventory.py", line 1582, in check_items
+    self.agent.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 0, 255), is_path=True))
+  File "/sol/base/pf_valk37f_armor/agent.py", line 1984, in go_to
+    raise AgentPanic('end point is no longer accessible')
+pf_valk37f_armor.exceptions.AgentPanic: end point is no longer accessible
+
+[s17104 t11903 d2 0:2 xl7 hp79/79] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 190, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 165, in f
+    next(gen)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 100, in f
+    next(v1)
+  File "/sol/base/pf_valk37f_armor/utils.py", line 138, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/item/inventory.py", line 1582, in check_items
+    self.agent.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 0, 255), is_path=True))
+  File "/sol/base/pf_valk37f_armor/agent.py", line 1984, in go_to
+    raise AgentPanic('end point is no longer accessible')
+pf_valk37f_armor.exceptions.AgentPanic: end point is no longer accessible
+
+[s17140 t11910 d2 0:2 xl7 hp79/79] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 190, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 165, in f
+    next(gen)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 100, in f
+    next(v1)
+  File "/sol/base/pf_valk37f_armor/utils.py", line 138, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/item/inventory.py", line 1582, in check_items
+    self.agent.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 0, 255), is_path=True))
+  File "/sol/base/pf_valk37f_armor/agent.py", line 1984, in go_to
+    raise AgentPanic('end point is no longer accessible')
+pf_valk37f_armor.exceptions.AgentPanic: end point is no longer accessible
+
+[s17176 t11916 d2 0:2 xl7 hp79/79] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 190, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 165, in f
+    next(gen)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 100, in f
+    next(v1)
+  File "/sol/base/pf_valk37f_armor/utils.py", line 138, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/item/inventory.py", line 1582, in check_items
+    self.agent.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 0, 255), is_path=True))
+  File "/sol/base/pf_valk37f_armor/agent.py", line 1984, in go_to
+    raise AgentPanic('end point is no longer accessible')
+pf_valk37f_armor.exceptions.AgentPanic: end point is no longer accessible
+
+[s17212 t11924 d2 0:2 xl7 hp79/79] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 190, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 165, in f
+    next(gen)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 100, in f
+    next(v1)
+  File "/sol/base/pf_valk37f_armor/utils.py", line 138, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/item/inventory.py", line 1582, in check_items
+    self.agent.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 0, 255), is_path=True))
+  File "/sol/base/pf_valk37f_armor/agent.py", line 1984, in go_to
+    raise AgentPanic('end point is no longer accessible')
+pf_valk37f_armor.exceptions.AgentPanic: end point is no longer accessible
+
+[s17249 t11933 d2 0:2 xl7 hp79/79] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 190, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 165, in f
+    next(gen)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 100, in f
+    next(v1)
+  File "/sol/base/pf_valk37f_armor/utils.py", line 138, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/item/inventory.py", line 1582, in check_items
+    self.agent.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 0, 255), is_path=True))
+  File "/sol/base/pf_valk37f_armor/agent.py", line 1984, in go_to
+    raise AgentPanic('end point is no longer accessible')
+pf_valk37f_armor.exceptions.AgentPanic: end point is no longer accessible
+
+[s17285 t11941 d2 0:2 xl7 hp79/79] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 190, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 165, in f
+    next(gen)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 100, in f
+    next(v1)
+  File "/sol/base/pf_valk37f_armor/utils.py", line 138, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/item/inventory.py", line 1582, in check_items
+    self.agent.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 0, 255), is_path=True))
+  File "/sol/base/pf_valk37f_armor/agent.py", line 1984, in go_to
+    raise AgentPanic('end point is no longer accessible')
+pf_valk37f_armor.exceptions.AgentPanic: end point is no longer accessible
+
+[s17318 t11947 d2 0:2 xl7 hp79/79] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 190, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 165, in f
+    next(gen)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 100, in f
+    next(v1)
+  File "/sol/base/pf_valk37f_armor/utils.py", line 138, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/item/inventory.py", line 1582, in check_items
+    self.agent.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 0, 255), is_path=True))
+  File "/sol/base/pf_valk37f_armor/agent.py", line 1984, in go_to
+    raise AgentPanic('end point is no longer accessible')
+pf_valk37f_armor.exceptions.AgentPanic: end point is no longer accessible
+
+[s17351 t11955 d2 0:2 xl7 hp79/79] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 190, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 165, in f
+    next(gen)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 100, in f
+    next(v1)
+  File "/sol/base/pf_valk37f_armor/utils.py", line 138, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/item/inventory.py", line 1582, in check_items
+    self.agent.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 0, 255), is_path=True))
+  File "/sol/base/pf_valk37f_armor/agent.py", line 1984, in go_to
+    raise AgentPanic('end point is no longer accessible')
+pf_valk37f_armor.exceptions.AgentPanic: end point is no longer accessible
+
+[s17384 t11962 d2 0:2 xl7 hp79/79] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 190, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 165, in f
+    next(gen)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 100, in f
+    next(v1)
+  File "/sol/base/pf_valk37f_armor/utils.py", line 138, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/item/inventory.py", line 1582, in check_items
+    self.agent.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 0, 255), is_path=True))
+  File "/sol/base/pf_valk37f_armor/agent.py", line 1984, in go_to
+    raise AgentPanic('end point is no longer accessible')
+pf_valk37f_armor.exceptions.AgentPanic: end point is no longer accessible
+
+[s17420 t11969 d2 0:2 xl7 hp79/79] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 190, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 165, in f
+    next(gen)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 100, in f
+    next(v1)
+  File "/sol/base/pf_valk37f_armor/utils.py", line 138, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/item/inventory.py", line 1582, in check_items
+    self.agent.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 0, 255), is_path=True))
+  File "/sol/base/pf_valk37f_armor/agent.py", line 1984, in go_to
+    raise AgentPanic('end point is no longer accessible')
+pf_valk37f_armor.exceptions.AgentPanic: end point is no longer accessible
+
+[s17462 t11978 d2 0:2 xl7 hp79/79] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 190, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 165, in f
+    next(gen)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 100, in f
+    next(v1)
+  File "/sol/base/pf_valk37f_armor/utils.py", line 138, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/item/inventory.py", line 1582, in check_items
+    self.agent.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 0, 255), is_path=True))
+  File "/sol/base/pf_valk37f_armor/agent.py", line 1984, in go_to
+    raise AgentPanic('end point is no longer accessible')
+pf_valk37f_armor.exceptions.AgentPanic: end point is no longer accessible
+
+[s17462 t11978 d2 0:2 xl7 hp79/79] panic loop: random walk (AgentPanic:end point is no longer accessible)
+[s17538 t11992 d2 0:2 xl7 hp79/79] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 190, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 165, in f
+    next(gen)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 100, in f
+    next(v1)
+  File "/sol/base/pf_valk37f_armor/utils.py", line 138, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/item/inventory.py", line 1582, in check_items
+    self.agent.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 0, 255), is_path=True))
+  File "/sol/base/pf_valk37f_armor/agent.py", line 1984, in go_to
+    raise AgentPanic('end point is no longer accessible')
+pf_valk37f_armor.exceptions.AgentPanic: end point is no longer accessible
+
+[s17574 t12000 d2 0:2 xl7 hp79/79] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(17), np.int64(10)) acts=[SPACE:345 WHATIS:157 MOVEFAR:157 NW:140 SE:111] gotos=[open_visit_search(10, 49):27 check_items(5, 9):22 check_items(6, 4):19]
+[s17604 t12013 d2 0:2 xl7 hp79/79] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 190, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 165, in f
+    next(gen)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 100, in f
+    next(v1)
+  File "/sol/base/pf_valk37f_armor/utils.py", line 138, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/item/inventory.py", line 1582, in check_items
+    self.agent.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 0, 255), is_path=True))
+  File "/sol/base/pf_valk37f_armor/agent.py", line 1984, in go_to
+    raise AgentPanic('end point is no longer accessible')
+pf_valk37f_armor.exceptions.AgentPanic: end point is no longer accessible
+
+[s17637 t12020 d2 0:2 xl7 hp79/79] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 190, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 165, in f
+    next(gen)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 100, in f
+    next(v1)
+  File "/sol/base/pf_valk37f_armor/utils.py", line 138, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/item/inventory.py", line 1582, in check_items
+    self.agent.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 0, 255), is_path=True))
+  File "/sol/base/pf_valk37f_armor/agent.py", line 1984, in go_to
+    raise AgentPanic('end point is no longer accessible')
+pf_valk37f_armor.exceptions.AgentPanic: end point is no longer accessible
+
+[s17673 t12028 d2 0:2 xl7 hp79/79] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 190, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 165, in f
+    next(gen)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 100, in f
+    next(v1)
+  File "/sol/base/pf_valk37f_armor/utils.py", line 138, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/item/inventory.py", line 1582, in check_items
+    self.agent.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 0, 255), is_path=True))
+  File "/sol/base/pf_valk37f_armor/agent.py", line 1984, in go_to
+    raise AgentPanic('end point is no longer accessible')
+pf_valk37f_armor.exceptions.AgentPanic: end point is no longer accessible
+
+[s17709 t12035 d2 0:2 xl7 hp79/79] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 190, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 165, in f
+    next(gen)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 100, in f
+    next(v1)
+  File "/sol/base/pf_valk37f_armor/utils.py", line 138, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/item/inventory.py", line 1582, in check_items
+    self.agent.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 0, 255), is_path=True))
+  File "/sol/base/pf_valk37f_armor/agent.py", line 1984, in go_to
+    raise AgentPanic('end point is no longer accessible')
+pf_valk37f_armor.exceptions.AgentPanic: end point is no longer accessible
+
+[s17745 t12044 d2 0:2 xl7 hp79/79] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 190, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 165, in f
+    next(gen)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 100, in f
+    next(v1)
+  File "/sol/base/pf_valk37f_armor/utils.py", line 138, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/item/inventory.py", line 1582, in check_items
+    self.agent.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 0, 255), is_path=True))
+  File "/sol/base/pf_valk37f_armor/agent.py", line 1984, in go_to
+    raise AgentPanic('end point is no longer accessible')
+pf_valk37f_armor.exceptions.AgentPanic: end point is no longer accessible
+
+[s17781 t12051 d2 0:2 xl7 hp79/79] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 190, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 165, in f
+    next(gen)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 100, in f
+    next(v1)
+  File "/sol/base/pf_valk37f_armor/utils.py", line 138, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/item/inventory.py", line 1582, in check_items
+    self.agent.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 0, 255), is_path=True))
+  File "/sol/base/pf_valk37f_armor/agent.py", line 1984, in go_to
+    raise AgentPanic('end point is no longer accessible')
+pf_valk37f_armor.exceptions.AgentPanic: end point is no longer accessible
+
+[s17817 t12060 d2 0:2 xl7 hp79/79] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 190, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 165, in f
+    next(gen)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 100, in f
+    next(v1)
+  File "/sol/base/pf_valk37f_armor/utils.py", line 138, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/item/inventory.py", line 1582, in check_items
+    self.agent.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 0, 255), is_path=True))
+  File "/sol/base/pf_valk37f_armor/agent.py", line 1984, in go_to
+    raise AgentPanic('end point is no longer accessible')
+pf_valk37f_armor.exceptions.AgentPanic: end point is no longer accessible
+
+[s17862 t12067 d2 0:2 xl7 hp79/79] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 190, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 165, in f
+    next(gen)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 100, in f
+    next(v1)
+  File "/sol/base/pf_valk37f_armor/utils.py", line 138, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/item/inventory.py", line 1582, in check_items
+    self.agent.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 0, 255), is_path=True))
+  File "/sol/base/pf_valk37f_armor/agent.py", line 1984, in go_to
+    raise AgentPanic('end point is no longer accessible')
+pf_valk37f_armor.exceptions.AgentPanic: end point is no longer accessible
+
+[s17901 t12076 d2 0:2 xl7 hp79/79] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 190, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 165, in f
+    next(gen)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 100, in f
+    next(v1)
+  File "/sol/base/pf_valk37f_armor/utils.py", line 138, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/item/inventory.py", line 1582, in check_items
+    self.agent.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 0, 255), is_path=True))
+  File "/sol/base/pf_valk37f_armor/agent.py", line 1984, in go_to
+    raise AgentPanic('end point is no longer accessible')
+pf_valk37f_armor.exceptions.AgentPanic: end point is no longer accessible
+
+[s17937 t12086 d2 0:2 xl7 hp79/79] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 190, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 165, in f
+    next(gen)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 100, in f
+    next(v1)
+  File "/sol/base/pf_valk37f_armor/utils.py", line 138, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/item/inventory.py", line 1582, in check_items
+    self.agent.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 0, 255), is_path=True))
+  File "/sol/base/pf_valk37f_armor/agent.py", line 1984, in go_to
+    raise AgentPanic('end point is no longer accessible')
+pf_valk37f_armor.exceptions.AgentPanic: end point is no longer accessible
+
+[s17976 t12095 d2 0:2 xl7 hp79/79] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 190, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 165, in f
+    next(gen)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 100, in f
+    next(v1)
+  File "/sol/base/pf_valk37f_armor/utils.py", line 138, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/item/inventory.py", line 1582, in check_items
+    self.agent.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 0, 255), is_path=True))
+  File "/sol/base/pf_valk37f_armor/agent.py", line 1984, in go_to
+    raise AgentPanic('end point is no longer accessible')
+pf_valk37f_armor.exceptions.AgentPanic: end point is no longer accessible
+
+[s18015 t12104 d2 0:2 xl7 hp79/79] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 190, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 165, in f
+    next(gen)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 100, in f
+    next(v1)
+  File "/sol/base/pf_valk37f_armor/utils.py", line 138, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/item/inventory.py", line 1582, in check_items
+    self.agent.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 0, 255), is_path=True))
+  File "/sol/base/pf_valk37f_armor/agent.py", line 1984, in go_to
+    raise AgentPanic('end point is no longer accessible')
+pf_valk37f_armor.exceptions.AgentPanic: end point is no longer accessible
+
+[s18057 t12113 d2 0:2 xl7 hp79/79] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 190, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 165, in f
+    next(gen)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 100, in f
+    next(v1)
+  File "/sol/base/pf_valk37f_armor/utils.py", line 138, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/item/inventory.py", line 1582, in check_items
+    self.agent.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 0, 255), is_path=True))
+  File "/sol/base/pf_valk37f_armor/agent.py", line 1984, in go_to
+    raise AgentPanic('end point is no longer accessible')
+pf_valk37f_armor.exceptions.AgentPanic: end point is no longer accessible
+
+[s18099 t12119 d2 0:2 xl7 hp79/79] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 190, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 165, in f
+    next(gen)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 100, in f
+    next(v1)
+  File "/sol/base/pf_valk37f_armor/utils.py", line 138, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/item/inventory.py", line 1582, in check_items
+    self.agent.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 0, 255), is_path=True))
+  File "/sol/base/pf_valk37f_armor/agent.py", line 1984, in go_to
+    raise AgentPanic('end point is no longer accessible')
+pf_valk37f_armor.exceptions.AgentPanic: end point is no longer accessible
+
+[s18141 t12127 d2 0:2 xl7 hp79/79] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 190, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 165, in f
+    next(gen)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 100, in f
+    next(v1)
+  File "/sol/base/pf_valk37f_armor/utils.py", line 138, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/item/inventory.py", line 1582, in check_items
+    self.agent.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 0, 255), is_path=True))
+  File "/sol/base/pf_valk37f_armor/agent.py", line 1984, in go_to
+    raise AgentPanic('end point is no longer accessible')
+pf_valk37f_armor.exceptions.AgentPanic: end point is no longer accessible
+
+[s18180 t12133 d2 0:2 xl7 hp79/79] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 190, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 165, in f
+    next(gen)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 100, in f
+    next(v1)
+  File "/sol/base/pf_valk37f_armor/utils.py", line 138, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/item/inventory.py", line 1582, in check_items
+    self.agent.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 0, 255), is_path=True))
+  File "/sol/base/pf_valk37f_armor/agent.py", line 1984, in go_to
+    raise AgentPanic('end point is no longer accessible')
+pf_valk37f_armor.exceptions.AgentPanic: end point is no longer accessible
+
+[s18225 t12143 d2 0:2 xl7 hp79/79] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 190, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 165, in f
+    next(gen)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 100, in f
+    next(v1)
+  File "/sol/base/pf_valk37f_armor/utils.py", line 138, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/item/inventory.py", line 1582, in check_items
+    self.agent.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 0, 255), is_path=True))
+  File "/sol/base/pf_valk37f_armor/agent.py", line 1984, in go_to
+    raise AgentPanic('end point is no longer accessible')
+pf_valk37f_armor.exceptions.AgentPanic: end point is no longer accessible
+
+[s18267 t12150 d2 0:2 xl7 hp79/79] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 190, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 165, in f
+    next(gen)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 100, in f
+    next(v1)
+  File "/sol/base/pf_valk37f_armor/utils.py", line 138, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/item/inventory.py", line 1582, in check_items
+    self.agent.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 0, 255), is_path=True))
+  File "/sol/base/pf_valk37f_armor/agent.py", line 1984, in go_to
+    raise AgentPanic('end point is no longer accessible')
+pf_valk37f_armor.exceptions.AgentPanic: end point is no longer accessible
+
+[s18307 t12157 d2 0:2 xl7 hp79/79] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 190, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 165, in f
+    next(gen)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 100, in f
+    next(v1)
+  File "/sol/base/pf_valk37f_armor/utils.py", line 138, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/item/inventory.py", line 1582, in check_items
+    self.agent.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 0, 255), is_path=True))
+  File "/sol/base/pf_valk37f_armor/agent.py", line 1984, in go_to
+    raise AgentPanic('end point is no longer accessible')
+pf_valk37f_armor.exceptions.AgentPanic: end point is no longer accessible
+
+[s18346 t12164 d2 0:2 xl7 hp79/79] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 190, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 165, in f
+    next(gen)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 100, in f
+    next(v1)
+  File "/sol/base/pf_valk37f_armor/utils.py", line 138, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/item/inventory.py", line 1582, in check_items
+    self.agent.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 0, 255), is_path=True))
+  File "/sol/base/pf_valk37f_armor/agent.py", line 1984, in go_to
+    raise AgentPanic('end point is no longer accessible')
+pf_valk37f_armor.exceptions.AgentPanic: end point is no longer accessible
+
+[s18387 t12175 d2 0:2 xl7 hp79/79] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 190, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 165, in f
+    next(gen)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 100, in f
+    next(v1)
+  File "/sol/base/pf_valk37f_armor/utils.py", line 138, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/item/inventory.py", line 1582, in check_items
+    self.agent.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 0, 255), is_path=True))
+  File "/sol/base/pf_valk37f_armor/agent.py", line 1984, in go_to
+    raise AgentPanic('end point is no longer accessible')
+pf_valk37f_armor.exceptions.AgentPanic: end point is no longer accessible
+
+[s18431 t12186 d2 0:2 xl7 hp79/79] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 190, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 165, in f
+    next(gen)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 100, in f
+    next(v1)
+  File "/sol/base/pf_valk37f_armor/utils.py", line 138, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/item/inventory.py", line 1582, in check_items
+    self.agent.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 0, 255), is_path=True))
+  File "/sol/base/pf_valk37f_armor/agent.py", line 1984, in go_to
+    raise AgentPanic('end point is no longer accessible')
+pf_valk37f_armor.exceptions.AgentPanic: end point is no longer accessible
+
+[s18464 t12195 d2 0:2 xl7 hp79/79] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 190, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 165, in f
+    next(gen)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 100, in f
+    next(v1)
+  File "/sol/base/pf_valk37f_armor/utils.py", line 138, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/item/inventory.py", line 1582, in check_items
+    self.agent.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 0, 255), is_path=True))
+  File "/sol/base/pf_valk37f_armor/agent.py", line 1984, in go_to
+    raise AgentPanic('end point is no longer accessible')
+pf_valk37f_armor.exceptions.AgentPanic: end point is no longer accessible
+
+[s18503 t12202 d2 0:2 xl7 hp79/79] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 190, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 165, in f
+    next(gen)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 100, in f
+    next(v1)
+  File "/sol/base/pf_valk37f_armor/utils.py", line 138, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/item/inventory.py", line 1582, in check_items
+    self.agent.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 0, 255), is_path=True))
+  File "/sol/base/pf_valk37f_armor/agent.py", line 1984, in go_to
+    raise AgentPanic('end point is no longer accessible')
+pf_valk37f_armor.exceptions.AgentPanic: end point is no longer accessible
+
+[s18503 t12202 d2 0:2 xl7 hp79/79] panic loop: random walk (AgentPanic:end point is no longer accessible)
+[s18559 t12213 d2 0:2 xl7 hp79/79] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 190, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 165, in f
+    next(gen)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 100, in f
+    next(v1)
+  File "/sol/base/pf_valk37f_armor/utils.py", line 138, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/item/inventory.py", line 1582, in check_items
+    self.agent.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 0, 255), is_path=True))
+  File "/sol/base/pf_valk37f_armor/agent.py", line 1984, in go_to
+    raise AgentPanic('end point is no longer accessible')
+pf_valk37f_armor.exceptions.AgentPanic: end point is no longer accessible
+
+[s18609 t12223 d2 0:2 xl7 hp79/79] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 190, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 165, in f
+    next(gen)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 100, in f
+    next(v1)
+  File "/sol/base/pf_valk37f_armor/utils.py", line 138, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/item/inventory.py", line 1582, in check_items
+    self.agent.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 0, 255), is_path=True))
+  File "/sol/base/pf_valk37f_armor/agent.py", line 1984, in go_to
+    raise AgentPanic('end point is no longer accessible')
+pf_valk37f_armor.exceptions.AgentPanic: end point is no longer accessible
+
+[s18642 t12229 d2 0:2 xl7 hp79/79] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 190, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 165, in f
+    next(gen)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 100, in f
+    next(v1)
+  File "/sol/base/pf_valk37f_armor/utils.py", line 138, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/item/inventory.py", line 1582, in check_items
+    self.agent.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 0, 255), is_path=True))
+  File "/sol/base/pf_valk37f_armor/agent.py", line 1984, in go_to
+    raise AgentPanic('end point is no longer accessible')
+pf_valk37f_armor.exceptions.AgentPanic: end point is no longer accessible
+
+[s18675 t12236 d2 0:2 xl7 hp79/79] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 190, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 165, in f
+    next(gen)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 100, in f
+    next(v1)
+  File "/sol/base/pf_valk37f_armor/utils.py", line 138, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/item/inventory.py", line 1582, in check_items
+    self.agent.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 0, 255), is_path=True))
+  File "/sol/base/pf_valk37f_armor/agent.py", line 1984, in go_to
+    raise AgentPanic('end point is no longer accessible')
+pf_valk37f_armor.exceptions.AgentPanic: end point is no longer accessible
+
+[s18708 t12245 d2 0:2 xl7 hp79/79] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 190, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 165, in f
+    next(gen)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 100, in f
+    next(v1)
+  File "/sol/base/pf_valk37f_armor/utils.py", line 138, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/item/inventory.py", line 1582, in check_items
+    self.agent.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 0, 255), is_path=True))
+  File "/sol/base/pf_valk37f_armor/agent.py", line 1984, in go_to
+    raise AgentPanic('end point is no longer accessible')
+pf_valk37f_armor.exceptions.AgentPanic: end point is no longer accessible
+
+[s18736 t12251 d2 0:2 xl7 hp79/79] PANIC AgentPanic: agent position do not match after "move": expected (8, 3), got (13, 36)
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 165, in f
+    next(gen)
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 100, in f
+    next(v1)
+  File "/sol/base/pf_valk37f_armor/utils.py", line 138, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/item/inventory.py", line 1582, in check_items
+    self.agent.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 0, 255), is_path=True))
+  File "/sol/base/pf_valk37f_armor/agent.py", line 2012, in go_to
+    self.move(y, x)
+  File "/sol/base/pf_valk37f_armor/agent.py", line 1683, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_valk37f_armor.exceptions.AgentPanic: agent position do not match after "move": expected (8, 3), got (13, 36)
+
+[s18775 t12262 d2 0:2 xl8 hp87/87] DIVE phase starts (milestone BE_ON_FIRST_LEVEL)
+[s18777 t12263 d2 0:2 xl8 hp87/87] DIVE mines branch candidate (15, 12) on (np.int64(0), np.int64(3)); down stairs there: [((15, 12), None), ((16, 64), None)]
+[s18777 t12263 d2 0:2 xl8 hp87/87] DIVE task go to mines branch
+[s18777 t12263 d2 0:2 xl8 hp87/87] DIVE stuck in task 'go to mines branch' on level (np.int64(0), np.int64(2)) for 11945 turns; up stairs (y,x,dist)=[(14, 33, 7)]
+My, this is a yummy slime mold!
+
+                                             -----
+ ------------                                |...|
+ |?%%?)*[!()|                              ##%..^|      #
+ |%.)./[[=+(|                              # |...|     -|-------------
+ |[)*)(!)%[.|                           #####.>...#####-.............|
+ |..).......|                           #  # --.--##   |.............|
+ --|---------                          #####   #  ##  #.............*|
+   #                             ####`#################---------------
+   ##                           ##   ####   #     ##
+    ##                              ## ##        ###
+     #                              #  #  ------- ##
+     #?###              ################  |......###
+         #              #---------- ####  |.....|  #    -----------
+         ##             #|.......<.##  #  |.....| ##%###.......)..|
+   -------.----##########?........| #  [##|.....|  #####|.........|
+   |...........#        #|........|##    #....[.|      #|.........|
+   |..........|         #|.........#      -------      #-.....:...|
+   |..........-##########|........|                     -----------
+   ------------          ----------
+
+Agent the Fighter              St:18/04 Dx:11 Co:18 In:9 Wi:8 Ch:8 Lawful S:541
+Dlvl:2 $:144 HP:87(87) Pw:11(11) AC:3 Xp:8/1293 T:12263
+[s18799 t12271 d2 0:2 xl8 hp87/87] GOTO path blocked at (10, 40): re-planning to (5, 46)
+[s18836 t12296 d2 0:2 xl8 hp87/87] PANIC AgentPanic: agent position do not match after "move": expected (3, 45), got (15, 54)
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_valk37f_armor/agent.py", line 296, in preempt
+    next(iterator)
+  File "/sol/base/pf_valk37f_armor/utils.py", line 138, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/agent.py", line 2276, in fight2
+    wait_counter = self._fight2_perform_action(best_action, wait_counter)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_valk37f_armor/agent.py", line 2347, in _fight2_perform_action
+    self.move(target_y, target_x)
+  File "/sol/base/pf_valk37f_armor/agent.py", line 1683, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_valk37f_armor.exceptions.AgentPanic: agent position do not match after "move": expected (3, 45), got (15, 54)
+
+[s18883 t12308 d2 0:2 xl8 hp85/87] FIGHT stall of 31 turns ended (hurt): ['kobold shaman', 'leprechaun']
+[s18931 t12331 d2 0:2 xl8 hp86/87] PANIC AgentPanic: agent position do not match after "move": expected (7, 47), got (11, 5)
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_valk37f_armor/agent.py", line 296, in preempt
+    next(iterator)
+  File "/sol/base/pf_valk37f_armor/utils.py", line 138, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/agent.py", line 2276, in fight2
+    wait_counter = self._fight2_perform_action(best_action, wait_counter)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_valk37f_armor/agent.py", line 2347, in _fight2_perform_action
+    self.move(target_y, target_x)
+  File "/sol/base/pf_valk37f_armor/agent.py", line 1683, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_valk37f_armor.exceptions.AgentPanic: agent position do not match after "move": expected (7, 47), got (11, 5)
+
+[s18946 t12331 d2 0:2 xl8 hp86/87] DIVE stuck in task 'go to mines branch' on level (np.int64(0), np.int64(2)) for 12013 turns; up stairs (y,x,dist)=[(14, 33, 29)]
+No monsters are currently shown on the map.
+
+                                             -----
+ ------------                                |...|
+ |?%%?)*[!()|                              ##...^|      #
+ |%.)./[[=+(|                              # |...|     -|-------------
+ |[)*)(!)%[.|                           #####.>...#####-.............|
+ |..).......|                           #  # --.--##   |.............|
+ --|---------                          #####   #  ##  #.............*|
+   #                             ####`#################---------------
+   ##                           ##   ####   #     ##
+    ##                              ## ##        ###
+     #                              #  #  ------- ##
+     #?###              ################  |......###
+         #              #---------- ####  |.....|  #    -----------
+         ##             #|.......<.##  #  |.....| ######.......)..|
+   -------.----##########?........| #  [##|.....|  #####|.........|
+   |...........#        #|........|##    #....[.|      #|.........|
+   |..........|         #|.........#      -------      #-.....:...|
+   |..........-##########|........|                     -----------
+   ------------          ----------
+
+Agent the Fighter              St:18/04 Dx:11 Co:18 In:9 Wi:8 Ch:8 Lawful S:547
+Dlvl:2 $:144 HP:86(87) Pw:11(11) AC:3 Xp:8/1307 T:12331
+[s18984 t12355 d2 0:2 xl8 hp87/87] PANIC AgentPanic: agent position do not match after "move": expected (12, 35), got (14, 51)
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 48, in run
+    next(gen)
+  File "/sol/base/pf_valk37f_armor/exploration_logic.py", line 170, in follow_level_path_strategy
+    go_to_strategy(y, x).run()
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 48, in run
+    next(gen)
+  File "/sol/base/pf_valk37f_armor/exploration_logic.py", line 246, in go_to_strategy
+    return self.agent.go_to(y, x, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_valk37f_armor/agent.py", line 2012, in go_to
+    self.move(y, x)
+  File "/sol/base/pf_valk37f_armor/agent.py", line 1683, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_valk37f_armor.exceptions.AgentPanic: agent position do not match after "move": expected (12, 35), got (14, 51)
+
+[s19000 t12355 d2 0:2 xl8 hp87/87] PANIC AssertionError: 
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 111, in f
+    next(v2)
+  File "/sol/base/pf_valk37f_armor/dive_logic.py", line 1489, in strategy
+    self.plan_step()
+  File "/sol/base/pf_valk37f_armor/dive_logic.py", line 1635, in plan_step
+    if self.go_to_mines():
+       ^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_valk37f_armor/dive_logic.py", line 2552, in go_to_mines
+    agent.exploration.follow_level_path_strategy(path, agent.exploration.go_to_strategy).run()
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 48, in run
+    next(gen)
+  File "/sol/base/pf_valk37f_armor/exploration_logic.py", line 171, in follow_level_path_strategy
+    assert (self.agent.blstats.y, self.agent.blstats.x) == (y, x)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
+
+[s19020 t12355 d2 0:2 xl8 hp87/87] PANIC AssertionError: 
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 111, in f
+    next(v2)
+  File "/sol/base/pf_valk37f_armor/dive_logic.py", line 1489, in strategy
+    self.plan_step()
+  File "/sol/base/pf_valk37f_armor/dive_logic.py", line 1635, in plan_step
+    if self.go_to_mines():
+       ^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_valk37f_armor/dive_logic.py", line 2552, in go_to_mines
+    agent.exploration.follow_level_path_strategy(path, agent.exploration.go_to_strategy).run()
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 48, in run
+    next(gen)
+  File "/sol/base/pf_valk37f_armor/exploration_logic.py", line 171, in follow_level_path_strategy
+    assert (self.agent.blstats.y, self.agent.blstats.x) == (y, x)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
+
+[s19040 t12355 d2 0:2 xl8 hp87/87] PANIC AssertionError: 
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 111, in f
+    next(v2)
+  File "/sol/base/pf_valk37f_armor/dive_logic.py", line 1489, in strategy
+    self.plan_step()
+  File "/sol/base/pf_valk37f_armor/dive_logic.py", line 1635, in plan_step
+    if self.go_to_mines():
+       ^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_valk37f_armor/dive_logic.py", line 2552, in go_to_mines
+    agent.exploration.follow_level_path_strategy(path, agent.exploration.go_to_strategy).run()
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 48, in run
+    next(gen)
+  File "/sol/base/pf_valk37f_armor/exploration_logic.py", line 171, in follow_level_path_strategy
+    assert (self.agent.blstats.y, self.agent.blstats.x) == (y, x)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
+
+[s19060 t12355 d2 0:2 xl8 hp87/87] PANIC AssertionError: 
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 111, in f
+    next(v2)
+  File "/sol/base/pf_valk37f_armor/dive_logic.py", line 1489, in strategy
+    self.plan_step()
+  File "/sol/base/pf_valk37f_armor/dive_logic.py", line 1635, in plan_step
+    if self.go_to_mines():
+       ^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_valk37f_armor/dive_logic.py", line 2552, in go_to_mines
+    agent.exploration.follow_level_path_strategy(path, agent.exploration.go_to_strategy).run()
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 48, in run
+    next(gen)
+  File "/sol/base/pf_valk37f_armor/exploration_logic.py", line 171, in follow_level_path_strategy
+    assert (self.agent.blstats.y, self.agent.blstats.x) == (y, x)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
+
+[s19080 t12355 d2 0:2 xl8 hp87/87] PANIC AssertionError: 
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 111, in f
+    next(v2)
+  File "/sol/base/pf_valk37f_armor/dive_logic.py", line 1489, in strategy
+    self.plan_step()
+  File "/sol/base/pf_valk37f_armor/dive_logic.py", line 1635, in plan_step
+    if self.go_to_mines():
+       ^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_valk37f_armor/dive_logic.py", line 2552, in go_to_mines
+    agent.exploration.follow_level_path_strategy(path, agent.exploration.go_to_strategy).run()
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 48, in run
+    next(gen)
+  File "/sol/base/pf_valk37f_armor/exploration_logic.py", line 171, in follow_level_path_strategy
+    assert (self.agent.blstats.y, self.agent.blstats.x) == (y, x)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
+
+[s19106 t12357 d2 0:2 xl8 hp87/87] PANIC AgentPanic: agent position do not match after "move": expected (12, 50), got (12, 30)
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 48, in run
+    next(gen)
+  File "/sol/base/pf_valk37f_armor/exploration_logic.py", line 170, in follow_level_path_strategy
+    go_to_strategy(y, x).run()
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 48, in run
+    next(gen)
+  File "/sol/base/pf_valk37f_armor/exploration_logic.py", line 246, in go_to_strategy
+    return self.agent.go_to(y, x, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_valk37f_armor/agent.py", line 2012, in go_to
+    self.move(y, x)
+  File "/sol/base/pf_valk37f_armor/agent.py", line 1683, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_valk37f_armor.exceptions.AgentPanic: agent position do not match after "move": expected (12, 50), got (12, 30)
+
+[s19359 t12479 d2 0:2 xl8 hp87/87] FIGHT stall of 75 turns ended (contact): ['killer bee', 'leprechaun']
+[s19393 t12500 d2 0:2 xl8 hp87/87] STATUS milestone=BE_ON_FIRST_LEVEL diving=True hunger=2 pos=(np.int64(2), np.int64(46)) acts=[SPACE:356 MOVEFAR:193 WHATIS:192 NW:145 SE:132] gotos=[_fight2_perform_action(4, 48):84 check_items(6, 4):31 open_visit_search(10, 49):28]
+[s19395 t12501 d2 0:2 xl8 hp87/87] FIGHT stalled (dance, no contact, kill or damage): letting go of [('leprechaun', 4, 48), ('killer bee', 5, 49)]
+[s19435 t12517 d3 0:3 xl8 hp87/87] DIVE level (np.int64(0), np.int64(3)) depth 3
+[s19448 t12523 d3 0:3 xl8 hp87/87] DIVE killed a dwarf (2); piles to check: [(np.int64(8), np.int64(35))]
+[s19448 t12523 d3 0:3 xl8 hp87/87] ALIGN estimate 60 (cap 72) after -12
+[s19448 t12523 d3 0:3 xl8 hp87/87] DWARF died near [(8, 35)]: piles to check
+[s19448 t12523 d3 0:3 xl8 hp87/87] DIVE fetching the digging tool at (8, 35) on (np.int64(0), np.int64(3))
+[s19448 t12523 d3 0:3 xl8 hp87/87] DIVE task fetch digging tool
+[s19448 t12523 d3 0:3 xl8 hp87/87] DIVE stuck in task 'fetch digging tool' on level (np.int64(0), np.int64(3)) for 7876 turns; up stairs (y,x,dist)=[(7, 36, 1)]
+You kill the dwarf!
+
+
+              ---------                                 ------------
+              |.......)###########################[#####..^........|
+              |......[|                                 |..........|
+              |...)...|                                 |..........|
+              |........#########---------             ##...|.......|
+              |.......|        #....<...|             # -|------|---
+              -------.-         |..=.....#          ###  #      #######%
+                 #####          |.......|#          #                  %#
+                 #              ---------#          #           #       ####
+                 #                       #          #         --|----------|-
+                 #                       #          #         |...........%.|
+         --------.-                      #    ------#         |.............|
+         |........|                      #    |.....#         |.............|
+         |.^>.....|                      #####.....|          |.............|
+         |....%...|                           |.^..|          |.>...........|
+         ----------                           ------          ---------------
+
+
+
+Agent the Fighter              St:18/04 Dx:11 Co:18 In:9 Wi:8 Ch:8 Lawful S:579
+Dlvl:3 $:17 HP:87(87) Pw:11(11) AC:3 Xp:8/1419 T:12523 Hungry
+[s19469 t12525 d3 0:3 xl8 hp87/87] DIVE no usable digging tool at (8, 35) on (np.int64(0), np.int64(3))
+[s19469 t12525 d3 0:3 xl8 hp87/87] DIVE mines branch candidate (15, 12) on (np.int64(0), np.int64(3)); down stairs there: [((15, 12), None), ((16, 64), None)]
+[s19469 t12525 d3 0:3 xl8 hp87/87] DIVE task go to mines branch
+[s19508 t12547 d4 0:4 xl8 hp87/87] DIVE level (np.int64(0), np.int64(4)) depth 4
+[s19531 t12555 d3 0:3 xl8 hp87/87] DIVE level (np.int64(0), np.int64(3)) depth 3
+[s19552 t12566 d3 0:3 xl8 hp87/87] PANIC AgentPanic: agent position do not match after "move": expected (5, 20), got (7, 21)
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 111, in f
+    next(v2)
+  File "/sol/base/pf_valk37f_armor/dive_logic.py", line 1489, in strategy
+    self.plan_step()
+  File "/sol/base/pf_valk37f_armor/dive_logic.py", line 1635, in plan_step
+    if self.go_to_mines():
+       ^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_valk37f_armor/dive_logic.py", line 2572, in go_to_mines
+    agent.go_to(y, x)
+  File "/sol/base/pf_valk37f_armor/agent.py", line 2012, in go_to
+    self.move(y, x)
+  File "/sol/base/pf_valk37f_armor/agent.py", line 1683, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_valk37f_armor.exceptions.AgentPanic: agent position do not match after "move": expected (5, 20), got (7, 21)
+
+[s19613 t12596 d3 0:3 xl8 hp87/87] PRAY hp=87/87 hunger=3 gap=1201 reason=None
+[s19649 t12627 d3 0:3 xl8 hp87/87] PANIC AgentPanic: agent position do not match after "move": expected (10, 74), got (5, 61)
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 111, in f
+    next(v2)
+  File "/sol/base/pf_valk37f_armor/dive_logic.py", line 1489, in strategy
+    self.plan_step()
+  File "/sol/base/pf_valk37f_armor/dive_logic.py", line 1635, in plan_step
+    if self.go_to_mines():
+       ^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_valk37f_armor/dive_logic.py", line 2572, in go_to_mines
+    agent.go_to(y, x)
+  File "/sol/base/pf_valk37f_armor/agent.py", line 2012, in go_to
+    self.move(y, x)
+  File "/sol/base/pf_valk37f_armor/agent.py", line 1683, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_valk37f_armor.exceptions.AgentPanic: agent position do not match after "move": expected (10, 74), got (5, 61)
+
+[s19719 t12667 d3 0:3 xl8 hp85/87] PANIC AgentPanic: agent position do not match after "move": expected (10, 75), got (15, 72)
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_valk37f_armor/agent.py", line 296, in preempt
+    next(iterator)
+  File "/sol/base/pf_valk37f_armor/utils.py", line 138, in f
+    next(it)
+  File "/sol/base/pf_valk37f_armor/agent.py", line 2276, in fight2
+    wait_counter = self._fight2_perform_action(best_action, wait_counter)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_valk37f_armor/agent.py", line 2347, in _fight2_perform_action
+    self.move(target_y, target_x)
+  File "/sol/base/pf_valk37f_armor/agent.py", line 1683, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_valk37f_armor.exceptions.AgentPanic: agent position do not match after "move": expected (10, 75), got (15, 72)
+
+[s19780 t12719 d3 0:3 xl8 hp34/87] ELBERETH rest start: ['dwarf zombie', 'fox']
+[s19815 t12764 d3 0:3 xl8 hp20/87] PANIC AgentPanic: position changed
+Traceback (most recent call last):
+  File "/sol/base/pf_valk37f_armor/agent.py", line 482, in update
+    self.step(A.TextCharacters.SPACE)
+  File "/sol/base/pf_valk37f_armor/agent.py", line 451, in step
+    self.update(observation, additional_action_iterator)
+  File "/sol/base/pf_valk37f_armor/agent.py", line 614, in update
+    self.update_state(allow_update=self._atom_operation_allow_update or not self.in_atom_operation,
+  File "/sol/base/pf_valk37f_armor/agent.py", line 655, in update_state
+    self.call_update_functions()
+  File "/sol/base/pf_valk37f_armor/agent.py", line 666, in call_update_functions
+    func()
+  File "/sol/base/pf_valk37f_armor/agent.py", line 183, in f
+    raise AgentPanic('position changed')
+pf_valk37f_armor.exceptions.AgentPanic: position changed
+
