@@ -1,0 +1,34 @@
+diff --git a/base/nhbot_dt448_main/agent.py b/base/nhbot_dt448_main/agent.py
+index bb8321b..3d264cc 100644
+--- a/base/nhbot_dt448_main/agent.py
++++ b/base/nhbot_dt448_main/agent.py
+@@ -3756,9 +3756,12 @@ class Agent:
+         # LYCAN_UNLOAD_ALWAYS: Overtaxed/Overloaded in a were form whatever the hunger: an Overloaded rat can't
+         # move at all, and the bot's move attempts ('You collapse under your load') panicked for ~1100 turns
+         # at one square until it died on Dlvl 2 (robustness, base3arm-jf25 s1: only Hungry, so no unload)
+-        always = jf_config.LYCAN_UNLOAD_ALWAYS
++        bl = self.blstats
++        movement_refused = bl.carrying_capacity == 5 and self.character.is_lycanthrope and \
++            'You collapse under your load.' in self.message
++        always = jf_config.LYCAN_UNLOAD_ALWAYS or movement_refused
+         if not jf_config.LYCAN_FIXES or not self.character.prop.polymorph or \
+-                self.blstats.carrying_capacity < 4 or (self.blstats.hunger_state < Hunger.WEAK and not always):
++                bl.carrying_capacity < 4 or (bl.hunger_state < Hunger.WEAK and not always):
+             yield False
+         food = self.edible_carried_food()
+         if not food and not always:
+diff --git a/nethackers.solution.json b/nethackers.solution.json
+index 9e671e9..a8de485 100644
+--- a/nethackers.solution.json
++++ b/nethackers.solution.json
+@@ -1,8 +1,9 @@
+ {
+   "schema": "nethackers.solution/v1",
+-  "name": "daglar-zLeadersBest3225967",
++  "name": "Dwarf Cavewoman overload recovery",
+   "root": ".",
+   "parents": [
++    "github.com/daglar-dragomirov/nethacker@c6dd15b4057d75e559c5fbb93b9ab953bb538f01",
+     "github.com/daglar-dragomirov/nethacker@ccfb1251179bad749ece88d384956363ffb2db56",
+     "github.com/daglar-dragomirov/nethacker@44b29b9299c5dcfb76e3fc6081004727c58db19a",
+     "github.com/DT6A/nethacker@37f9da35d0dbf98ed15bf89735bd601f0c0eac02",
