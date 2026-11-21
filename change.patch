@@ -1,0 +1,34 @@
+diff --git a/base/nhbot_v3/agent.py b/base/nhbot_v3/agent.py
+index 2d3adb8..eb59cfe 100644
+--- a/base/nhbot_v3/agent.py
++++ b/base/nhbot_v3/agent.py
+@@ -925,10 +925,10 @@ class Agent:
+         the target square for good (base2-jf25 s11 was then boxed in for 5000+ turns). Try diagonals instead:
+         4-7 turns. Below fight2, so an adjacent attacker is fought from the trap first."""
+         here = (*self.current_level().key(), self.blstats.y, self.blstats.x)
+-        # (the dive only: in the spawn-limited grind trapped turns cost little, and the b3 guard's jf14 s0 reshuffled
+-        # from a Dlvl-1 bear trap at T9)
+-        if not jf_config.BEARTRAP_ESCAPE or not self.global_logic.dive.diving or \
+-                getattr(self, '_beartrap_at', None) != here:
++        # During the tour, wait for a refused move before interrupting the usual strategy.
++        move_refused = 'You are caught in a bear trap' in self.message
++        if not jf_config.BEARTRAP_ESCAPE or getattr(self, '_beartrap_at', None) != here or \
++                (not self.global_logic.dive.diving and not move_refused):
+             yield False
+         level = self.current_level()
+         y0, x0 = self.blstats.y, self.blstats.x
+diff --git a/nethackers.solution.json b/nethackers.solution.json
+index 2c358b6..9446e82 100644
+--- a/nethackers.solution.json
++++ b/nethackers.solution.json
+@@ -1,8 +1,9 @@
+ {
+   "schema": "nethackers.solution/v1",
+-  "name": "daglar-zLeadersSeed660383",
++  "name": "Caveman bear trap recovery",
+   "root": ".",
+   "parents": [
++    "github.com/daglar-dragomirov/nethacker@285f54fd32b1abe069d09f25a5d4901922af1cd6",
+     "github.com/daglar-dragomirov/nethacker@ccfb1251179bad749ece88d384956363ffb2db56",
+     "github.com/daglar-dragomirov/nethacker@44b29b9299c5dcfb76e3fc6081004727c58db19a",
+     "github.com/DT6A/nethacker@37f9da35d0dbf98ed15bf89735bd601f0c0eac02",
