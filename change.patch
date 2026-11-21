@@ -1,0 +1,159 @@
+diff --git a/d_CleverShovel_e13ed40/autoascend/agent.py b/d_CleverShovel_e13ed40/autoascend/agent.py
+index 9c7e8b4..aa633cb 100755
+--- a/d_CleverShovel_e13ed40/autoascend/agent.py
++++ b/d_CleverShovel_e13ed40/autoascend/agent.py
+@@ -2314,7 +2314,7 @@ class Agent:
+ 
+         return ret
+ 
+-    def bfs(self, y=None, x=None, force_squeeze=False, open_mask=None):
++    def bfs(self, y=None, x=None, force_squeeze=False, open_mask=None, *, avoid_monsters=False):
+         # open_mask (grind-audit stall fixes, dive_logic._stall_unblock): squares to treat as walkable on top of the
+         # usual rules (a sessile monster's or a boulder's square) -- computed fresh, never cached; None: as before
+         if y is None:
+@@ -2322,7 +2322,8 @@ class Agent:
+         if x is None:
+             x = self.blstats.x
+ 
+-        if open_mask is None and not force_squeeze and self.last_bfs_step == self.step_count and \
++        use_cache = open_mask is None and not force_squeeze and not avoid_monsters
++        if use_cache and self.last_bfs_step == self.step_count and \
+                 y == self.blstats.y and x == self.blstats.x:
+             return self.last_bfs_dis.copy()
+ 
+@@ -2395,6 +2396,8 @@ class Agent:
+                     walkable[my, mx] = False
+         if open_mask is not None:
+             walkable |= open_mask
++        if avoid_monsters:
++            walkable &= ~self.monster_tracker.monster_mask
+ 
+         walkable_diagonally = walkable & ~utils.isin(level.objects, G.DOORS) & (level.objects != -1) \
+             & ~level.intact_doors
+@@ -2439,7 +2442,7 @@ class Agent:
+                             can_squeeze=can_squeeze,
+                             )
+ 
+-        if y == self.blstats.y and x == self.blstats.x and not force_squeeze and open_mask is None and not stale:
++        if use_cache and not stale and y == self.blstats.y and x == self.blstats.x:
+             self.last_bfs_dis = dis
+             self.last_bfs_step = self.step_count
+ 
+@@ -2520,14 +2523,15 @@ class Agent:
+             return True
+ 
+     def go_to(self, y, x, stop_one_before=False, max_steps=None,
+-              debug_tiles_args=None, callback=lambda: False, fast=False):
++              debug_tiles_args=None, callback=lambda: False, fast=False, *, avoid_monsters=False):
+         # STATUS heartbeat: which strategy keeps walking where (stall diagnoses)
+         self._hb_gotos[(y, x, sys._getframe(1).f_code.co_name)] += 1
+         assert not stop_one_before or (self.blstats.y != y or self.blstats.x != x)
+         assert max_steps is None or not fast
+ 
+-        if stop_one_before and self.bfs()[y, x] == -1:
+-            dis = self.bfs()
++        distances = (lambda: self.bfs(avoid_monsters=True)) if avoid_monsters else self.bfs
++        if stop_one_before and distances()[y, x] == -1:
++            dis = distances()
+             best_p = None
+             for ny, nx in self.neighbors(y, x):
+                 if dis[ny, nx] != -1 and (best_p is None or dis[best_p] > dis[ny, nx]):
+@@ -2537,7 +2541,10 @@ class Agent:
+             y, x = best_p
+             stop_one_before = False
+ 
+-        assert self.bfs()[y, x] != -1
++        reachable = distances()[y, x] != -1
++        if avoid_monsters and not reachable:
++            return
++        assert reachable
+ 
+         if callback():
+             return
+@@ -2545,10 +2552,12 @@ class Agent:
+         stuck_replans = 0   # GOTO_TARGET_FIX re-plans that took no step (see below)
+         cont = True
+         while cont and (self.blstats.y, self.blstats.x) != (y, x):
+-            dis = self.bfs()
++            dis = distances()
+             if dis[y, x] == -1:
++                if avoid_monsters:
++                    return
+                 raise AgentPanic('end point is no longer accessible')
+-            path = self.path(self.blstats.y, self.blstats.x, y, x)
++            path = self.path(self.blstats.y, self.blstats.x, y, x, dis=dis if avoid_monsters else None)
+             orig_path = path
+             path = path[1:]
+             if stop_one_before:
+@@ -2569,6 +2578,8 @@ class Agent:
+                 ty, tx = y, x
+                 steps_before = steps_taken
+                 for y, x in path:
++                    if avoid_monsters and self.monster_tracker.monster_mask[y, x]:
++                        return
+                     if self.monster_tracker.peaceful_monster_mask[y, x]:
+                         cont = True
+                         break
+diff --git a/d_CleverShovel_e13ed40/autoascend/item/inventory.py b/d_CleverShovel_e13ed40/autoascend/item/inventory.py
+index 0b6859a..18ea9be 100755
+--- a/d_CleverShovel_e13ed40/autoascend/item/inventory.py
++++ b/d_CleverShovel_e13ed40/autoascend/item/inventory.py
+@@ -1778,9 +1778,15 @@ class Inventory:
+         if not mask.any():
+             yield False
+ 
+-        dis = self.agent.bfs()
++        level = self.agent.current_level()
++        key = level.key()
++        now = int(self.agent.blstats.time)
++        blocked = getattr(self, '_blocked_loot_route', None)
++        recent = blocked is not None and blocked[0] == key and now - blocked[1] < 20
++        avoid_monsters = bool(recent and blocked[2] >= 2 and self.agent.monster_tracker.monster_mask.any())
++        dis = self.agent.bfs(avoid_monsters=True) if avoid_monsters else self.agent.bfs()
+ 
+-        mask &= self.agent.current_level().item_count == 0
++        mask &= level.item_count == 0
+         if not mask.any():
+             yield False
+ 
+@@ -1798,13 +1804,22 @@ class Inventory:
+         i = self.agent.rng.randint(len(nonzero_y))
+         target_y, target_x = nonzero_y[i], nonzero_x[i]
+ 
++        before = (self.agent.blstats.y, self.agent.blstats.x)
+         with self.agent.env.debug_tiles(mask, color=(255, 0, 0, 128)):
+             try:
+-                self.agent.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 0, 255), is_path=True))
++                self.agent.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 0, 255), is_path=True),
++                                 avoid_monsters=avoid_monsters)
+             except AgentPanic as e:
++                message = str(e)
++                if message.startswith('Monster on a next tile when moving:') and self.agent.current_level().key() == key:
++                    count = (blocked[2] + 1) if recent else 1
++                    self._blocked_loot_route = (key, int(self.agent.blstats.time), count)
+                 if jf_config.CHECK_ITEMS_SKIP:
+-                    self._check_items_bumped(str(e), int(target_y), int(target_x))
++                    self._check_items_bumped(message, int(target_y), int(target_x))
+                 raise
++            else:
++                if avoid_monsters and (self.agent.blstats.y, self.agent.blstats.x) != before:
++                    self._blocked_loot_route = None
+ 
+     def _check_items_bumped(self, text, ty, tx):
+         """CHECK_ITEMS_SKIP: the walk to an unchecked item square ended in 'Monster on a next tile when moving: (ty,tx)' -- the target
+diff --git a/nethackers.solution.json b/nethackers.solution.json
+index 591a72c..f9cb410 100644
+--- a/nethackers.solution.json
++++ b/nethackers.solution.json
+@@ -1,8 +1,10 @@
+ {
+   "schema": "nethackers.solution/v1",
+-  "name": "daglar-zLeadersSeed407717",
++  "name": "vltrifonov-samurai-short-loot-recovery",
+   "root": ".",
+   "parents": [
++    "github.com/daglar-dragomirov/nethacker@9a387c4fb6b8c166e2e6e63617bd6e588f40fddc",
++    "github.com/vltrifonov/nethackers-bots@ffe67f7dba206f4aa0fdf2d52414b6c5eec44dec",
+     "github.com/daglar-dragomirov/nethacker@ccfb1251179bad749ece88d384956363ffb2db56",
+     "github.com/daglar-dragomirov/nethacker@44b29b9299c5dcfb76e3fc6081004727c58db19a",
+     "github.com/DT6A/nethacker@37f9da35d0dbf98ed15bf89735bd601f0c0eac02",
