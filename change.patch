@@ -1,0 +1,126 @@
+diff --git a/base/pf_v36/agent.py b/base/pf_v36/agent.py
+index 621e262..d927bd7 100644
+--- a/base/pf_v36/agent.py
++++ b/base/pf_v36/agent.py
+@@ -19,6 +19,7 @@ from .exceptions import AgentPanic, AgentFinished, AgentChangeStrategy
+ from .exploration_logic import ExplorationLogic
+ from .global_logic import GlobalLogic
+ from .glyph import MON, C, Hunger, G, SHOP, SS
++from .glyph.monflag import M2_STALK
+ from .item import Item, flatten_items
+ from .item.inventory import Inventory
+ from .level import Level
+@@ -67,6 +68,7 @@ class Agent:
+         self.last_bfs_dis = None
+         self.last_bfs_step = None
+         self.last_prayer_turn = None
++        self._prayer_escape = None
+         self.prayer_hold_until = -1
+         self._fainting_since = None   # turn Fainting was first seen (jf_config.STARVE_CLOCK)
+         self._weak_since = None       # turn Weak was first seen (jf_config.THREAT_PRAYER_GAP)
+@@ -1383,6 +1385,10 @@ class Agent:
+                 self.last_prayer_turn = self.blstats.time
+                 self.search()
+                 return True
++        self._prayer_escape = None
++        origin = (self.blstats.y, self.blstats.x)
++        level_key = self.current_level().key()
++        sighting = self._prayer_escape_hostile() if self._critically_low_hp() else None
+         turn_before = self.blstats.time
+         history_len = len(self._message_history)
+         self.step(A.Command.PRAY)
+@@ -1394,6 +1400,9 @@ class Agent:
+         elif any(msg in messages for msg in self.PRAYER_SUCCESS_MESSAGES):
+             self.prayer_failed = False  # pleased() only runs with the god appeased and Luck >= 0
+             answered = True
++        if answered and sighting is not None and 'You feel much better.' in messages and \
++                self.blstats.hitpoints == self.blstats.max_hitpoints:
++            self._prayer_escape = (level_key, self.blstats.time, origin, sighting, False)
+         if limit is not None and self._prayer_model_active():
+             try:
+                 self.prayer_model.on_prayer(turn_before, messages, answered, failed, limit)
+@@ -2717,6 +2726,47 @@ class Agent:
+         low_hp = hp_ratio < 0.5 and (self.blstats.max_hitpoints - self.blstats.hitpoints > 25)
+         return self.blstats.energy >= 15 and low_hp
+ 
++    def _prayer_escape_hostile(self):
++        """Identify a lone adjacent threat that ignores Elbereth and won't follow downstairs."""
++        dive = self.global_logic.dive
++        level = self.current_level()
++        bl = self.blstats
++        prop = self.character.prop
++        if not dive.diving or dive.climbing() or level.dungeon_number != Level.DUNGEONS_OF_DOOM or \
++                level.key() == dive.castle.castle_key or level.shop[bl.y, bl.x] or dive.levitating() or \
++                prop.blind or prop.confusion or prop.stun or prop.hallu or prop.polymorph or bl.carrying_capacity >= 4:
++            return None
++        threats = dive._near_hostiles(radius=2)
++        if len(threats) != 1:
++            return None
++        _, y, x, monster, glyph = threats[0]
++        if max(abs(y - bl.y), abs(x - bl.x)) != 1 or not nh.glyph_is_monster(glyph) or \
++                monster.mflags2 & M2_STALK or monster.mname in ('shopkeeper', 'Wizard of Yendor') or \
++                not dive._melee_ignores_elbereth(monster):
++            return None
++        return y, x, glyph
++
++    def _escape_after_prayer(self):
++        """Choose only a clear, legal step to a down stair, or descend if already on it."""
++        if self._prayer_escape is None:
++            return None
++        key, turn, origin, threat, stepped = self._prayer_escape
++        bl = self.blstats
++        level = self.current_level()
++        if (level.key(), bl.time, (bl.y, bl.x)) != (key, turn, origin) or \
++                bl.time - self._last_resort_stairs_turn <= 20 or self._prayer_escape_hostile() != threat:
++            return None
++        dive = self.global_logic.dive
++        distances = self.bfs()
++        stairs = [(distances[p], p) for p in level.get_stairs(down=True)
++                  if 0 <= distances[p] <= 1 and (not stepped or p == origin) and not level.shop[p] and
++                  (p == origin or (self.glyphs[p] in G.STAIR_DOWN and not self.monster_tracker.monster_mask[p])) and
++                  dive._stairs_ok(level, *p) and dive._avoid_stairs_until.get((key, p), -1) <= turn]
++        if stairs:
++            distance, target = min(stairs)
++            return target if distance else '>'
++        return None
++
+     @utils.debug_log('emergency_strategy')
+     @Strategy.wrap
+     def emergency_strategy(self):
+@@ -2812,6 +2862,21 @@ class Agent:
+             self.pray()
+             return
+ 
++        escape = self._escape_after_prayer()
++        if escape is not None:
++            yield True
++            key, turn, _, threat, _ = self._prayer_escape
++            self._prayer_escape = None
++            if escape == '>':
++                self._last_resort_stairs_turn = turn
++                self.log('PRAYER ESCAPE: descending away from the attacker')
++                self.move('>')
++            else:
++                self.log(f'PRAYER ESCAPE: stepping onto the down stair at {escape}')
++                self._prayer_escape = (key, turn + 1, escape, threat, True)
++                self.move(*escape)
++            return
++
+         # Last resort (LAST_RESORT): about to die, no safe prayer, a hostile adjacent. The game is
+         # usually lost here, so gambles have positive value for a max-progress score: stairs (down
+         # also banks depth), unknown wands at the attacker, unknown potions, unknown scrolls.
+diff --git a/nethackers.solution.json b/nethackers.solution.json
+index a11b664..feaa3ff 100644
+--- a/nethackers.solution.json
++++ b/nethackers.solution.json
+@@ -1,8 +1,9 @@
+ {
+   "schema": "nethackers.solution/v1",
+-  "name": "daglar-zLeadersBest2998744",
++  "name": "Archaeologist take visible stairs after healing prayer",
+   "root": ".",
+   "parents": [
++    "github.com/daglar-dragomirov/nethacker@6d91bd1ac0e14abcd994dd866c0ac17fe0cdb950",
+     "github.com/daglar-dragomirov/nethacker@ccfb1251179bad749ece88d384956363ffb2db56",
+     "github.com/daglar-dragomirov/nethacker@44b29b9299c5dcfb76e3fc6081004727c58db19a",
+     "github.com/DT6A/nethacker@37f9da35d0dbf98ed15bf89735bd601f0c0eac02",
