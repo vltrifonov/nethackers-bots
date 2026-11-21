@@ -1,0 +1,52 @@
+diff --git a/base/nhbot_v2/power_route.py b/base/nhbot_v2/power_route.py
+index 859f556..fb8f755 100644
+--- a/base/nhbot_v2/power_route.py
++++ b/base/nhbot_v2/power_route.py
+@@ -42,6 +42,7 @@ from .strategy import Strategy
+ 
+ TC_RING = O.from_name('teleport control', nh.RING_CLASS)
+ LEV_RING = O.from_name('levitation', nh.RING_CLASS)
++PROTECTION_RING = O.from_name('protection', nh.RING_CLASS)
+ TELE_SCROLL = O.from_name('teleportation', nh.SCROLL_CLASS)
+ IDENTIFY_SCROLL = O.from_name('identify', nh.SCROLL_CLASS)
+ CONFUSE_SCROLL = O.from_name('confuse monster', nh.SCROLL_CLASS)
+@@ -684,12 +685,19 @@ def _ring_test_step(agent, ring):
+     st.ring_tested.add(g)
+     if not _put_on(agent, ring, 'wear test (a levitation ring names itself)'):
+         return
+-    msg = agent.message or ''
+-    worn = next((r for r in worn_rings(agent) if _glyph(r) == g), None)
+-    if 'float in the air' in msg:
++    levitation = 'float in the air' in (agent.message or '')
++    equipped = worn_rings(agent)
++    worn = next((r for r in equipped if _glyph(r) == g), None)
++    if levitation:
+         _log(agent, f'ring glyph {g} is levitation: taking it off for the castle')
+-    if worn is not None:
+-        _remove(agent, worn)
++    if worn is None:
++        return
++    # Keep a proven armor bonus if the other finger is still free for a route ring.
++    if not levitation and len(equipped) == 1 and worn.is_unambiguous() and worn.object == PROTECTION_RING and \
++            (worn.modifier or 0) > 0 and buc_known(worn) and not known_cursed(worn):
++        _log(agent, f'keeping tested {worn.text!r}')
++        return
++    _remove(agent, worn)
+ 
+ 
+ # ------------------------------------------------------------------------------------------------ rings
+diff --git a/nethackers.solution.json b/nethackers.solution.json
+index f2ab6c3..0f58f10 100644
+--- a/nethackers.solution.json
++++ b/nethackers.solution.json
+@@ -1,8 +1,9 @@
+ {
+   "schema": "nethackers.solution/v1",
+-  "name": "daglar-zLeadersSeed357139",
++  "name": "Caveman keep a proven protective ring",
+   "root": ".",
+   "parents": [
++    "github.com/daglar-dragomirov/nethacker@7c48d836376ea0e73049257167040cfa6958453e",
+     "github.com/daglar-dragomirov/nethacker@ccfb1251179bad749ece88d384956363ffb2db56",
+     "github.com/daglar-dragomirov/nethacker@44b29b9299c5dcfb76e3fc6081004727c58db19a",
+     "github.com/DT6A/nethacker@37f9da35d0dbf98ed15bf89735bd601f0c0eac02",
