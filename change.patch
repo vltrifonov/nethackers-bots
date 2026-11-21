@@ -1,0 +1,29 @@
+diff --git a/base/nhbot_v3/dive_logic.py b/base/nhbot_v3/dive_logic.py
+index ec01d32..e9febca 100644
+--- a/base/nhbot_v3/dive_logic.py
++++ b/base/nhbot_v3/dive_logic.py
+@@ -5123,7 +5123,8 @@ class DiveLogic:
+         last = agent.last_prayer_turn
+         gap = None if last is None else bl.time - last
+         ready = gap is None or gap >= DIVE_PRAYER_GAP or agent.prayer_failed
+-        if ready and DIVE_PRAYER_FOOD and not agent.prayer_failed:
++        # A tool dive already waiting for prayer readiness should leave fed or with food.
++        if ready and not agent.prayer_failed and (DIVE_PRAYER_FOOD or self._prayer_wait_start is not None):
+             ready = bl.hunger_state < Hunger.HUNGRY or agent.carried_food_nutrition() >= DIVE_PRAYER_FOOD_MIN
+         if not ready and self._prayer_wait_start is None:
+             self._prayer_wait_start = bl.time
+diff --git a/nethackers.solution.json b/nethackers.solution.json
+index 3c3ece1..918b4fb 100644
+--- a/nethackers.solution.json
++++ b/nethackers.solution.json
+@@ -1,8 +1,9 @@
+ {
+   "schema": "nethackers.solution/v1",
+-  "name": "daglar-zLeadersSeed812011",
++  "name": "Cavewoman provisioned dive readiness",
+   "root": ".",
+   "parents": [
++    "github.com/daglar-dragomirov/nethacker@239f4a286e07b4a29cc99a54cb481b8adcf7c0ed",
+     "github.com/daglar-dragomirov/nethacker@ccfb1251179bad749ece88d384956363ffb2db56",
+     "github.com/daglar-dragomirov/nethacker@44b29b9299c5dcfb76e3fc6081004727c58db19a",
+     "github.com/DT6A/nethacker@37f9da35d0dbf98ed15bf89735bd601f0c0eac02",
