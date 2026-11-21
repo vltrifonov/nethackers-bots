@@ -1,0 +1,69 @@
+diff --git a/nethackers.solution.json b/nethackers.solution.json
+index f15af95..19003c8 100644
+--- a/nethackers.solution.json
++++ b/nethackers.solution.json
+@@ -1,8 +1,9 @@
+ {
+   "schema": "nethackers.solution/v1",
+-  "name": "daglar-zV10cHedTf1000DigXL6",
++  "name": "vltrifonov-gnome-wizard-altar",
+   "root": ".",
+   "parents": [
++    "github.com/daglar-dragomirov/nethacker@e8ff9e6ae34556ea192a069d84b3d3eb33cd6e66",
+     "github.com/daglar-dragomirov/nethacker@a368786dc2650f8cd878b1226ac5815e719f164d",
+     "github.com/zarutskiysy/nethack@14a3bbd871061d63bda57da6c82af91f46959d21",
+     "github.com/zarutskiysy/nethack@94c4c1cd21c51f9feec0eaabd9c63831a8ee3316",
+diff --git a/nhbot/power_route.py b/nhbot/power_route.py
+index 859f556..007eba4 100644
+--- a/nhbot/power_route.py
++++ b/nhbot/power_route.py
+@@ -75,6 +75,7 @@ class RouteState:
+         self.levelports = []          # (turn, from (dnum, dlevel, depth), controlled, text)
+         self.gamble_log = None        # last castle-gamble state logged
+         self.altar_tried = {}         # level key -> signature of the items last BUC-tested on its altar
++        self.altar_approaches = {}    # (level, altar) -> last attempted path distance and turn
+         self.altar_turn = -10 ** 9
+         self.altar_pending = None     # ALTAR_PICKUP: (level key, altar pos, dropped glyphs, drop turn) not yet picked up
+         self.altar_pickup_tries = 0
+@@ -529,6 +530,7 @@ def _dive_id_ready(agent):
+ 
+ 
+ _ALTAR_CLASSES = (nh.RING_CLASS, nh.POTION_CLASS, nh.SCROLL_CLASS, nh.AMULET_CLASS)
++ALTAR_APPROACH_COOLDOWN = 30
+ 
+ 
+ def _altar_items(agent):
+@@ -577,17 +579,29 @@ def _altar_ready(agent):
+         return None
+     if _hostiles_within(agent, 5):
+         return None
++    here = (bl.y, bl.x)
++    if here in level.altars:
++        return here
+     dis = agent.bfs()
+-    alts = [p for p in level.altars if p == (bl.y, bl.x) or dis[p] != -1]
+-    if not alts:
+-        return None
+-    return min(alts, key=lambda p: 0 if p == (bl.y, bl.x) else dis[p])
++    alts = []
++    for pos in level.altars:
++        if dis[pos] < 0:
++            continue
++        previous = st.altar_approaches.get((level.key(), pos))
++        if previous is not None:
++            distance, turn = previous
++            if dis[pos] >= distance and bl.time - turn < ALTAR_APPROACH_COOLDOWN:
++                continue
++        alts.append(pos)
++    return min(alts, key=lambda pos: dis[pos], default=None)
+ 
+ 
+ def _altar_step(agent, pos):
+     st = state(agent)
+     bl = agent.blstats
+     if (bl.y, bl.x) != tuple(pos):
++        # The walk can be interrupted by combat before any progress is made.
++        st.altar_approaches[(agent.current_level().key(), tuple(pos))] = (int(agent.bfs()[pos]), bl.time)
+         _log(agent, f'to the altar at {tuple(pos)} to learn the BUC of {len(_altar_items(agent))} items')
+         agent.go_to(*pos)
+         return
