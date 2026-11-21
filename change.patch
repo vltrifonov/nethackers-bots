@@ -1,0 +1,113 @@
+diff --git a/CHANGES.md b/CHANGES.md
+index 59e6df6..2ad9c4a 100644
+--- a/CHANGES.md
++++ b/CHANGES.md
+@@ -1,3 +1,9 @@
++# Caveman cover after emergency prayer
++
++After recovering from critical HP on a previously held square, a Caveman still
++beside a crowd can take one cover action against foes that fear Elbereth. The
++existing hold logic resumes after a short window.
++
+ # zLeadersSeed812011 (Claude, 2026-10-26)
+ 
+ Identity router. Default base/ = github.com/daglar-dragomirov/nethacker@eab9a9c4f4e09bce096d5762e895fec51b63784d (unmodified).
+diff --git a/base/nhbot_v3/agent.py b/base/nhbot_v3/agent.py
+index ecbc8ab..66ebcda 100644
+--- a/base/nhbot_v3/agent.py
++++ b/base/nhbot_v3/agent.py
+@@ -1628,6 +1628,7 @@ class Agent:
+         elif any(msg in messages for msg in self.PRAYER_SUCCESS_MESSAGES):
+             self.prayer_failed = False  # pleased() only runs with the god appeased and Luck >= 0
+             answered = True
++        self._last_prayer_answered = answered and 'You finish your prayer' in messages
+         if limit is not None and self._prayer_model_active():
+             try:
+                 self.prayer_model.on_prayer(turn_before, messages, answered, failed, limit)
+diff --git a/base/nhbot_v3/dive_logic.py b/base/nhbot_v3/dive_logic.py
+index ec01d32..030ba28 100644
+--- a/base/nhbot_v3/dive_logic.py
++++ b/base/nhbot_v3/dive_logic.py
+@@ -2081,6 +2081,24 @@ class DiveLogic:
+         except Exception:
+             return False
+ 
++    def _fresh_prayer_cover(self):
++        """Allow one cover action after recovering on a previously held square."""
++        agent = self.agent
++        bl = agent.blstats
++        prayer_turn = agent.last_prayer_turn
++        prop = agent.character.prop
++        if (self.diving or agent.character.role != Character.CAVEMAN or prayer_turn is None
++                or not getattr(agent, '_last_prayer_answered', False)
++                or not 0 <= bl.time - prayer_turn <= 2
++                or getattr(self, '_post_prayer_cover_turn', None) == prayer_turn
++                or bl.hitpoints < ELBERETH_REST_UNTIL * bl.max_hitpoints
++                or bl.hunger_state >= Hunger.WEAK or prop.hallu or prop.confusion or prop.stun):
++            return False
++        square = (agent.current_level().key(), bl.y, bl.x)
++        return square in self._hold_squares and any(
++            prayer_turn - 4 <= turn < prayer_turn and hp < RETREAT_BELOW * bl.max_hitpoints
++            for turn, hp in self._hp_history)
++
+     @Strategy.wrap
+     @_hold_loop
+     def elbereth_rest(self):
+@@ -2094,8 +2112,9 @@ class DiveLogic:
+         # a fast hitter (a leocrotta took a dive from 100 to 14 HP in 6 turns) can't be outrun: hide
+         # behind Elbereth as soon as HP falls fast, not only below 40%
+         falling = not resting and self._fast_hp_loss()
+-        if (bl.hitpoints >= threshold * bl.max_hitpoints and not falling) or \
+-                agent.current_level().dungeon_number == GEHENNOM:
++        recovered = bl.hitpoints >= threshold * bl.max_hitpoints and not falling
++        prayer_cover = recovered and self._fresh_prayer_cover()
++        if (recovered and not prayer_cover) or agent.current_level().dungeon_number == GEHENNOM:
+             self._elbereth_resting = False
+             yield False
+         if DIG_ESCAPE and self._dig_escape_action() is not None:
+@@ -2104,6 +2123,9 @@ class DiveLogic:
+             self._elbereth_resting = False
+             yield False
+         near = self._near_hostiles()
++        if prayer_cover and (len(near) < 3 or not any(utils.adjacent((y, x), (bl.y, bl.x)) for _, y, x, _, _ in near)):
++            self._elbereth_resting = False
++            yield False
+         # a lone weak monster is better killed than hidden from (engraving gives it a free hit)
+         if len(near) == 1 and getattr(near[0][3], 'mlevel', 99) <= 2 and bl.hitpoints >= 6 and \
+                 not self._lone_weak_deadly(near[0]):
+@@ -2127,6 +2149,9 @@ class DiveLogic:
+             self._elbereth_resting = False
+             yield False
+         yield True
++        if prayer_cover:
++            self._post_prayer_cover_turn = agent.last_prayer_turn
++            agent.log('ELBERETH one cover action after emergency prayer')
+         if not self._elbereth_resting:
+             agent.log(f'ELBERETH rest start: {[m[3].mname for m in near]}')
+         self._elbereth_resting = True
+@@ -2405,6 +2430,10 @@ class DiveLogic:
+         if engraving != 'elbereth':
+             self._hold_squares.discard(here)
+             yield False
++        # The one-turn prayer cover can scare enemies away before we erase it.
++        prayer_turn = getattr(self, '_post_prayer_cover_turn', None)
++        if prayer_turn is not None and prayer_turn == agent.last_prayer_turn and 0 <= bl.time - prayer_turn <= 2:
++            yield False
+         # the holds themselves run above us; don't undo a shelter that is about to be needed again
+         if bl.hunger_state >= Hunger.WEAK or bl.hitpoints < ELBERETH_REST_UNTIL * bl.max_hitpoints or \
+                 agent.character.prop.blind or not agent.can_engrave():
+diff --git a/nethackers.solution.json b/nethackers.solution.json
+index 3c3ece1..6ce0a33 100644
+--- a/nethackers.solution.json
++++ b/nethackers.solution.json
+@@ -1,8 +1,9 @@
+ {
+   "schema": "nethackers.solution/v1",
+-  "name": "daglar-zLeadersSeed812011",
++  "name": "caveman-post-prayer-cover",
+   "root": ".",
+   "parents": [
++    "github.com/daglar-dragomirov/nethacker@239f4a286e07b4a29cc99a54cb481b8adcf7c0ed",
+     "github.com/daglar-dragomirov/nethacker@ccfb1251179bad749ece88d384956363ffb2db56",
+     "github.com/daglar-dragomirov/nethacker@44b29b9299c5dcfb76e3fc6081004727c58db19a",
+     "github.com/DT6A/nethacker@37f9da35d0dbf98ed15bf89735bd601f0c0eac02",
