@@ -1,0 +1,21 @@
+diff --git a/base/nhbot_v2/agent.py b/base/nhbot_v2/agent.py
+index b7ee83b..5e7aa9d 100644
+--- a/base/nhbot_v2/agent.py
++++ b/base/nhbot_v2/agent.py
+@@ -2781,6 +2781,16 @@ class Agent:
+             _, dy, dx = best_action
+             target_y = self.blstats.y + dy
+             target_x = self.blstats.x + dx
++            nearby = [(int(y), int(x), mon.mname) for _, y, x, mon, _ in self.get_visible_monsters()
++                      if max(abs(y-self.blstats.y), abs(x-self.blstats.x)) <= 2]
++            if any(mon == 'Elvenking' for _, _, mon in nearby):
++                level = self.current_level()
++                steps = [(int(y), int(x), int(level.objects[y, x]), int(self.glyphs[y, x]),
++                          bool(self.monster_tracker.monster_mask[y, x])) for y,x in zip(*(self.bfs() == 1).nonzero())]
++                dive = self.global_logic.dive
++                self.log(f'BARB_MELEE_DIAG at={(self.blstats.y, self.blstats.x)} near={nearby} steps={steps} '
++                         f'pit={self.in_pit() or dive._in_own_pit()} loss={dive._fast_hp_loss()} '
++                         f'visit={getattr(dive, "_visit_start", None)}')
+             if not self._keep_digging_tool_wielded() and self.wield_best_melee_weapon():
+                 return wait_counter
+             with self.env.debug_tiles([[self.blstats.y, self.blstats.x],
