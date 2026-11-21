@@ -1,0 +1,615 @@
+[s24 t1 d1 0:1 xl1 hp12/12] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(16), np.int64(64)) acts=[SPACE:6 ESC:4 AUTOPICKUP:2 ATTRIBUTES:1 ENHANCE:1] gotos=[]
+[s24 t1 d1 0:1 xl1 hp12/12] DIVE level (np.int64(0), np.int64(1)) depth 1
+[s152 t105 d1 0:1 xl1 hp12/12] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/autoascend/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/autoascend/agent.py", line 296, in preempt
+    next(iterator)
+  File "/sol/autoascend/strategy.py", line 68, in f
+    next(it)
+  File "/sol/autoascend/utils.py", line 134, in f
+    next(it)
+  File "/sol/autoascend/agent.py", line 2535, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/autoascend/item/inventory.py", line 799, in eat
+    raise AgentPanic('no such food is lying here')
+autoascend.exceptions.AgentPanic: no such food is lying here
+
+[s381 t285 d1 0:1 xl1 hp12/12] PANIC AgentPanic: agent position do not match after "move": expected (17, 26), got (18, 26)
+Traceback (most recent call last):
+  File "/sol/autoascend/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/autoascend/agent.py", line 285, in preempt
+    val = f()
+          ^^^
+  File "/sol/autoascend/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/autoascend/exploration_logic.py", line 490, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/autoascend/agent.py", line 1913, in go_to
+    self.move(y, x)
+  File "/sol/autoascend/agent.py", line 1622, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+autoascend.exceptions.AgentPanic: agent position do not match after "move": expected (17, 26), got (18, 26)
+
+[s581 t397 d1 0:1 xl1 hp14/14] PANIC AgentPanic: agent position do not match after "move": expected (7, 34), got (8, 33)
+Traceback (most recent call last):
+  File "/sol/autoascend/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/autoascend/agent.py", line 285, in preempt
+    val = f()
+          ^^^
+  File "/sol/autoascend/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/autoascend/exploration_logic.py", line 490, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/autoascend/agent.py", line 1913, in go_to
+    self.move(y, x)
+  File "/sol/autoascend/agent.py", line 1622, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+autoascend.exceptions.AgentPanic: agent position do not match after "move": expected (7, 34), got (8, 33)
+
+[s640 t426 d1 0:1 xl1 hp14/14] PANIC AgentPanic: agent position do not match after "move": expected (3, 44), got (4, 43)
+Traceback (most recent call last):
+  File "/sol/autoascend/strategy.py", line 165, in f
+    next(gen)
+  File "/sol/autoascend/strategy.py", line 100, in f
+    next(v1)
+  File "/sol/autoascend/utils.py", line 134, in f
+    next(it)
+  File "/sol/autoascend/item/inventory.py", line 1414, in check_items
+    self.agent.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 0, 255), is_path=True))
+  File "/sol/autoascend/agent.py", line 1913, in go_to
+    self.move(y, x)
+  File "/sol/autoascend/agent.py", line 1622, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+autoascend.exceptions.AgentPanic: agent position do not match after "move": expected (3, 44), got (4, 43)
+
+[s664 t434 d1 0:1 xl1 hp14/14] PANIC AgentPanic: agent position do not match after "move": expected (4, 46), got (4, 45)
+Traceback (most recent call last):
+  File "/sol/autoascend/strategy.py", line 165, in f
+    next(gen)
+  File "/sol/autoascend/strategy.py", line 100, in f
+    next(v1)
+  File "/sol/autoascend/utils.py", line 134, in f
+    next(it)
+  File "/sol/autoascend/item/inventory.py", line 1414, in check_items
+    self.agent.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 0, 255), is_path=True))
+  File "/sol/autoascend/agent.py", line 1913, in go_to
+    self.move(y, x)
+  File "/sol/autoascend/agent.py", line 1622, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+autoascend.exceptions.AgentPanic: agent position do not match after "move": expected (4, 46), got (4, 45)
+
+[s705 t444 d1 0:1 xl1 hp14/14] PANIC AgentPanic: agent position do not match after "move": expected (3, 46), got (2, 46)
+Traceback (most recent call last):
+  File "/sol/autoascend/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/autoascend/agent.py", line 296, in preempt
+    next(iterator)
+  File "/sol/autoascend/utils.py", line 134, in f
+    next(it)
+  File "/sol/autoascend/agent.py", line 2184, in fight2
+    wait_counter = self._fight2_perform_action(best_action, wait_counter)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/autoascend/agent.py", line 2255, in _fight2_perform_action
+    self.move(target_y, target_x)
+  File "/sol/autoascend/agent.py", line 1622, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+autoascend.exceptions.AgentPanic: agent position do not match after "move": expected (3, 46), got (2, 46)
+
+[s754 t457 d1 0:1 xl2 hp16/16] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/autoascend/item/inventory.py", line 548, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/autoascend/agent.py", line 175, in atom_operation
+    self.update_state()
+  File "/sol/autoascend/agent.py", line 602, in update_state
+    self.call_update_functions()
+  File "/sol/autoascend/agent.py", line 613, in call_update_functions
+    func()
+  File "/sol/autoascend/item/inventory.py", line 152, in f
+    raise AgentPanic('items below me changed')
+autoascend.exceptions.AgentPanic: items below me changed
+
+[s854 t501 d1 0:1 xl2 hp16/16] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(0), np.int64(45)) acts=[SEARCH:173 SPACE:98 W:67 N:49 ESC:46] gotos=[check_items(2, 48):8 open_visit_search(8, 39):7 check_items(16, 20):5]
+[s1327 t946 d1 0:1 xl2 hp16/16] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/autoascend/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/autoascend/agent.py", line 296, in preempt
+    next(iterator)
+  File "/sol/autoascend/strategy.py", line 68, in f
+    next(it)
+  File "/sol/autoascend/utils.py", line 134, in f
+    next(it)
+  File "/sol/autoascend/agent.py", line 2535, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/autoascend/item/inventory.py", line 799, in eat
+    raise AgentPanic('no such food is lying here')
+autoascend.exceptions.AgentPanic: no such food is lying here
+
+[s1377 t1000 d1 0:1 xl2 hp16/16] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(6), np.int64(59)) acts=[SEARCH:117 NUM_5:52 SPACE:37 E:36 W:33] gotos=[open_visit_search(8, 70):7 open_visit_search(12, 66):4 open_visit_search(14, 66):3]
+[s1437 t1044 d1 0:1 xl2 hp14/16] PANIC AgentPanic: agent position do not match after "move": expected (12, 55), got (12, 54)
+Traceback (most recent call last):
+  File "/sol/autoascend/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/autoascend/agent.py", line 296, in preempt
+    next(iterator)
+  File "/sol/autoascend/utils.py", line 134, in f
+    next(it)
+  File "/sol/autoascend/agent.py", line 2184, in fight2
+    wait_counter = self._fight2_perform_action(best_action, wait_counter)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/autoascend/agent.py", line 2255, in _fight2_perform_action
+    self.move(target_y, target_x)
+  File "/sol/autoascend/agent.py", line 1622, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+autoascend.exceptions.AgentPanic: agent position do not match after "move": expected (12, 55), got (12, 54)
+
+[s1462 t1050 d1 0:1 xl3 hp17/18] DIVE phase starts (milestone BE_ON_FIRST_LEVEL, early)
+[s1462 t1050 d1 0:1 xl3 hp17/18] DIVE task descend
+[s1462 t1050 d1 0:1 xl3 hp17/18] DIVE stuck in task 'descend' on level (np.int64(0), np.int64(1)) for 1049 turns; up stairs (y,x,dist)=[(16, 64, 13)]
+You kill the goblin!  Welcome to experience level 3.
+                                             #
+                                            -|-----
+                                            |.*.*.|
+                                           #......|
+              ------------               ###|......#       --------------
+              |..........|        ------ #  -------#       |............|
+              |..........|        |....| #         #      #-............|
+              |...........########-....|##         #      #|............|
+              |..........|   ##  #|.....#          #      #|............|
+              -----.------   #   #|....|           #      #------.-----#-
+                   #         #   #|....|           #      ##     #
+                   #         #   #-.----           #       #     #
+                   #       ###   ##########o########@#d############
+                   #       +           ##########----------#   -.-|-
+                  ##       #                    #-........|#   |...|
+              ----.-------##                    #|.........####....|
+              |..........|+                     #|#.......| #  |<..|
+              |..........|#                     #---------- #  -----
+              |....{....++#                     #`###########
+              ------------
+
+Agent the Empiric              St:11 Dx:11 Co:12 In:10 Wi:15 Ch:17 Neutral S:16
+Dlvl:1 $:1804 HP:17(18) Pw:21(21) AC:8 Xp:3/40 T:1050
+[s1485 t1065 d1 0:1 xl3 hp18/18] DIVE going down stairs at (np.int64(2), np.int64(48))
+[s1490 t1066 d2 0:2 xl3 hp18/18] DIVE level (np.int64(0), np.int64(2)) depth 2
+[s1490 t1066 d2 0:2 xl3 hp18/18] DIVE task search mines branch
+[s1769 t1305 d2 0:2 xl3 hp18/18] PANIC AgentPanic: agent position do not match after "move": expected (12, 29), got (13, 29)
+Traceback (most recent call last):
+  File "/sol/autoascend/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/autoascend/agent.py", line 285, in preempt
+    val = f()
+          ^^^
+  File "/sol/autoascend/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/autoascend/exploration_logic.py", line 490, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/autoascend/agent.py", line 1913, in go_to
+    self.move(y, x)
+  File "/sol/autoascend/agent.py", line 1622, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+autoascend.exceptions.AgentPanic: agent position do not match after "move": expected (12, 29), got (13, 29)
+
+[s1861 t1379 d2 0:2 xl3 hp12/18] ELBERETH rest start: ['coyote', 'coyote']
+[s1990 t1446 d2 0:2 xl3 hp18/18] HUNGER casting stone to flesh on an adjacent boulder
+[s2056 t1497 d2 0:2 xl3 hp18/18] PANIC AgentPanic: agent position do not match after "move": expected (5, 31), got (5, 32)
+Traceback (most recent call last):
+  File "/sol/autoascend/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/autoascend/agent.py", line 296, in preempt
+    next(iterator)
+  File "/sol/autoascend/utils.py", line 134, in f
+    next(it)
+  File "/sol/autoascend/agent.py", line 2184, in fight2
+    wait_counter = self._fight2_perform_action(best_action, wait_counter)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/autoascend/agent.py", line 2255, in _fight2_perform_action
+    self.move(target_y, target_x)
+  File "/sol/autoascend/agent.py", line 1622, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+autoascend.exceptions.AgentPanic: agent position do not match after "move": expected (5, 31), got (5, 32)
+
+[s2079 t1500 d2 0:2 xl3 hp18/18] STATUS milestone=BE_ON_FIRST_LEVEL diving=True hunger=1 pos=(np.int64(5), np.int64(31)) acts=[SEARCH:162 E:68 W:62 SPACE:54 N:46] gotos=[open_visit_search(7, 24):8 open_visit_search(14, 39):6 open_visit_search(6, 26):6]
+[s2094 t1512 d2 0:2 xl3 hp18/18] PANIC AgentPanic: agent position do not match after "move": expected (6, 34), got (6, 33)
+Traceback (most recent call last):
+  File "/sol/autoascend/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/autoascend/agent.py", line 283, in preempt
+    val = f.run()
+          ^^^^^^^
+  File "/sol/autoascend/strategy.py", line 48, in run
+    next(gen)
+  File "/sol/autoascend/exploration_logic.py", line 490, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/autoascend/agent.py", line 1913, in go_to
+    self.move(y, x)
+  File "/sol/autoascend/agent.py", line 1622, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+autoascend.exceptions.AgentPanic: agent position do not match after "move": expected (6, 34), got (6, 33)
+
+[s2347 t1691 d2 0:2 xl3 hp14/18] SESSILE yellow mold at (11, 58) remembered
+[s2351 t1693 d2 0:2 xl3 hp15/18] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/autoascend/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/autoascend/agent.py", line 296, in preempt
+    next(iterator)
+  File "/sol/autoascend/strategy.py", line 68, in f
+    next(it)
+  File "/sol/autoascend/utils.py", line 134, in f
+    next(it)
+  File "/sol/autoascend/agent.py", line 2535, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/autoascend/item/inventory.py", line 799, in eat
+    raise AgentPanic('no such food is lying here')
+autoascend.exceptions.AgentPanic: no such food is lying here
+
+[s2386 t1711 d2 0:2 xl3 hp17/18] PANIC AgentPanic: agent position do not match after "move": expected (12, 57), got (13, 57)
+Traceback (most recent call last):
+  File "/sol/autoascend/strategy.py", line 165, in f
+    next(gen)
+  File "/sol/autoascend/strategy.py", line 100, in f
+    next(v1)
+  File "/sol/autoascend/utils.py", line 134, in f
+    next(it)
+  File "/sol/autoascend/item/inventory.py", line 1414, in check_items
+    self.agent.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 0, 255), is_path=True))
+  File "/sol/autoascend/agent.py", line 1913, in go_to
+    self.move(y, x)
+  File "/sol/autoascend/agent.py", line 1622, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+autoascend.exceptions.AgentPanic: agent position do not match after "move": expected (12, 57), got (13, 57)
+
+[s2542 t1797 d2 0:2 xl3 hp17/18] DIVE no Mines branch on (np.int64(0), np.int64(2)) (explored)
+[s2542 t1797 d2 0:2 xl3 hp17/18] DIVE task descend
+[s2542 t1797 d2 0:2 xl3 hp17/18] DIVE stairs cut off: walking through known traps
+[s2548 t1801 d2 0:2 xl3 hp18/18] GOTO path blocked at (5, 71): re-planning to (5, 6)
+[s2548 t1801 d2 0:2 xl3 hp18/18] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/autoascend/strategy.py", line 165, in f
+    next(gen)
+  File "/sol/autoascend/strategy.py", line 111, in f
+    next(v2)
+  File "/sol/autoascend/dive_logic.py", line 1216, in strategy
+    self.plan_step()
+  File "/sol/autoascend/dive_logic.py", line 1379, in plan_step
+    return self.descend()
+           ^^^^^^^^^^^^^^
+  File "/sol/autoascend/dive_logic.py", line 4065, in descend
+    agent.go_to(y, x)
+  File "/sol/autoascend/agent.py", line 1885, in go_to
+    raise AgentPanic('end point is no longer accessible')
+autoascend.exceptions.AgentPanic: end point is no longer accessible
+
+[s2659 t1862 d2 0:2 xl3 hp13/20] DIVE task rest
+[s2662 t1882 d2 0:2 xl3 hp16/20] DIVE task descend
+[s2777 t1943 d2 0:2 xl3 hp19/25] DIVE stairs cut off: walking through known traps
+[s2783 t1948 d2 0:2 xl3 hp20/25] PANIC AgentPanic: agent position do not match after "move": expected (4, 42), got (5, 43)
+Traceback (most recent call last):
+  File "/sol/autoascend/strategy.py", line 111, in f
+    next(v2)
+  File "/sol/autoascend/dive_logic.py", line 1216, in strategy
+    self.plan_step()
+  File "/sol/autoascend/dive_logic.py", line 1379, in plan_step
+    return self.descend()
+           ^^^^^^^^^^^^^^
+  File "/sol/autoascend/dive_logic.py", line 4065, in descend
+    agent.go_to(y, x)
+  File "/sol/autoascend/agent.py", line 1913, in go_to
+    self.move(y, x)
+  File "/sol/autoascend/agent.py", line 1622, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+autoascend.exceptions.AgentPanic: agent position do not match after "move": expected (4, 42), got (5, 43)
+
+[s2809 t1959 d2 0:2 xl3 hp21/25] PANIC AgentPanic: agent position do not match after "move": expected (5, 32), got (4, 33)
+Traceback (most recent call last):
+  File "/sol/autoascend/strategy.py", line 111, in f
+    next(v2)
+  File "/sol/autoascend/dive_logic.py", line 1216, in strategy
+    self.plan_step()
+  File "/sol/autoascend/dive_logic.py", line 1379, in plan_step
+    return self.descend()
+           ^^^^^^^^^^^^^^
+  File "/sol/autoascend/dive_logic.py", line 4065, in descend
+    agent.go_to(y, x)
+  File "/sol/autoascend/agent.py", line 1913, in go_to
+    self.move(y, x)
+  File "/sol/autoascend/agent.py", line 1622, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+autoascend.exceptions.AgentPanic: agent position do not match after "move": expected (5, 32), got (4, 33)
+
+[s2853 t1986 d2 0:2 xl3 hp24/25] SESSILE yellow mold at (6, 7) remembered
+[s2857 t1990 d2 0:2 xl3 hp25/25] DIVE going down stairs at (np.int64(5), np.int64(6))
+[s2862 t1991 d3 0:3 xl3 hp25/25] SESSILE yellow mold at (3, 54) remembered
+[s2862 t1991 d3 0:3 xl3 hp25/25] DIVE level (np.int64(0), np.int64(3)) depth 3
+[s2862 t1991 d3 0:3 xl3 hp25/25] DIVE task search mines branch
+[s2871 t2000 d3 0:3 xl3 hp25/25] STATUS milestone=BE_ON_FIRST_LEVEL diving=True hunger=1 pos=(np.int64(8), np.int64(54)) acts=[SEARCH:125 SPACE:84 W:65 E:56 SW:50] gotos=[open_visit_search(3, 53):10 descend(5, 6):9 open_visit_search(8, 54):5]
+[s2981 t2065 d3 0:3 xl4 hp35/35] DIVE no Mines branch on (np.int64(0), np.int64(3)) (explored)
+[s2981 t2065 d3 0:3 xl4 hp35/35] DIVE task descend
+[s3200 t2209 d3 0:3 xl5 hp45/45] GOTO path blocked at (14, 62): re-planning to (10, 59)
+[s3200 t2209 d3 0:3 xl5 hp45/45] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/autoascend/strategy.py", line 48, in run
+    next(gen)
+  File "/sol/autoascend/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/autoascend/agent.py", line 285, in preempt
+    val = f()
+          ^^^
+  File "/sol/autoascend/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/autoascend/exploration_logic.py", line 490, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/autoascend/agent.py", line 1885, in go_to
+    raise AgentPanic('end point is no longer accessible')
+autoascend.exceptions.AgentPanic: end point is no longer accessible
+
+[s3253 t2231 d3 0:3 xl5 hp42/45] PANIC AgentPanic: agent position do not match after "move": expected (13, 62), got (14, 61)
+Traceback (most recent call last):
+  File "/sol/autoascend/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/autoascend/agent.py", line 283, in preempt
+    val = f.run()
+          ^^^^^^^
+  File "/sol/autoascend/strategy.py", line 48, in run
+    next(gen)
+  File "/sol/autoascend/exploration_logic.py", line 490, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/autoascend/agent.py", line 1913, in go_to
+    self.move(y, x)
+  File "/sol/autoascend/agent.py", line 1622, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+autoascend.exceptions.AgentPanic: agent position do not match after "move": expected (13, 62), got (14, 61)
+
+[s3288 t2249 d3 0:3 xl5 hp45/45] SESSILE green mold at (9, 54) remembered
+[s3327 t2276 d3 0:3 xl5 hp45/45] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/autoascend/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/autoascend/agent.py", line 296, in preempt
+    next(iterator)
+  File "/sol/autoascend/strategy.py", line 68, in f
+    next(it)
+  File "/sol/autoascend/utils.py", line 134, in f
+    next(it)
+  File "/sol/autoascend/agent.py", line 2535, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/autoascend/item/inventory.py", line 799, in eat
+    raise AgentPanic('no such food is lying here')
+autoascend.exceptions.AgentPanic: no such food is lying here
+
+[s3608 t2471 d3 0:3 xl5 hp45/45] DIVE going down stairs at (np.int64(18), np.int64(5))
+[s3610 t2472 d4 0:4 xl5 hp45/45] DIVE level (np.int64(0), np.int64(4)) depth 4
+[s3610 t2472 d4 0:4 xl5 hp45/45] DIVE task search mines branch
+[s3644 t2500 d4 0:4 xl5 hp45/45] STATUS milestone=BE_ON_FIRST_LEVEL diving=True hunger=1 pos=(np.int64(14), np.int64(8)) acts=[SEARCH:154 SPACE:71 NW:55 W:50 SW:47] gotos=[check_items(5, 8):6 open_visit_search(10, 59):4 open_visit_search(6, 50):4]
+[s3788 t2593 d4 0:4 xl5 hp45/45] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/autoascend/item/inventory.py", line 548, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/autoascend/agent.py", line 175, in atom_operation
+    self.update_state()
+  File "/sol/autoascend/agent.py", line 602, in update_state
+    self.call_update_functions()
+  File "/sol/autoascend/agent.py", line 613, in call_update_functions
+    func()
+  File "/sol/autoascend/item/inventory.py", line 152, in f
+    raise AgentPanic('items below me changed')
+autoascend.exceptions.AgentPanic: items below me changed
+
+[s3955 t2700 d4 0:4 xl5 hp25/45] DIVE task rest
+[s3965 t2720 d4 0:4 xl5 hp28/45] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/autoascend/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/autoascend/agent.py", line 296, in preempt
+    next(iterator)
+  File "/sol/autoascend/strategy.py", line 68, in f
+    next(it)
+  File "/sol/autoascend/utils.py", line 134, in f
+    next(it)
+  File "/sol/autoascend/agent.py", line 2535, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/autoascend/item/inventory.py", line 799, in eat
+    raise AgentPanic('no such food is lying here')
+autoascend.exceptions.AgentPanic: no such food is lying here
+
+[s4014 t2754 d4 0:4 xl5 hp33/45] DIVE task search mines branch
+[s4021 t2761 d4 0:4 xl5 hp34/45] DIVE mines branch candidate (4, 14) on (np.int64(0), np.int64(4)); down stairs there: [((4, 14), None), ((14, 39), None)]
+[s4021 t2761 d4 0:4 xl5 hp34/45] DIVE task go to mines branch
+[s4069 t2792 d4 0:4 xl5 hp38/45] DIVE task rest before descending
+[s4072 t2812 d4 0:4 xl5 hp41/45] DIVE mines branch candidate (4, 14) on (np.int64(0), np.int64(4)); down stairs there: [((4, 14), None), ((14, 39), None)]
+[s4072 t2812 d4 0:4 xl5 hp41/45] DIVE task go to mines branch
+[s4072 t2812 d4 0:4 xl5 hp41/45] DIVE task rest before descending
+[s4095 t2832 d4 0:4 xl5 hp44/45] DIVE mines branch candidate (4, 14) on (np.int64(0), np.int64(4)); down stairs there: [((4, 14), None), ((14, 39), None)]
+[s4095 t2832 d4 0:4 xl5 hp44/45] DIVE task go to mines branch
+[s4112 t2837 d5 2:1 xl5 hp45/45] SESSILE red mold at (13, 2) remembered
+[s4112 t2837 d5 2:1 xl5 hp45/45] DIVE level (np.int64(2), np.int64(1)) depth 5
+[s4112 t2837 d5 2:1 xl5 hp45/45] CAMP: the tool-less dive stays in the Mines (levels 1-4, 8000 turns)
+[s4112 t2837 d5 2:1 xl5 hp45/45] DIVE task camp: search for dwarves
+[s4122 t2851 d5 2:1 xl5 hp45/45] PRAY hp=45/45 hunger=3 gap=None reason=None
+[s4129 t2854 d5 2:1 xl5 hp45/45] PRAY_RESULT Are you sure you want to pray? [yn] (n) You begin praying to Hermes. You are surrounded by a shimmering light. The hobbit starts to attack you, but pulls back. The hobbit starts to attack you, but pulls back. You finish your prayer.  You feel that Hermes is well-pleased. Your stomach feels content. Are you sure you want to pray? [yn] (n) You begin praying to Hermes. You are surrounded by a shimmering light. The hobbit starts to attack you, but pulls back. The hobbit starts to attack you, but pulls back. You finish your prayer.  You feel that Hermes is well-pleased. Your stomach feels content.
+[s4194 t2910 d5 2:1 xl5 hp45/45] DIVE task hunt dwarf
+[s4213 t2917 d5 2:1 xl5 hp45/45] DIVE attacking a peaceful dwarf at (8, 25) for its digging tool (digger=False, align~24)
+[s4217 t2918 d5 2:1 xl5 hp45/45] ALIGN estimate 22 (cap 24) after -2
+[s4217 t2918 d5 2:1 xl5 hp45/45] DIVE task camp: search for dwarves
+[s4233 t2925 d5 2:1 xl5 hp45/45] DIVE killed a dwarf (1); piles to check: []
+[s4293 t2945 d5 2:1 xl5 hp45/45] DWARF died near [(7, 30)]: piles to check
+[s4309 t2952 d5 2:1 xl5 hp45/45] DIVE fetching the digging tool at (7, 30) on (np.int64(2), np.int64(1))
+[s4309 t2952 d5 2:1 xl5 hp45/45] DIVE task fetch digging tool
+[s4381 t2972 d5 2:1 xl6 hp36/50] DIVE no usable digging tool at (7, 30) on (np.int64(2), np.int64(1))
+[s4381 t2972 d5 2:1 xl6 hp36/50] DIVE task camp: search for dwarves
+[s4415 t2981 d5 2:1 xl6 hp29/50] DIVE task rest
+[s4429 t3000 d5 2:1 xl6 hp33/50] STATUS milestone=BE_ON_FIRST_LEVEL diving=True hunger=1 pos=(np.int64(6), np.int64(29)) acts=[SEARCH:141 SPACE:113 E:62 S:44 WHATIS:41] gotos=[check_items(3, 15):4 open_visit_search(9, 16):4 open_visit_search(10, 3):3]
+[s4458 t3015 d5 2:1 xl6 hp33/50] DIVE task camp: search for dwarves
+[s4646 t3086 d5 2:1 xl6 hp38/50] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/autoascend/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/autoascend/agent.py", line 296, in preempt
+    next(iterator)
+  File "/sol/autoascend/strategy.py", line 68, in f
+    next(it)
+  File "/sol/autoascend/utils.py", line 134, in f
+    next(it)
+  File "/sol/autoascend/agent.py", line 2535, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/autoascend/item/inventory.py", line 799, in eat
+    raise AgentPanic('no such food is lying here')
+autoascend.exceptions.AgentPanic: no such food is lying here
+
+[s4956 t3237 d5 2:1 xl6 hp40/50] DIVE task camp: next level >
+[s4982 t3245 d5 2:1 xl6 hp41/50] DIVE task rest before descending
+[s4991 t3250 d5 2:1 xl6 hp42/50] DIVE task camp: next level >
+[s4991 t3250 d5 2:1 xl6 hp42/50] DIVE task rest before descending
+[s4994 t3270 d5 2:1 xl6 hp46/50] DIVE task camp: next level >
+[s4994 t3270 d5 2:1 xl6 hp46/50] DIVE task rest before descending
+[s4997 t3290 d5 2:1 xl6 hp49/50] DIVE task camp: next level >
+[s5002 t3291 d6 2:2 xl6 hp49/50] DIVE level (np.int64(2), np.int64(2)) depth 6
+[s5015 t3292 d6 2:2 xl6 hp45/50] RANGED hit: holds and Elbereth waits off for 8 turns
+[s5098 t3312 d6 2:2 xl6 hp13/50] RETREAT upstairs at hp 13/50
+[s5098 t3312 d6 2:2 xl6 hp13/50] PANIC AgentPanic: Monster on a next tile when moving: (15,53)
+Traceback (most recent call last):
+  File "/sol/autoascend/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/autoascend/agent.py", line 296, in preempt
+    next(iterator)
+  File "/sol/autoascend/strategy.py", line 68, in f
+    next(it)
+  File "/sol/autoascend/dive_logic.py", line 1872, in retreat_upstairs
+    agent.go_to(y, x, max_steps=1)
+  File "/sol/autoascend/agent.py", line 1913, in go_to
+    self.move(y, x)
+  File "/sol/autoascend/agent.py", line 1597, in move
+    raise AgentPanic(f'Monster on a next tile when moving: ({expected_y},{expected_x})')
+autoascend.exceptions.AgentPanic: Monster on a next tile when moving: (15,53)
+
+[s5128 t3317 d6 2:2 xl6 hp17/50] ELBERETH rest start: ['giant ant', 'hobbit']
+[s5180 t3322 d6 2:2 xl6 hp15/50] ELBERETH rest start: ['hobbit', 'giant ant']
+[s5209 t3327 d6 2:2 xl6 hp16/50] RETREAT upstairs at hp 16/50
+[s5213 t3328 d6 2:2 xl6 hp16/50] RETREAT upstairs at hp 16/50
+[s5216 t3330 d5 2:1 xl6 hp17/50] DIVE level (np.int64(2), np.int64(1)) depth 5
+[s5227 t3338 d5 2:1 xl6 hp18/50] DIVE task rest before descending
+[s5231 t3340 d5 2:1 xl6 hp31/50] DIVE task camp: next level >
+[s5231 t3340 d5 2:1 xl6 hp31/50] DIVE task rest before descending
+[s5232 t3341 d5 2:1 xl6 hp31/50] DIVE task camp: next level >
+[s5232 t3341 d5 2:1 xl6 hp31/50] DIVE task rest before descending
+[s5233 t3342 d5 2:1 xl6 hp32/50] DIVE task camp: next level >
+[s5233 t3342 d5 2:1 xl6 hp32/50] DIVE task rest before descending
+[s5234 t3343 d5 2:1 xl6 hp32/50] DIVE task camp: next level >
+[s5234 t3343 d5 2:1 xl6 hp32/50] DIVE task rest before descending
+[s5235 t3344 d5 2:1 xl6 hp32/50] DIVE task camp: next level >
+[s5235 t3344 d5 2:1 xl6 hp32/50] DIVE task rest before descending
+[s5236 t3345 d5 2:1 xl6 hp32/50] DIVE task camp: next level >
+[s5236 t3345 d5 2:1 xl6 hp32/50] DIVE task rest before descending
+[s5237 t3346 d5 2:1 xl6 hp32/50] DIVE task camp: next level >
+[s5237 t3346 d5 2:1 xl6 hp32/50] DIVE task rest before descending
+[s5238 t3347 d5 2:1 xl6 hp32/50] DIVE task camp: next level >
+[s5238 t3347 d5 2:1 xl6 hp32/50] DIVE task rest before descending
+[s5239 t3348 d5 2:1 xl6 hp33/50] DIVE task camp: next level >
+[s5239 t3348 d5 2:1 xl6 hp33/50] DIVE task rest before descending
+[s5240 t3349 d5 2:1 xl6 hp33/50] DIVE task camp: next level >
+[s5240 t3349 d5 2:1 xl6 hp33/50] DIVE task rest before descending
+[s5241 t3350 d5 2:1 xl6 hp33/50] DIVE task camp: next level >
+[s5241 t3350 d5 2:1 xl6 hp33/50] DIVE task rest before descending
+[s5242 t3351 d5 2:1 xl6 hp33/50] DIVE task camp: next level >
+[s5242 t3351 d5 2:1 xl6 hp33/50] DIVE task rest before descending
+[s5243 t3352 d5 2:1 xl6 hp33/50] DIVE task camp: next level >
+[s5243 t3352 d5 2:1 xl6 hp33/50] DIVE task rest before descending
+[s5244 t3353 d5 2:1 xl6 hp33/50] DIVE task camp: next level >
+[s5244 t3353 d5 2:1 xl6 hp33/50] DIVE task rest before descending
+[s5245 t3354 d5 2:1 xl6 hp34/50] DIVE task camp: next level >
+[s5245 t3354 d5 2:1 xl6 hp34/50] DIVE task rest before descending
+[s5246 t3355 d5 2:1 xl6 hp34/50] DIVE task camp: next level >
+[s5246 t3355 d5 2:1 xl6 hp34/50] DIVE task rest before descending
+[s5247 t3356 d5 2:1 xl6 hp34/50] DIVE task camp: next level >
+[s5247 t3356 d5 2:1 xl6 hp34/50] DIVE task rest before descending
+[s5248 t3357 d5 2:1 xl6 hp34/50] DIVE task camp: next level >
+[s5248 t3357 d5 2:1 xl6 hp34/50] DIVE task rest before descending
+[s5249 t3358 d5 2:1 xl6 hp34/50] DIVE task camp: next level >
+[s5249 t3358 d5 2:1 xl6 hp34/50] DIVE task rest before descending
+[s5250 t3359 d5 2:1 xl6 hp34/50] DIVE task camp: next level >
+[s5250 t3359 d5 2:1 xl6 hp34/50] DIVE task rest before descending
+[s5251 t3360 d5 2:1 xl6 hp35/50] DIVE task camp: next level >
+[s5251 t3360 d5 2:1 xl6 hp35/50] DIVE task rest before descending
+[s5252 t3361 d5 2:1 xl6 hp35/50] DIVE task camp: next level >
+[s5252 t3361 d5 2:1 xl6 hp35/50] DIVE task rest before descending
+[s5253 t3362 d5 2:1 xl6 hp35/50] DIVE task camp: next level >
+[s5253 t3362 d5 2:1 xl6 hp35/50] DIVE task rest before descending
+[s5269 t3364 d5 2:1 xl6 hp35/50] DIVE task camp: next level >
+[s5339 t3383 d5 2:1 xl6 hp28/50] DIVE task rest
+[s5371 t3420 d5 2:1 xl6 hp35/50] DIVE task camp: next level >
+[s5387 t3431 d5 2:1 xl6 hp29/50] DIVE task rest
+[s5390 t3451 d5 2:1 xl6 hp33/50] DIVE task camp: next level >
+[s5398 t3459 d5 2:1 xl6 hp34/50] DIVE task rest before descending
+[s5407 t3479 d5 2:1 xl6 hp37/50] DIVE task camp: next level >
+[s5407 t3479 d5 2:1 xl6 hp37/50] DIVE task rest before descending
+[s5413 t3499 d5 2:1 xl6 hp41/50] DIVE task camp: next level >
+[s5413 t3499 d5 2:1 xl6 hp41/50] DIVE task rest before descending
+[s5419 t3519 d5 2:1 xl6 hp44/50] STATUS milestone=BE_ON_FIRST_LEVEL diving=True hunger=1 pos=(np.int64(8), np.int64(59)) acts=[SPACE:199 SEARCH:130 WHATIS:64 MOVEFAR:64 LOOK:49] gotos=[check_items(7, 58):17 _fight2_perform_action(12, 31):9 _take_stairs(8, 59):7]
+[s5419 t3519 d5 2:1 xl6 hp44/50] DIVE task camp: next level >
+[s5419 t3519 d5 2:1 xl6 hp44/50] DIVE task rest before descending
+[s5428 t3539 d5 2:1 xl6 hp47/50] DIVE task camp: next level >
+[s5428 t3539 d5 2:1 xl6 hp47/50] DIVE task rest before descending
+[s5435 t3550 d5 2:1 xl6 hp41/50] RANGED hit: holds and Elbereth waits off for 8 turns
+[s5461 t3557 d5 2:1 xl6 hp27/50] DIVE task rest
+[s5506 t3604 d5 2:1 xl6 hp35/50] DIVE task camp: next level >
+[s5543 t3631 d5 2:1 xl6 hp26/50] DIVE task rest
+[s5612 t3702 d5 2:1 xl6 hp38/50] DIVE task camp: next level >
+[s5637 t3714 d5 2:1 xl6 hp17/50] ELBERETH rest start: ['dingo']
+[s5716 t3731 d5 2:1 xl6 hp14/50] ELBERETH rest start: ['dingo']
+[s5762 t3738 d5 2:1 xl6 hp16/50] ELBERETH rest start: ['dingo']
+[s5822 t3750 d5 2:1 xl6 hp18/50] DIVE task rest
+[s5851 t3788 d5 2:1 xl6 hp41/50] DIVE task camp: next level >
+[s5874 t3802 d5 2:1 xl6 hp43/50] DIVE task rest before descending
+[s5886 t3822 d5 2:1 xl6 hp47/50] DIVE task camp: next level >
+[s5886 t3822 d5 2:1 xl6 hp47/50] DIVE task rest before descending
+[s5889 t3841 d5 2:1 xl6 hp50/50] DIVE task camp: next level >
+[s5894 t3842 d6 2:2 xl6 hp50/50] DIVE level (np.int64(2), np.int64(2)) depth 6
+[s5961 t3889 d6 2:2 xl6 hp15/50] RETREAT upstairs at hp 15/50
+[s5961 t3889 d6 2:2 xl6 hp15/50] PANIC AgentPanic: Monster on a next tile when moving: (16,52)
+Traceback (most recent call last):
+  File "/sol/autoascend/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/autoascend/agent.py", line 296, in preempt
+    next(iterator)
+  File "/sol/autoascend/strategy.py", line 68, in f
+    next(it)
+  File "/sol/autoascend/dive_logic.py", line 1872, in retreat_upstairs
+    agent.go_to(y, x, max_steps=1)
+  File "/sol/autoascend/agent.py", line 1913, in go_to
+    self.move(y, x)
+  File "/sol/autoascend/agent.py", line 1597, in move
+    raise AgentPanic(f'Monster on a next tile when moving: ({expected_y},{expected_x})')
+autoascend.exceptions.AgentPanic: Monster on a next tile when moving: (16,52)
+
+[s5975 t3889 d6 2:2 xl6 hp15/50] ELBERETH rest start: ['giant rat', 'sewer rat', 'sewer rat', 'sewer rat', 'wererat']
+[s6010 t3892 d6 2:2 xl6 hp15/50] ELBERETH rest start: ['sewer rat', 'giant rat']
+[s6042 t3898 d6 2:2 xl6 hp6/50] PRAY hp=6/50 hunger=2 gap=1044 reason=None
+[s6060 t3901 d6 2:2 xl6 hp50/50] PRAY_RESULT Are you sure you want to pray? [yn] (n) You begin praying to Hermes. You are surrounded by a shimmering light. The sewer rat starts to attack you, but pulls back. The wererat starts to attack you, but pulls back. The sewer rat starts to attack you, but pulls back. The wererat summons help! The wererat starts to attack you, but pulls back. The sewer rat starts to attack you, but pulls back. The rabid rat starts to attack you, but pulls back. The sewer rat starts to attack you, but pulls back. The wererat summons help! The wererat starts to attack you, but pulls back. You finish your prayer.  You feel that Hermes is well-pleased. You feel much better.  Are you sure you want to pray? [yn] (n) You begin praying to Hermes. You are surrounded by a shimmering light. The sewer rat starts to attack you, but pulls back. The wererat starts to attack you, but pulls back. The sewer rat starts to attack you, but pulls back. The wererat summons help! The wererat starts to attack you, but pulls back. The sewer rat starts to attack you, but pulls back. The rabid rat starts to attack you, but pulls back. The sewer rat starts to attack you, but pulls back. The wererat summons help! The wererat starts to attack you, but pulls back. You finish your prayer.  You feel that Hermes is well-pleased. You feel much better.
+[s6071 t3904 d6 2:2 xl6 hp5/50] LAST RESORT: quaffing unknown 'an orange potion'
