@@ -1,0 +1,447 @@
+[s22 t1 d1 0:1 xl1 hp10/10] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(3), np.int64(72)) acts=[SPACE:6 ESC:3 AUTOPICKUP:2 ATTRIBUTES:1 ENHANCE:1] gotos=[]
+[s22 t1 d1 0:1 xl1 hp10/10] DIVE level (np.int64(0), np.int64(1)) depth 1
+[s123 t69 d1 0:1 xl1 hp9/12] PANIC AgentPanic: agent position do not match after "move": expected (10, 63), got (10, 62)
+Traceback (most recent call last):
+  File "/sol/pf_dtad7a/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_dtad7a/agent.py", line 295, in preempt
+    next(iterator)
+  File "/sol/pf_dtad7a/utils.py", line 134, in f
+    next(it)
+  File "/sol/pf_dtad7a/agent.py", line 1943, in fight2
+    wait_counter = self._fight2_perform_action(best_action, wait_counter)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_dtad7a/agent.py", line 2007, in _fight2_perform_action
+    self.move(target_y, target_x)
+  File "/sol/pf_dtad7a/agent.py", line 1424, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_dtad7a.exceptions.AgentPanic: agent position do not match after "move": expected (10, 63), got (10, 62)
+
+[s329 t227 d1 0:1 xl1 hp11/12] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/pf_dtad7a/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_dtad7a/agent.py", line 295, in preempt
+    next(iterator)
+  File "/sol/pf_dtad7a/strategy.py", line 68, in f
+    next(it)
+  File "/sol/pf_dtad7a/utils.py", line 134, in f
+    next(it)
+  File "/sol/pf_dtad7a/agent.py", line 2304, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/pf_dtad7a/item/inventory.py", line 797, in eat
+    raise AgentPanic('no such food is lying here')
+pf_dtad7a.exceptions.AgentPanic: no such food is lying here
+
+[s457 t325 d1 0:1 xl1 hp11/12] PRAY hp=11/12 hunger=1 gap=None reason=None
+[s667 t500 d1 0:1 xl1 hp12/12] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(16), np.int64(15)) acts=[SEARCH:201 W:67 S:51 SW:41 SPACE:39] gotos=[check_items(16, 15):12 open_visit_search(1, 43):4 open_visit_search(5, 9):4]
+[s877 t696 d1 0:1 xl1 hp12/12] PANIC AgentPanic: agent position do not match after "move": expected (6, 64), got (5, 64)
+Traceback (most recent call last):
+  File "/sol/pf_dtad7a/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_dtad7a/agent.py", line 284, in preempt
+    val = f()
+          ^^^
+  File "/sol/pf_dtad7a/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/pf_dtad7a/exploration_logic.py", line 490, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/pf_dtad7a/agent.py", line 1699, in go_to
+    self.move(y, x)
+  File "/sol/pf_dtad7a/agent.py", line 1424, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_dtad7a.exceptions.AgentPanic: agent position do not match after "move": expected (6, 64), got (5, 64)
+
+[s946 t734 d1 0:1 xl1 hp10/12] PANIC AgentPanic: agent position do not match after "move": expected (5, 71), got (4, 72)
+Traceback (most recent call last):
+  File "/sol/pf_dtad7a/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_dtad7a/agent.py", line 284, in preempt
+    val = f()
+          ^^^
+  File "/sol/pf_dtad7a/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/pf_dtad7a/exploration_logic.py", line 490, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/pf_dtad7a/agent.py", line 1699, in go_to
+    self.move(y, x)
+  File "/sol/pf_dtad7a/agent.py", line 1424, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_dtad7a.exceptions.AgentPanic: agent position do not match after "move": expected (5, 71), got (4, 72)
+
+[s1059 t788 d1 0:1 xl1 hp8/12] ELBERETH rest start: ['grid bug', 'kobold zombie']
+[s1091 t791 d1 0:1 xl1 hp8/12] FIGHT stall of 23 turns ended (gap): ['kobold zombie']
+[s1100 t794 d1 0:1 xl1 hp8/12] PANIC AgentPanic: agent position do not match after "move": expected (5, 70), got (5, 71)
+Traceback (most recent call last):
+  File "/sol/pf_dtad7a/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_dtad7a/agent.py", line 295, in preempt
+    next(iterator)
+  File "/sol/pf_dtad7a/utils.py", line 134, in f
+    next(it)
+  File "/sol/pf_dtad7a/agent.py", line 1943, in fight2
+    wait_counter = self._fight2_perform_action(best_action, wait_counter)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_dtad7a/agent.py", line 2007, in _fight2_perform_action
+    self.move(target_y, target_x)
+  File "/sol/pf_dtad7a/agent.py", line 1424, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_dtad7a.exceptions.AgentPanic: agent position do not match after "move": expected (5, 70), got (5, 71)
+
+[s1177 t829 d1 0:1 xl1 hp11/12] PRAY hp=11/12 hunger=1 gap=501 reason=None
+[s1300 t1000 d1 0:1 xl1 hp12/12] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=2 pos=(np.int64(6), np.int64(64)) acts=[SEARCH:138 SPACE:63 E:61 W:39 NUM_5:39] gotos=[open_visit_search(12, 37):7 open_visit_search(8, 70):5 open_visit_search(13, 16):4]
+[s1617 t1341 d1 0:1 xl1 hp10/12] PRAY hp=10/12 hunger=1 gap=509 reason=None
+[s1621 t1344 d1 0:1 xl1 hp8/12] DIVE phase starts (milestone BE_ON_FIRST_LEVEL, rescue)
+[s1625 t1345 d1 0:1 xl1 hp8/12] PANIC AgentPanic: agent position do not match after "move": expected (10, 62), got (10, 63)
+Traceback (most recent call last):
+  File "/sol/pf_dtad7a/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_dtad7a/agent.py", line 295, in preempt
+    next(iterator)
+  File "/sol/pf_dtad7a/utils.py", line 134, in f
+    next(it)
+  File "/sol/pf_dtad7a/agent.py", line 1943, in fight2
+    wait_counter = self._fight2_perform_action(best_action, wait_counter)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_dtad7a/agent.py", line 2007, in _fight2_perform_action
+    self.move(target_y, target_x)
+  File "/sol/pf_dtad7a/agent.py", line 1424, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_dtad7a.exceptions.AgentPanic: agent position do not match after "move": expected (10, 62), got (10, 63)
+
+[s1648 t1351 d1 0:1 xl1 hp9/12] DIVE task descend
+[s1648 t1351 d1 0:1 xl1 hp9/12] DIVE stuck in task 'descend' on level (np.int64(0), np.int64(1)) for 1350 turns; up stairs (y,x,dist)=[(3, 72, 16)]
+
+
+                                         #`########        -----       ------
+                                 --------#   -----#     ###-...|      #-....|
+  --------                       |......|#   |...|#######  |...|#######|<.%.|
+  |......|                       |......|#   |...|#  ######.>..|#      |....|
+  |.......#                      |......|####....|#  #     --.--#     #-....|
+  --------#                      |......|#   |....###############     #|....|
+          ##                  ###-.......#   --|--#          #        #---|--
+           #                ###  |......|#     # ##          #       ##   #
+           #   `#           #    --------#########           #       #
+           #    ###########################  #               #@##    #
+           #                #        #####   #                  #   ##
+           #                #     ####   #####                  ##  #
+           #    #######     #     #      ##                ------.--#
+           #----------.-----#    ##   ####%                |.......|#
+           #|..............|#         #---.------          |.......|#
+           #|..............|#         #|........|          |........#
+           #|...............#         #|._......|          -------|-
+           #...............|          #.........|                 #
+            ----------------           ----------
+
+Agent the Rambler              St:11 Dx:11 Co:15 In:15 Wi:8 Ch:15 Neutral S:52
+Dlvl:1 $:695 HP:9(12) Pw:2(2) AC:5 Xp:1/13 T:1351
+[s1654 t1357 d1 0:1 xl1 hp9/12] DIVE task rest before descending
+[s1664 t1364 d1 0:1 xl1 hp9/12] DIVE task descend
+[s1664 t1364 d1 0:1 xl1 hp9/12] DIVE task rest before descending
+[s1667 t1384 d1 0:1 xl1 hp11/12] DIVE task descend
+[s1667 t1384 d1 0:1 xl1 hp11/12] DIVE task rest before descending
+[s1676 t1396 d1 0:1 xl1 hp12/12] DIVE task descend
+[s1676 t1396 d1 0:1 xl1 hp12/12] DIVE going down stairs at (np.int64(4), np.int64(60))
+[s1678 t1397 d2 0:2 xl1 hp12/12] DIVE level (np.int64(0), np.int64(2)) depth 2
+[s1795 t1500 d2 0:2 xl1 hp12/12] STATUS milestone=BE_ON_FIRST_LEVEL diving=True hunger=1 pos=(np.int64(9), np.int64(17)) acts=[SEARCH:95 NUM_5:44 W:39 SPACE:37 E:30] gotos=[open_visit_search(18, 66):3 offer_corpses(17, 41):3 open_visit_search(6, 63):2]
+[s1862 t1545 d2 0:2 xl1 hp7/14] CAMERA flash 1,0: 'The grid bug is blinded by the flash!  The grid bug misses!'
+[s1865 t1548 d2 0:2 xl2 hp11/18] DIVE task rest
+[s1874 t1568 d2 0:2 xl2 hp13/18] DIVE task descend
+[s1912 t1606 d2 0:2 xl2 hp17/18] DIVE task rest before descending
+[s1921 t1615 d2 0:2 xl2 hp17/18] DIVE task descend
+[s1921 t1615 d2 0:2 xl2 hp17/18] DIVE task rest before descending
+[s1924 t1618 d2 0:2 xl2 hp18/18] DIVE task descend
+[s1924 t1618 d2 0:2 xl2 hp18/18] DIVE going down stairs at (np.int64(16), np.int64(46))
+[s1926 t1619 d3 0:3 xl2 hp18/18] DIVE level (np.int64(0), np.int64(3)) depth 3
+[s1954 t1639 d3 0:3 xl2 hp6/18] RETREAT upstairs at hp 6/18
+[s1955 t1640 d3 0:3 xl2 hp3/18] ELBERETH rest start: ['bat']
+[s1971 t1641 d3 0:3 xl2 hp3/18] DIVE task rest
+[s2038 t1752 d3 0:3 xl2 hp8/18] CAMERA flash 1,-1: 'The bat is blinded by the flash!  The bat turns to flee.'
+[s2082 t1833 d3 0:3 xl2 hp13/18] DIVE task descend
+[s2150 t1889 d3 0:3 xl2 hp18/18] PANIC AgentPanic: Monster on a next tile when moving: (5,27)
+Traceback (most recent call last):
+  File "/sol/pf_dtad7a/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_dtad7a/agent.py", line 284, in preempt
+    val = f()
+          ^^^
+  File "/sol/pf_dtad7a/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/pf_dtad7a/exploration_logic.py", line 490, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/pf_dtad7a/agent.py", line 1699, in go_to
+    self.move(y, x)
+  File "/sol/pf_dtad7a/agent.py", line 1399, in move
+    raise AgentPanic(f'Monster on a next tile when moving: ({expected_y},{expected_x})')
+pf_dtad7a.exceptions.AgentPanic: Monster on a next tile when moving: (5,27)
+
+[s2180 t1902 d3 0:3 xl2 hp18/18] PANIC AgentPanic: Monster on a next tile when moving: (5,27)
+Traceback (most recent call last):
+  File "/sol/pf_dtad7a/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_dtad7a/agent.py", line 284, in preempt
+    val = f()
+          ^^^
+  File "/sol/pf_dtad7a/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/pf_dtad7a/exploration_logic.py", line 490, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/pf_dtad7a/agent.py", line 1699, in go_to
+    self.move(y, x)
+  File "/sol/pf_dtad7a/agent.py", line 1399, in move
+    raise AgentPanic(f'Monster on a next tile when moving: ({expected_y},{expected_x})')
+pf_dtad7a.exceptions.AgentPanic: Monster on a next tile when moving: (5,27)
+
+[s2297 t2000 d3 0:3 xl2 hp18/18] STATUS milestone=BE_ON_FIRST_LEVEL diving=True hunger=1 pos=(np.int64(12), np.int64(56)) acts=[SEARCH:110 E:72 SPACE:44 SW:27 NE:25] gotos=[open_visit_search(10, 35):9 check_items(17, 33):7 open_visit_search(12, 28):4]
+[s2332 t2026 d3 0:3 xl2 hp18/18] DIVE going down stairs at (np.int64(14), np.int64(72))
+[s2334 t2027 d4 0:4 xl2 hp18/18] DIVE level (np.int64(0), np.int64(4)) depth 4
+[s2423 t2106 d4 0:4 xl2 hp18/18] DIVE going down stairs at (np.int64(6), np.int64(64))
+[s2425 t2107 d5 0:5 xl2 hp18/18] DIVE level (np.int64(0), np.int64(5)) depth 5
+[s2473 t2136 d5 0:5 xl2 hp18/18] PANIC AgentPanic: Monster on a next tile when moving: (10,10)
+Traceback (most recent call last):
+  File "/sol/pf_dtad7a/strategy.py", line 111, in f
+    next(v2)
+  File "/sol/pf_dtad7a/dive_logic.py", line 1014, in strategy
+    self.plan_step()
+  File "/sol/pf_dtad7a/dive_logic.py", line 1172, in plan_step
+    return self.descend()
+           ^^^^^^^^^^^^^^
+  File "/sol/pf_dtad7a/dive_logic.py", line 3253, in descend
+    agent.go_to(y, x)
+  File "/sol/pf_dtad7a/agent.py", line 1699, in go_to
+    self.move(y, x)
+  File "/sol/pf_dtad7a/agent.py", line 1399, in move
+    raise AgentPanic(f'Monster on a next tile when moving: ({expected_y},{expected_x})')
+pf_dtad7a.exceptions.AgentPanic: Monster on a next tile when moving: (10,10)
+
+[s2487 t2136 d5 0:5 xl2 hp18/18] DIVE stairs cut off: walking through known traps
+[s2503 t2143 d5 0:5 xl2 hp18/18] PANIC AgentPanic: Monster on a next tile when moving: (10,11)
+Traceback (most recent call last):
+  File "/sol/pf_dtad7a/strategy.py", line 111, in f
+    next(v2)
+  File "/sol/pf_dtad7a/dive_logic.py", line 1014, in strategy
+    self.plan_step()
+  File "/sol/pf_dtad7a/dive_logic.py", line 1172, in plan_step
+    return self.descend()
+           ^^^^^^^^^^^^^^
+  File "/sol/pf_dtad7a/dive_logic.py", line 3253, in descend
+    agent.go_to(y, x)
+  File "/sol/pf_dtad7a/agent.py", line 1699, in go_to
+    self.move(y, x)
+  File "/sol/pf_dtad7a/agent.py", line 1399, in move
+    raise AgentPanic(f'Monster on a next tile when moving: ({expected_y},{expected_x})')
+pf_dtad7a.exceptions.AgentPanic: Monster on a next tile when moving: (10,11)
+
+[s2522 t2145 d5 0:5 xl2 hp18/18] PANIC AgentPanic: Monster on a next tile when moving: (10,11)
+Traceback (most recent call last):
+  File "/sol/pf_dtad7a/strategy.py", line 111, in f
+    next(v2)
+  File "/sol/pf_dtad7a/dive_logic.py", line 1014, in strategy
+    self.plan_step()
+  File "/sol/pf_dtad7a/dive_logic.py", line 1172, in plan_step
+    return self.descend()
+           ^^^^^^^^^^^^^^
+  File "/sol/pf_dtad7a/dive_logic.py", line 3253, in descend
+    agent.go_to(y, x)
+  File "/sol/pf_dtad7a/agent.py", line 1699, in go_to
+    self.move(y, x)
+  File "/sol/pf_dtad7a/agent.py", line 1399, in move
+    raise AgentPanic(f'Monster on a next tile when moving: ({expected_y},{expected_x})')
+pf_dtad7a.exceptions.AgentPanic: Monster on a next tile when moving: (10,11)
+
+[s2541 t2147 d5 0:5 xl2 hp18/18] PANIC AgentPanic: Monster on a next tile when moving: (10,11)
+Traceback (most recent call last):
+  File "/sol/pf_dtad7a/strategy.py", line 111, in f
+    next(v2)
+  File "/sol/pf_dtad7a/dive_logic.py", line 1014, in strategy
+    self.plan_step()
+  File "/sol/pf_dtad7a/dive_logic.py", line 1172, in plan_step
+    return self.descend()
+           ^^^^^^^^^^^^^^
+  File "/sol/pf_dtad7a/dive_logic.py", line 3253, in descend
+    agent.go_to(y, x)
+  File "/sol/pf_dtad7a/agent.py", line 1699, in go_to
+    self.move(y, x)
+  File "/sol/pf_dtad7a/agent.py", line 1399, in move
+    raise AgentPanic(f'Monster on a next tile when moving: ({expected_y},{expected_x})')
+pf_dtad7a.exceptions.AgentPanic: Monster on a next tile when moving: (10,11)
+
+[s2568 t2154 d5 0:5 xl2 hp18/18] DIVE going down stairs at (np.int64(10), np.int64(9))
+[s2570 t2155 d6 0:6 xl2 hp18/18] DIVE level (np.int64(0), np.int64(6)) depth 6
+[s2889 t2423 d7 0:7 xl3 hp22/22] DIVE fell through a trap door at (np.int64(19), np.int64(53)) on (np.int64(0), np.int64(6)); remembered
+[s2889 t2423 d7 0:7 xl3 hp22/22] DIVE level (np.int64(0), np.int64(7)) depth 7
+[s2889 t2423 d7 0:7 xl3 hp22/22] DIVE digging out, hostiles at [('dwarf', 4)]
+[s2889 t2423 d7 0:7 xl3 hp22/22] DIVE Elbereth before digging: ['dwarf']
+[s2910 t2424 d7 0:7 xl3 hp22/22] DIVE digging out, hostiles at [('dwarf', 4)]
+[s2910 t2424 d7 0:7 xl3 hp22/22] DIVE digging down with 'a pick-axe' (try 1)
+[s2922 t2425 d7 0:7 xl3 hp22/22] DIVE digging out, hostiles at [('dwarf', 3)]
+[s2922 t2425 d7 0:7 xl3 hp22/22] DIVE digging down with 'a pick-axe (weapon in hand)' (try 1)
+[s2930 t2431 d7 0:7 xl3 hp22/22] DIVE digging out, hostiles at [('dwarf', 1)]
+[s2930 t2431 d7 0:7 xl3 hp22/22] DIVE Elbereth before digging in the pit: ['dwarf']
+[s2946 t2432 d7 0:7 xl3 hp22/22] DIVE digging down with 'a pick-axe (weapon in hand)' (try 2)
+[s2953 t2455 d8 0:8 xl3 hp22/22] DIVE fell through a trap door at (np.int64(4), np.int64(34)) on (np.int64(0), np.int64(7)); remembered
+[s2953 t2455 d8 0:8 xl3 hp22/22] DIVE level (np.int64(0), np.int64(8)) depth 8
+[s2953 t2455 d8 0:8 xl3 hp22/22] DIVE digging down with 'a pick-axe (weapon in hand)' (try 1)
+[s2960 t2461 d8 0:8 xl3 hp22/22] DIVE digging down with 'a pick-axe (weapon in hand)' (try 2)
+[s2972 t2470 d8 0:8 xl3 hp22/22] DIVE digging out, hostiles at [('straw golem', 1)]
+[s2972 t2470 d8 0:8 xl3 hp22/22] DIVE Elbereth before digging in the pit: ['straw golem']
+[s2988 t2471 d8 0:8 xl3 hp22/22] DIVE digging down with 'a pick-axe (weapon in hand)' (try 3)
+[s2998 t2485 d9 0:9 xl3 hp22/22] DIVE fell through a trap door at (np.int64(18), np.int64(42)) on (np.int64(0), np.int64(8)); remembered
+[s2998 t2485 d9 0:9 xl3 hp22/22] DIVE level (np.int64(0), np.int64(9)) depth 9
+[s2998 t2485 d9 0:9 xl3 hp22/22] DIVE digging out, hostiles at [('lichen', 9)]
+[s2998 t2485 d9 0:9 xl3 hp22/22] DIVE digging down with 'a pick-axe (weapon in hand)' (try 1)
+[s3001 t2491 d9 0:9 xl3 hp22/22] DIVE digging down with 'a pick-axe (weapon in hand)' (try 2)
+[s3007 t2513 d10 0:10 xl3 hp22/22] STATUS milestone=BE_ON_FIRST_LEVEL diving=True hunger=1 pos=(np.int64(13), np.int64(50)) acts=[SEARCH:170 E:80 SPACE:69 W:53 SW:28] gotos=[open_visit_search(15, 56):11 descend(10, 9):6 check_items(9, 43):4]
+[s3007 t2513 d10 0:10 xl3 hp22/22] DIVE fell through a trap door at (np.int64(2), np.int64(37)) on (np.int64(0), np.int64(9)); remembered
+[s3007 t2513 d10 0:10 xl3 hp22/22] DIVE level (np.int64(0), np.int64(10)) depth 10
+[s3007 t2513 d10 0:10 xl3 hp22/22] POWER kit at depth 10 XL 3 AC 5: P(passage)=0.04 certain=0 steps=1 scare_known=0 P(scare among candidates)=0.04 door_tools=1
+[s3007 t2513 d10 0:10 xl3 hp22/22] DIVE digging down with 'a pick-axe (weapon in hand)' (try 1)
+[s3010 t2519 d10 0:10 xl3 hp22/22] DIVE digging down with 'a pick-axe (weapon in hand)' (try 2)
+[s3024 t2541 d11 0:11 xl3 hp22/22] DIVE fell through a trap door at (np.int64(13), np.int64(50)) on (np.int64(0), np.int64(10)); remembered
+[s3024 t2541 d11 0:11 xl3 hp22/22] DIVE level (np.int64(0), np.int64(11)) depth 11
+[s3024 t2541 d11 0:11 xl3 hp22/22] DIVE quest portal level detected: (np.int64(0), np.int64(11))
+[s3024 t2541 d11 0:11 xl3 hp22/22] DIVE digging down with 'a pick-axe (weapon in hand)' (try 1)
+[s3027 t2546 d11 0:11 xl3 hp22/22] DIVE digging down with 'a pick-axe (weapon in hand)' (try 2)
+[s3032 t2568 d12 0:12 xl3 hp22/22] DIVE fell through a trap door at (np.int64(16), np.int64(30)) on (np.int64(0), np.int64(11)); remembered
+[s3032 t2568 d12 0:12 xl3 hp22/22] DIVE level (np.int64(0), np.int64(12)) depth 12
+[s3036 t2572 d12 0:12 xl3 hp22/22] DIVE going down stairs at (np.int64(16), np.int64(24))
+[s3038 t2573 d13 0:13 xl3 hp22/22] DIVE level (np.int64(0), np.int64(13)) depth 13
+[s3039 t2574 d13 0:13 xl3 hp22/22] DIVE digging down with 'a pick-axe (weapon in hand)' (try 1)
+[s3042 t2579 d13 0:13 xl3 hp22/22] DIVE digging down with 'a pick-axe (weapon in hand)' (try 2)
+[s3053 t2600 d14 0:14 xl3 hp22/22] DIVE fell through a trap door at (np.int64(16), np.int64(51)) on (np.int64(0), np.int64(13)); remembered
+[s3053 t2600 d14 0:14 xl3 hp22/22] DIVE level (np.int64(0), np.int64(14)) depth 14
+[s3053 t2600 d14 0:14 xl3 hp22/22] DIVE digging down with 'a pick-axe (weapon in hand)' (try 1)
+[s3056 t2606 d14 0:14 xl3 hp22/22] DIVE digging down with 'a pick-axe (weapon in hand)' (try 2)
+[s3061 t2628 d15 0:15 xl3 hp22/22] DIVE fell through a trap door at (np.int64(15), np.int64(56)) on (np.int64(0), np.int64(14)); remembered
+[s3061 t2628 d15 0:15 xl3 hp22/22] DIVE level (np.int64(0), np.int64(15)) depth 15
+[s3061 t2628 d15 0:15 xl3 hp22/22] DIVE digging down with 'a pick-axe (weapon in hand)' (try 1)
+[s3064 t2634 d15 0:15 xl3 hp22/22] DIVE digging down with 'a pick-axe (weapon in hand)' (try 2)
+[s3078 t2656 d16 0:16 xl3 hp22/22] DIVE fell through a trap door at (np.int64(11), np.int64(63)) on (np.int64(0), np.int64(15)); remembered
+[s3078 t2656 d16 0:16 xl3 hp22/22] DIVE level (np.int64(0), np.int64(16)) depth 16
+[s3078 t2656 d16 0:16 xl3 hp22/22] DIVE digging out, hostiles at [('giant zombie', 2)]
+[s3078 t2656 d16 0:16 xl3 hp22/22] DIVE Elbereth before digging: ['giant zombie']
+[s3099 t2657 d16 0:16 xl3 hp22/22] DIVE digging out, hostiles at [('giant zombie', 2)]
+[s3099 t2657 d16 0:16 xl3 hp22/22] DIVE digging down with 'a pick-axe (weapon in hand)' (try 1)
+[s3108 t2660 d16 0:16 xl3 hp22/22] DIVE digging out, hostiles at [('giant zombie', 1)]
+[s3108 t2660 d16 0:16 xl3 hp22/22] DIVE Elbereth before digging: ['giant zombie']
+[s3131 t2661 d16 0:16 xl3 hp22/22] DIVE digging out, hostiles at [('giant zombie', 1)]
+[s3131 t2661 d16 0:16 xl3 hp22/22] DIVE digging down with 'a pick-axe (weapon in hand)' (try 1)
+[s3136 t2665 d16 0:16 xl3 hp22/22] DIVE Elbereth before digging in the pit: []
+[s3152 t2666 d16 0:16 xl3 hp22/22] DIVE digging down with 'a pick-axe (weapon in hand)' (try 2)
+[s3159 t2689 d17 0:17 xl3 hp22/22] DIVE fell through a trap door at (np.int64(4), np.int64(64)) on (np.int64(0), np.int64(16)); remembered
+[s3159 t2689 d17 0:17 xl3 hp22/22] DIVE level (np.int64(0), np.int64(17)) depth 17
+[s3159 t2689 d17 0:17 xl3 hp22/22] DIVE digging down with 'a pick-axe (weapon in hand)' (try 1)
+[s3164 t2695 d17 0:17 xl3 hp22/22] DIVE digging down with 'a pick-axe (weapon in hand)' (try 2)
+[s3170 t2699 d17 0:17 xl3 hp22/22] DIVE digging out, hostiles at [('raven', 2)]
+[s3170 t2699 d17 0:17 xl3 hp22/22] DIVE Elbereth before digging in the pit: ['raven']
+[s3189 t2700 d17 0:17 xl3 hp21/22] DIVE digging out, hostiles at [('unknown', 2)]
+[s3189 t2700 d17 0:17 xl3 hp21/22] DIVE Elbereth before digging (blind) in the pit: ['unknown']
+[s3210 t2701 d17 0:17 xl3 hp21/22] DIVE digging out, hostiles at [('unknown', 2)]
+[s3210 t2701 d17 0:17 xl3 hp21/22] DIVE digging down with 'a pick-axe (weapon in hand)' (try 3)
+[s3233 t2713 d17 0:17 xl3 hp22/22] CAMERA flash -1,1: 'The Woodland-elf is blinded by the flash! The Woodland-elf turns to flee.'
+[s3238 t2714 d17 0:17 xl3 hp22/22] CAMERA flash 0,1: ''
+[s3240 t2714 d17 0:17 xl3 hp22/22] DIVE digging down with 'a pick-axe (weapon in hand)' (try 3)
+[s3257 t2719 d17 0:17 xl3 hp22/22] PANIC AgentPanic: agent position do not match after "move": expected (15, 25), got (16, 25)
+Traceback (most recent call last):
+  File "/sol/pf_dtad7a/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_dtad7a/agent.py", line 295, in preempt
+    next(iterator)
+  File "/sol/pf_dtad7a/utils.py", line 134, in f
+    next(it)
+  File "/sol/pf_dtad7a/agent.py", line 1943, in fight2
+    wait_counter = self._fight2_perform_action(best_action, wait_counter)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_dtad7a/agent.py", line 2007, in _fight2_perform_action
+    self.move(target_y, target_x)
+  File "/sol/pf_dtad7a/agent.py", line 1424, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_dtad7a.exceptions.AgentPanic: agent position do not match after "move": expected (15, 25), got (16, 25)
+
+[s3280 t2719 d17 0:17 xl3 hp22/22] DIVE digging down with 'a pick-axe (weapon in hand)' (try 4)
+[s3296 t2721 d17 0:17 xl3 hp22/22] PANIC AgentPanic: agent position do not match after "move": expected (15, 25), got (16, 25)
+Traceback (most recent call last):
+  File "/sol/pf_dtad7a/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_dtad7a/agent.py", line 295, in preempt
+    next(iterator)
+  File "/sol/pf_dtad7a/utils.py", line 134, in f
+    next(it)
+  File "/sol/pf_dtad7a/agent.py", line 1943, in fight2
+    wait_counter = self._fight2_perform_action(best_action, wait_counter)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_dtad7a/agent.py", line 2007, in _fight2_perform_action
+    self.move(target_y, target_x)
+  File "/sol/pf_dtad7a/agent.py", line 1424, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_dtad7a.exceptions.AgentPanic: agent position do not match after "move": expected (15, 25), got (16, 25)
+
+[s3319 t2721 d17 0:17 xl3 hp22/22] DIVE digging down with 'a pick-axe (weapon in hand)' (try 5)
+[s3335 t2723 d17 0:17 xl3 hp22/22] CAMERA flash 0,1: ''
+[s3337 t2723 d17 0:17 xl3 hp22/22] DIVE digging down with 'a pick-axe (weapon in hand)' (try 6)
+[s3353 t2725 d17 0:17 xl3 hp22/22] CAMERA flash -1,1: ''
+[s3355 t2725 d17 0:17 xl3 hp22/22] DIVE digging down with 'a pick-axe (weapon in hand)' (try 7)
+[s3373 t2727 d17 0:17 xl3 hp22/22] PANIC AgentPanic: agent position do not match after "move": expected (15, 25), got (16, 25)
+Traceback (most recent call last):
+  File "/sol/pf_dtad7a/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_dtad7a/agent.py", line 295, in preempt
+    next(iterator)
+  File "/sol/pf_dtad7a/utils.py", line 134, in f
+    next(it)
+  File "/sol/pf_dtad7a/agent.py", line 1943, in fight2
+    wait_counter = self._fight2_perform_action(best_action, wait_counter)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_dtad7a/agent.py", line 2007, in _fight2_perform_action
+    self.move(target_y, target_x)
+  File "/sol/pf_dtad7a/agent.py", line 1424, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_dtad7a.exceptions.AgentPanic: agent position do not match after "move": expected (15, 25), got (16, 25)
+
+[s3406 t2729 d17 0:17 xl3 hp10/22] CAMERA flash 1,0: 'The Woodland-elf swings his runed broadsword.  The Woodland-elf hits!'
+[s3412 t2735 d17 0:17 xl3 hp10/22] DIVE task rest
+[s3412 t2735 d17 0:17 xl3 hp10/22] DIVE Elbereth before resting
+[s3426 t2736 d17 0:17 xl3 hp11/22] DIVE Elbereth before resting
+[s3452 t2757 d17 0:17 xl3 hp13/22] DIVE digging out, hostiles at [('raven', 1)]
+[s3452 t2757 d17 0:17 xl3 hp13/22] DIVE digging down with 'a pick-axe (weapon in hand)' (try 8)
+[s3456 t2763 d17 0:17 xl3 hp14/22] DIVE task descend
+[s3456 t2763 d17 0:17 xl3 hp14/22] DIVE digging down with 'a pick-axe (weapon in hand)' (try 9)
+[s3468 t2765 d17 0:17 xl3 hp14/22] CAMERA flash 1,0: ''
+[s3468 t2765 d17 0:17 xl3 hp14/22] DIVE digging out, hostiles at [('raven', 1)]
+[s3468 t2765 d17 0:17 xl3 hp14/22] DIVE Elbereth before digging in the pit: ['raven']
+[s3482 t2766 d17 0:17 xl3 hp14/22] DIVE digging down with 'a pick-axe (weapon in hand)' (try 10)
+[s3494 t2768 d17 0:17 xl3 hp14/22] CAMERA flash 1,-1: ''
+[s3494 t2768 d17 0:17 xl3 hp14/22] DIVE digging out, hostiles at [('raven', 1)]
+[s3494 t2768 d17 0:17 xl3 hp14/22] DIVE Elbereth before digging in the pit: ['raven']
+[s3523 t2770 d17 0:17 xl3 hp14/22] PANIC AgentPanic: agent position do not match after "move": expected (13, 26), got (14, 26)
+Traceback (most recent call last):
+  File "/sol/pf_dtad7a/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_dtad7a/agent.py", line 295, in preempt
+    next(iterator)
+  File "/sol/pf_dtad7a/utils.py", line 134, in f
+    next(it)
+  File "/sol/pf_dtad7a/agent.py", line 1943, in fight2
+    wait_counter = self._fight2_perform_action(best_action, wait_counter)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_dtad7a/agent.py", line 2007, in _fight2_perform_action
+    self.move(target_y, target_x)
+  File "/sol/pf_dtad7a/agent.py", line 1424, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_dtad7a.exceptions.AgentPanic: agent position do not match after "move": expected (13, 26), got (14, 26)
+
+[s3554 t2771 d17 0:17 xl3 hp14/22] CAMERA flash 0,-1: 'You feel like a hypocrite.  The engraving beneath you fades.'
+[s3558 t2772 d17 0:17 xl3 hp15/22] CAMERA flash -1,0: ''
+[s3564 t2773 d17 0:17 xl3 hp15/22] CAMERA flash 0,1: ''
