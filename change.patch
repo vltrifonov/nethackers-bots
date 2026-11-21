@@ -1,0 +1,55 @@
+diff --git a/nethackers.solution.json b/nethackers.solution.json
+index 8b14199..20ec990 100644
+--- a/nethackers.solution.json
++++ b/nethackers.solution.json
+@@ -1,8 +1,9 @@
+ {
+   "schema": "nethackers.solution/v1",
+-  "name": "daglar-zPublicValkCurrentChaos15",
++  "name": "Tourist retry delay after a failed arrow disarm",
+   "root": ".",
+   "parents": [
++    "github.com/daglar-dragomirov/nethacker@ddd2da67a17880f005ac366a4f7d04c78a1e3487",
+     "github.com/daglar-dragomirov/nethacker@eab9a9c4f4e09bce096d5762e895fec51b63784d",
+     "github.com/daglar-dragomirov/nethacker@ccfb1251179bad749ece88d384956363ffb2db56",
+     "github.com/daglar-dragomirov/nethacker@44b29b9299c5dcfb76e3fc6081004727c58db19a",
+diff --git a/pf_dtad7a/exploration_logic.py b/pf_dtad7a/exploration_logic.py
+index 8a198f5..12a49aa 100644
+--- a/pf_dtad7a/exploration_logic.py
++++ b/pf_dtad7a/exploration_logic.py
+@@ -19,6 +19,7 @@ class ExplorationLogic:
+     def __init__(self, agent):
+         self.agent = agent
+         self._trap_resort_turn = {}   # level key -> last turn TRAP_LAST_RESORT opened the traps there
++        self._arrow_retry_after = {}   # (level, y, x) -> turn when a failed arrow disarm can be retried
+ 
+     def _trap_last_resort(self, to_visit):
+         """TRAP_LAST_RESORT: nothing is left to explore without stepping on a known trap (the BFS treats them as
+@@ -541,6 +542,12 @@ class ExplorationLogic:
+         # TODO: consider strategy for SS.S_pit, SS.S_spiked_pit
+         level = self.agent.current_level()
+         trap_mask = utils.isin(level.objects, untrappable_traps)
++        tourist_tour = (self.agent.character.role == Character.TOURIST
++                        and not self.agent.global_logic.dive.diving)
++        if tourist_tour:
++            for (key, y, x), retry in self._arrow_retry_after.items():
++                if key == level.key() and self.agent.blstats.time < retry and level.objects[y, x] == SS.S_arrow_trap:
++                    trap_mask[y, x] = False
+ 
+         if not trap_mask.any():
+             yield False
+@@ -581,5 +588,13 @@ class ExplorationLogic:
+                 # assert level.objects[trap_y, trap_x] == trap_glyph
+                 if trap_y == self.agent.blstats.y and trap_x == self.agent.blstats.x:
+                     continue
+-                self.agent.untrap(trap_y, trap_x)
++                disarmed = self.agent.untrap(trap_y, trap_x)
++                if (tourist_tour and not disarmed and trap_glyph == SS.S_arrow_trap
++                        and 'That arrow trap is difficult to disarm.' in self.agent.message
++                        and self.agent.current_level().key() == level.key()):
++                    # Leave time to back out when a previously traversed, safe adjacent square is available.
++                    retreat = ((self.agent.bfs() == 1) & level.was_on
++                               & ~utils.isin(level.objects, G.TRAPS) & ~self.agent.monster_tracker.monster_mask)
++                    if retreat.any():
++                        self._arrow_retry_after[level.key(), trap_y, trap_x] = self.agent.blstats.time + 10
+                 self.agent.check_terrain(force=True)
