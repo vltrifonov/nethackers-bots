@@ -1,0 +1,1099 @@
+[s24 t1 d1 0:1 xl1 hp16/16] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(17), np.int64(55)) acts=[SPACE:8 ESC:3 AUTOPICKUP:2 ATTRIBUTES:1 ENHANCE:1] gotos=[]
+[s24 t1 d1 0:1 xl1 hp16/16] DIVE level (np.int64(0), np.int64(1)) depth 1
+[s173 t67 d1 0:1 xl1 hp16/16] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/base/pf_vk_s25/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_vk_s25/agent.py", line 299, in preempt
+    next(iterator)
+  File "/sol/base/pf_vk_s25/strategy.py", line 68, in f
+    next(it)
+  File "/sol/base/pf_vk_s25/utils.py", line 134, in f
+    next(it)
+  File "/sol/base/pf_vk_s25/agent.py", line 2871, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/base/pf_vk_s25/item/inventory.py", line 853, in eat
+    raise AgentPanic('no such food is lying here')
+pf_vk_s25.exceptions.AgentPanic: no such food is lying here
+
+[s196 t71 d1 0:1 xl1 hp16/16] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/base/pf_vk_s25/item/inventory.py", line 598, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/base/pf_vk_s25/agent.py", line 178, in atom_operation
+    self.update_state()
+  File "/sol/base/pf_vk_s25/agent.py", line 680, in update_state
+    self.call_update_functions()
+  File "/sol/base/pf_vk_s25/agent.py", line 691, in call_update_functions
+    func()
+  File "/sol/base/pf_vk_s25/item/inventory.py", line 155, in f
+    raise AgentPanic('items below me changed')
+pf_vk_s25.exceptions.AgentPanic: items below me changed
+
+[s464 t266 d1 0:1 xl1 hp16/16] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/base/pf_vk_s25/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_vk_s25/agent.py", line 299, in preempt
+    next(iterator)
+  File "/sol/base/pf_vk_s25/strategy.py", line 68, in f
+    next(it)
+  File "/sol/base/pf_vk_s25/utils.py", line 134, in f
+    next(it)
+  File "/sol/base/pf_vk_s25/agent.py", line 2871, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/base/pf_vk_s25/item/inventory.py", line 853, in eat
+    raise AgentPanic('no such food is lying here')
+pf_vk_s25.exceptions.AgentPanic: no such food is lying here
+
+[s557 t335 d1 0:1 xl1 hp16/16] PANIC AgentPanic: agent position do not match after "move": expected (5, 60), got (4, 60)
+Traceback (most recent call last):
+  File "/sol/base/pf_vk_s25/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_vk_s25/agent.py", line 288, in preempt
+    val = f()
+          ^^^
+  File "/sol/base/pf_vk_s25/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/base/pf_vk_s25/exploration_logic.py", line 520, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/base/pf_vk_s25/agent.py", line 2172, in go_to
+    self.move(y, x)
+  File "/sol/base/pf_vk_s25/agent.py", line 1841, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_vk_s25.exceptions.AgentPanic: agent position do not match after "move": expected (5, 60), got (4, 60)
+
+[s750 t500 d1 0:1 xl1 hp16/16] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(8), np.int64(23)) acts=[SEARCH:152 W:80 SPACE:71 E:52 NW:40] gotos=[open_visit_search(6, 37):10 check_items(17, 58):8 open_visit_search(13, 59):4]
+[s821 t536 d1 0:1 xl2 hp30/30] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/base/pf_vk_s25/item/inventory.py", line 598, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/base/pf_vk_s25/agent.py", line 178, in atom_operation
+    self.update_state()
+  File "/sol/base/pf_vk_s25/agent.py", line 680, in update_state
+    self.call_update_functions()
+  File "/sol/base/pf_vk_s25/agent.py", line 691, in call_update_functions
+    func()
+  File "/sol/base/pf_vk_s25/item/inventory.py", line 155, in f
+    raise AgentPanic('items below me changed')
+pf_vk_s25.exceptions.AgentPanic: items below me changed
+
+[s1058 t771 d1 0:1 xl2 hp30/30] PANIC AgentPanic: agent position do not match after "move": expected (7, 38), got (8, 38)
+Traceback (most recent call last):
+  File "/sol/base/pf_vk_s25/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_vk_s25/agent.py", line 288, in preempt
+    val = f()
+          ^^^
+  File "/sol/base/pf_vk_s25/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/base/pf_vk_s25/exploration_logic.py", line 520, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/base/pf_vk_s25/agent.py", line 2172, in go_to
+    self.move(y, x)
+  File "/sol/base/pf_vk_s25/agent.py", line 1841, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_vk_s25.exceptions.AgentPanic: agent position do not match after "move": expected (7, 38), got (8, 38)
+
+[s1152 t878 d1 0:1 xl2 hp30/30] PANIC AgentPanic: agent position do not match after "move": expected (8, 47), got (9, 47)
+Traceback (most recent call last):
+  File "/sol/base/pf_vk_s25/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_vk_s25/agent.py", line 288, in preempt
+    val = f()
+          ^^^
+  File "/sol/base/pf_vk_s25/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/base/pf_vk_s25/exploration_logic.py", line 520, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/base/pf_vk_s25/agent.py", line 2172, in go_to
+    self.move(y, x)
+  File "/sol/base/pf_vk_s25/agent.py", line 1841, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_vk_s25.exceptions.AgentPanic: agent position do not match after "move": expected (8, 47), got (9, 47)
+
+[s1246 t1001 d1 0:1 xl2 hp30/30] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(17), np.int64(54)) acts=[SEARCH:138 NUM_5:59 E:41 SPACE:37 SW:27] gotos=[open_visit_search(3, 16):13 open_visit_search(10, 16):4 open_visit_search(8, 38):4]
+[s1312 t1063 d1 0:1 xl2 hp30/30] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/base/pf_vk_s25/item/inventory.py", line 598, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/base/pf_vk_s25/agent.py", line 178, in atom_operation
+    self.update_state()
+  File "/sol/base/pf_vk_s25/agent.py", line 680, in update_state
+    self.call_update_functions()
+  File "/sol/base/pf_vk_s25/agent.py", line 691, in call_update_functions
+    func()
+  File "/sol/base/pf_vk_s25/item/inventory.py", line 155, in f
+    raise AgentPanic('items below me changed')
+pf_vk_s25.exceptions.AgentPanic: items below me changed
+
+[s1463 t1256 d1 0:1 xl2 hp28/30] RANGED hit: holds and Elbereth waits off for 8 turns
+[s1628 t1423 d1 0:1 xl2 hp30/30] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/base/pf_vk_s25/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_vk_s25/agent.py", line 299, in preempt
+    next(iterator)
+  File "/sol/base/pf_vk_s25/strategy.py", line 68, in f
+    next(it)
+  File "/sol/base/pf_vk_s25/utils.py", line 134, in f
+    next(it)
+  File "/sol/base/pf_vk_s25/agent.py", line 2871, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/base/pf_vk_s25/item/inventory.py", line 853, in eat
+    raise AgentPanic('no such food is lying here')
+pf_vk_s25.exceptions.AgentPanic: no such food is lying here
+
+[s1720 t1496 d1 0:1 xl2 hp30/30] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/base/pf_vk_s25/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_vk_s25/agent.py", line 299, in preempt
+    next(iterator)
+  File "/sol/base/pf_vk_s25/strategy.py", line 68, in f
+    next(it)
+  File "/sol/base/pf_vk_s25/utils.py", line 134, in f
+    next(it)
+  File "/sol/base/pf_vk_s25/agent.py", line 2871, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/base/pf_vk_s25/item/inventory.py", line 853, in eat
+    raise AgentPanic('no such food is lying here')
+pf_vk_s25.exceptions.AgentPanic: no such food is lying here
+
+[s1739 t1502 d1 0:1 xl2 hp30/30] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(6), np.int64(72)) acts=[SEARCH:102 NUM_5:68 SPACE:50 E:36 W:30] gotos=[open_visit_search(17, 69):3 check_items(13, 70):3 open_visit_search(17, 55):2]
+[s1822 t1624 d1 0:1 xl2 hp30/30] PRAY hp=30/30 hunger=3 gap=None reason=None
+[s1884 t1672 d1 0:1 xl3 hp31/37] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/base/pf_vk_s25/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_vk_s25/agent.py", line 299, in preempt
+    next(iterator)
+  File "/sol/base/pf_vk_s25/strategy.py", line 68, in f
+    next(it)
+  File "/sol/base/pf_vk_s25/utils.py", line 134, in f
+    next(it)
+  File "/sol/base/pf_vk_s25/agent.py", line 2871, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/base/pf_vk_s25/item/inventory.py", line 853, in eat
+    raise AgentPanic('no such food is lying here')
+pf_vk_s25.exceptions.AgentPanic: no such food is lying here
+
+[s1919 t1702 d1 0:1 xl3 hp35/37] PANIC AgentPanic: agent position do not match after "move": expected (13, 66), got (14, 67)
+Traceback (most recent call last):
+  File "/sol/base/pf_vk_s25/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_vk_s25/agent.py", line 288, in preempt
+    val = f()
+          ^^^
+  File "/sol/base/pf_vk_s25/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/base/pf_vk_s25/exploration_logic.py", line 520, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/base/pf_vk_s25/agent.py", line 2172, in go_to
+    self.move(y, x)
+  File "/sol/base/pf_vk_s25/agent.py", line 1841, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_vk_s25.exceptions.AgentPanic: agent position do not match after "move": expected (13, 66), got (14, 67)
+
+[s2028 t1765 d1 0:1 xl3 hp36/37] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/base/pf_vk_s25/item/inventory.py", line 598, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/base/pf_vk_s25/agent.py", line 178, in atom_operation
+    self.update_state()
+  File "/sol/base/pf_vk_s25/agent.py", line 680, in update_state
+    self.call_update_functions()
+  File "/sol/base/pf_vk_s25/agent.py", line 691, in call_update_functions
+    func()
+  File "/sol/base/pf_vk_s25/item/inventory.py", line 155, in f
+    raise AgentPanic('items below me changed')
+pf_vk_s25.exceptions.AgentPanic: items below me changed
+
+[s2302 t2000 d1 0:1 xl3 hp37/37] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(6), np.int64(33)) acts=[SEARCH:76 SPACE:76 NUM_5:62 W:61 E:36] gotos=[open_visit_search(6, 75):4 open_visit_search(3, 42):4 open_visit_search(6, 73):3]
+[s2668 t2501 d1 0:1 xl3 hp37/37] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(5), np.int64(15)) acts=[SEARCH:107 NUM_5:76 W:31 E:22 SW:15] gotos=[open_visit_search(6, 31):2 open_visit_search(12, 21):2 open_visit_search(13, 21):2]
+[s2780 t2612 d1 0:1 xl4 hp49/49] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/base/pf_vk_s25/item/inventory.py", line 598, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/base/pf_vk_s25/agent.py", line 178, in atom_operation
+    self.update_state()
+  File "/sol/base/pf_vk_s25/agent.py", line 680, in update_state
+    self.call_update_functions()
+  File "/sol/base/pf_vk_s25/agent.py", line 691, in call_update_functions
+    func()
+  File "/sol/base/pf_vk_s25/item/inventory.py", line 155, in f
+    raise AgentPanic('items below me changed')
+pf_vk_s25.exceptions.AgentPanic: items below me changed
+
+[s2939 t2803 d1 0:1 xl4 hp49/49] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/base/pf_vk_s25/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_vk_s25/agent.py", line 299, in preempt
+    next(iterator)
+  File "/sol/base/pf_vk_s25/strategy.py", line 68, in f
+    next(it)
+  File "/sol/base/pf_vk_s25/utils.py", line 134, in f
+    next(it)
+  File "/sol/base/pf_vk_s25/agent.py", line 2871, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/base/pf_vk_s25/item/inventory.py", line 853, in eat
+    raise AgentPanic('no such food is lying here')
+pf_vk_s25.exceptions.AgentPanic: no such food is lying here
+
+[s3106 t3003 d1 0:1 xl4 hp49/49] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(8), np.int64(29)) acts=[SEARCH:81 NUM_5:64 E:47 W:35 SPACE:26] gotos=[open_visit_search(3, 14):3 open_visit_search(3, 13):2 open_visit_search(3, 12):2]
+[s3134 t3020 d1 0:1 xl4 hp49/49] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/base/pf_vk_s25/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_vk_s25/agent.py", line 299, in preempt
+    next(iterator)
+  File "/sol/base/pf_vk_s25/strategy.py", line 68, in f
+    next(it)
+  File "/sol/base/pf_vk_s25/utils.py", line 134, in f
+    next(it)
+  File "/sol/base/pf_vk_s25/agent.py", line 2871, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/base/pf_vk_s25/item/inventory.py", line 853, in eat
+    raise AgentPanic('no such food is lying here')
+pf_vk_s25.exceptions.AgentPanic: no such food is lying here
+
+[s3392 t3274 d1 0:1 xl4 hp49/49] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/base/pf_vk_s25/item/inventory.py", line 598, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/base/pf_vk_s25/agent.py", line 178, in atom_operation
+    self.update_state()
+  File "/sol/base/pf_vk_s25/agent.py", line 680, in update_state
+    self.call_update_functions()
+  File "/sol/base/pf_vk_s25/agent.py", line 691, in call_update_functions
+    func()
+  File "/sol/base/pf_vk_s25/item/inventory.py", line 155, in f
+    raise AgentPanic('items below me changed')
+pf_vk_s25.exceptions.AgentPanic: items below me changed
+
+[s3484 t3343 d1 0:1 xl4 hp49/49] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/base/pf_vk_s25/item/inventory.py", line 598, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/base/pf_vk_s25/agent.py", line 178, in atom_operation
+    self.update_state()
+  File "/sol/base/pf_vk_s25/agent.py", line 680, in update_state
+    self.call_update_functions()
+  File "/sol/base/pf_vk_s25/agent.py", line 691, in call_update_functions
+    func()
+  File "/sol/base/pf_vk_s25/item/inventory.py", line 155, in f
+    raise AgentPanic('items below me changed')
+pf_vk_s25.exceptions.AgentPanic: items below me changed
+
+[s3529 t3373 d1 0:1 xl4 hp49/49] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/base/pf_vk_s25/item/inventory.py", line 598, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/base/pf_vk_s25/agent.py", line 178, in atom_operation
+    self.update_state()
+  File "/sol/base/pf_vk_s25/agent.py", line 680, in update_state
+    self.call_update_functions()
+  File "/sol/base/pf_vk_s25/agent.py", line 691, in call_update_functions
+    func()
+  File "/sol/base/pf_vk_s25/item/inventory.py", line 155, in f
+    raise AgentPanic('items below me changed')
+pf_vk_s25.exceptions.AgentPanic: items below me changed
+
+[s3649 t3500 d1 0:1 xl4 hp49/49] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(13), np.int64(66)) acts=[SPACE:72 SEARCH:72 NUM_5:62 E:45 SW:29] gotos=[eat_corpses_from_ground(5, 29):3 open_visit_search(7, 29):2 open_visit_search(6, 31):2]
+[s3973 t3827 d1 0:1 xl4 hp49/49] PANIC AgentPanic: agent position do not match after "move": expected (7, 72), got (6, 73)
+Traceback (most recent call last):
+  File "/sol/base/pf_vk_s25/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_vk_s25/agent.py", line 286, in preempt
+    val = f.run()
+          ^^^^^^^
+  File "/sol/base/pf_vk_s25/strategy.py", line 48, in run
+    next(gen)
+  File "/sol/base/pf_vk_s25/exploration_logic.py", line 520, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/base/pf_vk_s25/agent.py", line 2172, in go_to
+    self.move(y, x)
+  File "/sol/base/pf_vk_s25/agent.py", line 1841, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_vk_s25.exceptions.AgentPanic: agent position do not match after "move": expected (7, 72), got (6, 73)
+
+[s4038 t3890 d1 0:1 xl4 hp48/49] RANGED hit: holds and Elbereth waits off for 8 turns
+[s4064 t3899 d1 0:1 xl4 hp43/49] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/base/pf_vk_s25/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_vk_s25/agent.py", line 299, in preempt
+    next(iterator)
+  File "/sol/base/pf_vk_s25/strategy.py", line 68, in f
+    next(it)
+  File "/sol/base/pf_vk_s25/utils.py", line 134, in f
+    next(it)
+  File "/sol/base/pf_vk_s25/agent.py", line 2871, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/base/pf_vk_s25/item/inventory.py", line 853, in eat
+    raise AgentPanic('no such food is lying here')
+pf_vk_s25.exceptions.AgentPanic: no such food is lying here
+
+[s4138 t3949 d1 0:1 xl4 hp46/49] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/base/pf_vk_s25/item/inventory.py", line 598, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/base/pf_vk_s25/agent.py", line 178, in atom_operation
+    self.update_state()
+  File "/sol/base/pf_vk_s25/agent.py", line 680, in update_state
+    self.call_update_functions()
+  File "/sol/base/pf_vk_s25/agent.py", line 691, in call_update_functions
+    func()
+  File "/sol/base/pf_vk_s25/item/inventory.py", line 155, in f
+    raise AgentPanic('items below me changed')
+pf_vk_s25.exceptions.AgentPanic: items below me changed
+
+[s4189 t4003 d1 0:1 xl4 hp49/49] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(4), np.int64(56)) acts=[SEARCH:69 SPACE:66 NUM_5:64 W:46 E:35] gotos=[open_visit_search(13, 57):3 eat_corpses_from_ground(6, 72):2 open_visit_search(10, 51):2]
+[s4198 t4019 d1 0:1 xl4 hp49/49] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/base/pf_vk_s25/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_vk_s25/agent.py", line 299, in preempt
+    next(iterator)
+  File "/sol/base/pf_vk_s25/strategy.py", line 68, in f
+    next(it)
+  File "/sol/base/pf_vk_s25/utils.py", line 134, in f
+    next(it)
+  File "/sol/base/pf_vk_s25/agent.py", line 2871, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/base/pf_vk_s25/item/inventory.py", line 853, in eat
+    raise AgentPanic('no such food is lying here')
+pf_vk_s25.exceptions.AgentPanic: no such food is lying here
+
+[s4348 t4113 d2 0:2 xl5 hp56/56] DIVE level (np.int64(0), np.int64(2)) depth 2
+[s4425 t4156 d2 0:2 xl5 hp51/56] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/base/pf_vk_s25/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_vk_s25/agent.py", line 299, in preempt
+    next(iterator)
+  File "/sol/base/pf_vk_s25/strategy.py", line 68, in f
+    next(it)
+  File "/sol/base/pf_vk_s25/utils.py", line 134, in f
+    next(it)
+  File "/sol/base/pf_vk_s25/agent.py", line 2871, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/base/pf_vk_s25/item/inventory.py", line 853, in eat
+    raise AgentPanic('no such food is lying here')
+pf_vk_s25.exceptions.AgentPanic: no such food is lying here
+
+[s4448 t4163 d2 0:2 xl5 hp52/56] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/base/pf_vk_s25/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_vk_s25/agent.py", line 299, in preempt
+    next(iterator)
+  File "/sol/base/pf_vk_s25/strategy.py", line 68, in f
+    next(it)
+  File "/sol/base/pf_vk_s25/utils.py", line 134, in f
+    next(it)
+  File "/sol/base/pf_vk_s25/agent.py", line 2871, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/base/pf_vk_s25/item/inventory.py", line 853, in eat
+    raise AgentPanic('no such food is lying here')
+pf_vk_s25.exceptions.AgentPanic: no such food is lying here
+
+[s4948 t4500 d2 0:2 xl5 hp56/56] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(11), np.int64(22)) acts=[SEARCH:162 SPACE:91 W:78 E:42 SW:40] gotos=[check_items(18, 67):7 check_items(3, 54):7 go_to_strategy(8, 31):4]
+[s5072 t4588 d2 0:2 xl5 hp54/56] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/base/pf_vk_s25/strategy.py", line 190, in f
+    next(it)
+  File "/sol/base/pf_vk_s25/strategy.py", line 165, in f
+    next(gen)
+  File "/sol/base/pf_vk_s25/strategy.py", line 100, in f
+    next(v1)
+  File "/sol/base/pf_vk_s25/utils.py", line 134, in f
+    next(it)
+  File "/sol/base/pf_vk_s25/item/inventory.py", line 1664, in check_items
+    self.agent.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 0, 255), is_path=True))
+  File "/sol/base/pf_vk_s25/agent.py", line 2144, in go_to
+    raise AgentPanic('end point is no longer accessible')
+pf_vk_s25.exceptions.AgentPanic: end point is no longer accessible
+
+[s5308 t4762 d2 0:2 xl5 hp56/56] PANIC AgentPanic: agent position do not match after "move": expected (5, 18), got (4, 17)
+Traceback (most recent call last):
+  File "/sol/base/pf_vk_s25/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_vk_s25/agent.py", line 288, in preempt
+    val = f()
+          ^^^
+  File "/sol/base/pf_vk_s25/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/base/pf_vk_s25/exploration_logic.py", line 520, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/base/pf_vk_s25/agent.py", line 2172, in go_to
+    self.move(y, x)
+  File "/sol/base/pf_vk_s25/agent.py", line 1841, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_vk_s25.exceptions.AgentPanic: agent position do not match after "move": expected (5, 18), got (4, 17)
+
+[s5530 t4922 d3 0:3 xl5 hp56/56] DIVE level (np.int64(0), np.int64(3)) depth 3
+[s5610 t5001 d3 0:3 xl5 hp55/56] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(4), np.int64(53)) acts=[SEARCH:125 W:77 SPACE:59 E:57 N:55] gotos=[check_items(14, 63):6 open_visit_search(8, 22):5 open_visit_search(4, 53):5]
+[s5734 t5104 d3 0:3 xl5 hp56/56] PRAY hp=56/56 hunger=3 gap=3477 reason=None
+[s5840 t5186 d3 0:3 xl5 hp49/56] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/base/pf_vk_s25/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_vk_s25/agent.py", line 299, in preempt
+    next(iterator)
+  File "/sol/base/pf_vk_s25/strategy.py", line 68, in f
+    next(it)
+  File "/sol/base/pf_vk_s25/utils.py", line 134, in f
+    next(it)
+  File "/sol/base/pf_vk_s25/agent.py", line 2871, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/base/pf_vk_s25/item/inventory.py", line 853, in eat
+    raise AgentPanic('no such food is lying here')
+pf_vk_s25.exceptions.AgentPanic: no such food is lying here
+
+[s5905 t5214 d3 0:3 xl5 hp53/56] INTRINSIC telepathy
+[s5909 t5214 d3 0:3 xl5 hp53/56] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/base/pf_vk_s25/item/inventory.py", line 598, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/base/pf_vk_s25/agent.py", line 178, in atom_operation
+    self.update_state()
+  File "/sol/base/pf_vk_s25/agent.py", line 680, in update_state
+    self.call_update_functions()
+  File "/sol/base/pf_vk_s25/agent.py", line 691, in call_update_functions
+    func()
+  File "/sol/base/pf_vk_s25/item/inventory.py", line 155, in f
+    raise AgentPanic('items below me changed')
+pf_vk_s25.exceptions.AgentPanic: items below me changed
+
+[s6029 t5275 d3 0:3 xl5 hp55/56] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/base/pf_vk_s25/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_vk_s25/agent.py", line 299, in preempt
+    next(iterator)
+  File "/sol/base/pf_vk_s25/strategy.py", line 68, in f
+    next(it)
+  File "/sol/base/pf_vk_s25/utils.py", line 134, in f
+    next(it)
+  File "/sol/base/pf_vk_s25/agent.py", line 2871, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/base/pf_vk_s25/item/inventory.py", line 853, in eat
+    raise AgentPanic('no such food is lying here')
+pf_vk_s25.exceptions.AgentPanic: no such food is lying here
+
+[s6054 t5279 d3 0:3 xl5 hp56/56] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/base/pf_vk_s25/item/inventory.py", line 598, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/base/pf_vk_s25/agent.py", line 178, in atom_operation
+    self.update_state()
+  File "/sol/base/pf_vk_s25/agent.py", line 680, in update_state
+    self.call_update_functions()
+  File "/sol/base/pf_vk_s25/agent.py", line 691, in call_update_functions
+    func()
+  File "/sol/base/pf_vk_s25/item/inventory.py", line 155, in f
+    raise AgentPanic('items below me changed')
+pf_vk_s25.exceptions.AgentPanic: items below me changed
+
+[s6235 t5503 d3 0:3 xl5 hp56/56] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(17), np.int64(36)) acts=[SEARCH:135 SPACE:66 W:64 NUM_5:38 E:32] gotos=[open_visit_search(18, 41):5 open_visit_search(14, 59):4 open_visit_search(14, 46):4]
+[s6362 t5687 d3 0:3 xl5 hp56/56] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/base/pf_vk_s25/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_vk_s25/agent.py", line 299, in preempt
+    next(iterator)
+  File "/sol/base/pf_vk_s25/strategy.py", line 68, in f
+    next(it)
+  File "/sol/base/pf_vk_s25/utils.py", line 134, in f
+    next(it)
+  File "/sol/base/pf_vk_s25/agent.py", line 2871, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/base/pf_vk_s25/item/inventory.py", line 853, in eat
+    raise AgentPanic('no such food is lying here')
+pf_vk_s25.exceptions.AgentPanic: no such food is lying here
+
+[s6633 t6000 d3 0:3 xl6 hp66/68] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=2 pos=(np.int64(15), np.int64(69)) acts=[SEARCH:93 NUM_5:73 E:52 SPACE:28 SW:18] gotos=[open_visit_search(12, 54):4 open_visit_search(16, 56):4 open_visit_search(17, 35):2]
+[s6674 t6029 d3 0:3 xl6 hp65/68] RANGED hit: holds and Elbereth waits off for 8 turns
+[s6732 t6051 d3 0:3 xl6 hp62/68] RANGED hit: holds and Elbereth waits off for 8 turns
+[s6776 t6077 d3 0:3 xl6 hp66/68] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/base/pf_vk_s25/item/inventory.py", line 598, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/base/pf_vk_s25/agent.py", line 178, in atom_operation
+    self.update_state()
+  File "/sol/base/pf_vk_s25/agent.py", line 680, in update_state
+    self.call_update_functions()
+  File "/sol/base/pf_vk_s25/agent.py", line 691, in call_update_functions
+    func()
+  File "/sol/base/pf_vk_s25/item/inventory.py", line 155, in f
+    raise AgentPanic('items below me changed')
+pf_vk_s25.exceptions.AgentPanic: items below me changed
+
+[s6924 t6151 d3 0:3 xl6 hp68/68] PANIC AgentPanic: agent position do not match after "move": expected (10, 67), got (9, 67)
+Traceback (most recent call last):
+  File "/sol/base/pf_vk_s25/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_vk_s25/agent.py", line 288, in preempt
+    val = f()
+          ^^^
+  File "/sol/base/pf_vk_s25/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/base/pf_vk_s25/exploration_logic.py", line 520, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/base/pf_vk_s25/agent.py", line 2172, in go_to
+    self.move(y, x)
+  File "/sol/base/pf_vk_s25/agent.py", line 1841, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_vk_s25.exceptions.AgentPanic: agent position do not match after "move": expected (10, 67), got (9, 67)
+
+[s7193 t6500 d3 0:3 xl6 hp68/68] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(4), np.int64(54)) acts=[SEARCH:99 SPACE:82 NUM_5:62 W:41 PICKUP:28] gotos=[open_visit_search(9, 67):4 open_visit_search(6, 60):4 open_visit_search(8, 67):3]
+[s7266 t6577 d3 0:3 xl6 hp68/68] PANIC AgentPanic: agent position do not match after "move": expected (14, 59), got (15, 60)
+Traceback (most recent call last):
+  File "/sol/base/pf_vk_s25/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_vk_s25/agent.py", line 288, in preempt
+    val = f()
+          ^^^
+  File "/sol/base/pf_vk_s25/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/base/pf_vk_s25/exploration_logic.py", line 520, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/base/pf_vk_s25/agent.py", line 2172, in go_to
+    self.move(y, x)
+  File "/sol/base/pf_vk_s25/agent.py", line 1841, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_vk_s25.exceptions.AgentPanic: agent position do not match after "move": expected (14, 59), got (15, 60)
+
+[s7382 t6697 d3 0:3 xl6 hp68/68] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/base/pf_vk_s25/item/inventory.py", line 598, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/base/pf_vk_s25/agent.py", line 178, in atom_operation
+    self.update_state()
+  File "/sol/base/pf_vk_s25/agent.py", line 680, in update_state
+    self.call_update_functions()
+  File "/sol/base/pf_vk_s25/agent.py", line 691, in call_update_functions
+    func()
+  File "/sol/base/pf_vk_s25/item/inventory.py", line 155, in f
+    raise AgentPanic('items below me changed')
+pf_vk_s25.exceptions.AgentPanic: items below me changed
+
+[s7480 t6804 d3 0:3 xl6 hp65/68] RANGED hit: holds and Elbereth waits off for 8 turns
+[s7501 t6823 d3 0:3 xl6 hp68/68] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/base/pf_vk_s25/item/inventory.py", line 598, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/base/pf_vk_s25/agent.py", line 178, in atom_operation
+    self.update_state()
+  File "/sol/base/pf_vk_s25/agent.py", line 680, in update_state
+    self.call_update_functions()
+  File "/sol/base/pf_vk_s25/agent.py", line 691, in call_update_functions
+    func()
+  File "/sol/base/pf_vk_s25/item/inventory.py", line 155, in f
+    raise AgentPanic('items below me changed')
+pf_vk_s25.exceptions.AgentPanic: items below me changed
+
+[s7683 t7000 d3 0:3 xl6 hp68/68] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(4), np.int64(15)) acts=[SEARCH:91 NUM_5:62 SPACE:44 W:40 SW:30] gotos=[open_visit_search(3, 34):3 open_visit_search(0, 14):3 open_visit_search(16, 69):2]
+[s7876 t7243 d3 0:3 xl6 hp68/68] PANIC AgentPanic: agent position do not match after "move": expected (6, 28), got (5, 29)
+Traceback (most recent call last):
+  File "/sol/base/pf_vk_s25/agent.py", line 299, in preempt
+    next(iterator)
+  File "/sol/base/pf_vk_s25/strategy.py", line 68, in f
+    next(it)
+  File "/sol/base/pf_vk_s25/utils.py", line 134, in f
+    next(it)
+  File "/sol/base/pf_vk_s25/agent.py", line 2855, in eat_corpses_from_ground
+    self.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 255, 0), is_path=True))
+  File "/sol/base/pf_vk_s25/agent.py", line 2172, in go_to
+    self.move(y, x)
+  File "/sol/base/pf_vk_s25/agent.py", line 1841, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_vk_s25.exceptions.AgentPanic: agent position do not match after "move": expected (6, 28), got (5, 29)
+
+[s8123 t7461 d3 0:3 xl6 hp68/68] PRAY hp=68/68 hunger=3 gap=2354 reason=None
+[s8170 t7500 d3 0:3 xl6 hp68/68] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(18), np.int64(37)) acts=[SEARCH:70 NUM_5:61 E:57 SPACE:39 W:32] gotos=[check_items(17, 33):11 open_visit_search(2, 34):3 open_visit_search(4, 16):2]
+[s8277 t7575 d3 0:3 xl6 hp68/68] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/base/pf_vk_s25/item/inventory.py", line 598, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/base/pf_vk_s25/agent.py", line 178, in atom_operation
+    self.update_state()
+  File "/sol/base/pf_vk_s25/agent.py", line 680, in update_state
+    self.call_update_functions()
+  File "/sol/base/pf_vk_s25/agent.py", line 691, in call_update_functions
+    func()
+  File "/sol/base/pf_vk_s25/item/inventory.py", line 155, in f
+    raise AgentPanic('items below me changed')
+pf_vk_s25.exceptions.AgentPanic: items below me changed
+
+[s8662 t8000 d3 0:3 xl6 hp68/68] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(3), np.int64(69)) acts=[SEARCH:67 NUM_5:57 E:53 SPACE:44 SW:28] gotos=[check_items(17, 33):9 open_visit_search(17, 38):4 check_items(18, 40):2]
+[s8934 t8266 d3 0:3 xl6 hp64/68] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/base/pf_vk_s25/item/inventory.py", line 598, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/base/pf_vk_s25/agent.py", line 178, in atom_operation
+    self.update_state()
+  File "/sol/base/pf_vk_s25/agent.py", line 680, in update_state
+    self.call_update_functions()
+  File "/sol/base/pf_vk_s25/agent.py", line 691, in call_update_functions
+    func()
+  File "/sol/base/pf_vk_s25/item/inventory.py", line 155, in f
+    raise AgentPanic('items below me changed')
+pf_vk_s25.exceptions.AgentPanic: items below me changed
+
+[s8994 t8292 d3 0:3 xl6 hp68/68] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/base/pf_vk_s25/item/inventory.py", line 598, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/base/pf_vk_s25/agent.py", line 178, in atom_operation
+    self.update_state()
+  File "/sol/base/pf_vk_s25/agent.py", line 680, in update_state
+    self.call_update_functions()
+  File "/sol/base/pf_vk_s25/agent.py", line 691, in call_update_functions
+    func()
+  File "/sol/base/pf_vk_s25/item/inventory.py", line 155, in f
+    raise AgentPanic('items below me changed')
+pf_vk_s25.exceptions.AgentPanic: items below me changed
+
+[s9087 t8326 d3 0:3 xl6 hp68/68] FIGHT stall of 24 turns ended (contact): ['hill orc', 'iguana']
+[s9097 t8329 d3 0:3 xl6 hp67/68] RANGED hit: holds and Elbereth waits off for 8 turns
+[s9335 t8503 d3 0:3 xl6 hp68/68] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(4), np.int64(25)) acts=[SPACE:121 SEARCH:64 NUM_5:54 W:43 SW:42] gotos=[eat_corpses_from_ground(14, 65):3 check_items(14, 62):3 open_visit_search(2, 63):2]
+[s9600 t8775 d3 0:3 xl6 hp68/68] PANIC AgentPanic: agent position do not match after "move": expected (18, 41), got (17, 40)
+Traceback (most recent call last):
+  File "/sol/base/pf_vk_s25/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_vk_s25/agent.py", line 288, in preempt
+    val = f()
+          ^^^
+  File "/sol/base/pf_vk_s25/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/base/pf_vk_s25/exploration_logic.py", line 520, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/base/pf_vk_s25/agent.py", line 2172, in go_to
+    self.move(y, x)
+  File "/sol/base/pf_vk_s25/agent.py", line 1841, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_vk_s25.exceptions.AgentPanic: agent position do not match after "move": expected (18, 41), got (17, 40)
+
+[s9685 t8838 d3 0:3 xl6 hp68/68] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/base/pf_vk_s25/item/inventory.py", line 598, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/base/pf_vk_s25/agent.py", line 178, in atom_operation
+    self.update_state()
+  File "/sol/base/pf_vk_s25/agent.py", line 680, in update_state
+    self.call_update_functions()
+  File "/sol/base/pf_vk_s25/agent.py", line 691, in call_update_functions
+    func()
+  File "/sol/base/pf_vk_s25/item/inventory.py", line 155, in f
+    raise AgentPanic('items below me changed')
+pf_vk_s25.exceptions.AgentPanic: items below me changed
+
+[s9826 t9000 d3 0:3 xl6 hp68/68] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=2 pos=(np.int64(4), np.int64(69)) acts=[SEARCH:70 NUM_5:63 E:52 SPACE:38 SW:26] gotos=[open_visit_search(6, 14):4 open_visit_search(5, 14):3 open_visit_search(17, 33):3]
+[s10055 t9252 d3 0:3 xl7 hp81/81] DIVE phase starts (milestone BE_ON_FIRST_LEVEL)
+[s10055 t9252 d3 0:3 xl7 hp81/81] ENGRAVE re-test with text (the grind test said nothing): 'a spiked wand'
+[s10077 t9253 d3 0:3 xl7 hp81/81] ENGRAVE 'a spiked wand': ['secret door detection', 'create monster', 'nothing', 'undead turning', 'opening', 'locking', 'probing'] (text written: True)
+[s10077 t9253 d3 0:3 xl7 hp81/81] DIVE task descend
+[s10077 t9253 d3 0:3 xl7 hp81/81] DIVE stuck in task 'descend' on level (np.int64(0), np.int64(3)) for 4331 turns; up stairs (y,x,dist)=[(15, 68, 8)]
+
+              #                                                  #
+             -|----        ---------                        -----|-----
+             |....|        |.......|                        |.........|
+             |..%>-####    |.......|                        |.........|
+             |....|   #####........|                 #######|.........|
+             -|----        |.......|                       #..........|
+              #            -|-------                        ..........|
+                            #                              #--.--.-.---
+                            #                                 ######
+                            ###                                  # #
+                              #####           -------            # $
+                          ####################......|  #         #
+                                    #         |.....| #          )
+                                    ##        |......######------)-----
+                                     #       #.......     #-).........|
+                                     #       #-----.-      |%.......<.|
+                              -------.----  ###   *     ###-@.........|
+                              |..{.......| ##  #           ------------
+                              |.....^....-##
+                              ------------
+
+Agent the Bandit               St:18/01 Dx:16 Co:18 In:8 Wi:9 Ch:6 Neutral S:27
+Dlvl:3 $:67 HP:81(81) Pw:18(18) AC:5 Xp:7/645 T:9253
+[s10086 t9256 d3 0:3 xl7 hp81/81] ENGRAVE re-test with text (the grind test said nothing): 'a curved wand'
+[s10108 t9258 d3 0:3 xl7 hp81/81] ENGRAVE 'a curved wand': ['striking'] (text written: True)
+[s10181 t9298 d3 0:3 xl7 hp81/81] SESSILE yellow mold at (5, 14) remembered
+[s10194 t9303 d3 0:3 xl7 hp81/81] DIVE going down stairs at (np.int64(3), np.int64(17))
+[s10199 t9303 d4 2:1 xl7 hp81/81] DIVE level (np.int64(2), np.int64(1)) depth 4
+[s10218 t9310 d4 2:1 xl7 hp81/81] CAMP: the tool-less dive stays in the Mines (levels 1-4, 8000 turns)
+[s10218 t9310 d4 2:1 xl7 hp81/81] DIVE task camp: search for dwarves
+[s10229 t9317 d4 2:1 xl7 hp76/81] PANIC AgentPanic: agent position do not match after "move": expected (1, 74), got (2, 74)
+Traceback (most recent call last):
+  File "/sol/base/pf_vk_s25/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_vk_s25/agent.py", line 286, in preempt
+    val = f.run()
+          ^^^^^^^
+  File "/sol/base/pf_vk_s25/strategy.py", line 48, in run
+    next(gen)
+  File "/sol/base/pf_vk_s25/exploration_logic.py", line 520, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/base/pf_vk_s25/agent.py", line 2172, in go_to
+    self.move(y, x)
+  File "/sol/base/pf_vk_s25/agent.py", line 1841, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_vk_s25.exceptions.AgentPanic: agent position do not match after "move": expected (1, 74), got (2, 74)
+
+[s10246 t9317 d4 2:1 xl7 hp76/81] PANIC AgentPanic: agent position do not match after "move": expected (1, 74), got (2, 74)
+Traceback (most recent call last):
+  File "/sol/base/pf_vk_s25/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_vk_s25/agent.py", line 288, in preempt
+    val = f()
+          ^^^
+  File "/sol/base/pf_vk_s25/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/base/pf_vk_s25/exploration_logic.py", line 520, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/base/pf_vk_s25/agent.py", line 2172, in go_to
+    self.move(y, x)
+  File "/sol/base/pf_vk_s25/agent.py", line 1841, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_vk_s25.exceptions.AgentPanic: agent position do not match after "move": expected (1, 74), got (2, 74)
+
+[s10263 t9318 d4 2:1 xl7 hp76/81] PANIC AgentPanic: agent position do not match after "move": expected (1, 74), got (2, 74)
+Traceback (most recent call last):
+  File "/sol/base/pf_vk_s25/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_vk_s25/agent.py", line 288, in preempt
+    val = f()
+          ^^^
+  File "/sol/base/pf_vk_s25/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/base/pf_vk_s25/exploration_logic.py", line 520, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/base/pf_vk_s25/agent.py", line 2172, in go_to
+    self.move(y, x)
+  File "/sol/base/pf_vk_s25/agent.py", line 1841, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_vk_s25.exceptions.AgentPanic: agent position do not match after "move": expected (1, 74), got (2, 74)
+
+[s10280 t9318 d4 2:1 xl7 hp76/81] PANIC AgentPanic: agent position do not match after "move": expected (1, 74), got (2, 74)
+Traceback (most recent call last):
+  File "/sol/base/pf_vk_s25/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_vk_s25/agent.py", line 288, in preempt
+    val = f()
+          ^^^
+  File "/sol/base/pf_vk_s25/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/base/pf_vk_s25/exploration_logic.py", line 520, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/base/pf_vk_s25/agent.py", line 2172, in go_to
+    self.move(y, x)
+  File "/sol/base/pf_vk_s25/agent.py", line 1841, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_vk_s25.exceptions.AgentPanic: agent position do not match after "move": expected (1, 74), got (2, 74)
+
+[s10297 t9319 d4 2:1 xl7 hp76/81] PANIC AgentPanic: agent position do not match after "move": expected (1, 74), got (2, 74)
+Traceback (most recent call last):
+  File "/sol/base/pf_vk_s25/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_vk_s25/agent.py", line 288, in preempt
+    val = f()
+          ^^^
+  File "/sol/base/pf_vk_s25/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/base/pf_vk_s25/exploration_logic.py", line 520, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/base/pf_vk_s25/agent.py", line 2172, in go_to
+    self.move(y, x)
+  File "/sol/base/pf_vk_s25/agent.py", line 1841, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_vk_s25.exceptions.AgentPanic: agent position do not match after "move": expected (1, 74), got (2, 74)
+
+[s10314 t9319 d4 2:1 xl7 hp76/81] PANIC AgentPanic: agent position do not match after "move": expected (1, 74), got (2, 74)
+Traceback (most recent call last):
+  File "/sol/base/pf_vk_s25/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_vk_s25/agent.py", line 288, in preempt
+    val = f()
+          ^^^
+  File "/sol/base/pf_vk_s25/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/base/pf_vk_s25/exploration_logic.py", line 520, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/base/pf_vk_s25/agent.py", line 2172, in go_to
+    self.move(y, x)
+  File "/sol/base/pf_vk_s25/agent.py", line 1841, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_vk_s25.exceptions.AgentPanic: agent position do not match after "move": expected (1, 74), got (2, 74)
+
+[s10331 t9320 d4 2:1 xl7 hp77/81] PANIC AgentPanic: agent position do not match after "move": expected (1, 74), got (2, 74)
+Traceback (most recent call last):
+  File "/sol/base/pf_vk_s25/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_vk_s25/agent.py", line 288, in preempt
+    val = f()
+          ^^^
+  File "/sol/base/pf_vk_s25/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/base/pf_vk_s25/exploration_logic.py", line 520, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/base/pf_vk_s25/agent.py", line 2172, in go_to
+    self.move(y, x)
+  File "/sol/base/pf_vk_s25/agent.py", line 1841, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_vk_s25.exceptions.AgentPanic: agent position do not match after "move": expected (1, 74), got (2, 74)
+
+[s10355 t9335 d4 2:1 xl7 hp80/81] DIVE task camp: patrol
+[s10360 t9337 d4 2:1 xl7 hp80/81] DIVE task camp: search for dwarves
+[s10360 t9337 d4 2:1 xl7 hp80/81] DIVE task camp: patrol
+[s10362 t9341 d4 2:1 xl7 hp81/81] DIVE task camp: search for dwarves
+[s10362 t9341 d4 2:1 xl7 hp81/81] DIVE task camp: patrol
+[s10372 t9346 d4 2:1 xl7 hp81/81] ALIGN estimate 44 (cap 56) after -12
+[s10372 t9346 d4 2:1 xl7 hp81/81] DWARF died near [(2, 73), (2, 74)]: piles to check
+[s10372 t9346 d4 2:1 xl7 hp81/81] DIVE fetching the digging tool at (2, 73) on (np.int64(2), np.int64(1))
+[s10372 t9346 d4 2:1 xl7 hp81/81] DIVE task fetch digging tool
+[s10392 t9347 d4 2:1 xl7 hp81/81] DIVE picked up 'a dwarvish mattock'
+[s10392 t9347 d4 2:1 xl7 hp81/81] DIVE task return to main dungeon
+[s10399 t9351 d3 0:3 xl7 hp81/81] DIVE level (np.int64(0), np.int64(3)) depth 3
+[s10399 t9351 d3 0:3 xl7 hp81/81] DIVE task descend
+[s10400 t9352 d3 0:3 xl7 hp81/81] DIVE digging down with 'a dwarvish mattock' (try 1)
+[s10404 t9355 d3 0:3 xl7 hp81/81] DIVE digging down with 'a dwarvish mattock (weapon in hands)' (try 2)
+[s10412 t9368 d4 0:4 xl7 hp81/81] DIVE fell through a trap door at (np.int64(2), np.int64(16)) on (np.int64(0), np.int64(3)); remembered
+[s10412 t9368 d4 0:4 xl7 hp81/81] DIVE level (np.int64(0), np.int64(4)) depth 4
+[s10412 t9368 d4 0:4 xl7 hp81/81] DIVE digging out, hostiles at [('gnome lord', 2)]
+[s10412 t9368 d4 0:4 xl7 hp81/81] DIVE Elbereth before digging: ['gnome lord']
+[s10428 t9369 d4 0:4 xl7 hp81/81] DIVE digging out, hostiles at [('gnome lord', 2)]
+[s10428 t9369 d4 0:4 xl7 hp81/81] DIVE digging down with 'a dwarvish mattock (weapon in hands)' (try 1)
+[s10439 t9373 d4 0:4 xl7 hp81/81] DIVE Elbereth before digging in the pit: []
+[s10453 t9373 d4 0:4 xl7 hp81/81] DIVE Elbereth before digging in the pit: []
+[s10471 t9374 d4 0:4 xl7 hp81/81] DIVE digging down with 'a dwarvish mattock (weapon in hands)' (try 2)
+[s10477 t9386 d5 0:5 xl7 hp81/81] DIVE fell through a trap door at (np.int64(4), np.int64(49)) on (np.int64(0), np.int64(4)); remembered
+[s10477 t9386 d5 0:5 xl7 hp81/81] DIVE level (np.int64(0), np.int64(5)) depth 5
+[s10477 t9386 d5 0:5 xl7 hp81/81] DIVE digging down with 'a dwarvish mattock (weapon in hands)' (try 1)
+[s10480 t9391 d5 0:5 xl7 hp81/81] DIVE digging down with 'a dwarvish mattock (weapon in hands)' (try 2)
+[s10488 t9403 d6 0:6 xl7 hp81/81] DIVE fell through a trap door at (np.int64(17), np.int64(68)) on (np.int64(0), np.int64(5)); remembered
+[s10488 t9403 d6 0:6 xl7 hp81/81] DIVE level (np.int64(0), np.int64(6)) depth 6
+[s10488 t9403 d6 0:6 xl7 hp81/81] DIVE digging out, hostiles at [('elf zombie', 1)]
+[s10488 t9403 d6 0:6 xl7 hp81/81] DIVE Elbereth before digging: ['elf zombie']
+[s10504 t9403 d6 0:6 xl7 hp81/81] DIVE digging out, hostiles at [('elf zombie', 2)]
+[s10504 t9403 d6 0:6 xl7 hp81/81] DIVE digging down with 'a dwarvish mattock (weapon in hands)' (try 1)
+[s10508 t9406 d6 0:6 xl7 hp81/81] DIVE Elbereth before digging in the pit: []
+[s10522 t9407 d6 0:6 xl7 hp81/81] DIVE Elbereth before digging in the pit: []
+[s10540 t9408 d6 0:6 xl7 hp81/81] DIVE digging down with 'a dwarvish mattock (weapon in hands)' (try 2)
+[s10550 t9421 d7 0:7 xl7 hp81/81] DIVE fell through a trap door at (np.int64(3), np.int64(66)) on (np.int64(0), np.int64(6)); remembered
+[s10550 t9421 d7 0:7 xl7 hp81/81] DIVE level (np.int64(0), np.int64(7)) depth 7
+[s10550 t9421 d7 0:7 xl7 hp81/81] DIVE digging down with 'a dwarvish mattock (weapon in hands)' (try 1)
+[s10559 t9424 d7 0:7 xl7 hp81/81] DIVE digging down with 'a dwarvish mattock (weapon in hands)' (try 2)
+[s10564 t9438 d8 0:8 xl7 hp81/81] DIVE fell through a trap door at (np.int64(5), np.int64(58)) on (np.int64(0), np.int64(7)); remembered
+[s10564 t9438 d8 0:8 xl7 hp81/81] DIVE level (np.int64(0), np.int64(8)) depth 8
+[s10566 t9439 d8 0:8 xl7 hp81/81] DIVE going down stairs at (np.int64(14), np.int64(24))
+[s10568 t9440 d9 0:9 xl7 hp81/81] DIVE level (np.int64(0), np.int64(9)) depth 9
+[s10569 t9440 d9 0:9 xl7 hp81/81] DIVE digging down with 'a dwarvish mattock (weapon in hands)' (try 1)
+[s10572 t9444 d9 0:9 xl7 hp81/81] DIVE digging down with 'a dwarvish mattock (weapon in hands)' (try 2)
+[s10580 t9458 d10 0:10 xl7 hp81/81] DIVE fell through a trap door at (np.int64(3), np.int64(71)) on (np.int64(0), np.int64(9)); remembered
+[s10580 t9458 d10 0:10 xl7 hp81/81] DIVE level (np.int64(0), np.int64(10)) depth 10
+[s10580 t9458 d10 0:10 xl7 hp81/81] POWER kit at depth 10 XL 7 AC 5: P(passage)=0.29 certain=0 steps=7 scare_known=0 P(scare among candidates)=0.14 door_tools=3
+[s10580 t9458 d10 0:10 xl7 hp81/81] DIVE digging out, hostiles at [('gecko', 5)]
+[s10580 t9458 d10 0:10 xl7 hp81/81] DIVE Elbereth before digging: ['gecko']
+[s10596 t9459 d10 0:10 xl7 hp81/81] DIVE digging out, hostiles at [('gecko', 5)]
+[s10596 t9459 d10 0:10 xl7 hp81/81] DIVE digging down with 'a dwarvish mattock (weapon in hands)' (try 1)
+[s10600 t9464 d10 0:10 xl7 hp81/81] DIVE Elbereth before digging in the pit: []
+[s10616 t9464 d10 0:10 xl7 hp81/81] DIVE digging down with 'a dwarvish mattock (weapon in hands)' (try 2)
+[s10632 t9475 d11 0:11 xl7 hp81/81] DIVE fell through a trap door at (np.int64(6), np.int64(11)) on (np.int64(0), np.int64(10)); remembered
+[s10632 t9475 d11 0:11 xl7 hp81/81] DIVE level (np.int64(0), np.int64(11)) depth 11
+[s10632 t9475 d11 0:11 xl7 hp81/81] PROUTE to the altar at (np.int64(13), np.int64(5)) to learn the BUC of 9 items
+[s10635 t9477 d11 0:11 xl7 hp81/81] PROUTE BUC test on the altar: ['a clay ring', '2 unlabeled scrolls', 'a potion of oil', 'an oval amulet', 'a cloudy potion', 'an emerald potion', '2 cloudy potions', 'a smoky potion', 'a swirly potion']
+[s10661 t9478 d11 0:11 xl7 hp81/81] PROUTE altar: ''
+[s10685 t9479 d11 0:11 xl7 hp81/81] PROUTE altar pickup: took 9 of 9 stacks back
+[s10685 t9479 d11 0:11 xl7 hp81/81] PROUTE putting on 'an uncursed clay ring': wear test (a levitation ring names itself)
+[s10688 t9480 d11 0:11 xl7 hp81/81] PROUTE put on: 'What do you want to put on? [BG or ?*] Which ring-finger, Right or Left? [rl] B - an uncursed +3 ring of protection (on left hand).'
+[s10689 t9480 d11 0:11 xl7 hp81/81] PROUTE remove 'an uncursed +3 ring of protection (on left hand)': 'You were wearing an uncursed +3 ring of protection (on left hand).'
+[s10690 t9481 d11 0:11 xl7 hp81/81] DIVE digging down with 'a dwarvish mattock (weapon in hands)' (try 1)
+[s10693 t9484 d11 0:11 xl7 hp81/81] DIVE digging down with 'a dwarvish mattock (weapon in hands)' (try 2)
+[s10698 t9499 d12 0:12 xl7 hp81/81] DIVE fell through a trap door at (np.int64(12), np.int64(4)) on (np.int64(0), np.int64(11)); remembered
+[s10698 t9499 d12 0:12 xl7 hp81/81] DIVE level (np.int64(0), np.int64(12)) depth 12
+[s10698 t9499 d12 0:12 xl7 hp81/81] DIVE digging down with 'a dwarvish mattock (weapon in hands)' (try 1)
+[s10701 t9503 d12 0:12 xl7 hp81/81] STATUS milestone=BE_ON_FIRST_LEVEL diving=True hunger=1 pos=(np.int64(6), np.int64(17)) acts=[SPACE:163 SEARCH:60 W:58 NUM_5:46 SW:44] gotos=[open_visit_search(1, 74):11 descend(3, 17):4 check_items(2, 74):3]
+[s10701 t9503 d12 0:12 xl7 hp81/81] DIVE digging down with 'a dwarvish mattock (weapon in hands)' (try 2)
+[s10706 t9516 d13 0:13 xl7 hp81/81] DIVE fell through a trap door at (np.int64(6), np.int64(17)) on (np.int64(0), np.int64(12)); remembered
+[s10706 t9516 d13 0:13 xl7 hp81/81] DIVE level (np.int64(0), np.int64(13)) depth 13
+[s10706 t9516 d13 0:13 xl7 hp81/81] DIVE digging down with 'a dwarvish mattock (weapon in hands)' (try 1)
+[s10709 t9521 d13 0:13 xl7 hp81/81] DIVE digging down with 'a dwarvish mattock (weapon in hands)' (try 2)
+[s10723 t9534 d14 0:14 xl7 hp81/81] DIVE fell through a trap door at (np.int64(6), np.int64(13)) on (np.int64(0), np.int64(13)); remembered
+[s10723 t9534 d14 0:14 xl7 hp81/81] DIVE level (np.int64(0), np.int64(14)) depth 14
+[s10723 t9534 d14 0:14 xl7 hp81/81] DIVE digging out, hostiles at [('iron piercer', 4)]
+[s10723 t9534 d14 0:14 xl7 hp81/81] DIVE Elbereth before digging: ['iron piercer']
+[s10739 t9534 d14 0:14 xl7 hp81/81] DIVE digging out, hostiles at [('iron piercer', 4)]
+[s10739 t9534 d14 0:14 xl7 hp81/81] DIVE digging down with 'a dwarvish mattock (weapon in hands)' (try 1)
+[s10743 t9537 d14 0:14 xl7 hp81/81] DIVE Elbereth before digging in the pit: []
+[s10763 t9538 d14 0:14 xl7 hp81/81] DIVE digging down with 'a dwarvish mattock (weapon in hands)' (try 2)
+[s10772 t9551 d15 0:15 xl7 hp81/81] DIVE fell through a trap door at (np.int64(9), np.int64(65)) on (np.int64(0), np.int64(14)); remembered
+[s10772 t9551 d15 0:15 xl7 hp81/81] DIVE level (np.int64(0), np.int64(15)) depth 15
+[s10772 t9551 d15 0:15 xl7 hp81/81] DIVE quest portal level detected: (np.int64(0), np.int64(15))
+[s10772 t9551 d15 0:15 xl7 hp81/81] DIVE digging down with 'a dwarvish mattock (weapon in hands)' (try 1)
+[s10778 t9556 d15 0:15 xl7 hp81/81] DIVE digging out, hostiles at [('incubus', 1)]
+[s10778 t9556 d15 0:15 xl7 hp81/81] DIVE Elbereth before digging: ['incubus']
+[s10794 t9557 d15 0:15 xl7 hp81/81] DIVE digging down with 'a dwarvish mattock (weapon in hands)' (try 2)
+[s10803 t9572 d16 0:16 xl7 hp81/81] DIVE fell through a trap door at (np.int64(16), np.int64(68)) on (np.int64(0), np.int64(15)); remembered
+[s10803 t9572 d16 0:16 xl7 hp81/81] DIVE level (np.int64(0), np.int64(16)) depth 16
+[s10803 t9572 d16 0:16 xl7 hp81/81] DIVE digging out, hostiles at [('Mordor orc', 2)]
+[s10803 t9572 d16 0:16 xl7 hp81/81] DIVE Elbereth before digging: ['Mordor orc']
+[s10817 t9573 d16 0:16 xl7 hp81/81] DIVE digging out, hostiles at [('Mordor orc', 2)]
+[s10817 t9573 d16 0:16 xl7 hp81/81] DIVE Elbereth before digging: ['Mordor orc']
+[s10835 t9574 d16 0:16 xl7 hp81/81] DIVE digging out, hostiles at [('Mordor orc', 2)]
+[s10835 t9574 d16 0:16 xl7 hp81/81] DIVE digging down with 'a dwarvish mattock (weapon in hands)' (try 1)
+[s10840 t9579 d16 0:16 xl7 hp81/81] DIVE digging out, hostiles at [('Mordor orc', 1)]
+[s10840 t9579 d16 0:16 xl7 hp81/81] DIVE Elbereth before digging in the pit: ['Mordor orc']
+[s10856 t9580 d16 0:16 xl7 hp81/81] DIVE digging down with 'a dwarvish mattock (weapon in hands)' (try 2)
+[s10869 t9594 d17 0:17 xl7 hp81/81] DIVE fell through a trap door at (np.int64(18), np.int64(39)) on (np.int64(0), np.int64(16)); remembered
+[s10869 t9594 d17 0:17 xl7 hp81/81] DIVE level (np.int64(0), np.int64(17)) depth 17
+[s10869 t9594 d17 0:17 xl7 hp81/81] DIVE digging down with 'a dwarvish mattock (weapon in hands)' (try 1)
+[s10874 t9598 d17 0:17 xl7 hp81/81] DIVE digging down with 'a dwarvish mattock (weapon in hands)' (try 2)
+[s10879 t9612 d18 0:18 xl7 hp81/81] DIVE fell through a trap door at (np.int64(5), np.int64(6)) on (np.int64(0), np.int64(17)); remembered
+[s10879 t9612 d18 0:18 xl7 hp81/81] DIVE level (np.int64(0), np.int64(18)) depth 18
+[s10879 t9612 d18 0:18 xl7 hp81/81] DIVE digging down with 'a dwarvish mattock (weapon in hands)' (try 1)
+[s10882 t9617 d18 0:18 xl7 hp81/81] DIVE digging down with 'a dwarvish mattock (weapon in hands)' (try 2)
+[s10890 t9628 d18 0:18 xl7 hp66/81] DIVE digging out, hostiles at [('mountain centaur', 1)]
+[s10890 t9628 d18 0:18 xl7 hp66/81] DIVE Elbereth before digging in the pit: ['mountain centaur']
+[s10906 t9629 d18 0:18 xl7 hp66/81] DIVE digging down with 'a dwarvish mattock (weapon in hands)' (try 3)
+[s10915 t9630 d19 0:19 xl7 hp67/81] DIVE fell through a trap door at (np.int64(3), np.int64(45)) on (np.int64(0), np.int64(18)); remembered
+[s10915 t9630 d19 0:19 xl7 hp67/81] DIVE level (np.int64(0), np.int64(19)) depth 19
+[s10915 t9630 d19 0:19 xl7 hp67/81] DIVE digging out, hostiles at [('warg', 3)]
+[s10915 t9630 d19 0:19 xl7 hp67/81] DIVE Elbereth before digging: ['warg']
+[s10931 t9631 d19 0:19 xl7 hp67/81] DIVE digging out, hostiles at [('warg', 3)]
+[s10931 t9631 d19 0:19 xl7 hp67/81] DIVE digging down with 'a dwarvish mattock (weapon in hands)' (try 1)
+[s10936 t9635 d19 0:19 xl7 hp68/81] DIVE Elbereth before digging in the pit: []
+[s10950 t9636 d19 0:19 xl7 hp68/81] DIVE Elbereth before digging in the pit: []
+[s10972 t9637 d19 0:19 xl7 hp68/81] DIVE digging down with 'a dwarvish mattock (weapon in hands)' (try 2)
+[s10985 t9652 d20 0:20 xl7 hp71/81] DIVE fell through a trap door at (np.int64(6), np.int64(63)) on (np.int64(0), np.int64(19)); remembered
+[s10985 t9652 d20 0:20 xl7 hp71/81] DIVE level (np.int64(0), np.int64(20)) depth 20
+[s10985 t9652 d20 0:20 xl7 hp71/81] POWER kit at depth 20 XL 7 AC 5: P(passage)=0.27 certain=0 steps=6 scare_known=0 P(scare among candidates)=0.14 door_tools=3
+[s10985 t9652 d20 0:20 xl7 hp71/81] MINO kit d20 last_prayer=7464: $ - 104 gold pieces; B - an uncursed +3 ring of protection; C - 2 uncursed unlabeled scrolls; D - a scroll labeled XIXAXA XOXAXA XUXAXA; F - a blessed potion of oil; G - a cursed oval amulet; H - a +0 mummy wrapping (being worn); J - a dwarvish mattock (weapon in hands); K - a pair of iron shoes; L - a scroll labeled KIRJE; a - a +0 two-handed sword; c - an uncursed +0 ring mail (being worn); e - an uncursed oil lamp; g - a cursed cloudy potion; h - a scroll labeled KERNOD WEL; j - an uncursed emerald potion; l - a key; m - an orcish dagger; n - 2 food rations; o - 2 uncursed cloudy potions; p - a dart (at the ready); q - a blessed smoky potion; r - a +1 orcish helm (being worn); s - a lock pick; t - a tripe ration; u - an apple; w - a spiked wand; x - a scroll labeled XOR OTA; y - an uncursed swirly potion; z - a curved wand
+[s10985 t9652 d20 0:20 xl7 hp71/81] DIVE digging down with 'a dwarvish mattock (weapon in hands)' (try 1)
+[s10988 t9655 d20 0:20 xl7 hp72/81] DIVE digging down with 'a dwarvish mattock (weapon in hands)' (try 2)
+[s10996 t9669 d21 0:21 xl7 hp74/81] DIVE fell through a trap door at (np.int64(3), np.int64(65)) on (np.int64(0), np.int64(20)); remembered
+[s10996 t9669 d21 0:21 xl7 hp74/81] DIVE level (np.int64(0), np.int64(21)) depth 21
+[s10996 t9669 d21 0:21 xl7 hp74/81] MINO kit d21 last_prayer=7464: $ - 104 gold pieces; B - an uncursed +3 ring of protection; C - 2 uncursed unlabeled scrolls; D - a scroll labeled XIXAXA XOXAXA XUXAXA; F - a blessed potion of oil; G - a cursed oval amulet; H - a +0 mummy wrapping (being worn); J - a dwarvish mattock (weapon in hands); K - a pair of iron shoes; L - a scroll labeled KIRJE; a - a +0 two-handed sword; c - an uncursed +0 ring mail (being worn); e - an uncursed oil lamp; g - a cursed cloudy potion; h - a scroll labeled KERNOD WEL; j - an uncursed emerald potion; l - a key; m - an orcish dagger; n - 2 food rations; o - 2 uncursed cloudy potions; p - a dart (at the ready); q - a blessed smoky potion; r - a +1 orcish helm (being worn); s - a lock pick; t - a tripe ration; u - an apple; w - a spiked wand; x - a scroll labeled XOR OTA; y - an uncursed swirly potion; z - a curved wand
+[s10996 t9669 d21 0:21 xl7 hp74/81] DIVE digging out, hostiles at [('shocking sphere', 5)]
+[s10996 t9669 d21 0:21 xl7 hp74/81] DIVE Elbereth before digging: ['shocking sphere']
+[s11012 t9670 d21 0:21 xl7 hp75/81] DIVE digging out, hostiles at [('shocking sphere', 5)]
+[s11012 t9670 d21 0:21 xl7 hp75/81] DIVE digging down with 'a dwarvish mattock (weapon in hands)' (try 1)
+[s11017 t9673 d21 0:21 xl7 hp75/81] DIVE Elbereth before digging in the pit: []
+[s11033 t9674 d21 0:21 xl7 hp75/81] DIVE digging down with 'a dwarvish mattock (weapon in hands)' (try 2)
+[s11041 t9681 d21 0:21 xl7 hp77/81] DIVE Elbereth before digging in the pit: []
+[s11059 t9682 d21 0:21 xl7 hp77/81] DIVE digging down with 'a dwarvish mattock (weapon in hands)' (try 2)
+[s11070 t9690 d22 0:22 xl7 hp79/81] DIVE fell through a trap door at (np.int64(4), np.int64(59)) on (np.int64(0), np.int64(21)); remembered
+[s11070 t9690 d22 0:22 xl7 hp79/81] DIVE level (np.int64(0), np.int64(22)) depth 22
+[s11070 t9690 d22 0:22 xl7 hp79/81] MINO kit d22 last_prayer=7464: $ - 104 gold pieces; B - an uncursed +3 ring of protection; C - 2 uncursed unlabeled scrolls; D - a scroll labeled XIXAXA XOXAXA XUXAXA; F - a blessed potion of oil; G - a cursed oval amulet; H - a +0 mummy wrapping (being worn); J - a dwarvish mattock (weapon in hands); K - a pair of iron shoes; L - a scroll labeled KIRJE; a - a +0 two-handed sword; c - an uncursed +0 ring mail (being worn); e - an uncursed oil lamp; g - a cursed cloudy potion; h - a scroll labeled KERNOD WEL; j - an uncursed emerald potion; l - a key; m - an orcish dagger; n - 2 food rations; o - 2 uncursed cloudy potions; p - a dart (at the ready); q - a blessed smoky potion; r - a +1 orcish helm (being worn); s - a lock pick; t - a tripe ration; u - an apple; w - a spiked wand; x - a scroll labeled XOR OTA; y - an uncursed swirly potion; z - a curved wand
+[s11083 t9692 d22 0:22 xl7 hp18/81] KNOWN_ITEMS zap (known striking at the elf-lord): burst, hp 18/81, lost 61 in 2 turns, next to us ['elf-lord'], depth 22 (use 1)
+[s11086 t9693 d22 0:22 xl7 hp18/81] KNOWN_ITEMS zap -> 'The wand hits the elf-lord!  You kill the elf-lord!'
+[s11086 t9693 d22 0:22 xl7 hp18/81] DIVE task rest
+[s11086 t9693 d22 0:22 xl7 hp18/81] DIVE Elbereth before resting
+[s11113 t9710 d22 0:22 xl7 hp22/81] DIVE Elbereth before resting
+[s11129 t9711 d22 0:22 xl7 hp22/81] DIVE Elbereth before resting
+[s11208 t9846 d22 0:22 xl7 hp49/81] DIVE task descend
+[s11208 t9846 d22 0:22 xl7 hp49/81] DIVE digging down with 'a dwarvish mattock' (try 1)
+[s11213 t9848 d22 0:22 xl7 hp49/81] DIVE digging down with 'a dwarvish mattock (weapon in hands)' (try 2)
+[s11218 t9862 d23 0:23 xl7 hp52/81] DIVE fell through a trap door at (np.int64(14), np.int64(16)) on (np.int64(0), np.int64(22)); remembered
+[s11218 t9862 d23 0:23 xl7 hp52/81] DIVE level (np.int64(0), np.int64(23)) depth 23
+[s11218 t9862 d23 0:23 xl7 hp52/81] MINO kit d23 last_prayer=7464: $ - 104 gold pieces; B - an uncursed +3 ring of protection; C - 2 uncursed unlabeled scrolls; D - a scroll labeled XIXAXA XOXAXA XUXAXA; F - a blessed potion of oil; G - a cursed oval amulet; H - a +0 mummy wrapping (being worn); J - a dwarvish mattock (weapon in hands); K - a pair of iron shoes; L - a scroll labeled KIRJE; a - a +0 two-handed sword; c - an uncursed +0 ring mail (being worn); e - an uncursed oil lamp; g - a cursed cloudy potion; h - a scroll labeled KERNOD WEL; j - an uncursed emerald potion; l - a key; m - an orcish dagger; n - 2 food rations; o - 2 uncursed cloudy potions; p - a dart (at the ready); q - a blessed smoky potion; r - a +1 orcish helm (being worn); s - a lock pick; t - a tripe ration; u - an apple; w - a spiked wand; x - a scroll labeled XOR OTA; y - an uncursed swirly potion; z - a wand of striking
+[s11237 t9875 d23 0:23 xl7 hp55/81] DIVE digging down with 'a dwarvish mattock (weapon in hands)' (try 1)
+[s11240 t9879 d23 0:23 xl7 hp55/81] DIVE digging down with 'a dwarvish mattock (weapon in hands)' (try 2)
+[s11255 t9892 d24 0:24 xl7 hp58/81] DIVE Medusa level detected: (np.int64(0), np.int64(24)) depth 24
+[s11255 t9892 d24 0:24 xl7 hp58/81] DIVE MEDUSA_MAP: this is medusa-4 (0 of 689 seen squares disagree)
+[s11255 t9892 d24 0:24 xl7 hp58/81] DIVE fell through a trap door at (np.int64(8), np.int64(21)) on (np.int64(0), np.int64(23)); remembered
+[s11255 t9892 d24 0:24 xl7 hp58/81] DIVE level (np.int64(0), np.int64(24)) depth 24
+[s11255 t9892 d24 0:24 xl7 hp58/81] MINO kit d24 last_prayer=7464: $ - 104 gold pieces; B - an uncursed +3 ring of protection; C - 2 uncursed unlabeled scrolls; D - a scroll labeled XIXAXA XOXAXA XUXAXA; F - a blessed potion of oil; G - a cursed oval amulet; H - a +0 mummy wrapping (being worn); J - a dwarvish mattock (weapon in hands); K - a pair of iron shoes; L - a scroll labeled KIRJE; a - a +0 two-handed sword; c - an uncursed +0 ring mail (being worn); e - an uncursed oil lamp; g - a cursed cloudy potion; h - a scroll labeled KERNOD WEL; j - an uncursed emerald potion; l - a key; m - an orcish dagger; n - a food ration; o - 2 uncursed cloudy potions; p - a dart (at the ready); q - a blessed smoky potion; r - a +1 orcish helm (being worn); s - a lock pick; t - a tripe ration; u - an apple; w - a spiked wand; x - a scroll labeled XOR OTA; y - an uncursed swirly potion; z - a wand of striking
+[s11256 t9893 d24 0:24 xl7 hp58/81] DIVE Elbereth before digging: []
+[s11275 t9894 d24 0:24 xl7 hp58/81] DIVE digging down with 'a dwarvish mattock (weapon in hands)' (try 1)
+[s11290 t9898 d24 0:24 xl7 hp59/81] DIVE Elbereth to scare ['python'] before walking to a dig square
+[s11309 t9899 d24 0:24 xl7 hp59/81] DIVE walking to dig at (8, 69), hostiles at [('python', 1)]
+[s11315 t9900 d24 0:24 xl7 hp60/81] DIVE walking to dig at (8, 69), hostiles at [('python', 2)]
+[s11319 t9900 d24 0:24 xl7 hp60/81] DIVE walking to dig at (8, 69), hostiles at [('python', 3)]
+[s11320 t9901 d24 0:24 xl7 hp60/81] DIVE walking to dig at (8, 69), hostiles at [('python', 4)]
+[s11324 t9902 d24 0:24 xl7 hp60/81] DIVE digging out, hostiles at [('python', 5)]
+[s11324 t9902 d24 0:24 xl7 hp60/81] DIVE Elbereth before digging: ['python']
+[s11340 t9903 d24 0:24 xl7 hp60/81] DIVE digging out, hostiles at [('python', 5)]
+[s11340 t9903 d24 0:24 xl7 hp60/81] DIVE digging down with 'a rusty dwarvish mattock (weapon in hands)' (try 2)
+[s11345 t9906 d24 0:24 xl7 hp61/81] DIVE Elbereth before digging in the pit: []
+[s11359 t9907 d24 0:24 xl7 hp61/81] DIVE Elbereth before digging in the pit: []
+[s11377 t9908 d24 0:24 xl7 hp61/81] DIVE digging down with 'a rusty dwarvish mattock (weapon in hands)' (try 3)
+[s11388 t9913 d24 0:24 xl7 hp55/81] RANGED hit: holds and Elbereth waits off for 8 turns
+[s11388 t9913 d24 0:24 xl7 hp55/81] DIVE digging down with 'a rusty dwarvish mattock (weapon in hands)' (try 3)
+[s11399 t9924 d24 0:24 xl7 hp55/81] DIVE digging out, hostiles at [('snake', 1), ('snake', 1)]
+[s11399 t9924 d24 0:24 xl7 hp55/81] DIVE Elbereth before digging in the pit: ['snake', 'snake']
+[s11417 t9925 d24 0:24 xl7 hp56/81] DIVE digging down with 'a rusty dwarvish mattock (weapon in hands)' (try 4)
+[s11433 t9926 d24 0:24 xl7 hp56/81] DIVE walking to dig at (6, 65), hostiles at [('snake', -1), ('python', -1), ('pit viper', -1)]
+[s11438 t9927 d24 0:24 xl7 hp46/81] DIVE Elbereth to scare ['snake', 'python', 'giant eel'] before walking to a dig square
+[s11452 t9927 d24 0:24 xl7 hp35/81] DIVE Elbereth to scare ['pit viper', 'python', 'giant eel'] before walking to a dig square
+[s11468 t9928 d24 0:24 xl7 hp30/81] ELBERETH rest start: ['python', 'giant eel', 'snake', 'pit viper']
