@@ -1,0 +1,15 @@
+diff --git a/base/nhbot_orc_800e/dive_logic.py b/base/nhbot_orc_800e/dive_logic.py
+index d2062d0..cb2685e 100644
+--- a/base/nhbot_orc_800e/dive_logic.py
++++ b/base/nhbot_orc_800e/dive_logic.py
+@@ -2207,6 +2207,10 @@ class DiveLogic:
+         yield True
+         if not self._elbereth_resting:
+             agent.log(f'ELBERETH rest start: {[m[3].mname for m in near]}')
++            threat = [(int(m[0]), int(m[1]), int(m[2]), m[3].mname,
++                       int(m[3].mlevel), int(m[3].difficulty), int(m[3].mmove)) for m in near]
++            agent.log(f'REST_CONTEXT pos={(int(bl.y), int(bl.x))} AC={bl.armor_class} '
++                      f'message={agent.message!r} falling={falling} diving={self.diving} threat={threat}')
+         self._elbereth_resting = True
+         self._hold_squares.add((agent.current_level().key(), bl.y, bl.x))
+         if engraving != 'elbereth':
