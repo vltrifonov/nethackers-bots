@@ -1,0 +1,152 @@
+diff --git a/bot.py b/bot.py
+index 26a751b..58f1a92 100644
+--- a/bot.py
++++ b/bot.py
+@@ -1,16 +1,20 @@
+ """Identity router (Claude, 2026-10-26): zLeadersBest3831895.
+ 
+ Identities in ROUTES play a copy of the program that leads them on the hidden-seed tier, with the exploration-RNG seed + 3831895
+-(one behavioural knob) in that copy; every other identity -- and any game whose identity cannot be read from the
+-welcome line -- plays base/ (daglar eab9a9c, the public-board program). Each subdirectory keeps its own licenses; see CHANGES.md.
++(one behavioural knob) in that copy. The attributes screen can confirm an orcish Wizard when the welcome is missing.
++Other unmatched games play base/ (daglar eab9a9c, the public-board program). Each subdirectory keeps its own licenses.
+ One arena episode is one process: exactly one program is imported per game, under a private module name.
+ """
+ from __future__ import annotations
+ 
+ import importlib.util
++import re
+ import sys
+ from pathlib import Path
+ 
++from nle import nethack
++from nle.nethack import actions as A
++
+ _HERE = Path(__file__).resolve().parent
+ ROUTES = {
+  "arc-dwa-law-fem": "hed",
+@@ -66,6 +70,9 @@ _ROLES = {
+ _RACES = {"human": "hum", "elven": "elf", "dwarvish": "dwa", "gnomish": "gno", "orcish": "orc"}
+ _ALIGNS = {"lawful": "law", "neutral": "neu", "chaotic": "cha"}
+ _GENDERS = {"male": "mal", "female": "fem"}
++_ORC_WIZARD_ATTRIBUTES = re.compile(
++    r"\bYou are an? [^,]+, a level \d+ (male|female) orcish Wizard\.\s+You are chaotic\b"
++)
+ 
+ 
+ def identity_of(observation) -> str | None:
+@@ -88,6 +95,27 @@ def identity_of(observation) -> str | None:
+     return f"{role}-{race}-{align}-{gender}"
+ 
+ 
++def _can_probe_wizard(observation) -> bool:
++    try:
++        stats = observation["blstats"]
++        if int(stats[nethack.NLE_BL_TIME]) != 1 or any(observation["misc"]):
++            return False
++        y, x = int(stats[nethack.NLE_BL_Y]), int(stats[nethack.NLE_BL_X])
++        glyph = int(observation["glyphs"][y, x])
++    except (KeyError, IndexError, TypeError, ValueError):
++        return False
++    return nethack.glyph_is_monster(glyph) and nethack.permonst(nethack.glyph_to_mon(glyph)).mname == "wizard"
++
++
++def _orc_wizard_from_attributes(observation) -> str | None:
++    try:
++        text = bytes(observation["tty_chars"]).decode("latin-1")
++    except (KeyError, TypeError, ValueError):
++        return None
++    match = _ORC_WIZARD_ATTRIBUTES.search(text)
++    return f"wiz-orc-cha-{_GENDERS[match.group(1)]}" if match else None
++
++
+ def _load(name: str):
+     root = _HERE / name
+     sys.path.insert(0, str(root))
+@@ -101,18 +129,47 @@ def _load(name: str):
+ class Bot:
+     def __init__(self) -> None:
+         self._agent = None
++        self._probe = None
++        self._probe_identity = None
++        self._startup_observation = None
+ 
+     def reset(self, initial_observation) -> None:
++        self._probe = None
+         ident = None
+         try:
+             ident = identity_of(initial_observation)
+         except Exception:  # noqa: BLE001
+             pass
+         if self._agent is None:
++            if ident is None and _can_probe_wizard(initial_observation):
++                # NLE can reuse observation arrays. Keep the initial Luck notice.
++                self._startup_observation = {
++                    key: value.copy() if hasattr(value, "copy") else value
++                    for key, value in initial_observation.items()
++                }
++                self._probe = 0
++                return
+             self._agent = _load(ROUTES.get(ident, "base"))
+         self._agent.reset(initial_observation)
+ 
+     def act(self, observation) -> int:
++        if self._probe == 0:
++            self._probe = 1
++            return tuple(nethack.ACTIONS).index(A.Command.ATTRIBUTES)
++        if self._probe == 1:
++            self._probe_identity = _orc_wizard_from_attributes(observation)
++            self._probe = 2
++            return tuple(nethack.ACTIONS).index(A.Command.ESC)
++        if self._probe == 2:
++            ident = self._probe_identity
++            route = ROUTES.get(ident, "base")
++            self._agent = _load(route)
++            if route == "hed":
++                self._agent.reset(self._startup_observation, identity=ident)
++            else:
++                self._agent.reset(self._startup_observation)
++            self._startup_observation = None
++            self._probe = None
+         return self._agent.act(observation)
+ 
+     def close(self) -> None:
+diff --git a/hed/bot.py b/hed/bot.py
+index 6c90567..4ae2aea 100644
+--- a/hed/bot.py
++++ b/hed/bot.py
+@@ -59,12 +59,13 @@ class Bot:
+             self._drivers[module_name] = importlib.import_module(module_name).AutoAscendDriver()
+         return self._drivers[module_name]
+ 
+-    def reset(self, initial_observation):
+-        ident = None
+-        try:
+-            ident = roles.identity(initial_observation)
+-        except Exception:  # noqa: BLE001
+-            pass
++    def reset(self, initial_observation, *, identity=None):
++        ident = identity
++        if ident is None:
++            try:
++                ident = roles.identity(initial_observation)
++            except Exception:  # noqa: BLE001
++                pass
+         # a role-only identity means the welcome line was not seen: ask ^X before choosing the engine
+         self._probe = 0 if ident is None or ident.count("-") != 3 else None
+         self._probe_ident = ident
+diff --git a/nethackers.solution.json b/nethackers.solution.json
+index e8cbf60..5d59f6c 100644
+--- a/nethackers.solution.json
++++ b/nethackers.solution.json
+@@ -1,8 +1,9 @@
+ {
+   "schema": "nethackers.solution/v1",
+-  "name": "daglar-zLeadersBest3831895",
++  "name": "vltrifonov-wizard-startup-route",
+   "root": ".",
+   "parents": [
++    "github.com/daglar-dragomirov/nethacker@4ffdbd256d5861d51c889aebc77eaa6f2199f4f7",
+     "github.com/daglar-dragomirov/nethacker@ccfb1251179bad749ece88d384956363ffb2db56",
+     "github.com/daglar-dragomirov/nethacker@44b29b9299c5dcfb76e3fc6081004727c58db19a",
+     "github.com/DT6A/nethacker@37f9da35d0dbf98ed15bf89735bd601f0c0eac02",
