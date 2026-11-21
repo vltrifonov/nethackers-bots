@@ -1,0 +1,73 @@
+diff --git a/base/nhbot_v3/agent.py b/base/nhbot_v3/agent.py
+index 49a8245..5cc2a29 100644
+--- a/base/nhbot_v3/agent.py
++++ b/base/nhbot_v3/agent.py
+@@ -2799,6 +2799,40 @@ class Agent:
+             return self.inventory.items.boots is None
+         return self.inventory.items.gloves is None and self.inventory.items.main_hand is None
+ 
++    def _post_prayer_retreat_step(self):
++        """Step out of at least one attacker's reach on the turn a prayer restores HP."""
++        bl = self.blstats
++        dive = self.global_logic.dive
++        prop = self.character.prop
++        if self.character.role != Character.ARCHEOLOGIST or self.character.race != Character.HUMAN or \
++                not dive.diving or self.prayer_failed or self.last_prayer_turn != bl.time or \
++                getattr(self, '_last_post_prayer_step', None) == bl.time or bl.hitpoints < bl.max_hitpoints or \
++                prop.blind or prop.hallu or prop.confusion or prop.stun or prop.polymorph or \
++                self.in_pit() or dive._in_own_pit():
++            return None
++        level = self.current_level()
++        if level.dungeon_number != Level.DUNGEONS_OF_DOOM or not any(
++                hp <= bl.max_hitpoints / 5 for turn, hp in dive._hp_history if bl.time - 4 <= turn < bl.time):
++            return None
++        hostiles = [(int(y), int(x)) for _, y, x, _, _ in self.get_visible_monsters()]
++
++        def adjacent_count(y, x):
++            return sum(max(abs(my - y), abs(mx - x)) <= 1 for my, mx in hostiles)
++
++        current = adjacent_count(bl.y, bl.x)
++        if current < 2:
++            return None
++        candidates = []
++        for y, x in zip(*(self.bfs() == 1).nonzero()):
++            pos = (int(y), int(x))
++            if level.objects[pos] not in (SS.S_room, SS.S_corr, SS.S_litcorr) or level.shop[pos] or \
++                    level.shop_interior[pos] or self.monster_tracker.monster_mask[pos] or self.glyphs[pos] in G.PETS:
++                continue
++            remaining = adjacent_count(*pos)
++            if remaining < current:
++                candidates.append((remaining, pos))
++        return min(candidates)[1] if candidates else None
++
+     def _fight2_perform_action(self, best_action, wait_counter):
+         if best_action[0] == 'move':
+             _, dy, dx = best_action
+@@ -2812,6 +2846,12 @@ class Agent:
+             _, dy, dx = best_action
+             target_y = self.blstats.y + dy
+             target_x = self.blstats.x + dx
++            step = self._post_prayer_retreat_step()
++            if step is not None:
++                self._last_post_prayer_step = self.blstats.time
++                self.log(f'PRAYER RETREAT: moving away from adjacent attackers to {step}')
++                self.move(*step)
++                return wait_counter
+             if not self._keep_digging_tool_wielded() and self.wield_best_melee_weapon():
+                 return wait_counter
+             with self.env.debug_tiles([[self.blstats.y, self.blstats.x],
+diff --git a/nethackers.solution.json b/nethackers.solution.json
+index 717641f..4e8ab36 100644
+--- a/nethackers.solution.json
++++ b/nethackers.solution.json
+@@ -1,8 +1,9 @@
+ {
+   "schema": "nethackers.solution/v1",
+-  "name": "daglar-zLeadersBest2695780",
++  "name": "Archaeologist disengage after a healing prayer",
+   "root": ".",
+   "parents": [
++    "github.com/daglar-dragomirov/nethacker@065bf4680f07b43dac26b5e574d30becaefd588a",
+     "github.com/daglar-dragomirov/nethacker@ccfb1251179bad749ece88d384956363ffb2db56",
+     "github.com/daglar-dragomirov/nethacker@44b29b9299c5dcfb76e3fc6081004727c58db19a",
+     "github.com/DT6A/nethacker@37f9da35d0dbf98ed15bf89735bd601f0c0eac02",
