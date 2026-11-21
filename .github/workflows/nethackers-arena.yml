@@ -1,0 +1,47 @@
+name: NetHackers frontier arc-human-female-leader
+
+on:
+  push:
+    branches: [codex/frontier-eval/arc-human-female-leader]
+
+permissions:
+  contents: write
+
+jobs:
+  evaluate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      matrix:
+        objective: ["arc-hum-neu-fem"]
+    env:
+      ARM: arc-human-female-leader
+      BOT_REPOSITORY: daglar-dragomirov/nethacker
+      BOT_COMMIT: 483aa1ab21ddd638864542362f9e6c96ff46704a
+      OBJECTIVE: ${{ matrix.objective }}
+    steps:
+      - name: Run the pinned NetHackers arena
+        shell: bash
+        run: |
+          git init --quiet "$RUNNER_TEMP/bots"
+          git -C "$RUNNER_TEMP/bots" fetch --quiet --depth 1 "https://github.com/$BOT_REPOSITORY.git" "$BOT_COMMIT"
+          test "$(git -C "$RUNNER_TEMP/bots" rev-parse FETCH_HEAD)" = "$BOT_COMMIT"
+          mkdir -p "$RUNNER_TEMP/solution" "$RUNNER_TEMP/evidence"
+          git -C "$RUNNER_TEMP/bots" archive "$BOT_COMMIT" | tar -xf - -C "$RUNNER_TEMP/solution"
+          python3 -m venv "$RUNNER_TEMP/nethackers"
+          "$RUNNER_TEMP/nethackers/bin/pip" install --quiet 'git+https://github.com/dunnolab/nethackers.git@fdea69aeeecd1f561d9f29eaccf9510ec1e743de'
+          "$RUNNER_TEMP/nethackers/bin/nethackers" --prod eval "$RUNNER_TEMP/solution" --objective "$OBJECTIVE" --output json > "$RUNNER_TEMP/evidence/evidence.json"
+          printf '%s\n' "$BOT_COMMIT" > "$RUNNER_TEMP/evidence/source-commit.txt"
+      - name: Publish evaluation evidence for registration
+        shell: bash
+        working-directory: ${{ runner.temp }}/evidence
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          git init --quiet --initial-branch=results
+          git add evidence.json source-commit.txt
+          git -c user.name='github-actions[bot]' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' commit --quiet -m "NetHackers frontier arc-human-female-leader evidence for $OBJECTIVE"
+          git -c credential.helper= \
+            -c 'credential.helper=!credential() { printf "username=x-access-token\npassword=%s\n" "$GITHUB_TOKEN"; }; credential' \
+            push "https://github.com/$GITHUB_REPOSITORY.git" "HEAD:refs/heads/codex/frontier-result/arc-human-female-leader/$OBJECTIVE"
