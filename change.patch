@@ -1,0 +1,169 @@
+diff --git a/CHANGES.md b/CHANGES.md
+index 59e6df6..7d85a4e 100644
+--- a/CHANGES.md
++++ b/CHANGES.md
+@@ -1,3 +1,9 @@
++# Caveman sling kit
++
++The legacy Caveman combat policy can fire identified, non-cursed flint or rocks from a
++sling. NetHack’s range and recoil rules determine the lane checked for friendly fire.
++The inventory sorter can keep a matched sling and up to ten stones after essentials.
++
+ # zLeadersSeed812011 (Claude, 2026-10-26)
+ 
+ Identity router. Default base/ = github.com/daglar-dragomirov/nethacker@eab9a9c4f4e09bce096d5762e895fec51b63784d (unmodified).
+diff --git a/base/nhbot_v3/character.py b/base/nhbot_v3/character.py
+index 505d28c..225b2fa 100644
+--- a/base/nhbot_v3/character.py
++++ b/base/nhbot_v3/character.py
+@@ -623,7 +623,7 @@ class Character:
+ 
+         if launcher is not None:
+             assert launcher.is_launcher()
+-            assert ammo.is_fired_projectile()
++            assert ammo.is_fired_projectile() or ammo.is_fired_projectile(launcher)
+         else:
+             assert ammo.is_thrown_projectile()
+ 
+@@ -632,8 +632,10 @@ class Character:
+         if launcher is not None:
+             skill_hit_bonus, dmg_bonus = self._get_weapon_skill_bonus(launcher)
+             roll_offset += skill_hit_bonus
+-            roll_offset += launcher.get_weapon_bonus(large_monster)[0]
+-            dmg_bonus += launcher.get_weapon_bonus(large_monster)[1]
++            launcher_hit, launcher_damage = launcher.get_weapon_bonus(large_monster)
++            roll_offset += launcher_hit
++            if not ammo.is_plain_sling_ammo():
++                dmg_bonus += launcher_damage
+ 
+         roll_offset += ammo.get_weapon_bonus(large_monster)[0]
+         dmg_bonus += ammo.get_weapon_bonus(large_monster)[1]
+@@ -641,7 +643,15 @@ class Character:
+         return roll_offset, max(0, dmg_bonus)
+ 
+     def get_range(self, launcher, ammo):
+-        # TODO: implement
++        if launcher is not None and launcher.object.name == 'sling' and ammo is not None and ammo.is_plain_sling_ammo():
++            # The legacy field strength_percentage holds NLE's compact STR25.
++            # dothrow.c halves STR25, subtracts single-item weight, and adds
++            # a square for matched ammo before accounting for levitation recoil.
++            throw_range = int(self.agent.blstats.strength_percentage) // 2
++            reach = max(1, throw_range - ammo.unit_weight() // 40) + 1
++            if self.agent.global_logic.dive.levitating():
++                reach = max(1, reach - max(1, throw_range - reach))
++            return reach
+         return 7
+ 
+     def get_melee_bonus(self, item, monster=None, large_monster=False):
+diff --git a/base/nhbot_v3/global_logic.py b/base/nhbot_v3/global_logic.py
+index 6af74e7..8ad49af 100644
+--- a/base/nhbot_v3/global_logic.py
++++ b/base/nhbot_v3/global_logic.py
+@@ -233,6 +233,19 @@ class ItemPriority(ItemPriorityBase):
+                     if not item.is_container():  # remove condition to pick up bags
+                         add_item(item, to_bag=to_bag)
+ 
++        if self.agent.character.role == Character.CAVEMAN:
++            # Use spare carrying capacity for one working sling with at most
++            # ten ordinary stones, after the usual food, armor and tools.
++            sling_items = [i for i in forced_items + items if i.is_plain_sling_ammo() or
++                           (i.is_launcher() and i.object.name == 'sling')]
++            sling, ammo = self.agent.inventory.get_best_ranged_set(items=sling_items, throwing=False)
++            if sling is not None and ammo is not None:
++                sling_weight = 0 if ret_inv.get(sling, 0) else sling.unit_weight()
++                ammo_weight = 0 if ret_inv.get(ammo, 0) else ammo.unit_weight()
++                if remaining_weight >= sling_weight + ammo_weight:
++                    add_item(sling, count=1)
++                    add_item(ammo, count=max(0, 10 - ret_inv.get(ammo, 0)))
++
+         categories = [nh.WEAPON_CLASS, nh.ARMOR_CLASS, nh.TOOL_CLASS, nh.FOOD_CLASS, nh.GEM_CLASS, nh.AMULET_CLASS,
+                       nh.RING_CLASS, nh.POTION_CLASS, nh.SCROLL_CLASS, nh.SPBOOK_CLASS, nh.WAND_CLASS]
+         for item in sorted(items, key=lambda i: i.unit_weight(with_content=False)):
+diff --git a/base/nhbot_v3/item/inventory.py b/base/nhbot_v3/item/inventory.py
+index 8e5163d..b092589 100644
+--- a/base/nhbot_v3/item/inventory.py
++++ b/base/nhbot_v3/item/inventory.py
+@@ -940,7 +940,8 @@ class Inventory:
+             items = self.items
+         items = flatten_items(items)
+         launchers = [i for i in items if i.is_launcher()]
+-        ammo_list = [i for i in items if i.is_fired_projectile()]
++        allow_sling = self.agent.character.role == Character.CAVEMAN and self.agent.blstats.depth > 0
++        ammo_list = [i for i in items if i.is_fired_projectile() or (allow_sling and i.is_plain_sling_ammo())]
+         valid_combinations = []
+ 
+         # TODO: should this condition be used here
+@@ -949,6 +950,17 @@ class Inventory:
+ 
+         for launcher in launchers:
+             for ammo in ammo_list + additional_ammo:
++                if ammo.is_plain_sling_ammo():
++                    # Unknown BUC is normalized by the inventory parser. Use the
++                    # explicit display and leave slippery or shop stock behind.
++                    words = (ammo.text or '').split()
++                    if not allow_sling or len(words) < 2 or words[1] not in ('uncursed', 'blessed') or \
++                            'greased' in words or ammo.status == Item.CURSED or \
++                            ammo.shop_status != Item.NOT_SHOP or launcher.shop_status != Item.NOT_SHOP:
++                        continue
++                    if not launcher.equipped and self.items.main_hand is not None and \
++                            self.items.main_hand.status == Item.CURSED:
++                        continue
+                 if ammo.is_fired_projectile(launcher):
+                     if launcher.status in [Item.UNCURSED, Item.BLESSED] or \
+                             (allow_unknown_status and launcher.status == Item.UNKNOWN):
+diff --git a/base/nhbot_v3/item/item.py b/base/nhbot_v3/item/item.py
+index 0f45739..642439d 100644
+--- a/base/nhbot_v3/item/item.py
++++ b/base/nhbot_v3/item/item.py
+@@ -110,6 +110,9 @@ class Item:
+         return self.category == nh.WEAPON_CLASS
+ 
+     def get_weapon_bonus(self, large_monster):
++        if self.is_plain_sling_ammo():
++            sides = self.object.ldam if large_monster else self.object.sdam
++            return 1, (sides + 1) / 2
+         assert self.is_weapon()
+ 
+         hits = []
+@@ -136,20 +139,24 @@ class Item:
+ 
+         return self.object.name in ['bow', 'elven bow', 'orcish bow', 'yumi', 'crossbow', 'sling']
+ 
++    def is_plain_sling_ammo(self):
++        return self.category == nh.GEM_CLASS and self.is_unambiguous() and self.object.name in ('flint', 'rock')
++
+     def is_fired_projectile(self, launcher=None):
++        if self.is_plain_sling_ammo():
++            return launcher is not None and launcher.is_launcher() and launcher.object.name == 'sling'
+         if not self.is_weapon() or not self.is_unambiguous():
+             return False
+ 
+         arrows = ['arrow', 'elven arrow', 'orcish arrow', 'silver arrow', 'ya']
+ 
+         if launcher is None:
+-            return self.object.name in (arrows + ['crossbow bolt'])  # TODO: sling ammo
++            return self.object.name in (arrows + ['crossbow bolt'])
+         else:
+             launcher_name = launcher.object.name
+             if launcher_name == 'crossbow':
+                 return self.object.name == 'crossbow bolt'
+             elif launcher_name == 'sling':
+-                # TODO: sling ammo
+                 return False
+             else:  # any bow
+                 assert launcher_name in ['bow', 'elven bow', 'orcish bow', 'yumi'], launcher_name
+diff --git a/nethackers.solution.json b/nethackers.solution.json
+index 3c3ece1..dd58ce1 100644
+--- a/nethackers.solution.json
++++ b/nethackers.solution.json
+@@ -1,8 +1,9 @@
+ {
+   "schema": "nethackers.solution/v1",
+-  "name": "daglar-zLeadersSeed812011",
++  "name": "human-caveman-sling-kit",
+   "root": ".",
+   "parents": [
++    "github.com/daglar-dragomirov/nethacker@239f4a286e07b4a29cc99a54cb481b8adcf7c0ed",
+     "github.com/daglar-dragomirov/nethacker@ccfb1251179bad749ece88d384956363ffb2db56",
+     "github.com/daglar-dragomirov/nethacker@44b29b9299c5dcfb76e3fc6081004727c58db19a",
+     "github.com/DT6A/nethacker@37f9da35d0dbf98ed15bf89735bd601f0c0eac02",
