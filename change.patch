@@ -1,0 +1,51 @@
+diff --git a/base/nhbot_dt736_abi/dive_logic.py b/base/nhbot_dt736_abi/dive_logic.py
+index d6d8622..826d02b 100644
+--- a/base/nhbot_dt736_abi/dive_logic.py
++++ b/base/nhbot_dt736_abi/dive_logic.py
+@@ -3906,7 +3906,8 @@ class DiveLogic:
+             freeze = self._freeze_action()
+             if freeze is not None:
+                 return freeze   # MEDUSA_FREEZE: no moat neighbour left -> no flood roll can come up wet
+-            if max_wet > 0 and wand is not None:
++            if (max_wet > 0 and wand is not None
++                    and not (max_wet == 1 and self._keep_wand_on_quiet_wet_floor(monsters))):
+                 return ('zap', wand)
+             if DROWN_GUARD and self._wet_neighbours(bl.y, bl.x) > 0:
+                 # a flood here drowns us unless a free land square is next to us (drown -> crawl_destination):
+@@ -3944,6 +3945,21 @@ class DiveLogic:
+                 return ('scare', spot)   # (counted when done: this also runs as a mere condition check)
+         return ('step', target)
+ 
++    def _keep_wand_on_quiet_wet_floor(self, monsters):
++        """Keep the Medusa reserve when a quiet approach can tolerate a flooded pick hole."""
++        agent = self.agent
++        bl = agent.blstats
++        if (agent.character.role != Character.MONK or bl.depth >= jf_config.CASTLE_SCARE_DEPTH
++                or agent.character.prop.blind or self.levitating() or agent._hurt_recently()
++                or bl.hitpoints < WAND_RESERVE_HP * bl.max_hitpoints or not self._wand_reserved()
++                or not self._diggable_spot(bl.y, bl.x, max_wet=1)):
++            return False
++        if any(m[3].mname not in self._PASSIVE_SESSILE
++               and max(abs(m[1] - bl.y), abs(m[2] - bl.x)) <= ELBERETH_DIG_RADIUS for m in monsters):
++            return False
++        # The count excludes occupied squares, so reaching the threshold also covers nominal exits.
++        return self._crawl_exits(bl.y, bl.x) >= DROWN_GUARD_EXITS
++
+     _EEL_GRAB = re.compile(r'(eel|kraken) swings itself around you|You cannot escape from the [a-z ]*(eel|kraken)')
+     _PYTHON_GRAB = re.compile(r'python swings itself around you|You cannot escape from the [a-z ]*python')   # PYTHON_HOLD
+ 
+diff --git a/nethackers.solution.json b/nethackers.solution.json
+index b0f8eec..ee0faa4 100644
+--- a/nethackers.solution.json
++++ b/nethackers.solution.json
+@@ -1,8 +1,9 @@
+ {
+   "schema": "nethackers.solution/v1",
+-  "name": "daglar-zLeadersBest5043751",
++  "name": "Monk reserved wand for Medusa",
+   "root": ".",
+   "parents": [
++    "github.com/daglar-dragomirov/nethacker@e1bfef1de515185acc69a4ed8c1148954a98063b",
+     "github.com/daglar-dragomirov/nethacker@ccfb1251179bad749ece88d384956363ffb2db56",
+     "github.com/daglar-dragomirov/nethacker@44b29b9299c5dcfb76e3fc6081004727c58db19a",
+     "github.com/DT6A/nethacker@37f9da35d0dbf98ed15bf89735bd601f0c0eac02",
