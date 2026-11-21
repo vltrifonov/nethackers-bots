@@ -1,0 +1,54 @@
+diff --git a/nethackers.solution.json b/nethackers.solution.json
+index 1e984dc..b10127b 100644
+--- a/nethackers.solution.json
++++ b/nethackers.solution.json
+@@ -1,8 +1,9 @@
+ {
+   "schema": "nethackers.solution/v1",
+-  "name": "daglar-zRayMissSafety",
++  "name": "Priest food before an imminent first-level faint",
+   "root": ".",
+   "parents": [
++    "github.com/daglar-dragomirov/nethacker@7c4e395c441f2f71299720676fa7e2600b806bcf",
+     "github.com/zarutskiysy/nethack@9c1cc902b6d9d88e6a14e0c9e5dc7494d9882bcd",
+     "github.com/zarutskiysy/nethack@00cf417f05ec9c20846b848cd70243af67695c54",
+     "github.com/zarutskiysy/nethack@14a3bbd871061d63bda57da6c82af91f46959d21",
+diff --git a/nhbot/agent.py b/nhbot/agent.py
+index 7056119..39fcd85 100644
+--- a/nhbot/agent.py
++++ b/nhbot/agent.py
+@@ -3781,13 +3781,27 @@ class Agent:
+         return total
+ 
+     def edible_carried_food(self):
+-        """What eat_from_inventory eats: food, but not wolfsbane or corpses other than lizard/lichen (LIZARD_KEEP: not
+-        lizard either -- it is the stoning cure, emergency_strategy eats it when Stoned)."""
+-        return [item for item in flatten_items(self.inventory.items)
+-                if item.category == nh.FOOD_CLASS and item.objs[0].name != 'sprig of wolfsbane' and
+-                (not item.is_corpse() or
+-                 item.monster_id in [MON.from_name(n) - nh.GLYPH_MON_OFF for n in ['lizard', 'lichen']]) and
+-                not (jf_config.LIZARD_KEEP and item.is_corpse() and item.monster_id == self.LIZARD_ID)]
++        """Select ordinary food, reserving lycanthropy and stoning remedies for emergencies."""
++        wolfsbane = 'sprig of wolfsbane'
++        foods = [item for item in flatten_items(self.inventory.items)
++                 if item.category == nh.FOOD_CLASS and item.objs[0].name != wolfsbane and
++                 (not item.is_corpse() or
++                  item.monster_id in [MON.from_name(n) - nh.GLYPH_MON_OFF for n in ['lizard', 'lichen']]) and
++                 not (jf_config.LIZARD_KEEP and item.is_corpse() and item.monster_id == self.LIZARD_ID)]
++        bl = self.blstats
++        if foods or bl.hunger_state != Hunger.WEAK or bl.depth != 1 or \
++                self.character.role != Character.PRIEST or self.character.is_lycanthrope or \
++                self.current_level().dungeon_number != Level.DUNGEONS_OF_DOOM:
++            return foods
++
++        # When nothing else is available, a one-turn dose can buy time before the first faint.
++        nutrition = self.uhunger_weak_estimate()
++        if nutrition is None or nutrition > jf_config.THREAT_WEAK_MARGIN or \
++                self.is_safe_to_pray(self._hunger_prayer_gap()):
++            return foods
++        return [item for item in self.inventory.items
++                if item.category == nh.FOOD_CLASS and item.objs[0].name == wolfsbane and
++                item.status != Item.CURSED and item.shop_status != Item.UNPAID]
+ 
+     @Strategy.wrap
+     def align_prayer(self):
