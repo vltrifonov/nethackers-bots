@@ -1,0 +1,26 @@
+diff --git a/nethackers.solution.json b/nethackers.solution.json
+index f15af95..dbb9752 100644
+--- a/nethackers.solution.json
++++ b/nethackers.solution.json
+@@ -1,8 +1,9 @@
+ {
+   "schema": "nethackers.solution/v1",
+-  "name": "daglar-zV10cHedTf1000DigXL6",
++  "name": "vltrifonov-gnome-wizard-align-prayer",
+   "root": ".",
+   "parents": [
++    "github.com/daglar-dragomirov/nethacker@e8ff9e6ae34556ea192a069d84b3d3eb33cd6e66",
+     "github.com/daglar-dragomirov/nethacker@a368786dc2650f8cd878b1226ac5815e719f164d",
+     "github.com/zarutskiysy/nethack@14a3bbd871061d63bda57da6c82af91f46959d21",
+     "github.com/zarutskiysy/nethack@94c4c1cd21c51f9feec0eaabd9c63831a8ee3316",
+diff --git a/roles.py b/roles.py
+index a8de850..eaed051 100644
+--- a/roles.py
++++ b/roles.py
+@@ -112,3 +112,6 @@ OVERRIDES["ran"] = {"jf_config.UNSEEN_PET_GUARD": False}
+ # gnomish Cavemen: the Dlvl-1 grind (an empty level map) instead of the deep grind, +0.073 +- 0.022 over 120 pairs
+ # (v8ab +0.060); the other roles keep their default entries
+ OVERRIDES["cav-gno"] = {"jf_config.ROLE_GRIND_LEVELS": {"Rogue": {}, "Knight": {}, "Tourist": {}, "Priest": {}, "Caveman": {}}}
++# A trouble-free first prayer can give a neutral Gnome Wizard positive alignment
++# before a prayer must fix hunger or injury.
++OVERRIDES["wiz-gno-neu"] = {"jf_config.ALIGN_PRAYER": True}
