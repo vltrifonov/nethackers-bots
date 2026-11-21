@@ -1,0 +1,149 @@
+[s38 t1 d1 0:1 xl1 hp13/13] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(4), np.int64(32)) acts=[SPACE:10 ESC:3 W:3 LOOK:3 AUTOPICKUP:2] gotos=[]
+[s38 t1 d1 0:1 xl1 hp13/13] DIVE level (np.int64(0), np.int64(1)) depth 1
+[s232 t93 d1 0:1 xl1 hp13/13] PANIC AgentPanic: agent position do not match after "move": expected (11, 9), got (10, 9)
+Traceback (most recent call last):
+  File "/sol/hed/pf_s25p8/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/hed/pf_s25p8/agent.py", line 296, in preempt
+    val = f()
+          ^^^
+  File "/sol/hed/pf_s25p8/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/hed/pf_s25p8/exploration_logic.py", line 520, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/hed/pf_s25p8/agent.py", line 2339, in go_to
+    self.move(y, x)
+  File "/sol/hed/pf_s25p8/agent.py", line 2008, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_s25p8.exceptions.AgentPanic: agent position do not match after "move": expected (11, 9), got (10, 9)
+
+[s273 t103 d1 0:1 xl1 hp13/13] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/hed/pf_s25p8/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/hed/pf_s25p8/agent.py", line 307, in preempt
+    next(iterator)
+  File "/sol/hed/pf_s25p8/strategy.py", line 68, in f
+    next(it)
+  File "/sol/hed/pf_s25p8/utils.py", line 134, in f
+    next(it)
+  File "/sol/hed/pf_s25p8/agent.py", line 3038, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/hed/pf_s25p8/item/inventory.py", line 857, in eat
+    raise AgentPanic('no such food is lying here')
+pf_s25p8.exceptions.AgentPanic: no such food is lying here
+
+[s539 t240 d1 0:1 xl1 hp11/13] FIGHT stall of 20 turns ended (contact): ['jackal']
+[s945 t503 d1 0:1 xl2 hp19/19] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(16), np.int64(34)) acts=[SEARCH:236 W:97 E:93 SPACE:66 SW:57] gotos=[check_items(2, 4):12 check_items(16, 28):12 open_visit_search(5, 57):9]
+[s1416 t1001 d1 0:1 xl2 hp19/19] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(7), np.int64(63)) acts=[SEARCH:125 NUM_5:99 E:56 SW:25 W:23] gotos=[open_visit_search(17, 16):9 eat_corpses_from_ground(9, 34):2 open_visit_search(18, 19):2]
+[s1661 t1262 d1 0:1 xl3 hp28/28] DIVE phase starts (milestone BE_ON_FIRST_LEVEL)
+[s1661 t1262 d1 0:1 xl3 hp28/28] DIVE task descend
+[s1661 t1262 d1 0:1 xl3 hp28/28] DIVE stuck in task 'descend' on level (np.int64(0), np.int64(1)) for 1261 turns; up stairs (y,x,dist)=[(4, 32, 33)]
+You kill the lichen!  Welcome to experience level 3.
+
+   ----------------
+   |.............%|                                     ---------------
+   |............(..####      -----     #################..............|
+   |..........*...|   #######...<|######                |.............|
+   |..............|          |...|#                   ##-%............|
+   ----------.-----          |...|#                   # |.............|
+             #               |....#            #########........>.....|
+             #               |...|##               #### -----------.---
+             #               -.-.-###              #               #
+         #####              ###########%######   ###               #
+         #                  #        #       `%# #                 #
+       --|---               #        #  -------# #                 #
+       |.....##           ###        # `......|############# #   ###
+       |....| #      ######        #####|.....%##         -.-|---|-----
+       |....| ### ---.------------   ###......|           |....@......|
+       |....|   # |...............##### |.....|           |...........|
+       |....|   ##...............|      -------           |..........d|
+       |....|     |..............|                        |...........|
+       ------     ----------------                        -------------
+
+Agent the Field Worker         St:10 Dx:12 Co:15 In:18 Wi:13 Ch:8 Neutral S:168
+Dlvl:1 $:8 HP:28(28) Pw:10(10) AC:9 Xp:3/40 T:1262
+[s1661 t1262 d1 0:1 xl3 hp28/28] DIVE digging down with 'a +0 pick-axe (alternate weapon; not wielded)' (try 1)
+[s1671 t1266 d1 0:1 xl3 hp28/28] DIVE digging down with 'a +0 pick-axe (weapon in hand)' (try 2)
+[s1676 t1283 d2 0:2 xl3 hp28/28] DIVE fell through a trap door at (np.int64(15), np.int64(63)) on (np.int64(0), np.int64(1)); remembered
+[s1676 t1283 d2 0:2 xl3 hp28/28] DIVE level (np.int64(0), np.int64(2)) depth 2
+[s1678 t1284 d2 0:2 xl3 hp28/28] DIVE going down stairs at (np.int64(6), np.int64(16))
+[s1680 t1285 d3 2:1 xl3 hp28/28] DIVE level (np.int64(2), np.int64(1)) depth 3
+[s1680 t1285 d3 2:1 xl3 hp28/28] DIVE task return to main dungeon
+[s1685 t1288 d2 0:2 xl3 hp28/28] DIVE level (np.int64(0), np.int64(2)) depth 2
+[s1685 t1288 d2 0:2 xl3 hp28/28] DIVE task descend
+[s1686 t1288 d2 0:2 xl3 hp28/28] DIVE digging down with 'a +0 pick-axe (weapon in hand)' (try 1)
+[s1695 t1293 d2 0:2 xl3 hp28/28] DIVE digging down with 'a +0 pick-axe (weapon in hand)' (try 2)
+[s1700 t1307 d3 0:3 xl3 hp28/28] DIVE fell through a trap door at (np.int64(5), np.int64(15)) on (np.int64(0), np.int64(2)); remembered
+[s1700 t1307 d3 0:3 xl3 hp28/28] DIVE level (np.int64(0), np.int64(3)) depth 3
+[s1700 t1307 d3 0:3 xl3 hp28/28] DIVE digging down with 'a +0 pick-axe (weapon in hand)' (try 1)
+[s1705 t1310 d3 0:3 xl3 hp28/28] DIVE digging down with 'a +0 pick-axe (weapon in hand)' (try 2)
+[s1709 t1317 d3 0:3 xl3 hp28/28] DIVE digging down with 'a +0 pick-axe (weapon in hand)' (try 2)
+[s1715 t1323 d3 0:3 xl3 hp28/28] DIVE digging out, hostiles at [('sewer rat', 2)]
+[s1715 t1323 d3 0:3 xl3 hp28/28] DIVE Elbereth before digging in the pit: ['sewer rat']
+[s1741 t1333 d3 0:3 xl3 hp28/28] DIVE digging down with 'a +0 pick-axe (weapon in hand)' (try 3)
+[s1747 t1339 d4 0:4 xl3 hp28/28] DIVE fell through a trap door at (np.int64(15), np.int64(58)) on (np.int64(0), np.int64(3)); remembered
+[s1747 t1339 d4 0:4 xl3 hp28/28] DIVE level (np.int64(0), np.int64(4)) depth 4
+[s1754 t1343 d4 0:4 xl3 hp28/28] DIVE digging down with 'a +0 pick-axe (weapon in hand)' (try 1)
+[s1763 t1347 d4 0:4 xl3 hp28/28] DIVE digging down with 'a +0 pick-axe (weapon in hand)' (try 2)
+[s1771 t1365 d5 0:5 xl3 hp28/28] SESSILE yellow mold at (14, 15) remembered
+[s1771 t1365 d5 0:5 xl3 hp28/28] DIVE fell through a trap door at (np.int64(4), np.int64(4)) on (np.int64(0), np.int64(4)); remembered
+[s1771 t1365 d5 0:5 xl3 hp28/28] DIVE level (np.int64(0), np.int64(5)) depth 5
+[s1771 t1365 d5 0:5 xl3 hp28/28] DIVE digging out, hostiles at [('yellow mold', -1)]
+[s1771 t1365 d5 0:5 xl3 hp28/28] DIVE digging down with 'a +0 pick-axe (weapon in hand)' (try 1)
+[s1774 t1370 d5 0:5 xl3 hp28/28] DIVE digging down with 'a +0 pick-axe (weapon in hand)' (try 2)
+[s1779 t1387 d6 0:6 xl3 hp28/28] DIVE fell through a trap door at (np.int64(15), np.int64(8)) on (np.int64(0), np.int64(5)); remembered
+[s1779 t1387 d6 0:6 xl3 hp28/28] DIVE level (np.int64(0), np.int64(6)) depth 6
+[s1779 t1387 d6 0:6 xl3 hp28/28] DIVE digging down with 'a +0 pick-axe (weapon in hand)' (try 1)
+[s1782 t1390 d6 0:6 xl3 hp28/28] DIVE digging down with 'a +0 pick-axe (weapon in hand)' (try 2)
+[s1793 t1409 d7 0:7 xl3 hp28/28] DIVE fell through a trap door at (np.int64(14), np.int64(68)) on (np.int64(0), np.int64(6)); remembered
+[s1793 t1409 d7 0:7 xl3 hp28/28] DIVE level (np.int64(0), np.int64(7)) depth 7
+[s1793 t1409 d7 0:7 xl3 hp28/28] DIVE digging down with 'a +0 pick-axe (weapon in hand)' (try 1)
+[s1796 t1413 d7 0:7 xl3 hp28/28] DIVE digging down with 'a +0 pick-axe (weapon in hand)' (try 2)
+[s1801 t1428 d8 0:8 xl3 hp28/28] DIVE fell through a trap door at (np.int64(18), np.int64(7)) on (np.int64(0), np.int64(7)); remembered
+[s1801 t1428 d8 0:8 xl3 hp28/28] DIVE level (np.int64(0), np.int64(8)) depth 8
+[s1801 t1428 d8 0:8 xl3 hp28/28] DIVE digging down with 'a +0 pick-axe (weapon in hand)' (try 1)
+[s1805 t1431 d8 0:8 xl3 hp28/28] DIVE digging down with 'a +0 pick-axe (weapon in hand)' (try 2)
+[s1811 t1442 d8 0:8 xl3 hp28/28] DIVE digging out, hostiles at [('Uruk-hai', 1), ('Uruk-hai', 2)]
+[s1811 t1442 d8 0:8 xl3 hp28/28] DIVE Elbereth before digging in the pit: ['Uruk-hai', 'Uruk-hai']
+[s1827 t1442 d8 0:8 xl3 hp28/28] DIVE digging out, hostiles at [('Uruk-hai', 1), ('Uruk-hai', 1), ('Uruk-hai', 2)]
+[s1827 t1442 d8 0:8 xl3 hp28/28] DIVE digging down with 'a +0 pick-axe (weapon in hand)' (try 3)
+[s1837 t1449 d9 0:9 xl3 hp28/28] DIVE fell through a trap door at (np.int64(5), np.int64(64)) on (np.int64(0), np.int64(8)); remembered
+[s1837 t1449 d9 0:9 xl3 hp28/28] DIVE level (np.int64(0), np.int64(9)) depth 9
+[s1840 t1449 d9 0:9 xl3 hp28/28] DIVE digging out, hostiles at [('white unicorn', 5)]
+[s1840 t1449 d9 0:9 xl3 hp28/28] DIVE Elbereth before digging: ['white unicorn']
+[s1856 t1450 d9 0:9 xl3 hp28/28] DIVE digging out, hostiles at [('white unicorn', 3)]
+[s1856 t1450 d9 0:9 xl3 hp28/28] DIVE digging down with 'a +0 pick-axe (weapon in hand)' (try 1)
+[s1860 t1454 d9 0:9 xl3 hp28/28] DIVE Elbereth before digging in the pit: []
+[s1874 t1455 d9 0:9 xl3 hp28/28] DIVE Elbereth before digging in the pit: []
+[s1890 t1455 d9 0:9 xl3 hp28/28] DIVE Elbereth before digging in the pit: []
+[s1910 t1456 d9 0:9 xl3 hp28/28] DIVE digging down with 'a +0 pick-axe (weapon in hand)' (try 2)
+[s1923 t1473 d10 0:10 xl3 hp28/28] DIVE fell through a trap door at (np.int64(9), np.int64(48)) on (np.int64(0), np.int64(9)); remembered
+[s1923 t1473 d10 0:10 xl3 hp28/28] DIVE level (np.int64(0), np.int64(10)) depth 10
+[s1923 t1473 d10 0:10 xl3 hp28/28] POWER kit at depth 10 XL 3 AC 9: P(passage)=0.00 certain=0 steps=0 scare_known=0 P(scare among candidates)=0.07 door_tools=0
+[s1923 t1473 d10 0:10 xl3 hp28/28] DIVE digging down with 'a +0 pick-axe (weapon in hand)' (try 1)
+[s1926 t1478 d10 0:10 xl3 hp28/28] DIVE digging down with 'a +0 pick-axe (weapon in hand)' (try 2)
+[s1934 t1493 d11 0:11 xl3 hp28/28] SESSILE yellow mold at (7, 34) remembered
+[s1934 t1493 d11 0:11 xl3 hp28/28] DIVE fell through a trap door at (np.int64(16), np.int64(12)) on (np.int64(0), np.int64(10)); remembered
+[s1934 t1493 d11 0:11 xl3 hp28/28] DIVE level (np.int64(0), np.int64(11)) depth 11
+[s1934 t1493 d11 0:11 xl3 hp28/28] DIVE digging out, hostiles at [('yellow mold', -1), ('lizard', 5), ('fox', 6)]
+[s1934 t1493 d11 0:11 xl3 hp28/28] DIVE Elbereth before digging: ['lizard', 'fox']
+[s1948 t1494 d11 0:11 xl3 hp28/28] DIVE digging out, hostiles at [('yellow mold', -1), ('lizard', 5), ('fox', 6)]
+[s1948 t1494 d11 0:11 xl3 hp28/28] DIVE Elbereth before digging: ['lizard', 'fox']
+[s1966 t1495 d11 0:11 xl3 hp28/28] DIVE digging out, hostiles at [('yellow mold', -1), ('lizard', 5), ('fox', 5)]
+[s1966 t1495 d11 0:11 xl3 hp28/28] DIVE digging down with 'a +0 pick-axe (weapon in hand)' (try 1)
+[s1972 t1500 d11 0:11 xl3 hp28/28] STATUS milestone=BE_ON_FIRST_LEVEL diving=True hunger=1 pos=(np.int64(2), np.int64(27)) acts=[SEARCH:82 SPACE:78 EAT:52 NUM_5:50 E:27] gotos=[open_visit_search(13, 61):4 _fight2_perform_action(15, 62):4 open_visit_search(7, 67):2]
+[s1972 t1500 d11 0:11 xl3 hp28/28] DIVE Elbereth before digging in the pit: []
+[s1991 t1500 d11 0:11 xl3 hp28/28] DIVE digging out, hostiles at [('tengu', 1)]
+[s1991 t1500 d11 0:11 xl3 hp28/28] DIVE digging down with 'a +0 pick-axe (weapon in hand)' (try 2)
+[s2011 t1516 d11 0:11 xl3 hp18/28] RANGED hit: holds and Elbereth waits off for 8 turns
+[s2011 t1516 d11 0:11 xl3 hp18/28] DIVE digging out, hostiles at [('giant rat', 1)]
+[s2011 t1516 d11 0:11 xl3 hp18/28] DIVE digging down with 'a +0 pick-axe (weapon in hand)' (try 2)
+[s2026 t1516 d11 0:11 xl3 hp9/28] DIVE digging out, hostiles at [('soldier ant', 1), ('fox', 1), ('lizard', 1)]
+[s2026 t1516 d11 0:11 xl3 hp9/28] DIVE digging down with 'a +0 pick-axe (weapon in hand)' (try 2)
+[s2037 t1519 d11 0:11 xl3 hp2/28] PRAY hp=2/28 hunger=1 gap=None reason=hp model[ok200=1.00 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=14 p_answered=1.00]
+[s2054 t1522 d11 0:11 xl3 hp28/28] PRAY result ok model[ok200=0.22 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=14] prayers=1 failures=0
+[s2071 t1523 d11 0:11 xl3 hp19/28] PIT fight: in a pit beside an attacker, no stepping out
+[s2089 t1525 d11 0:11 xl3 hp3/28] LAST RESORT: reading unknown 'a scroll labeled TEMOV'
