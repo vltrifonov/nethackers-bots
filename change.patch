@@ -1,0 +1,29 @@
+diff --git a/hed/nhbot/dive_logic.py b/hed/nhbot/dive_logic.py
+index 21e0650..45d7af5 100644
+--- a/hed/nhbot/dive_logic.py
++++ b/hed/nhbot/dive_logic.py
+@@ -1742,6 +1742,24 @@ class DiveLogic:
+                        zip(*utils.isin(self.agent.current_level().objects, G.STAIR_UP).nonzero())]
+                 self.agent.log(f'DIVE stuck in task {name!r} on level {self.agent.current_level().key()} '
+                                f'for {self.turns_on_level()} turns; up stairs (y,x,dist)={ups}\n{screen}')
++                agent = self.agent
++                level = agent.current_level()
++                reached = {tuple(map(int, point)) for point in np.argwhere(dis >= 0)}
++                downs = [(int(y), int(x), int(dis[y, x])) for y, x in
++                         np.argwhere(utils.isin(level.objects, G.STAIR_DOWN))]
++                agent.log(f'STALL TRACE reachable={len(reached)} down stairs={downs}')
++                if len(reached) <= 64:
++                    edge = reached | {neighbor for p in reached for neighbor in agent.neighbors(*p, shuffle=False)}
++                    nearby = edge | {neighbor for p in edge for neighbor in agent.neighbors(*p, shuffle=False)}
++                    cells = []
++                    for y, x in sorted(nearby):
++                        glyph = int(agent.glyphs[y, x])
++                        object_id = int(nh.glyph_to_obj(glyph)) if glyph in G.NORMAL_OBJECTS else None
++                        cells.append((y, x, int(dis[y, x]), glyph, object_id, int(level.objects[y, x]),
++                                      bool(level.walkable[y, x]), bool(level.intact_doors[y, x]),
++                                      bool(agent.monster_tracker.monster_mask[y, x])))
++                    agent.log('STALL TRACE (y,x,dist,glyph,object_id,terrain,walkable,door,monster): '
++                              f'{cells}')
+ 
+     def plan_step(self):
+         agent = self.agent
