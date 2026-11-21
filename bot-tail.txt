@@ -1,0 +1,1388 @@
+[s24 t1 d1 0:1 xl1 hp15/15] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(11), np.int64(15)) acts=[SPACE:8 ESC:3 AUTOPICKUP:2 ATTRIBUTES:1 ENHANCE:1] gotos=[]
+[s24 t1 d1 0:1 xl1 hp15/15] DIVE level (np.int64(0), np.int64(1)) depth 1
+[s90 t26 d1 0:1 xl1 hp15/15] PANIC AgentPanic: agent position do not match after "move": expected (11, 12), got (10, 12)
+Traceback (most recent call last):
+  File "/sol/base/pf_v37/strategy.py", line 165, in f
+    next(gen)
+  File "/sol/base/pf_v37/strategy.py", line 100, in f
+    next(v1)
+  File "/sol/base/pf_v37/utils.py", line 134, in f
+    next(it)
+  File "/sol/base/pf_v37/item/inventory.py", line 1401, in check_items
+    self.agent.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 0, 255), is_path=True))
+  File "/sol/base/pf_v37/agent.py", line 2072, in go_to
+    self.move(y, x)
+  File "/sol/base/pf_v37/agent.py", line 1781, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_v37.exceptions.AgentPanic: agent position do not match after "move": expected (11, 12), got (10, 12)
+
+[s311 t134 d1 0:1 xl1 hp13/15] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/base/pf_v37/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_v37/agent.py", line 301, in preempt
+    next(iterator)
+  File "/sol/base/pf_v37/strategy.py", line 68, in f
+    next(it)
+  File "/sol/base/pf_v37/utils.py", line 134, in f
+    next(it)
+  File "/sol/base/pf_v37/agent.py", line 2683, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/base/pf_v37/item/inventory.py", line 788, in eat
+    raise AgentPanic('no such food is lying here')
+pf_v37.exceptions.AgentPanic: no such food is lying here
+
+[s844 t500 d1 0:1 xl2 hp22/22] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(6), np.int64(17)) acts=[SEARCH:232 E:88 W:75 SPACE:52 NW:42] gotos=[open_visit_search(16, 47):6 open_visit_search(11, 13):5 check_items(17, 6):5]
+[s972 t625 d1 0:1 xl2 hp22/22] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/base/pf_v37/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_v37/agent.py", line 301, in preempt
+    next(iterator)
+  File "/sol/base/pf_v37/strategy.py", line 68, in f
+    next(it)
+  File "/sol/base/pf_v37/utils.py", line 134, in f
+    next(it)
+  File "/sol/base/pf_v37/agent.py", line 2683, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/base/pf_v37/item/inventory.py", line 788, in eat
+    raise AgentPanic('no such food is lying here')
+pf_v37.exceptions.AgentPanic: no such food is lying here
+
+[s1102 t717 d1 0:1 xl2 hp22/22] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/base/pf_v37/item/inventory.py", line 537, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/base/pf_v37/agent.py", line 180, in atom_operation
+    self.update_state()
+  File "/sol/base/pf_v37/agent.py", line 613, in update_state
+    self.call_update_functions()
+  File "/sol/base/pf_v37/agent.py", line 624, in call_update_functions
+    func()
+  File "/sol/base/pf_v37/item/inventory.py", line 150, in f
+    raise AgentPanic('items below me changed')
+pf_v37.exceptions.AgentPanic: items below me changed
+
+[s1305 t875 d1 0:1 xl2 hp22/22] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/base/pf_v37/item/inventory.py", line 537, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/base/pf_v37/agent.py", line 180, in atom_operation
+    self.update_state()
+  File "/sol/base/pf_v37/agent.py", line 613, in update_state
+    self.call_update_functions()
+  File "/sol/base/pf_v37/agent.py", line 624, in call_update_functions
+    func()
+  File "/sol/base/pf_v37/item/inventory.py", line 150, in f
+    raise AgentPanic('items below me changed')
+pf_v37.exceptions.AgentPanic: items below me changed
+
+[s1416 t936 d1 0:1 xl3 hp34/34] PANIC AgentPanic: agent position do not match after "move": expected (11, 13), got (12, 14)
+Traceback (most recent call last):
+  File "/sol/base/pf_v37/agent.py", line 301, in preempt
+    next(iterator)
+  File "/sol/base/pf_v37/strategy.py", line 68, in f
+    next(it)
+  File "/sol/base/pf_v37/utils.py", line 134, in f
+    next(it)
+  File "/sol/base/pf_v37/agent.py", line 2667, in eat_corpses_from_ground
+    self.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 255, 0), is_path=True))
+  File "/sol/base/pf_v37/agent.py", line 2072, in go_to
+    self.move(y, x)
+  File "/sol/base/pf_v37/agent.py", line 1781, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_v37.exceptions.AgentPanic: agent position do not match after "move": expected (11, 13), got (12, 14)
+
+[s1504 t1000 d1 0:1 xl3 hp34/34] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(13), np.int64(19)) acts=[SEARCH:130 NUM_5:94 SPACE:69 E:38 SW:32] gotos=[open_visit_search(15, 19):4 _fight2_perform_action(11, 13):4 open_visit_search(8, 4):3]
+[s1985 t1500 d1 0:1 xl3 hp34/34] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=2 pos=(np.int64(2), np.int64(40)) acts=[SEARCH:131 NUM_5:106 E:47 W:29 SPACE:20] gotos=[open_visit_search(13, 35):2 open_visit_search(13, 34):2 open_visit_search(14, 34):2]
+[s2031 t1556 d1 0:1 xl3 hp34/34] PRAY hp=34/34 hunger=3 gap=None reason=None model[ok200=1.00 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=15 p_answered=1.00]
+[s2036 t1559 d1 0:1 xl3 hp34/34] PRAY result ok model[ok200=0.22 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=15] prayers=1 failures=0
+[s2167 t1687 d1 0:1 xl3 hp34/34] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/base/pf_v37/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_v37/agent.py", line 301, in preempt
+    next(iterator)
+  File "/sol/base/pf_v37/strategy.py", line 68, in f
+    next(it)
+  File "/sol/base/pf_v37/utils.py", line 134, in f
+    next(it)
+  File "/sol/base/pf_v37/agent.py", line 2683, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/base/pf_v37/item/inventory.py", line 788, in eat
+    raise AgentPanic('no such food is lying here')
+pf_v37.exceptions.AgentPanic: no such food is lying here
+
+[s2314 t1811 d1 0:1 xl3 hp34/34] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/base/pf_v37/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_v37/agent.py", line 301, in preempt
+    next(iterator)
+  File "/sol/base/pf_v37/strategy.py", line 68, in f
+    next(it)
+  File "/sol/base/pf_v37/utils.py", line 134, in f
+    next(it)
+  File "/sol/base/pf_v37/agent.py", line 2683, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/base/pf_v37/item/inventory.py", line 788, in eat
+    raise AgentPanic('no such food is lying here')
+pf_v37.exceptions.AgentPanic: no such food is lying here
+
+[s2505 t1955 d1 0:1 xl4 hp39/40] RANGED hit: holds and Elbereth waits off for 8 turns
+[s2574 t2000 d1 0:1 xl4 hp40/40] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(7), np.int64(64)) acts=[SEARCH:141 NUM_5:91 E:62 SPACE:51 W:42] gotos=[open_visit_search(7, 65):3 open_visit_search(2, 49):2 open_visit_search(2, 50):2]
+[s2694 t2090 d1 0:1 xl4 hp40/40] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/base/pf_v37/item/inventory.py", line 537, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/base/pf_v37/agent.py", line 180, in atom_operation
+    self.update_state()
+  File "/sol/base/pf_v37/agent.py", line 613, in update_state
+    self.call_update_functions()
+  File "/sol/base/pf_v37/agent.py", line 624, in call_update_functions
+    func()
+  File "/sol/base/pf_v37/item/inventory.py", line 150, in f
+    raise AgentPanic('items below me changed')
+pf_v37.exceptions.AgentPanic: items below me changed
+
+[s3209 t2500 d1 0:1 xl4 hp40/40] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(15), np.int64(10)) acts=[SEARCH:97 NUM_5:74 W:64 SPACE:59 SW:37] gotos=[open_visit_search(2, 4):4 eat_corpses_from_ground(3, 11):3 eat_corpses_from_ground(7, 65):2]
+[s3227 t2514 d1 0:1 xl4 hp40/40] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/base/pf_v37/strategy.py", line 48, in run
+    next(gen)
+  File "/sol/base/pf_v37/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_v37/agent.py", line 290, in preempt
+    val = f()
+          ^^^
+  File "/sol/base/pf_v37/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/base/pf_v37/exploration_logic.py", line 490, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/base/pf_v37/agent.py", line 2044, in go_to
+    raise AgentPanic('end point is no longer accessible')
+pf_v37.exceptions.AgentPanic: end point is no longer accessible
+
+[s3693 t2965 d1 0:1 xl4 hp40/40] PANIC AgentPanic: agent position do not match after "move": expected (3, 56), got (4, 55)
+Traceback (most recent call last):
+  File "/sol/base/pf_v37/agent.py", line 301, in preempt
+    next(iterator)
+  File "/sol/base/pf_v37/strategy.py", line 68, in f
+    next(it)
+  File "/sol/base/pf_v37/utils.py", line 134, in f
+    next(it)
+  File "/sol/base/pf_v37/agent.py", line 2667, in eat_corpses_from_ground
+    self.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 255, 0), is_path=True))
+  File "/sol/base/pf_v37/agent.py", line 2072, in go_to
+    self.move(y, x)
+  File "/sol/base/pf_v37/agent.py", line 1781, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_v37.exceptions.AgentPanic: agent position do not match after "move": expected (3, 56), got (4, 55)
+
+[s3741 t3003 d1 0:1 xl4 hp40/40] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=2 pos=(np.int64(8), np.int64(63)) acts=[SEARCH:102 NUM_5:97 E:60 SPACE:34 W:28] gotos=[open_visit_search(11, 19):2 open_visit_search(8, 22):2 open_visit_search(10, 35):2]
+[s3801 t3041 d1 0:1 xl4 hp39/40] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/base/pf_v37/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_v37/agent.py", line 301, in preempt
+    next(iterator)
+  File "/sol/base/pf_v37/strategy.py", line 68, in f
+    next(it)
+  File "/sol/base/pf_v37/utils.py", line 134, in f
+    next(it)
+  File "/sol/base/pf_v37/agent.py", line 2683, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/base/pf_v37/item/inventory.py", line 788, in eat
+    raise AgentPanic('no such food is lying here')
+pf_v37.exceptions.AgentPanic: no such food is lying here
+
+[s3925 t3130 d1 0:1 xl4 hp40/40] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/base/pf_v37/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_v37/agent.py", line 301, in preempt
+    next(iterator)
+  File "/sol/base/pf_v37/strategy.py", line 68, in f
+    next(it)
+  File "/sol/base/pf_v37/utils.py", line 134, in f
+    next(it)
+  File "/sol/base/pf_v37/agent.py", line 2683, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/base/pf_v37/item/inventory.py", line 788, in eat
+    raise AgentPanic('no such food is lying here')
+pf_v37.exceptions.AgentPanic: no such food is lying here
+
+[s4317 t3502 d1 0:1 xl4 hp40/40] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(3), np.int64(34)) acts=[SEARCH:98 NUM_5:92 W:54 SPACE:51 E:32] gotos=[eat_corpses_from_ground(10, 35):3 check_items(6, 34):2 open_visit_search(6, 62):1]
+[s4330 t3513 d1 0:1 xl4 hp40/40] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/base/pf_v37/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/base/pf_v37/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_v37/agent.py", line 290, in preempt
+    val = f()
+          ^^^
+  File "/sol/base/pf_v37/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/base/pf_v37/exploration_logic.py", line 490, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/base/pf_v37/agent.py", line 2044, in go_to
+    raise AgentPanic('end point is no longer accessible')
+pf_v37.exceptions.AgentPanic: end point is no longer accessible
+
+[s4347 t3514 d1 0:1 xl4 hp40/40] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/base/pf_v37/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/base/pf_v37/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_v37/agent.py", line 290, in preempt
+    val = f()
+          ^^^
+  File "/sol/base/pf_v37/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/base/pf_v37/exploration_logic.py", line 490, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/base/pf_v37/agent.py", line 2044, in go_to
+    raise AgentPanic('end point is no longer accessible')
+pf_v37.exceptions.AgentPanic: end point is no longer accessible
+
+[s4543 t3691 d1 0:1 xl4 hp40/40] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/base/pf_v37/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/base/pf_v37/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_v37/agent.py", line 290, in preempt
+    val = f()
+          ^^^
+  File "/sol/base/pf_v37/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/base/pf_v37/exploration_logic.py", line 490, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/base/pf_v37/agent.py", line 2044, in go_to
+    raise AgentPanic('end point is no longer accessible')
+pf_v37.exceptions.AgentPanic: end point is no longer accessible
+
+[s4719 t3812 d2 0:2 xl5 hp50/50] DIVE level (np.int64(0), np.int64(2)) depth 2
+[s4728 t3817 d2 0:2 xl5 hp50/50] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/base/pf_v37/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_v37/agent.py", line 301, in preempt
+    next(iterator)
+  File "/sol/base/pf_v37/strategy.py", line 68, in f
+    next(it)
+  File "/sol/base/pf_v37/utils.py", line 134, in f
+    next(it)
+  File "/sol/base/pf_v37/agent.py", line 2683, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/base/pf_v37/item/inventory.py", line 788, in eat
+    raise AgentPanic('no such food is lying here')
+pf_v37.exceptions.AgentPanic: no such food is lying here
+
+[s5021 t4000 d2 0:2 xl5 hp50/50] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(4), np.int64(25)) acts=[SEARCH:142 W:77 E:67 NUM_5:43 SPACE:38] gotos=[open_visit_search(13, 29):6 open_visit_search(11, 36):3 open_visit_search(13, 36):3]
+[s5085 t4048 d2 0:2 xl5 hp50/50] PANIC AgentPanic: agent position do not match after "move": expected (15, 35), got (14, 34)
+Traceback (most recent call last):
+  File "/sol/base/pf_v37/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_v37/agent.py", line 290, in preempt
+    val = f()
+          ^^^
+  File "/sol/base/pf_v37/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/base/pf_v37/exploration_logic.py", line 490, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/base/pf_v37/agent.py", line 2072, in go_to
+    self.move(y, x)
+  File "/sol/base/pf_v37/agent.py", line 1781, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_v37.exceptions.AgentPanic: agent position do not match after "move": expected (15, 35), got (14, 34)
+
+[s5315 t4177 d2 0:2 xl5 hp50/50] PANIC AgentPanic: agent position do not match after "move": expected (18, 43), got (17, 44)
+Traceback (most recent call last):
+  File "/sol/base/pf_v37/agent.py", line 301, in preempt
+    next(iterator)
+  File "/sol/base/pf_v37/strategy.py", line 68, in f
+    next(it)
+  File "/sol/base/pf_v37/utils.py", line 134, in f
+    next(it)
+  File "/sol/base/pf_v37/agent.py", line 2667, in eat_corpses_from_ground
+    self.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 255, 0), is_path=True))
+  File "/sol/base/pf_v37/agent.py", line 2072, in go_to
+    self.move(y, x)
+  File "/sol/base/pf_v37/agent.py", line 1781, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_v37.exceptions.AgentPanic: agent position do not match after "move": expected (18, 43), got (17, 44)
+
+[s5375 t4214 d3 0:3 xl5 hp50/50] DIVE level (np.int64(0), np.int64(3)) depth 3
+[s5396 t4224 d3 0:3 xl5 hp50/50] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/base/pf_v37/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_v37/agent.py", line 301, in preempt
+    next(iterator)
+  File "/sol/base/pf_v37/strategy.py", line 68, in f
+    next(it)
+  File "/sol/base/pf_v37/utils.py", line 134, in f
+    next(it)
+  File "/sol/base/pf_v37/agent.py", line 2683, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/base/pf_v37/item/inventory.py", line 788, in eat
+    raise AgentPanic('no such food is lying here')
+pf_v37.exceptions.AgentPanic: no such food is lying here
+
+[s5902 t4500 d3 0:3 xl5 hp50/50] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=2 pos=(np.int64(4), np.int64(39)) acts=[SEARCH:234 E:91 W:64 SPACE:64 SW:46] gotos=[open_visit_search(6, 36):9 check_items(11, 68):6 open_visit_search(2, 28):4]
+[s6005 t4568 d3 0:3 xl5 hp50/50] PRAY hp=50/50 hunger=3 gap=3009 reason=None model[ok200=1.00 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=32 p_answered=1.00]
+[s6010 t4571 d3 0:3 xl5 hp50/50] PRAY result ok model[ok200=0.22 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=32] prayers=2 failures=0
+[s6390 t4904 d3 0:3 xl5 hp49/50] RANGED hit: holds and Elbereth waits off for 8 turns
+[s6524 t5002 d3 0:3 xl5 hp50/50] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(14), np.int64(42)) acts=[SEARCH:166 NUM_5:76 W:59 E:58 SPACE:43] gotos=[open_visit_search(9, 48):5 check_items(8, 68):3 open_visit_search(9, 46):3]
+[s6548 t5011 d3 0:3 xl5 hp50/50] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/base/pf_v37/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_v37/agent.py", line 301, in preempt
+    next(iterator)
+  File "/sol/base/pf_v37/strategy.py", line 68, in f
+    next(it)
+  File "/sol/base/pf_v37/utils.py", line 134, in f
+    next(it)
+  File "/sol/base/pf_v37/agent.py", line 2683, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/base/pf_v37/item/inventory.py", line 788, in eat
+    raise AgentPanic('no such food is lying here')
+pf_v37.exceptions.AgentPanic: no such food is lying here
+
+[s6583 t5037 d3 0:3 xl5 hp50/50] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/base/pf_v37/item/inventory.py", line 537, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/base/pf_v37/agent.py", line 180, in atom_operation
+    self.update_state()
+  File "/sol/base/pf_v37/agent.py", line 613, in update_state
+    self.call_update_functions()
+  File "/sol/base/pf_v37/agent.py", line 624, in call_update_functions
+    func()
+  File "/sol/base/pf_v37/item/inventory.py", line 150, in f
+    raise AgentPanic('items below me changed')
+pf_v37.exceptions.AgentPanic: items below me changed
+
+[s7056 t5500 d3 0:3 xl5 hp50/50] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(6), np.int64(70)) acts=[SEARCH:123 NUM_5:94 SPACE:58 E:53 W:21] gotos=[open_visit_search(17, 44):2 check_items(17, 51):2 open_visit_search(18, 51):2]
+[s7168 t5591 d3 0:3 xl6 hp59/59] DIVE phase starts (milestone BE_ON_FIRST_LEVEL)
+[s7168 t5591 d3 0:3 xl6 hp59/59] DIVE task explore fully
+[s7168 t5591 d3 0:3 xl6 hp59/59] DIVE stuck in task 'explore fully' on level (np.int64(0), np.int64(3)) for 1377 turns; up stairs (y,x,dist)=[(16, 16, 28)]
+You kill the rock mole!  Welcome to experience level 6.
+
+
+
+       ------                                -------------
+       |.....#         -------------- #######...........>|
+       |....|#         |............|##      |............######   ------
+      #-....|#         |.............#      #-........{..|    #####-..{.|
+      #------#         |............|#      #--.----------######   |....|
+      #      #       ##-....(.......|#     ## #############    ####|)...|
+      ##     #       # |............|#  ####### #                 #-....|
+       #     #       # --------------####       #                  |....|
+     # #     #       #     ##############       #                  ------
+  ---|-#     #      ##    ##      #  #####      #
+  |....####################       ##     #      #
+  |...|#     #     #        ##############%@#######
+  |...|#     #-----#     ####            #  ----.-.---
+  |...-#     #..<.-# #####               ###|....(...|
+  -----       |...|  #                     #.........|
+              |...-###                      |........|
+              -----                         ----------
+
+Agent the Kunoichi             St:16 Dx:18 Co:18 In:8 Wi:7 Ch:9 Lawful S:1452
+Dlvl:3 $:68 HP:59(59) Pw:21(21) AC:3 Xp:6/321 T:5591
+[s7168 t5591 d3 0:3 xl6 hp59/59] DIVE task descend
+[s7208 t5611 d3 0:3 xl6 hp59/59] SESSILE floating eye at (6, 53) remembered
+[s7234 t5617 d3 0:3 xl6 hp59/59] DIVE going down stairs at (np.int64(4), np.int64(56))
+[s7236 t5618 d4 0:4 xl6 hp59/59] DIVE level (np.int64(0), np.int64(4)) depth 4
+[s7236 t5618 d4 0:4 xl6 hp59/59] DIVE task explore fully
+[s7313 t5681 d4 0:4 xl6 hp53/59] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/base/pf_v37/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_v37/agent.py", line 301, in preempt
+    next(iterator)
+  File "/sol/base/pf_v37/strategy.py", line 68, in f
+    next(it)
+  File "/sol/base/pf_v37/utils.py", line 134, in f
+    next(it)
+  File "/sol/base/pf_v37/agent.py", line 2683, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/base/pf_v37/item/inventory.py", line 788, in eat
+    raise AgentPanic('no such food is lying here')
+pf_v37.exceptions.AgentPanic: no such food is lying here
+
+[s7495 t5769 d4 0:4 xl6 hp58/59] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/base/pf_v37/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_v37/agent.py", line 301, in preempt
+    next(iterator)
+  File "/sol/base/pf_v37/strategy.py", line 68, in f
+    next(it)
+  File "/sol/base/pf_v37/utils.py", line 134, in f
+    next(it)
+  File "/sol/base/pf_v37/agent.py", line 2683, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/base/pf_v37/item/inventory.py", line 788, in eat
+    raise AgentPanic('no such food is lying here')
+pf_v37.exceptions.AgentPanic: no such food is lying here
+
+[s7773 t5949 d4 0:4 xl6 hp59/59] DIVE task descend
+[s7805 t5972 d4 0:4 xl6 hp59/59] DIVE going down stairs at (np.int64(12), np.int64(10))
+[s7807 t5973 d5 2:1 xl6 hp59/59] DIVE level (np.int64(2), np.int64(1)) depth 5
+[s7807 t5973 d5 2:1 xl6 hp59/59] CAMP: the tool-less dive stays in the Mines (levels 1-4, 8000 turns)
+[s7807 t5973 d5 2:1 xl6 hp59/59] DIVE task camp: search for dwarves
+[s7820 t5981 d5 2:1 xl6 hp59/59] PRAY hp=59/59 hunger=3 gap=1410 reason=None model[ok200=0.98 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=38 p_answered=0.98]
+[s7831 t5984 d5 2:1 xl6 hp59/59] PRAY result ok model[ok200=0.22 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=38] prayers=3 failures=0
+[s7858 t5995 d5 2:1 xl6 hp56/59] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/base/pf_v37/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_v37/agent.py", line 301, in preempt
+    next(iterator)
+  File "/sol/base/pf_v37/strategy.py", line 68, in f
+    next(it)
+  File "/sol/base/pf_v37/utils.py", line 134, in f
+    next(it)
+  File "/sol/base/pf_v37/agent.py", line 2683, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/base/pf_v37/item/inventory.py", line 788, in eat
+    raise AgentPanic('no such food is lying here')
+pf_v37.exceptions.AgentPanic: no such food is lying here
+
+[s7880 t6000 d5 2:1 xl6 hp57/59] STATUS milestone=BE_ON_FIRST_LEVEL diving=True hunger=1 pos=(np.int64(11), np.int64(12)) acts=[SEARCH:182 W:109 SPACE:76 E:65 S:45] gotos=[open_visit_search(4, 61):6 check_items(7, 24):6 open_visit_search(4, 55):5]
+[s7881 t6000 d5 2:1 xl6 hp57/59] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/base/pf_v37/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_v37/agent.py", line 301, in preempt
+    next(iterator)
+  File "/sol/base/pf_v37/strategy.py", line 68, in f
+    next(it)
+  File "/sol/base/pf_v37/utils.py", line 134, in f
+    next(it)
+  File "/sol/base/pf_v37/agent.py", line 2683, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/base/pf_v37/item/inventory.py", line 788, in eat
+    raise AgentPanic('no such food is lying here')
+pf_v37.exceptions.AgentPanic: no such food is lying here
+
+[s7971 t6062 d5 2:1 xl6 hp56/59] RANGED hit: holds and Elbereth waits off for 8 turns
+[s8190 t6185 d5 2:1 xl6 hp54/59] RANGED hit: holds and Elbereth waits off for 8 turns
+[s8210 t6198 d5 2:1 xl6 hp55/59] RANGED hit: holds and Elbereth waits off for 8 turns
+[s8374 t6283 d5 2:1 xl6 hp55/59] DIVE task return to main dungeon
+[s8399 t6300 d4 0:4 xl6 hp58/59] DIVE level (np.int64(0), np.int64(4)) depth 4
+[s8399 t6300 d4 0:4 xl6 hp58/59] DIVE task descend
+[s8400 t6301 d4 0:4 xl6 hp58/59] DIVE digging down with 'a pick-axe' (try 1)
+[s8404 t6304 d4 0:4 xl6 hp58/59] DIVE digging down with 'a pick-axe (weapon in hand)' (try 2)
+[s8415 t6315 d5 0:5 xl6 hp59/59] DIVE fell through a trap door at (np.int64(11), np.int64(9)) on (np.int64(0), np.int64(4)); remembered
+[s8415 t6315 d5 0:5 xl6 hp59/59] DIVE level (np.int64(0), np.int64(5)) depth 5
+[s8415 t6315 d5 0:5 xl6 hp59/59] DIVE digging down with 'a pick-axe (weapon in hand)' (try 1)
+[s8418 t6319 d5 0:5 xl6 hp59/59] DIVE digging down with 'a pick-axe (weapon in hand)' (try 2)
+[s8424 t6326 d5 0:5 xl6 hp59/59] DIVE digging out, hostiles at [('dingo', 1)]
+[s8424 t6326 d5 0:5 xl6 hp59/59] DIVE Elbereth before digging in the pit: ['dingo']
+[s8440 t6327 d5 0:5 xl6 hp59/59] DIVE digging out, hostiles at [('dingo', 1)]
+[s8440 t6327 d5 0:5 xl6 hp59/59] DIVE digging down with 'a pick-axe (weapon in hand)' (try 3)
+[s8446 t6332 d6 0:6 xl6 hp59/59] DIVE fell through a trap door at (np.int64(6), np.int64(10)) on (np.int64(0), np.int64(5)); remembered
+[s8446 t6332 d6 0:6 xl6 hp59/59] DIVE level (np.int64(0), np.int64(6)) depth 6
+[s8446 t6332 d6 0:6 xl6 hp59/59] DIVE digging down with 'a pick-axe (weapon in hand)' (try 1)
+[s8449 t6336 d6 0:6 xl6 hp59/59] DIVE digging down with 'a pick-axe (weapon in hand)' (try 2)
+[s8454 t6350 d7 0:7 xl6 hp59/59] DIVE fell through a trap door at (np.int64(13), np.int64(18)) on (np.int64(0), np.int64(6)); remembered
+[s8454 t6350 d7 0:7 xl6 hp59/59] DIVE level (np.int64(0), np.int64(7)) depth 7
+[s8454 t6350 d7 0:7 xl6 hp59/59] DIVE digging down with 'a pick-axe (weapon in hand)' (try 1)
+[s8457 t6354 d7 0:7 xl6 hp59/59] DIVE digging down with 'a pick-axe (weapon in hand)' (try 2)
+[s8472 t6368 d8 0:8 xl6 hp59/59] DIVE fell through a trap door at (np.int64(9), np.int64(73)) on (np.int64(0), np.int64(7)); remembered
+[s8472 t6368 d8 0:8 xl6 hp59/59] DIVE level (np.int64(0), np.int64(8)) depth 8
+[s8607 t6503 d8 0:8 xl6 hp59/59] STATUS milestone=BE_ON_FIRST_LEVEL diving=True hunger=1 pos=(np.int64(7), np.int64(70)) acts=[SEARCH:171 SPACE:66 E:55 SW:48 W:44] gotos=[open_visit_search(13, 11):4 open_visit_search(2, 20):4 open_visit_search(13, 24):4]
+[s8916 t6870 d8 0:8 xl6 hp59/59] DIVE replanning task 'descend' after 500 turns of exploring
+[s9034 t7002 d8 0:8 xl6 hp59/59] STATUS milestone=BE_ON_FIRST_LEVEL diving=True hunger=1 pos=(np.int64(10), np.int64(71)) acts=[NUM_5:103 SEARCH:103 W:40 E:29 SW:25] gotos=[open_visit_search(10, 69):7 open_visit_search(10, 71):6 open_visit_search(10, 70):6]
+[s9185 t7188 d8 0:8 xl6 hp59/59] PRAY hp=59/59 hunger=3 gap=1204 reason=None model[ok200=0.98 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=40 p_answered=0.98]
+[s9190 t7191 d8 0:8 xl6 hp59/59] PRAY result ok model[ok200=0.22 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=40] prayers=4 failures=0
+[s9276 t7279 d8 0:8 xl6 hp59/59] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/base/pf_v37/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/base/pf_v37/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_v37/agent.py", line 290, in preempt
+    val = f()
+          ^^^
+  File "/sol/base/pf_v37/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/base/pf_v37/exploration_logic.py", line 490, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/base/pf_v37/agent.py", line 2044, in go_to
+    raise AgentPanic('end point is no longer accessible')
+pf_v37.exceptions.AgentPanic: end point is no longer accessible
+
+[s9301 t7290 d8 0:8 xl6 hp59/59] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/base/pf_v37/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/base/pf_v37/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_v37/agent.py", line 290, in preempt
+    val = f()
+          ^^^
+  File "/sol/base/pf_v37/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/base/pf_v37/exploration_logic.py", line 490, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/base/pf_v37/agent.py", line 2044, in go_to
+    raise AgentPanic('end point is no longer accessible')
+pf_v37.exceptions.AgentPanic: end point is no longer accessible
+
+[s9321 t7294 d8 0:8 xl6 hp59/59] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/base/pf_v37/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/base/pf_v37/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_v37/agent.py", line 290, in preempt
+    val = f()
+          ^^^
+  File "/sol/base/pf_v37/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/base/pf_v37/exploration_logic.py", line 490, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/base/pf_v37/agent.py", line 2044, in go_to
+    raise AgentPanic('end point is no longer accessible')
+pf_v37.exceptions.AgentPanic: end point is no longer accessible
+
+[s9502 t7501 d8 0:8 xl6 hp59/59] STATUS milestone=BE_ON_FIRST_LEVEL diving=True hunger=1 pos=(np.int64(10), np.int64(69)) acts=[SEARCH:110 NUM_5:105 E:28 W:27 SW:25] gotos=[open_visit_search(7, 65):9 open_visit_search(8, 65):7 open_visit_search(9, 71):6]
+[s9687 t7712 d8 0:8 xl6 hp59/59] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/base/pf_v37/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/base/pf_v37/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_v37/agent.py", line 288, in preempt
+    val = f.run()
+          ^^^^^^^
+  File "/sol/base/pf_v37/strategy.py", line 48, in run
+    next(gen)
+  File "/sol/base/pf_v37/exploration_logic.py", line 490, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/base/pf_v37/agent.py", line 2044, in go_to
+    raise AgentPanic('end point is no longer accessible')
+pf_v37.exceptions.AgentPanic: end point is no longer accessible
+
+[s9850 t7884 d8 0:8 xl6 hp59/59] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/base/pf_v37/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/base/pf_v37/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_v37/agent.py", line 290, in preempt
+    val = f()
+          ^^^
+  File "/sol/base/pf_v37/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/base/pf_v37/exploration_logic.py", line 490, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/base/pf_v37/agent.py", line 2044, in go_to
+    raise AgentPanic('end point is no longer accessible')
+pf_v37.exceptions.AgentPanic: end point is no longer accessible
+
+[s9876 t7895 d8 0:8 xl6 hp59/59] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/base/pf_v37/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/base/pf_v37/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_v37/agent.py", line 290, in preempt
+    val = f()
+          ^^^
+  File "/sol/base/pf_v37/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/base/pf_v37/exploration_logic.py", line 490, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/base/pf_v37/agent.py", line 2044, in go_to
+    raise AgentPanic('end point is no longer accessible')
+pf_v37.exceptions.AgentPanic: end point is no longer accessible
+
+[s9896 t7900 d8 0:8 xl6 hp59/59] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/base/pf_v37/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/base/pf_v37/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_v37/agent.py", line 290, in preempt
+    val = f()
+          ^^^
+  File "/sol/base/pf_v37/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/base/pf_v37/exploration_logic.py", line 490, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/base/pf_v37/agent.py", line 2044, in go_to
+    raise AgentPanic('end point is no longer accessible')
+pf_v37.exceptions.AgentPanic: end point is no longer accessible
+
+[s9919 t7908 d8 0:8 xl6 hp59/59] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/base/pf_v37/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/base/pf_v37/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_v37/agent.py", line 290, in preempt
+    val = f()
+          ^^^
+  File "/sol/base/pf_v37/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/base/pf_v37/exploration_logic.py", line 490, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/base/pf_v37/agent.py", line 2044, in go_to
+    raise AgentPanic('end point is no longer accessible')
+pf_v37.exceptions.AgentPanic: end point is no longer accessible
+
+[s9944 t7921 d8 0:8 xl6 hp59/59] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/base/pf_v37/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/base/pf_v37/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_v37/agent.py", line 290, in preempt
+    val = f()
+          ^^^
+  File "/sol/base/pf_v37/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/base/pf_v37/exploration_logic.py", line 490, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/base/pf_v37/agent.py", line 2044, in go_to
+    raise AgentPanic('end point is no longer accessible')
+pf_v37.exceptions.AgentPanic: end point is no longer accessible
+
+[s10019 t8000 d8 0:8 xl6 hp59/59] STATUS milestone=BE_ON_FIRST_LEVEL diving=True hunger=2 pos=(np.int64(7), np.int64(71)) acts=[NUM_5:98 SEARCH:98 SW:37 E:36 SPACE:31] gotos=[open_visit_search(7, 65):11 open_visit_search(7, 71):7 open_visit_search(10, 70):6]
+[s10179 t8297 d8 0:8 xl6 hp59/59] PRAY hp=59/59 hunger=4 gap=1106 reason=None model[ok200=0.96 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=40 p_answered=0.96]
+[s10190 t8300 d8 0:8 xl6 hp59/59] PRAY result ok model[ok200=0.22 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=40] prayers=5 failures=0
+[s10199 t8307 d8 0:8 xl6 hp59/59] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/base/pf_v37/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/base/pf_v37/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_v37/agent.py", line 290, in preempt
+    val = f()
+          ^^^
+  File "/sol/base/pf_v37/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/base/pf_v37/exploration_logic.py", line 490, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/base/pf_v37/agent.py", line 2044, in go_to
+    raise AgentPanic('end point is no longer accessible')
+pf_v37.exceptions.AgentPanic: end point is no longer accessible
+
+[s10374 t8500 d8 0:8 xl6 hp59/59] STATUS milestone=BE_ON_FIRST_LEVEL diving=True hunger=1 pos=(np.int64(9), np.int64(71)) acts=[NUM_5:74 SEARCH:74 E:31 W:30 SW:21] gotos=[open_visit_search(7, 65):7 open_visit_search(8, 71):5 open_visit_search(9, 71):5]
+[s10507 t8650 d8 0:8 xl6 hp59/59] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/base/pf_v37/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/base/pf_v37/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_v37/agent.py", line 288, in preempt
+    val = f.run()
+          ^^^^^^^
+  File "/sol/base/pf_v37/strategy.py", line 48, in run
+    next(gen)
+  File "/sol/base/pf_v37/exploration_logic.py", line 490, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/base/pf_v37/agent.py", line 2044, in go_to
+    raise AgentPanic('end point is no longer accessible')
+pf_v37.exceptions.AgentPanic: end point is no longer accessible
+
+[s10523 t8650 d8 0:8 xl6 hp59/59] DIVE stuck in task 'descend' on level (np.int64(0), np.int64(8)) for 2282 turns; up stairs (y,x,dist)=[]
+
+
+
+
+
+
+
+                                                                ---------
+                                                                +@@?????|
+                                                                |.???+?+|
+                                                                |.??????|
+                                                                |.???+??|
+                                                                ---------
+
+
+
+
+
+
+
+
+
+Agent the Kunoichi             St:16 Dx:17 Co:18 In:8 Wi:7 Ch:9 Lawful S:2212
+Dlvl:8 $:98 HP:59(59) Pw:21(21) AC:3 Xp:6/441 T:8650
+[s10533 t8659 d8 0:8 xl6 hp59/59] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/base/pf_v37/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/base/pf_v37/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_v37/agent.py", line 290, in preempt
+    val = f()
+          ^^^
+  File "/sol/base/pf_v37/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/base/pf_v37/exploration_logic.py", line 490, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/base/pf_v37/agent.py", line 2044, in go_to
+    raise AgentPanic('end point is no longer accessible')
+pf_v37.exceptions.AgentPanic: end point is no longer accessible
+
+[s10822 t9001 d8 0:8 xl6 hp59/59] STATUS milestone=BE_ON_FIRST_LEVEL diving=True hunger=1 pos=(np.int64(10), np.int64(65)) acts=[NUM_5:101 SEARCH:101 E:37 W:36 SW:29] gotos=[open_visit_search(7, 65):9 open_visit_search(7, 68):7 open_visit_search(10, 70):6]
+[s10933 t9162 d8 0:8 xl6 hp59/59] DIVE replanning task 'descend' after 500 turns of exploring
+[s11040 t9403 d8 0:8 xl6 hp59/59] PRAY hp=59/59 hunger=4 gap=1103 reason=None model[ok200=0.96 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=40 p_answered=0.96]
+[s11045 t9406 d8 0:8 xl6 hp59/59] PRAY result ok model[ok200=0.22 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=40] prayers=6 failures=0
+[s11045 t9406 d8 0:8 xl6 hp59/59] DIVE stuck in task 'descend' on level (np.int64(0), np.int64(8)) for 3038 turns; up stairs (y,x,dist)=[]
+Your stomach feels content.
+
+
+
+
+
+
+                                                                ---------
+                                                                +@??????|
+                                                                |.???+?+|
+                                                                |.??????|
+                                                                |.???+?@|
+                                                                ---------
+
+
+
+
+
+
+
+
+
+Agent the Kunoichi             St:16 Dx:17 Co:17 In:8 Wi:7 Ch:9 Lawful S:2212
+Dlvl:8 $:98 HP:59(59) Pw:21(21) AC:3 Xp:6/441 T:9406 Burdened
+[s11102 t9501 d8 0:8 xl6 hp59/59] STATUS milestone=BE_ON_FIRST_LEVEL diving=True hunger=1 pos=(np.int64(7), np.int64(70)) acts=[NUM_5:58 SEARCH:58 SPACE:25 W:22 SW:15] gotos=[open_visit_search(8, 71):4 open_visit_search(7, 71):4 open_visit_search(7, 70):4]
+[s11380 t9909 d8 0:8 xl6 hp59/59] DIVE replanning task 'descend' after 500 turns of exploring
+[s11403 t9939 d8 0:8 xl6 hp59/59] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/base/pf_v37/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/base/pf_v37/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_v37/agent.py", line 290, in preempt
+    val = f()
+          ^^^
+  File "/sol/base/pf_v37/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/base/pf_v37/exploration_logic.py", line 490, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/base/pf_v37/agent.py", line 2044, in go_to
+    raise AgentPanic('end point is no longer accessible')
+pf_v37.exceptions.AgentPanic: end point is no longer accessible
+
+[s11461 t10004 d8 0:8 xl6 hp59/59] STATUS milestone=BE_ON_FIRST_LEVEL diving=True hunger=1 pos=(np.int64(7), np.int64(66)) acts=[NUM_5:78 SEARCH:78 W:31 SW:21 E:16] gotos=[open_visit_search(8, 71):5 open_visit_search(7, 71):5 open_visit_search(7, 69):5]
+[s11502 t10066 d8 0:8 xl6 hp59/59] GOTO path blocked at (7, 66): re-planning to (7, 65)
+[s11730 t10454 d8 0:8 xl6 hp59/59] DIVE replanning task 'descend' after 500 turns of exploring
+[s11730 t10454 d8 0:8 xl6 hp59/59] DIVE stuck in task 'descend' on level (np.int64(0), np.int64(8)) for 4086 turns; up stairs (y,x,dist)=[]
+
+
+
+
+
+
+
+                                                                ---------
+                                                                +.@?????|
+                                                                |.???+?+|
+                                                                |@??????|
+                                                                |.???+??|
+                                                                ---------
+
+
+
+
+
+
+
+
+
+Agent the Kunoichi             St:15 Dx:17 Co:17 In:8 Wi:7 Ch:9 Lawful S:2212
+Dlvl:8 $:98 HP:59(59) Pw:21(21) AC:3 Xp:6/441 T:10454 Fainting Burdened
+[s11739 t10504 d8 0:8 xl6 hp59/59] STATUS milestone=BE_ON_FIRST_LEVEL diving=True hunger=4 pos=(np.int64(10), np.int64(65)) acts=[NUM_5:58 SEARCH:58 SPACE:21 SW:17 W:17] gotos=[open_visit_search(8, 65):4 open_visit_search(9, 65):4 open_visit_search(10, 65):4]
+[s11749 t10520 d8 0:8 xl6 hp59/59] PRAY hp=59/59 hunger=4 gap=1114 reason=None model[ok200=0.96 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=40 p_answered=0.96]
+[s11754 t10523 d8 0:8 xl6 hp59/59] PRAY result ok model[ok200=0.22 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=40] prayers=7 failures=0
+[s12016 t10889 d8 0:8 xl6 hp59/59] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/base/pf_v37/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/base/pf_v37/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_v37/agent.py", line 288, in preempt
+    val = f.run()
+          ^^^^^^^
+  File "/sol/base/pf_v37/strategy.py", line 48, in run
+    next(gen)
+  File "/sol/base/pf_v37/exploration_logic.py", line 490, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/base/pf_v37/agent.py", line 2044, in go_to
+    raise AgentPanic('end point is no longer accessible')
+pf_v37.exceptions.AgentPanic: end point is no longer accessible
+
+[s12042 t10902 d8 0:8 xl6 hp59/59] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/base/pf_v37/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/base/pf_v37/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_v37/agent.py", line 290, in preempt
+    val = f()
+          ^^^
+  File "/sol/base/pf_v37/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/base/pf_v37/exploration_logic.py", line 490, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/base/pf_v37/agent.py", line 2044, in go_to
+    raise AgentPanic('end point is no longer accessible')
+pf_v37.exceptions.AgentPanic: end point is no longer accessible
+
+[s12120 t11004 d8 0:8 xl6 hp59/59] STATUS milestone=BE_ON_FIRST_LEVEL diving=True hunger=1 pos=(np.int64(7), np.int64(69)) acts=[NUM_5:78 SEARCH:78 SPACE:32 E:28 SW:23] gotos=[open_visit_search(7, 65):6 open_visit_search(10, 66):5 open_visit_search(10, 67):5]
+[s12391 t11406 d8 0:8 xl6 hp59/59] DIVE replanning task 'descend' after 500 turns of exploring
+[s12391 t11406 d8 0:8 xl6 hp59/59] DIVE stuck in task 'descend' on level (np.int64(0), np.int64(8)) for 5038 turns; up stairs (y,x,dist)=[]
+
+
+
+
+
+
+
+                                                                ---------
+                                                                +@??????|
+                                                                |.???+?+|
+                                                                |.??????|
+                                                                |.?@?+??|
+                                                                ---------
+
+
+
+
+
+
+
+
+
+Agent the Kunoichi             St:15 Dx:17 Co:16 In:8 Wi:7 Ch:9 Lawful S:2212
+Dlvl:8 $:98 HP:59(59) Pw:21(21) AC:3 Xp:6/441 T:11406 Weak Burdened
+[s12439 t11500 d8 0:8 xl6 hp59/59] STATUS milestone=BE_ON_FIRST_LEVEL diving=True hunger=4 pos=(np.int64(10), np.int64(65)) acts=[NUM_5:73 SEARCH:73 E:22 W:21 SPACE:20] gotos=[open_visit_search(7, 68):5 open_visit_search(7, 70):4 open_visit_search(7, 71):4]
+[s12488 t11627 d8 0:8 xl6 hp59/59] PRAY hp=59/59 hunger=4 gap=1104 reason=None model[ok200=0.96 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=40 p_answered=0.96]
+[s12493 t11630 d8 0:8 xl6 hp59/59] PRAY result ok model[ok200=0.22 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=40] prayers=8 failures=0
+[s12601 t11804 d8 0:8 xl6 hp59/59] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/base/pf_v37/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/base/pf_v37/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_v37/agent.py", line 290, in preempt
+    val = f()
+          ^^^
+  File "/sol/base/pf_v37/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/base/pf_v37/exploration_logic.py", line 490, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/base/pf_v37/agent.py", line 2044, in go_to
+    raise AgentPanic('end point is no longer accessible')
+pf_v37.exceptions.AgentPanic: end point is no longer accessible
+
+[s12749 t12002 d8 0:8 xl6 hp59/59] STATUS milestone=BE_ON_FIRST_LEVEL diving=True hunger=1 pos=(np.int64(10), np.int64(66)) acts=[NUM_5:64 SEARCH:64 SPACE:27 W:26 E:22] gotos=[open_visit_search(7, 70):4 open_visit_search(7, 71):4 open_visit_search(8, 71):4]
+[s12868 t12171 d8 0:8 xl6 hp59/59] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/base/pf_v37/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/base/pf_v37/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_v37/agent.py", line 290, in preempt
+    val = f()
+          ^^^
+  File "/sol/base/pf_v37/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/base/pf_v37/exploration_logic.py", line 490, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/base/pf_v37/agent.py", line 2044, in go_to
+    raise AgentPanic('end point is no longer accessible')
+pf_v37.exceptions.AgentPanic: end point is no longer accessible
+
+[s13110 t12500 d8 0:8 xl6 hp59/59] STATUS milestone=BE_ON_FIRST_LEVEL diving=True hunger=3 pos=(np.int64(7), np.int64(67)) acts=[NUM_5:76 SEARCH:76 W:33 E:26 SPACE:21] gotos=[open_visit_search(7, 65):6 open_visit_search(9, 65):5 open_visit_search(10, 65):5]
+[s13188 t12676 d8 0:8 xl6 hp59/59] DIVE replanning task 'descend' after 500 turns of exploring
+[s13188 t12676 d8 0:8 xl6 hp59/59] DIVE stuck in task 'descend' on level (np.int64(0), np.int64(8)) for 6308 turns; up stairs (y,x,dist)=[]
+You regain consciousness.
+
+
+
+
+
+
+                                                                ---------
+                                                                +.@?????|
+                                                                |.@??+?+|
+                                                                |.??????|
+                                                                |.???+??|
+                                                                ---------
+
+
+
+
+
+
+
+
+
+Agent the Kunoichi             St:15 Dx:17 Co:17 In:8 Wi:7 Ch:9 Lawful S:2212
+Dlvl:8 $:98 HP:59(59) Pw:21(21) AC:3 Xp:6/441 T:12676 Fainting Burdened
+[s13210 t12748 d8 0:8 xl6 hp59/59] PRAY hp=59/59 hunger=4 gap=1118 reason=None model[ok200=0.96 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=40 p_answered=0.96]
+[s13215 t12751 d8 0:8 xl6 hp59/59] PRAY result ok model[ok200=0.22 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=40] prayers=9 failures=0
+[s13231 t12764 d8 0:8 xl6 hp59/59] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/base/pf_v37/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/base/pf_v37/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_v37/agent.py", line 290, in preempt
+    val = f()
+          ^^^
+  File "/sol/base/pf_v37/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/base/pf_v37/exploration_logic.py", line 490, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/base/pf_v37/agent.py", line 2044, in go_to
+    raise AgentPanic('end point is no longer accessible')
+pf_v37.exceptions.AgentPanic: end point is no longer accessible
+
+[s13403 t13001 d8 0:8 xl6 hp59/59] STATUS milestone=BE_ON_FIRST_LEVEL diving=True hunger=1 pos=(np.int64(8), np.int64(71)) acts=[NUM_5:60 SEARCH:60 SPACE:24 W:19 E:19] gotos=[open_visit_search(7, 66):4 open_visit_search(7, 68):4 open_visit_search(7, 69):4]
+[s13441 t13060 d8 0:8 xl6 hp59/59] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/base/pf_v37/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/base/pf_v37/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_v37/agent.py", line 290, in preempt
+    val = f()
+          ^^^
+  File "/sol/base/pf_v37/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/base/pf_v37/exploration_logic.py", line 490, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/base/pf_v37/agent.py", line 2044, in go_to
+    raise AgentPanic('end point is no longer accessible')
+pf_v37.exceptions.AgentPanic: end point is no longer accessible
+
+[s13556 t13204 d8 0:8 xl6 hp59/59] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/base/pf_v37/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/base/pf_v37/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_v37/agent.py", line 290, in preempt
+    val = f()
+          ^^^
+  File "/sol/base/pf_v37/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/base/pf_v37/exploration_logic.py", line 490, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/base/pf_v37/agent.py", line 2044, in go_to
+    raise AgentPanic('end point is no longer accessible')
+pf_v37.exceptions.AgentPanic: end point is no longer accessible
+
+[s13766 t13501 d8 0:8 xl6 hp59/59] STATUS milestone=BE_ON_FIRST_LEVEL diving=True hunger=2 pos=(np.int64(10), np.int64(65)) acts=[NUM_5:79 SEARCH:79 W:36 E:31 SPACE:19] gotos=[open_visit_search(7, 65):6 open_visit_search(10, 66):5 open_visit_search(10, 65):5]
+[s13905 t13714 d8 0:8 xl6 hp59/59] DIVE replanning task 'descend' after 500 turns of exploring
+[s13905 t13714 d8 0:8 xl6 hp59/59] DIVE stuck in task 'descend' on level (np.int64(0), np.int64(8)) for 7346 turns; up stairs (y,x,dist)=[]
+You faint from lack of food.  You regain consciousness.
+
+
+
+
+
+
+                                                                ---------
+                                                                +@??????|
+                                                                |.?@?+?+|
+                                                                |.??????|
+                                                                |.???+??|
+                                                                ---------
+
+
+
+
+
+
+
+
+
+Agent the Kunoichi             St:15 Dx:17 Co:17 In:8 Wi:7 Ch:9 Lawful S:2212
+Dlvl:8 $:98 HP:59(59) Pw:21(21) AC:3 Xp:6/441 T:13714 Fainting Burdened
+[s13962 t13852 d8 0:8 xl6 hp59/59] PRAY hp=59/59 hunger=4 gap=1101 reason=None model[ok200=0.96 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=40 p_answered=0.96]
+[s13967 t13855 d8 0:8 xl6 hp59/59] PRAY result ok model[ok200=0.22 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=40] prayers=10 failures=0
+[s14065 t14000 d8 0:8 xl6 hp59/59] STATUS milestone=BE_ON_FIRST_LEVEL diving=True hunger=1 pos=(np.int64(8), np.int64(66)) acts=[NUM_5:59 SEARCH:59 SPACE:33 W:23 E:21] gotos=[open_visit_search(10, 67):4 open_visit_search(10, 68):4 open_visit_search(10, 69):4]
+[s14317 t14357 d8 0:8 xl6 hp59/59] DIVE replanning task 'descend' after 500 turns of exploring
+[s14337 t14379 d8 0:8 xl6 hp59/59] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/base/pf_v37/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/base/pf_v37/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_v37/agent.py", line 290, in preempt
+    val = f()
+          ^^^
+  File "/sol/base/pf_v37/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/base/pf_v37/exploration_logic.py", line 490, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/base/pf_v37/agent.py", line 2044, in go_to
+    raise AgentPanic('end point is no longer accessible')
+pf_v37.exceptions.AgentPanic: end point is no longer accessible
+
+[s14353 t14379 d8 0:8 xl6 hp59/59] DIVE stuck in task 'descend' on level (np.int64(0), np.int64(8)) for 8011 turns; up stairs (y,x,dist)=[]
+
+
+
+
+
+
+
+                                                                ---------
+                                                                +@@?????|
+                                                                |.???+?+|
+                                                                |.??????|
+                                                                |.???+??|
+                                                                ---------
+
+
+
+
+
+
+
+
+
+Agent the Kunoichi             St:15 Dx:17 Co:16 In:8 Wi:7 Ch:9 Lawful S:2212
+Dlvl:8 $:98 HP:59(59) Pw:21(21) AC:3 Xp:6/441 T:14379 Burdened
+[s14435 t14501 d8 0:8 xl6 hp59/59] STATUS milestone=BE_ON_FIRST_LEVEL diving=True hunger=1 pos=(np.int64(7), np.int64(69)) acts=[NUM_5:78 SEARCH:78 SPACE:26 E:26 W:24] gotos=[open_visit_search(7, 69):6 open_visit_search(7, 65):6 open_visit_search(7, 68):5]
+[s14509 t14610 d8 0:8 xl6 hp59/59] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/base/pf_v37/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/base/pf_v37/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_v37/agent.py", line 290, in preempt
+    val = f()
+          ^^^
+  File "/sol/base/pf_v37/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/base/pf_v37/exploration_logic.py", line 490, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/base/pf_v37/agent.py", line 2044, in go_to
+    raise AgentPanic('end point is no longer accessible')
+pf_v37.exceptions.AgentPanic: end point is no longer accessible
+
+[s14682 t14902 d8 0:8 xl6 hp59/59] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/base/pf_v37/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/base/pf_v37/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_v37/agent.py", line 290, in preempt
+    val = f()
+          ^^^
+  File "/sol/base/pf_v37/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/base/pf_v37/exploration_logic.py", line 490, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/base/pf_v37/agent.py", line 2044, in go_to
+    raise AgentPanic('end point is no longer accessible')
+pf_v37.exceptions.AgentPanic: end point is no longer accessible
+
+[s14712 t14945 d8 0:8 xl6 hp59/59] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/base/pf_v37/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/base/pf_v37/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_v37/agent.py", line 290, in preempt
+    val = f()
+          ^^^
+  File "/sol/base/pf_v37/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/base/pf_v37/exploration_logic.py", line 490, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/base/pf_v37/agent.py", line 2044, in go_to
+    raise AgentPanic('end point is no longer accessible')
+pf_v37.exceptions.AgentPanic: end point is no longer accessible
+
+[s14730 t14963 d8 0:8 xl6 hp59/59] PRAY hp=59/59 hunger=4 gap=1108 reason=None model[ok200=0.96 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=40 p_answered=0.96]
+[s14735 t14967 d8 0:8 xl6 hp59/59] PRAY result ok model[ok200=0.22 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=40] prayers=11 failures=0
+[s14760 t15003 d8 0:8 xl6 hp59/59] STATUS milestone=BE_ON_FIRST_LEVEL diving=True hunger=1 pos=(np.int64(7), np.int64(69)) acts=[NUM_5:58 SEARCH:58 SPACE:42 SW:19 E:18] gotos=[open_visit_search(7, 65):7 open_visit_search(7, 66):5 open_visit_search(7, 68):4]
+[s15090 t15469 d8 0:8 xl6 hp59/59] DIVE replanning task 'descend' after 500 turns of exploring
+[s15090 t15469 d8 0:8 xl6 hp59/59] DIVE stuck in task 'descend' on level (np.int64(0), np.int64(8)) for 9101 turns; up stairs (y,x,dist)=[]
+You hear a jackal howling at the moon.
+
+
+
+
+
+
+                                                                ---------
+                                                                +@??????|
+                                                                |.???+?+|
+                                                                |.??????|
+                                                                |.???@??|
+                                                                ---------
+
+
+
+
+
+
+
+
+
+Agent the Kunoichi             St:15 Dx:17 Co:16 In:8 Wi:7 Ch:9 Lawful S:2212
+Dlvl:8 $:98 HP:59(59) Pw:21(21) AC:3 Xp:6/441 T:15469 Burdened
+[s15108 t15500 d8 0:8 xl6 hp59/59] STATUS milestone=BE_ON_FIRST_LEVEL diving=True hunger=1 pos=(np.int64(8), np.int64(65)) acts=[NUM_5:78 SEARCH:78 W:26 SPACE:23 SW:20] gotos=[open_visit_search(7, 71):5 open_visit_search(8, 71):5 open_visit_search(9, 71):5]
+[s15135 t15533 d8 0:8 xl6 hp59/59] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/base/pf_v37/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/base/pf_v37/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_v37/agent.py", line 290, in preempt
+    val = f()
+          ^^^
+  File "/sol/base/pf_v37/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/base/pf_v37/exploration_logic.py", line 490, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/base/pf_v37/agent.py", line 2044, in go_to
+    raise AgentPanic('end point is no longer accessible')
+pf_v37.exceptions.AgentPanic: end point is no longer accessible
+
+[s15135 t15533 d8 0:8 xl6 hp59/59] panic loop: random walk (AgentPanic:end point is no longer accessible)
+[s15560 t16000 d8 0:8 xl6 hp59/59] STATUS milestone=BE_ON_FIRST_LEVEL diving=True hunger=4 pos=(np.int64(7), np.int64(71)) acts=[WAIT:114 SPACE:56 SEARCH:50 NUM_5:44 W:21] gotos=[open_visit_search(7, 65):4 open_visit_search(7, 66):3 open_visit_search(7, 67):3]
+[s15586 t16069 d8 0:8 xl6 hp59/59] PRAY hp=59/59 hunger=4 gap=1102 reason=None model[ok200=0.96 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=40 p_answered=0.96]
+[s15591 t16072 d8 0:8 xl6 hp59/59] PRAY result ok model[ok200=0.22 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=40] prayers=12 failures=0
+[s15836 t16383 d8 0:8 xl6 hp59/59] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/base/pf_v37/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/base/pf_v37/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_v37/agent.py", line 288, in preempt
+    val = f.run()
+          ^^^^^^^
+  File "/sol/base/pf_v37/strategy.py", line 48, in run
+    next(gen)
+  File "/sol/base/pf_v37/exploration_logic.py", line 490, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/base/pf_v37/agent.py", line 2044, in go_to
+    raise AgentPanic('end point is no longer accessible')
+pf_v37.exceptions.AgentPanic: end point is no longer accessible
+
+[s15852 t16383 d8 0:8 xl6 hp59/59] DIVE stuck in task 'descend' on level (np.int64(0), np.int64(8)) for 10015 turns; up stairs (y,x,dist)=[]
+
+
+
+
+
+
+
+                                                                ---------
+                                                                +@@?????|
+                                                                |.???+?+|
+                                                                |.???)??|
+                                                                |.)??+??|
+                                                                ---------
+
+
+
+
+
+
+
+
+
+Agent the Kunoichi             St:15 Dx:17 Co:16 In:8 Wi:7 Ch:9 Lawful S:2212
+Dlvl:8 $:98 HP:59(59) Pw:21(21) AC:3 Xp:6/441 T:16383 Burdened
+[s15862 t16398 d8 0:8 xl6 hp59/59] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/base/pf_v37/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/base/pf_v37/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_v37/agent.py", line 290, in preempt
+    val = f()
+          ^^^
+  File "/sol/base/pf_v37/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/base/pf_v37/exploration_logic.py", line 490, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/base/pf_v37/agent.py", line 2044, in go_to
+    raise AgentPanic('end point is no longer accessible')
+pf_v37.exceptions.AgentPanic: end point is no longer accessible
+
+[s15888 t16417 d8 0:8 xl6 hp59/59] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/base/pf_v37/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/base/pf_v37/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_v37/agent.py", line 290, in preempt
+    val = f()
+          ^^^
+  File "/sol/base/pf_v37/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/base/pf_v37/exploration_logic.py", line 490, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/base/pf_v37/agent.py", line 2044, in go_to
+    raise AgentPanic('end point is no longer accessible')
+pf_v37.exceptions.AgentPanic: end point is no longer accessible
+
+[s15908 t16422 d8 0:8 xl6 hp59/59] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/base/pf_v37/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/base/pf_v37/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_v37/agent.py", line 290, in preempt
+    val = f()
+          ^^^
+  File "/sol/base/pf_v37/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/base/pf_v37/exploration_logic.py", line 490, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/base/pf_v37/agent.py", line 2044, in go_to
+    raise AgentPanic('end point is no longer accessible')
+pf_v37.exceptions.AgentPanic: end point is no longer accessible
+
+[s15930 t16431 d8 0:8 xl6 hp59/59] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/base/pf_v37/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/base/pf_v37/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_v37/agent.py", line 290, in preempt
+    val = f()
+          ^^^
+  File "/sol/base/pf_v37/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/base/pf_v37/exploration_logic.py", line 490, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/base/pf_v37/agent.py", line 2044, in go_to
+    raise AgentPanic('end point is no longer accessible')
+pf_v37.exceptions.AgentPanic: end point is no longer accessible
+
+[s15998 t16501 d8 0:8 xl6 hp59/59] STATUS milestone=BE_ON_FIRST_LEVEL diving=True hunger=1 pos=(np.int64(7), np.int64(71)) acts=[NUM_5:68 SEARCH:68 SPACE:66 SW:26 ESC:23] gotos=[open_visit_search(7, 65):9 open_visit_search(10, 66):5 open_visit_search(8, 71):4]
+[s16330 t16933 d8 0:8 xl6 hp59/59] DIVE replanning task 'descend' after 500 turns of exploring
+[s16377 t17008 d8 0:8 xl6 hp59/59] STATUS milestone=BE_ON_FIRST_LEVEL diving=True hunger=4 pos=(np.int64(7), np.int64(71)) acts=[NUM_5:73 SEARCH:73 SPACE:50 W:31 SW:20] gotos=[open_visit_search(7, 69):5 open_visit_search(10, 65):5 open_visit_search(10, 70):5]
+[s16390 t17022 d8 0:8 xl6 hp59/59] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/base/pf_v37/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/base/pf_v37/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/pf_v37/agent.py", line 290, in preempt
+    val = f()
+          ^^^
+  File "/sol/base/pf_v37/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/base/pf_v37/exploration_logic.py", line 490, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/base/pf_v37/agent.py", line 2044, in go_to
+    raise AgentPanic('end point is no longer accessible')
+pf_v37.exceptions.AgentPanic: end point is no longer accessible
+
+[s16451 t17173 d8 0:8 xl6 hp59/59] PRAY hp=59/59 hunger=4 gap=1101 reason=None model[ok200=0.96 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=40 p_answered=0.96]
+[s16456 t17176 d8 0:8 xl6 hp59/59] PRAY result ok model[ok200=0.22 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=40] prayers=13 failures=0
+[s16705 t17500 d8 0:8 xl6 hp59/59] STATUS milestone=BE_ON_FIRST_LEVEL diving=True hunger=1 pos=(np.int64(8), np.int64(71)) acts=[NUM_5:58 SEARCH:58 SPACE:46 E:23 SW:19] gotos=[open_visit_search(7, 65):5 open_visit_search(7, 70):4 open_visit_search(8, 71):4]
+[s16817 t17560 d8 0:8 xl6 hp9/59] DOOM prayer: gap 384 p_hp=0.75 p_die3=1.00
+[s16817 t17560 d8 0:8 xl6 hp9/59] PRAY hp=9/59 hunger=1 gap=384 reason=hp-doom p_hp=0.75 p_die3=1.00 model[ok200=0.75 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=40 p_answered=0.75]
+[s16837 t17563 d8 0:8 xl6 hp59/59] PRAY result ok model[ok200=0.22 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=40] prayers=14 failures=0
+[s16845 t17565 d8 0:8 xl6 hp41/59] ELBERETH rest start: ['rock mole', 'werewolf', 'killer bee', 'ape', 'monkey', 'wolf']
+[s17071 t17620 d8 0:8 xl6 hp34/59] PANIC AgentPanic: monsters differs between list and glyphs
+Traceback (most recent call last):
+  File "/sol/base/pf_v37/agent.py", line 2450, in _fight2_perform_action
+    self.search()
+  File "/sol/base/pf_v37/agent.py", line 1716, in search
+    with self.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/base/pf_v37/agent.py", line 180, in atom_operation
+    self.update_state()
+  File "/sol/base/pf_v37/agent.py", line 595, in update_state
+    func()
+  File "/sol/base/pf_v37/monster_tracker/monster_tracker.py", line 84, in update
+    raise AgentPanic('monsters differs between list and glyphs')
+pf_v37.exceptions.AgentPanic: monsters differs between list and glyphs
+
+[s17139 t17628 d8 0:8 xl6 hp22/59] ELBERETH rest start: ['wolf', 'rock mole']
+[s17315 t17665 d8 0:8 xl6 hp22/59] ELBERETH rest start: ['rock mole']
+[s17475 t17704 d8 0:8 xl6 hp2/59] DOOM prayer: gap 141 p_hp=0.49 p_die3=1.00
+[s17475 t17704 d8 0:8 xl6 hp2/59] PRAY hp=2/59 hunger=1 gap=141 reason=hp-doom p_hp=0.49 p_die3=1.00 model[ok200=0.49 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=45 p_answered=0.49]
