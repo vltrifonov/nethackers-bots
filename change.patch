@@ -1,0 +1,92 @@
+diff --git a/hed/nhbot/agent.py b/hed/nhbot/agent.py
+index 7f5c237..927ce4e 100644
+--- a/hed/nhbot/agent.py
++++ b/hed/nhbot/agent.py
+@@ -3286,24 +3286,22 @@ class Agent:
+                 yield True
+             self.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 255, 0), is_path=True))
+ 
+-        # TODO: checking level.corpses_to_eat again (moving to non-existing corpses often)
+-        if (target_y, target_x) in level.corpses_to_eat and monster_id in level.corpses_to_eat[target_y, target_x]:
+-            corpse_age = level.corpses_to_eat[target_y, target_x][monster_id]
+-            if level.shop[target_y, target_x]:
+-                del level.corpses_to_eat[target_y, target_x]
+-                return
+-            for item in self.inventory.items_below_me:
+-                # a stack of same-kind corpses has one merged (averaged) age we can't know: 'There are 2
+-                # raven corpses here; eat one?' -> 'Ulch - that meat was tainted!', dead at Dlvl 22
+-                if item.is_corpse() and item.monster_id == monster_id and item.count == 1:
+-                    if self._is_corpse_editable(monster_id, corpse_age):
+-                        if not yielded:
+-                            yielded = True
+-                            yield True
+-                        self.inventory.eat(item)
+-
+-            if not yielded:
+-                del level.corpses_to_eat[target_y, target_x][monster_id]
++        target = (target_y, target_x)
++        if self.current_level() is level and (self.blstats.y, self.blstats.x) == target:
++            records = level.corpses_to_eat.get(target, {})
++            corpse_age = records.get(monster_id)
++            if corpse_age is not None and not level.shop[target] and self._is_corpse_editable(monster_id, corpse_age):
++                # A stack of same-kind corpses can have a different age. Only offer the remembered single corpse.
++                meal = next((item for item in self.inventory.items_below_me
++                             if item.is_corpse() and item.monster_id == monster_id and item.count == 1), None)
++                if meal is not None:
++                    if not yielded:
++                        yield True
++                    with self.atom_operation():
++                        if not self.inventory.eat(meal):
++                            records.pop(monster_id, None)
++                    return
++            records.pop(monster_id, None)
+ 
+         if not yielded:
+             yield False
+diff --git a/hed/nhbot/item/inventory.py b/hed/nhbot/item/inventory.py
+index 89f4cf3..2950473 100644
+--- a/hed/nhbot/item/inventory.py
++++ b/hed/nhbot/item/inventory.py
+@@ -859,17 +859,20 @@ class Inventory:
+             if not quaff and item in self.items_below_me:
+                 with self.agent.atom_operation():
+                     self.agent.step(A.Command.EAT)
+-                    while '; eat it? [ynq]' in self.agent.message or \
+-                            '; eat one? [ynq]' in self.agent.message:
+-                        if f'{item.text} here; eat it? [ynq]' in self.agent.message or \
+-                                f'{item.text} here; eat one? [ynq]' in self.agent.message:
++                    prompt = self.agent.single_message
++                    while '; eat it? [ynq]' in prompt or '; eat one? [ynq]' in prompt:
++                        if f'{item.text} here; eat it? [ynq]' in prompt or \
++                                f'{item.text} here; eat one? [ynq]' in prompt:
+                             self.agent.type_text('y')
+                             return True
+                         self.agent.type_text('n')
+-                    # if "What do you want to eat?" in self.agent.message or \
+-                    #         "You don't have anything to eat." in self.agent.message:
++                        prompt = self.agent.single_message
++                    if item.is_corpse():
++                        if 'What do you want to eat?' in prompt:
++                            self.agent.step(A.Command.ESC)
++                        self._previous_blstats = None   # refresh the floor after a refused or vanished corpse
++                        return False
+                     raise AgentPanic('no such food is lying here')
+-                    assert 0, self.agent.message
+ 
+             # TODO: eat directly from ground if possible
+             item = self.move_to_inventory(item)
+diff --git a/nethackers.solution.json b/nethackers.solution.json
+index 0dee073..16ae9cb 100644
+--- a/nethackers.solution.json
++++ b/nethackers.solution.json
+@@ -1,8 +1,9 @@
+ {
+   "schema": "nethackers.solution/v1",
+-  "name": "vltrifonov-human-rogue-weak-threat",
++  "name": "vltrifonov-human-rogue-floor-corpse",
+   "root": ".",
+   "parents": [
++    "github.com/vltrifonov/nethackers-bots@2e7471b8cad5f02d3f63673d07e0a4e8b101a3f6",
+     "github.com/daglar-dragomirov/nethacker@5619c6e840249bcea2ab40aae8d8fd830567548e",
+     "github.com/daglar-dragomirov/nethacker@ccfb1251179bad749ece88d384956363ffb2db56",
+     "github.com/daglar-dragomirov/nethacker@44b29b9299c5dcfb76e3fc6081004727c58db19a",
