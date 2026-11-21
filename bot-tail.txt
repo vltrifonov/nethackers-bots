@@ -1,0 +1,419 @@
+[s22 t1 d1 0:1 xl1 hp14/14] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(15), np.int64(60)) acts=[SPACE:6 ESC:3 AUTOPICKUP:2 ATTRIBUTES:1 ENHANCE:1] gotos=[]
+[s22 t1 d1 0:1 xl1 hp14/14] DIVE level (np.int64(0), np.int64(1)) depth 1
+[s582 t399 d1 0:1 xl1 hp14/14] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/pf_s25p8/item/inventory.py", line 602, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/pf_s25p8/agent.py", line 186, in atom_operation
+    self.update_state()
+  File "/sol/pf_s25p8/agent.py", line 694, in update_state
+    self.call_update_functions()
+  File "/sol/pf_s25p8/agent.py", line 705, in call_update_functions
+    func()
+  File "/sol/pf_s25p8/item/inventory.py", line 159, in f
+    raise AgentPanic('items below me changed')
+pf_s25p8.exceptions.AgentPanic: items below me changed
+
+[s741 t500 d1 0:1 xl2 hp22/22] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(13), np.int64(32)) acts=[SEARCH:178 SPACE:68 W:51 S:44 N:43] gotos=[open_visit_search(8, 51):10 open_visit_search(14, 27):6 check_items(2, 15):6]
+[s822 t548 d1 0:1 xl2 hp22/22] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/pf_s25p8/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_s25p8/agent.py", line 307, in preempt
+    next(iterator)
+  File "/sol/pf_s25p8/strategy.py", line 68, in f
+    next(it)
+  File "/sol/pf_s25p8/utils.py", line 134, in f
+    next(it)
+  File "/sol/pf_s25p8/agent.py", line 3038, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/pf_s25p8/item/inventory.py", line 857, in eat
+    raise AgentPanic('no such food is lying here')
+pf_s25p8.exceptions.AgentPanic: no such food is lying here
+
+[s842 t551 d1 0:1 xl2 hp22/22] PANIC AgentPanic: agent position do not match after "move": expected (17, 45), got (16, 46)
+Traceback (most recent call last):
+  File "/sol/pf_s25p8/agent.py", line 307, in preempt
+    next(iterator)
+  File "/sol/pf_s25p8/strategy.py", line 68, in f
+    next(it)
+  File "/sol/pf_s25p8/utils.py", line 134, in f
+    next(it)
+  File "/sol/pf_s25p8/agent.py", line 3022, in eat_corpses_from_ground
+    self.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 255, 0), is_path=True))
+  File "/sol/pf_s25p8/agent.py", line 2339, in go_to
+    self.move(y, x)
+  File "/sol/pf_s25p8/agent.py", line 2008, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_s25p8.exceptions.AgentPanic: agent position do not match after "move": expected (17, 45), got (16, 46)
+
+[s1123 t864 d1 0:1 xl2 hp22/22] PRAY hp=22/22 hunger=3 gap=None reason=None model[ok200=1.00 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=12 p_answered=1.00]
+[s1127 t867 d1 0:1 xl2 hp22/22] PRAY result ok model[ok200=0.22 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=12] prayers=1 failures=0
+[s1188 t934 d1 0:1 xl2 hp22/22] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/pf_s25p8/item/inventory.py", line 602, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/pf_s25p8/agent.py", line 186, in atom_operation
+    self.update_state()
+  File "/sol/pf_s25p8/agent.py", line 694, in update_state
+    self.call_update_functions()
+  File "/sol/pf_s25p8/agent.py", line 705, in call_update_functions
+    func()
+  File "/sol/pf_s25p8/item/inventory.py", line 159, in f
+    raise AgentPanic('items below me changed')
+pf_s25p8.exceptions.AgentPanic: items below me changed
+
+[s1273 t1000 d1 0:1 xl2 hp22/22] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(11), np.int64(49)) acts=[SEARCH:101 NUM_5:48 E:47 W:42 SPACE:34] gotos=[open_visit_search(12, 63):8 check_items(7, 69):5 _fight2_perform_action(18, 49):4]
+[s1650 t1319 d1 0:1 xl2 hp22/22] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/pf_s25p8/item/inventory.py", line 602, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/pf_s25p8/agent.py", line 186, in atom_operation
+    self.update_state()
+  File "/sol/pf_s25p8/agent.py", line 694, in update_state
+    self.call_update_functions()
+  File "/sol/pf_s25p8/agent.py", line 705, in call_update_functions
+    func()
+  File "/sol/pf_s25p8/item/inventory.py", line 159, in f
+    raise AgentPanic('items below me changed')
+pf_s25p8.exceptions.AgentPanic: items below me changed
+
+[s1846 t1500 d1 0:1 xl3 hp27/27] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(2), np.int64(20)) acts=[SEARCH:59 SPACE:53 NUM_5:49 SW:40 W:39] gotos=[check_items(17, 42):7 offer_corpses(14, 18):4 eat_corpses_from_ground(12, 14):2]
+[s2202 t1988 d1 0:1 xl3 hp26/27] RANGED hit: holds and Elbereth waits off for 8 turns
+[s2228 t2006 d1 0:1 xl3 hp27/27] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=0 pos=(np.int64(5), np.int64(19)) acts=[SEARCH:78 NUM_5:72 W:26 S:20 E:19] gotos=[open_visit_search(12, 34):3 open_visit_search(2, 19):2 open_visit_search(4, 15):2]
+[s2232 t2006 d1 0:1 xl3 hp27/27] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/pf_s25p8/item/inventory.py", line 602, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/pf_s25p8/agent.py", line 186, in atom_operation
+    self.update_state()
+  File "/sol/pf_s25p8/agent.py", line 694, in update_state
+    self.call_update_functions()
+  File "/sol/pf_s25p8/agent.py", line 705, in call_update_functions
+    func()
+  File "/sol/pf_s25p8/item/inventory.py", line 159, in f
+    raise AgentPanic('items below me changed')
+pf_s25p8.exceptions.AgentPanic: items below me changed
+
+[s2660 t2504 d1 0:1 xl3 hp27/27] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(5), np.int64(7)) acts=[SEARCH:94 NUM_5:68 W:38 E:35 SPACE:26] gotos=[open_visit_search(13, 14):2 open_visit_search(13, 18):2 open_visit_search(14, 19):2]
+[s2779 t2591 d1 0:1 xl3 hp27/27] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/pf_s25p8/item/inventory.py", line 602, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/pf_s25p8/agent.py", line 186, in atom_operation
+    self.update_state()
+  File "/sol/pf_s25p8/agent.py", line 694, in update_state
+    self.call_update_functions()
+  File "/sol/pf_s25p8/agent.py", line 705, in call_update_functions
+    func()
+  File "/sol/pf_s25p8/item/inventory.py", line 159, in f
+    raise AgentPanic('items below me changed')
+pf_s25p8.exceptions.AgentPanic: items below me changed
+
+[s3128 t3000 d1 0:1 xl4 hp35/35] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(10), np.int64(28)) acts=[SEARCH:73 NUM_5:61 SPACE:36 S:29 E:26] gotos=[open_visit_search(13, 19):2 open_visit_search(17, 14):2 eat_corpses_from_ground(12, 14):2]
+[s3288 t3114 d1 0:1 xl4 hp35/35] FIGHT stall of 36 turns ended (kill): ['gas spore']
+[s3300 t3123 d1 0:1 xl4 hp35/35] PANIC AgentPanic: agent position do not match after "move": expected (10, 35), got (9, 34)
+Traceback (most recent call last):
+  File "/sol/pf_s25p8/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_s25p8/agent.py", line 294, in preempt
+    val = f.run()
+          ^^^^^^^
+  File "/sol/pf_s25p8/strategy.py", line 48, in run
+    next(gen)
+  File "/sol/pf_s25p8/exploration_logic.py", line 520, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/pf_s25p8/agent.py", line 2339, in go_to
+    self.move(y, x)
+  File "/sol/pf_s25p8/agent.py", line 2008, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_s25p8.exceptions.AgentPanic: agent position do not match after "move": expected (10, 35), got (9, 34)
+
+[s3335 t3149 d1 0:1 xl4 hp35/35] PANIC AgentPanic: agent position do not match after "move": expected (14, 46), got (15, 47)
+Traceback (most recent call last):
+  File "/sol/pf_s25p8/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_s25p8/agent.py", line 296, in preempt
+    val = f()
+          ^^^
+  File "/sol/pf_s25p8/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/pf_s25p8/exploration_logic.py", line 520, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/pf_s25p8/agent.py", line 2339, in go_to
+    self.move(y, x)
+  File "/sol/pf_s25p8/agent.py", line 2008, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_s25p8.exceptions.AgentPanic: agent position do not match after "move": expected (14, 46), got (15, 47)
+
+[s3420 t3202 d1 0:1 xl4 hp35/35] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/pf_s25p8/item/inventory.py", line 602, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/pf_s25p8/agent.py", line 186, in atom_operation
+    self.update_state()
+  File "/sol/pf_s25p8/agent.py", line 694, in update_state
+    self.call_update_functions()
+  File "/sol/pf_s25p8/agent.py", line 705, in call_update_functions
+    func()
+  File "/sol/pf_s25p8/item/inventory.py", line 159, in f
+    raise AgentPanic('items below me changed')
+pf_s25p8.exceptions.AgentPanic: items below me changed
+
+[s3677 t3462 d1 0:1 xl4 hp35/35] PRAY hp=35/35 hunger=3 gap=2595 reason=None model[ok200=1.00 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=27 p_answered=1.00]
+[s3681 t3465 d1 0:1 xl4 hp35/35] PRAY result ok model[ok200=0.22 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=27] prayers=2 failures=0
+[s3708 t3501 d1 0:1 xl4 hp35/35] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(7), np.int64(40)) acts=[SEARCH:95 NUM_5:56 SPACE:53 W:47 E:44] gotos=[open_visit_search(17, 46):4 open_visit_search(2, 53):3 open_visit_search(0, 53):3]
+[s3946 t3664 d1 0:1 xl4 hp35/35] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/pf_s25p8/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_s25p8/agent.py", line 307, in preempt
+    next(iterator)
+  File "/sol/pf_s25p8/strategy.py", line 68, in f
+    next(it)
+  File "/sol/pf_s25p8/utils.py", line 134, in f
+    next(it)
+  File "/sol/pf_s25p8/agent.py", line 3038, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/pf_s25p8/item/inventory.py", line 857, in eat
+    raise AgentPanic('no such food is lying here')
+pf_s25p8.exceptions.AgentPanic: no such food is lying here
+
+[s4026 t3707 d1 0:1 xl4 hp33/35] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/pf_s25p8/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_s25p8/agent.py", line 307, in preempt
+    next(iterator)
+  File "/sol/pf_s25p8/strategy.py", line 68, in f
+    next(it)
+  File "/sol/pf_s25p8/utils.py", line 134, in f
+    next(it)
+  File "/sol/pf_s25p8/agent.py", line 3038, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/pf_s25p8/item/inventory.py", line 857, in eat
+    raise AgentPanic('no such food is lying here')
+pf_s25p8.exceptions.AgentPanic: no such food is lying here
+
+[s4044 t3712 d1 0:1 xl4 hp34/35] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/pf_s25p8/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_s25p8/agent.py", line 307, in preempt
+    next(iterator)
+  File "/sol/pf_s25p8/strategy.py", line 68, in f
+    next(it)
+  File "/sol/pf_s25p8/utils.py", line 134, in f
+    next(it)
+  File "/sol/pf_s25p8/agent.py", line 3038, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/pf_s25p8/item/inventory.py", line 857, in eat
+    raise AgentPanic('no such food is lying here')
+pf_s25p8.exceptions.AgentPanic: no such food is lying here
+
+[s4264 t3877 d1 0:1 xl4 hp22/35] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/pf_s25p8/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_s25p8/agent.py", line 307, in preempt
+    next(iterator)
+  File "/sol/pf_s25p8/strategy.py", line 68, in f
+    next(it)
+  File "/sol/pf_s25p8/utils.py", line 134, in f
+    next(it)
+  File "/sol/pf_s25p8/agent.py", line 3038, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/pf_s25p8/item/inventory.py", line 857, in eat
+    raise AgentPanic('no such food is lying here')
+pf_s25p8.exceptions.AgentPanic: no such food is lying here
+
+[s4287 t3882 d1 0:1 xl4 hp23/35] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/pf_s25p8/item/inventory.py", line 602, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/pf_s25p8/agent.py", line 186, in atom_operation
+    self.update_state()
+  File "/sol/pf_s25p8/agent.py", line 694, in update_state
+    self.call_update_functions()
+  File "/sol/pf_s25p8/agent.py", line 705, in call_update_functions
+    func()
+  File "/sol/pf_s25p8/item/inventory.py", line 159, in f
+    raise AgentPanic('items below me changed')
+pf_s25p8.exceptions.AgentPanic: items below me changed
+
+[s4366 t3932 d1 0:1 xl4 hp24/35] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/pf_s25p8/item/inventory.py", line 602, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/pf_s25p8/agent.py", line 186, in atom_operation
+    self.update_state()
+  File "/sol/pf_s25p8/agent.py", line 694, in update_state
+    self.call_update_functions()
+  File "/sol/pf_s25p8/agent.py", line 705, in call_update_functions
+    func()
+  File "/sol/pf_s25p8/item/inventory.py", line 159, in f
+    raise AgentPanic('items below me changed')
+pf_s25p8.exceptions.AgentPanic: items below me changed
+
+[s4473 t3996 d1 0:1 xl4 hp30/35] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/pf_s25p8/item/inventory.py", line 602, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/pf_s25p8/agent.py", line 186, in atom_operation
+    self.update_state()
+  File "/sol/pf_s25p8/agent.py", line 694, in update_state
+    self.call_update_functions()
+  File "/sol/pf_s25p8/agent.py", line 705, in call_update_functions
+    func()
+  File "/sol/pf_s25p8/item/inventory.py", line 159, in f
+    raise AgentPanic('items below me changed')
+pf_s25p8.exceptions.AgentPanic: items below me changed
+
+[s4503 t4000 d1 0:1 xl4 hp31/35] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=0 pos=(np.int64(7), np.int64(23)) acts=[SPACE:127 S:58 SW:54 NW:47 SEARCH:43] gotos=[offer_corpses(14, 18):6 open_visit_search(15, 58):3 open_visit_search(12, 56):2]
+[s5025 t4473 d1 0:1 xl5 hp39/43] RANGED hit: holds and Elbereth waits off for 8 turns
+[s5079 t4500 d1 0:1 xl5 hp42/43] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(12), np.int64(39)) acts=[SPACE:66 SEARCH:65 NUM_5:45 E:43 SE:37] gotos=[offer_corpses(14, 18):4 open_visit_search(10, 38):3 open_visit_search(5, 23):2]
+[s5345 t4657 d1 0:1 xl5 hp43/43] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/pf_s25p8/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_s25p8/agent.py", line 307, in preempt
+    next(iterator)
+  File "/sol/pf_s25p8/strategy.py", line 68, in f
+    next(it)
+  File "/sol/pf_s25p8/utils.py", line 134, in f
+    next(it)
+  File "/sol/pf_s25p8/agent.py", line 3038, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/pf_s25p8/item/inventory.py", line 857, in eat
+    raise AgentPanic('no such food is lying here')
+pf_s25p8.exceptions.AgentPanic: no such food is lying here
+
+[s5587 t4854 d2 0:2 xl5 hp43/43] DIVE level (np.int64(0), np.int64(2)) depth 2
+[s5722 t4950 d2 0:2 xl5 hp41/43] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/pf_s25p8/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_s25p8/agent.py", line 307, in preempt
+    next(iterator)
+  File "/sol/pf_s25p8/strategy.py", line 68, in f
+    next(it)
+  File "/sol/pf_s25p8/utils.py", line 134, in f
+    next(it)
+  File "/sol/pf_s25p8/agent.py", line 3038, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/pf_s25p8/item/inventory.py", line 857, in eat
+    raise AgentPanic('no such food is lying here')
+pf_s25p8.exceptions.AgentPanic: no such food is lying here
+
+[s5802 t5000 d2 0:2 xl5 hp43/43] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=2 pos=(np.int64(8), np.int64(34)) acts=[SEARCH:93 SPACE:76 NW:51 W:49 SW:49] gotos=[open_visit_search(13, 62):7 _fight2_perform_action(3, 58):6 check_items(10, 37):5]
+[s6459 t5500 d2 0:2 xl5 hp43/43] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(3), np.int64(41)) acts=[SEARCH:192 E:77 W:73 SPACE:52 SW:30] gotos=[check_items(18, 20):6 open_visit_search(18, 26):5 open_visit_search(3, 37):4]
+[s6582 t5590 d2 0:2 xl5 hp43/43] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/pf_s25p8/strategy.py", line 190, in f
+    next(it)
+  File "/sol/pf_s25p8/strategy.py", line 165, in f
+    next(gen)
+  File "/sol/pf_s25p8/strategy.py", line 100, in f
+    next(v1)
+  File "/sol/pf_s25p8/utils.py", line 134, in f
+    next(it)
+  File "/sol/pf_s25p8/item/inventory.py", line 1672, in check_items
+    self.agent.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 0, 255), is_path=True))
+  File "/sol/pf_s25p8/agent.py", line 2311, in go_to
+    raise AgentPanic('end point is no longer accessible')
+pf_s25p8.exceptions.AgentPanic: end point is no longer accessible
+
+[s6646 t5623 d2 0:2 xl5 hp43/43] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/pf_s25p8/item/inventory.py", line 602, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/pf_s25p8/agent.py", line 186, in atom_operation
+    self.update_state()
+  File "/sol/pf_s25p8/agent.py", line 694, in update_state
+    self.call_update_functions()
+  File "/sol/pf_s25p8/agent.py", line 705, in call_update_functions
+    func()
+  File "/sol/pf_s25p8/item/inventory.py", line 159, in f
+    raise AgentPanic('items below me changed')
+pf_s25p8.exceptions.AgentPanic: items below me changed
+
+[s6690 t5628 d2 0:2 xl5 hp43/43] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/pf_s25p8/item/inventory.py", line 602, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/pf_s25p8/agent.py", line 186, in atom_operation
+    self.update_state()
+  File "/sol/pf_s25p8/agent.py", line 694, in update_state
+    self.call_update_functions()
+  File "/sol/pf_s25p8/agent.py", line 705, in call_update_functions
+    func()
+  File "/sol/pf_s25p8/item/inventory.py", line 159, in f
+    raise AgentPanic('items below me changed')
+pf_s25p8.exceptions.AgentPanic: items below me changed
+
+[s6837 t5720 d2 0:2 xl5 hp43/43] PANIC AgentPanic: agent position do not match after "move": expected (14, 26), got (15, 25)
+Traceback (most recent call last):
+  File "/sol/pf_s25p8/agent.py", line 307, in preempt
+    next(iterator)
+  File "/sol/pf_s25p8/strategy.py", line 68, in f
+    next(it)
+  File "/sol/pf_s25p8/utils.py", line 134, in f
+    next(it)
+  File "/sol/pf_s25p8/agent.py", line 3022, in eat_corpses_from_ground
+    self.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 255, 0), is_path=True))
+  File "/sol/pf_s25p8/agent.py", line 2339, in go_to
+    self.move(y, x)
+  File "/sol/pf_s25p8/agent.py", line 2008, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_s25p8.exceptions.AgentPanic: agent position do not match after "move": expected (14, 26), got (15, 25)
+
+[s6920 t5781 d3 0:3 xl5 hp43/43] DIVE level (np.int64(0), np.int64(3)) depth 3
+[s7043 t5879 d3 0:3 xl5 hp43/43] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/pf_s25p8/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_s25p8/agent.py", line 307, in preempt
+    next(iterator)
+  File "/sol/pf_s25p8/strategy.py", line 68, in f
+    next(it)
+  File "/sol/pf_s25p8/utils.py", line 134, in f
+    next(it)
+  File "/sol/pf_s25p8/agent.py", line 3038, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/pf_s25p8/item/inventory.py", line 857, in eat
+    raise AgentPanic('no such food is lying here')
+pf_s25p8.exceptions.AgentPanic: no such food is lying here
+
+[s7196 t6000 d3 0:3 xl5 hp43/43] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(9), np.int64(44)) acts=[SEARCH:127 W:67 E:67 SPACE:63 SW:41] gotos=[check_items(4, 38):7 check_items(5, 28):6 check_items(15, 13):5]
