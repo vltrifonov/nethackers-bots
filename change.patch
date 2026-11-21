@@ -1,0 +1,20 @@
+diff --git a/nhbot/dive_logic.py b/nhbot/dive_logic.py
+index 19e4ceb..dbcd37f 100644
+--- a/nhbot/dive_logic.py
++++ b/nhbot/dive_logic.py
+@@ -8396,7 +8396,15 @@ class DiveLogic:
+             return
+         if kind == 'deep_rest':
+             if getattr(self, '_deep_rest_logged', None) != self._deep_scare:
++                pos = (int(bl.y), int(bl.x))
++                level = agent.current_level()
+                 self._deep_rest_logged = self._deep_scare
++                agent.log(f'DEEP_REST_DIAG at {pos} variant={self._medusa_variant_name()} '
++                          f'object={int(level.objects[pos])} wet={self._wet_neighbours(*pos)} '
++                          f'pit={self._in_own_pit()} diggable_dry={self._diggable_spot(*pos)} '
++                          f'light={not agent.character.prop.blind} ranged_age={bl.time - self._ranged_hit_turn} '
++                          f'near={[(m[3].mname, d) for d, m in self._deep_threats(radius=3)]} '
++                          f'hit_log={self._hp_history[-6:]}')
+                 agent.log(f'DEEP_ITEMS resting on our scroll of scare monster{" (blind)" if agent.character.prop.blind else ""}, {hp}')
+             # a scared monster that can't get away stays next to us: strike it from the square (no penalty there,
+             # unlike from an Elbereth: uhitm.c u_wipe_engr), never stepping off (as _scare_hold_loop)
