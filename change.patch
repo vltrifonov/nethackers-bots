@@ -1,0 +1,23 @@
+diff --git a/base/nhbot_orc_800e/item/inventory.py b/base/nhbot_orc_800e/item/inventory.py
+index c5e7fda..e52b495 100644
+--- a/base/nhbot_orc_800e/item/inventory.py
++++ b/base/nhbot_orc_800e/item/inventory.py
+@@ -859,15 +859,18 @@ class Inventory:
+             if not quaff and item in self.items_below_me:
+                 with self.agent.atom_operation():
+                     self.agent.step(A.Command.EAT)
++                    ground_offers = []
+                     while '; eat it? [ynq]' in self.agent.message or \
+                             '; eat one? [ynq]' in self.agent.message:
+                         if f'{item.text} here; eat it? [ynq]' in self.agent.message or \
+                                 f'{item.text} here; eat one? [ynq]' in self.agent.message:
+                             self.agent.type_text('y')
+                             return True
++                        ground_offers.append(self.agent.message)
+                         self.agent.type_text('n')
+                     # if "What do you want to eat?" in self.agent.message or \
+                     #         "You don't have anything to eat." in self.agent.message:
++                    self.agent.log(f'CORPSE_CONTEXT expected={item.text!r} offers={ground_offers!r} after={self.agent.message!r}')
+                     raise AgentPanic('no such food is lying here')
+                     assert 0, self.agent.message
+ 
