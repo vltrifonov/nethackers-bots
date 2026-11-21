@@ -1,0 +1,1345 @@
+st=fast_go_to, debug_tiles_args=dict(
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 2578, in go_to
+    self.move(y, x)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 2198, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+autoascend.exceptions.AgentPanic: agent position do not match after "move": expected (8, 52), got (8, 51)
+
+[s6070 t4909 d1 0:1 xl4 hp42/42] SURV eat 'a lichen corpse' hu=1 hostiles=[]
+[s6074 t4915 d1 0:1 xl4 hp42/42] SURV eat 'a lichen corpse' hu=1 hostiles=[]
+[s6075 t4915 d1 0:1 xl4 hp42/42] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 322, in preempt
+    next(iterator)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 68, in f
+    next(it)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/utils.py", line 183, in f
+    next(it)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 3509, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/item/inventory.py", line 876, in eat
+    raise AgentPanic('no such food is lying here')
+autoascend.exceptions.AgentPanic: no such food is lying here
+
+[s6179 t5000 d1 0:1 xl4 hp42/42] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(7), np.int64(55)) acts=[SEARCH:89 NUM_5:79 W:63 E:43 SPACE:39] gotos=[open_visit_search(10, 62):3 open_visit_search(8, 75):2 open_visit_search(9, 75):2]
+[s6181 t5002 d1 0:1 xl4 hp42/42] SURV eat 'a lichen corpse' hu=1 hostiles=[]
+[s6185 t5008 d1 0:1 xl4 hp42/42] SURV eat 'a lichen corpse' hu=1 hostiles=[]
+[s6186 t5008 d1 0:1 xl4 hp42/42] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 322, in preempt
+    next(iterator)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 68, in f
+    next(it)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/utils.py", line 183, in f
+    next(it)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 3509, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/item/inventory.py", line 876, in eat
+    raise AgentPanic('no such food is lying here')
+autoascend.exceptions.AgentPanic: no such food is lying here
+
+[s6253 t5072 d1 0:1 xl4 hp42/42] PANIC AgentPanic: agent position do not match after "move": expected (11, 44), got (11, 45)
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 309, in preempt
+    val = f()
+          ^^^
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/exploration_logic.py", line 520, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 2578, in go_to
+    self.move(y, x)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 2198, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+autoascend.exceptions.AgentPanic: agent position do not match after "move": expected (11, 44), got (11, 45)
+
+[s6428 t5218 d2 0:2 xl5 hp52/52] DIVE level (np.int64(0), np.int64(2)) depth 2
+[s6817 t5462 d2 0:2 xl5 hp50/52] SURV eat 'a goblin corpse' hu=1 hostiles=[]
+[s6823 t5470 d2 0:2 xl5 hp51/52] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_e13ed40/autoascend/item/inventory.py", line 608, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 194, in atom_operation
+    self.update_state()
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 787, in update_state
+    self.call_update_functions()
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 798, in call_update_functions
+    func()
+  File "/sol/d_CleverShovel_e13ed40/autoascend/item/inventory.py", line 160, in f
+    raise AgentPanic('items below me changed')
+autoascend.exceptions.AgentPanic: items below me changed
+
+[s6890 t5500 d2 0:2 xl5 hp52/52] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(14), np.int64(36)) acts=[SEARCH:171 W:82 E:68 SPACE:54 NUM_5:50] gotos=[check_items(15, 19):7 open_visit_search(9, 9):7 check_items(5, 22):5]
+[s6988 t5546 d2 0:2 xl5 hp50/52] SURV eat 'a lichen corpse' hu=1 hostiles=[]
+[s6991 t5550 d2 0:2 xl5 hp50/52] SURV eat 'a lichen corpse' hu=1 hostiles=[]
+[s6992 t5550 d2 0:2 xl5 hp50/52] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 322, in preempt
+    next(iterator)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 68, in f
+    next(it)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/utils.py", line 183, in f
+    next(it)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 3509, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/item/inventory.py", line 876, in eat
+    raise AgentPanic('no such food is lying here')
+autoascend.exceptions.AgentPanic: no such food is lying here
+
+[s7197 t5676 d2 0:2 xl5 hp52/52] SURV eat 'a newt corpse' hu=1 hostiles=[]
+[s7217 t5686 d2 0:2 xl5 hp40/52] RANGED hit: holds and Elbereth waits off for 8 turns
+[s7369 t5783 d2 0:2 xl5 hp52/52] SURV hunger 1->2 food=['2xfortune cookie', '2xtripe ration', 'food ration'] cn=880 gap=1442 pf=0 dv=0 rescue=0 pet=0 hostiles=[] eng=''
+[s7409 t5808 d2 0:2 xl5 hp52/52] PANIC AgentPanic: agent position do not match after "move": expected (14, 43), got (13, 42)
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 309, in preempt
+    val = f()
+          ^^^
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/exploration_logic.py", line 246, in go_to_strategy
+    return self.agent.go_to(y, x, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 2578, in go_to
+    self.move(y, x)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 2198, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+autoascend.exceptions.AgentPanic: agent position do not match after "move": expected (14, 43), got (13, 42)
+
+[s7469 t5822 d3 0:3 xl5 hp52/52] DIVE level (np.int64(0), np.int64(3)) depth 3
+[s7475 t5826 d3 0:3 xl5 hp52/52] ARMOR_UP slot cloak: best 'an apron', AC now 1
+[s7477 t5826 d3 0:3 xl5 hp52/52] ARMOR_UP wear pass done: AC 0
+[s7561 t5881 d3 0:3 xl5 hp52/52] SURV hunger 2->3 food=['2xfortune cookie', '2xtripe ration', 'food ration'] cn=880 gap=1540 pf=0 dv=0 rescue=0 pet=0 hostiles=[] eng=''
+[s7563 t5882 d3 0:3 xl5 hp52/52] SURV eat '2 fortune cookies' hu=3 hostiles=[]
+[s7567 t5883 d3 0:3 xl5 hp52/52] SURV hunger 3->2 food=['2xfortune cookie', '2xtripe ration', 'food ration'] cn=880 gap=1542 pf=0 dv=0 rescue=0 pet=0 hostiles=[] eng=''
+[s7632 t5921 d3 0:3 xl5 hp52/52] SURV hunger 2->3 food=['fortune cookie', '2xtripe ration', 'food ration'] cn=840 gap=1580 pf=0 dv=0 rescue=0 pet=0 hostiles=[] eng=''
+[s7633 t5922 d3 0:3 xl5 hp52/52] SURV eat 'a fortune cookie' hu=3 hostiles=[]
+[s7637 t5923 d3 0:3 xl5 hp52/52] SURV hunger 3->2 food=['fortune cookie', '2xtripe ration', 'food ration'] cn=840 gap=1582 pf=0 dv=0 rescue=0 pet=0 hostiles=[] eng=''
+[s7701 t5955 d3 0:3 xl5 hp52/52] SURV eat 'a gecko corpse' hu=2 hostiles=[]
+[s7704 t5959 d3 0:3 xl5 hp52/52] SURV eat 'a gecko corpse' hu=2 hostiles=[]
+[s7705 t5959 d3 0:3 xl5 hp52/52] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 322, in preempt
+    next(iterator)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 68, in f
+    next(it)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/utils.py", line 183, in f
+    next(it)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 3509, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/item/inventory.py", line 876, in eat
+    raise AgentPanic('no such food is lying here')
+autoascend.exceptions.AgentPanic: no such food is lying here
+
+[s7758 t5980 d3 0:3 xl5 hp52/52] SURV hunger 2->3 food=['2xtripe ration', 'food ration'] cn=800 gap=1639 pf=0 dv=0 rescue=0 pet=0 hostiles=[] eng=''
+[s7760 t5982 d3 0:3 xl5 hp52/52] SURV eat '2 tripe rations' hu=3 hostiles=[]
+[s7763 t5984 d3 0:3 xl5 hp52/52] SURV hunger 3->1 food=['2xtripe ration', 'food ration'] cn=800 gap=1643 pf=0 dv=0 rescue=0 pet=0 hostiles=[] eng=''
+[s7784 t6000 d3 0:3 xl5 hp52/52] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(12), np.int64(40)) acts=[SEARCH:224 E:104 W:83 SPACE:72 SE:39] gotos=[check_items(18, 56):5 open_visit_search(8, 54):4 open_visit_search(11, 50):4]
+[s7811 t6012 d3 0:3 xl5 hp52/52] PANIC AgentPanic: agent position do not match after "move": expected (6, 39), got (7, 40)
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 165, in f
+    next(gen)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 100, in f
+    next(v1)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/utils.py", line 183, in f
+    next(it)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/item/inventory.py", line 1803, in check_items
+    self.agent.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 0, 255), is_path=True))
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 2578, in go_to
+    self.move(y, x)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 2198, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+autoascend.exceptions.AgentPanic: agent position do not match after "move": expected (6, 39), got (7, 40)
+
+[s7889 t6060 d3 0:3 xl5 hp52/52] SURV hunger 1->2 food=['fortune cookie', 'tripe ration', 'food ration'] cn=840 gap=1719 pf=0 dv=0 rescue=0 pet=0 hostiles=[] eng=''
+[s8038 t6159 d3 0:3 xl5 hp52/52] SURV hunger 2->3 food=['fortune cookie', 'tripe ration', 'food ration'] cn=840 gap=1818 pf=0 dv=0 rescue=0 pet=0 hostiles=[] eng=''
+[s8038 t6159 d3 0:3 xl5 hp52/52] PRAY hp=52/52 hunger=3 gap=1818 reason=None model[ok200=0.99 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=39 p_answered=0.99]
+[s8043 t6162 d3 0:3 xl5 hp52/52] SURV hunger 3->1 food=['fortune cookie', 'tripe ration', 'food ration'] cn=840 gap=1821 pf=0 dv=0 rescue=0 pet=0 hostiles=[] eng=''
+[s8043 t6162 d3 0:3 xl5 hp52/52] PRAY result ok model[ok200=0.22 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=39] prayers=3 failures=0
+[s8371 t6346 d3 0:3 xl5 hp48/52] SHOPWISH wand on the shelf at (16, 69): 'an iron wand (for sale, 225 zorkmids)' unit quote 225 cha 7 gold 52 -> many
+[s8374 t6348 d3 0:3 xl5 hp48/52] SUPPLY shelf 'an iron wand (for sale, 225 zorkmids)' unit=225 bases=[150] types=12
+[s8381 t6353 d3 0:3 xl5 hp49/52] SUPPLY shelf 'a sapphire ring (for sale, 150 zorkmids)' unit=150 bases=[100] types=7
+[s8388 t6359 d3 0:3 xl5 hp50/52] SHOP buying slime mold for 26 (gold 52)
+[s8400 t6363 d3 0:3 xl5 hp51/52] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 48, in run
+    next(gen)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 309, in preempt
+    val = f()
+          ^^^
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/exploration_logic.py", line 520, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 2550, in go_to
+    raise AgentPanic('end point is no longer accessible')
+autoascend.exceptions.AgentPanic: end point is no longer accessible
+
+[s8459 t6391 d3 0:3 xl5 hp52/52] PANIC AgentPanic: agent position do not match after "move": expected (16, 58), got (17, 59)
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 309, in preempt
+    val = f()
+          ^^^
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/exploration_logic.py", line 520, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 2578, in go_to
+    self.move(y, x)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 2198, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+autoascend.exceptions.AgentPanic: agent position do not match after "move": expected (16, 58), got (17, 59)
+
+[s8617 t6502 d3 0:3 xl5 hp52/52] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(17), np.int64(32)) acts=[SEARCH:209 E:76 W:73 N:71 S:64] gotos=[check_items(7, 32):10 check_items(4, 53):6 open_visit_search(13, 59):6]
+[s8966 t6897 d3 0:3 xl5 hp52/52] SURV hunger 1->2 food=['fortune cookie', 'slime mold', 'tripe ration', 'food ration'] cn=920 gap=735 pf=0 dv=0 rescue=0 pet=0 hostiles=[] eng=''
+[s9018 t6939 d3 0:3 xl5 hp49/52] SURV eat 'an iguana corpse' hu=2 hostiles=[]
+[s9021 t6941 d3 0:3 xl5 hp49/52] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_e13ed40/autoascend/item/inventory.py", line 608, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 194, in atom_operation
+    self.update_state()
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 787, in update_state
+    self.call_update_functions()
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 798, in call_update_functions
+    func()
+  File "/sol/d_CleverShovel_e13ed40/autoascend/item/inventory.py", line 160, in f
+    raise AgentPanic('items below me changed')
+autoascend.exceptions.AgentPanic: items below me changed
+
+[s9090 t7000 d3 0:3 xl5 hp52/52] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=2 pos=(np.int64(2), np.int64(53)) acts=[SEARCH:111 NUM_5:101 E:38 N:23 SPACE:22] gotos=[open_visit_search(20, 44):3 open_visit_search(17, 41):2 open_visit_search(17, 42):2]
+[s9106 t7020 d3 0:3 xl5 hp52/52] SURV hunger 2->3 food=['fortune cookie', 'slime mold', 'tripe ration', 'food ration'] cn=920 gap=858 pf=0 dv=0 rescue=0 pet=0 hostiles=[] eng=''
+[s9110 t7022 d3 0:3 xl5 hp52/52] SURV eat 'a fortune cookie' hu=3 hostiles=[]
+[s9114 t7023 d3 0:3 xl5 hp52/52] SURV hunger 3->2 food=['fortune cookie', 'slime mold', 'tripe ration', 'food ration'] cn=920 gap=861 pf=0 dv=0 rescue=0 pet=0 hostiles=[] eng=''
+[s9143 t7060 d3 0:3 xl5 hp52/52] SURV hunger 2->3 food=['slime mold', 'tripe ration', 'food ration'] cn=880 gap=898 pf=0 dv=0 rescue=0 pet=0 hostiles=[] eng=''
+[s9144 t7060 d3 0:3 xl5 hp52/52] SURV eat 'a slime mold' hu=3 hostiles=[]
+[s9146 t7061 d3 0:3 xl5 hp52/52] SURV hunger 3->1 food=['slime mold', 'tripe ration', 'food ration'] cn=880 gap=899 pf=0 dv=0 rescue=0 pet=0 hostiles=[] eng=''
+[s9163 t7085 d3 0:3 xl5 hp52/52] SURV hunger 1->2 food=['tripe ration', 'food ration'] cn=800 gap=923 pf=0 dv=0 rescue=0 pet=0 hostiles=[] eng=''
+[s9222 t7123 d3 0:3 xl5 hp52/52] SURV eat 'a lichen corpse' hu=2 hostiles=[]
+[s9224 t7127 d3 0:3 xl5 hp52/52] SURV hunger 2->1 food=['tripe ration', 'food ration'] cn=800 gap=965 pf=0 dv=0 rescue=0 pet=0 hostiles=[] eng=''
+[s9228 t7127 d3 0:3 xl5 hp52/52] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_e13ed40/autoascend/item/inventory.py", line 608, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 194, in atom_operation
+    self.update_state()
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 787, in update_state
+    self.call_update_functions()
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 798, in call_update_functions
+    func()
+  File "/sol/d_CleverShovel_e13ed40/autoascend/item/inventory.py", line 160, in f
+    raise AgentPanic('items below me changed')
+autoascend.exceptions.AgentPanic: items below me changed
+
+[s9392 t7282 d3 0:3 xl5 hp52/52] SURV hunger 1->2 food=['2xtripe ration', 'food ration'] cn=800 gap=1120 pf=0 dv=0 rescue=0 pet=0 hostiles=[] eng=''
+[s9482 t7382 d3 0:3 xl5 hp52/52] SURV hunger 2->3 food=['2xtripe ration', 'food ration'] cn=800 gap=1220 pf=0 dv=0 rescue=0 pet=0 hostiles=[] eng=''
+[s9485 t7387 d3 0:3 xl5 hp52/52] SURV eat '2 tripe rations' hu=3 hostiles=[]
+[s9487 t7389 d3 0:3 xl5 hp52/52] SURV hunger 3->1 food=['2xtripe ration', 'food ration'] cn=800 gap=1227 pf=0 dv=0 rescue=0 pet=0 hostiles=[] eng=''
+[s9570 t7482 d3 0:3 xl5 hp52/52] SURV hunger 1->2 food=['tripe ration', 'food ration'] cn=800 gap=1320 pf=0 dv=0 rescue=0 pet=0 hostiles=[] eng=''
+[s9596 t7500 d3 0:3 xl5 hp52/52] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=2 pos=(np.int64(10), np.int64(63)) acts=[SEARCH:107 NUM_5:103 E:49 W:40 SPACE:28] gotos=[open_visit_search(2, 54):2 open_visit_search(2, 49):2 open_visit_search(2, 41):2]
+[s9617 t7516 d3 0:3 xl5 hp52/52] SURV eat 'a gecko corpse' hu=2 hostiles=[]
+[s9621 t7523 d3 0:3 xl5 hp52/52] SURV eat 'a gecko corpse' hu=2 hostiles=[]
+[s9622 t7523 d3 0:3 xl5 hp52/52] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 322, in preempt
+    next(iterator)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 68, in f
+    next(it)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/utils.py", line 183, in f
+    next(it)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 3509, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/item/inventory.py", line 876, in eat
+    raise AgentPanic('no such food is lying here')
+autoascend.exceptions.AgentPanic: no such food is lying here
+
+[s9725 t7598 d3 0:3 xl5 hp52/52] SURV hunger 2->3 food=['tripe ration', 'food ration'] cn=800 gap=1436 pf=0 dv=0 rescue=0 pet=0 hostiles=[] eng=''
+[s9729 t7603 d3 0:3 xl5 hp52/52] SURV eat 'a tripe ration' hu=3 hostiles=[]
+[s9732 t7605 d3 0:3 xl5 hp52/52] SURV hunger 3->1 food=['tripe ration', 'food ration'] cn=800 gap=1443 pf=0 dv=0 rescue=0 pet=0 hostiles=[] eng=''
+[s9795 t7677 d3 0:3 xl5 hp52/52] SURV hunger 1->2 food=['food ration'] cn=800 gap=1515 pf=0 dv=0 rescue=0 pet=0 hostiles=[] eng=''
+[s9966 t7741 d3 0:3 xl6 hp54/58] PANIC AgentPanic: Monster on a next tile when moving: (2,58)
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 322, in preempt
+    next(iterator)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 68, in f
+    next(it)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/utils.py", line 183, in f
+    next(it)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 3491, in eat_corpses_from_ground
+    self.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 255, 0), is_path=True))
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 2578, in go_to
+    self.move(y, x)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 2162, in move
+    raise AgentPanic(f'Monster on a next tile when moving: ({expected_y},{expected_x})')
+autoascend.exceptions.AgentPanic: Monster on a next tile when moving: (2,58)
+
+[s9987 t7742 d3 0:3 xl6 hp54/58] PANIC AgentPanic: Monster on a next tile when moving: (2,58)
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 322, in preempt
+    next(iterator)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 68, in f
+    next(it)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/utils.py", line 183, in f
+    next(it)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 3491, in eat_corpses_from_ground
+    self.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 255, 0), is_path=True))
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 2578, in go_to
+    self.move(y, x)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 2162, in move
+    raise AgentPanic(f'Monster on a next tile when moving: ({expected_y},{expected_x})')
+autoascend.exceptions.AgentPanic: Monster on a next tile when moving: (2,58)
+
+[s10046 t7762 d3 0:3 xl6 hp57/58] SURV hunger 2->3 food=['food ration'] cn=800 gap=1600 pf=0 dv=0 rescue=0 pet=0 hostiles=[('gnome lord', np.int64(1))] eng=''
+[s10063 t7765 d3 0:3 xl6 hp58/58] SURV eat 'a gunyoki' hu=3 hostiles=[]
+[s10065 t7770 d3 0:3 xl6 hp58/58] SURV hunger 3->1 food=['food ration'] cn=800 gap=1608 pf=0 dv=0 rescue=0 pet=0 hostiles=[] eng=''
+[s10219 t7819 d3 0:3 xl6 hp58/58] FIGHT stall of 42 turns ended (contact): ['gas spore']
+[s10221 t7821 d3 0:3 xl6 hp58/58] SURV eat 'a gecko corpse' hu=1 hostiles=[]
+[s10298 t7849 d3 0:3 xl6 hp55/58] DIGGER dwarf in rock/tunnel at (1, 50)
+[s10331 t7861 d3 0:3 xl6 hp57/58] DIGGER dwarf in rock/tunnel at (1, 49)
+[s10477 t7930 d3 0:3 xl6 hp58/58] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_e13ed40/autoascend/item/inventory.py", line 608, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 194, in atom_operation
+    self.update_state()
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 787, in update_state
+    self.call_update_functions()
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 798, in call_update_functions
+    func()
+  File "/sol/d_CleverShovel_e13ed40/autoascend/item/inventory.py", line 160, in f
+    raise AgentPanic('items below me changed')
+autoascend.exceptions.AgentPanic: items below me changed
+
+[s10637 t7988 d3 0:3 xl6 hp58/58] FIGHT stall of 55 turns ended (kill): ['gas spore', 'rothe']
+[s10653 t7996 d3 0:3 xl6 hp58/58] SURV eat 'a rothe corpse' hu=1 hostiles=[]
+[s10655 t8002 d3 0:3 xl6 hp58/58] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(17), np.int64(60)) acts=[SEARCH:178 SPACE:176 WHATIS:72 MOVEFAR:72 W:70] gotos=[check_items(1, 57):15 _fight2_perform_action(2, 55):10 check_items(7, 51):9]
+[s10708 t8022 d3 0:3 xl6 hp58/58] DIGGER dwarf in rock/tunnel at (3, 49)
+[s10711 t8024 d3 0:3 xl6 hp58/58] DIVE attacking a peaceful dwarf at (3, 49) for its digging tool (digger=True, align~49)
+[s10714 t8025 d3 0:3 xl6 hp58/58] ALIGN estimate 48 (cap 50) after -1
+[s10727 t8031 d3 0:3 xl6 hp58/58] DIVE killed a dwarf (1); piles to check: [(np.int64(1), np.int64(47)), (np.int64(3), np.int64(49))]
+[s10727 t8031 d3 0:3 xl6 hp58/58] ALIGN estimate 36 (cap 50) after -12
+[s10727 t8031 d3 0:3 xl6 hp58/58] DWARF died near [(3, 49)]: piles to check
+[s10755 t8035 d3 0:3 xl6 hp58/58] DIVE checked the pile at (np.int64(3), np.int64(49)): tool a dwarvish mattock
+[s10755 t8035 d3 0:3 xl6 hp58/58] ARMOR_UP slot helm: best 'a dwarvish iron helm', AC now 0
+[s10757 t8036 d3 0:3 xl6 hp58/58] ARMOR_UP slot helm: best 'a dwarvish iron helm', AC now 1
+[s10759 t8037 d3 0:3 xl6 hp58/58] ARMOR_UP wear pass done: AC -1
+[s10784 t8045 d3 0:3 xl6 hp53/58] SURV eat 'a rothe corpse' hu=1 hostiles=[]
+[s10852 t8093 d3 0:3 xl6 hp56/58] SURV eat 'a rothe corpse' hu=1 hostiles=[]
+[s10856 t8096 d3 0:3 xl6 hp57/58] SURV eat 'a rothe corpse' hu=1 hostiles=[]
+[s10857 t8096 d3 0:3 xl6 hp57/58] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 322, in preempt
+    next(iterator)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 68, in f
+    next(it)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/utils.py", line 183, in f
+    next(it)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 3509, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/item/inventory.py", line 876, in eat
+    raise AgentPanic('no such food is lying here')
+autoascend.exceptions.AgentPanic: no such food is lying here
+
+[s10934 t8156 d3 0:3 xl6 hp58/58] PANIC AgentPanic: agent position do not match after "move": expected (3, 46), got (4, 45)
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 165, in f
+    next(gen)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 100, in f
+    next(v1)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/utils.py", line 183, in f
+    next(it)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/item/inventory.py", line 1803, in check_items
+    self.agent.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 0, 255), is_path=True))
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 2578, in go_to
+    self.move(y, x)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 2198, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+autoascend.exceptions.AgentPanic: agent position do not match after "move": expected (3, 46), got (4, 45)
+
+[s11273 t8501 d3 0:3 xl6 hp58/58] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(17), np.int64(26)) acts=[SEARCH:87 NUM_5:76 SPACE:54 NW:49 SW:41] gotos=[check_items(6, 54):7 open_visit_search(1, 44):4 open_visit_search(4, 45):3]
+[s11444 t8675 d3 0:3 xl6 hp58/58] SURV hunger 1->2 food=['food ration'] cn=800 gap=2513 pf=0 dv=0 rescue=0 pet=0 hostiles=[] eng=''
+[s11501 t8742 d3 0:3 xl6 hp58/58] PANIC AgentPanic: agent position do not match after "move": expected (6, 5), got (7, 4)
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 309, in preempt
+    val = f()
+          ^^^
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/exploration_logic.py", line 520, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 2578, in go_to
+    self.move(y, x)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 2198, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+autoascend.exceptions.AgentPanic: agent position do not match after "move": expected (6, 5), got (7, 4)
+
+[s11546 t8775 d3 0:3 xl6 hp58/58] SURV hunger 2->3 food=['food ration'] cn=800 gap=2613 pf=0 dv=0 rescue=0 pet=0 hostiles=[] eng=''
+[s11546 t8775 d3 0:3 xl6 hp58/58] PRAY hp=58/58 hunger=3 gap=2613 reason=None model[ok200=1.00 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=53 p_answered=1.00]
+[s11551 t8778 d3 0:3 xl6 hp58/58] SURV hunger 3->1 food=['food ration'] cn=800 gap=2616 pf=0 dv=0 rescue=0 pet=0 hostiles=[] eng=''
+[s11551 t8778 d3 0:3 xl6 hp58/58] PRAY result ok model[ok200=0.22 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=53] prayers=4 failures=0
+[s11564 t8782 d3 0:3 xl6 hp58/58] SURV eat 'a giant rat corpse' hu=1 hostiles=[]
+[s11639 t8839 d3 0:3 xl6 hp58/58] SURV eat 'a giant rat corpse' hu=1 hostiles=[]
+[s11646 t8843 d3 0:3 xl6 hp58/58] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_e13ed40/autoascend/item/inventory.py", line 608, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 194, in atom_operation
+    self.update_state()
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 787, in update_state
+    self.call_update_functions()
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 798, in call_update_functions
+    func()
+  File "/sol/d_CleverShovel_e13ed40/autoascend/item/inventory.py", line 160, in f
+    raise AgentPanic('items below me changed')
+autoascend.exceptions.AgentPanic: items below me changed
+
+[s11829 t9000 d3 0:3 xl6 hp58/58] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(6), np.int64(3)) acts=[SEARCH:120 NUM_5:99 W:44 SPACE:43 E:27] gotos=[open_visit_search(11, 19):3 open_visit_search(12, 19):3 open_visit_search(13, 19):3]
+[s11917 t9065 d3 0:3 xl6 hp54/58] SURV eat 'a rothe corpse' hu=1 hostiles=[]
+[s11920 t9066 d3 0:3 xl6 hp55/58] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_e13ed40/autoascend/item/inventory.py", line 608, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 194, in atom_operation
+    self.update_state()
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 787, in update_state
+    self.call_update_functions()
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 798, in call_update_functions
+    func()
+  File "/sol/d_CleverShovel_e13ed40/autoascend/item/inventory.py", line 160, in f
+    raise AgentPanic('items below me changed')
+autoascend.exceptions.AgentPanic: items below me changed
+
+[s11997 t9114 d3 0:3 xl6 hp58/58] PANIC AgentPanic: Monster on a next tile when moving: (11,29)
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 165, in f
+    next(gen)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 100, in f
+    next(v1)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/utils.py", line 183, in f
+    next(it)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/item/inventory.py", line 1803, in check_items
+    self.agent.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 0, 255), is_path=True))
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 2578, in go_to
+    self.move(y, x)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 2162, in move
+    raise AgentPanic(f'Monster on a next tile when moving: ({expected_y},{expected_x})')
+autoascend.exceptions.AgentPanic: Monster on a next tile when moving: (11,29)
+
+[s12051 t9127 d3 0:3 xl6 hp58/58] PANIC AgentPanic: Monster on a next tile when moving: (9,29)
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 165, in f
+    next(gen)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 100, in f
+    next(v1)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/utils.py", line 183, in f
+    next(it)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/item/inventory.py", line 1803, in check_items
+    self.agent.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 0, 255), is_path=True))
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 2578, in go_to
+    self.move(y, x)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 2162, in move
+    raise AgentPanic(f'Monster on a next tile when moving: ({expected_y},{expected_x})')
+autoascend.exceptions.AgentPanic: Monster on a next tile when moving: (9,29)
+
+[s12093 t9142 d3 0:3 xl6 hp58/58] PANIC AgentPanic: agent position do not match after "move": expected (16, 49), got (15, 48)
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 165, in f
+    next(gen)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 100, in f
+    next(v1)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/utils.py", line 183, in f
+    next(it)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/item/inventory.py", line 1803, in check_items
+    self.agent.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 0, 255), is_path=True))
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 2578, in go_to
+    self.move(y, x)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 2198, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+autoascend.exceptions.AgentPanic: agent position do not match after "move": expected (16, 49), got (15, 48)
+
+[s12134 t9153 d3 0:3 xl6 hp58/58] SURV eat 'a rothe corpse' hu=1 hostiles=[('floating eye', np.int64(6))]
+[s12204 t9185 d3 0:3 xl6 hp58/58] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_e13ed40/autoascend/item/inventory.py", line 608, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 194, in atom_operation
+    self.update_state()
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 787, in update_state
+    self.call_update_functions()
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 798, in call_update_functions
+    func()
+  File "/sol/d_CleverShovel_e13ed40/autoascend/item/inventory.py", line 160, in f
+    raise AgentPanic('items below me changed')
+autoascend.exceptions.AgentPanic: items below me changed
+
+[s12365 t9241 d3 0:3 xl6 hp58/58] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_e13ed40/autoascend/item/inventory.py", line 608, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 194, in atom_operation
+    self.update_state()
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 787, in update_state
+    self.call_update_functions()
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 798, in call_update_functions
+    func()
+  File "/sol/d_CleverShovel_e13ed40/autoascend/item/inventory.py", line 160, in f
+    raise AgentPanic('items below me changed')
+autoascend.exceptions.AgentPanic: items below me changed
+
+[s12403 t9245 d3 0:3 xl6 hp58/58] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_e13ed40/autoascend/item/inventory.py", line 608, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 194, in atom_operation
+    self.update_state()
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 787, in update_state
+    self.call_update_functions()
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 798, in call_update_functions
+    func()
+  File "/sol/d_CleverShovel_e13ed40/autoascend/item/inventory.py", line 160, in f
+    raise AgentPanic('items below me changed')
+autoascend.exceptions.AgentPanic: items below me changed
+
+[s12431 t9247 d3 0:3 xl6 hp58/58] FIGHT stall of 61 turns ended (kill): ['floating eye', 'gas spore']
+[s12527 t9298 d3 0:3 xl6 hp57/58] PANIC AgentPanic: agent position do not match after "move": expected (7, 30), got (6, 31)
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 165, in f
+    next(gen)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 100, in f
+    next(v1)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/utils.py", line 183, in f
+    next(it)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/item/inventory.py", line 1803, in check_items
+    self.agent.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 0, 255), is_path=True))
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 2578, in go_to
+    self.move(y, x)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 2198, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+autoascend.exceptions.AgentPanic: agent position do not match after "move": expected (7, 30), got (6, 31)
+
+[s12581 t9336 d3 0:3 xl6 hp58/58] SURV eat 'a lichen corpse' hu=1 hostiles=[]
+[s12642 t9386 d3 0:3 xl6 hp58/58] SURV eat 'a lichen corpse' hu=1 hostiles=[]
+[s12645 t9388 d3 0:3 xl6 hp58/58] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_e13ed40/autoascend/item/inventory.py", line 608, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 194, in atom_operation
+    self.update_state()
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 787, in update_state
+    self.call_update_functions()
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 798, in call_update_functions
+    func()
+  File "/sol/d_CleverShovel_e13ed40/autoascend/item/inventory.py", line 160, in f
+    raise AgentPanic('items below me changed')
+autoascend.exceptions.AgentPanic: items below me changed
+
+[s12769 t9501 d3 0:3 xl6 hp58/58] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(5), np.int64(54)) acts=[SPACE:140 SEARCH:117 E:68 NUM_5:65 SW:47] gotos=[check_items(11, 29):5 open_visit_search(11, 29):3 open_visit_search(7, 30):3]
+[s12850 t9524 d3 0:3 xl6 hp58/58] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_e13ed40/autoascend/item/inventory.py", line 608, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 194, in atom_operation
+    self.update_state()
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 787, in update_state
+    self.call_update_functions()
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 798, in call_update_functions
+    func()
+  File "/sol/d_CleverShovel_e13ed40/autoascend/item/inventory.py", line 160, in f
+    raise AgentPanic('items below me changed')
+autoascend.exceptions.AgentPanic: items below me changed
+
+[s13075 t9725 d3 0:3 xl6 hp58/58] PANIC AgentPanic: agent position do not match after "move": expected (15, 60), got (16, 59)
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 309, in preempt
+    val = f()
+          ^^^
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/exploration_logic.py", line 520, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 2578, in go_to
+    self.move(y, x)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 2198, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+autoascend.exceptions.AgentPanic: agent position do not match after "move": expected (15, 60), got (16, 59)
+
+[s13109 t9730 d3 0:3 xl6 hp58/58] SURV eat 'a goblin corpse' hu=1 hostiles=[]
+[s13118 t9742 d3 0:3 xl6 hp58/58] SURV eat 'a partly eaten goblin corpse' hu=1 hostiles=[]
+[s13375 t9849 d3 0:3 xl6 hp58/58] FIGHT stall of 26 turns ended (contact): ['floating eye']
+[s13377 t9850 d3 0:3 xl7 hp67/69] SAFE_GRIND: the extra grind begins at XL 7, turn 9850, milestone BE_ON_FIRST_LEVEL
+[s13716 t9991 d3 0:3 xl7 hp69/69] PANIC AgentPanic: agent position do not match after "move": expected (3, 46), got (4, 45)
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 165, in f
+    next(gen)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 100, in f
+    next(v1)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/utils.py", line 183, in f
+    next(it)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/item/inventory.py", line 1803, in check_items
+    self.agent.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 0, 255), is_path=True))
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 2578, in go_to
+    self.move(y, x)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 2198, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+autoascend.exceptions.AgentPanic: agent position do not match after "move": expected (3, 46), got (4, 45)
+
+[s13750 t10000 d3 0:3 xl7 hp69/69] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(3), np.int64(46)) acts=[SPACE:194 W:75 E:64 SW:64 NW:62] gotos=[check_items(2, 50):35 go_to_strategy(12, 18):17 _fight2_perform_action(5, 32):15]
+[s13834 t10034 d3 0:3 xl7 hp69/69] SURV eat 'a floating eye corpse' hu=1 hostiles=[]
+[s13838 t10038 d3 0:3 xl7 hp69/69] INTRINSIC telepathy
+[s13842 t10038 d3 0:3 xl7 hp69/69] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_e13ed40/autoascend/item/inventory.py", line 608, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 194, in atom_operation
+    self.update_state()
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 787, in update_state
+    self.call_update_functions()
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 798, in call_update_functions
+    func()
+  File "/sol/d_CleverShovel_e13ed40/autoascend/item/inventory.py", line 160, in f
+    raise AgentPanic('items below me changed')
+autoascend.exceptions.AgentPanic: items below me changed
+
+[s13956 t10084 d3 0:3 xl7 hp69/69] SURV eat 'a lichen corpse' hu=1 hostiles=[]
+[s13980 t10096 d2 0:2 xl7 hp69/69] DIVE level (np.int64(0), np.int64(2)) depth 2
+[s14200 t10319 d2 0:2 xl7 hp69/69] SURV eat 'an iguana corpse' hu=1 hostiles=[]
+[s14208 t10321 d2 0:2 xl7 hp69/69] SURV eat 'a jackal corpse' hu=1 hostiles=[]
+[s14281 t10355 d2 0:2 xl7 hp69/69] SURV eat 'a jackal corpse' hu=1 hostiles=[]
+[s14290 t10357 d2 0:2 xl7 hp69/69] SURV eat 'a jackal corpse' hu=1 hostiles=[]
+[s14292 t10357 d2 0:2 xl7 hp69/69] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 322, in preempt
+    next(iterator)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 68, in f
+    next(it)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/utils.py", line 183, in f
+    next(it)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 3509, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/item/inventory.py", line 876, in eat
+    raise AgentPanic('no such food is lying here')
+autoascend.exceptions.AgentPanic: no such food is lying here
+
+[s14308 t10357 d2 0:2 xl7 hp69/69] SURV eat 'a partly eaten jackal corpse' hu=1 hostiles=[]
+[s14368 t10408 d2 0:2 xl7 hp69/69] PANIC AgentPanic: agent position do not match after "move": expected (5, 56), got (6, 57)
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 165, in f
+    next(gen)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 100, in f
+    next(v1)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/utils.py", line 183, in f
+    next(it)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/item/inventory.py", line 1803, in check_items
+    self.agent.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 0, 255), is_path=True))
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 2578, in go_to
+    self.move(y, x)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 2198, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+autoascend.exceptions.AgentPanic: agent position do not match after "move": expected (5, 56), got (6, 57)
+
+[s14499 t10502 d2 0:2 xl7 hp69/69] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(7), np.int64(53)) acts=[SPACE:97 SEARCH:93 W:74 NUM_5:70 E:55] gotos=[go_to_strategy(12, 18):9 check_items(2, 50):6 eat_corpses_from_ground(15, 26):2]
+[s14682 t10658 d2 0:2 xl7 hp69/69] SURV eat 'a rothe corpse' hu=1 hostiles=[]
+[s14691 t10667 d2 0:2 xl7 hp69/69] SURV eat 'a rothe corpse' hu=1 hostiles=[]
+[s14692 t10667 d2 0:2 xl7 hp69/69] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 322, in preempt
+    next(iterator)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 68, in f
+    next(it)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/utils.py", line 183, in f
+    next(it)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 3509, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/item/inventory.py", line 876, in eat
+    raise AgentPanic('no such food is lying here')
+autoascend.exceptions.AgentPanic: no such food is lying here
+
+[s14739 t10682 d2 0:2 xl7 hp69/69] SURV eat 'a rothe corpse' hu=1 hostiles=[]
+[s14742 t10689 d2 0:2 xl7 hp69/69] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_e13ed40/autoascend/item/inventory.py", line 608, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 194, in atom_operation
+    self.update_state()
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 787, in update_state
+    self.call_update_functions()
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 798, in call_update_functions
+    func()
+  File "/sol/d_CleverShovel_e13ed40/autoascend/item/inventory.py", line 160, in f
+    raise AgentPanic('items below me changed')
+autoascend.exceptions.AgentPanic: items below me changed
+
+[s14803 t10709 d2 0:2 xl7 hp69/69] SURV eat 'a rothe corpse' hu=1 hostiles=[]
+[s14888 t10787 d2 0:2 xl7 hp69/69] SURV eat 'a rothe corpse' hu=1 hostiles=[]
+[s15059 t10851 d2 0:2 xl7 hp69/69] SURV eat 'a giant ant corpse' hu=1 hostiles=[]
+[s15066 t10854 d2 0:2 xl7 hp69/69] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_e13ed40/autoascend/item/inventory.py", line 608, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 194, in atom_operation
+    self.update_state()
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 787, in update_state
+    self.call_update_functions()
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 798, in call_update_functions
+    func()
+  File "/sol/d_CleverShovel_e13ed40/autoascend/item/inventory.py", line 160, in f
+    raise AgentPanic('items below me changed')
+autoascend.exceptions.AgentPanic: items below me changed
+
+[s15239 t11000 d2 0:2 xl7 hp69/69] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(15), np.int64(40)) acts=[SEARCH:112 SPACE:93 NUM_5:87 W:56 LOOK:35] gotos=[open_visit_search(18, 60):4 open_visit_search(14, 66):4 open_visit_search(16, 65):3]
+[s15409 t11209 d2 0:2 xl7 hp69/69] SURV hunger 1->2 food=['3xfood ration'] cn=2400 gap=2431 pf=0 dv=0 rescue=0 pet=0 hostiles=[] eng=''
+[s15495 t11234 d2 0:2 xl7 hp69/69] FIGHT stall of 28 turns ended (kill): ['brown mold', 'yellow mold']
+[s15512 t11243 d2 0:2 xl7 hp69/69] SURV eat 'a brown mold corpse' hu=2 hostiles=[]
+[s15519 t11246 d2 0:2 xl7 hp69/69] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_e13ed40/autoascend/item/inventory.py", line 608, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 194, in atom_operation
+    self.update_state()
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 787, in update_state
+    self.call_update_functions()
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 798, in call_update_functions
+    func()
+  File "/sol/d_CleverShovel_e13ed40/autoascend/item/inventory.py", line 160, in f
+    raise AgentPanic('items below me changed')
+autoascend.exceptions.AgentPanic: items below me changed
+
+[s15657 t11339 d2 0:2 xl7 hp69/69] SURV hunger 2->3 food=['3xfood ration'] cn=2400 gap=2561 pf=0 dv=0 rescue=0 pet=0 hostiles=[] eng=''
+[s15657 t11339 d2 0:2 xl7 hp69/69] PRAY hp=69/69 hunger=3 gap=2561 reason=None model[ok200=1.00 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=66 p_answered=1.00]
+[s15662 t11342 d2 0:2 xl7 hp69/69] SURV hunger 3->1 food=['3xfood ration'] cn=2400 gap=2564 pf=0 dv=0 rescue=0 pet=0 hostiles=[] eng=''
+[s15665 t11342 d2 0:2 xl7 hp69/69] PRAY result ok model[ok200=0.22 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=66] prayers=5 failures=0
+[s15763 t11435 d2 0:2 xl7 hp69/69] RANGED hit: holds and Elbereth waits off for 8 turns
+[s15782 t11437 d2 0:2 xl7 hp69/69] SURV eat 'a hobgoblin corpse' hu=1 hostiles=[]
+[s15848 t11500 d2 0:2 xl7 hp69/69] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(10), np.int64(17)) acts=[SEARCH:118 NUM_5:87 SPACE:82 W:48 E:31] gotos=[_fight2_perform_action(6, 8):10 eat_corpses_from_ground(8, 8):3 open_visit_search(14, 40):2]
+[s16104 t11765 d2 0:2 xl7 hp66/69] SURV eat 'a giant ant corpse' hu=1 hostiles=[]
+[s16312 t12001 d2 0:2 xl7 hp69/69] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(8), np.int64(25)) acts=[SEARCH:128 NUM_5:101 E:50 W:31 SW:22] gotos=[open_visit_search(17, 21):4 open_visit_search(6, 29):3 open_visit_search(13, 18):2]
+[s16422 t12106 d2 0:2 xl7 hp69/69] PANIC AgentPanic: agent position do not match after "move": expected (16, 43), got (15, 42)
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 309, in preempt
+    val = f()
+          ^^^
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/exploration_logic.py", line 520, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 2578, in go_to
+    self.move(y, x)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 2198, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+autoascend.exceptions.AgentPanic: agent position do not match after "move": expected (16, 43), got (15, 42)
+
+[s16479 t12125 d2 0:2 xl7 hp69/69] SURV eat 'a leprechaun corpse' hu=1 hostiles=[]
+[s16483 t12128 d2 0:2 xl7 hp69/69] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_e13ed40/autoascend/item/inventory.py", line 608, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 194, in atom_operation
+    self.update_state()
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 787, in update_state
+    self.call_update_functions()
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 798, in call_update_functions
+    func()
+  File "/sol/d_CleverShovel_e13ed40/autoascend/item/inventory.py", line 160, in f
+    raise AgentPanic('items below me changed')
+autoascend.exceptions.AgentPanic: items below me changed
+
+[s16718 t12315 d2 0:2 xl7 hp69/69] SURV hunger 1->2 food=['3xfood ration', 'fortune cookie'] cn=2440 gap=973 pf=0 dv=0 rescue=0 pet=0 hostiles=[] eng=''
+[s16734 t12324 d2 0:2 xl7 hp69/69] SURV eat 'a giant ant corpse' hu=2 hostiles=[]
+[s16828 t12422 d2 0:2 xl7 hp69/69] SURV hunger 2->3 food=['3xfood ration', 'fortune cookie'] cn=2440 gap=1080 pf=0 dv=0 rescue=0 pet=0 hostiles=[] eng=''
+[s16828 t12422 d2 0:2 xl7 hp69/69] SURV eat '3 gunyoki' hu=3 hostiles=[]
+[s16830 t12427 d2 0:2 xl7 hp69/69] SURV hunger 3->1 food=['3xfood ration', 'fortune cookie'] cn=2440 gap=1085 pf=0 dv=0 rescue=0 pet=0 hostiles=[] eng=''
+[s16917 t12486 d2 0:2 xl7 hp69/69] DIGGER dwarf in rock/tunnel at (7, 26)
+[s16945 t12500 d2 0:2 xl7 hp69/69] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(3), np.int64(21)) acts=[SEARCH:81 NUM_5:79 E:69 SPACE:54 SW:48] gotos=[eat_corpses_from_ground(6, 46):13 open_visit_search(7, 33):12 _fight2_perform_action(5, 26):9]
+[s16953 t12507 d2 0:2 xl7 hp69/69] DIGGER dwarf in rock/tunnel at (7, 25)
+[s16953 t12507 d2 0:2 xl7 hp69/69] FIGHT stall of 20 turns ended (contact): ['fog cloud', 'iguana']
+[s16964 t12515 d2 0:2 xl7 hp69/69] SURV eat 'an iguana corpse' hu=1 hostiles=[]
+[s17064 t12561 d2 0:2 xl7 hp69/69] DIGGER dwarf in rock/tunnel at (2, 25)
+[s17087 t12588 d2 0:2 xl7 hp69/69] DIGGER dwarf in rock/tunnel at (2, 27)
+[s17114 t12603 d2 0:2 xl7 hp69/69] DIGGER dwarf in rock/tunnel at (4, 31)
+[s17137 t12625 d2 0:2 xl7 hp69/69] DIGGER dwarf in rock/tunnel at (6, 31)
+[s17407 t12834 d2 0:2 xl7 hp69/69] PANIC AgentPanic: agent position do not match after "move": expected (1, 39), got (2, 39)
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 165, in f
+    next(gen)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 100, in f
+    next(v1)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/utils.py", line 183, in f
+    next(it)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/item/inventory.py", line 1803, in check_items
+    self.agent.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 0, 255), is_path=True))
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 2578, in go_to
+    self.move(y, x)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 2198, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+autoascend.exceptions.AgentPanic: agent position do not match after "move": expected (1, 39), got (2, 39)
+
+[s17433 t12847 d2 0:2 xl7 hp69/69] DIGGER dwarf in rock/tunnel at (2, 40)
+[s17481 t12859 d2 0:2 xl7 hp69/69] SURV eat 'a gnome corpse' hu=1 hostiles=[]
+[s17487 t12869 d2 0:2 xl7 hp69/69] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_e13ed40/autoascend/item/inventory.py", line 608, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 194, in atom_operation
+    self.update_state()
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 787, in update_state
+    self.call_update_functions()
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 798, in call_update_functions
+    func()
+  File "/sol/d_CleverShovel_e13ed40/autoascend/item/inventory.py", line 160, in f
+    raise AgentPanic('items below me changed')
+autoascend.exceptions.AgentPanic: items below me changed
+
+[s17668 t13000 d2 0:2 xl7 hp69/69] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(5), np.int64(33)) acts=[SEARCH:119 SPACE:93 NUM_5:69 SW:44 E:37] gotos=[open_visit_search(1, 24):4 open_visit_search(1, 27):4 open_visit_search(4, 35):4]
+[s17693 t13025 d2 0:2 xl7 hp69/69] DIGGER dwarf in rock/tunnel at (7, 31)
+[s17715 t13033 d2 0:2 xl7 hp69/69] DIGGER dwarf in rock/tunnel at (7, 30)
+[s17847 t13144 d2 0:2 xl7 hp69/69] PANIC AgentPanic: agent position do not match after "move": expected (4, 32), got (5, 31)
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 165, in f
+    next(gen)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 100, in f
+    next(v1)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/utils.py", line 183, in f
+    next(it)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/item/inventory.py", line 1803, in check_items
+    self.agent.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 0, 255), is_path=True))
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 2578, in go_to
+    self.move(y, x)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 2198, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+autoascend.exceptions.AgentPanic: agent position do not match after "move": expected (4, 32), got (5, 31)
+
+[s17880 t13151 d2 0:2 xl7 hp69/69] SURV eat 'a rock piercer corpse' hu=1 hostiles=[]
+[s17893 t13153 d2 0:2 xl7 hp69/69] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_e13ed40/autoascend/item/inventory.py", line 608, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 194, in atom_operation
+    self.update_state()
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 787, in update_state
+    self.call_update_functions()
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 798, in call_update_functions
+    func()
+  File "/sol/d_CleverShovel_e13ed40/autoascend/item/inventory.py", line 160, in f
+    raise AgentPanic('items below me changed')
+autoascend.exceptions.AgentPanic: items below me changed
+
+[s17925 t13155 d2 0:2 xl7 hp69/69] SURV eat 'a partly eaten rock piercer corpse' hu=1 hostiles=[]
+[s17948 t13178 d2 0:2 xl7 hp69/69] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 309, in preempt
+    val = f()
+          ^^^
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/exploration_logic.py", line 520, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 2550, in go_to
+    raise AgentPanic('end point is no longer accessible')
+autoascend.exceptions.AgentPanic: end point is no longer accessible
+
+[s17985 t13197 d2 0:2 xl7 hp69/69] DIGGER dwarf in rock/tunnel at (1, 32)
+[s18067 t13255 d2 0:2 xl7 hp69/69] ALIGN estimate 63 (cap 76) after -12
+[s18067 t13255 d2 0:2 xl7 hp69/69] DWARF died near [(1, 26), (8, 27), (9, 26)]: piles to check
+[s18072 t13256 d2 0:2 xl7 hp69/69] SURV eat 'a dwarf corpse' hu=1 hostiles=[]
+[s18082 t13271 d2 0:2 xl7 hp69/69] SURV eat 'a dwarf corpse' hu=1 hostiles=[]
+[s18083 t13271 d2 0:2 xl7 hp69/69] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 322, in preempt
+    next(iterator)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 68, in f
+    next(it)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/utils.py", line 183, in f
+    next(it)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 3509, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/item/inventory.py", line 876, in eat
+    raise AgentPanic('no such food is lying here')
+autoascend.exceptions.AgentPanic: no such food is lying here
+
+[s18114 t13272 d2 0:2 xl7 hp69/69] DIVE checked the pile at (8, 27): tool a pick-axe
+[s18172 t13315 d2 0:2 xl7 hp69/69] DIGGER dwarf in rock/tunnel at (11, 25)
+[s18271 t13367 d2 0:2 xl7 hp27/69] SURV eat 'a giant rat corpse' hu=1 hostiles=[]
+[s18281 t13370 d2 0:2 xl7 hp28/69] SURV eat 'a giant ant corpse' hu=1 hostiles=[]
+[s18288 t13372 d2 0:2 xl7 hp28/69] DIGGER dwarf in rock/tunnel at (11, 21)
+[s18306 t13375 d2 0:2 xl7 hp29/69] ENGRAVE 'a spiked wand': ['secret door detection', 'enlightenment', 'create monster', 'nothing', 'striking', 'make invisible', 'slow monster', 'speed monster', 'undead turning', 'polymorph', 'cancellation', 'teleportation', 'opening', 'locking', 'probing', 'digging', 'magic missile', 'fire', 'cold', 'sleep', 'death', 'lightning'] (text written: False)
+[s18492 t13500 d2 0:2 xl7 hp54/69] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(6), np.int64(20)) acts=[SPACE:135 SEARCH:100 NUM_5:75 SW:58 W:45] gotos=[_fight2_perform_action(5, 18):10 _fight2_perform_action(6, 16):5 open_visit_search(1, 31):4]
+[s18499 t13501 d2 0:2 xl7 hp54/69] SURV eat 'a floating eye corpse' hu=1 hostiles=[]
+[s18505 t13502 d2 0:2 xl7 hp54/69] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_e13ed40/autoascend/item/inventory.py", line 608, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 194, in atom_operation
+    self.update_state()
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 787, in update_state
+    self.call_update_functions()
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 798, in call_update_functions
+    func()
+  File "/sol/d_CleverShovel_e13ed40/autoascend/item/inventory.py", line 160, in f
+    raise AgentPanic('items below me changed')
+autoascend.exceptions.AgentPanic: items below me changed
+
+[s18629 t13573 d2 0:2 xl7 hp54/69] SURV eat 'a rothe corpse' hu=1 hostiles=[]
+[s18640 t13580 d2 0:2 xl7 hp56/69] SURV eat 'a rothe corpse' hu=1 hostiles=[]
+[s18642 t13580 d2 0:2 xl7 hp56/69] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 322, in preempt
+    next(iterator)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 68, in f
+    next(it)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/utils.py", line 183, in f
+    next(it)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 3509, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/item/inventory.py", line 876, in eat
+    raise AgentPanic('no such food is lying here')
+autoascend.exceptions.AgentPanic: no such food is lying here
+
+[s18658 t13580 d2 0:2 xl7 hp56/69] SURV eat 'a partly eaten rothe corpse' hu=1 hostiles=[]
+[s18668 t13582 d2 0:2 xl7 hp56/69] SURV eat 'a partly eaten rothe corpse' hu=1 hostiles=[]
+[s18687 t13595 d2 0:2 xl7 hp59/69] PANIC AgentPanic: agent position do not match after "move": expected (14, 39), got (15, 38)
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 309, in preempt
+    val = f()
+          ^^^
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/exploration_logic.py", line 520, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 2578, in go_to
+    self.move(y, x)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 2198, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+autoascend.exceptions.AgentPanic: agent position do not match after "move": expected (14, 39), got (15, 38)
+
+[s19085 t13775 d2 0:2 xl7 hp69/69] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 309, in preempt
+    val = f()
+          ^^^
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/exploration_logic.py", line 520, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 2550, in go_to
+    raise AgentPanic('end point is no longer accessible')
+autoascend.exceptions.AgentPanic: end point is no longer accessible
+
+[s19110 t13779 d2 0:2 xl7 hp69/69] DIGGER dwarf in rock/tunnel at (7, 23)
+[s19162 t13820 d2 0:2 xl7 hp69/69] SURV hunger 1->2 food=['2xfood ration', 'fortune cookie', 'slime mold'] cn=1720 gap=2478 pf=0 dv=0 rescue=0 pet=0 hostiles=[('unseen', np.int64(2))] eng=''
+[s19169 t13822 d2 0:2 xl7 hp69/69] SURV eat 'a rothe corpse' hu=2 hostiles=[]
+[s19171 t13831 d2 0:2 xl7 hp69/69] SURV hunger 2->1 food=['2xfood ration', 'fortune cookie', 'slime mold'] cn=1720 gap=2489 pf=0 dv=0 rescue=0 pet=0 hostiles=[] eng=''
+[s19181 t13831 d2 0:2 xl7 hp69/69] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_e13ed40/autoascend/item/inventory.py", line 608, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 194, in atom_operation
+    self.update_state()
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 787, in update_state
+    self.call_update_functions()
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 798, in call_update_functions
+    func()
+  File "/sol/d_CleverShovel_e13ed40/autoascend/item/inventory.py", line 160, in f
+    raise AgentPanic('items below me changed')
+autoascend.exceptions.AgentPanic: items below me changed
+
+[s19213 t13832 d2 0:2 xl7 hp69/69] DIGGER dwarf in rock/tunnel at (11, 31)
+[s19218 t13837 d2 0:2 xl7 hp69/69] DIGGER dwarf in rock/tunnel at (14, 30)
+[s19256 t13862 d2 0:2 xl8 hp75/75] DIVE phase starts (milestone BE_ON_FIRST_LEVEL)
+[s19256 t13862 d2 0:2 xl8 hp75/75] ENGRAVE re-test with text (the grind test said nothing): 'a spiked wand'
+[s19278 t13864 d2 0:2 xl8 hp75/75] ENGRAVE 'a spiked wand': ['secret door detection', 'create monster', 'nothing', 'undead turning', 'opening', 'locking', 'probing'] (text written: True)
+[s19278 t13864 d2 0:2 xl8 hp75/75] PROUTE reading '2 scrolls labeled PRATYAVAYAH' (i): identify by reading at a quiet moment (x2)
+[s19280 t13865 d2 0:2 xl8 hp75/75] PROUTE read '2 scrolls labeled PRATYAVAYAH': 'What do you want to read? [giktDFO-Q or ?*] As you read the scroll, it disappears.  Your boots disintegrate!'
+[s19280 t13865 d2 0:2 xl8 hp75/75] PROUTE reading '2 scrolls labeled KIRJE' (t): identify by reading at a quiet moment (x2)
+[s19282 t13865 d2 0:2 xl8 hp75/75] PROUTE read '2 scrolls labeled KIRJE': 'What do you want to read? [giktDFO-Q or ?*] As you read the scroll, it disappears.  A map coalesces in your mind!'
+[s19282 t13865 d2 0:2 xl8 hp75/75] EXCAL_ERRAND over: no dippable long sword left (Excalibur or none); 0 dips
+[s19282 t13865 d2 0:2 xl8 hp75/75] DIVE task descend
+[s19282 t13865 d2 0:2 xl8 hp75/75] DIVE stuck in task 'descend' on level (np.int64(0), np.int64(2)) for 8647 turns; up stairs (y,x,dist)=[(4, 25, 9)]
+As you read the scroll, it disappears.  A map coalesces in your mind!
+
+               ###### #`##*#`**#*#*#   $ #*
+               #-----...........**#*`  #*#     ----------            -------
+               #|...............#*)``*#*#*#*   |{.......|############...^.`|
+               #|..^.....<......#****%#*####   |........|#           |.....|
+  --------    ##|..............-#####*######  #-......>.-##########  |.....|
+  |.......######................*###`#*##     %|........|#        ###.....{|
+  |......|   #  -----.-.........*####*###    ##-........|#           |.....|
+  |.....[|   #       ###*##)########## ####### -------.--#           -------
+  |{......####      ###########  ` **       ##############
+  |......|   ########################       ##        [
+  --|-----####   ---...##*### -..--%#       ##   `##  ###
+    ####*##      |.....###*##*|...|######## ##     #    ####
+                 |.....*####@#).)).## #.--.-##     #       #
+                 |.....######%....| ###[...-##     ############## #
+                 |.....   ##` |...-####|...| #        ------.---|-|--
+                 ----.-  ### #.----   #-...-##        |..........>..|
+                     #  #              -----          |.............|
+                                                      |.............|
+                                                      -------------|-
+                                                                   #
+Agent the Kunoichi             St:18/01 Dx:16 Co:18 In:9 Wi:8 Ch:7 Lawful S:541
+Dlvl:2 $:104 HP:75(75) Pw:38(38) AC:1 Xp:8/1294 T:13865
+[s19282 t13865 d2 0:2 xl8 hp75/75] DIVE digging down with 'a pick-axe' (try 1)
+[s19286 t13869 d2 0:2 xl8 hp75/75] DIVE digging down with 'a pick-axe (weapon in hand)' (try 2)
+[s19300 t13883 d3 0:3 xl8 hp75/75] DIVE fell through a trap door at (np.int64(13), np.int64(28)) on (np.int64(0), np.int64(2)); remembered
+[s19300 t13883 d3 0:3 xl8 hp75/75] DIVE level (np.int64(0), np.int64(3)) depth 3
+[s19300 t13883 d3 0:3 xl8 hp75/75] DIVE digging down with 'a pick-axe (weapon in hand)' (try 1)
+[s19303 t13887 d3 0:3 xl8 hp75/75] DIVE digging down with 'a pick-axe (weapon in hand)' (try 2)
+[s19308 t13900 d4 0:4 xl8 hp75/75] DIVE fell through a trap door at (np.int64(8), np.int64(18)) on (np.int64(0), np.int64(3)); remembered
+[s19308 t13900 d4 0:4 xl8 hp75/75] DIVE level (np.int64(0), np.int64(4)) depth 4
+[s19308 t13900 d4 0:4 xl8 hp75/75] DIVE digging down with 'a pick-axe (weapon in hand)' (try 1)
+[s19311 t13904 d4 0:4 xl8 hp75/75] DIVE digging down with 'a pick-axe (weapon in hand)' (try 2)
+[s19316 t13917 d5 0:5 xl8 hp75/75] DIVE fell through a trap door at (np.int64(14), np.int64(61)) on (np.int64(0), np.int64(4)); remembered
+[s19316 t13917 d5 0:5 xl8 hp75/75] DIVE level (np.int64(0), np.int64(5)) depth 5
+[s19316 t13917 d5 0:5 xl8 hp75/75] DIVE digging down with 'a pick-axe (weapon in hand)' (try 1)
+[s19320 t13918 d5 0:5 xl8 hp75/75] SURV hunger 1->2 food=['2xfood ration', 'fortune cookie', 'slime mold'] cn=1720 gap=2576 pf=0 dv=1 rescue=0 pet=0 hostiles=[] eng=''
+[s19320 t13918 d5 0:5 xl8 hp75/75] DIVE digging down with 'a pick-axe (weapon in hand)' (try 1)
+[s19323 t13922 d5 0:5 xl8 hp75/75] DIVE digging down with 'a pick-axe (weapon in hand)' (try 2)
+[s19332 t13926 d5 0:5 xl8 hp75/75] PIT fight: in a pit beside an attacker, no stepping out
+[s19338 t13930 d5 0:5 xl8 hp65/75] SURV eat '2 gunyoki' hu=2 hostiles=[]
+[s19341 t13934 d5 0:5 xl8 hp65/75] SURV hunger 2->1 food=['2xfood ration', 'fortune cookie', 'slime mold'] cn=1720 gap=2592 pf=0 dv=1 rescue=0 pet=0 hostiles=[] eng=''
+[s19358 t13940 d5 0:5 xl8 hp67/75] DIVE digging down with 'a pick-axe' (try 3)
+[s19364 t13952 d6 0:6 xl8 hp69/75] DIVE fell through a trap door at (np.int64(8), np.int64(39)) on (np.int64(0), np.int64(5)); remembered
+[s19364 t13952 d6 0:6 xl8 hp69/75] DIVE level (np.int64(0), np.int64(6)) depth 6
+[s19364 t13952 d6 0:6 xl8 hp69/75] DIVE digging down with 'a pick-axe (weapon in hand)' (try 1)
+[s19367 t13956 d6 0:6 xl8 hp70/75] DIVE digging down with 'a pick-axe (weapon in hand)' (try 2)
+[s19375 t13970 d7 0:7 xl8 hp73/75] DIVE fell through a trap door at (np.int64(3), np.int64(30)) on (np.int64(0), np.int64(6)); remembered
+[s19375 t13970 d7 0:7 xl8 hp73/75] DIVE level (np.int64(0), np.int64(7)) depth 7
+[s19375 t13970 d7 0:7 xl8 hp73/75] DIVE digging down with 'a pick-axe (weapon in hand)' (try 1)
+[s19378 t13973 d7 0:7 xl8 hp73/75] DIVE digging down with 'a pick-axe (weapon in hand)' (try 2)
+[s19384 t13984 d7 0:7 xl8 hp75/75] DIVE digging out, hostiles at [('large dog', 1)]
+[s19384 t13984 d7 0:7 xl8 hp75/75] DIVE Elbereth before digging in the pit: ['large dog']
+[s19408 t13985 d7 0:7 xl8 hp71/75] DIVE digging out, hostiles at [('large dog', 1)]
+[s19408 t13985 d7 0:7 xl8 hp71/75] DIVE Elbereth before digging in the pit: ['large dog']
+[s19424 t13986 d7 0:7 xl8 hp68/75] DIVE digging out, hostiles at [('large dog', 1)]
+[s19424 t13986 d7 0:7 xl8 hp68/75] DIVE Elbereth before digging in the pit: ['large dog']
+[s19442 t13987 d7 0:7 xl8 hp68/75] DIVE digging down with 'a pick-axe (weapon in hand)' (try 3)
+[s19448 t13989 d8 0:8 xl8 hp68/75] DIVE fell through a trap door at (np.int64(3), np.int64(73)) on (np.int64(0), np.int64(7)); remembered
+[s19448 t13989 d8 0:8 xl8 hp68/75] DIVE level (np.int64(0), np.int64(8)) depth 8
+[s19448 t13989 d8 0:8 xl8 hp68/75] DIVE digging down with 'a pick-axe (weapon in hand)' (try 1)
+[s19451 t13994 d8 0:8 xl8 hp69/75] DIVE digging down with 'a pick-axe (weapon in hand)' (try 2)
+[s19459 t14006 d9 0:9 xl8 hp72/75] STATUS milestone=BE_ON_FIRST_LEVEL diving=True hunger=1 pos=(np.int64(8), np.int64(67)) acts=[SPACE:191 SEARCH:54 SW:52 WHATIS:50 MOVEFAR:50] gotos=[open_visit_search(15, 22):6 open_visit_search(1, 25):3 check_items(11, 35):3]
+[s19459 t14006 d9 0:9 xl8 hp72/75] DIVE fell through a trap door at (np.int64(2), np.int64(13)) on (np.int64(0), np.int64(8)); remembered
+[s19459 t14006 d9 0:9 xl8 hp72/75] DIVE level (np.int64(0), np.int64(9)) depth 9
+[s19459 t14006 d9 0:9 xl8 hp72/75] DIVE digging out, hostiles at [('iron piercer', 4)]
+[s19459 t14006 d9 0:9 xl8 hp72/75] DIVE Elbereth before digging: ['iron piercer']
+[s19475 t14007 d9 0:9 xl8 hp72/75] DIVE digging out, hostiles at [('iron piercer', 2)]
+[s19475 t14007 d9 0:9 xl8 hp72/75] DIVE digging down with 'a pick-axe (weapon in hand)' (try 1)
+[s19479 t14010 d9 0:9 xl8 hp73/75] DIVE digging out, hostiles at [('iron piercer', 1)]
+[s19479 t14010 d9 0:9 xl8 hp73/75] DIVE Elbereth before digging in the pit: ['iron piercer']
+[s19495 t14011 d9 0:9 xl8 hp73/75] DIVE digging out, hostiles at [('iron piercer', 1)]
+[s19495 t14011 d9 0:9 xl8 hp73/75] DIVE digging down with 'a pick-axe (weapon in hand)' (try 2)
+[s19501 t14025 d10 0:10 xl8 hp75/75] DIVE fell through a trap door at (np.int64(8), np.int64(67)) on (np.int64(0), np.int64(9)); remembered
+[s19501 t14025 d10 0:10 xl8 hp75/75] DIVE level (np.int64(0), np.int64(10)) depth 10
+[s19501 t14025 d10 0:10 xl8 hp75/75] POWER kit at depth 10 XL 8 AC 1: P(passage)=0.15 certain=0 steps=3 scare_known=0 P(scare among candidates)=0.15 door_tools=3
+[s19501 t14025 d10 0:10 xl8 hp75/75] DIVE digging down with 'a pick-axe (weapon in hand)' (try 1)
+[s19504 t14029 d10 0:10 xl8 hp75/75] DIVE digging down with 'a pick-axe (weapon in hand)' (try 2)
+[s19515 t14043 d11 0:11 xl8 hp75/75] DIVE fell through a trap door at (np.int64(15), np.int64(42)) on (np.int64(0), np.int64(10)); remembered
+[s19515 t14043 d11 0:11 xl8 hp75/75] DIVE level (np.int64(0), np.int64(11)) depth 11
+[s19515 t14043 d11 0:11 xl8 hp75/75] DIVE digging down with 'a pick-axe (weapon in hand)' (try 1)
+[s19518 t14046 d11 0:11 xl8 hp75/75] DIVE digging down with 'a pick-axe (weapon in hand)' (try 2)
+[s19526 t14060 d12 0:12 xl8 hp75/75] DIVE fell through a trap door at (np.int64(16), np.int64(10)) on (np.int64(0), np.int64(11)); remembered
+[s19526 t14060 d12 0:12 xl8 hp75/75] DIVE level (np.int64(0), np.int64(12)) depth 12
+[s19526 t14060 d12 0:12 xl8 hp75/75] DIVE quest portal level detected: (np.int64(0), np.int64(12))
+[s19526 t14060 d12 0:12 xl8 hp75/75] DIVE digging down with 'a pick-axe (weapon in hand)' (try 1)
+[s19529 t14064 d12 0:12 xl8 hp75/75] DIVE digging down with 'a pick-axe (weapon in hand)' (try 2)
+[s19537 t14076 d13 0:13 xl8 hp75/75] DIVE fell through a trap door at (np.int64(15), np.int64(48)) on (np.int64(0), np.int64(12)); remembered
+[s19537 t14076 d13 0:13 xl8 hp75/75] DIVE level (np.int64(0), np.int64(13)) depth 13
+[s19537 t14076 d13 0:13 xl8 hp75/75] DIVE digging out, hostiles at [('werejackal', 3)]
+[s19537 t14076 d13 0:13 xl8 hp75/75] DIVE digging down with 'a pick-axe (weapon in hand)' (try 1)
+[s19550 t14082 d13 0:13 xl8 hp67/75] DIVE going down stairs at (np.int64(4), np.int64(59))
+[s19555 t14082 d14 0:14 xl8 hp67/75] DIVE level (np.int64(0), np.int64(14)) depth 14
+[s19555 t14082 d14 0:14 xl8 hp67/75] DIVE walking to dig at (17, 54), hostiles at [('giant spider', 2)]
+[s19556 t14083 d14 0:14 xl8 hp67/75] DIVE digging out, hostiles at [('giant spider', 3)]
+[s19556 t14083 d14 0:14 xl8 hp67/75] DIVE Elbereth before digging: ['giant spider']
+[s19572 t14084 d14 0:14 xl8 hp67/75] DIVE digging out, hostiles at [('giant spider', 1)]
+[s19572 t14084 d14 0:14 xl8 hp67/75] DIVE digging down with 'a pick-axe' (try 1)
+[s19577 t14089 d14 0:14 xl8 hp68/75] DIVE Elbereth before digging in the pit: []
+[s19593 t14089 d14 0:14 xl8 hp68/75] DIVE digging down with 'a pick-axe (weapon in hand)' (try 2)
+[s19606 t14103 d15 0:15 xl8 hp71/75] DIVE fell through a trap door at (np.int64(17), np.int64(54)) on (np.int64(0), np.int64(14)); remembered
+[s19606 t14103 d15 0:15 xl8 hp71/75] DIVE level (np.int64(0), np.int64(15)) depth 15
+[s19606 t14103 d15 0:15 xl8 hp71/75] DIVE digging down with 'a pick-axe (weapon in hand)' (try 1)
+[s19613 t14106 d15 0:15 xl8 hp72/75] DIVE digging down with 'a pick-axe (weapon in hand)' (try 2)
+[s19621 t14120 d16 0:16 xl8 hp75/75] DIVE fell through a trap door at (np.int64(5), np.int64(38)) on (np.int64(0), np.int64(15)); remembered
+[s19621 t14120 d16 0:16 xl8 hp75/75] DIVE level (np.int64(0), np.int64(16)) depth 16
+[s19621 t14120 d16 0:16 xl8 hp75/75] DIVE digging out, hostiles at [('coyote', 3)]
+[s19621 t14120 d16 0:16 xl8 hp75/75] DIVE Elbereth before digging: ['coyote']
+[s19637 t14120 d16 0:16 xl8 hp75/75] DIVE digging out, hostiles at [('coyote', 2)]
+[s19637 t14120 d16 0:16 xl8 hp75/75] DIVE digging down with 'a pick-axe (weapon in hand)' (try 1)
+[s19642 t14123 d16 0:16 xl8 hp75/75] DIVE Elbereth before digging in the pit: []
+[s19658 t14124 d16 0:16 xl8 hp75/75] DIVE digging down with 'a pick-axe (weapon in hand)' (try 2)
+[s19665 t14137 d17 0:17 xl8 hp75/75] DIVE fell through a trap door at (np.int64(16), np.int64(29)) on (np.int64(0), np.int64(16)); remembered
+[s19665 t14137 d17 0:17 xl8 hp75/75] DIVE level (np.int64(0), np.int64(17)) depth 17
+[s19665 t14137 d17 0:17 xl8 hp75/75] DIVE digging down with 'a pick-axe (weapon in hand)' (try 1)
+[s19668 t14141 d17 0:17 xl8 hp75/75] DIVE digging down with 'a pick-axe (weapon in hand)' (try 2)
+[s19679 t14156 d18 0:18 xl8 hp75/75] DIVE fell through a trap door at (np.int64(8), np.int64(15)) on (np.int64(0), np.int64(17)); remembered
+[s19679 t14156 d18 0:18 xl8 hp75/75] DIVE level (np.int64(0), np.int64(18)) depth 18
+[s19679 t14156 d18 0:18 xl8 hp75/75] DIVE digging down with 'a pick-axe (weapon in hand)' (try 1)
+[s19682 t14160 d18 0:18 xl8 hp75/75] DIVE digging down with 'a pick-axe (weapon in hand)' (try 2)
+[s19688 t14170 d18 0:18 xl8 hp75/75] DIVE digging out, hostiles at [('scorpion', 1)]
+[s19688 t14170 d18 0:18 xl8 hp75/75] DIVE Elbereth before digging in the pit: ['scorpion']
+[s19703 t14171 d18 0:18 xl8 hp69/75] DIVE digging out, hostiles at [('scorpion', 1)]
+[s19703 t14171 d18 0:18 xl8 hp69/75] DIVE Elbereth before digging in the pit: ['scorpion']
+[s19721 t14172 d18 0:18 xl8 hp69/75] DIVE digging down with 'a pick-axe (weapon in hand)' (try 3)
+[s19727 t14178 d19 0:19 xl8 hp70/75] DIVE fell through a trap door at (np.int64(8), np.int64(64)) on (np.int64(0), np.int64(18)); remembered
+[s19727 t14178 d19 0:19 xl8 hp70/75] DIVE level (np.int64(0), np.int64(19)) depth 19
+[s19727 t14178 d19 0:19 xl8 hp70/75] DIVE digging down with 'a pick-axe (weapon in hand)' (try 1)
+[s19730 t14182 d19 0:19 xl8 hp71/75] DIVE digging down with 'a pick-axe (weapon in hand)' (try 2)
+[s19735 t14195 d20 0:20 xl8 hp74/75] DIVE fell through a trap door at (np.int64(9), np.int64(49)) on (np.int64(0), np.int64(19)); remembered
+[s19735 t14195 d20 0:20 xl8 hp74/75] DIVE level (np.int64(0), np.int64(20)) depth 20
+[s19735 t14195 d20 0:20 xl8 hp74/75] POWER kit at depth 20 XL 8 AC 1: P(passage)=0.15 certain=0 steps=3 scare_known=0 P(scare among candidates)=0.15 door_tools=3
+[s19735 t14195 d20 0:20 xl8 hp74/75] MINO kit d20 last_prayer=11342: $ - 104 gold pieces; D - a scroll labeled ELAM EBOW; F - a scroll labeled TEMOV; G - a gunyoki; I - a +0 dwarvish iron helm (being worn); K - a towel; M - an osaku; N - a brown potion; O - 4 unlabeled scrolls; P - an unlabeled scroll; Q - a scroll labeled STRC PRST SKRZ KRK; R - a fortune cookie; T - a slime mold; U - 13 darts; V - a pick-axe (weapon in hand); W - a spiked wand; X - a clear potion; a - a +0 katana; c - a +0 yumi; e - an uncursed rustproof +0 splint mail (being worn); g - a scroll labeled ANDOVA BEGARIN; i - a scroll of destroy armor; k - a scroll labeled ASHPD SODALG; l - an orcish dagger; m - a dark green potion; n - a wand of light; q - a tin opener; r - a lamp; s - an osaku; t - a scroll of magic mapping; u - a pyramidal amulet; w - an orcish dagger (at the ready); x - a +0 apron (being worn); z - a key
+[s19735 t14195 d20 0:20 xl8 hp74/75] PROUTE to the altar at (np.int64(16), np.int64(9)) to learn the BUC of 9 items
+[s19742 t14200 d20 0:20 xl8 hp75/75] PROUTE BUC test on the altar: ['a brown potion', '4 unlabeled scrolls', 'an unlabeled scroll', 'a clear potion', 'a scroll labeled ANDOVA BEGARIN', 'a scroll of destroy armor', 'a dark green potion', 'a scroll of magic mapping', 'a pyramidal amulet']
+[s19768 t14200 d20 0:20 xl8 hp75/75] PROUTE altar: ''
+[s19794 t14201 d20 0:20 xl8 hp75/75] PROUTE altar pickup: took 9 of 9 stacks back
+[s19795 t14201 d20 0:20 xl8 hp75/75] DIVE digging down with 'a pick-axe (weapon in hand)' (try 1)
+[s19798 t14205 d20 0:20 xl8 hp75/75] DIVE digging down with 'a pick-axe (weapon in hand)' (try 2)
+[s19810 t14218 d21 0:21 xl8 hp75/75] DIVE fell through a trap door at (np.int64(15), np.int64(8)) on (np.int64(0), np.int64(20)); remembered
+[s19810 t14218 d21 0:21 xl8 hp75/75] DIVE level (np.int64(0), np.int64(21)) depth 21
+[s19810 t14218 d21 0:21 xl8 hp75/75] MINO kit d21 last_prayer=11342: $ - 104 gold pieces; D - a scroll labeled ELAM EBOW; F - a scroll labeled TEMOV; G - a gunyoki; I - a +0 dwarvish iron helm (being worn); K - a towel; M - an osaku; N - an uncursed brown potion; O - 4 uncursed unlabeled scrolls; P - a cursed unlabeled scroll; Q - a scroll labeled STRC PRST SKRZ KRK; R - a fortune cookie; T - a slime mold; U - 13 darts; V - a pick-axe (weapon in hand); W - a spiked wand; X - a blessed clear potion; a - a +0 katana; c - a +0 yumi; e - an uncursed rustproof +0 splint mail (being worn); g - a blessed scroll labeled ANDOVA BEGARIN; i - a cursed scroll of destroy armor; k - a scroll labeled ASHPD SODALG; l - an orcish dagger; m - an uncursed dark green potion; n - a wand of light; q - a tin opener; r - a lamp; s - an osaku; t - an uncursed scroll of magic mapping; u - an uncursed pyramidal amulet; w - an orcish dagger (at the ready); x - a +0 apron (being worn); z - a key
+[s19810 t14218 d21 0:21 xl8 hp75/75] DIVE digging down with 'a pick-axe (weapon in hand)' (try 1)
+[s19813 t14221 d21 0:21 xl8 hp75/75] DIVE digging down with 'a pick-axe (weapon in hand)' (try 2)
+[s19822 t14234 d22 0:22 xl8 hp75/75] DIVE fell through a trap door at (np.int64(8), np.int64(71)) on (np.int64(0), np.int64(21)); remembered
+[s19822 t14234 d22 0:22 xl8 hp75/75] DIVE level (np.int64(0), np.int64(22)) depth 22
+[s19822 t14234 d22 0:22 xl8 hp75/75] MINO kit d22 last_prayer=11342: $ - 104 gold pieces; D - a scroll labeled ELAM EBOW; F - a scroll labeled TEMOV; G - a gunyoki; I - a +0 dwarvish iron helm (being worn); K - a towel; M - an osaku; N - an uncursed brown potion; O - 4 uncursed unlabeled scrolls; P - a cursed unlabeled scroll; Q - a scroll labeled STRC PRST SKRZ KRK; R - a fortune cookie; T - a slime mold; U - 13 darts; V - a pick-axe (weapon in hand); W - a spiked wand; X - a blessed clear potion; a - a +0 katana; c - a +0 yumi; e - an uncursed rustproof +0 splint mail (being worn); g - a blessed scroll labeled ANDOVA BEGARIN; i - a cursed scroll of destroy armor; k - a scroll labeled ASHPD SODALG; l - an orcish dagger; m - an uncursed dark green potion; n - a wand of light; q - a tin opener; r - a lamp; s - an osaku; t - an uncursed scroll of magic mapping; u - an uncursed pyramidal amulet; w - an orcish dagger (at the ready); x - a +0 apron (being worn); z - a key
+[s19822 t14234 d22 0:22 xl8 hp75/75] DIVE digging down with 'a pick-axe (weapon in hand)' (try 1)
+[s19825 t14239 d22 0:22 xl8 hp75/75] DIVE digging down with 'a pick-axe (weapon in hand)' (try 2)
+[s19833 t14253 d23 0:23 xl8 hp75/75] DIVE Medusa level detected: (np.int64(0), np.int64(23)) depth 23
+[s19833 t14253 d23 0:23 xl8 hp75/75] DIVE Medusa-3 (ravens)
+[s19833 t14253 d23 0:23 xl8 hp75/75] DIVE MEDUSA_MAP: this is medusa-3 (0 of 681 seen squares disagree)
+[s19833 t14253 d23 0:23 xl8 hp75/75] DIVE fell through a trap door at (np.int64(5), np.int64(57)) on (np.int64(0), np.int64(22)); remembered
+[s19833 t14253 d23 0:23 xl8 hp75/75] DIVE level (np.int64(0), np.int64(23)) depth 23
+[s19833 t14253 d23 0:23 xl8 hp75/75] MINO kit d23 last_prayer=11342: $ - 104 gold pieces; D - a scroll labeled ELAM EBOW; F - a scroll labeled TEMOV; G - a gunyoki; I - a +0 dwarvish iron helm (being worn); K - a towel; M - an osaku; N - an uncursed brown potion; O - 4 uncursed unlabeled scrolls; P - a cursed unlabeled scroll; Q - a scroll labeled STRC PRST SKRZ KRK; R - a fortune cookie; T - a slime mold; U - 13 darts; V - a pick-axe (weapon in hand); W - a spiked wand; X - a blessed clear potion; a - a +0 katana; c - a +0 yumi; e - an uncursed rustproof +0 splint mail (being worn); g - a blessed scroll labeled ANDOVA BEGARIN; i - a cursed scroll of destroy armor; k - a scroll labeled ASHPD SODALG; l - an orcish dagger; m - an uncursed dark green potion; n - a wand of light; q - a tin opener; r - a lamp; s - an osaku; t - an uncursed scroll of magic mapping; u - an uncursed pyramidal amulet; w - an orcish dagger (at the ready); x - a +0 apron (being worn); z - a key
+[s19833 t14253 d23 0:23 xl8 hp75/75] STANDOFF hold at (3, 35): hostiles within 12 [3, 5, 6, 8, 8, 10], blind False, hp 75/75
+[s19833 t14253 d23 0:23 xl8 hp75/75] DIVE task standoff: Elbereth
+[s19849 t14254 d23 0:23 xl8 hp75/75] DIVE task standoff: hold the Elbereth
+[s20199 t14301 d23 0:23 xl8 hp75/75] DIVE task standoff: Elbereth
+[s20262 t14303 d23 0:23 xl8 hp75/75] DIVE task standoff: hold the Elbereth
+[s20312 t14311 d23 0:23 xl8 hp75/75] SURV hunger 1->2 food=['food ration', 'fortune cookie', 'slime mold'] cn=920 gap=2969 pf=0 dv=1 rescue=0 pet=0 hostiles=[('unseen', np.int64(3)), ('unseen', np.int64(3)), ('water nymph', np.int64(3)), ('unseen', np.int64(4)), ('unseen', np.int64(6))] eng='Elbereth'
+[s20317 t14311 d23 0:23 xl8 hp75/75] DIVE task reentry: eat
+[s20317 t14311 d23 0:23 xl8 hp75/75] REENTRY eating a gunyoki (hunger 2, hp 75/75)
+[s20317 t14311 d23 0:23 xl8 hp75/75] SURV eat 'a gunyoki' hu=2 hostiles=[('raven', np.int64(2)), ('water nymph', np.int64(3)), ('raven', np.int64(5))]
+[s20320 t14316 d23 0:23 xl8 hp75/75] SURV hunger 2->1 food=['food ration', 'fortune cookie', 'slime mold'] cn=920 gap=2974 pf=0 dv=1 rescue=0 pet=0 hostiles=[('unseen', np.int64(2)), ('water nymph', np.int64(3)), ('unseen', np.int64(5)), ('unseen', np.int64(5)), ('unseen', np.int64(17))] eng='Elbereth'
+[s20325 t14316 d23 0:23 xl8 hp75/75] DIVE task standoff: hold the Elbereth
+[s21376 t14446 d23 0:23 xl8 hp75/75] DIVE task standoff: Elbereth
+[s21437 t14449 d23 0:23 xl8 hp65/75] DIVE task standoff: hold the Elbereth
+[s21792 t14500 d23 0:23 xl8 hp75/75] STATUS milestone=BE_ON_FIRST_LEVEL diving=True hunger=1 pos=(np.int64(3), np.int64(35)) acts=[SPACE:728 LOOK:346 SEARCH:320 WHATIS:269 MOVEFAR:269] gotos=[descend(4, 59):1 _escape_act(17, 54):1 _altar_step(16, 9):1]
+[s21819 t14504 d23 0:23 xl8 hp75/75] STANDOFF given up (time 251), held 333 turns, hp 75/75
+[s21819 t14504 d23 0:23 xl8 hp75/75] REENTRY idle: no < known (pos (3, 35), floods 0, hp 75/75)
+[s21819 t14504 d23 0:23 xl8 hp75/75] DIVE task descend
+[s21824 t14505 d23 0:23 xl8 hp75/75] REENTRY to the < at (7, 37) (hp 75/75, blind False, hostiles [])
+[s21833 t14506 d23 0:23 xl8 hp75/75] REENTRY climb 1: up the stairs at hp 75/75
+[s21835 t14507 d22 0:22 xl8 hp75/75] DIVE level (np.int64(0), np.int64(22)) depth 22
+[s21835 t14507 d22 0:22 xl8 hp75/75] MINO kit d22 last_prayer=11342: $ - 104 gold pieces; D - a scroll labeled ELAM EBOW; F - a scroll labeled TEMOV; I - a +0 dwarvish iron helm (being worn); K - a towel; M - an osaku; N - an uncursed brown potion; O - 4 uncursed unlabeled scrolls; P - a cursed unlabeled scroll; Q - a scroll labeled STRC PRST SKRZ KRK; R - a fortune cookie; T - a slime mold; U - 13 darts; V - a pick-axe (weapon in hand); W - a spiked wand; X - a blessed clear potion; a - a +0 katana; c - a +0 yumi; e - an uncursed rustproof +0 splint mail (being worn); g - a blessed scroll labeled ANDOVA BEGARIN; i - a cursed scroll of destroy armor; k - a scroll labeled ASHPD SODALG; l - an orcish dagger; m - an uncursed dark green potion; n - a wand of light; q - a tin opener; r - a lamp; s - an osaku; t - an uncursed scroll of magic mapping; u - an uncursed pyramidal amulet; w - an orcish dagger (at the ready); x - a +0 apron (being worn); z - a key
+[s21839 t14507 d22 0:22 xl8 hp75/75] DIVE digging out, hostiles at [('air elemental', 1)]
+[s21839 t14507 d22 0:22 xl8 hp75/75] DIVE Elbereth before digging: ['air elemental']
+[s21855 t14508 d22 0:22 xl8 hp75/75] DIVE digging down with 'a pick-axe (weapon in hand)' (try 3)
+[s21859 t14512 d22 0:22 xl8 hp75/75] DIVE Elbereth before digging in the pit: []
+[s21875 t14512 d22 0:22 xl8 hp75/75] DIVE digging down with 'a pick-axe (weapon in hand)' (try 4)
+[s21884 t14526 d23 0:23 xl8 hp75/75] DIVE fell through a trap door at (np.int64(16), np.int64(61)) on (np.int64(0), np.int64(22)); remembered
+[s21884 t14526 d23 0:23 xl8 hp75/75] DIVE level (np.int64(0), np.int64(23)) depth 23
+[s21884 t14526 d23 0:23 xl8 hp75/75] MINO kit d23 last_prayer=11342: $ - 104 gold pieces; D - a scroll labeled ELAM EBOW; F - a scroll labeled TEMOV; I - a +0 dwarvish iron helm (being worn); K - a towel; M - an osaku; N - an uncursed brown potion; O - 4 uncursed unlabeled scrolls; P - a cursed unlabeled scroll; Q - a scroll labeled STRC PRST SKRZ KRK; R - a fortune cookie; T - a slime mold; U - 13 darts; V - a pick-axe (weapon in hand); W - a spiked wand; X - a blessed clear potion; a - a +0 katana; c - a +0 yumi; e - an uncursed rustproof +0 splint mail (being worn); g - a blessed scroll labeled ANDOVA BEGARIN; i - a cursed scroll of destroy armor; k - a scroll labeled ASHPD SODALG; l - an orcish dagger; m - an uncursed dark green potion; n - a wand of light; q - a tin opener; r - a lamp; s - an osaku; t - an uncursed scroll of magic mapping; u - an uncursed pyramidal amulet; w - an orcish dagger (at the ready); x - a +0 apron (being worn); z - a key
+[s21884 t14526 d23 0:23 xl8 hp75/75] REENTRY landing 1 on Medusa's level at (7, 36) hp 75/75 (cycles 1)
+[s21884 t14526 d23 0:23 xl8 hp75/75] REENTRY to the < at (7, 37) (hp 75/75, blind False, hostiles [])
+[s21888 t14526 d23 0:23 xl8 hp75/75] REENTRY climb 2: up the stairs at hp 75/75
+[s21890 t14527 d22 0:22 xl8 hp75/75] DIVE level (np.int64(0), np.int64(22)) depth 22
+[s21890 t14527 d22 0:22 xl8 hp75/75] MINO kit d22 last_prayer=11342: $ - 104 gold pieces; D - a scroll labeled ELAM EBOW; F - a scroll labeled TEMOV; I - a +0 dwarvish iron helm (being worn); K - a towel; M - an osaku; N - an uncursed brown potion; O - 4 uncursed unlabeled scrolls; P - a cursed unlabeled scroll; Q - a scroll labeled STRC PRST SKRZ KRK; R - a fortune cookie; T - a slime mold; U - 13 darts; V - a pick-axe (weapon in hand); W - a spiked wand; X - a blessed clear potion; a - a +0 katana; c - a +0 yumi; e - an uncursed rustproof +0 splint mail (being worn); g - a blessed scroll labeled ANDOVA BEGARIN; i - a cursed scroll of destroy armor; k - a scroll labeled ASHPD SODALG; l - an orcish dagger; m - an uncursed dark green potion; n - a wand of light; q - a tin opener; r - a lamp; s - an osaku; t - an uncursed scroll of magic mapping; u - an uncursed pyramidal amulet; w - an orcish dagger (at the ready); x - a +0 apron (being worn); z - a key
+[s21890 t14527 d22 0:22 xl8 hp75/75] REENTRY stepping into the hole at (16, 61) (entry 1, hp 75/75)
+[s21899 t14527 d23 0:23 xl8 hp75/75] DIVE fell through a trap door at (np.int64(16), np.int64(62)) on (np.int64(0), np.int64(22)); remembered
+[s21899 t14527 d23 0:23 xl8 hp75/75] DIVE level (np.int64(0), np.int64(23)) depth 23
+[s21899 t14527 d23 0:23 xl8 hp75/75] MINO kit d23 last_prayer=11342: $ - 104 gold pieces; D - a scroll labeled ELAM EBOW; F - a scroll labeled TEMOV; I - a +0 dwarvish iron helm (being worn); K - a towel; M - an osaku; N - an uncursed brown potion; O - 4 uncursed unlabeled scrolls; P - a cursed unlabeled scroll; Q - a scroll labeled STRC PRST SKRZ KRK; R - a fortune cookie; T - a slime mold; U - 13 darts; V - a pick-axe (weapon in hand); W - a spiked wand; X - a blessed clear potion; a - a +0 katana; c - a +0 yumi; e - an uncursed rustproof +0 splint mail (being worn); g - a blessed scroll labeled ANDOVA BEGARIN; i - a cursed scroll of destroy armor; k - a scroll labeled ASHPD SODALG; l - an orcish dagger; m - an uncursed dark green potion; n - a wand of light; q - a tin opener; r - a lamp; s - an osaku; t - an uncursed scroll of magic mapping; u - an uncursed pyramidal amulet; w - an orcish dagger (at the ready); x - a +0 apron (being worn); z - a key
+[s21899 t14527 d23 0:23 xl8 hp75/75] REENTRY landing 2 on Medusa's level at (5, 38) hp 75/75 (cycles 2)
+[s21899 t14527 d23 0:23 xl8 hp75/75] REENTRY to the < at (7, 37) (hp 75/75, blind False, hostiles ['raven'])
+[s21907 t14529 d23 0:23 xl8 hp75/75] REENTRY climb 3: up the stairs at hp 75/75
+[s21909 t14530 d22 0:22 xl8 hp75/75] DIVE level (np.int64(0), np.int64(22)) depth 22
+[s21909 t14530 d22 0:22 xl8 hp75/75] MINO kit d22 last_prayer=11342: $ - 104 gold pieces; D - a scroll labeled ELAM EBOW; F - a scroll labeled TEMOV; I - a +0 dwarvish iron helm (being worn); K - a towel; M - an osaku; N - an uncursed brown potion; O - 4 uncursed unlabeled scrolls; P - a cursed unlabeled scroll; Q - a scroll labeled STRC PRST SKRZ KRK; R - a fortune cookie; T - a slime mold; U - 13 darts; V - a pick-axe (weapon in hand); W - a spiked wand; X - a blessed clear potion; a - a +0 katana; c - a +0 yumi; e - an uncursed rustproof +0 splint mail (being worn); g - a blessed scroll labeled ANDOVA BEGARIN; i - a cursed scroll of destroy armor; k - a scroll labeled ASHPD SODALG; l - an orcish dagger; m - an uncursed dark green potion; n - a wand of light; q - a tin opener; r - a lamp; s - an osaku; t - an uncursed scroll of magic mapping; u - an uncursed pyramidal amulet; w - an orcish dagger (at the ready); x - a +0 apron (being worn); z - a key
+[s21909 t14530 d22 0:22 xl8 hp75/75] REENTRY stepping into the hole at (16, 61) (entry 2, hp 75/75)
+[s21915 t14531 d23 0:23 xl8 hp70/75] DIVE fell through a trap door at (np.int64(16), np.int64(62)) on (np.int64(0), np.int64(22)); remembered
+[s21915 t14531 d23 0:23 xl8 hp70/75] DIVE level (np.int64(0), np.int64(23)) depth 23
+[s21915 t14531 d23 0:23 xl8 hp70/75] MINO kit d23 last_prayer=11342: $ - 104 gold pieces; D - a scroll labeled ELAM EBOW; F - a scroll labeled TEMOV; I - a +0 dwarvish iron helm (being worn); K - a towel; M - an osaku; N - an uncursed brown potion; O - 4 uncursed unlabeled scrolls; P - a cursed unlabeled scroll; Q - a scroll labeled STRC PRST SKRZ KRK; R - a fortune cookie; T - a slime mold; U - 13 darts; V - a pick-axe (weapon in hand); W - a spiked wand; X - a blessed clear potion; a - a +0 katana; c - a +0 yumi; e - an uncursed rustproof +0 splint mail (being worn); g - a blessed scroll labeled ANDOVA BEGARIN; i - a cursed scroll of destroy armor; k - a scroll labeled ASHPD SODALG; l - an orcish dagger; m - an uncursed dark green potion; n - a wand of light; q - a tin opener; r - a lamp; s - an osaku; t - an uncursed scroll of magic mapping; u - an uncursed pyramidal amulet; w - an orcish dagger (at the ready); x - a +0 apron (being worn); z - a key
+[s21915 t14531 d23 0:23 xl8 hp70/75] REENTRY landing 3 on Medusa's level at (6, 40) hp 70/75 (cycles 3)
+[s21915 t14531 d23 0:23 xl8 hp70/75] STANDOFF hold at (6, 40): hostiles within 12 [1, 3, 5, 7, 8, 9], blind True, hp 70/75
+[s21915 t14531 d23 0:23 xl8 hp70/75] DIVE task standoff: Elbereth
+[s21927 t14531 d23 0:23 xl8 hp70/75] DIVE task standoff: hold the Elbereth
+[s22367 t14597 d23 0:23 xl8 hp75/75] STANDOFF window open at (6, 40) after 66 turns, hp 75/75, hostiles within 12: [5, 6, 8, 10, 10, 11]
+[s22367 t14597 d23 0:23 xl8 hp75/75] REENTRY to the < at (7, 37) (hp 75/75, blind False, hostiles [])
+[s22380 t14598 d23 0:23 xl8 hp75/75] REENTRY climb 4: up the stairs at hp 75/75
+[s22382 t14599 d22 0:22 xl8 hp75/75] DIVE level (np.int64(0), np.int64(22)) depth 22
+[s22382 t14599 d22 0:22 xl8 hp75/75] MINO kit d22 last_prayer=11342: $ - 104 gold pieces; D - a scroll labeled ELAM EBOW; F - a scroll labeled TEMOV; I - a +0 dwarvish iron helm (being worn); K - a towel; M - an osaku; N - an uncursed brown potion; O - 4 uncursed unlabeled scrolls; P - a cursed unlabeled scroll; Q - a scroll labeled STRC PRST SKRZ KRK; R - a fortune cookie; T - a slime mold; U - 13 darts; V - a pick-axe (weapon in hand); W - a spiked wand; X - a blessed clear potion; a - a +0 katana; c - a +0 yumi; e - an uncursed rustproof +0 splint mail (being worn); g - a blessed scroll labeled ANDOVA BEGARIN; i - a cursed scroll of destroy armor; k - a scroll labeled ASHPD SODALG; l - an orcish dagger; m - an uncursed dark green potion; n - a wand of light; q - a tin opener; r - a lamp; s - an osaku; t - an uncursed scroll of magic mapping; u - an uncursed pyramidal amulet; w - an orcish dagger (at the ready); x - a +0 apron (being worn); z - a key
+[s22382 t14599 d22 0:22 xl8 hp75/75] REENTRY stepping into the hole at (16, 61) (entry 3, hp 75/75)
+[s22387 t14600 d23 0:23 xl8 hp75/75] DIVE fell through a trap door at (np.int64(16), np.int64(62)) on (np.int64(0), np.int64(22)); remembered
+[s22387 t14600 d23 0:23 xl8 hp75/75] DIVE level (np.int64(0), np.int64(23)) depth 23
+[s22387 t14600 d23 0:23 xl8 hp75/75] MINO kit d23 last_prayer=11342: $ - 104 gold pieces; D - a scroll labeled ELAM EBOW; F - a scroll labeled TEMOV; I - a +0 dwarvish iron helm (being worn); K - a towel; M - an osaku; N - an uncursed brown potion; O - 4 uncursed unlabeled scrolls; P - a cursed unlabeled scroll; Q - a scroll labeled STRC PRST SKRZ KRK; R - a fortune cookie; T - a slime mold; U - 13 darts; V - a pick-axe (weapon in hand); W - a spiked wand; X - a blessed clear potion; a - a +0 katana; c - a +0 yumi; e - an uncursed rustproof +0 splint mail (being worn); g - a blessed scroll labeled ANDOVA BEGARIN; i - a cursed scroll of destroy armor; k - a scroll labeled ASHPD SODALG; l - an orcish dagger; m - an uncursed dark green potion; n - a wand of light; q - a tin opener; r - a lamp; s - an osaku; t - an uncursed scroll of magic mapping; u - an uncursed pyramidal amulet; w - an orcish dagger (at the ready); x - a +0 apron (being worn); z - a key
+[s22387 t14600 d23 0:23 xl8 hp75/75] REENTRY landing 4 on Medusa's level at (5, 38) hp 75/75 (cycles 4)
+[s22387 t14600 d23 0:23 xl8 hp75/75] REENTRY to the < at (7, 37) (hp 75/75, blind False, hostiles [])
+[s22395 t14601 d23 0:23 xl8 hp75/75] REENTRY climb 5: up the stairs at hp 75/75
+[s22397 t14601 d22 0:22 xl8 hp75/75] DIVE level (np.int64(0), np.int64(22)) depth 22
+[s22397 t14601 d22 0:22 xl8 hp75/75] MINO kit d22 last_prayer=11342: $ - 104 gold pieces; D - a scroll labeled ELAM EBOW; F - a scroll labeled TEMOV; I - a +0 dwarvish iron helm (being worn); K - a towel; M - an osaku; N - an uncursed brown potion; O - 4 uncursed unlabeled scrolls; P - a cursed unlabeled scroll; Q - a scroll labeled STRC PRST SKRZ KRK; R - a fortune cookie; T - a slime mold; U - 13 darts; V - a pick-axe (weapon in hand); W - a spiked wand; X - a blessed clear potion; a - a +0 katana; c - a +0 yumi; e - an uncursed rustproof +0 splint mail (being worn); g - a blessed scroll labeled ANDOVA BEGARIN; i - a cursed scroll of destroy armor; k - a scroll labeled ASHPD SODALG; l - an orcish dagger; m - an uncursed dark green potion; n - a wand of light; q - a tin opener; r - a lamp; s - an osaku; t - an uncursed scroll of magic mapping; u - an uncursed pyramidal amulet; w - an orcish dagger (at the ready); x - a +0 apron (being worn); z - a key
+[s22397 t14601 d22 0:22 xl8 hp75/75] REENTRY stepping into the hole at (16, 61) (entry 4, hp 75/75)
+[s22402 t14602 d23 0:23 xl8 hp75/75] DIVE fell through a trap door at (np.int64(16), np.int64(62)) on (np.int64(0), np.int64(22)); remembered
+[s22402 t14602 d23 0:23 xl8 hp75/75] DIVE level (np.int64(0), np.int64(23)) depth 23
+[s22402 t14602 d23 0:23 xl8 hp75/75] MINO kit d23 last_prayer=11342: $ - 104 gold pieces; D - a scroll labeled ELAM EBOW; F - a scroll labeled TEMOV; I - a +0 dwarvish iron helm (being worn); K - a towel; M - an osaku; N - an uncursed brown potion; O - 4 uncursed unlabeled scrolls; P - a cursed unlabeled scroll; Q - a scroll labeled STRC PRST SKRZ KRK; R - a fortune cookie; T - a slime mold; U - 13 darts; V - a pick-axe (weapon in hand); W - a spiked wand; X - a blessed clear potion; a - a +0 katana; c - a +0 yumi; e - an uncursed rustproof +0 splint mail (being worn); g - a blessed scroll labeled ANDOVA BEGARIN; i - a cursed scroll of destroy armor; k - a scroll labeled ASHPD SODALG; l - an orcish dagger; m - an uncursed dark green potion; n - a wand of light; q - a tin opener; r - a lamp; s - an osaku; t - an uncursed scroll of magic mapping; u - an uncursed pyramidal amulet; w - an orcish dagger (at the ready); x - a +0 apron (being worn); z - a key
+[s22402 t14602 d23 0:23 xl8 hp75/75] REENTRY landing 5 on Medusa's level at (7, 40) hp 75/75 (cycles 5)
+[s22402 t14602 d23 0:23 xl8 hp75/75] REENTRY to the < at (7, 37) (hp 75/75, blind False, hostiles ['raven', 'raven', 'raven'])
+[s22415 t14604 d23 0:23 xl8 hp65/75] REENTRY climb 6: up the stairs at hp 65/75
+[s22420 t14605 d22 0:22 xl8 hp66/75] DIVE level (np.int64(0), np.int64(22)) depth 22
+[s22420 t14605 d22 0:22 xl8 hp66/75] MINO kit d22 last_prayer=11342: $ - 104 gold pieces; D - a scroll labeled ELAM EBOW; F - a scroll labeled TEMOV; I - a +0 dwarvish iron helm (being worn); K - a towel; M - an osaku; N - an uncursed brown potion; O - 4 uncursed unlabeled scrolls; P - a cursed unlabeled scroll; Q - a scroll labeled STRC PRST SKRZ KRK; R - a fortune cookie; T - a slime mold; U - 13 darts; V - a pick-axe (weapon in hand); W - a spiked wand; X - a blessed clear potion; a - a +0 katana; c - a +0 yumi; e - an uncursed rustproof +0 splint mail (being worn); g - a blessed scroll labeled ANDOVA BEGARIN; i - a cursed scroll of destroy armor; k - a scroll labeled ASHPD SODALG; l - an orcish dagger; m - an uncursed dark green potion; n - a wand of light; q - a tin opener; r - a lamp; s - an osaku; t - an uncursed scroll of magic mapping; u - an uncursed pyramidal amulet; w - an orcish dagger (at the ready); x - a +0 apron (being worn); z - a key
+[s22420 t14605 d22 0:22 xl8 hp66/75] DIVE task reentry: rest above Medusa
+[s22433 t14608 d22 0:22 xl8 hp34/75] REENTRY go (step): to the hole with ['unknown'] within 3 at (16, 62) (hp 34/75, blind True)
+[s22433 t14608 d22 0:22 xl8 hp34/75] REENTRY stepping into the hole at (16, 61) (entry 5, hp 34/75)
+[s22439 t14609 d23 0:23 xl8 hp25/75] DIVE fell through a trap door at (np.int64(16), np.int64(62)) on (np.int64(0), np.int64(22)); remembered
+[s22439 t14609 d23 0:23 xl8 hp25/75] DIVE level (np.int64(0), np.int64(23)) depth 23
+[s22439 t14609 d23 0:23 xl8 hp25/75] MINO kit d23 last_prayer=11342: $ - 104 gold pieces; D - a scroll labeled ELAM EBOW; F - a scroll labeled TEMOV; I - a +0 dwarvish iron helm (being worn); K - a towel; M - an osaku; N - an uncursed brown potion; O - 4 uncursed unlabeled scrolls; P - a cursed unlabeled scroll; Q - a scroll labeled STRC PRST SKRZ KRK; R - a fortune cookie; T - a slime mold; U - 13 darts; V - a pick-axe (weapon in hand); W - a spiked wand; X - a blessed clear potion; a - a +0 katana; c - a +0 yumi; e - an uncursed rustproof +0 splint mail (being worn); g - a blessed scroll labeled ANDOVA BEGARIN; i - a cursed scroll of destroy armor; k - a scroll labeled ASHPD SODALG; l - an orcish dagger; m - an uncursed dark green potion; n - a wand of light; q - a tin opener; r - a lamp; s - an osaku; t - an uncursed scroll of magic mapping; u - an uncursed pyramidal amulet; w - an orcish dagger (at the ready); x - a +0 apron (being worn); z - a key
+[s22439 t14609 d23 0:23 xl8 hp25/75] REENTRY landing 6 on Medusa's level at (8, 39) hp 25/75 (cycles 6)
+[s22439 t14609 d23 0:23 xl8 hp25/75] REENTRY to the < at (7, 37) (hp 25/75, blind True, hostiles ['raven', 'raven', 'raven'])
+[s22440 t14609 d23 0:23 xl8 hp19/75] STANDOFF hold at (7, 39): hostiles within 12 [1, 1, 2, 3, 3, 7], blind True, hp 19/75
+[s22440 t14609 d23 0:23 xl8 hp19/75] DIVE task standoff: Elbereth
+[s22464 t14611 d23 0:23 xl8 hp20/75] DIVE task standoff: hold the Elbereth
+[s22643 t14650 d23 0:23 xl8 hp28/75] DIVE task standoff: Elbereth
+[s22664 t14650 d23 0:23 xl8 hp28/75] DIVE task standoff: hold the Elbereth
+[s23385 t14749 d23 0:23 xl8 hp47/75] DIVE task standoff: Elbereth
+[s23406 t14749 d23 0:23 xl8 hp47/75] DIVE task standoff: hold the Elbereth
+[s23644 t14785 d23 0:23 xl8 hp55/75] STANDOFF window open at (7, 39) after 176 turns, hp 55/75, hostiles within 12: [4, 5, 9]
+[s23655 t14786 d23 0:23 xl8 hp53/75] REENTRY climb 7: up the stairs at hp 53/75
+[s23663 t14787 d22 0:22 xl8 hp39/75] DIVE level (np.int64(0), np.int64(22)) depth 22
+[s23663 t14787 d22 0:22 xl8 hp39/75] MINO kit d22 last_prayer=11342: $ - 104 gold pieces; D - a scroll labeled ELAM EBOW; F - a scroll labeled TEMOV; I - a +0 dwarvish iron helm (being worn); K - a towel; M - an osaku; N - an uncursed brown potion; O - 4 uncursed unlabeled scrolls; P - a cursed unlabeled scroll; Q - a scroll labeled STRC PRST SKRZ KRK; R - a fortune cookie; T - a slime mold; U - 13 darts; V - a pick-axe (weapon in hand); W - a spiked wand; X - a blessed clear potion; a - a +0 katana; c - a +0 yumi; e - an uncursed rustproof +0 splint mail (being worn); g - a blessed scroll labeled ANDOVA BEGARIN; i - a cursed scroll of destroy armor; k - a scroll labeled ASHPD SODALG; l - an orcish dagger; m - an uncursed dark green potion; n - a wand of light; q - a tin opener; r - a lamp; s - an osaku; t - an uncursed scroll of magic mapping; u - an uncursed pyramidal amulet; w - an orcish dagger (at the ready); x - a +0 apron (being worn); z - a key
+[s23663 t14787 d22 0:22 xl8 hp39/75] REENTRY go (step): to the hole with ['unknown', 'unknown'] within 3 at (16, 62) (hp 39/75, blind True)
+[s23663 t14787 d22 0:22 xl8 hp39/75] REENTRY stepping into the hole at (16, 61) (entry 6, hp 39/75)
+[s23668 t14788 d25 0:25 xl8 hp39/75] DIVE fell through a trap door at (np.int64(16), np.int64(62)) on (np.int64(0), np.int64(22)); remembered
+[s23668 t14788 d25 0:25 xl8 hp39/75] DIVE level (np.int64(0), np.int64(25)) depth 25
+[s23668 t14788 d25 0:25 xl8 hp39/75] MINO kit d25 last_prayer=11342: $ - 104 gold pieces; D - a scroll labeled ELAM EBOW; F - a scroll labeled TEMOV; I - a +0 dwarvish iron helm (being worn); K - a towel; M - an osaku; N - an uncursed brown potion; O - 4 uncursed unlabeled scrolls; P - a cursed unlabeled scroll; Q - a scroll labeled STRC PRST SKRZ KRK; R - a fortune cookie; T - a slime mold; U - 13 darts; V - a pick-axe (weapon in hand); W - a spiked wand; X - a blessed clear potion; a - a +0 katana; c - a +0 yumi; e - an uncursed rustproof +0 splint mail (being worn); g - a blessed scroll labeled ANDOVA BEGARIN; i - a cursed scroll of destroy armor; k - a scroll labeled ASHPD SODALG; l - an orcish dagger; m - an uncursed dark green potion; n - a wand of light; q - a tin opener; r - a lamp; s - an osaku; t - an uncursed scroll of magic mapping; u - an uncursed pyramidal amulet; w - an orcish dagger (at the ready); x - a +0 apron (being worn); z - a key
+[s23668 t14788 d25 0:25 xl8 hp39/75] MINO seen: 2 at distance 11, hp 39/75
+[s23668 t14788 d25 0:25 xl8 hp39/75] REENTRY skipped Medusa's level: (0, 22) -> (0, 25) after 7 climb(s), 6 landing(s)
+[s23670 t14789 d25 0:25 xl8 hp39/75] DIVE task descend
+[s23670 t14789 d25 0:25 xl8 hp39/75] DIVE digging down with 'a pick-axe (weapon in hand)' (try 1)
+[s23673 t14792 d25 0:25 xl8 hp40/75] DIVE digging down with 'a pick-axe (weapon in hand)' (try 2)
+[s23678 t14808 d26 0:26 xl8 hp43/75] DIVE fell through a trap door at (np.int64(16), np.int64(39)) on (np.int64(0), np.int64(25)); remembered
+[s23678 t14808 d26 0:26 xl8 hp43/75] DIVE level (np.int64(0), np.int64(26)) depth 26
+[s23678 t14808 d26 0:26 xl8 hp43/75] MINO kit d26 last_prayer=11342: $ - 104 gold pieces; D - a scroll labeled ELAM EBOW; F - a scroll labeled TEMOV; I - a +0 dwarvish iron helm (being worn); K - a towel; M - an osaku; N - an uncursed brown potion; O - 4 uncursed unlabeled scrolls; P - a cursed unlabeled scroll; Q - a scroll labeled STRC PRST SKRZ KRK; R - a fortune cookie; T - a slime mold; U - 13 darts; V - a pick-axe (weapon in hand); W - a spiked wand; X - a blessed clear potion; a - a +0 katana; c - a +0 yumi; e - an uncursed rustproof +0 splint mail (being worn); g - a blessed scroll labeled ANDOVA BEGARIN; i - a cursed scroll of destroy armor; k - a scroll labeled ASHPD SODALG; l - an orcish dagger; m - an uncursed dark green potion; n - a wand of light; q - a tin opener; r - a lamp; s - an osaku; t - an uncursed scroll of magic mapping; u - an uncursed pyramidal amulet; w - an orcish dagger (at the ready); x - a +0 apron (being worn); z - a key
+[s23678 t14808 d26 0:26 xl8 hp43/75] DIVE task rest
+[s23678 t14808 d26 0:26 xl8 hp43/75] DIVE Elbereth before resting
+[s23692 t14809 d26 0:26 xl8 hp43/75] DIVE Elbereth before resting
+[s23715 t14824 d26 0:26 xl8 hp46/75] DIVE task descend
+[s23715 t14824 d26 0:26 xl8 hp46/75] DIVE digging down with 'a pick-axe (weapon in hand)' (try 1)
+[s23726 t14826 d26 0:26 xl8 hp47/75] DIVE digging down with 'a pick-axe (weapon in hand)' (try 2)
+[s23732 t14832 d26 0:26 xl8 hp48/75] DIVE digging out, hostiles at [('paper golem', 1)]
+[s23732 t14832 d26 0:26 xl8 hp48/75] DIVE Elbereth before digging in the pit: ['paper golem']
+[s23748 t14833 d26 0:26 xl8 hp48/75] DIVE digging out, hostiles at [('paper golem', 1)]
+[s23748 t14833 d26 0:26 xl8 hp48/75] DIVE digging down with 'a pick-axe (weapon in hand)' (try 3)
+[s23759 t14840 d26 0:26 xl8 hp50/75] DIVE digging down with 'a pick-axe (weapon in hand)' (try 3)
+[s23765 t14842 d27 0:27 xl8 hp50/75] DIVE fell through a trap door at (np.int64(14), np.int64(48)) on (np.int64(0), np.int64(26)); remembered
+[s23765 t14842 d27 0:27 xl8 hp50/75] LANDING listening for the castle at depth 27 (landed at bot x 5, Medusa (np.int64(0), np.int64(23)))
+[s23765 t14842 d27 0:27 xl8 hp50/75] DIVE level (np.int64(0), np.int64(27)) depth 27
+[s23765 t14842 d27 0:27 xl8 hp50/75] MINO kit d27 last_prayer=11342: $ - 104 gold pieces; D - a scroll labeled ELAM EBOW; F - a scroll labeled TEMOV; I - a +0 dwarvish iron helm (being worn); K - a towel; M - an osaku; N - an uncursed brown potion; O - 4 uncursed unlabeled scrolls; P - a cursed unlabeled scroll; Q - a scroll labeled STRC PRST SKRZ KRK; R - a fortune cookie; T - a slime mold; U - 13 darts; V - a pick-axe (weapon in hand); W - a spiked wand; X - a blessed clear potion; a - a +0 katana; c - a +0 yumi; e - an uncursed rustproof +0 splint mail (being worn); g - a blessed scroll labeled ANDOVA BEGARIN; i - a cursed scroll of destroy armor; k - a scroll labeled ASHPD SODALG; l - an orcish dagger; m - an uncursed dark green potion; n - a wand of light; q - a tin opener; r - a lamp; s - an osaku; t - an uncursed scroll of magic mapping; u - an uncursed pyramidal amulet; w - an orcish dagger (at the ready); x - a +0 apron (being worn); z - a key
+[s23765 t14842 d27 0:27 xl8 hp50/75] DIVE task landing: listen for the castle
+[s23781 t14843 d27 0:27 xl8 hp50/75] DIVE task descend
+[s23781 t14843 d27 0:27 xl8 hp50/75] DIVE task landing: listen for the castle
+[s23787 t14844 d27 0:27 xl8 hp50/75] LANDING castle by ear: 'You hear a door open.  You hear a door open.' at +2
+[s23787 t14844 d27 0:27 xl8 hp50/75] DIVE bottom reached at depth 27; inventory: $ - 104 gold pieces; D - a scroll labeled ELAM EBOW; F - a scroll labeled TEMOV; I - a +0 dwarvish iron helm (being worn); K - a towel; M - an osaku; N - an uncursed brown potion; O - 4 uncursed unlabeled scrolls; P - a cursed unlabeled scroll; Q - a scroll labeled STRC PRST SKRZ KRK; R - a fortune cookie; T - a slime mold; U - 13 darts; V - a pick-axe (weapon in hand); W - a spiked wand; X - a blessed clear potion; a - a +0 katana; c - a +0 yumi; e - an uncursed rustproof +0 splint mail (being worn); g - a blessed scroll labeled ANDOVA BEGARIN; i - a cursed scroll of destroy armor; k - a scroll labeled ASHPD SODALG; l - an orcish dagger; m - an uncursed dark green potion; n - a wand of light; q - a tin opener; r - a lamp; s - an osaku; t - an uncursed scroll of magic mapping; u - an uncursed pyramidal amulet; w - an orcish dagger (at the ready); x - a +0 apron (being worn); z - a key
+[s23787 t14844 d27 0:27 xl8 hp50/75] POWER passage plan at depth 27 AC 1: quaff an uncursed brown potion (unknown potion: P(levitation)=0.05 danger=0.73 x1); quaff an uncursed dark green potion (unknown potion: P(levitation)=0.05 danger=0.73 x1); puton an uncursed pyramidal amulet (unknown amulet: P(magical breathing)=0.07 P(strangulation)=0.14 (cursed 90%: pray))
+[s23787 t14844 d27 0:27 xl8 hp50/75] CASTLE level detected: (np.int64(0), np.int64(27)) (depth 27)
+[s23787 t14844 d27 0:27 xl8 hp50/75] MINO seen: 1 at distance 1, hp 50/75
+[s23787 t14844 d27 0:27 xl8 hp50/75] SCARE drop 1: ['a scroll labeled ELAM EBOW', 'a scroll labeled TEMOV', 'a scroll labeled STRC PRST SKRZ KRK', 'a scroll labeled ASHPD SODALG'] at (np.int64(9), np.int64(5)) hp 50/75, adjacent ['minotaur']
