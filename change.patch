@@ -1,0 +1,37 @@
+diff --git a/base/pf_s25p8/dive_logic.py b/base/pf_s25p8/dive_logic.py
+index e6934c1..d7235cc 100644
+--- a/base/pf_s25p8/dive_logic.py
++++ b/base/pf_s25p8/dive_logic.py
+@@ -1946,8 +1946,15 @@ class DiveLogic:
+         near = self._near_hostiles()
+         # a lone weak monster is better killed than hidden from (engraving gives it a free hit)
+         if len(near) == 1 and getattr(near[0][3], 'mlevel', 99) <= 2 and bl.hitpoints >= 6:
+-            self._elbereth_resting = False
+-            yield False
++            _, y, x, mon, _ = near[0]
++            # A low-level monster with a dangerous attack, such as a dwarf with a pick, can still
++            # wound a Ranger enough to trigger rapid-loss rest.
++            dangerous = agent.character.role == Character.RANGER and agent.character.race == Character.HUMAN and \
++                getattr(mon, 'difficulty', 0) > 2 and \
++                (resting or (falling and utils.adjacent((y, x), (bl.y, bl.x))))
++            if not dangerous:
++                self._elbereth_resting = False
++                yield False
+         # REST_FIGHT_WEAK: ... at any HP when one blow kills it (makemon difficulty <= 2, not faster than us): the
+         # engraving is a sure free attack and a dust typo (1 in 25 letters, 28% per word) another; our swing kills
+         # ~3 times in 4. With HOLD_LOOP the rest really holds, and an XL2 at 5/20 HP died engraving twice next to a
+diff --git a/nethackers.solution.json b/nethackers.solution.json
+index fad77f7..d450bad 100644
+--- a/nethackers.solution.json
++++ b/nethackers.solution.json
+@@ -1,8 +1,9 @@
+ {
+   "schema": "nethackers.solution/v1",
+-  "name": "daglar-zLeadersBest2089852",
++  "name": "Ranger cover from a heavy melee foe",
+   "root": ".",
+   "parents": [
++    "github.com/daglar-dragomirov/nethacker@0b3dfd05cfbfd52356cc2d10fe2b55857d2821f6",
+     "github.com/daglar-dragomirov/nethacker@ccfb1251179bad749ece88d384956363ffb2db56",
+     "github.com/daglar-dragomirov/nethacker@44b29b9299c5dcfb76e3fc6081004727c58db19a",
+     "github.com/DT6A/nethacker@37f9da35d0dbf98ed15bf89735bd601f0c0eac02",
