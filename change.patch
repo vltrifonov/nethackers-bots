@@ -1,0 +1,41 @@
+diff --git a/d_vlomshakov_ca58a0e/pf_hh/agent.py b/d_vlomshakov_ca58a0e/pf_hh/agent.py
+index 0c9ee11..3cbff3e 100644
+--- a/d_vlomshakov_ca58a0e/pf_hh/agent.py
++++ b/d_vlomshakov_ca58a0e/pf_hh/agent.py
+@@ -1344,10 +1344,19 @@ class Agent:
+         # hypothesis: at XL < 5 the emergency prayer is the only answer to a bad fight (an XL2 elite
+         # game spent it on hunger at T1350 and died to a goblin at T1660 with nothing left); eat the
+         # food we carry instead of praying for hunger while that weak.
+-        if self.blstats.experience_level >= 5 or not jf_config.EARLY_FIXES:
++        bl = self.blstats
++        if bl.experience_level >= 5:
+             return False
++        if not jf_config.EARLY_FIXES:
++            if self.character.role != Character.HEALER or self.character.race != Character.HUMAN or \
++                    bl.depth != 1 or bl.experience_level > 3 or self.global_logic.dive.diving or \
++                    self.current_level().dungeon_number != Level.DUNGEONS_OF_DOOM or \
++                    self.last_prayer_turn is None or bl.time - self.last_prayer_turn >= 1100:
++                return False
+         return any(item.category == nh.FOOD_CLASS and item.objs[0].name != 'sprig of wolfsbane' and
+-                   not item.is_corpse() for item in flatten_items(self.inventory.items))
++                   not item.is_corpse() and (jf_config.EARLY_FIXES or
++                   (item.status in (Item.BLESSED, Item.UNCURSED) and item.shop_status != Item.UNPAID))
++                   for item in flatten_items(self.inventory.items))
+ 
+     def pray(self):
+         gap = None if self.last_prayer_turn is None else self.blstats.time - self.last_prayer_turn
+diff --git a/nethackers.solution.json b/nethackers.solution.json
+index 5f5b00b..070569a 100644
+--- a/nethackers.solution.json
++++ b/nethackers.solution.json
+@@ -1,8 +1,9 @@
+ {
+   "schema": "nethackers.solution/v1",
+-  "name": "daglar-zPubPoint101",
++  "name": "Healer eat safe food before a short repeat prayer",
+   "root": ".",
+   "parents": [
++    "github.com/daglar-dragomirov/nethacker@d09613e36253d56d18a0c975c94faed4de80eb22",
+     "github.com/daglar-dragomirov/nethacker@ccfb1251179bad749ece88d384956363ffb2db56",
+     "github.com/daglar-dragomirov/nethacker@44b29b9299c5dcfb76e3fc6081004727c58db19a",
+     "github.com/DT6A/nethacker@37f9da35d0dbf98ed15bf89735bd601f0c0eac02",
