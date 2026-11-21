@@ -1,0 +1,83 @@
+diff --git a/base/pf_dt448_s25/agent.py b/base/pf_dt448_s25/agent.py
+index 8a13775..d138c0f 100644
+--- a/base/pf_dt448_s25/agent.py
++++ b/base/pf_dt448_s25/agent.py
+@@ -2809,9 +2809,12 @@ class Agent:
+     @utils.debug_log('engulfed_fight')
+     @Strategy.wrap
+     def engulfed_fight(self):
+-        if not utils.any_in(self.glyphs, G.SWALLOW):
++        mask = utils.isin(self.glyphs, G.SWALLOW)
++        if not mask.any():
+             yield False
+         yield True
++        if self._wait_out_energy_vortex(mask):
++            return
+         if jf_config.ENGULF_WIELD:
+             # a dig-diver is swallowed with the pick-axe in hand (base-jf25 s13: 'You begin bashing monsters
+             # with your pick-axe' inside a fire vortex, dead 2 turns later): every blow from inside hits, so
+@@ -2827,6 +2830,39 @@ class Agent:
+                 break
+             assert self.melee_attack(*list(zip(*mask.nonzero()))[0])
+ 
++    def _wait_out_energy_vortex(self, mask):
++        # Adapted from vltrifonov/nethackers-bots@6bd408f8a925e2f6723e9ab0ca0e1fd4c957f6c9.
++        bl = self.blstats
++        prop = self.character.prop
++        if (self.character.role != Character.RANGER or self.character.race != Character.ELF
++                or bl.hitpoints <= max(24, bl.max_hitpoints // 2) or prop.blind or prop.hallu or prop.polymorph):
++            return False
++        # Each species has eight consecutive swallow glyphs.
++        species = (int(self.glyphs[mask][0]) - nh.GLYPH_SWALLOW_OFF) // 8
++        if nh.permonst(species).mname != 'energy vortex':
++            return False
++        main = self.inventory.items.main_hand
++        if (main is None or not main.is_unambiguous() or main.object.name != 'pick-axe'
++                or (main.modifier or 0) > 0):
++            return False
++        if any(i.category in (nh.SCROLL_CLASS, nh.WAND_CLASS) and i.is_unambiguous()
++               and i.object.name == 'teleportation' and i.status != Item.CURSED and i.shop_status == Item.NOT_SHOP
++               and (i.category == nh.SCROLL_CLASS or not self.inventory.is_known_empty(i))
++               for i in self.inventory.items):
++            return False
++
++        # The native non-digesting engulf timer progresses on the vortex's attacks.
++        # Waiting avoids its stronger passive shock when hit with our weak digging weapon.
++        self.log('ENGULFED: waiting for the energy vortex to expel us')
++        for _ in range(6):
++            self.step(A.MiscDirection.WAIT)
++            mask = utils.isin(self.glyphs, G.SWALLOW)
++            if not mask.any():
++                return True
++            if self.blstats.hitpoints <= 18 or (int(self.glyphs[mask][0]) - nh.GLYPH_SWALLOW_OFF) // 8 != species:
++                break
++        return False
++
+     def _is_corpse_editable(self, monster_id, age_turn):
+         permonst = MON.permonst(monster_id)
+ 
+diff --git a/nethackers.solution.json b/nethackers.solution.json
+index d8365e8..15f7af3 100644
+--- a/nethackers.solution.json
++++ b/nethackers.solution.json
+@@ -1,8 +1,9 @@
+ {
+   "schema": "nethackers.solution/v1",
+-  "name": "daglar-zLeadersBest3655166",
++  "name": "Elf Ranger waits for energy vortex expulsion",
+   "root": ".",
+   "parents": [
++    "github.com/daglar-dragomirov/nethacker@8757665d9655ea940b60e9029b8f2e08baf394e5",
+     "github.com/daglar-dragomirov/nethacker@ccfb1251179bad749ece88d384956363ffb2db56",
+     "github.com/daglar-dragomirov/nethacker@44b29b9299c5dcfb76e3fc6081004727c58db19a",
+     "github.com/DT6A/nethacker@37f9da35d0dbf98ed15bf89735bd601f0c0eac02",
+@@ -91,7 +92,8 @@
+     "github.com/Komershan/nethacker@9b873ea540374801fedb78242e51287811dc3290",
+     "github.com/eL1fe/nethacker@dc2765b9a90074e2823521afb721b7ee16ef35a7",
+     "github.com/eL1fe/nethacker@ff8e49187df304cbd0ad2bbbe8109feb19e48e0b",
+-    "github.com/daglar-dragomirov/nethacker@e29eb8281b13784716d9121e4f01ec60c2bb2165"
++    "github.com/daglar-dragomirov/nethacker@e29eb8281b13784716d9121e4f01ec60c2bb2165",
++    "github.com/vltrifonov/nethackers-bots@6bd408f8a925e2f6723e9ab0ca0e1fd4c957f6c9"
+   ],
+   "entrypoint": "bot.py"
+ }
