@@ -1,0 +1,38 @@
+diff --git a/d_CleverShovel_e13ed40/autoascend/dive_logic.py b/d_CleverShovel_e13ed40/autoascend/dive_logic.py
+index a758bef..d3ab75e 100755
+--- a/d_CleverShovel_e13ed40/autoascend/dive_logic.py
++++ b/d_CleverShovel_e13ed40/autoascend/dive_logic.py
+@@ -7556,6 +7556,18 @@ class DiveLogic:
+         # even if out of sight now (base-public s14: an invisible ogre king hit us in the fresh pit; s1: a
+         # chameleon)
+         rewrite = spot[3] and tries.get(spot[:3] + (False,), 0) > 0
++        # Keep the first protective pit rewrite. In a quiet pre-Castle filler,
++        # a failed repeat can cost the turn needed to finish the hole.
++        prop = agent.character.prop
++        if rewrite and not near and not (blind or prop.confusion or prop.stun or prop.hallu) and \
++                bl.hunger_state < Hunger.WEAK and bl.depth < jf_config.CASTLE_SCARE_DEPTH and \
++                self._maze_below_medusa():
++            last = self.__dict__.get('_engrave_turn', {}).get(spot)
++            if last is not None and self._hp_history and self._hp_history[0][0] <= last:
++                hp = [value for turn, value in self._hp_history if turn >= last] + [bl.hitpoints]
++                if all(now >= before for before, now in zip(hp, hp[1:])):
++                    agent.log('DIVE skipping repeat Elbereth in a quiet filler pit')
++                    return False
+         # MEDUSA_LAZY_ELB: on Medusa's level too, no engraving while nothing that Elbereth stops is within the radius
+         # (the first attempt starts an action earlier, before the ravens/snakes are there)
+         medusa_always = self.on_medusa_level() and not (jf_config.MEDUSA_LAZY_ELB and not near and not rewrite)
+diff --git a/nethackers.solution.json b/nethackers.solution.json
+index 00f1167..bdc6225 100644
+--- a/nethackers.solution.json
++++ b/nethackers.solution.json
+@@ -1,8 +1,9 @@
+ {
+   "schema": "nethackers.solution/v1",
+-  "name": "daglar-zLeadersSeed432989",
++  "name": "vltrifonov-samurai-filler-pit-timing",
+   "root": ".",
+   "parents": [
++    "github.com/daglar-dragomirov/nethacker@19a4f841ce8448acb181ab5aebf2950aa2b38299",
+     "github.com/daglar-dragomirov/nethacker@ccfb1251179bad749ece88d384956363ffb2db56",
+     "github.com/daglar-dragomirov/nethacker@44b29b9299c5dcfb76e3fc6081004727c58db19a",
+     "github.com/DT6A/nethacker@37f9da35d0dbf98ed15bf89735bd601f0c0eac02",
