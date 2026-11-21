@@ -1,0 +1,33 @@
+diff --git a/base/nhbot_v3/agent.py b/base/nhbot_v3/agent.py
+index e1c6f10..d69e8e7 100644
+--- a/base/nhbot_v3/agent.py
++++ b/base/nhbot_v3/agent.py
+@@ -625,6 +625,8 @@ class Agent:
+             self.last_observation = observation
+ 
+         self.blstats = BLStats(*self.last_observation['blstats'])
++        if jf_log.enabled() and re.search(r'\b(eel|kraken)\b', self.message, re.I):
++            self.log(f'EEL MESSAGE at {(self.blstats.y, self.blstats.x)}: {self.message!r}')
+         self.glyphs = self.last_observation['glyphs']
+ 
+         if self._prayer_model_active():
+diff --git a/base/nhbot_v3/dive_logic.py b/base/nhbot_v3/dive_logic.py
+index ec01d32..16b0df9 100644
+--- a/base/nhbot_v3/dive_logic.py
++++ b/base/nhbot_v3/dive_logic.py
+@@ -3779,6 +3779,15 @@ class DiveLogic:
+                 not agent.character.prop.polymorph and agent.can_engrave():
+             spot = (level.key(), bl.y, bl.x, 'scare')
+             if self.__dict__.get('_elbereth_tries', {}).get(spot, 0) < 2:
++                if jf_log.enabled():
++                    aquatic = [(int(m[1]), int(m[2]), m[3].mname) for m in adjacent
++                               if 'eel' in m[3].mname or m[3].mname == 'kraken']
++                    if aquatic:
++                        land = [(int(y), int(x)) for y, x in agent.neighbors(bl.y, bl.x, shuffle=False)
++                                if level.walkable[y, x] and level.objects[y, x] not in WET and
++                                not agent.monster_tracker.monster_mask[y, x]]
++                        agent.log(f'EEL CHOICE pos={(bl.y, bl.x)} target={target} wrapping={aquatic} '
++                                  f'free_land={land} hold_turn={self._eel_hold_turn} message={agent.message!r}')
+                 return ('scare', spot)   # (counted when done: this also runs as a mere condition check)
+         return ('step', target)
+ 
