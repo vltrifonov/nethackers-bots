@@ -1,0 +1,91 @@
+diff --git a/d_CleverShovel_e13ed40/autoascend/dive_logic.py b/d_CleverShovel_e13ed40/autoascend/dive_logic.py
+index a758bef..13c731d 100755
+--- a/d_CleverShovel_e13ed40/autoascend/dive_logic.py
++++ b/d_CleverShovel_e13ed40/autoascend/dive_logic.py
+@@ -969,6 +969,7 @@ class DiveLogic:
+         self._elbereth_intact_before = False
+         self._medusa_rerolls = 0           # climbs off a wet Medusa islet to fall in again elsewhere
+         self._dig_walk_blocked_until = -1  # turn until which DIG_ESCAPE doesn't walk to a dig square
++        self._ray_dodged_levels = set()
+         self._medusa_reroll_blocked_until = -1
+         self._raven_levels = set()         # Medusa's level key once ravens were seen there (Medusa-3)
+         self._raven_cycles = 0             # RAVEN_CYCLE climbs off the raven island
+@@ -4554,7 +4555,10 @@ class DiveLogic:
+                     self._bad_dig_spots.add((key, spot))
+                 self._zap_down_castle_check(key)
+             return
+-        if what == 'step':
++        if what in ('step', 'dodge_ray'):
++            if what == 'dodge_ray':
++                self._ray_dodged_levels.add(level.key())
++                agent.log(f'DIVE stepping off a wand line before digging at {arg}')
+             agent.log(f'DIVE walking to dig at {arg}, hostiles at {[(m[3].mname, int(m[0])) for m in monsters[:3]]}')
+             start = (agent.blstats.y, agent.blstats.x)
+             try:
+@@ -4597,6 +4601,41 @@ class DiveLogic:
+         except Exception as e:   # diagnostics only
+             agent.log(f'POWER passage plan failed: {e!r}')
+ 
++    _DIG_ZAPPER = re.compile(r"\bThe ([^.!?]+?) zaps (?:a|an) [^.!?]+!")
++
++    def _step_from_dig_ray(self, level, monsters):
++        """Pick one adjacent dry dig square out of a confirmed shooter's line before making a pit."""
++        agent = self.agent
++        bl = agent.blstats
++        y, x = int(bl.y), int(bl.x)
++        key = level.key()
++        mark = getattr(self, '_dig_mark', None)
++        prop = agent.character.prop
++        if key in self._ray_dodged_levels or mark is None or mark[:2] != (key, (y, x)) or \
++                not self.shot_recently() or bl.time < self._dig_walk_blocked_until or \
++                prop.blind or prop.stun or prop.confusion or prop.polymorph or agent.in_pit() or self._in_own_pit():
++            return None
++        message = agent.message or ''
++        attack = self._DIG_ZAPPER.search(message)
++        if attack is None or 'You stop digging' not in message or not self._RANGED_HIT.search(message):
++            return None
++        shooters = [(int(my), int(mx)) for _, my, mx, mon, _ in monsters if mon.mname.casefold() == attack[1].casefold()]
++        if len(shooters) != 1:
++            return None
++        sy, sx = shooters[0]
++        candidates = []
++        for py, px in zip(*(agent.bfs() == 1).nonzero()):
++            pos = (int(py), int(px))
++            dy, dx = abs(sy - py), abs(sx - px)
++            if dy == 0 or dx == 0 or dy == dx or agent.monster_tracker.monster_mask[pos] or \
++                    level.objects[pos] in FALL_TRAPS or not self._diggable_spot(*pos):
++                continue
++            if any(utils.adjacent(pos, (my, mx)) and
++                   (mon.mmove >= 12 or self._melee_ignores_elbereth(mon)) for _, my, mx, mon, _ in monsters):
++                continue
++            candidates.append((max(dy, dx), pos))
++        return min(candidates, key=lambda candidate: (-candidate[0], candidate[1]))[1] if candidates else None
++
+     def _dig_escape_action(self):
+         """DIG_ESCAPE: what digging out would do right now -- ('dig', tool), ('step', (y, x)) onto a diggable
+         neighbour -- or None (no tool, level not diggable, or an adjacent monster that melees through
+@@ -4722,6 +4761,9 @@ class DiveLogic:
+                 elif self._crawl_exits(bl.y, bl.x) < DROWN_GUARD_EXITS and \
+                         agent.blstats.time - self._drown_wait_since(bl.y, bl.x) < DROWN_GUARD_WAIT:
+                     return ('wait', None)
++            target = self._step_from_dig_ray(level, monsters)
++            if target is not None:
++                return ('dodge_ray', target)
+             gap = self._raven_gap_wait()
+             if gap is not None:
+                 return gap   # RAVEN_GAP: the ravens scatter from our Elbereth first
+diff --git a/nethackers.solution.json b/nethackers.solution.json
+index 591a72c..9165195 100644
+--- a/nethackers.solution.json
++++ b/nethackers.solution.json
+@@ -1,8 +1,9 @@
+ {
+   "schema": "nethackers.solution/v1",
+-  "name": "daglar-zLeadersSeed407717",
++  "name": "Samurai step out of a wand line before digging",
+   "root": ".",
+   "parents": [
++    "github.com/daglar-dragomirov/nethacker@9a387c4fb6b8c166e2e6e63617bd6e588f40fddc",
+     "github.com/daglar-dragomirov/nethacker@ccfb1251179bad749ece88d384956363ffb2db56",
+     "github.com/daglar-dragomirov/nethacker@44b29b9299c5dcfb76e3fc6081004727c58db19a",
+     "github.com/DT6A/nethacker@37f9da35d0dbf98ed15bf89735bd601f0c0eac02",
