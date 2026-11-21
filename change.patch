@@ -1,0 +1,62 @@
+diff --git a/base/nhbot_v2/known_items.py b/base/nhbot_v2/known_items.py
+index 4d9e4c0..337d905 100644
+--- a/base/nhbot_v2/known_items.py
++++ b/base/nhbot_v2/known_items.py
+@@ -48,7 +48,7 @@ import nle.nethack as nh
+ 
+ from . import castle_power, jf_config, utils
+ from . import objects as O
+-from .combat.monster_utils import WEAK_MONSTERS
++from .combat.monster_utils import EXPLODING_MONSTERS, WEAK_MONSTERS, WEIRD_MONSTERS
+ from .glyph import G, MON
+ from .item import Item
+ from .level import Level
+@@ -158,12 +158,14 @@ class KnownItemsGuard:
+                 return it
+         return None
+ 
+-    def _heal_potion(self, critical):
+-        names = ('full healing', 'extra healing') + (('healing',) if critical else ())
++    def _heal_potion(self, critical, *, safe_plain=False):
++        names = ('full healing', 'extra healing') + (('healing',) if critical or safe_plain else ())
+         agent = self.agent
+         for name in names:
+             for it in agent.inventory.items:
+                 if it.category == nh.POTION_CLASS and it.is_unambiguous() and it.object.name == name:
++                    if name == 'healing' and not critical and it.status not in (Item.UNCURSED, Item.BLESSED):
++                        continue
+                     return it
+         return None
+ 
+@@ -230,7 +232,15 @@ class KnownItemsGuard:
+             if wand is not None and dive._wand_escape(wand) is not None:
+                 yield ('zapdown', wand, 'known wand of digging')
+         # 5. heal
+-        potion = self._heal_potion(critical)
++        # A Monk losing HP this quickly in its own pit may die before the usual plain-healing threshold.
++        safe_plain = (
++            why == 'burst' and agent.character.role == agent.character.MONK
++            and 3 * bl.hitpoints <= bl.max_hitpoints and agent.in_pit() and dive._in_own_pit()
++            and not self._on_elbereth()
++            and any(getattr(m[3], 'difficulty', 0) >= 4 and getattr(m[3], 'mmove', 0) > 12
++                    and m[3].mname not in EXPLODING_MONSTERS + WEIRD_MONSTERS for m in adjacent)
++        )
++        potion = self._heal_potion(critical, safe_plain=safe_plain)
+         if potion is not None:
+             yield ('quaff', potion, 'known healing potion')
+         # 6. at the strongest attacker next to us (never in Minetown or with a peaceful on the line)
+diff --git a/nethackers.solution.json b/nethackers.solution.json
+index d62fc1f..c5bc980 100644
+--- a/nethackers.solution.json
++++ b/nethackers.solution.json
+@@ -1,8 +1,9 @@
+ {
+   "schema": "nethackers.solution/v1",
+-  "name": "daglar-zLeadersBest3907636",
++  "name": "Monk healing at a critical pit burst",
+   "root": ".",
+   "parents": [
++    "github.com/daglar-dragomirov/nethacker@fd3a187e3e491a346fb422a4f936b7073911b621",
+     "github.com/daglar-dragomirov/nethacker@ccfb1251179bad749ece88d384956363ffb2db56",
+     "github.com/daglar-dragomirov/nethacker@44b29b9299c5dcfb76e3fc6081004727c58db19a",
+     "github.com/DT6A/nethacker@37f9da35d0dbf98ed15bf89735bd601f0c0eac02",
