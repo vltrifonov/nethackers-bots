@@ -1,0 +1,78 @@
+diff --git a/nethackers.solution.json b/nethackers.solution.json
+index 3292122..26e914a 100644
+--- a/nethackers.solution.json
++++ b/nethackers.solution.json
+@@ -1,8 +1,9 @@
+ {
+   "schema": "nethackers.solution/v1",
+-  "name": "astra-gnome-healer-survival",
+-  "root": "autoascend",
++  "name": "vltrifonov-gnome-healer-male-retreat",
++  "root": ".",
+   "parents": [
++    "github.com/vlomshakov/nethacker@b02d6f8fa964d98b1bda9856bed038e90338aa89",
+     "github.com/vlomshakov/nethacker@4ed08da3bdd3f11e120678005877d4a56009ccd0"
+   ],
+   "influences": [
+diff --git a/pf_vlom_9ef4063/agent.py b/pf_vlom_9ef4063/agent.py
+index 8d69ea7..eb9b7e8 100644
+--- a/pf_vlom_9ef4063/agent.py
++++ b/pf_vlom_9ef4063/agent.py
+@@ -1704,13 +1704,14 @@ class Agent:
+ 
+         return ret
+ 
+-    def bfs(self, y=None, x=None, force_squeeze=False):
++    def bfs(self, y=None, x=None, force_squeeze=False, *, avoid_monsters=False):
+         if y is None:
+             y = self.blstats.y
+         if x is None:
+             x = self.blstats.x
+ 
+-        if not force_squeeze and self.last_bfs_step == self.step_count and y == self.blstats.y and \
++        use_cache = not force_squeeze and not avoid_monsters
++        if use_cache and self.last_bfs_step == self.step_count and y == self.blstats.y and \
+                 x == self.blstats.x:
+             return self.last_bfs_dis.copy()
+ 
+@@ -1763,6 +1764,8 @@ class Agent:
+             for (my, mx) in level.sessile:
+                 if (my, mx) != (y, x):
+                     walkable[my, mx] = False
++        if avoid_monsters:
++            walkable &= ~self.monster_tracker.monster_mask & ~utils.isin(self.glyphs, G.PETS)
+ 
+         walkable_diagonally = walkable & ~utils.isin(level.objects, G.DOORS) & (level.objects != -1) \
+             & ~level.intact_doors
+@@ -1774,7 +1777,7 @@ class Agent:
+                         can_squeeze=can_squeeze,
+                         )
+ 
+-        if y == self.blstats.y and x == self.blstats.x and not force_squeeze:
++        if use_cache and y == self.blstats.y and x == self.blstats.x:
+             self.last_bfs_dis = dis
+             self.last_bfs_step = self.step_count
+ 
+diff --git a/pf_vlom_9ef4063/dive_logic.py b/pf_vlom_9ef4063/dive_logic.py
+index 0b87e54..27400f8 100644
+--- a/pf_vlom_9ef4063/dive_logic.py
++++ b/pf_vlom_9ef4063/dive_logic.py
+@@ -1872,7 +1872,17 @@ class DiveLogic:
+         start = (bl.y, bl.x, level.key())
+         try:
+             if (bl.y, bl.x) != (y, x):
+-                agent.go_to(y, x, max_steps=1)
++                # Use the original step once. Only replan if its occupant blocks it.
++                step = agent.path(bl.y, bl.x, y, x, dis=dis)[1]
++                if agent.monster_tracker.monster_mask[step] or agent.glyphs[step] in G.PETS:
++                    clear_dis = agent.bfs(avoid_monsters=True)
++                    target = min((p for p in ups if 0 <= clear_dis[p] <= reach),
++                                 key=lambda p: clear_dis[p], default=None)
++                    if target is None:
++                        return
++                    y, x = target
++                    step = agent.path(bl.y, bl.x, y, x, dis=clear_dis)[1]
++                agent.move(*step)
+             if (agent.blstats.y, agent.blstats.x) == (y, x):
+                 agent.move('<')
+         finally:
