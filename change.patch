@@ -1,0 +1,89 @@
+diff --git a/autoascend/agent.py b/autoascend/agent.py
+index 2a5cbf0..bc8ae59 100644
+--- a/autoascend/agent.py
++++ b/autoascend/agent.py
+@@ -1855,7 +1855,8 @@ class Agent:
+             return True
+ 
+     def go_to(self, y, x, stop_one_before=False, max_steps=None,
+-              debug_tiles_args=None, callback=lambda: False, fast=False):
++              debug_tiles_args=None, callback=lambda: False, fast=False, before_step=None):
++        """Walk to a destination. Return True if before_step handles an action in place of moving."""
+         # STATUS heartbeat: which strategy keeps walking where (stall diagnoses)
+         self._hb_gotos[(y, x, sys._getframe(1).f_code.co_name)] += 1
+         assert not stop_one_before or (self.blstats.y != y or self.blstats.x != x)
+@@ -1910,6 +1911,8 @@ class Agent:
+                     if not self.current_level().walkable[y, x]:
+                         cont = True
+                         break
++                    if before_step is not None and before_step(y, x):
++                        return True
+                     self.move(y, x)
+                     if callback():
+                         return
+diff --git a/autoascend/dive_logic.py b/autoascend/dive_logic.py
+index a60f58a..e8e2d71 100644
+--- a/autoascend/dive_logic.py
++++ b/autoascend/dive_logic.py
+@@ -1809,6 +1809,35 @@ class DiveLogic:
+             return above
+         return None
+ 
++    def _teleport_before_retreat_step(self, y, x):
++        agent = self.agent
++        bl = agent.blstats
++        prop = agent.character.prop
++        if agent.current_level().dungeon_number != Level.GNOMISH_MINES or \
++                bl.hitpoints >= RETREAT_BELOW * bl.max_hitpoints or \
++                prop.blind or prop.confusion or prop.stun or prop.hallu:
++            return False
++        for _, my, mx, mon, _ in self._near_hostiles(radius=2):
++            if mon.mmove > 12 and not utils.adjacent((bl.y, bl.x), (my, mx)) and \
++                    utils.adjacent((y, x), (my, mx)):
++                break
++        else:
++            return False
++
++        # Only a scroll with a known effect and an inventory letter can replace this step.
++        items = agent.inventory.items
++        scroll = next((item for item in items if item.category == nh.SCROLL_CLASS and
++                       item.is_unambiguous() and item.object.name == 'teleportation' and
++                       item.status != Item.CURSED and item.shop_status != Item.UNPAID), None)
++        if scroll is None:
++            return False
++        letter = items.get_letter(scroll)
++        agent.log(f'RETREAT teleport: stairward step enters melee with {mon.mname}')
++        with agent.atom_operation():
++            agent.step(A.Command.READ)
++            agent.type_text(letter)
++        return True
++
+     @Strategy.wrap
+     def retreat_upstairs(self):
+         """Low or fast-falling HP (or a crowded arrival): take the up stairs if they are close."""
+@@ -1869,7 +1898,8 @@ class DiveLogic:
+         start = (bl.y, bl.x, level.key())
+         try:
+             if (bl.y, bl.x) != (y, x):
+-                agent.go_to(y, x, max_steps=1)
++                if agent.go_to(y, x, max_steps=1, before_step=self._teleport_before_retreat_step):
++                    return
+             if (agent.blstats.y, agent.blstats.x) == (y, x):
+                 agent.move('<')
+         finally:
+diff --git a/nethackers.solution.json b/nethackers.solution.json
+index e025b48..2264faa 100644
+--- a/nethackers.solution.json
++++ b/nethackers.solution.json
+@@ -1,8 +1,9 @@
+ {
+   "schema": "nethackers.solution/v1",
+-  "name": "astra-healer-weak-main-crowd-spacing-v272",
+-  "root": "autoascend",
++  "name": "Healer retreat by known teleport scroll",
++  "root": ".",
+   "parents": [
++    "github.com/vlomshakov/nethacker@9ef4063cf36fa1d26416d11e83ef7fb1575e9ada",
+     "github.com/daglar-dragomirov/nethacker@8ce023a8f681e7366d5f54ca419f314ac874ac59"
+   ],
+   "influences": [
