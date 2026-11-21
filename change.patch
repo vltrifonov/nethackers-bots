@@ -1,0 +1,155 @@
+diff --git a/d_CleverShovel_e13ed40/autoascend/dive_logic.py b/d_CleverShovel_e13ed40/autoascend/dive_logic.py
+index a758bef..390a6fe 100755
+--- a/d_CleverShovel_e13ed40/autoascend/dive_logic.py
++++ b/d_CleverShovel_e13ed40/autoascend/dive_logic.py
+@@ -9086,7 +9086,7 @@ class DiveLogic:
+         self._scare_spot = None
+         return False
+ 
+-    def scare_gamble_list(self):
++    def scare_gamble_list(self, *, near_minotaur=False):
+         """The castle's scare drop (gehennom_scare): [(scroll, P(scare monster))] it takes now -- a known scroll of
+         scare monster alone, else every scroll that may be one and whose label hasn't failed a pile already.
+         LANDING_SCARE_KEEP1 (+ LANDING_MINO_CASTLE): with 2+ of them one is kept back for mino_guard's read at the
+@@ -9102,6 +9102,10 @@ class DiveLogic:
+             rank = {Item.BLESSED: 2, Item.UNCURSED: 2, Item.UNKNOWN: 1, Item.CURSED: 0}
+             keep = max(drop, key=lambda t: (rank.get(t[0].status, 1), -t[1]))
+             drop = [t for t in drop if t[0] is not keep[0]]
++        elif near_minotaur and len(drop) > 1:
++            spare, chance = self.mino_guard._unconfirmed_scare_read()
++            # Hold back one scroll only if a read can do more than a drop.
++            drop = [(it, p) for it, p in drop if it is not spare or chance <= p]
+         return drop
+ 
+     @Strategy.wrap
+@@ -9151,12 +9155,15 @@ class DiveLogic:
+                 (len(adjacent) >= GEHENNOM_SCARE_CROWD and bl.hitpoints < GEHENNOM_SCARE_CROWD_BELOW * bl.max_hitpoints)
+         if not trouble or level.objects[pos] in G.STAIR_UP or level.objects[pos] in G.STAIR_DOWN:
+             yield False   # (on stairs the retreat/descent is the better answer)
+-        known, candidates = power.scare_scrolls(agent)
+-        drop = known[:1]
+-        if not drop and castle and jf_config.LANDING_SCARE_KEEP1 and jf_config.LANDING_MINO_CASTLE:
+-            drop = [it for it, _ in self.scare_gamble_list()]
+-        elif not drop and (GEHENNOM_SCARE_GAMBLE or castle):
+-            drop = [it for it, p in candidates if p > 0 and agent.inventory._scroll_key(it) not in self._not_scare_keys]
++        if castle:
++            near_minotaur = any(m[3].mname == 'minotaur' for m in adjacent)
++            drop = [it for it, _ in self.scare_gamble_list(near_minotaur=near_minotaur)]
++        else:
++            known, candidates = power.scare_scrolls(agent)
++            drop = known[:1]
++            if not drop and GEHENNOM_SCARE_GAMBLE:
++                drop = [it for it, p in candidates if p > 0 and
++                        agent.inventory._scroll_key(it) not in self._not_scare_keys]
+         if not drop:
+             yield False
+         yield True
+diff --git a/d_CleverShovel_e13ed40/autoascend/mino_guard.py b/d_CleverShovel_e13ed40/autoascend/mino_guard.py
+index 780bf91..70d1851 100755
+--- a/d_CleverShovel_e13ed40/autoascend/mino_guard.py
++++ b/d_CleverShovel_e13ed40/autoascend/mino_guard.py
+@@ -106,7 +106,7 @@ class MinoGuard:
+         self._blows = {}           # HORN_SCARE: level key -> turns we blew a scare instrument there
+         self._near_prev = {}       # HORN_SCARE: level key -> (step, nearest awake minotaur now, at the step before)
+         self._hp_prev = None       # HORN_SCARE: (step, our HP now, at the step before)
+-        self._pile_proven = None   # LANDING_MINO_CASTLE: (level key, (y, x)) of a pile a minotaur fled from
++        self._pile_proven = None   # ((level, square), drop turn) of a pile a minotaur fled from
+         self._near_hist = {}       # HORN_REBLOW: level key -> [(game turn, nearest awake minotaur's distance)] (last 8 turns)
+ 
+     # ------------------------------------------------------------------ state
+@@ -210,7 +210,7 @@ class MinoGuard:
+         obj = agent.current_level().objects[pos]
+         if obj in G.STAIR_UP or obj in G.STAIR_DOWN:
+             return 0.0
+-        return sum(p for _, p in dive.scare_gamble_list())
++        return sum(p for _, p in dive.scare_gamble_list(near_minotaur=near <= 1))
+ 
+     def _note(self):
+         """Idempotent message parsing (runs on every check): our sleep ray froze a minotaur; a refused teleport."""
+@@ -233,10 +233,10 @@ class MinoGuard:
+                 self._asleep = {k: v for k, v in self._asleep.items() if k[0] != key}
+             if jf_config.LANDING_MINO_CASTLE and last > msg.rfind('You drop'):
+                 self._pile_fake(msg)
+-        if jf_config.LANDING_MINO_CASTLE and 'The minotaur turns to flee' in msg:
++        if 'The minotaur turns to flee' in msg:
+             spot = getattr(self.dive, '_scare_spot', None)
+             if spot is not None and (spot[0], (int(spot[1][0]), int(spot[1][1]))) == self._here():
+-                self._pile_proven = self._here()   # it fled from our pile: a real scroll of scare monster
++                self._pile_proven = (self._here(), self.dive._scare_drop_turn)
+         if _SLEEP_HIT.search(msg):
+             for m in self._minos():
+                 self._asleep[(key, (m[1], m[2]))] = agent.blstats.time
+@@ -398,6 +398,19 @@ class MinoGuard:
+                 best, bp = it, p
+         return best, bp
+ 
++    def _unconfirmed_scare_read(self):
++        """A plausible scroll read when the pile has no confirmed protection against the minotaur."""
++        agent = self.agent
++        prop = agent.character.prop
++        if prop.blind or prop.confusion or prop.hallu or agent.blstats.carrying_capacity >= 4:
++            return None, 0.0
++        if self._pile_proven == (self._here(), self.dive._scare_drop_turn):
++            return None, 0.0
++        if (agent.inventory.engraving_below_me or '').lower() == 'elbereth' or any(
++                power.is_known_scare(agent, item) for item in (agent.inventory.items_below_me or ())):
++            return None, 0.0
++        return self._unknown_scroll(cursed_ok=False)
++
+     # ------------------------------------------------------------------ geometry
+ 
+     def _line(self, m):
+@@ -505,10 +518,17 @@ class MinoGuard:
+             return
+         if self._prayer_first():
+             return
+-        if dive.on_scare_scroll():
++        # Capture the spot before on_scare_scroll can clear a pile that did not stop a blow.
++        tracked_pile = dive._scare_spot == self._here()
++        on_scare = dive.on_scare_scroll()
++        spare, chance = None, 0.0
++        if near <= 1 and tracked_pile and dive._castle_scare():
++            spare, chance = self._unconfirmed_scare_read()
++        if on_scare and spare is None:
+             if diggable and self._dig_action() is not None:
+                 yield ('dig', None, 'on a scroll of scare monster')
+-            if near <= 1 and self._castle_now() and self._pile_proven != self._here() and \
++            if near <= 1 and self._castle_now() and \
++                    self._pile_proven != (self._here(), dive._scare_drop_turn) and \
+                     not agent.character.prop.blind and not agent.character.prop.confusion:
+                 # LANDING_MINO_CASTLE: a fresh pile it hasn't fled from yet, with it next to us: read the scroll kept
+                 # back now -- a real pile loses nothing by it, a fake one shows only by its blows (smoke ld-smk2
+@@ -647,7 +667,7 @@ class MinoGuard:
+         if kit.get('horn') and consume and self._dist2(awake[0]) < 10 * int(bl.experience_level):
+             yield ('horn', (kit['horn'][0], self._ray_dir(awake)), f'unknown horn, minotaur at {near}')
+         # LANDING_MINO_CASTLE: on the castle with it next to us, the gambles left go best chance first (_castle_adjacent)
+-        if adjacent and self._castle_now():
++        if spare is None and adjacent and self._castle_now():
+             yield from self._castle_adjacent(near, lines)
+             return
+         # 9. damage rays: cold (a Valkyrie resists its bounce), fire and lightning next to us
+@@ -658,6 +678,9 @@ class MinoGuard:
+                 wand, name = self._wand(('fire', 'lightning'))
+             if wand is not None:
+                 yield ('zap', (wand, direction, m), f'known {name} at {dist}')
++        if spare is not None:
++            yield ('read', spare, f'unconfirmed scare pile: scroll P(save)={chance:.2f}')
++            return
+         # 10. an unknown wand at it
+         if lines and consume:
+             (direction, dist, (sy, sx)), m = lines[0]
+diff --git a/nethackers.solution.json b/nethackers.solution.json
+index 00f1167..1367926 100644
+--- a/nethackers.solution.json
++++ b/nethackers.solution.json
+@@ -1,8 +1,9 @@
+ {
+   "schema": "nethackers.solution/v1",
+-  "name": "daglar-zLeadersSeed432989",
++  "name": "vltrifonov-samurai-unconfirmed-scare",
+   "root": ".",
+   "parents": [
++    "github.com/daglar-dragomirov/nethacker@19a4f841ce8448acb181ab5aebf2950aa2b38299",
+     "github.com/daglar-dragomirov/nethacker@ccfb1251179bad749ece88d384956363ffb2db56",
+     "github.com/daglar-dragomirov/nethacker@44b29b9299c5dcfb76e3fc6081004727c58db19a",
+     "github.com/DT6A/nethacker@37f9da35d0dbf98ed15bf89735bd601f0c0eac02",
