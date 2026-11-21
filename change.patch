@@ -1,0 +1,69 @@
+diff --git a/base/nhbot/castle_logic.py b/base/nhbot/castle_logic.py
+index ceef8dc..ed2a088 100644
+--- a/base/nhbot/castle_logic.py
++++ b/base/nhbot/castle_logic.py
+@@ -1171,6 +1171,40 @@ class CastlePassage:
+             return True
+         return False
+ 
++    def _light_west_maze(self):
++        """Light a carried lamp before moving through the Castle's dark west maze."""
++        agent = self.agent
++        if self._pos()[0] >= 0 or agent.character.prop.blind:
++            return False
++        bl = agent.blstats
++        if any(max(abs(y - bl.y), abs(x - bl.x)) <= 1 for _, y, x, _, _ in agent.get_visible_monsters()):
++            return False
++        items = self._items()
++        if any('(lit)' in (item.text or '') for item in items):
++            return False
++        candidates = {'oil lamp', 'magic lamp', 'brass lantern'}
++        for item in items:
++            if item.category != nh.TOOL_CLASS or 'unpaid' in (item.text or ''):
++                continue
++            names = self._names(item)
++            if not names or not names <= candidates:
++                continue
++            letter = agent.inventory.items.get_letter(item)
++            attempt = ('west_lamp', letter)
++            if self._tries.get(attempt):
++                continue
++            self._tries[attempt] = 1
++
++            def gen():
++                if 'What do you want to use or apply?' in agent.single_message:
++                    yield letter
++
++            self._log(f'lighting {item.text!r} in the west maze')
++            with agent.atom_operation():
++                agent.step(A.Command.APPLY, gen())
++            return True
++        return False
++
+     def plan_step(self):
+         """Dive plan hook on the castle level while still on the west side: walk to the courtyard, then
+         freeze the moat or try what might lift us over it. False: nothing (left) to try."""
+@@ -1193,6 +1227,8 @@ class CastlePassage:
+         if self._floating():
+             # lifted already (a ring put on where we landed) but still in the west maze: to the corner
+             return self._approach(CORNER)
++        if self._light_west_maze():
++            return True
+         plan = self._plan()
+         cold = self._cold_source()
+         if jf_config.BREACH_WANDS and self._wand_test_step():
+diff --git a/nethackers.solution.json b/nethackers.solution.json
+index f50a267..d573ed1 100644
+--- a/nethackers.solution.json
++++ b/nethackers.solution.json
+@@ -1,8 +1,9 @@
+ {
+   "schema": "nethackers.solution/v1",
+-  "name": "daglar-zLeadersBest2266581",
++  "name": "vltrifonov-barbarian-castle-light",
+   "root": ".",
+   "parents": [
++    "github.com/daglar-dragomirov/nethacker@31f5ecdf3bf2885059f9669dbe0fcb4f699dda2b",
+     "github.com/daglar-dragomirov/nethacker@ccfb1251179bad749ece88d384956363ffb2db56",
+     "github.com/daglar-dragomirov/nethacker@44b29b9299c5dcfb76e3fc6081004727c58db19a",
+     "github.com/DT6A/nethacker@37f9da35d0dbf98ed15bf89735bd601f0c0eac02",
