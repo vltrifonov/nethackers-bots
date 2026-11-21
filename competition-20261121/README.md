@@ -1,0 +1,13 @@
+# vltrifonov NetHackers candidates
+
+These complete, source-reviewed bots are local research candidates. Source folders preserve all42 evaluated files byte for byte. The surrounding manifests/documentation are outside each solution root. Code derives from the upstream AutoAscend baseline and retains its license. Submission ownership must be authenticated as `vltrifonov`.
+
+| Candidate root | Intended identity | Evidence and limitations |
+| --- | --- | --- |
+| wizard-p17-43a2ab7b4fcf | Orc chaotic female/male Wizard | Public mean .0462259686 both; fresh30–44 .0457119200 female/.0469610154 male, above both prespecified controls with no bot failures. Correlated sexes and multiple comparisons; other identities include regressions. |
+| barbarian-reliability-684f5efcfd08 | Human neutral female Barbarian | Public .0963919079 versus baseline .0856407224; failures1 versus2. Cumulative repairs recover public5; public4 multiple-container assertion remains. No new-seed confirmation for Barbarian. |
+| samurai-paths-e3159aaee469 | Human lawful female Samurai | Public .0677010193 versus .0605669916; extra15–29 .0784615506 versus .0550028523, one bot failure each. Other roles regress and a separate known cache-state defect is present in this historical source; repaired source is under a separate prospective study. |
+
+All listed scores use direct local evaluator c487/NLE1.3 and are ineligible as official-image registration evidence. They do not establish the current Hub frontier or competition contribution credit. Before registration: verify current rules/frontier/image, confirm exact published root digest and valid upstream Hub lineage, run the actual eligible pinned arena on that exact root, authenticate the Hub as vltrifonov, register evidence, then check the real recognition ledger row. No invented parent identifiers or official image labels. Existing source manifests retain their evaluated baseline name/parents bytes; publication metadata is still subject to that live lineage check.
+
+The branch is prepared locally while network access is blocked. It has not been pushed or registered. Later combined/cache/parser experiments may supersede these descriptive candidates after their own reviews and completed evaluations.
