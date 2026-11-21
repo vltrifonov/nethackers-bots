@@ -1,0 +1,1517 @@
+lf.gen)
+  File "/sol/hed/nhbot/agent.py", line 190, in atom_operation
+    self.update_state()
+  File "/sol/hed/nhbot/agent.py", line 700, in update_state
+    self.call_update_functions()
+  File "/sol/hed/nhbot/agent.py", line 711, in call_update_functions
+    func()
+  File "/sol/hed/nhbot/item/inventory.py", line 159, in f
+    raise AgentPanic('items below me changed')
+nhbot.exceptions.AgentPanic: items below me changed
+
+[s13214 t8796 d2 0:2 xl7 hp48/48] DIVE level (np.int64(0), np.int64(2)) depth 2
+[s13383 t9000 d2 0:2 xl7 hp48/48] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(2), np.int64(39)) acts=[SEARCH:107 SPACE:90 NUM_5:89 E:36 S:30] gotos=[open_visit_search(10, 37):4 open_visit_search(12, 27):3 open_visit_search(10, 36):3]
+[s13447 t9037 d2 0:2 xl7 hp48/48] PANIC AgentPanic: agent position do not match after "move": expected (2, 33), got (3, 34)
+Traceback (most recent call last):
+  File "/sol/hed/nhbot/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/hed/nhbot/agent.py", line 298, in preempt
+    val = f.run()
+          ^^^^^^^
+  File "/sol/hed/nhbot/strategy.py", line 48, in run
+    next(gen)
+  File "/sol/hed/nhbot/exploration_logic.py", line 523, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/hed/nhbot/agent.py", line 2531, in go_to
+    self.move(y, x)
+  File "/sol/hed/nhbot/agent.py", line 2084, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+nhbot.exceptions.AgentPanic: agent position do not match after "move": expected (2, 33), got (3, 34)
+
+[s13890 t9500 d2 0:2 xl7 hp48/48] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=2 pos=(np.int64(6), np.int64(8)) acts=[SEARCH:119 NUM_5:100 W:33 SW:28 SPACE:27] gotos=[open_visit_search(13, 22):3 check_items(13, 11):3 open_visit_search(2, 35):2]
+[s13998 t9614 d2 0:2 xl7 hp48/48] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/hed/nhbot/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/hed/nhbot/agent.py", line 311, in preempt
+    next(iterator)
+  File "/sol/hed/nhbot/strategy.py", line 68, in f
+    next(it)
+  File "/sol/hed/nhbot/utils.py", line 134, in f
+    next(it)
+  File "/sol/hed/nhbot/agent.py", line 3303, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/hed/nhbot/item/inventory.py", line 871, in eat
+    raise AgentPanic('no such food is lying here')
+nhbot.exceptions.AgentPanic: no such food is lying here
+
+[s14229 t9781 d2 0:2 xl7 hp47/48] RANGED hit: holds and Elbereth waits off for 8 turns
+[s14366 t9870 d2 0:2 xl7 hp48/48] PRAY hp=48/48 hunger=3 gap=1767 reason=None model[ok200=0.99 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=58 p_answered=0.99]
+[s14370 t9873 d2 0:2 xl7 hp48/48] PRAY result ok model[ok200=0.22 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=58] prayers=5 failures=0
+[s14499 t10000 d2 0:2 xl7 hp48/48] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(16), np.int64(31)) acts=[SEARCH:106 NUM_5:93 E:51 SPACE:51 S:36] gotos=[open_visit_search(6, 16):3 open_visit_search(15, 6):3 open_visit_search(6, 13):2]
+[s14771 t10234 d2 0:2 xl7 hp48/48] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/hed/nhbot/item/inventory.py", line 602, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/hed/nhbot/agent.py", line 190, in atom_operation
+    self.update_state()
+  File "/sol/hed/nhbot/agent.py", line 700, in update_state
+    self.call_update_functions()
+  File "/sol/hed/nhbot/agent.py", line 711, in call_update_functions
+    func()
+  File "/sol/hed/nhbot/item/inventory.py", line 159, in f
+    raise AgentPanic('items below me changed')
+nhbot.exceptions.AgentPanic: items below me changed
+
+[s15087 t10399 d2 0:2 xl7 hp46/48] RANGED hit: holds and Elbereth waits off for 8 turns
+[s15284 t10455 d2 0:2 xl7 hp48/48] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/hed/nhbot/item/inventory.py", line 602, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/hed/nhbot/agent.py", line 190, in atom_operation
+    self.update_state()
+  File "/sol/hed/nhbot/agent.py", line 700, in update_state
+    self.call_update_functions()
+  File "/sol/hed/nhbot/agent.py", line 711, in call_update_functions
+    func()
+  File "/sol/hed/nhbot/item/inventory.py", line 159, in f
+    raise AgentPanic('items below me changed')
+nhbot.exceptions.AgentPanic: items below me changed
+
+[s15383 t10500 d2 0:2 xl7 hp48/48] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(14), np.int64(45)) acts=[SPACE:137 SEARCH:76 NUM_5:66 E:62 W:46] gotos=[check_items(15, 13):5 check_items(2, 36):5 check_items(4, 36):3]
+[s15576 t10716 d2 0:2 xl7 hp48/48] PANIC AgentPanic: agent position do not match after "move": expected (15, 64), got (16, 63)
+Traceback (most recent call last):
+  File "/sol/hed/nhbot/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/hed/nhbot/agent.py", line 300, in preempt
+    val = f()
+          ^^^
+  File "/sol/hed/nhbot/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/hed/nhbot/exploration_logic.py", line 523, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/hed/nhbot/agent.py", line 2531, in go_to
+    self.move(y, x)
+  File "/sol/hed/nhbot/agent.py", line 2084, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+nhbot.exceptions.AgentPanic: agent position do not match after "move": expected (15, 64), got (16, 63)
+
+[s15889 t11002 d2 0:2 xl7 hp48/48] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(16), np.int64(53)) acts=[SEARCH:117 NUM_5:101 W:38 E:37 SPACE:21] gotos=[open_visit_search(4, 63):4 open_visit_search(7, 64):3 open_visit_search(16, 36):2]
+[s15930 t11020 d2 0:2 xl7 hp48/48] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/hed/nhbot/item/inventory.py", line 602, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/hed/nhbot/agent.py", line 190, in atom_operation
+    self.update_state()
+  File "/sol/hed/nhbot/agent.py", line 700, in update_state
+    self.call_update_functions()
+  File "/sol/hed/nhbot/agent.py", line 711, in call_update_functions
+    func()
+  File "/sol/hed/nhbot/item/inventory.py", line 159, in f
+    raise AgentPanic('items below me changed')
+nhbot.exceptions.AgentPanic: items below me changed
+
+[s16314 t11316 d2 0:2 xl7 hp48/48] PANIC AgentPanic: agent position do not match after "move": expected (17, 61), got (18, 62)
+Traceback (most recent call last):
+  File "/sol/hed/nhbot/agent.py", line 311, in preempt
+    next(iterator)
+  File "/sol/hed/nhbot/strategy.py", line 68, in f
+    next(it)
+  File "/sol/hed/nhbot/utils.py", line 134, in f
+    next(it)
+  File "/sol/hed/nhbot/agent.py", line 3287, in eat_corpses_from_ground
+    self.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 255, 0), is_path=True))
+  File "/sol/hed/nhbot/agent.py", line 2531, in go_to
+    self.move(y, x)
+  File "/sol/hed/nhbot/agent.py", line 2084, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+nhbot.exceptions.AgentPanic: agent position do not match after "move": expected (17, 61), got (18, 62)
+
+[s16348 t11320 d2 0:2 xl7 hp48/48] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/hed/nhbot/item/inventory.py", line 602, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/hed/nhbot/agent.py", line 190, in atom_operation
+    self.update_state()
+  File "/sol/hed/nhbot/agent.py", line 700, in update_state
+    self.call_update_functions()
+  File "/sol/hed/nhbot/agent.py", line 711, in call_update_functions
+    func()
+  File "/sol/hed/nhbot/item/inventory.py", line 159, in f
+    raise AgentPanic('items below me changed')
+nhbot.exceptions.AgentPanic: items below me changed
+
+[s16608 t11460 d2 0:2 xl7 hp33/48] RANGED hit: holds and Elbereth waits off for 8 turns
+[s16658 t11474 d2 0:2 xl7 hp19/48] ELBERETH rest start: ['hill orc', 'hill orc']
+[s16858 t11500 d2 0:2 xl7 hp25/48] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=2 pos=(np.int64(17), np.int64(64)) acts=[SPACE:176 SEARCH:96 NUM_5:74 E:63 LOOK:57] gotos=[eat_corpses_from_ground(16, 56):3 eat_corpses_from_ground(17, 61):3 open_visit_search(16, 57):2]
+[s16867 t11500 d2 0:2 xl7 hp25/48] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/hed/nhbot/item/inventory.py", line 602, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/hed/nhbot/agent.py", line 190, in atom_operation
+    self.update_state()
+  File "/sol/hed/nhbot/agent.py", line 700, in update_state
+    self.call_update_functions()
+  File "/sol/hed/nhbot/agent.py", line 711, in call_update_functions
+    func()
+  File "/sol/hed/nhbot/item/inventory.py", line 159, in f
+    raise AgentPanic('items below me changed')
+nhbot.exceptions.AgentPanic: items below me changed
+
+[s16930 t11509 d2 0:2 xl7 hp26/48] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/hed/nhbot/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/hed/nhbot/agent.py", line 311, in preempt
+    next(iterator)
+  File "/sol/hed/nhbot/strategy.py", line 68, in f
+    next(it)
+  File "/sol/hed/nhbot/utils.py", line 134, in f
+    next(it)
+  File "/sol/hed/nhbot/agent.py", line 3303, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/hed/nhbot/item/inventory.py", line 871, in eat
+    raise AgentPanic('no such food is lying here')
+nhbot.exceptions.AgentPanic: no such food is lying here
+
+[s17228 t11697 d2 0:2 xl7 hp48/48] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/hed/nhbot/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/hed/nhbot/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/hed/nhbot/agent.py", line 298, in preempt
+    val = f.run()
+          ^^^^^^^
+  File "/sol/hed/nhbot/strategy.py", line 48, in run
+    next(gen)
+  File "/sol/hed/nhbot/exploration_logic.py", line 523, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/hed/nhbot/agent.py", line 2503, in go_to
+    raise AgentPanic('end point is no longer accessible')
+nhbot.exceptions.AgentPanic: end point is no longer accessible
+
+[s17245 t11697 d2 0:2 xl7 hp48/48] PANIC AgentPanic: agent position do not match after "move": expected (4, 71), got (5, 72)
+Traceback (most recent call last):
+  File "/sol/hed/nhbot/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/hed/nhbot/agent.py", line 300, in preempt
+    val = f()
+          ^^^
+  File "/sol/hed/nhbot/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/hed/nhbot/exploration_logic.py", line 523, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/hed/nhbot/agent.py", line 2531, in go_to
+    self.move(y, x)
+  File "/sol/hed/nhbot/agent.py", line 2084, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+nhbot.exceptions.AgentPanic: agent position do not match after "move": expected (4, 71), got (5, 72)
+
+[s17317 t11728 d2 0:2 xl7 hp48/48] PRAY hp=48/48 hunger=3 gap=1855 reason=None model[ok200=0.99 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=67 p_answered=0.99]
+[s17321 t11731 d2 0:2 xl7 hp48/48] PRAY result ok model[ok200=0.22 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=67] prayers=6 failures=0
+[s17562 t11901 d2 0:2 xl7 hp48/48] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/hed/nhbot/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/hed/nhbot/agent.py", line 311, in preempt
+    next(iterator)
+  File "/sol/hed/nhbot/strategy.py", line 68, in f
+    next(it)
+  File "/sol/hed/nhbot/utils.py", line 134, in f
+    next(it)
+  File "/sol/hed/nhbot/agent.py", line 3303, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/hed/nhbot/item/inventory.py", line 871, in eat
+    raise AgentPanic('no such food is lying here')
+nhbot.exceptions.AgentPanic: no such food is lying here
+
+[s17739 t11983 d2 0:2 xl7 hp48/48] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/hed/nhbot/item/inventory.py", line 602, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/hed/nhbot/agent.py", line 190, in atom_operation
+    self.update_state()
+  File "/sol/hed/nhbot/agent.py", line 700, in update_state
+    self.call_update_functions()
+  File "/sol/hed/nhbot/agent.py", line 711, in call_update_functions
+    func()
+  File "/sol/hed/nhbot/item/inventory.py", line 159, in f
+    raise AgentPanic('items below me changed')
+nhbot.exceptions.AgentPanic: items below me changed
+
+[s17805 t12003 d2 0:2 xl7 hp48/48] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(6), np.int64(38)) acts=[SPACE:165 SEARCH:77 NUM_5:67 W:54 LOOK:53] gotos=[open_visit_search(6, 38):5 open_visit_search(12, 47):4 open_visit_search(6, 41):4]
+[s17932 t12091 d2 0:2 xl7 hp48/48] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/hed/nhbot/item/inventory.py", line 602, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/hed/nhbot/agent.py", line 190, in atom_operation
+    self.update_state()
+  File "/sol/hed/nhbot/agent.py", line 700, in update_state
+    self.call_update_functions()
+  File "/sol/hed/nhbot/agent.py", line 711, in call_update_functions
+    func()
+  File "/sol/hed/nhbot/item/inventory.py", line 159, in f
+    raise AgentPanic('items below me changed')
+nhbot.exceptions.AgentPanic: items below me changed
+
+[s18138 t12194 d2 0:2 xl8 hp58/58] DIVE phase starts (milestone BE_ON_FIRST_LEVEL)
+[s18138 t12194 d2 0:2 xl8 hp58/58] DIVE task descend
+[s18138 t12194 d2 0:2 xl8 hp58/58] DIVE stuck in task 'descend' on level (np.int64(0), np.int64(2)) for 6792 turns; up stairs (y,x,dist)=[(17, 10, 23)]
+You destroy the elf zombie!  Welcome to experience level 8.
+
+                     #########   --------------
+             -----   #-------####-............|                        -----
+ -----       |...|`###|...>.|##  |............|                        |.)?|
+ |...-###    |...|#  #%....)|##  |....%.......|                #      #-.)%|
+ |...|  #    |...-#  #|......####-.............##           ---|--    #|.)/|
+ |:..-# #   #...1|#  @|.....|    -.---.--.----- #           |....|    #|.*%|
+ ---.-# #####-----#  #-------    *        #     #          #.....|    #|.[?|
+    # #     ##### #  ###                        #        ###|....|    #|.%[|
+    `##      #  ###    #                        #        # #.....|    #-----
+    ##########    #    #                        #      #####-.----    #
+    #        #    #    ##                     # #      # #   [#       #
+    #--------#    #     #                      %######## #   ##       #
+    #|......|######## # #                       #  #     #  # #       (
+    #.......|#    #-.-|-#         #`#################### #    ###     #
+     |......|#    #-.)..###########          ## ##-----%##`  ---|--- ##
+     |.......#     |...|###########`##########   #|...-###   |.....|##
+     |....<.|      |....#                        #|...*######-.[[)[|#
+     -|-|----      -----                         #-...|      |.[...[#
+      # #                                         -----      -------
+
+Agent the Initiate             St:18/01 Dx:13 Co:15 In:9 Wi:13 Ch:10 Chaotic S:
+Dlvl:2 $:38 HP:58(58) Pw:46(46) AC:-1 Xp:8/1284 T:12194
+[s18153 t12198 d2 0:2 xl8 hp58/58] DIVE going down stairs at (np.int64(3), np.int64(26))
+[s18158 t12199 d3 0:3 xl8 hp58/58] DIVE level (np.int64(0), np.int64(3)) depth 3
+[s18183 t12210 d3 0:3 xl8 hp58/58] SESSILE red mold at (6, 63) remembered
+[s18206 t12220 d3 0:3 xl8 hp58/58] DIVE going down stairs at (np.int64(9), np.int64(56))
+[s18211 t12221 d4 0:4 xl8 hp58/58] DIVE level (np.int64(0), np.int64(4)) depth 4
+[s18218 t12222 d4 0:4 xl8 hp58/58] DIVE task search mines branch
+[s18482 t12378 d4 0:4 xl8 hp58/58] SESSILE brown mold at (5, 20) remembered
+[s18546 t12416 d4 0:4 xl8 hp50/58] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/hed/nhbot/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/hed/nhbot/agent.py", line 311, in preempt
+    next(iterator)
+  File "/sol/hed/nhbot/strategy.py", line 68, in f
+    next(it)
+  File "/sol/hed/nhbot/utils.py", line 134, in f
+    next(it)
+  File "/sol/hed/nhbot/agent.py", line 3303, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/hed/nhbot/item/inventory.py", line 871, in eat
+    raise AgentPanic('no such food is lying here')
+nhbot.exceptions.AgentPanic: no such food is lying here
+
+[s18709 t12473 d4 0:4 xl8 hp27/58] DIVE task rest
+[s18716 t12504 d4 0:4 xl8 hp33/58] STATUS milestone=BE_ON_FIRST_LEVEL diving=True hunger=1 pos=(np.int64(13), np.int64(22)) acts=[SEARCH:152 SPACE:113 E:80 W:68 SW:43] gotos=[open_visit_search(6, 34):6 open_visit_search(18, 10):6 check_items(16, 19):5]
+[s18731 t12532 d4 0:4 xl8 hp39/58] DIVE task search mines branch
+[s18748 t12539 d4 0:4 xl8 hp40/58] GOTO path blocked at (13, 31): re-planning to (16, 29)
+[s19036 t12715 d4 0:4 xl8 hp58/58] DIVE no Mines branch on (np.int64(0), np.int64(4)) yet: exploring past the known traps
+[s19036 t12715 d4 0:4 xl8 hp58/58] DIVE no Mines branch on (np.int64(0), np.int64(4)) (explored)
+[s19036 t12715 d4 0:4 xl8 hp58/58] DIVE Mines branch hidden: searching Dlvl 4-2 for it
+[s19036 t12715 d4 0:4 xl8 hp58/58] DIVE task search hidden mines branch
+[s19067 t12736 d4 0:4 xl8 hp58/58] GOTO path blocked at (4, 42): re-planning to (14, 22)
+[s19137 t12774 d4 0:4 xl8 hp58/58] GOTO path blocked at (5, 41): re-planning to (5, 45)
+[s19202 t12799 d4 0:4 xl8 hp58/58] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/hed/nhbot/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/hed/nhbot/agent.py", line 311, in preempt
+    next(iterator)
+  File "/sol/hed/nhbot/strategy.py", line 68, in f
+    next(it)
+  File "/sol/hed/nhbot/utils.py", line 134, in f
+    next(it)
+  File "/sol/hed/nhbot/agent.py", line 3303, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/hed/nhbot/item/inventory.py", line 871, in eat
+    raise AgentPanic('no such food is lying here')
+nhbot.exceptions.AgentPanic: no such food is lying here
+
+[s19291 t12834 d4 0:4 xl8 hp56/58] LIZARD_KEEP picking up a lizard corpse
+[s19385 t12893 d4 0:4 xl8 hp58/58] DIVE mines branch candidate (8, 76) on (np.int64(0), np.int64(4)); down stairs there: [((8, 76), None), ((17, 74), None)]
+[s19385 t12893 d4 0:4 xl8 hp58/58] DIVE task go to mines branch
+[s19407 t12902 d5 0:5 xl8 hp58/58] DIVE level (np.int64(0), np.int64(5)) depth 5
+[s19418 t12904 d5 0:5 xl8 hp54/58] DIVE below the Mines branch levels with their search unfinished: climbing back from 5
+[s19418 t12904 d5 0:5 xl8 hp54/58] DIVE task climb back for the Mines branch
+[s19420 t12905 d4 0:4 xl8 hp55/58] DIVE level (np.int64(0), np.int64(4)) depth 4
+[s19420 t12905 d4 0:4 xl8 hp55/58] DIVE mines branch candidate (17, 74) on (np.int64(0), np.int64(4)); down stairs there: [((8, 76), ((np.int64(0), np.int64(5)), (np.int64(8), np.int64(42)))), ((17, 74), None)]
+[s19420 t12905 d4 0:4 xl8 hp55/58] DIVE task go to mines branch
+[s19435 t12915 d5 2:1 xl8 hp57/58] DIVE level (np.int64(2), np.int64(1)) depth 5
+[s19435 t12915 d5 2:1 xl8 hp57/58] CAMP: the tool-less dive stays in the Mines (levels 1-4, 8000 turns)
+[s19435 t12915 d5 2:1 xl8 hp57/58] DIVE task camp: search for dwarves
+[s19457 t12926 d5 2:1 xl8 hp57/58] RANGED hit: holds and Elbereth waits off for 8 turns
+[s19471 t12930 d5 2:1 xl8 hp58/58] ALIGN estimate 62 (cap 74) after -12
+[s19471 t12930 d5 2:1 xl8 hp58/58] DWARF died near [(11, 6)]: piles to check
+[s19471 t12930 d5 2:1 xl8 hp58/58] DIVE fetching the digging tool at (11, 6) on (np.int64(2), np.int64(1))
+[s19471 t12930 d5 2:1 xl8 hp58/58] DIVE task fetch digging tool
+[s19481 t12942 d5 2:1 xl8 hp58/58] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/hed/nhbot/item/inventory.py", line 602, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/hed/nhbot/agent.py", line 190, in atom_operation
+    self.update_state()
+  File "/sol/hed/nhbot/agent.py", line 700, in update_state
+    self.call_update_functions()
+  File "/sol/hed/nhbot/agent.py", line 711, in call_update_functions
+    func()
+  File "/sol/hed/nhbot/item/inventory.py", line 159, in f
+    raise AgentPanic('items below me changed')
+nhbot.exceptions.AgentPanic: items below me changed
+
+[s19499 t12943 d5 2:1 xl8 hp58/58] DIVE no usable digging tool at (11, 6) on (np.int64(2), np.int64(1))
+[s19499 t12943 d5 2:1 xl8 hp58/58] DIVE task camp: search for dwarves
+[s19630 t12997 d5 2:1 xl8 hp58/58] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/hed/nhbot/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/hed/nhbot/agent.py", line 311, in preempt
+    next(iterator)
+  File "/sol/hed/nhbot/strategy.py", line 68, in f
+    next(it)
+  File "/sol/hed/nhbot/utils.py", line 134, in f
+    next(it)
+  File "/sol/hed/nhbot/agent.py", line 3303, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/hed/nhbot/item/inventory.py", line 871, in eat
+    raise AgentPanic('no such food is lying here')
+nhbot.exceptions.AgentPanic: no such food is lying here
+
+[s19650 t13002 d5 2:1 xl8 hp58/58] STATUS milestone=BE_ON_FIRST_LEVEL diving=True hunger=1 pos=(np.int64(4), np.int64(21)) acts=[SEARCH:164 E:105 SPACE:102 NE:56 W:56] gotos=[open_visit_search(5, 45):12 open_visit_search(3, 12):10 check_items(8, 71):5]
+[s19652 t13003 d5 2:1 xl8 hp58/58] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/hed/nhbot/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/hed/nhbot/agent.py", line 311, in preempt
+    next(iterator)
+  File "/sol/hed/nhbot/strategy.py", line 68, in f
+    next(it)
+  File "/sol/hed/nhbot/utils.py", line 134, in f
+    next(it)
+  File "/sol/hed/nhbot/agent.py", line 3303, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/hed/nhbot/item/inventory.py", line 871, in eat
+    raise AgentPanic('no such food is lying here')
+nhbot.exceptions.AgentPanic: no such food is lying here
+
+[s19893 t13129 d5 2:1 xl8 hp58/58] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/hed/nhbot/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/hed/nhbot/agent.py", line 311, in preempt
+    next(iterator)
+  File "/sol/hed/nhbot/strategy.py", line 68, in f
+    next(it)
+  File "/sol/hed/nhbot/utils.py", line 134, in f
+    next(it)
+  File "/sol/hed/nhbot/agent.py", line 3303, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/hed/nhbot/item/inventory.py", line 871, in eat
+    raise AgentPanic('no such food is lying here')
+nhbot.exceptions.AgentPanic: no such food is lying here
+
+[s20060 t13215 d5 2:1 xl8 hp58/58] SESSILE floating eye at (14, 52) remembered
+[s20215 t13315 d5 2:1 xl8 hp58/58] DIVE task camp: next level >
+[s20275 t13343 d6 2:2 xl8 hp58/58] DIVE level (np.int64(2), np.int64(2)) depth 6
+[s20275 t13343 d6 2:2 xl8 hp58/58] DIVE task camp: search for dwarves
+[s20314 t13354 d6 2:2 xl8 hp55/58] RANGED hit: holds and Elbereth waits off for 8 turns
+[s20375 t13367 d6 2:2 xl8 hp54/58] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/hed/nhbot/item/inventory.py", line 602, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/hed/nhbot/agent.py", line 190, in atom_operation
+    self.update_state()
+  File "/sol/hed/nhbot/agent.py", line 700, in update_state
+    self.call_update_functions()
+  File "/sol/hed/nhbot/agent.py", line 711, in call_update_functions
+    func()
+  File "/sol/hed/nhbot/item/inventory.py", line 159, in f
+    raise AgentPanic('items below me changed')
+nhbot.exceptions.AgentPanic: items below me changed
+
+[s20418 t13379 d6 2:2 xl8 hp56/58] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/hed/nhbot/item/inventory.py", line 602, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/hed/nhbot/agent.py", line 190, in atom_operation
+    self.update_state()
+  File "/sol/hed/nhbot/agent.py", line 700, in update_state
+    self.call_update_functions()
+  File "/sol/hed/nhbot/agent.py", line 711, in call_update_functions
+    func()
+  File "/sol/hed/nhbot/item/inventory.py", line 159, in f
+    raise AgentPanic('items below me changed')
+nhbot.exceptions.AgentPanic: items below me changed
+
+[s20501 t13418 d6 2:2 xl8 hp53/58] RANGED hit: holds and Elbereth waits off for 8 turns
+[s20552 t13435 d6 2:2 xl8 hp57/58] ALIGN estimate 60 (cap 77) after -12
+[s20552 t13435 d6 2:2 xl8 hp57/58] DWARF died near [(10, 18), (11, 17)]: piles to check
+[s20552 t13435 d6 2:2 xl8 hp57/58] DIVE fetching the digging tool at (10, 18) on (np.int64(2), np.int64(2))
+[s20552 t13435 d6 2:2 xl8 hp57/58] DIVE task fetch digging tool
+[s20596 t13438 d6 2:2 xl8 hp57/58] DIVE picked up 'a pick-axe'
+[s20596 t13438 d6 2:2 xl8 hp57/58] DIVE task return to main dungeon
+[s20614 t13446 d6 2:2 xl8 hp58/58] ALIGN estimate 48 (cap 77) after -12
+[s20614 t13446 d6 2:2 xl8 hp58/58] DWARF died near [(10, 24)]: piles to check
+[s20625 t13452 d5 2:1 xl8 hp58/58] DIVE level (np.int64(2), np.int64(1)) depth 5
+[s20686 t13485 d4 0:4 xl8 hp58/58] DIVE level (np.int64(0), np.int64(4)) depth 4
+[s20686 t13485 d4 0:4 xl8 hp58/58] DIVE task descend
+[s20686 t13485 d4 0:4 xl8 hp58/58] DIVE stuck in task 'descend' on level (np.int64(0), np.int64(4)) for 1264 turns; up stairs (y,x,dist)=[(16, 4, 87)]
+
+
+                                                    ------
+            ----------------                        |.....
+           #...............|        -----------     |....|
+           #|..............|       #..........|     |....|
+           #|..............|       #|....{.....#%###......         ------|----
+           #|...............########-----------     |....|         ..........|
+           #------------.---       ############     ----.-         |.........|
+           #           ##          #          #         #        ##.........>|
+           #          ##           #          ##        #    #   # ----.------
+           #          #      ###   ###         `#       #### ### #     #
+           #          #        ##### ##                    #   ###     ##
+           #          #         ---|--#                    #   ##       ##
+           #   #################-...{|#              ------|---##        #
+ ----------#   #------.-        |....|#              |.........##        #
+ |........-#   #|.....)|     ###-....-#              |........| #      #####
+ |..<.....|    #|......|   ###  ------               |........|         -.-.-
+ |........|  ###|......-####                         ----------         ..@.|
+ |.........###  |......|                                                |...|
+ ----------     --------                                                -----
+
+Agent the Initiate             St:18/01 Dx:13 Co:15 In:9 Wi:13 Ch:10 Chaotic S:
+Dlvl:4 $:171 HP:58(58) Pw:46(46) AC:-3 Xp:8/1881 T:13485
+[s20687 t13486 d4 0:4 xl8 hp58/58] DIVE digging down with 'a pick-axe' (try 1)
+[s20691 t13489 d4 0:4 xl8 hp58/58] DIVE digging down with 'a pick-axe (weapon in hand)' (try 2)
+[s20696 t13503 d5 0:5 xl8 hp58/58] STATUS milestone=BE_ON_FIRST_LEVEL diving=True hunger=1 pos=(np.int64(6), np.int64(11)) acts=[SEARCH:202 SPACE:154 E:64 W:60 SW:57] gotos=[open_visit_search(11, 30):4 open_visit_search(19, 48):4 open_visit_search(6, 38):4]
+[s20696 t13503 d5 0:5 xl8 hp58/58] DIVE fell through a trap door at (np.int64(17), np.int64(73)) on (np.int64(0), np.int64(4)); remembered
+[s20696 t13503 d5 0:5 xl8 hp58/58] DIVE level (np.int64(0), np.int64(5)) depth 5
+[s20696 t13503 d5 0:5 xl8 hp58/58] DIVE digging down with 'a pick-axe (weapon in hand)' (try 1)
+[s20699 t13506 d5 0:5 xl8 hp58/58] DIVE digging down with 'a pick-axe (weapon in hand)' (try 2)
+[s20707 t13522 d6 0:6 xl8 hp58/58] DIVE fell through a trap door at (np.int64(6), np.int64(11)) on (np.int64(0), np.int64(5)); remembered
+[s20707 t13522 d6 0:6 xl8 hp58/58] DIVE level (np.int64(0), np.int64(6)) depth 6
+[s20707 t13522 d6 0:6 xl8 hp58/58] DIVE digging out, hostiles at [('dust vortex', 2)]
+[s20707 t13522 d6 0:6 xl8 hp58/58] DIVE Elbereth before digging: ['dust vortex']
+[s20721 t13523 d6 0:6 xl8 hp58/58] DIVE digging out, hostiles at [('dust vortex', 1)]
+[s20721 t13523 d6 0:6 xl8 hp58/58] DIVE Elbereth before digging: ['dust vortex']
+[s20737 t13524 d6 0:6 xl8 hp58/58] DIVE digging out, hostiles at [('dust vortex', 1)]
+[s20737 t13524 d6 0:6 xl8 hp58/58] DIVE Elbereth before digging: ['dust vortex']
+[s20755 t13525 d6 0:6 xl8 hp58/58] DIVE digging out, hostiles at [('dust vortex', 3)]
+[s20755 t13525 d6 0:6 xl8 hp58/58] DIVE digging down with 'a pick-axe (weapon in hand)' (try 1)
+[s20762 t13528 d6 0:6 xl8 hp58/58] DIVE Elbereth before digging in the pit: []
+[s20778 t13529 d6 0:6 xl8 hp58/58] DIVE digging down with 'a pick-axe (weapon in hand)' (try 2)
+[s20792 t13543 d7 0:7 xl8 hp58/58] DIVE fell through a trap door at (np.int64(7), np.int64(69)) on (np.int64(0), np.int64(6)); remembered
+[s20792 t13543 d7 0:7 xl8 hp58/58] DIVE level (np.int64(0), np.int64(7)) depth 7
+[s20792 t13543 d7 0:7 xl8 hp58/58] DIVE digging down with 'a pick-axe (weapon in hand)' (try 1)
+[s20795 t13546 d7 0:7 xl8 hp58/58] DIVE digging down with 'a pick-axe (weapon in hand)' (try 2)
+[s20803 t13565 d8 0:8 xl8 hp58/58] DIVE fell through a trap door at (np.int64(13), np.int64(42)) on (np.int64(0), np.int64(7)); remembered
+[s20803 t13565 d8 0:8 xl8 hp58/58] DIVE level (np.int64(0), np.int64(8)) depth 8
+[s20803 t13565 d8 0:8 xl8 hp58/58] DIVE digging out, hostiles at [('lichen', 3)]
+[s20803 t13565 d8 0:8 xl8 hp58/58] DIVE Elbereth before digging: ['lichen']
+[s20819 t13565 d8 0:8 xl8 hp58/58] DIVE digging out, hostiles at [('lichen', 3)]
+[s20819 t13565 d8 0:8 xl8 hp58/58] DIVE digging down with 'a pick-axe (weapon in hand)' (try 1)
+[s20823 t13568 d8 0:8 xl8 hp58/58] DIVE digging out, hostiles at [('lichen', 1)]
+[s20823 t13568 d8 0:8 xl8 hp58/58] DIVE Elbereth before digging in the pit: ['lichen']
+[s20842 t13569 d8 0:8 xl8 hp58/58] DIVE digging out, hostiles at [('lichen', 1)]
+[s20842 t13569 d8 0:8 xl8 hp58/58] DIVE digging down with 'a pick-axe (weapon in hand)' (try 2)
+[s20851 t13587 d9 0:9 xl8 hp58/58] DIVE fell through a trap door at (np.int64(13), np.int64(52)) on (np.int64(0), np.int64(8)); remembered
+[s20851 t13587 d9 0:9 xl8 hp58/58] DIVE level (np.int64(0), np.int64(9)) depth 9
+[s20853 t13587 d9 0:9 xl8 hp58/58] DIVE digging out, hostiles at [('flaming sphere', 6)]
+[s20853 t13587 d9 0:9 xl8 hp58/58] DIVE Elbereth before digging: ['flaming sphere']
+[s20869 t13588 d9 0:9 xl8 hp58/58] DIVE digging out, hostiles at [('flaming sphere', 5)]
+[s20869 t13588 d9 0:9 xl8 hp58/58] DIVE digging down with 'a pick-axe (weapon in hand)' (try 1)
+[s20876 t13591 d9 0:9 xl8 hp58/58] DIVE digging out, hostiles at [('flaming sphere', 1)]
+[s20876 t13591 d9 0:9 xl8 hp58/58] DIVE Elbereth before digging in the pit: ['flaming sphere']
+[s20890 t13592 d9 0:9 xl8 hp58/58] DIVE digging out, hostiles at [('flaming sphere', 1)]
+[s20890 t13592 d9 0:9 xl8 hp58/58] DIVE Elbereth before digging in the pit: ['flaming sphere']
+[s20906 t13592 d9 0:9 xl8 hp50/58] DIVE Elbereth before digging in the pit: []
+[s20922 t13593 d9 0:9 xl8 hp50/58] DIVE Elbereth before digging in the pit: []
+[s20938 t13593 d9 0:9 xl8 hp50/58] DIVE digging down with 'a pick-axe (weapon in hand)' (try 2)
+[s20953 t13609 d10 0:10 xl8 hp53/58] DIVE fell through a trap door at (np.int64(14), np.int64(36)) on (np.int64(0), np.int64(9)); remembered
+[s20953 t13609 d10 0:10 xl8 hp53/58] DIVE level (np.int64(0), np.int64(10)) depth 10
+[s20953 t13609 d10 0:10 xl8 hp53/58] POWER kit at depth 10 XL 8 AC -3: P(passage)=0.22 certain=0 steps=5 scare_known=0 P(scare among candidates)=0.11 door_tools=2
+[s20953 t13609 d10 0:10 xl8 hp53/58] DIVE digging out, hostiles at [('dwarf', 2)]
+[s20953 t13609 d10 0:10 xl8 hp53/58] DIVE Elbereth before digging: ['dwarf']
+[s20969 t13610 d10 0:10 xl8 hp54/58] DIVE digging out, hostiles at [('dwarf', 2)]
+[s20969 t13610 d10 0:10 xl8 hp54/58] DIVE digging down with 'a pick-axe (weapon in hand)' (try 1)
+[s20976 t13613 d10 0:10 xl8 hp54/58] DIVE digging out, hostiles at [('dwarf', 2)]
+[s20976 t13613 d10 0:10 xl8 hp54/58] DIVE digging down with 'a pick-axe (weapon in hand)' (try 1)
+[s20980 t13614 d10 0:10 xl8 hp54/58] DIVE Elbereth before digging in the pit: []
+[s20996 t13614 d10 0:10 xl8 hp54/58] DIVE digging down with 'a pick-axe (weapon in hand)' (try 2)
+[s21004 t13628 d11 0:11 xl8 hp57/58] DIVE fell through a trap door at (np.int64(11), np.int64(37)) on (np.int64(0), np.int64(10)); remembered
+[s21004 t13628 d11 0:11 xl8 hp57/58] DIVE level (np.int64(0), np.int64(11)) depth 11
+[s21004 t13628 d11 0:11 xl8 hp57/58] DIVE digging down with 'a pick-axe (weapon in hand)' (try 1)
+[s21007 t13631 d11 0:11 xl8 hp58/58] DIVE digging down with 'a pick-axe (weapon in hand)' (try 2)
+[s21012 t13647 d12 0:12 xl8 hp58/58] DIVE fell through a trap door at (np.int64(15), np.int64(6)) on (np.int64(0), np.int64(11)); remembered
+[s21012 t13647 d12 0:12 xl8 hp58/58] DIVE level (np.int64(0), np.int64(12)) depth 12
+[s21013 t13648 d12 0:12 xl8 hp58/58] DIVE going down stairs at (np.int64(4), np.int64(72))
+[s21015 t13649 d13 0:13 xl8 hp58/58] DIVE level (np.int64(0), np.int64(13)) depth 13
+[s21016 t13650 d13 0:13 xl8 hp58/58] DIVE digging down with 'a pick-axe (weapon in hand)' (try 1)
+[s21019 t13654 d13 0:13 xl8 hp58/58] DIVE digging down with 'a pick-axe (weapon in hand)' (try 2)
+[s21030 t13667 d14 0:14 xl8 hp58/58] DIVE fell through a trap door at (np.int64(3), np.int64(19)) on (np.int64(0), np.int64(13)); remembered
+[s21030 t13667 d14 0:14 xl8 hp58/58] DIVE level (np.int64(0), np.int64(14)) depth 14
+[s21030 t13667 d14 0:14 xl8 hp58/58] DIVE digging down with 'a pick-axe (weapon in hand)' (try 1)
+[s21033 t13671 d14 0:14 xl8 hp58/58] DIVE digging down with 'a pick-axe (weapon in hand)' (try 2)
+[s21040 t13683 d14 0:14 xl8 hp58/58] DIVE digging out, hostiles at [('rothe', 1)]
+[s21040 t13683 d14 0:14 xl8 hp58/58] DIVE Elbereth before digging in the pit: ['rothe']
+[s21057 t13684 d14 0:14 xl8 hp58/58] DIVE digging out, hostiles at [('rothe', 1)]
+[s21057 t13684 d14 0:14 xl8 hp58/58] DIVE Elbereth before digging in the pit: ['rothe']
+[s21073 t13685 d14 0:14 xl8 hp58/58] DIVE digging out, hostiles at [('rothe', 1)]
+[s21073 t13685 d14 0:14 xl8 hp58/58] DIVE Elbereth before digging in the pit: ['rothe']
+[s21091 t13686 d14 0:14 xl8 hp58/58] DIVE digging down with 'a pick-axe (weapon in hand)' (try 3)
+[s21100 t13690 d15 0:15 xl8 hp58/58] DIVE fell through a trap door at (np.int64(5), np.int64(18)) on (np.int64(0), np.int64(14)); remembered
+[s21100 t13690 d15 0:15 xl8 hp58/58] DIVE level (np.int64(0), np.int64(15)) depth 15
+[s21100 t13690 d15 0:15 xl8 hp58/58] DIVE digging out, hostiles at [('giant beetle', 2)]
+[s21100 t13690 d15 0:15 xl8 hp58/58] DIVE Elbereth before digging: ['giant beetle']
+[s21116 t13691 d15 0:15 xl8 hp58/58] DIVE digging out, hostiles at [('giant beetle', 2)]
+[s21116 t13691 d15 0:15 xl8 hp58/58] DIVE digging down with 'a pick-axe (weapon in hand)' (try 1)
+[s21124 t13695 d15 0:15 xl8 hp58/58] DIVE Elbereth before digging in the pit: []
+[s21140 t13695 d15 0:15 xl8 hp58/58] DIVE digging down with 'a pick-axe (weapon in hand)' (try 2)
+[s21153 t13714 d16 0:16 xl8 hp58/58] DIVE fell through a trap door at (np.int64(17), np.int64(6)) on (np.int64(0), np.int64(15)); remembered
+[s21153 t13714 d16 0:16 xl8 hp58/58] DIVE level (np.int64(0), np.int64(16)) depth 16
+[s21153 t13714 d16 0:16 xl8 hp58/58] DIVE quest portal level detected: (np.int64(0), np.int64(16))
+[s21153 t13714 d16 0:16 xl8 hp58/58] DIVE digging out, hostiles at [('kobold mummy', 4)]
+[s21153 t13714 d16 0:16 xl8 hp58/58] DIVE Elbereth before digging: ['kobold mummy']
+[s21169 t13714 d16 0:16 xl8 hp58/58] DIVE digging out, hostiles at [('kobold mummy', 2)]
+[s21169 t13714 d16 0:16 xl8 hp58/58] DIVE digging down with 'a pick-axe (weapon in hand)' (try 1)
+[s21183 t13718 d16 0:16 xl8 hp58/58] DIVE Elbereth before digging in the pit: []
+[s21197 t13719 d16 0:16 xl8 hp58/58] DIVE Elbereth before digging in the pit: []
+[s21215 t13720 d16 0:16 xl8 hp58/58] DIVE digging down with 'a pick-axe (weapon in hand)' (try 2)
+[s21222 t13738 d17 0:17 xl8 hp58/58] DIVE fell through a trap door at (np.int64(4), np.int64(60)) on (np.int64(0), np.int64(16)); remembered
+[s21222 t13738 d17 0:17 xl8 hp58/58] DIVE level (np.int64(0), np.int64(17)) depth 17
+[s21222 t13738 d17 0:17 xl8 hp58/58] DIVE digging down with 'a pick-axe (weapon in hand)' (try 1)
+[s21225 t13743 d17 0:17 xl8 hp58/58] DIVE digging down with 'a pick-axe (weapon in hand)' (try 2)
+[s21233 t13758 d18 0:18 xl8 hp58/58] DIVE fell through a trap door at (np.int64(16), np.int64(22)) on (np.int64(0), np.int64(17)); remembered
+[s21233 t13758 d18 0:18 xl8 hp58/58] DIVE level (np.int64(0), np.int64(18)) depth 18
+[s21233 t13758 d18 0:18 xl8 hp58/58] DIVE digging down with 'a pick-axe (weapon in hand)' (try 1)
+[s21236 t13762 d18 0:18 xl8 hp58/58] DIVE digging down with 'a pick-axe (weapon in hand)' (try 2)
+[s21247 t13777 d19 0:19 xl8 hp58/58] DIVE fell through a trap door at (np.int64(8), np.int64(38)) on (np.int64(0), np.int64(18)); remembered
+[s21247 t13777 d19 0:19 xl8 hp58/58] DIVE level (np.int64(0), np.int64(19)) depth 19
+[s21249 t13779 d19 0:19 xl8 hp58/58] DIVE going down stairs at (np.int64(12), np.int64(10))
+[s21251 t13780 d20 0:20 xl8 hp58/58] DIVE level (np.int64(0), np.int64(20)) depth 20
+[s21251 t13780 d20 0:20 xl8 hp58/58] POWER kit at depth 20 XL 8 AC -3: P(passage)=0.22 certain=0 steps=5 scare_known=0 P(scare among candidates)=0.11 door_tools=2
+[s21251 t13780 d20 0:20 xl8 hp58/58] MINO kit d20 last_prayer=11731: $ - 171 gold pieces; B - a +0 large shield (being worn); C - a scroll labeled YUM YUM; D - a copper wand; F - 3 crude daggers; G - a wand of digging; H - a cyan potion; I - a pick-axe (weapon in hand); K - 4 darts (at the ready); Q - a golden potion; R - a slime mold; S - a wand of magic missile; U - a scroll labeled ETAOIN SHRDLU; W - an apple; X - a lizard corpse; Y - a dark green potion; Z - a +0 pair of iron shoes (being worn); a - an uncursed +2 pair of leather gloves (being worn); b - an uncursed +1 robe (being worn); c - a dagger; d - a blessed scroll of taming; e - 2 uncursed potions of healing; f - a blessed potion of healing; g - 3 uncursed food rations; h - 6 uncursed apples; i - 5 uncursed oranges; j - 3 uncursed fortune cookies; k - a scroll labeled ASHPD SODALG; l - a dark green potion; m - a scroll labeled ABRA KA DABRA; n - a tin; o - a leash; p - 5 food rations; r - 3 tripe rations; s - a wand of digging; t - 10 darts; u - a dark green potion; v - a looking glass; w - a thoroughly corroded crude dagger; x - a crude dagger; y - a +2 orcish helm (being worn); z - a clear potion
+[s21252 t13780 d20 0:20 xl8 hp58/58] DIVE digging down with 'a pick-axe (weapon in hand)' (try 1)
+[s21255 t13784 d20 0:20 xl8 hp58/58] DIVE digging down with 'a pick-axe (weapon in hand)' (try 2)
+[s21266 t13801 d21 0:21 xl8 hp58/58] DIVE fell through a trap door at (np.int64(14), np.int64(61)) on (np.int64(0), np.int64(20)); remembered
+[s21266 t13801 d21 0:21 xl8 hp58/58] DIVE level (np.int64(0), np.int64(21)) depth 21
+[s21266 t13801 d21 0:21 xl8 hp58/58] MINO kit d21 last_prayer=11731: $ - 171 gold pieces; B - a +0 large shield (being worn); C - a scroll labeled YUM YUM; D - a copper wand; F - 3 crude daggers; G - a wand of digging; H - a cyan potion; I - a pick-axe (weapon in hand); K - 4 darts (at the ready); Q - a golden potion; R - a slime mold; S - a wand of magic missile; U - a scroll labeled ETAOIN SHRDLU; W - an apple; X - a lizard corpse; Y - a dark green potion; Z - a +0 pair of iron shoes (being worn); a - an uncursed +2 pair of leather gloves (being worn); b - an uncursed +1 robe (being worn); c - a dagger; d - a blessed scroll of taming; e - 2 uncursed potions of healing; f - a blessed potion of healing; g - 3 uncursed food rations; h - 6 uncursed apples; i - 5 uncursed oranges; j - 3 uncursed fortune cookies; k - a scroll labeled ASHPD SODALG; l - a dark green potion; m - a scroll labeled ABRA KA DABRA; n - a tin; o - a leash; p - 5 food rations; r - 3 tripe rations; s - a wand of digging; t - 10 darts; u - a dark green potion; v - a looking glass; w - a thoroughly corroded crude dagger; x - a crude dagger; y - a +2 orcish helm (being worn); z - a clear potion
+[s21266 t13801 d21 0:21 xl8 hp58/58] DIVE digging down with 'a pick-axe (weapon in hand)' (try 1)
+[s21272 t13805 d21 0:21 xl8 hp58/58] DIVE digging down with 'a pick-axe (weapon in hand)' (try 2)
+[s21279 t13818 d22 0:22 xl8 hp58/58] DIVE fell through a trap door at (np.int64(14), np.int64(31)) on (np.int64(0), np.int64(21)); remembered
+[s21279 t13818 d22 0:22 xl8 hp58/58] DIVE level (np.int64(0), np.int64(22)) depth 22
+[s21279 t13818 d22 0:22 xl8 hp58/58] MINO kit d22 last_prayer=11731: $ - 171 gold pieces; B - a +0 large shield (being worn); C - a scroll labeled YUM YUM; D - a copper wand; F - 3 crude daggers; G - a wand of digging; H - a cyan potion; I - a pick-axe (weapon in hand); K - 4 darts (at the ready); Q - a golden potion; R - a slime mold; S - a wand of magic missile; U - a scroll labeled ETAOIN SHRDLU; W - an apple; X - a lizard corpse; Y - a dark green potion; Z - a +0 pair of iron shoes (being worn); a - an uncursed +2 pair of leather gloves (being worn); b - an uncursed +1 robe (being worn); c - a dagger; d - a blessed scroll of taming; e - 2 uncursed potions of healing; f - a blessed potion of healing; g - 3 uncursed food rations; h - 6 uncursed apples; i - 5 uncursed oranges; j - 3 uncursed fortune cookies; k - a scroll labeled ASHPD SODALG; l - a dark green potion; m - a scroll labeled ABRA KA DABRA; n - a tin; o - a leash; p - 5 food rations; r - 3 tripe rations; s - a wand of digging; t - 10 darts; u - a dark green potion; v - a looking glass; w - a thoroughly corroded crude dagger; x - a crude dagger; y - a +2 orcish helm (being worn); z - a clear potion
+[s21279 t13818 d22 0:22 xl8 hp58/58] PROUTE to the altar at (np.int64(14), np.int64(35)) to learn the BUC of 7 items
+[s21286 t13823 d22 0:22 xl8 hp58/58] PROUTE BUC test on the altar: ['a cyan potion', 'a golden potion', 'a dark green potion', 'a dark green potion', 'a scroll labeled ABRA KA DABRA', 'a dark green potion', 'a clear potion']
+[s21307 t13824 d22 0:22 xl8 hp58/58] PROUTE altar: ''
+[s21328 t13825 d22 0:22 xl8 hp58/58] PROUTE altar pickup: took 7 of 7 stacks back
+[s21329 t13825 d22 0:22 xl8 hp58/58] DIVE digging down with 'a pick-axe (weapon in hand)' (try 1)
+[s21338 t13829 d22 0:22 xl8 hp58/58] DIVE digging down with 'a pick-axe (weapon in hand)' (try 2)
+[s21343 t13847 d23 0:23 xl8 hp58/58] DIVE fell through a trap door at (np.int64(13), np.int64(34)) on (np.int64(0), np.int64(22)); remembered
+[s21343 t13847 d23 0:23 xl8 hp58/58] DIVE level (np.int64(0), np.int64(23)) depth 23
+[s21343 t13847 d23 0:23 xl8 hp58/58] MINO kit d23 last_prayer=11731: $ - 171 gold pieces; B - a +0 large shield (being worn); C - a scroll labeled YUM YUM; D - a copper wand; F - 3 crude daggers; G - a wand of digging; H - an uncursed cyan potion; I - a pick-axe (weapon in hand); K - 4 darts (at the ready); Q - a cursed golden potion; R - a slime mold; S - a wand of magic missile; U - a scroll labeled ETAOIN SHRDLU; W - an apple; X - a lizard corpse; Y - a cursed dark green potion; Z - a +0 pair of iron shoes (being worn); a - an uncursed +2 pair of leather gloves (being worn); b - an uncursed +1 robe (being worn); c - a dagger; d - a blessed scroll of taming; e - 2 uncursed potions of healing; f - a blessed potion of healing; g - 3 uncursed food rations; h - 6 uncursed apples; i - 5 uncursed oranges; j - 3 uncursed fortune cookies; k - a scroll labeled ASHPD SODALG; l - an uncursed dark green potion; m - an uncursed scroll labeled ABRA KA DABRA; n - a tin; o - a leash; p - 5 food rations; r - 3 tripe rations; s - a wand of digging; t - 10 darts; u - a blessed dark green potion; v - a looking glass; w - a thoroughly corroded crude dagger; x - a crude dagger; y - a +2 orcish helm (being worn); z - an uncursed clear potion
+[s21347 t13850 d23 0:23 xl8 hp58/58] DIVE going down stairs at (np.int64(10), np.int64(70))
+[s21349 t13851 d24 0:24 xl8 hp58/58] DIVE level (np.int64(0), np.int64(24)) depth 24
+[s21349 t13851 d24 0:24 xl8 hp58/58] MINO kit d24 last_prayer=11731: $ - 171 gold pieces; B - a +0 large shield (being worn); C - a scroll labeled YUM YUM; D - a copper wand; F - 3 crude daggers; G - a wand of digging; H - an uncursed cyan potion; I - a pick-axe (weapon in hand); K - 4 darts (at the ready); Q - a cursed golden potion; R - a slime mold; S - a wand of magic missile; U - a scroll labeled ETAOIN SHRDLU; W - an apple; X - a lizard corpse; Y - a cursed dark green potion; Z - a +0 pair of iron shoes (being worn); a - an uncursed +2 pair of leather gloves (being worn); b - an uncursed +1 robe (being worn); c - a dagger; d - a blessed scroll of taming; e - 2 uncursed potions of healing; f - a blessed potion of healing; g - 3 uncursed food rations; h - 6 uncursed apples; i - 5 uncursed oranges; j - 3 uncursed fortune cookies; k - a scroll labeled ASHPD SODALG; l - an uncursed dark green potion; m - an uncursed scroll labeled ABRA KA DABRA; n - a tin; o - a leash; p - 5 food rations; r - 3 tripe rations; s - a wand of digging; t - 10 darts; u - a blessed dark green potion; v - a looking glass; w - a thoroughly corroded crude dagger; x - a crude dagger; y - a +2 orcish helm (being worn); z - an uncursed clear potion
+[s21350 t13852 d24 0:24 xl8 hp58/58] DIVE digging down with 'a pick-axe (weapon in hand)' (try 1)
+[s21354 t13855 d24 0:24 xl8 hp58/58] DIVE digging down with 'a pick-axe (weapon in hand)' (try 2)
+[s21360 t13869 d25 0:25 xl8 hp58/58] DIVE fell through a trap door at (np.int64(12), np.int64(47)) on (np.int64(0), np.int64(24)); remembered
+[s21360 t13869 d25 0:25 xl8 hp58/58] DIVE level (np.int64(0), np.int64(25)) depth 25
+[s21360 t13869 d25 0:25 xl8 hp58/58] MINO kit d25 last_prayer=11731: $ - 171 gold pieces; B - a +0 large shield (being worn); C - a scroll labeled YUM YUM; D - a copper wand; F - 3 crude daggers; G - a wand of digging; H - an uncursed cyan potion; I - a pick-axe (weapon in hand); K - 4 darts (at the ready); Q - a cursed golden potion; R - a slime mold; S - a wand of magic missile; U - a scroll labeled ETAOIN SHRDLU; W - an apple; X - a lizard corpse; Y - a cursed dark green potion; Z - a +0 pair of iron shoes (being worn); a - an uncursed +2 pair of leather gloves (being worn); b - an uncursed +1 robe (being worn); c - a dagger; d - a blessed scroll of taming; e - 2 uncursed potions of healing; f - a blessed potion of healing; g - 3 uncursed food rations; h - 6 uncursed apples; i - 5 uncursed oranges; j - 3 uncursed fortune cookies; k - a scroll labeled ASHPD SODALG; l - an uncursed dark green potion; m - an uncursed scroll labeled ABRA KA DABRA; n - a tin; o - a leash; p - 5 food rations; r - 3 tripe rations; s - a wand of digging; t - 10 darts; u - a blessed dark green potion; v - a looking glass; w - a thoroughly corroded crude dagger; x - a crude dagger; y - a +2 orcish helm (being worn); z - an uncursed clear potion
+[s21360 t13869 d25 0:25 xl8 hp58/58] DIVE digging down with 'a pick-axe (weapon in hand)' (try 1)
+[s21366 t13873 d25 0:25 xl8 hp58/58] DIVE digging down with 'a pick-axe (weapon in hand)' (try 2)
+[s21378 t13880 d25 0:25 xl8 hp58/58] DIVE digging out, hostiles at [('rust monster', 1)]
+[s21378 t13880 d25 0:25 xl8 hp58/58] DIVE Elbereth before digging in the pit: ['rust monster']
+[s21397 t13880 d25 0:25 xl8 hp58/58] DIVE digging down with 'a pick-axe (weapon in hand)' (try 3)
+[s21406 t13892 d26 0:26 xl8 hp58/58] DIVE fell through a trap door at (np.int64(5), np.int64(32)) on (np.int64(0), np.int64(25)); remembered
+[s21406 t13892 d26 0:26 xl8 hp58/58] DIVE level (np.int64(0), np.int64(26)) depth 26
+[s21406 t13892 d26 0:26 xl8 hp58/58] MINO kit d26 last_prayer=11731: $ - 171 gold pieces; B - a +0 large shield (being worn); C - a scroll labeled YUM YUM; D - a copper wand; F - 3 crude daggers; G - a wand of digging; H - an uncursed cyan potion; I - a pick-axe (weapon in hand); K - 4 darts (at the ready); Q - a cursed golden potion; R - a slime mold; S - a wand of magic missile; U - a scroll labeled ETAOIN SHRDLU; W - an apple; X - a lizard corpse; Y - a cursed dark green potion; Z - a +0 pair of iron shoes (being worn); a - an uncursed +2 pair of leather gloves (being worn); b - an uncursed +1 robe (being worn); c - a dagger; d - a blessed scroll of taming; e - 2 uncursed potions of healing; f - a blessed potion of healing; g - 3 uncursed food rations; h - 6 uncursed apples; i - 5 uncursed oranges; j - 3 uncursed fortune cookies; k - a scroll labeled ASHPD SODALG; l - an uncursed dark green potion; m - an uncursed scroll labeled ABRA KA DABRA; n - a tin; o - a leash; p - 5 food rations; r - 3 tripe rations; s - a wand of digging; t - 10 darts; u - a blessed dark green potion; v - a looking glass; w - a thoroughly corroded crude dagger; x - a crude dagger; y - a +2 orcish helm (being worn); z - an uncursed clear potion
+[s21406 t13892 d26 0:26 xl8 hp58/58] DIVE digging down with 'a pick-axe (weapon in hand)' (try 1)
+[s21413 t13896 d26 0:26 xl8 hp58/58] SCARE drop 1: ['a scroll labeled YUM YUM', 'a scroll labeled ETAOIN SHRDLU', 'a scroll labeled ASHPD SODALG'] at (np.int64(14), np.int64(4)) hp 58/58, adjacent ['gnomish wizard']
+[s21427 t13897 d26 0:26 xl8 hp58/58] DIVE task scare monster: dig down
+[s21427 t13897 d26 0:26 xl8 hp58/58] DIVE Elbereth before digging: ['gnomish wizard']
+[s21447 t13897 d26 0:26 xl8 hp58/58] DIVE digging down with 'a pick-axe (weapon in hand)' (try 2)
+[s21455 t13898 d26 0:26 xl8 hp58/58] DIVE digging down with 'a pick-axe (weapon in hand)' (try 2)
+[s21467 t13899 d26 0:26 xl8 hp58/58] DIVE Medusa level detected: (np.int64(0), np.int64(26)) depth 26 (Medusa-2: titan)
+[s21467 t13899 d26 0:26 xl8 hp58/58] DIVE walking to dig at (13, 4), hostiles at [('titan', 2)]
+[s21475 t13900 d26 0:26 xl8 hp58/58] DIVE task descend
+[s21475 t13900 d26 0:26 xl8 hp58/58] DIVE zapping 'a wand of digging' down to escape (WAND_RESERVE zone zap 1), hostiles at []
+[s21482 t13900 d27 0:27 xl8 hp58/58] DIVE fell through a trap door at (np.int64(13), np.int64(4)) on (np.int64(0), np.int64(26)); remembered
+[s21482 t13900 d27 0:27 xl8 hp58/58] DIVE level (np.int64(0), np.int64(27)) depth 27
+[s21482 t13900 d27 0:27 xl8 hp58/58] MINO kit d27 last_prayer=11731: $ - 171 gold pieces; B - a +0 large shield (being worn); D - a copper wand; F - 3 crude daggers; G - a wand of digging; H - an uncursed cyan potion; I - a pick-axe (weapon in hand); K - 4 darts (at the ready); Q - a cursed golden potion; R - a slime mold; S - a wand of magic missile; W - an apple; X - a lizard corpse; Y - a cursed dark green potion; Z - a +0 pair of iron shoes (being worn); a - an uncursed +2 pair of leather gloves (being worn); b - an uncursed +1 robe (being worn); c - a dagger; d - a blessed scroll of taming; e - 2 uncursed potions of healing; f - a blessed potion of healing; g - 3 uncursed food rations; h - 6 uncursed apples; i - 5 uncursed oranges; j - 3 uncursed fortune cookies; l - an uncursed dark green potion; m - an uncursed scroll labeled ABRA KA DABRA; n - a tin; o - a leash; p - 5 food rations; r - 3 tripe rations; s - a wand of digging; t - 10 darts; u - a blessed dark green potion; v - a looking glass; w - a thoroughly corroded crude dagger; x - a crude dagger; y - a +2 orcish helm (being worn); z - an uncursed clear potion
+[s21482 t13900 d27 0:27 xl8 hp58/58] SCARE off the scroll: spot ((np.int64(0), np.int64(26)), (np.int64(14), np.int64(4))), now ((np.int64(0), np.int64(27)), (np.int64(13), np.int64(52)))
+[s21482 t13900 d27 0:27 xl8 hp58/58] DIVE task zap down through the maze
+[s21482 t13900 d27 0:27 xl8 hp58/58] DIVE zapping 'a wand of digging' down to escape (WAND_RESERVE zone zap 2), hostiles at []
+[s21489 t13901 d28 0:28 xl8 hp58/58] DIVE fell through a trap door at (np.int64(13), np.int64(52)) on (np.int64(0), np.int64(27)); remembered
+[s21489 t13901 d28 0:28 xl8 hp58/58] DIVE level (np.int64(0), np.int64(28)) depth 28
+[s21489 t13901 d28 0:28 xl8 hp58/58] MINO kit d28 last_prayer=11731: $ - 171 gold pieces; B - a +0 large shield (being worn); D - a copper wand; F - 3 crude daggers; G - a wand of digging; H - an uncursed cyan potion; I - a pick-axe (weapon in hand); K - 4 darts (at the ready); Q - a cursed golden potion; R - a slime mold; S - a wand of magic missile; W - an apple; X - a lizard corpse; Y - a cursed dark green potion; Z - a +0 pair of iron shoes (being worn); a - an uncursed +2 pair of leather gloves (being worn); b - an uncursed +1 robe (being worn); c - a dagger; d - a blessed scroll of taming; e - 2 uncursed potions of healing; f - a blessed potion of healing; g - 3 uncursed food rations; h - 6 uncursed apples; i - 5 uncursed oranges; j - 3 uncursed fortune cookies; l - an uncursed dark green potion; m - an uncursed scroll labeled ABRA KA DABRA; n - a tin; o - a leash; p - 5 food rations; r - 3 tripe rations; s - a wand of digging; t - 10 darts; u - a blessed dark green potion; v - a looking glass; w - a thoroughly corroded crude dagger; x - a crude dagger; y - a +2 orcish helm (being worn); z - an uncursed clear potion
+[s21489 t13901 d28 0:28 xl8 hp58/58] DIVE task descend
+[s21489 t13901 d28 0:28 xl8 hp58/58] DIVE digging down with 'a pick-axe (weapon in hand)' (try 1)
+[s21494 t13905 d28 0:28 xl8 hp58/58] DIVE digging down with 'a pick-axe (weapon in hand)' (try 2)
+[s21497 t13906 d28 0:28 xl8 hp58/58] DIVE floor here cannot be dug through ('You start digging downward.  The floor here is too hard to dig in.')
+[s21497 t13906 d28 0:28 xl8 hp58/58] DIVE bottom reached at depth 28; inventory: $ - 171 gold pieces; B - a +0 large shield (being worn); D - a copper wand; F - 3 crude daggers; G - a wand of digging; H - an uncursed cyan potion; I - a pick-axe (weapon in hand); K - 4 darts (at the ready); Q - a cursed golden potion; R - a slime mold; S - a wand of magic missile; W - an apple; X - a lizard corpse; Y - a cursed dark green potion; Z - a +0 pair of iron shoes (being worn); a - an uncursed +2 pair of leather gloves (being worn); b - an uncursed +1 robe (being worn); c - a dagger; d - a blessed scroll of taming; e - 2 uncursed potions of healing; f - a blessed potion of healing; g - 3 uncursed food rations; h - 6 uncursed apples; i - 5 uncursed oranges; j - 3 uncursed fortune cookies; l - an uncursed dark green potion; m - an uncursed scroll labeled ABRA KA DABRA; n - a tin; o - a leash; p - 5 food rations; r - 3 tripe rations; s - a wand of digging; t - 10 darts; u - a blessed dark green potion; v - a looking glass; w - a thoroughly corroded crude dagger; x - a crude dagger; y - a +2 orcish helm (being worn); z - an uncursed clear potion
+[s21497 t13906 d28 0:28 xl8 hp58/58] POWER passage plan at depth 28 AC -3: quaff an uncursed cyan potion (unknown potion: P(levitation)=0.05 danger=0.78 x1); quaff a cursed golden potion (unknown potion: P(levitation)=0.05 danger=0.78 x1); quaff a cursed dark green potion (unknown potion: P(levitation)=0.05 danger=0.78 x1); quaff an uncursed dark green potion (unknown potion: P(levitation)=0.05 danger=0.78 x1); quaff a blessed dark green potion (unknown potion: P(levitation)=0.05 danger=0.78 x1)
+[s21497 t13906 d28 0:28 xl8 hp58/58] CASTLE level detected: (np.int64(0), np.int64(28)) (depth 28)
+[s21497 t13906 d28 0:28 xl8 hp58/58] DIVE task castle passage
+[s21497 t13906 d28 0:28 xl8 hp58/58] CASTLE arrival pos=(np.int64(-5), np.int64(2)) plan=['potion', 'potion', 'potion', 'potion', 'potion'] cold=False inv: 171 gold pieces; a +0 large shield (being worn); a copper wand; 3 crude daggers; a wand of digging; an uncursed cyan potion; a pick-axe (weapon in hand); 4 darts (at the ready); a cursed golden potion; a slime mold; a wand of magic missile; an apple; a lizard corpse; a cursed dark green potion; a +0 pair of iron shoes (being worn); an uncursed +2 pair of leather gloves (being worn); an uncursed +1 robe (being worn); a dagger; a blessed scroll of taming; 2 uncursed potions of healing; a blessed potion of healing; 3 uncursed food rations; 6 uncursed apples; 5 uncursed oranges; 3 uncursed fortune cookies; an uncursed dark green potion; an uncursed scroll labeled ABRA KA DABRA; a tin; a leash; 5 food rations; 3 tripe rations; a wand of digging; 10 darts; a blessed dark green potion; a looking glass; a thoroughly corroded crude dagger; a crude dagger; a +2 orcish helm (being worn); an uncursed clear potion
+[s21497 t13906 d28 0:28 xl8 hp58/58] CASTLE west side: digging s toward (0, 7) (pos (np.int64(-5), np.int64(2)), turn 13906)
+[s21505 t13911 d28 0:28 xl8 hp58/58] CASTLE cl: Elbereth before an early potion test (pos (np.int64(-5), np.int64(2)), turn 13911)
+[s21521 t13912 d28 0:28 xl8 hp58/58] CFP early potion: quaffing 'an uncursed cyan potion' at (np.int64(-5), np.int64(2)) hp 58/58 turn 13912
+[s21521 t13912 d28 0:28 xl8 hp58/58] CASTLE trying potion 'an uncursed cyan potion' (pos (np.int64(-5), np.int64(2)), turn 13912)
+[s21529 t13912 d28 0:28 xl9 hp64/64] CASTLE quaffed 'an uncursed cyan potion': 'You feel more experienced.  Welcome to experience level 9. You feel perceptive!'
+[s21529 t13912 d28 0:28 xl9 hp64/64] CFP early potion: quaffing 'an uncursed dark green potion' at (np.int64(-5), np.int64(2)) hp 64/64 turn 13912
+[s21529 t13912 d28 0:28 xl9 hp64/64] CASTLE trying potion 'an uncursed dark green potion' (pos (np.int64(-5), np.int64(2)), turn 13912)
+[s21532 t13913 d28 0:28 xl9 hp64/64] CASTLE quaffed 'an uncursed dark green potion': "You detect the presence of objects.  (For instructions type a '?')"
+[s21532 t13913 d28 0:28 xl9 hp64/64] CASTLE west side: walking toward (0, 7) (pos (np.int64(-5), np.int64(2)), turn 13913)
+[s21542 t13914 d28 0:28 xl9 hp64/64] PIT fight: in a pit beside an attacker, no stepping out
+[s21559 t13920 d28 0:28 xl9 hp64/64] CASTLE west side: digging s toward (0, 7) (pos (np.int64(-5), np.int64(4)), turn 13920)
+[s21564 t13925 d28 0:28 xl9 hp64/64] CASTLE west dig s at (np.int64(-5), np.int64(5)): 'You start digging.  You hit the rock with all your might. You make an opening in the wall.'
+[s21564 t13925 d28 0:28 xl9 hp64/64] CASTLE west side: walking toward (0, 7) (pos (np.int64(-5), np.int64(4)), turn 13925)
+[s21565 t13926 d28 0:28 xl9 hp64/64] CASTLE west side: digging s toward (0, 7) (pos (np.int64(-5), np.int64(5)), turn 13926)
+[s21579 t13932 d28 0:28 xl9 hp64/64] ALIGN estimate 47 (cap 79) after -1
+[s21579 t13932 d28 0:28 xl9 hp64/64] CASTLE west dig s at (np.int64(-5), np.int64(6)): 'You start digging.  It gets angry! You hit the rock with all your might. You make an opening in the wall.'
+[s21579 t13932 d28 0:28 xl9 hp64/64] CASTLE west side: walking toward (0, 7) (pos (np.int64(-5), np.int64(5)), turn 13932)
+[s21580 t13933 d28 0:28 xl9 hp64/64] CASTLE west side: digging s toward (0, 7) (pos (np.int64(-5), np.int64(6)), turn 13933)
+[s21587 t13939 d28 0:28 xl9 hp64/64] CASTLE west dig s at (np.int64(-5), np.int64(7)): 'You start digging.  You hit the rock with all your might. You make an opening in the wall.'
+[s21587 t13939 d28 0:28 xl9 hp64/64] CASTLE west side: walking toward (0, 7) (pos (np.int64(-5), np.int64(6)), turn 13939)
+[s21595 t13941 d28 0:28 xl9 hp64/64] CASTLE west side: digging e toward (0, 7) (pos (np.int64(-4), np.int64(7)), turn 13941)
+[s21621 t13950 d28 0:28 xl9 hp64/64] CASTLE west dig e at (np.int64(-3), np.int64(7)): 'You continue digging.  You hit the rock with all your might. You hear a chugging sound.  You make an opening in the wall.'
+[s21621 t13950 d28 0:28 xl9 hp64/64] CASTLE west side: walking toward (0, 7) (pos (np.int64(-4), np.int64(7)), turn 13950)
+[s21626 t13952 d28 0:28 xl9 hp64/64] CASTLE west side: digging e toward (0, 7) (pos (np.int64(-2), np.int64(7)), turn 13952)
+[s21634 t13959 d28 0:28 xl9 hp64/64] CASTLE west dig e at (np.int64(-1), np.int64(7)): 'You start digging.  You hit the rock with all your might. You make an opening in the wall.'
+[s21634 t13959 d28 0:28 xl9 hp64/64] CASTLE walking to (1, 7) (pos (np.int64(-2), np.int64(7)), turn 13959)
+[s21667 t13962 d28 0:28 xl9 hp64/64] CASTLE trying potion 'a cursed golden potion' (pos (np.int64(1), np.int64(7)), turn 13962)
+[s21676 t13963 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 7, hp 64/64
+[s21681 t13964 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 6, hp 64/64
+[s21689 t13965 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 5, hp 64/64
+[s21691 t13966 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 5, hp 64/64
+[s21693 t13967 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 5, hp 64/64
+[s21694 t13968 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 5, hp 64/64
+[s21697 t13969 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 5, hp 64/64
+[s21698 t13970 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 6, hp 64/64
+[s21700 t13971 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 7, hp 64/64
+[s21702 t13972 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 7, hp 64/64
+[s21703 t13973 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 6, hp 64/64
+[s21705 t13974 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 7, hp 64/64
+[s21707 t13975 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 8, hp 64/64
+[s21708 t13976 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 7, hp 64/64
+[s21709 t13977 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 7, hp 64/64
+[s21710 t13978 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 8, hp 64/64
+[s21711 t13979 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s21713 t13980 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s21715 t13981 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 8, hp 64/64
+[s21717 t13982 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 7, hp 64/64
+[s21732 t13983 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 8, hp 64/64
+[s21732 t13983 d28 0:28 xl9 hp64/64] HUNGER_DEEP eating '3 uncursed food rations' (hunger 2, depth 28)
+[s21743 t13987 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s21751 t13988 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s21754 t13989 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s21757 t13990 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 7, hp 64/64
+[s21760 t13991 d28 0:28 xl9 hp61/64] MINO seen: 2 at distance 7, hp 61/64
+[s21763 t13992 d28 0:28 xl9 hp58/64] MINO seen: 2 at distance 7, hp 58/64
+[s21764 t13993 d28 0:28 xl9 hp58/64] MINO seen: 2 at distance 8, hp 58/64
+[s21765 t13994 d28 0:28 xl9 hp58/64] MINO seen: 2 at distance 9, hp 58/64
+[s21766 t13995 d28 0:28 xl9 hp58/64] MINO seen: 2 at distance 8, hp 58/64
+[s21767 t13996 d28 0:28 xl9 hp59/64] MINO seen: 2 at distance 7, hp 59/64
+[s21768 t13997 d28 0:28 xl9 hp59/64] MINO seen: 2 at distance 6, hp 59/64
+[s21769 t13998 d28 0:28 xl9 hp59/64] MINO seen: 2 at distance 5, hp 59/64
+[s21770 t13999 d28 0:28 xl9 hp59/64] MINO seen: 2 at distance 6, hp 59/64
+[s21772 t14000 d28 0:28 xl9 hp60/64] STATUS milestone=BE_ON_FIRST_LEVEL diving=True hunger=1 pos=(np.int64(10), np.int64(9)) acts=[SPACE:269 LOOK:66 EAT:61 APPLY:54 INVENTTYPE:51] gotos=[descend(4, 72):1 try_dig_down(3, 19):1 descend(12, 10):1]
+[s21772 t14000 d28 0:28 xl9 hp60/64] MINO seen: 2 at distance 8, hp 60/64
+[s21774 t14001 d28 0:28 xl9 hp60/64] MINO seen: 2 at distance 9, hp 60/64
+[s21780 t14002 d28 0:28 xl9 hp60/64] MINO seen: 2 at distance 7, hp 60/64
+[s21789 t14003 d28 0:28 xl9 hp60/64] MINO seen: 2 at distance 7, hp 60/64
+[s21793 t14004 d28 0:28 xl9 hp61/64] MINO seen: 2 at distance 5, hp 61/64
+[s21794 t14005 d28 0:28 xl9 hp61/64] MINO seen: 2 at distance 7, hp 61/64
+[s21795 t14006 d28 0:28 xl9 hp61/64] MINO seen: 2 at distance 7, hp 61/64
+[s21798 t14007 d28 0:28 xl9 hp61/64] MINO seen: 2 at distance 9, hp 61/64
+[s21801 t14008 d28 0:28 xl9 hp62/64] MINO seen: 2 at distance 9, hp 62/64
+[s21804 t14009 d28 0:28 xl9 hp62/64] MINO seen: 2 at distance 10, hp 62/64
+[s21807 t14010 d28 0:28 xl9 hp62/64] MINO seen: 2 at distance 11, hp 62/64
+[s21813 t14011 d28 0:28 xl9 hp62/64] MINO seen: 2 at distance 10, hp 62/64
+[s21816 t14012 d28 0:28 xl9 hp63/64] MINO seen: 2 at distance 9, hp 63/64
+[s21822 t14013 d28 0:28 xl9 hp63/64] MINO seen: 2 at distance 10, hp 63/64
+[s21825 t14014 d28 0:28 xl9 hp63/64] MINO seen: 2 at distance 9, hp 63/64
+[s21828 t14015 d28 0:28 xl9 hp63/64] MINO seen: 2 at distance 9, hp 63/64
+[s21828 t14015 d28 0:28 xl9 hp63/64] FIGHT stall of 22 turns ended (kill): ['quasit']
+[s21830 t14016 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 10, hp 64/64
+[s21831 t14017 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 11, hp 64/64
+[s21832 t14018 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 10, hp 64/64
+[s21833 t14019 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s21835 t14020 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 10, hp 64/64
+[s21836 t14021 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 11, hp 64/64
+[s21838 t14022 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 11, hp 64/64
+[s21839 t14023 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 10, hp 64/64
+[s21840 t14024 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s21842 t14025 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 10, hp 64/64
+[s21843 t14026 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s21844 t14027 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 8, hp 64/64
+[s21845 t14028 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s21846 t14029 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 10, hp 64/64
+[s21847 t14030 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s21849 t14031 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 11, hp 64/64
+[s21850 t14032 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 11, hp 64/64
+[s21851 t14033 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 11, hp 64/64
+[s21858 t14034 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 10, hp 64/64
+[s21859 t14035 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s21860 t14036 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 10, hp 64/64
+[s21862 t14037 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 10, hp 64/64
+[s21863 t14038 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 11, hp 64/64
+[s21864 t14039 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 11, hp 64/64
+[s21866 t14040 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 10, hp 64/64
+[s21868 t14041 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 10, hp 64/64
+[s21870 t14042 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 11, hp 64/64
+[s21872 t14043 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 10, hp 64/64
+[s21873 t14044 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s21875 t14045 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s21876 t14046 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 7, hp 64/64
+[s21877 t14047 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 8, hp 64/64
+[s21878 t14048 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s21879 t14049 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s21880 t14050 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s21885 t14051 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s21887 t14052 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 8, hp 64/64
+[s21888 t14053 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 7, hp 64/64
+[s21890 t14054 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s21891 t14055 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 10, hp 64/64
+[s21893 t14056 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 10, hp 64/64
+[s21895 t14057 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s21897 t14058 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s21898 t14059 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 10, hp 64/64
+[s21899 t14060 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s21900 t14061 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 10, hp 64/64
+[s21901 t14062 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 11, hp 64/64
+[s21902 t14063 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 11, hp 64/64
+[s21904 t14064 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 10, hp 64/64
+[s21905 t14065 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s21906 t14066 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s21907 t14067 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s21909 t14068 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s21910 t14069 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 10, hp 64/64
+[s21911 t14070 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 11, hp 64/64
+[s21913 t14071 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 11, hp 64/64
+[s21914 t14072 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s21915 t14073 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s21916 t14074 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 11, hp 64/64
+[s21918 t14075 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 10, hp 64/64
+[s21919 t14076 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s21920 t14077 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 11, hp 64/64
+[s21921 t14078 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s21923 t14079 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 10, hp 64/64
+[s21925 t14080 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 11, hp 64/64
+[s21926 t14081 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 10, hp 64/64
+[s21928 t14082 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s21929 t14083 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 10, hp 64/64
+[s21930 t14084 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 11, hp 64/64
+[s21938 t14085 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 10, hp 64/64
+[s21940 t14086 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 11, hp 64/64
+[s21941 t14087 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 10, hp 64/64
+[s21942 t14088 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 11, hp 64/64
+[s21944 t14089 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 11, hp 64/64
+[s21945 t14090 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 10, hp 64/64
+[s21946 t14091 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s21947 t14092 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s21949 t14093 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 10, hp 64/64
+[s21950 t14094 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s21951 t14095 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s21952 t14096 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s21953 t14097 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 8, hp 64/64
+[s21954 t14098 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s21955 t14099 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s21956 t14100 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 10, hp 64/64
+[s21958 t14101 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s21959 t14102 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 7, hp 64/64
+[s21961 t14103 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 8, hp 64/64
+[s21962 t14104 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s21963 t14105 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 10, hp 64/64
+[s21965 t14106 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 10, hp 64/64
+[s21966 t14107 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s21968 t14108 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s21969 t14109 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 8, hp 64/64
+[s21971 t14110 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 7, hp 64/64
+[s21972 t14111 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 8, hp 64/64
+[s21974 t14112 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 7, hp 64/64
+[s21975 t14113 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 7, hp 64/64
+[s21976 t14114 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 8, hp 64/64
+[s21977 t14115 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 7, hp 64/64
+[s21978 t14116 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 7, hp 64/64
+[s21979 t14117 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 8, hp 64/64
+[s21980 t14118 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s21981 t14119 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s21982 t14120 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s21983 t14121 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 8, hp 64/64
+[s21984 t14122 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 8, hp 64/64
+[s21985 t14123 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s21986 t14124 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s21987 t14125 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s21988 t14126 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s21989 t14127 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 8, hp 64/64
+[s21990 t14128 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 7, hp 64/64
+[s21991 t14129 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 8, hp 64/64
+[s21992 t14130 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 10, hp 64/64
+[s21994 t14131 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s21995 t14132 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s21997 t14133 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 8, hp 64/64
+[s21998 t14134 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s21999 t14135 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 11, hp 64/64
+[s22007 t14136 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 10, hp 64/64
+[s22008 t14137 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22009 t14138 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 8, hp 64/64
+[s22011 t14139 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 8, hp 64/64
+[s22012 t14140 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 10, hp 64/64
+[s22013 t14141 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22014 t14142 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 10, hp 64/64
+[s22015 t14143 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 10, hp 64/64
+[s22016 t14144 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22017 t14145 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 8, hp 64/64
+[s22019 t14146 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22020 t14147 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22021 t14148 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22022 t14149 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22023 t14150 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 10, hp 64/64
+[s22024 t14151 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22025 t14152 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 8, hp 64/64
+[s22027 t14153 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22028 t14154 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22029 t14155 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22030 t14156 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 8, hp 64/64
+[s22031 t14157 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22032 t14158 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22033 t14159 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 8, hp 64/64
+[s22034 t14160 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 7, hp 64/64
+[s22036 t14161 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22037 t14162 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22038 t14163 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22039 t14164 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 8, hp 64/64
+[s22040 t14165 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 8, hp 64/64
+[s22042 t14166 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22044 t14167 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22045 t14168 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22046 t14169 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22047 t14170 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22049 t14171 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22051 t14172 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22052 t14173 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 10, hp 64/64
+[s22054 t14174 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 11, hp 64/64
+[s22055 t14175 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 11, hp 64/64
+[s22056 t14176 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 11, hp 64/64
+[s22057 t14177 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 11, hp 64/64
+[s22058 t14178 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 10, hp 64/64
+[s22060 t14179 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 11, hp 64/64
+[s22061 t14180 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 10, hp 64/64
+[s22062 t14181 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22063 t14182 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22064 t14183 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 8, hp 64/64
+[s22065 t14184 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 7, hp 64/64
+[s22066 t14185 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 8, hp 64/64
+[s22067 t14186 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22074 t14187 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 10, hp 64/64
+[s22076 t14188 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 11, hp 64/64
+[s22077 t14189 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 10, hp 64/64
+[s22079 t14190 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22080 t14191 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 10, hp 64/64
+[s22081 t14192 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22083 t14193 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 8, hp 64/64
+[s22084 t14194 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 10, hp 64/64
+[s22088 t14195 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22089 t14196 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 7, hp 64/64
+[s22090 t14197 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 8, hp 64/64
+[s22091 t14198 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 10, hp 64/64
+[s22092 t14199 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22093 t14200 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 10, hp 64/64
+[s22095 t14201 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22096 t14202 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 8, hp 64/64
+[s22097 t14203 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 7, hp 64/64
+[s22098 t14204 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 8, hp 64/64
+[s22100 t14205 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22102 t14206 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 8, hp 64/64
+[s22104 t14207 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 7, hp 64/64
+[s22105 t14208 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 7, hp 64/64
+[s22106 t14209 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 7, hp 64/64
+[s22108 t14210 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 7, hp 64/64
+[s22109 t14211 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 7, hp 64/64
+[s22110 t14212 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 7, hp 64/64
+[s22111 t14213 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 8, hp 64/64
+[s22113 t14214 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22115 t14215 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22117 t14216 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 11, hp 64/64
+[s22119 t14217 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 11, hp 64/64
+[s22128 t14218 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 11, hp 64/64
+[s22129 t14219 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 10, hp 64/64
+[s22130 t14220 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 11, hp 64/64
+[s22132 t14221 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 11, hp 64/64
+[s22133 t14222 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 10, hp 64/64
+[s22134 t14223 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22136 t14224 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 10, hp 64/64
+[s22138 t14225 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 11, hp 64/64
+[s22139 t14226 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 11, hp 64/64
+[s22141 t14227 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 10, hp 64/64
+[s22143 t14228 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22145 t14229 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 10, hp 64/64
+[s22146 t14230 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 11, hp 64/64
+[s22154 t14231 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 10, hp 64/64
+[s22156 t14232 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22157 t14233 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 8, hp 64/64
+[s22158 t14234 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 10, hp 64/64
+[s22159 t14235 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22160 t14236 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22162 t14237 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22169 t14238 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22170 t14239 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22172 t14240 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 8, hp 64/64
+[s22173 t14241 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 10, hp 64/64
+[s22174 t14242 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22175 t14243 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 10, hp 64/64
+[s22176 t14244 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 8, hp 64/64
+[s22177 t14245 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 7, hp 64/64
+[s22178 t14246 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 8, hp 64/64
+[s22179 t14247 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22180 t14248 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22181 t14249 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 10, hp 64/64
+[s22183 t14250 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 11, hp 64/64
+[s22184 t14251 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 11, hp 64/64
+[s22186 t14252 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 10, hp 64/64
+[s22187 t14253 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 11, hp 64/64
+[s22189 t14254 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 10, hp 64/64
+[s22191 t14255 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22192 t14256 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22193 t14257 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22195 t14258 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22196 t14259 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 8, hp 64/64
+[s22198 t14260 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 8, hp 64/64
+[s22199 t14261 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22200 t14262 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22202 t14263 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22203 t14264 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 8, hp 64/64
+[s22204 t14265 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22206 t14266 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22207 t14267 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 8, hp 64/64
+[s22209 t14268 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 7, hp 64/64
+[s22210 t14269 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 8, hp 64/64
+[s22211 t14270 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22213 t14271 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22215 t14272 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 7, hp 64/64
+[s22216 t14273 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 7, hp 64/64
+[s22217 t14274 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 8, hp 64/64
+[s22219 t14275 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 8, hp 64/64
+[s22221 t14276 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 7, hp 64/64
+[s22223 t14277 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 7, hp 64/64
+[s22224 t14278 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 8, hp 64/64
+[s22225 t14279 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22227 t14280 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 10, hp 64/64
+[s22229 t14281 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 10, hp 64/64
+[s22230 t14282 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22231 t14283 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 10, hp 64/64
+[s22232 t14284 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 11, hp 64/64
+[s22233 t14285 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 11, hp 64/64
+[s22234 t14286 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 10, hp 64/64
+[s22235 t14287 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22237 t14288 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22244 t14289 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 10, hp 64/64
+[s22246 t14290 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 11, hp 64/64
+[s22254 t14291 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22255 t14292 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22264 t14293 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 11, hp 64/64
+[s22265 t14294 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 10, hp 64/64
+[s22274 t14295 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22276 t14296 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22277 t14297 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 11, hp 64/64
+[s22278 t14298 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 10, hp 64/64
+[s22280 t14299 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22281 t14300 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22282 t14301 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 8, hp 64/64
+[s22283 t14302 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22285 t14303 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 11, hp 64/64
+[s22287 t14304 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22292 t14305 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 11, hp 64/64
+[s22293 t14306 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 10, hp 64/64
+[s22295 t14307 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 11, hp 64/64
+[s22297 t14308 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 11, hp 64/64
+[s22305 t14309 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22306 t14310 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22307 t14311 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22309 t14312 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 8, hp 64/64
+[s22311 t14313 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 7, hp 64/64
+[s22319 t14314 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 8, hp 64/64
+[s22321 t14315 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22322 t14316 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22324 t14317 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22325 t14318 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22327 t14319 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 7, hp 64/64
+[s22328 t14320 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 8, hp 64/64
+[s22329 t14321 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22330 t14322 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 10, hp 64/64
+[s22339 t14323 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 10, hp 64/64
+[s22340 t14324 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22341 t14325 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 8, hp 64/64
+[s22343 t14326 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22345 t14327 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22347 t14328 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22348 t14329 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 10, hp 64/64
+[s22349 t14330 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 11, hp 64/64
+[s22350 t14331 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 11, hp 64/64
+[s22352 t14332 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 10, hp 64/64
+[s22353 t14333 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 10, hp 64/64
+[s22362 t14334 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 11, hp 64/64
+[s22363 t14335 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 11, hp 64/64
+[s22365 t14336 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 11, hp 64/64
+[s22367 t14337 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 11, hp 64/64
+[s22376 t14338 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 11, hp 64/64
+[s22377 t14339 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 10, hp 64/64
+[s22392 t14340 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 10, hp 64/64
+[s22393 t14341 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 11, hp 64/64
+[s22395 t14342 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 11, hp 64/64
+[s22403 t14343 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22405 t14344 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 10, hp 64/64
+[s22413 t14345 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 11, hp 64/64
+[s22421 t14346 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 10, hp 64/64
+[s22423 t14347 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22424 t14348 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 10, hp 64/64
+[s22426 t14349 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22427 t14350 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22429 t14351 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 10, hp 64/64
+[s22430 t14352 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 11, hp 64/64
+[s22431 t14353 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 10, hp 64/64
+[s22432 t14354 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 11, hp 64/64
+[s22433 t14355 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 11, hp 64/64
+[s22434 t14356 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 10, hp 64/64
+[s22435 t14357 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 10, hp 64/64
+[s22443 t14358 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22452 t14359 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 11, hp 64/64
+[s22453 t14360 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 11, hp 64/64
+[s22455 t14361 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22456 t14362 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 11, hp 64/64
+[s22457 t14363 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 10, hp 64/64
+[s22466 t14364 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22467 t14365 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 11, hp 64/64
+[s22468 t14366 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 10, hp 64/64
+[s22469 t14367 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22470 t14368 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 10, hp 64/64
+[s22479 t14369 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 11, hp 64/64
+[s22480 t14370 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 11, hp 64/64
+[s22481 t14371 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 10, hp 64/64
+[s22483 t14372 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22485 t14373 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22486 t14374 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22488 t14375 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22489 t14376 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22490 t14377 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 10, hp 64/64
+[s22498 t14378 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 11, hp 64/64
+[s22502 t14379 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 10, hp 64/64
+[s22503 t14380 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22505 t14381 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 10, hp 64/64
+[s22507 t14382 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 11, hp 64/64
+[s22509 t14383 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 10, hp 64/64
+[s22510 t14384 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 10, hp 64/64
+[s22511 t14385 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 11, hp 64/64
+[s22513 t14386 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 10, hp 64/64
+[s22514 t14387 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22515 t14388 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22516 t14389 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22517 t14390 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22532 t14391 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 10, hp 64/64
+[s22541 t14392 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 10, hp 64/64
+[s22542 t14393 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22543 t14394 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 10, hp 64/64
+[s22544 t14395 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 10, hp 64/64
+[s22545 t14396 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 10, hp 64/64
+[s22546 t14397 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 10, hp 64/64
+[s22547 t14398 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 11, hp 64/64
+[s22548 t14399 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 10, hp 64/64
+[s22556 t14400 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22558 t14401 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 10, hp 64/64
+[s22559 t14402 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 10, hp 64/64
+[s22560 t14403 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22561 t14404 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22563 t14405 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 10, hp 64/64
+[s22565 t14406 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 11, hp 64/64
+[s22567 t14407 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 11, hp 64/64
+[s22569 t14408 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22571 t14409 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22579 t14410 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 8, hp 64/64
+[s22580 t14411 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 8, hp 64/64
+[s22581 t14412 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22583 t14413 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22584 t14414 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 10, hp 64/64
+[s22585 t14415 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22586 t14416 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 8, hp 64/64
+[s22587 t14417 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22589 t14418 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22590 t14419 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 10, hp 64/64
+[s22591 t14420 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22600 t14421 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 8, hp 64/64
+[s22602 t14422 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 8, hp 64/64
+[s22610 t14423 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22611 t14424 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22619 t14425 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22627 t14426 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 8, hp 64/64
+[s22635 t14427 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 7, hp 64/64
+[s22637 t14428 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 8, hp 64/64
+[s22638 t14429 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 10, hp 64/64
+[s22639 t14430 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 9, hp 64/64
+[s22640 t14431 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 10, hp 64/64
+[s22642 t14432 d28 0:28 xl9 hp64/64] MINO seen: 2 at distance 11, hp 64/64
+[s22647 t14433 d28 0:28 xl9 hp64/64] CASTLE giving up: nothing that crosses water
+[s22647 t14433 d28 0:28 xl9 hp64/64] DIVE task descend
+[s22648 t14433 d28 0:28 xl9 hp64/64] PROUTE castle gamble starts (lift plan gave up: 'nothing that crosses water')
+[s22648 t14433 d28 0:28 xl9 hp64/64] PROUTE reading 'an uncursed scroll labeled ABRA KA DABRA' (m): castle gamble: unknown scroll (identify, or a teleport trigger)
+[s22653 t14434 d28 0:28 xl9 hp64/64] PROUTE read 'an uncursed scroll labeled ABRA KA DABRA': 'What do you want to read? [dm or ?*] As you read the scroll, it disappears.'
+[s22777 t14458 d28 0:28 xl9 hp61/64] MINO seen: 2 at distance 7, hp 61/64
+[s22778 t14459 d28 0:28 xl9 hp61/64] MINO seen: 2 at distance 9, hp 61/64
+[s22780 t14460 d28 0:28 xl9 hp62/64] MINO seen: 2 at distance 9, hp 62/64
+[s22782 t14461 d28 0:28 xl9 hp62/64] MINO seen: 2 at distance 9, hp 62/64
+[s22894 t14500 d28 0:28 xl9 hp64/64] STATUS milestone=BE_ON_FIRST_LEVEL diving=True hunger=1 pos=(np.int64(13), np.int64(2)) acts=[WAIT:561 SPACE:225 WHATIS:55 MOVEFAR:55 SEARCH:35] gotos=[_fight2_perform_action(5, 3):5 check_items(10, 6):4 check_items(11, 3):4]
+[s25290 t14776 d28 0:28 xl9 hp64/64] HUNGER_DEEP eating '2 uncursed food rations' (hunger 2, depth 28)
+[s27224 t15000 d28 0:28 xl9 hp64/64] STATUS milestone=BE_ON_FIRST_LEVEL diving=True hunger=1 pos=(np.int64(13), np.int64(2)) acts=[S:642 EXTCMD:640 MORE:640 N:322 EAT:321] gotos=[open_visit_search(11, 2):321 untrap_traps(14, 2):320 open_visit_search(12, 2):1]
+[s27676 t15052 d28 0:28 xl9 hp44/64] ELBERETH rest start: ['stalker']
+[s27786 t15063 d28 0:28 xl9 hp30/64] DIVE task rest
+[s27813 t15121 d28 0:28 xl9 hp45/64] DIVE task descend
+[s29807 t15339 d28 0:28 xl9 hp52/64] POWER deep escape: zapping unknown 'a copper wand' at the arch-lich at 52/64
+[s29810 t15340 d28 0:28 xl9 hp53/64] POWER deep escape: ''
+[s29817 t15340 d28 0:28 xl9 hp53/64] PANIC AgentPanic: position changed
+Traceback (most recent call last):
+  File "/sol/hed/nhbot/agent.py", line 2035, in direction
+    self.step(action)
+  File "/sol/hed/nhbot/agent.py", line 466, in step
+    self.update(observation, additional_action_iterator)
+  File "/sol/hed/nhbot/agent.py", line 655, in update
+    self.update_state(allow_update=self._atom_operation_allow_update or not self.in_atom_operation,
+  File "/sol/hed/nhbot/agent.py", line 700, in update_state
+    self.call_update_functions()
+  File "/sol/hed/nhbot/agent.py", line 711, in call_update_functions
+    func()
+  File "/sol/hed/nhbot/agent.py", line 198, in f
+    raise AgentPanic('position changed')
+nhbot.exceptions.AgentPanic: position changed
+
+[s29868 t15346 d28 0:28 xl9 hp26/64] PANIC AgentPanic: position changed
+Traceback (most recent call last):
+  File "/sol/hed/nhbot/agent.py", line 503, in update
+    self.step(A.TextCharacters.SPACE)
+  File "/sol/hed/nhbot/agent.py", line 466, in step
+    self.update(observation, additional_action_iterator)
+  File "/sol/hed/nhbot/agent.py", line 655, in update
+    self.update_state(allow_update=self._atom_operation_allow_update or not self.in_atom_operation,
+  File "/sol/hed/nhbot/agent.py", line 700, in update_state
+    self.call_update_functions()
+  File "/sol/hed/nhbot/agent.py", line 711, in call_update_functions
+    func()
+  File "/sol/hed/nhbot/agent.py", line 198, in f
+    raise AgentPanic('position changed')
+nhbot.exceptions.AgentPanic: position changed
+
+[s29897 t15349 d28 0:28 xl9 hp22/64] PANIC AgentPanic: position changed
+Traceback (most recent call last):
+  File "/sol/hed/nhbot/agent.py", line 503, in update
+    self.step(A.TextCharacters.SPACE)
+  File "/sol/hed/nhbot/agent.py", line 466, in step
+    self.update(observation, additional_action_iterator)
+  File "/sol/hed/nhbot/agent.py", line 655, in update
+    self.update_state(allow_update=self._atom_operation_allow_update or not self.in_atom_operation,
+  File "/sol/hed/nhbot/agent.py", line 700, in update_state
+    self.call_update_functions()
+  File "/sol/hed/nhbot/agent.py", line 711, in call_update_functions
+    func()
+  File "/sol/hed/nhbot/agent.py", line 198, in f
+    raise AgentPanic('position changed')
+nhbot.exceptions.AgentPanic: position changed
+
+[s29916 t15349 d28 0:28 xl9 hp15/64] PANIC AgentPanic: position changed
+Traceback (most recent call last):
+  File "/sol/hed/nhbot/agent.py", line 2035, in direction
+    self.step(action)
+  File "/sol/hed/nhbot/agent.py", line 466, in step
+    self.update(observation, additional_action_iterator)
+  File "/sol/hed/nhbot/agent.py", line 655, in update
+    self.update_state(allow_update=self._atom_operation_allow_update or not self.in_atom_operation,
+  File "/sol/hed/nhbot/agent.py", line 700, in update_state
+    self.call_update_functions()
+  File "/sol/hed/nhbot/agent.py", line 711, in call_update_functions
+    func()
+  File "/sol/hed/nhbot/agent.py", line 198, in f
+    raise AgentPanic('position changed')
+nhbot.exceptions.AgentPanic: position changed
+
+[s29938 t15350 d28 0:28 xl9 hp13/64] PANIC AgentPanic: position changed
+Traceback (most recent call last):
+  File "/sol/hed/nhbot/agent.py", line 503, in update
+    self.step(A.TextCharacters.SPACE)
+  File "/sol/hed/nhbot/agent.py", line 466, in step
+    self.update(observation, additional_action_iterator)
+  File "/sol/hed/nhbot/agent.py", line 655, in update
+    self.update_state(allow_update=self._atom_operation_allow_update or not self.in_atom_operation,
+  File "/sol/hed/nhbot/agent.py", line 700, in update_state
+    self.call_update_functions()
+  File "/sol/hed/nhbot/agent.py", line 711, in call_update_functions
+    func()
+  File "/sol/hed/nhbot/agent.py", line 198, in f
+    raise AgentPanic('position changed')
+nhbot.exceptions.AgentPanic: position changed
+
+[s29964 t15352 d28 0:28 xl9 hp8/64] PRAY hp=8/64 hunger=1 gap=3621 reason=hp (DEEP_PRAY_FIRST) model[ok200=1.00 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=82 p_answered=1.00]
+[s29975 t15355 d28 0:28 xl9 hp64/64] PRAY result ok model[ok200=0.22 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=82] prayers=7 failures=0
+[s29984 t15356 d28 0:28 xl9 hp64/64] PANIC AssertionError: exhumer
+Traceback (most recent call last):
+  File "/sol/hed/nhbot/agent.py", line 655, in update
+    self.update_state(allow_update=self._atom_operation_allow_update or not self.in_atom_operation,
+  File "/sol/hed/nhbot/agent.py", line 682, in update_state
+    func()
+  File "/sol/hed/nhbot/agent.py", line 1058, in update_level
+    self._update_level_corpses()
+  File "/sol/hed/nhbot/agent.py", line 808, in _update_level_corpses
+    glyph = MON.from_name(mname)
+            ^^^^^^^^^^^^^^^^^^^^
+  File "/sol/hed/nhbot/glyph/monster.py", line 35, in from_name
+    return nh.GLYPH_MON_OFF + id_from_name(name)
+                              ^^^^^^^^^^^^^^^^^^
+  File "/sol/hed/nhbot/glyph/monster.py", line 43, in id_from_name
+    assert 0, name
+           ^
+AssertionError: exhumer
+
+[s30051 t15370 d28 0:28 xl9 hp51/64] MINO seen: 1 at distance 1, hp 51/64
+[s30051 t15370 d28 0:28 xl9 hp51/64] MINO reading 'a blessed scroll of taming' (d): known taming, minotaur adjacent, hp 51/64
+[s30053 t15370 d28 0:28 xl9 hp51/64] MINO read screen: misc=[0, 0, 1] more=True single='As you read the scroll, it disappears.' top='As you read the scroll, it disappears.--More--'
+[s30054 t15370 d28 0:28 xl9 hp51/64] MINO read screen: misc=[0, 0, 0] more=False single='The neighborhood is friendlier.  The minotaur eats a rothe corpse.' top='The neighborhood is friendlier. The minotaur eats a rothe corpse.'
+[s30054 t15370 d28 0:28 xl9 hp51/64] MINO read -> 'What do you want to read? [d or ?*] As you read the scroll, it disappears. The neighborhood is friendlier.  The minotaur eats a rothe corpse.'
+[s30070 t15392 d28 0:28 xl9 hp57/64] UNSQUEEZE: boxed in (1 squares) carrying 657.98000198; a squeeze reaches 58: dropping to 550
+[s30087 t15393 d28 0:28 xl9 hp57/64] PANIC AgentPanic: agent position do not match after "move": expected (16, 2), got (15, 3)
+Traceback (most recent call last):
+  File "/sol/hed/nhbot/strategy.py", line 165, in f
+    next(gen)
+  File "/sol/hed/nhbot/strategy.py", line 100, in f
+    next(v1)
+  File "/sol/hed/nhbot/utils.py", line 134, in f
+    next(it)
+  File "/sol/hed/nhbot/item/inventory.py", line 1732, in check_items
+    self.agent.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 0, 255), is_path=True))
+  File "/sol/hed/nhbot/agent.py", line 2531, in go_to
+    self.move(y, x)
+  File "/sol/hed/nhbot/agent.py", line 2084, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+nhbot.exceptions.AgentPanic: agent position do not match after "move": expected (16, 2), got (15, 3)
+
+[s30106 t15394 d28 0:28 xl9 hp57/64] PANIC AgentPanic: agent position do not match after "move": expected (16, 2), got (15, 3)
+Traceback (most recent call last):
+  File "/sol/hed/nhbot/strategy.py", line 165, in f
+    next(gen)
+  File "/sol/hed/nhbot/strategy.py", line 100, in f
+    next(v1)
+  File "/sol/hed/nhbot/utils.py", line 134, in f
+    next(it)
+  File "/sol/hed/nhbot/item/inventory.py", line 1732, in check_items
+    self.agent.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 0, 255), is_path=True))
+  File "/sol/hed/nhbot/agent.py", line 2531, in go_to
+    self.move(y, x)
+  File "/sol/hed/nhbot/agent.py", line 2084, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+nhbot.exceptions.AgentPanic: agent position do not match after "move": expected (16, 2), got (15, 3)
+
+[s30128 t15397 d28 0:28 xl9 hp58/64] PANIC AgentPanic: agent position do not match after "move": expected (17, 2), got (16, 2)
+Traceback (most recent call last):
+  File "/sol/hed/nhbot/strategy.py", line 165, in f
+    next(gen)
+  File "/sol/hed/nhbot/strategy.py", line 100, in f
+    next(v1)
+  File "/sol/hed/nhbot/utils.py", line 134, in f
+    next(it)
+  File "/sol/hed/nhbot/item/inventory.py", line 1732, in check_items
+    self.agent.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 0, 255), is_path=True))
+  File "/sol/hed/nhbot/agent.py", line 2531, in go_to
+    self.move(y, x)
+  File "/sol/hed/nhbot/agent.py", line 2084, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+nhbot.exceptions.AgentPanic: agent position do not match after "move": expected (17, 2), got (16, 2)
+
+[s30168 t15402 d28 0:28 xl9 hp59/64] UNSEEN PET may be at (17, 2): last seen [(17, 2)] 5 turns ago, no throw
+[s30168 t15402 d28 0:28 xl9 hp59/64] UNSEEN PET may be at (19, 4): last seen [(17, 2)] 5 turns ago, no throw
+[s30169 t15403 d28 0:28 xl9 hp59/64] UNSEEN PET may be at (17, 2): last seen [(17, 2)] 6 turns ago, no throw
+[s30169 t15403 d28 0:28 xl9 hp59/64] UNSEEN PET may be at (19, 4): last seen [(17, 2)] 6 turns ago, no throw
+[s30170 t15403 d28 0:28 xl9 hp59/64] UNSEEN PET may be at (17, 2): last seen [(17, 2)] 6 turns ago, no throw
+[s30170 t15403 d28 0:28 xl9 hp59/64] UNSEEN PET may be at (19, 4): last seen [(17, 2)] 6 turns ago, no throw
+[s30171 t15404 d28 0:28 xl9 hp60/64] UNSEEN PET may be at (17, 2): last seen [(17, 2)] 7 turns ago, no throw
+[s30171 t15404 d28 0:28 xl9 hp60/64] UNSEEN PET may be at (19, 4): last seen [(17, 2)] 7 turns ago, no throw
+[s30173 t15404 d28 0:28 xl9 hp52/64] UNSEEN PET may be at (17, 2): last seen [(17, 2)] 7 turns ago, no throw
+[s30173 t15404 d28 0:28 xl9 hp52/64] UNSEEN PET may be at (19, 4): last seen [(17, 2)] 7 turns ago, no throw
+[s30174 t15405 d28 0:28 xl9 hp52/64] UNSEEN PET may be at (17, 2): last seen [(17, 2)] 8 turns ago, no throw
+[s30174 t15405 d28 0:28 xl9 hp52/64] UNSEEN PET may be at (19, 4): last seen [(17, 2)] 8 turns ago, no throw
+[s30901 t15478 d28 0:28 xl9 hp64/64] UNSEEN PET may be at (16, 2): last seen [(16, 2)] 1 turns ago, no throw
+[s30902 t15478 d28 0:28 xl9 hp64/64] UNSEEN PET may be at (16, 2): last seen [(16, 2)] 1 turns ago, no throw
+[s30903 t15479 d28 0:28 xl9 hp64/64] UNSEEN PET may be at (12, 2): last seen [(16, 2)] 2 turns ago, no throw
+[s30903 t15479 d28 0:28 xl9 hp64/64] UNSEEN PET may be at (16, 2): last seen [(16, 2)] 2 turns ago, no throw
+[s30928 t15498 d28 0:28 xl9 hp64/64] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/hed/nhbot/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/hed/nhbot/agent.py", line 311, in preempt
+    next(iterator)
+  File "/sol/hed/nhbot/strategy.py", line 68, in f
+    next(it)
+  File "/sol/hed/nhbot/utils.py", line 134, in f
+    next(it)
+  File "/sol/hed/nhbot/agent.py", line 3303, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/hed/nhbot/item/inventory.py", line 871, in eat
+    raise AgentPanic('no such food is lying here')
+nhbot.exceptions.AgentPanic: no such food is lying here
+
+[s30969 t15500 d28 0:28 xl9 hp64/64] STATUS milestone=BE_ON_FIRST_LEVEL diving=True hunger=1 pos=(np.int64(12), np.int64(2)) acts=[MORE:440 EXTCMD:431 SPACE:417 S:396 ESC:250] gotos=[untrap_traps(14, 2):208 open_visit_search(11, 2):181 open_visit_search(13, 5):32]
+[s33916 t15765 d28 0:28 xl9 hp64/64] PANIC AgentPanic: agent position do not match after "move": expected (17, 2), got (16, 2)
+Traceback (most recent call last):
+  File "/sol/hed/nhbot/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/hed/nhbot/agent.py", line 298, in preempt
+    val = f.run()
+          ^^^^^^^
+  File "/sol/hed/nhbot/strategy.py", line 48, in run
+    next(gen)
+  File "/sol/hed/nhbot/exploration_logic.py", line 523, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/hed/nhbot/agent.py", line 2531, in go_to
+    self.move(y, x)
+  File "/sol/hed/nhbot/agent.py", line 2084, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+nhbot.exceptions.AgentPanic: agent position do not match after "move": expected (17, 2), got (16, 2)
+
+[s33995 t15789 d28 0:28 xl9 hp64/64] HUNGER_DEEP eating 'an uncursed food ration' (hunger 2, depth 28)
+[s34444 t15836 d28 0:28 xl9 hp64/64] PANIC AgentPanic: agent position do not match after "move": expected (14, 2), got (15, 3)
+Traceback (most recent call last):
+  File "/sol/hed/nhbot/agent.py", line 311, in preempt
+    next(iterator)
+  File "/sol/hed/nhbot/strategy.py", line 190, in f
+    next(it)
+  File "/sol/hed/nhbot/utils.py", line 134, in f
+    next(it)
+  File "/sol/hed/nhbot/exploration_logic.py", line 608, in untrap_traps
+    self.agent.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 120, 0), is_path=True))
+  File "/sol/hed/nhbot/agent.py", line 2531, in go_to
+    self.move(y, x)
+  File "/sol/hed/nhbot/agent.py", line 2084, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+nhbot.exceptions.AgentPanic: agent position do not match after "move": expected (14, 2), got (15, 3)
+
+[s36486 t16000 d28 0:28 xl9 hp64/64] STALL reachable=59 here_obj=2378 shop_here=0 refused=None nb=[(13, 1, 0, 2360, 2360, 0, 0), (13, 2, 1, 2378, 2378, 0, 0), (13, 3, 0, 2360, 2360, 0, 0), (14, 1, 0, 2360, 2360, 0, 0), (14, 3, 0, 2360, 2360, 0, 0), (15, 1, 0, 2360, 2360, 0, 0), (15, 2, 1, 2406, 2353, 0, 0), (15, 3, 1, 2378, 2352, 0, 0)]
+[s36486 t16000 d28 0:28 xl9 hp64/64] STATUS milestone=BE_ON_FIRST_LEVEL diving=True hunger=1 pos=(np.int64(14), np.int64(2)) acts=[SPACE:1040 MORE:583 EXTCMD:582 SW:308 NE:305] gotos=[untrap_traps(14, 2):246 open_visit_search(15, 6):157 open_visit_search(13, 5):125]
+[s36700 t16018 d28 0:28 xl9 hp64/64] PANIC AgentPanic: agent position do not match after "move": expected (14, 2), got (15, 3)
+Traceback (most recent call last):
+  File "/sol/hed/nhbot/agent.py", line 311, in preempt
+    next(iterator)
+  File "/sol/hed/nhbot/strategy.py", line 190, in f
+    next(it)
+  File "/sol/hed/nhbot/utils.py", line 134, in f
+    next(it)
+  File "/sol/hed/nhbot/exploration_logic.py", line 608, in untrap_traps
+    self.agent.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 120, 0), is_path=True))
+  File "/sol/hed/nhbot/agent.py", line 2531, in go_to
+    self.move(y, x)
+  File "/sol/hed/nhbot/agent.py", line 2084, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+nhbot.exceptions.AgentPanic: agent position do not match after "move": expected (14, 2), got (15, 3)
+
+[s36718 t16018 d28 0:28 xl9 hp64/64] DIVE stuck in task 'descend' on level (np.int64(0), np.int64(28)) for 2117 turns; up stairs (y,x,dist)=[(17, 2, 2)]
+
+
+
+
+    ` `
+ ---.                       %
+ |.)`       %                   !
+ |.%---- |  %                                            [  %
+ |.....|}------                                                             $
+ |..--.|}}}}}}|[  %     [%[[ %[%(     [      ! [[[[[[[   *******
+ |.4...|.....}| %       %%%[!%%%[  ??          [[[[[[[   *******          [
+ |-..........}|[%%                      $
+ |.*.|.|.....}#%(           !           )    /                        $
+ |.-----.....}|                     [
+ |.|`*`......}| [       [%[%%%%%%  $         $ ))))))) ! %%%%%%%        *
+ |H|.---2}}}}}|         [[%%%[%%!  )           )))))))   %%%%%%%
+ |`@.| |2------
+ |.---.| |2                                            %[
+ |*|...|  1[[                                                           $
+ |*|.|.|1  33                                       %
+ |...|.|1 2%%                                                           * !
+ -------
+Agent the Initiate             St:18/01 Dx:14 Co:16 In:9 Wi:13 Ch:10 Chaotic S:
+Dlvl:28 $:954 HP:64(64) Pw:48(48) AC:-3 Xp:9/3571 T:16018
+[s37858 t16113 d28 0:28 xl9 hp64/64] PANIC AgentPanic: agent position do not match after "move": expected (15, 3), got (16, 2)
+Traceback (most recent call last):
+  File "/sol/hed/nhbot/agent.py", line 311, in preempt
+    next(iterator)
+  File "/sol/hed/nhbot/strategy.py", line 190, in f
+    next(it)
+  File "/sol/hed/nhbot/utils.py", line 134, in f
+    next(it)
+  File "/sol/hed/nhbot/exploration_logic.py", line 608, in untrap_traps
+    self.agent.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 120, 0), is_path=True))
+  File "/sol/hed/nhbot/agent.py", line 2531, in go_to
+    self.move(y, x)
+  File "/sol/hed/nhbot/agent.py", line 2084, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+nhbot.exceptions.AgentPanic: agent position do not match after "move": expected (15, 3), got (16, 2)
+
+[s38826 t16188 d28 0:28 xl9 hp64/64] HUNGER_DEEP eating '5 food rations' (hunger 2, depth 28)
+[s42989 t16500 d28 0:28 xl9 hp64/64] STATUS milestone=BE_ON_FIRST_LEVEL diving=True hunger=1 pos=(np.int64(15), np.int64(3)) acts=[SPACE:1345 EXTCMD:646 MORE:646 SW:508 NE:507] gotos=[open_visit_search(15, 6):327 untrap_traps(15, 3):183 untrap_traps(14, 2):142]
+[s45473 t16695 d28 0:28 xl9 hp64/64] DIVE replanning task 'descend' after 500 turns of exploring
+[s49222 t16988 d28 0:28 xl9 hp64/64] HUNGER_DEEP eating '4 food rations' (hunger 2, depth 28)
+[s49228 t16992 d28 0:28 xl9 hp64/64] DIVE stuck in task 'descend' on level (np.int64(0), np.int64(28)) for 3091 turns; up stairs (y,x,dist)=[(17, 2, 2)]
+
+
+
+
+    ` `
+ ---.                       %
+ |.)`       %                   !
+ |.%---- |  %                                            [  %
+ |.....|}------                                                             $
+ |..--.|}}}}}}|[  %     [%[[ %[%(     [      ! [[[[[[[   *******
+ |.4...|.....}| %       %%%[!%%%[  ??          [[[[[[[   *******          [
+ |-..........}|[%%                      $
+ |.*.|.|.....}#%(           !           )    /                        $
+ |.-----.....}|                     [
+ |.|`.`......}| [       [%[%%%%%%  $         $ ))))))) ! %%%%%%%        *
+ |.|.---221}}}|         [[%%%[%%!  )           )))))))   %%%%%%%
+ |`@.| |}-3----
+ |.---.| 3                                             %[
+ |*|...|  3[2                                                           $
+ |*|.|.|2 3                                         %
+ |...|.|   %%                                                           * !
+ -------
+Agent the Initiate             St:18/01 Dx:14 Co:16 In:9 Wi:13 Ch:10 Chaotic S:
+Dlvl:28 $:954 HP:64(64) Pw:48(48) AC:-3 Xp:9/3571 T:16992
+[s49308 t17000 d28 0:28 xl9 hp64/64] STATUS milestone=BE_ON_FIRST_LEVEL diving=True hunger=1 pos=(np.int64(15), np.int64(3)) acts=[SPACE:1250 EXTCMD:664 MORE:664 NE:462 SW:462] gotos=[open_visit_search(15, 6):332 untrap_traps(14, 2):202 untrap_traps(15, 3):130]
