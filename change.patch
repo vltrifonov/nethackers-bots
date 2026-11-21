@@ -1,0 +1,33 @@
+diff --git a/base/nhbot_v2/dive_logic.py b/base/nhbot_v2/dive_logic.py
+index 4b45f91..faaf9da 100644
+--- a/base/nhbot_v2/dive_logic.py
++++ b/base/nhbot_v2/dive_logic.py
+@@ -1104,8 +1104,11 @@ class DiveLogic:
+             if start > len(hist):
+                 start = 0
+             self._ranged_seen = len(hist)
+-            m = self._RANGED_HIT.search(' '.join(hist[start:] + [agent.message]))
+-            if m:
++            messages = ' '.join(hist[start:] + [agent.message])
++            # Elbereth can scare an adjacent pyrolisk, but its gaze still hits us from farther away.
++            gaze_through_ward = 'attacks you with a fiery gaze!' in messages and \
++                (agent.inventory.engraving_below_me or '').lower() == 'elbereth'
++            if self._RANGED_HIT.search(messages) or gaze_through_ward:
+                 if turn - self._ranged_hit_turn > jf_config.RANGED_BREAK_TURNS:
+                     agent.log(f'RANGED hit: holds and Elbereth waits off for {jf_config.RANGED_BREAK_TURNS} turns')
+                 self._ranged_hit_turn = turn
+diff --git a/nethackers.solution.json b/nethackers.solution.json
+index d62fc1f..eaa1afb 100644
+--- a/nethackers.solution.json
++++ b/nethackers.solution.json
+@@ -1,8 +1,9 @@
+ {
+   "schema": "nethackers.solution/v1",
+-  "name": "daglar-zLeadersBest3907636",
++  "name": "Monk ranged response to a fiery gaze",
+   "root": ".",
+   "parents": [
++    "github.com/daglar-dragomirov/nethacker@fd3a187e3e491a346fb422a4f936b7073911b621",
+     "github.com/daglar-dragomirov/nethacker@ccfb1251179bad749ece88d384956363ffb2db56",
+     "github.com/daglar-dragomirov/nethacker@44b29b9299c5dcfb76e3fc6081004727c58db19a",
+     "github.com/DT6A/nethacker@37f9da35d0dbf98ed15bf89735bd601f0c0eac02",
