@@ -1,0 +1,75 @@
+diff --git a/base/nhbot_priest6ce_v3_enchant/agent.py b/base/nhbot_priest6ce_v3_enchant/agent.py
+index 0322afd..72de46a 100644
+--- a/base/nhbot_priest6ce_v3_enchant/agent.py
++++ b/base/nhbot_priest6ce_v3_enchant/agent.py
+@@ -1930,7 +1930,18 @@ class Agent:
+                 #     return
+                 if 'You are too impaired' in self.message:
+                     return
+-                yield self.character.known_spells[spell_name]
++                letter = self.character.known_spells[spell_name]
++                if self.single_popup and self.single_popup[0] == 'Choose which spell to cast':
++                    for line in self.single_popup[2:]:
++                        if not line.startswith(f'{letter} - '):
++                            continue
++                        matches = self.character._spell_menu_matches(line)
++                        if len(matches) == 1 and matches[0][1] == spell_name and matches[0][-1] == '(gone)':
++                            self.character.known_spells.pop(spell_name)
++                            self.character.spell_fail_chance.pop(spell_name, None)
++                            yield A.Command.ESC
++                            return
++                yield letter
+                 for _ in range(3):
+                     if 'In what direction?' in self.message:
+                         break
+diff --git a/base/nhbot_priest6ce_v3_enchant/character.py b/base/nhbot_priest6ce_v3_enchant/character.py
+index eef8d59..dca4097 100644
+--- a/base/nhbot_priest6ce_v3_enchant/character.py
++++ b/base/nhbot_priest6ce_v3_enchant/character.py
+@@ -464,19 +464,25 @@ class Character:
+                     not self.agent.popup[1].startswith('Name'):
+                 raise ValueError(f'Invalid cast popup text format: {self.agent.popup}')
+             for line in self.agent.popup[2:]:
+-                matches = re.findall(r'^([a-zA-Z]) - *' +
+-                                     r'(' + '|'.join(ALL_SPELL_NAMES) + ') *' +
+-                                     r'([0-9]*) *' +
+-                                     r'(' + '|'.join(ALL_SPELL_CATEGORIES) + ') *' +
+-                                     r'([0-9]*)\% *' +
+-                                     r'([0-9]*\%|\(gone\))', line)
++                matches = self._spell_menu_matches(line)
+                 assert len(matches) == 1, (matches, line)
+                 letter, spell_name, level, category, fail, retention = matches[0]
+                 assert len(letter) == 1, letter
++                if retention == '(gone)':
++                    continue
+                 self.known_spells[spell_name] = letter
+                 self.spell_fail_chance[spell_name] = int(fail) / 100
+         self.agent.step(A.Command.ESC)
+ 
++    @staticmethod
++    def _spell_menu_matches(line):
++        return re.findall(r'^([a-zA-Z]) - *' +
++                          r'(' + '|'.join(ALL_SPELL_NAMES) + ') *' +
++                          r'([0-9]*) *' +
++                          r'(' + '|'.join(ALL_SPELL_CATEGORIES) + ') *' +
++                          r'([0-9]*)\% *' +
++                          r'([0-9]*\%|\(gone\))', line)
++
+     def parse_enhance_view(self):
+         with self.agent.atom_operation():
+             self.agent.step(A.Command.ENHANCE)
+diff --git a/nethackers.solution.json b/nethackers.solution.json
+index 591a72c..d7566b0 100644
+--- a/nethackers.solution.json
++++ b/nethackers.solution.json
+@@ -1,8 +1,9 @@
+ {
+   "schema": "nethackers.solution/v1",
+-  "name": "daglar-zLeadersSeed407717",
++  "name": "Priest reject forgotten spells when casting",
+   "root": ".",
+   "parents": [
++    "github.com/daglar-dragomirov/nethacker@9a387c4fb6b8c166e2e6e63617bd6e588f40fddc",
+     "github.com/daglar-dragomirov/nethacker@ccfb1251179bad749ece88d384956363ffb2db56",
+     "github.com/daglar-dragomirov/nethacker@44b29b9299c5dcfb76e3fc6081004727c58db19a",
+     "github.com/DT6A/nethacker@37f9da35d0dbf98ed15bf89735bd601f0c0eac02",
