@@ -1,0 +1,993 @@
+[s1 t1 d1 0:1 xl1 hp15/15] SURV start msgs=[''] now=''
+[s24 t1 d1 0:1 xl1 hp15/15] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(17), np.int64(69)) acts=[SPACE:8 ESC:3 AUTOPICKUP:2 ATTRIBUTES:1 ENHANCE:1] gotos=[]
+[s24 t1 d1 0:1 xl1 hp15/15] DIVE level (np.int64(0), np.int64(1)) depth 1
+[s152 t53 d1 0:1 xl1 hp15/15] PANIC AgentPanic: agent position do not match after "move": expected (16, 56), got (16, 55)
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 165, in f
+    next(gen)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 100, in f
+    next(v1)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/utils.py", line 183, in f
+    next(it)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/item/inventory.py", line 1803, in check_items
+    self.agent.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 0, 255), is_path=True))
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 2578, in go_to
+    self.move(y, x)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 2198, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+autoascend.exceptions.AgentPanic: agent position do not match after "move": expected (16, 56), got (16, 55)
+
+[s180 t62 d1 0:1 xl1 hp15/15] PANIC AgentPanic: agent position do not match after "move": expected (17, 51), got (16, 51)
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 309, in preempt
+    val = f()
+          ^^^
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/exploration_logic.py", line 520, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 2578, in go_to
+    self.move(y, x)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 2198, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+autoascend.exceptions.AgentPanic: agent position do not match after "move": expected (17, 51), got (16, 51)
+
+[s382 t171 d1 0:1 xl1 hp15/15] SURV eat 'a goblin corpse' hu=1 hostiles=[]
+[s385 t178 d1 0:1 xl1 hp15/15] SURV eat 'a goblin corpse' hu=1 hostiles=[]
+[s386 t178 d1 0:1 xl1 hp15/15] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 322, in preempt
+    next(iterator)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 68, in f
+    next(it)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/utils.py", line 183, in f
+    next(it)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 3509, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/item/inventory.py", line 876, in eat
+    raise AgentPanic('no such food is lying here')
+autoascend.exceptions.AgentPanic: no such food is lying here
+
+[s418 t178 d1 0:1 xl1 hp15/15] ARMOR_UP slot helm: best 'an orcish helm', AC now 4
+[s420 t179 d1 0:1 xl1 hp15/15] ARMOR_UP wear pass done: AC 3
+[s451 t207 d1 0:1 xl1 hp15/15] PANIC AgentPanic: agent position do not match after "move": expected (5, 50), got (4, 51)
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 309, in preempt
+    val = f()
+          ^^^
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/exploration_logic.py", line 520, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 2578, in go_to
+    self.move(y, x)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 2198, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+autoascend.exceptions.AgentPanic: agent position do not match after "move": expected (5, 50), got (4, 51)
+
+[s499 t221 d1 0:1 xl1 hp15/15] SURV eat 'a lichen corpse' hu=1 hostiles=[]
+[s502 t224 d1 0:1 xl1 hp15/15] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_e13ed40/autoascend/item/inventory.py", line 608, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 194, in atom_operation
+    self.update_state()
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 787, in update_state
+    self.call_update_functions()
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 798, in call_update_functions
+    func()
+  File "/sol/d_CleverShovel_e13ed40/autoascend/item/inventory.py", line 160, in f
+    raise AgentPanic('items below me changed')
+autoascend.exceptions.AgentPanic: items below me changed
+
+[s616 t279 d1 0:1 xl1 hp15/15] ENGRAVE 'a glass wand': ['cancellation', 'teleportation', 'make invisible'] (text written: False)
+[s667 t317 d1 0:1 xl1 hp15/15] PANIC AgentPanic: agent position do not match after "move": expected (11, 19), got (10, 18)
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 309, in preempt
+    val = f()
+          ^^^
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/exploration_logic.py", line 520, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 2578, in go_to
+    self.move(y, x)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 2198, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+autoascend.exceptions.AgentPanic: agent position do not match after "move": expected (11, 19), got (10, 18)
+
+[s774 t359 d1 0:1 xl2 hp27/27] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_e13ed40/autoascend/item/inventory.py", line 608, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 194, in atom_operation
+    self.update_state()
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 787, in update_state
+    self.call_update_functions()
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 798, in call_update_functions
+    func()
+  File "/sol/d_CleverShovel_e13ed40/autoascend/item/inventory.py", line 160, in f
+    raise AgentPanic('items below me changed')
+autoascend.exceptions.AgentPanic: items below me changed
+
+[s1008 t502 d1 0:1 xl2 hp27/27] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(4), np.int64(5)) acts=[SEARCH:222 W:111 SPACE:92 E:76 NW:53] gotos=[check_items(5, 22):6 check_items(14, 18):6 check_items(16, 58):5]
+[s1030 t520 d1 0:1 xl2 hp27/27] SURV eat 'a newt corpse' hu=1 hostiles=[]
+[s1034 t527 d1 0:1 xl2 hp27/27] SURV eat 'a newt corpse' hu=1 hostiles=[]
+[s1035 t527 d1 0:1 xl2 hp27/27] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 322, in preempt
+    next(iterator)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 68, in f
+    next(it)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/utils.py", line 183, in f
+    next(it)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 3509, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/item/inventory.py", line 876, in eat
+    raise AgentPanic('no such food is lying here')
+autoascend.exceptions.AgentPanic: no such food is lying here
+
+[s1132 t625 d1 0:1 xl2 hp24/27] SURV eat 'a fox corpse' hu=1 hostiles=[]
+[s1142 t634 d1 0:1 xl2 hp25/27] SURV eat 'a fox corpse' hu=1 hostiles=[]
+[s1143 t634 d1 0:1 xl2 hp25/27] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 322, in preempt
+    next(iterator)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 68, in f
+    next(it)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/utils.py", line 183, in f
+    next(it)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 3509, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/item/inventory.py", line 876, in eat
+    raise AgentPanic('no such food is lying here')
+autoascend.exceptions.AgentPanic: no such food is lying here
+
+[s1328 t800 d1 0:1 xl2 hp27/27] SURV eat 'a lichen corpse' hu=1 hostiles=[]
+[s1425 t882 d1 0:1 xl3 hp40/40] SURV eat 'a newt corpse' hu=1 hostiles=[]
+[s1460 t902 d1 0:1 xl3 hp40/40] PANIC AgentPanic: agent position do not match after "move": expected (18, 48), got (17, 47)
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 165, in f
+    next(gen)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 111, in f
+    next(v2)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/utils.py", line 183, in f
+    next(it)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/item/inventory.py", line 2489, in go_to_item_to_pickup
+    self.agent.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 0, 255), is_path=True))
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 2578, in go_to
+    self.move(y, x)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 2198, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+autoascend.exceptions.AgentPanic: agent position do not match after "move": expected (18, 48), got (17, 47)
+
+[s1596 t1000 d1 0:1 xl3 hp40/40] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(16), np.int64(55)) acts=[SEARCH:114 NUM_5:88 E:50 SPACE:43 SE:32] gotos=[check_items(3, 18):5 go_to_item_to_pickup(17, 62):5 open_visit_search(18, 24):4]
+[s2085 t1500 d1 0:1 xl3 hp40/40] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(9), np.int64(28)) acts=[NUM_5:99 SEARCH:99 W:46 E:31 NW:26] gotos=[open_visit_search(5, 11):2 open_visit_search(16, 54):1 open_visit_search(16, 53):1]
+[s2087 t1503 d1 0:1 xl3 hp40/40] SURV hunger 1->2 food=['2xfood ration', 'cream pie', 'apple'] cn=1750 gap=None pf=0 dv=0 rescue=0 pet=0 hostiles=[] eng=''
+[s2191 t1603 d1 0:1 xl3 hp40/40] PRAY hp=40/40 hunger=3 gap=None reason=None model[ok200=1.00 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=17 p_answered=1.00]
+[s2196 t1606 d1 0:1 xl3 hp40/40] SURV hunger 2->1 food=['2xfood ration', 'cream pie', 'apple'] cn=1750 gap=None pf=0 dv=0 rescue=0 pet=0 hostiles=[] eng=''
+[s2196 t1606 d1 0:1 xl3 hp40/40] PRAY result ok model[ok200=0.22 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=17] prayers=1 failures=0
+[s2434 t1840 d1 0:1 xl3 hp40/40] SURV eat 'a goblin corpse' hu=1 hostiles=[]
+[s2596 t1981 d1 0:1 xl4 hp47/47] SURV eat 'a goblin corpse' hu=1 hostiles=[]
+[s2618 t2000 d1 0:1 xl4 hp47/47] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(18), np.int64(62)) acts=[SEARCH:104 NUM_5:88 E:54 SPACE:36 W:36] gotos=[open_visit_search(2, 53):4 open_visit_search(1, 53):4 open_visit_search(3, 52):3]
+[s2862 t2225 d1 0:1 xl4 hp47/47] SURV eat 'a lichen corpse' hu=1 hostiles=[]
+[s3050 t2408 d1 0:1 xl4 hp47/47] SURV eat 'a jackal corpse' hu=1 hostiles=[]
+[s3054 t2411 d1 0:1 xl4 hp47/47] SURV eat 'a jackal corpse' hu=1 hostiles=[]
+[s3055 t2411 d1 0:1 xl4 hp47/47] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 322, in preempt
+    next(iterator)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 68, in f
+    next(it)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/utils.py", line 183, in f
+    next(it)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 3509, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/item/inventory.py", line 876, in eat
+    raise AgentPanic('no such food is lying here')
+autoascend.exceptions.AgentPanic: no such food is lying here
+
+[s3110 t2435 d1 0:1 xl4 hp47/47] SURV eat 'a gecko corpse' hu=1 hostiles=[]
+[s3113 t2439 d1 0:1 xl4 hp47/47] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_e13ed40/autoascend/item/inventory.py", line 608, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 194, in atom_operation
+    self.update_state()
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 787, in update_state
+    self.call_update_functions()
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 798, in call_update_functions
+    func()
+  File "/sol/d_CleverShovel_e13ed40/autoascend/item/inventory.py", line 160, in f
+    raise AgentPanic('items below me changed')
+autoascend.exceptions.AgentPanic: items below me changed
+
+[s3184 t2502 d1 0:1 xl4 hp47/47] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(5), np.int64(18)) acts=[SEARCH:96 NUM_5:90 W:53 SPACE:44 SW:33] gotos=[open_visit_search(18, 57):3 open_visit_search(18, 61):2 open_visit_search(18, 60):2]
+[s3500 t2826 d1 0:1 xl4 hp47/47] SURV hunger 1->2 food=['2xfood ration', 'cream pie', 'apple', 'pear'] cn=1800 gap=1220 pf=0 dv=0 rescue=0 pet=0 hostiles=[] eng=''
+[s3593 t2926 d1 0:1 xl4 hp47/47] SURV hunger 2->3 food=['2xfood ration', 'cream pie', 'apple', 'pear'] cn=1800 gap=1320 pf=0 dv=0 rescue=0 pet=0 hostiles=[] eng=''
+[s3599 t2935 d1 0:1 xl4 hp47/47] SURV eat '2 gunyoki' hu=3 hostiles=[]
+[s3601 t2939 d1 0:1 xl4 hp47/47] SURV hunger 3->1 food=['2xfood ration', 'cream pie', 'apple', 'pear'] cn=1800 gap=1333 pf=0 dv=0 rescue=0 pet=0 hostiles=[] eng=''
+[s3664 t3000 d1 0:1 xl4 hp47/47] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(16), np.int64(21)) acts=[SEARCH:101 NUM_5:96 E:42 W:30 S:26] gotos=[open_visit_search(15, 42):2 open_visit_search(16, 26):2 open_visit_search(4, 18):1]
+[s3973 t3260 d1 0:1 xl4 hp47/47] PANIC AgentPanic: agent position do not match after "move": expected (5, 5), got (6, 4)
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 307, in preempt
+    val = f.run()
+          ^^^^^^^
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 48, in run
+    next(gen)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/exploration_logic.py", line 520, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 2578, in go_to
+    self.move(y, x)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 2198, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+autoascend.exceptions.AgentPanic: agent position do not match after "move": expected (5, 5), got (6, 4)
+
+[s4259 t3465 d1 0:1 xl4 hp47/47] SURV eat 'a newt corpse' hu=1 hostiles=[]
+[s4312 t3500 d1 0:1 xl4 hp47/47] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(9), np.int64(28)) acts=[SEARCH:89 NUM_5:84 SPACE:74 E:63 W:54] gotos=[open_visit_search(7, 53):3 open_visit_search(7, 33):3 open_visit_search(5, 12):2]
+[s4401 t3563 d1 0:1 xl4 hp47/47] SURV eat 'a lichen corpse' hu=1 hostiles=[]
+[s4473 t3611 d1 0:1 xl4 hp45/47] SURV eat 'a newt corpse' hu=1 hostiles=[]
+[s4709 t3845 d1 0:1 xl4 hp47/47] SURV hunger 1->2 food=['food ration', 'cream pie', 'apple', 'pear'] cn=1000 gap=2239 pf=0 dv=0 rescue=0 pet=0 hostiles=[] eng=''
+[s4792 t3942 d1 0:1 xl4 hp43/47] SURV hunger 2->3 food=['food ration', 'cream pie', 'apple', 'pear'] cn=1000 gap=2336 pf=0 dv=0 rescue=0 pet=0 hostiles=[] eng=''
+[s4792 t3942 d1 0:1 xl4 hp43/47] PRAY hp=43/47 hunger=3 gap=2336 reason=None model[ok200=1.00 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=29 p_answered=1.00]
+[s4797 t3945 d1 0:1 xl4 hp43/47] SURV hunger 3->1 food=['food ration', 'cream pie', 'apple', 'pear'] cn=1000 gap=2339 pf=0 dv=0 rescue=0 pet=0 hostiles=[] eng=''
+[s4797 t3945 d1 0:1 xl4 hp43/47] PRAY result ok model[ok200=0.22 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=29] prayers=2 failures=0
+[s4852 t4000 d1 0:1 xl4 hp47/47] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(7), np.int64(4)) acts=[SEARCH:91 NUM_5:86 W:56 SPACE:36 E:35] gotos=[check_items(3, 51):3 eat_corpses_from_ground(5, 17):2 open_visit_search(6, 22):2]
+[s4879 t4021 d1 0:1 xl4 hp47/47] SURV eat 'a sewer rat corpse' hu=1 hostiles=[]
+[s4882 t4022 d1 0:1 xl4 hp47/47] SURV eat 'a sewer rat corpse' hu=1 hostiles=[]
+[s4883 t4022 d1 0:1 xl4 hp47/47] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 322, in preempt
+    next(iterator)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 68, in f
+    next(it)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/utils.py", line 183, in f
+    next(it)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 3509, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/item/inventory.py", line 876, in eat
+    raise AgentPanic('no such food is lying here')
+autoascend.exceptions.AgentPanic: no such food is lying here
+
+[s4983 t4093 d1 0:1 xl4 hp47/47] SURV eat 'a newt corpse' hu=1 hostiles=[]
+[s5012 t4106 d2 0:2 xl5 hp57/57] DIVE level (np.int64(0), np.int64(2)) depth 2
+[s5040 t4123 d2 0:2 xl5 hp57/57] SURV eat 'a goblin corpse' hu=1 hostiles=[]
+[s5049 t4133 d2 0:2 xl5 hp57/57] SURV eat 'a goblin corpse' hu=1 hostiles=[]
+[s5050 t4133 d2 0:2 xl5 hp57/57] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 322, in preempt
+    next(iterator)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 68, in f
+    next(it)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/utils.py", line 183, in f
+    next(it)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 3509, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/item/inventory.py", line 876, in eat
+    raise AgentPanic('no such food is lying here')
+autoascend.exceptions.AgentPanic: no such food is lying here
+
+[s5163 t4188 d2 0:2 xl5 hp57/57] SURV eat 'a gecko corpse' hu=1 hostiles=[]
+[s5166 t4191 d2 0:2 xl5 hp57/57] SURV eat 'a gecko corpse' hu=1 hostiles=[]
+[s5167 t4191 d2 0:2 xl5 hp57/57] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 322, in preempt
+    next(iterator)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 68, in f
+    next(it)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/utils.py", line 183, in f
+    next(it)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 3509, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/item/inventory.py", line 876, in eat
+    raise AgentPanic('no such food is lying here')
+autoascend.exceptions.AgentPanic: no such food is lying here
+
+[s5265 t4245 d2 0:2 xl5 hp56/57] SURV eat 'a gecko corpse' hu=1 hostiles=[]
+[s5268 t4249 d2 0:2 xl5 hp57/57] SURV eat 'a gecko corpse' hu=1 hostiles=[]
+[s5269 t4249 d2 0:2 xl5 hp57/57] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 322, in preempt
+    next(iterator)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 68, in f
+    next(it)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/utils.py", line 183, in f
+    next(it)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 3509, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/item/inventory.py", line 876, in eat
+    raise AgentPanic('no such food is lying here')
+autoascend.exceptions.AgentPanic: no such food is lying here
+
+[s5311 t4276 d2 0:2 xl5 hp57/57] PANIC AgentPanic: agent position do not match after "move": expected (15, 62), got (16, 61)
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 309, in preempt
+    val = f()
+          ^^^
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/exploration_logic.py", line 520, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 2578, in go_to
+    self.move(y, x)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 2198, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+autoascend.exceptions.AgentPanic: agent position do not match after "move": expected (15, 62), got (16, 61)
+
+[s5668 t4500 d2 0:2 xl5 hp55/57] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(14), np.int64(40)) acts=[SEARCH:200 E:72 W:64 SPACE:54 SW:48] gotos=[open_visit_search(2, 63):6 check_items(16, 36):6 open_visit_search(17, 45):5]
+[s5737 t4542 d2 0:2 xl5 hp57/57] SHOPWISH wand on the shelf at (15, 6): 'a brass wand (for sale, 300 zorkmids)' unit quote 300 cha 7 gold 11 -> many
+[s5739 t4543 d2 0:2 xl5 hp57/57] SHOPWISH wand on the shelf at (15, 5): 'a runed wand (for sale, 263 zorkmids)' unit quote 263 cha 7 gold 11 -> ['cold', 'fire', 'lightning', 'sleep']
+[s5744 t4545 d2 0:2 xl5 hp57/57] SUPPLY shelf 'a runed wand (for sale, 263 zorkmids)' unit=263 bases=[175] types=['cold', 'fire', 'lightning', 'sleep']
+[s5744 t4545 d2 0:2 xl5 hp57/57] SUPPLY shelf 'a brass wand (for sale, 300 zorkmids)' unit=300 bases=[150, 200] types=16
+[s5750 t4549 d2 0:2 xl5 hp57/57] SUPPLY shelf 'an iron ring (for sale, 300 zorkmids)' unit=300 bases=[150, 200] types=17
+[s5757 t4555 d2 0:2 xl5 hp57/57] SUPPLY shelf 'a twisted ring (for sale, 225 zorkmids)' unit=225 bases=[150] types=10
+[s5804 t4580 d3 0:3 xl5 hp57/57] DIVE level (np.int64(0), np.int64(3)) depth 3
+[s5897 t4624 d3 0:3 xl5 hp57/57] SURV eat 'a rothe corpse' hu=1 hostiles=[]
+[s5900 t4633 d3 0:3 xl5 hp57/57] SURV eat 'a rothe corpse' hu=1 hostiles=[]
+[s5901 t4633 d3 0:3 xl5 hp57/57] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 322, in preempt
+    next(iterator)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 68, in f
+    next(it)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/utils.py", line 183, in f
+    next(it)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 3509, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/item/inventory.py", line 876, in eat
+    raise AgentPanic('no such food is lying here')
+autoascend.exceptions.AgentPanic: no such food is lying here
+
+[s6152 t4779 d3 0:3 xl5 hp54/57] POWER scare monster is labeled 'GNIK SISI VLE' (a scroll turned to dust on pickup)
+[s6228 t4820 d3 0:3 xl5 hp57/57] SURV eat 'a rothe corpse' hu=1 hostiles=[]
+[s6237 t4828 d3 0:3 xl5 hp57/57] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_e13ed40/autoascend/item/inventory.py", line 608, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 194, in atom_operation
+    self.update_state()
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 787, in update_state
+    self.call_update_functions()
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 798, in call_update_functions
+    func()
+  File "/sol/d_CleverShovel_e13ed40/autoascend/item/inventory.py", line 160, in f
+    raise AgentPanic('items below me changed')
+autoascend.exceptions.AgentPanic: items below me changed
+
+[s6273 t4837 d3 0:3 xl5 hp48/57] SURV eat 'a rothe corpse' hu=1 hostiles=[]
+[s6287 t4847 d3 0:3 xl5 hp47/57] SURV eat 'a rothe corpse' hu=1 hostiles=[]
+[s6289 t4847 d3 0:3 xl5 hp47/57] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 322, in preempt
+    next(iterator)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 68, in f
+    next(it)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/utils.py", line 183, in f
+    next(it)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 3509, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/item/inventory.py", line 876, in eat
+    raise AgentPanic('no such food is lying here')
+autoascend.exceptions.AgentPanic: no such food is lying here
+
+[s6305 t4847 d3 0:3 xl5 hp47/57] SURV eat 'a partly eaten rothe corpse' hu=1 hostiles=[]
+[s6309 t4849 d3 0:3 xl5 hp47/57] SURV eat 'a rothe corpse' hu=1 hostiles=[]
+[s6379 t4891 d3 0:3 xl5 hp45/57] SURV eat 'a rothe corpse' hu=1 hostiles=[]
+[s6388 t4898 d3 0:3 xl5 hp46/57] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_e13ed40/autoascend/item/inventory.py", line 608, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 194, in atom_operation
+    self.update_state()
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 787, in update_state
+    self.call_update_functions()
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 798, in call_update_functions
+    func()
+  File "/sol/d_CleverShovel_e13ed40/autoascend/item/inventory.py", line 160, in f
+    raise AgentPanic('items below me changed')
+autoascend.exceptions.AgentPanic: items below me changed
+
+[s6480 t4936 d3 0:3 xl5 hp52/57] ENGRAVE 'a spiked wand': ['secret door detection', 'enlightenment', 'create monster', 'nothing', 'striking', 'make invisible', 'slow monster', 'speed monster', 'undead turning', 'polymorph', 'cancellation', 'teleportation', 'opening', 'locking', 'probing', 'digging', 'magic missile', 'fire', 'cold', 'sleep', 'death', 'lightning'] (text written: False)
+[s6531 t4966 d3 0:3 xl5 hp56/57] DIVE attacking a peaceful dwarf at (10, 37) for its digging tool (digger=False, align~34)
+[s6535 t4966 d3 0:3 xl5 hp56/57] ALIGN estimate 33 (cap 34) after -1
+[s6581 t5000 d3 0:3 xl5 hp55/57] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(13), np.int64(32)) acts=[SEARCH:196 W:120 E:95 SPACE:79 SW:50] gotos=[open_visit_search(16, 16):8 check_items(18, 5):7 check_items(17, 24):5]
+[s6594 t5011 d3 0:3 xl5 hp56/57] DIVE killed a dwarf (1); piles to check: [(np.int64(11), np.int64(34))]
+[s6594 t5011 d3 0:3 xl5 hp56/57] ALIGN estimate 22 (cap 35) after -12
+[s6594 t5011 d3 0:3 xl5 hp56/57] DWARF died near [(11, 34)]: piles to check
+[s6600 t5012 d3 0:3 xl5 hp57/57] SURV eat 'a dwarf corpse' hu=1 hostiles=[]
+[s6610 t5025 d3 0:3 xl5 hp57/57] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_e13ed40/autoascend/item/inventory.py", line 608, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 194, in atom_operation
+    self.update_state()
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 787, in update_state
+    self.call_update_functions()
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 798, in call_update_functions
+    func()
+  File "/sol/d_CleverShovel_e13ed40/autoascend/item/inventory.py", line 160, in f
+    raise AgentPanic('items below me changed')
+autoascend.exceptions.AgentPanic: items below me changed
+
+[s6639 t5026 d3 0:3 xl5 hp57/57] DIVE checked the pile at (np.int64(11), np.int64(34)): tool None
+[s6639 t5026 d3 0:3 xl5 hp57/57] ARMOR_UP slot boots: best 'a pair of iron shoes', AC now 3
+[s6641 t5028 d3 0:3 xl5 hp57/57] ARMOR_UP slot cloak: best 'a dwarvish cloak', AC now 1
+[s6643 t5029 d3 0:3 xl5 hp57/57] ARMOR_UP wear pass done: AC 1
+[s6837 t5244 d3 0:3 xl5 hp57/57] DIVE attacking a peaceful dwarf at (9, 42) for its digging tool (digger=False, align~22)
+[s6840 t5245 d3 0:3 xl5 hp57/57] ALIGN estimate 21 (cap 36) after -1
+[s6857 t5251 d3 0:3 xl5 hp57/57] DIVE killed a dwarf (2); piles to check: [(np.int64(9), np.int64(43))]
+[s6857 t5251 d3 0:3 xl5 hp57/57] ALIGN estimate 9 (cap 36) after -12
+[s6857 t5251 d3 0:3 xl5 hp57/57] DWARF died near [(9, 43)]: piles to check
+[s6863 t5252 d3 0:3 xl5 hp57/57] SURV eat 'a dwarf corpse' hu=1 hostiles=[]
+[s6867 t5256 d3 0:3 xl5 hp57/57] SURV eat 'a dwarf corpse' hu=1 hostiles=[]
+[s6868 t5256 d3 0:3 xl5 hp57/57] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 322, in preempt
+    next(iterator)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 68, in f
+    next(it)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/utils.py", line 183, in f
+    next(it)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 3509, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/item/inventory.py", line 876, in eat
+    raise AgentPanic('no such food is lying here')
+autoascend.exceptions.AgentPanic: no such food is lying here
+
+[s6889 t5259 d3 0:3 xl5 hp57/57] DIVE checked the pile at (np.int64(9), np.int64(43)): tool None
+[s6937 t5283 d3 0:3 xl5 hp56/57] SURV eat 'a leprechaun corpse' hu=1 hostiles=[]
+[s6941 t5287 d3 0:3 xl5 hp57/57] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_e13ed40/autoascend/item/inventory.py", line 608, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 194, in atom_operation
+    self.update_state()
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 787, in update_state
+    self.call_update_functions()
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 798, in call_update_functions
+    func()
+  File "/sol/d_CleverShovel_e13ed40/autoascend/item/inventory.py", line 160, in f
+    raise AgentPanic('items below me changed')
+autoascend.exceptions.AgentPanic: items below me changed
+
+[s7139 t5501 d3 0:3 xl5 hp57/57] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(5), np.int64(57)) acts=[SEARCH:113 NUM_5:96 SPACE:59 E:42 W:23] gotos=[open_visit_search(10, 44):7 open_visit_search(1, 54):4 open_visit_search(7, 40):2]
+[s7302 t5693 d3 0:3 xl5 hp57/57] SURV hunger 1->2 food=['food ration', 'cream pie', 'apple', 'pear', 'fortune cookie'] cn=1040 gap=1748 pf=0 dv=0 rescue=0 pet=0 hostiles=[] eng=''
+[s7348 t5734 d3 0:3 xl5 hp54/57] RANGED hit: holds and Elbereth waits off for 8 turns
+[s7388 t5749 d3 0:3 xl5 hp56/57] PANIC AgentPanic: agent position do not match after "move": expected (6, 50), got (5, 51)
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 165, in f
+    next(gen)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 100, in f
+    next(v1)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/utils.py", line 183, in f
+    next(it)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/item/inventory.py", line 1803, in check_items
+    self.agent.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 0, 255), is_path=True))
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 2578, in go_to
+    self.move(y, x)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 2198, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+autoascend.exceptions.AgentPanic: agent position do not match after "move": expected (6, 50), got (5, 51)
+
+[s7471 t5789 d3 0:3 xl5 hp54/57] SURV hunger 2->3 food=['food ration', 'cream pie', 'apple', 'pear', 'fortune cookie'] cn=1040 gap=1844 pf=0 dv=0 rescue=0 pet=0 hostiles=[] eng=''
+[s7474 t5789 d3 0:3 xl5 hp54/57] PRAY hp=54/57 hunger=3 gap=1844 reason=None model[ok200=0.99 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=38 p_answered=0.99]
+[s7479 t5792 d3 0:3 xl5 hp54/57] SURV hunger 3->1 food=['food ration', 'cream pie', 'apple', 'pear', 'fortune cookie'] cn=1040 gap=1847 pf=0 dv=0 rescue=0 pet=0 hostiles=[('dwarf zombie', np.int64(6))] eng=''
+[s7479 t5792 d3 0:3 xl5 hp54/57] PRAY result ok model[ok200=0.22 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=38] prayers=3 failures=0
+[s7954 t5999 d3 0:3 xl6 hp68/68] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_e13ed40/autoascend/item/inventory.py", line 608, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 194, in atom_operation
+    self.update_state()
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 787, in update_state
+    self.call_update_functions()
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 798, in call_update_functions
+    func()
+  File "/sol/d_CleverShovel_e13ed40/autoascend/item/inventory.py", line 160, in f
+    raise AgentPanic('items below me changed')
+autoascend.exceptions.AgentPanic: items below me changed
+
+[s7976 t6000 d3 0:3 xl6 hp68/68] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(15), np.int64(23)) acts=[SEARCH:116 SPACE:106 W:75 NUM_5:74 E:45] gotos=[check_items(6, 49):4 _fight2_perform_action(4, 54):3 check_items(14, 26):3]
+[s8040 t6022 d3 0:3 xl6 hp57/68] SURV eat 'a gnome lord corpse' hu=1 hostiles=[]
+[s8417 t6282 d3 0:3 xl6 hp65/68] RANGED hit: holds and Elbereth waits off for 8 turns
+[s8431 t6284 d3 0:3 xl6 hp65/68] SURV eat 'a gnome corpse' hu=1 hostiles=[]
+[s8439 t6288 d3 0:3 xl6 hp66/68] SURV eat 'a gnome corpse' hu=1 hostiles=[]
+[s8440 t6288 d3 0:3 xl6 hp66/68] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 322, in preempt
+    next(iterator)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 68, in f
+    next(it)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/utils.py", line 183, in f
+    next(it)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 3509, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/item/inventory.py", line 876, in eat
+    raise AgentPanic('no such food is lying here')
+autoascend.exceptions.AgentPanic: no such food is lying here
+
+[s8684 t6483 d3 0:3 xl6 hp57/68] SURV eat 'a rothe corpse' hu=1 hostiles=[]
+[s8687 t6491 d3 0:3 xl6 hp58/68] SURV eat 'a rothe corpse' hu=1 hostiles=[]
+[s8688 t6491 d3 0:3 xl6 hp58/68] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 322, in preempt
+    next(iterator)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 68, in f
+    next(it)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/utils.py", line 183, in f
+    next(it)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 3509, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/item/inventory.py", line 876, in eat
+    raise AgentPanic('no such food is lying here')
+autoascend.exceptions.AgentPanic: no such food is lying here
+
+[s8727 t6503 d3 0:3 xl6 hp60/68] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(8), np.int64(3)) acts=[SEARCH:103 SPACE:93 NUM_5:75 E:60 W:57] gotos=[open_visit_search(18, 7):3 open_visit_search(20, 7):3 go_to_item_to_pickup(15, 24):2]
+[s8836 t6629 d3 0:3 xl6 hp68/68] PANIC AgentPanic: agent position do not match after "move": expected (9, 5), got (8, 4)
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 309, in preempt
+    val = f()
+          ^^^
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/exploration_logic.py", line 520, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 2578, in go_to
+    self.move(y, x)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 2198, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+autoascend.exceptions.AgentPanic: agent position do not match after "move": expected (9, 5), got (8, 4)
+
+[s8891 t6646 d3 0:3 xl6 hp62/68] SURV eat 'a giant ant corpse' hu=1 hostiles=[]
+[s8950 t6716 d3 0:3 xl6 hp68/68] PANIC AgentPanic: agent position do not match after "move": expected (16, 8), got (15, 7)
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 309, in preempt
+    val = f()
+          ^^^
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/exploration_logic.py", line 520, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 2578, in go_to
+    self.move(y, x)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 2198, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+autoascend.exceptions.AgentPanic: agent position do not match after "move": expected (16, 8), got (15, 7)
+
+[s9047 t6740 d3 0:3 xl6 hp63/68] SURV hunger 1->2 food=['food ration', 'cream pie', 'apple', 'pear', 'fortune cookie'] cn=1040 gap=948 pf=0 dv=0 rescue=0 pet=0 hostiles=[('cave spider', np.int64(5))] eng=''
+[s9157 t6771 d3 0:3 xl6 hp63/68] SURV eat 'a goblin corpse' hu=2 hostiles=[]
+[s9159 t6778 d3 0:3 xl6 hp64/68] SURV hunger 2->1 food=['food ration', 'cream pie', 'apple', 'pear', 'fortune cookie'] cn=1040 gap=986 pf=0 dv=0 rescue=0 pet=0 hostiles=[] eng=''
+[s9160 t6778 d3 0:3 xl6 hp64/68] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_e13ed40/autoascend/item/inventory.py", line 608, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 194, in atom_operation
+    self.update_state()
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 787, in update_state
+    self.call_update_functions()
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 798, in call_update_functions
+    func()
+  File "/sol/d_CleverShovel_e13ed40/autoascend/item/inventory.py", line 160, in f
+    raise AgentPanic('items below me changed')
+autoascend.exceptions.AgentPanic: items below me changed
+
+[s9222 t6797 d3 0:3 xl6 hp67/68] SURV eat 'a lichen corpse' hu=1 hostiles=[]
+[s9294 t6853 d3 0:3 xl6 hp68/68] SURV eat 'a brown mold corpse' hu=1 hostiles=[]
+[s9303 t6857 d3 0:3 xl6 hp68/68] SURV eat 'a brown mold corpse' hu=1 hostiles=[]
+[s9304 t6857 d3 0:3 xl6 hp68/68] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 322, in preempt
+    next(iterator)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 68, in f
+    next(it)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/utils.py", line 183, in f
+    next(it)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 3509, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/item/inventory.py", line 876, in eat
+    raise AgentPanic('no such food is lying here')
+autoascend.exceptions.AgentPanic: no such food is lying here
+
+[s9407 t6935 d3 0:3 xl6 hp51/68] SURV eat 'an imp corpse' hu=1 hostiles=[]
+[s9487 t7002 d3 0:3 xl6 hp63/68] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(14), np.int64(28)) acts=[SPACE:95 E:84 SEARCH:82 NUM_5:74 W:37] gotos=[open_visit_search(15, 7):4 open_visit_search(7, 3):3 open_visit_search(18, 29):3]
+[s9583 t7059 d3 0:3 xl6 hp68/68] SURV hunger 1->2 food=['food ration', 'cream pie', 'apple', 'pear', 'fortune cookie'] cn=1040 gap=1267 pf=0 dv=0 rescue=0 pet=0 hostiles=[] eng=''
+[s9671 t7159 d3 0:3 xl6 hp68/68] SURV hunger 2->3 food=['food ration', 'cream pie', 'apple', 'pear', 'fortune cookie'] cn=1040 gap=1367 pf=0 dv=0 rescue=0 pet=0 hostiles=[] eng=''
+[s9672 t7159 d3 0:3 xl6 hp68/68] SURV eat 'a gunyoki' hu=3 hostiles=[]
+[s9675 t7164 d3 0:3 xl6 hp68/68] SURV hunger 3->1 food=['food ration', 'cream pie', 'apple', 'pear', 'fortune cookie'] cn=1040 gap=1372 pf=0 dv=0 rescue=0 pet=0 hostiles=[] eng=''
+[s10032 t7504 d3 0:3 xl6 hp68/68] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(10), np.int64(62)) acts=[SEARCH:94 NUM_5:93 E:71 W:37 SPACE:32] gotos=[open_visit_search(4, 38):3 _fight2_perform_action(15, 30):2 open_visit_search(15, 29):1]
+[s10130 t7546 d3 0:3 xl6 hp63/68] SURV eat 'a lichen corpse' hu=1 hostiles=[]
+[s10240 t7607 d3 0:3 xl6 hp66/68] SURV eat 'a cave spider corpse' hu=1 hostiles=[]
+[s10252 t7611 d3 0:3 xl6 hp66/68] SURV eat 'a cave spider corpse' hu=1 hostiles=[]
+[s10253 t7611 d3 0:3 xl6 hp66/68] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 322, in preempt
+    next(iterator)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 68, in f
+    next(it)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/utils.py", line 183, in f
+    next(it)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 3509, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/item/inventory.py", line 876, in eat
+    raise AgentPanic('no such food is lying here')
+autoascend.exceptions.AgentPanic: no such food is lying here
+
+[s10298 t7644 d3 0:3 xl7 hp74/74] SAFE_GRIND: the extra grind begins at XL 7, turn 7644, milestone BE_ON_FIRST_LEVEL
+[s10299 t7644 d3 0:3 xl7 hp74/74] SURV eat 'a monkey corpse' hu=1 hostiles=[]
+[s10316 t7658 d2 0:2 xl7 hp74/74] DIVE level (np.int64(0), np.int64(2)) depth 2
+[s10339 t7672 d2 0:2 xl7 hp74/74] PANIC AgentPanic: agent position do not match after "move": expected (16, 15), got (17, 16)
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 190, in f
+    next(it)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/utils.py", line 183, in f
+    next(it)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/item/inventory.py", line 2287, in buy_food
+    self._walk_to_shelf(key, y, x, jf_config.BUY_FOOD_GIVEUP)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/item/inventory.py", line 2327, in _walk_to_shelf
+    agent.go_to(y, x)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 2578, in go_to
+    self.move(y, x)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 2198, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+autoascend.exceptions.AgentPanic: agent position do not match after "move": expected (16, 15), got (17, 16)
+
+[s10370 t7683 d2 0:2 xl7 hp74/74] SHOP buying carrot for 11 (gold 57)
+[s10435 t7751 d2 0:2 xl7 hp74/74] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 48, in run
+    next(gen)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 309, in preempt
+    val = f()
+          ^^^
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/exploration_logic.py", line 520, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 2550, in go_to
+    raise AgentPanic('end point is no longer accessible')
+autoascend.exceptions.AgentPanic: end point is no longer accessible
+
+[s10689 t8002 d2 0:2 xl7 hp74/74] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(9), np.int64(29)) acts=[SEARCH:108 NUM_5:83 SPACE:70 E:56 W:55] gotos=[open_visit_search(14, 8):3 eat_corpses_from_ground(6, 45):2 _fight2_perform_action(7, 42):2]
+[s10806 t8131 d2 0:2 xl7 hp74/74] SURV hunger 1->2 food=['carrot', 'cream pie', 'apple', 'pear', 'fortune cookie'] cn=290 gap=2339 pf=0 dv=0 rescue=0 pet=0 hostiles=[] eng=''
+[s10806 t8131 d2 0:2 xl7 hp74/74] SAFE_GRIND stop at XL 7, turn 8131 (487 turns of extra grind), milestone BE_ON_FIRST_LEVEL: hunger 2 with 290 nutrition carried
+[s10806 t8131 d2 0:2 xl7 hp74/74] DIVE phase starts (milestone BE_ON_FIRST_LEVEL)
+[s10806 t8131 d2 0:2 xl7 hp74/74] EXCAL_ERRAND over: no dippable long sword left (Excalibur or none); 0 dips
+[s10806 t8131 d2 0:2 xl7 hp74/74] DIVE task descend
+[s10806 t8131 d2 0:2 xl7 hp74/74] DIVE stuck in task 'descend' on level (np.int64(0), np.int64(2)) for 4025 turns; up stairs (y,x,dist)=[(17, 62, 46)]
+You are beginning to feel hungry.  You stop searching.
+
+                                                              ----------
+                       ------                             ####-........|
+                       |....|                 -------     #   |........|
+                       |.....#                |.....|######   |........|
+                       |....|#                |......#        |....F.[.|
+                       |..%.|#                |.....|##       ----|-----
+                       |.>.(|#                |.....|####         #
+                       -.----#                |.....|#  #         #
+                        #    #                ---.---#  ##     ####
+    ------              #    ##                #######   #     #
+    |*==.|              #     ##             ######      #     #
+    |*.).|          #####      ##           ## #         ##   ##
+    |?!!.|          #           #  ------####  #          ##  #
+    |?**.|         ##        ######-....-#    ###          #  #
+    |//%.-#####----|------####  ###|....|    -.-|---       # -|----
+    ------    #-..........#       #.....|    |.....|       ##.....|
+               |.........|         |.....####......|         |<...|
+               |.....@....         ------    |.....|#########.....|
+               -----------                   -------#        ------
+
+Agent the Kunoichi             St:17 Dx:15 Co:18 In:10 Wi:10 Ch:7 Lawful S:2830
+Dlvl:2 $:46 HP:74(74) Pw:25(25) AC:1 Xp:7/671 T:8131 Hungry
+[s10807 t8132 d2 0:2 xl7 hp74/74] PROUTE reading '3 scrolls labeled LEP GEX VEN ZEA' (f): identify by reading at a quiet moment (x3)
+[s10810 t8132 d2 0:2 xl7 hp74/74] PROUTE identify pick f '3 scrolls labeled LEP GEX VEN ZEA' (value 83)
+[s10812 t8133 d2 0:2 xl7 hp74/74] PROUTE read '3 scrolls labeled LEP GEX VEN ZEA': 'What do you want to read? [fGHK or ?*] As you read the scroll, it disappears.  This is an identify scroll.   f - 2 uncursed scrolls of identify.'
+[s10812 t8133 d2 0:2 xl7 hp74/74] PROUTE reading '2 uncursed scrolls of identify' (f): identify by reading at a quiet moment (x2)
+[s10815 t8133 d2 0:2 xl7 hp74/74] PROUTE identify pick G 'a scroll labeled THARR' (value 67)
+[s10817 t8134 d2 0:2 xl7 hp74/74] PROUTE read '2 uncursed scrolls of identify': 'What do you want to read? [fGHK or ?*] As you read the scroll, it disappears.   G - an uncursed scroll of destroy armor.'
+[s10817 t8134 d2 0:2 xl7 hp74/74] PROUTE reading 'an uncursed scroll of identify' (f): identify by reading at a quiet moment (x1)
+[s10820 t8134 d2 0:2 xl7 hp74/74] PROUTE identify pick H 'a scroll labeled PRATYAVAYAH' (value 64)
+[s10822 t8135 d2 0:2 xl7 hp74/74] PROUTE read 'an uncursed scroll of identify': 'What do you want to read? [fGHK or ?*] As you read the scroll, it disappears.   H - an uncursed scroll of light.'
+[s10822 t8135 d2 0:2 xl7 hp74/74] ENGRAVE re-test with text (the grind test said nothing): 'a spiked wand'
+[s10844 t8136 d2 0:2 xl7 hp74/74] ENGRAVE 'a spiked wand': ['magic missile'] (text written: True)
+[s10846 t8137 d2 0:2 xl7 hp74/74] PANIC AgentPanic: agent position do not match after "move": expected (15, 19), got (16, 20)
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 111, in f
+    next(v2)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/dive_logic.py", line 1886, in strategy
+    self.plan_step()
+  File "/sol/d_CleverShovel_e13ed40/autoascend/dive_logic.py", line 2131, in plan_step
+    return self.descend()
+           ^^^^^^^^^^^^^^
+  File "/sol/d_CleverShovel_e13ed40/autoascend/dive_logic.py", line 7836, in descend
+    agent.go_to(y, x)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 2578, in go_to
+    self.move(y, x)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 2198, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+autoascend.exceptions.AgentPanic: agent position do not match after "move": expected (15, 19), got (16, 20)
+
+[s10866 t8137 d2 0:2 xl7 hp74/74] SURV eat 'a carrot' hu=2 hostiles=[]
+[s10868 t8138 d2 0:2 xl7 hp74/74] SURV hunger 2->1 food=['carrot', 'cream pie', 'apple', 'pear', 'fortune cookie'] cn=290 gap=2346 pf=0 dv=1 rescue=0 pet=0 hostiles=[] eng=''
+[s10880 t8146 d2 0:2 xl7 hp74/74] DIVE going down stairs at (np.int64(7), np.int64(25))
+[s10882 t8147 d3 0:3 xl7 hp74/74] DIVE level (np.int64(0), np.int64(3)) depth 3
+[s10882 t8147 d3 0:3 xl7 hp74/74] DIVE stuck in task 'descend' on level (np.int64(0), np.int64(3)) for 3567 turns; up stairs (y,x,dist)=[(3, 52, 0)]
+
+
+                                                      #
+                                                  ----|-
+  --------            --------                    |.@..|
+  |......|            |......|      ##############.....|     --------
+  |......|         ###.......-#########-------    |....| ####..>....|
+  |......-##`#######  -----.--        #|.....-#"##-....|##   |......|
+  |......|                ##          #|.....|  #%------#    |......|
+  |......|                #          ##......|  #############.......|
+  ---|----              ###          ##|...{.|  #            |......|
+     #                  #            ##|.....|  #            |......|
+     #                  #        ######-------###            --------
+     #                ###       ##    ###!#####
+     ###            --.-------- #
+       #            |.........| #
+       ##           |...[.....-##
+    ----|-       ###..........|
+    |....|      ##  |.........|
+    |+....##!###(   |...>.....|
+    ---|--          -----------
+       #
+Agent the Kunoichi             St:17 Dx:15 Co:18 In:10 Wi:10 Ch:7 Lawful S:2840
+Dlvl:3 $:46 HP:74(74) Pw:25(25) AC:1 Xp:7/671 T:8147
+[s10911 t8161 d3 0:3 xl7 hp74/74] DIVE going down stairs at (np.int64(5), np.int64(63))
+[s10916 t8162 d4 2:1 xl7 hp74/74] DIVE level (np.int64(2), np.int64(1)) depth 4
+[s10920 t8163 d4 2:1 xl7 hp74/74] CAMP: the tool-less dive stays in the Mines (levels 1-4, 8000 turns)
+[s10920 t8163 d4 2:1 xl7 hp74/74] DIVE task camp: search for dwarves
+[s10922 t8165 d4 2:1 xl7 hp74/74] SURV eat 'a gnome corpse' hu=1 hostiles=[]
+[s10928 t8176 d4 2:1 xl7 hp74/74] DIVE task hunt dwarf
+[s10931 t8179 d4 2:1 xl7 hp74/74] DIGGER dwarf in rock/tunnel at (1, 48)
+[s10933 t8180 d4 2:1 xl7 hp74/74] DIVE attacking a peaceful dwarf at (2, 47) for its digging tool (digger=True, align~50)
+[s10936 t8181 d4 2:1 xl7 hp74/74] ALIGN estimate 49 (cap 50) after -1
+[s10936 t8181 d4 2:1 xl7 hp74/74] DIVE task camp: search for dwarves
+[s10944 t8183 d4 2:1 xl7 hp74/74] DIVE killed a dwarf (3); piles to check: [(np.int64(2), np.int64(47))]
+[s10944 t8183 d4 2:1 xl7 hp74/74] ALIGN estimate 37 (cap 50) after -12
+[s10944 t8183 d4 2:1 xl7 hp74/74] DWARF died near [(2, 47)]: piles to check
+[s10944 t8183 d4 2:1 xl7 hp74/74] DIVE fetching the digging tool at (2, 47) on (np.int64(2), np.int64(1))
+[s10944 t8183 d4 2:1 xl7 hp74/74] DIVE task fetch digging tool
+[s11000 t8193 d4 2:1 xl7 hp74/74] DIVE picked up 'a pick-axe'
+[s11000 t8193 d4 2:1 xl7 hp74/74] DIVE task return to main dungeon
+[s11008 t8199 d3 0:3 xl7 hp74/74] DIVE level (np.int64(0), np.int64(3)) depth 3
+[s11008 t8199 d3 0:3 xl7 hp74/74] DIVE task descend
+[s11009 t8199 d3 0:3 xl7 hp74/74] DIVE digging down with 'a pick-axe' (try 1)
+[s11013 t8202 d3 0:3 xl7 hp74/74] DIVE digging down with 'a pick-axe (weapon in hand)' (try 2)
+[s11021 t8217 d4 0:4 xl7 hp74/74] DIVE fell through a trap door at (np.int64(5), np.int64(62)) on (np.int64(0), np.int64(3)); remembered
+[s11021 t8217 d4 0:4 xl7 hp74/74] DIVE level (np.int64(0), np.int64(4)) depth 4
+[s11106 t8266 d4 0:4 xl7 hp74/74] SURV hunger 1->2 food=['cream pie', 'apple', 'pear', 'fortune cookie'] cn=240 gap=2474 pf=0 dv=1 rescue=0 pet=0 hostiles=[] eng=''
+[s11108 t8267 d4 0:4 xl7 hp74/74] SURV eat 'a cream pie' hu=2 hostiles=[]
+[s11110 t8268 d4 0:4 xl7 hp74/74] SURV hunger 2->1 food=['cream pie', 'apple', 'pear', 'fortune cookie'] cn=240 gap=2476 pf=0 dv=1 rescue=0 pet=0 hostiles=[] eng=''
+[s11124 t8275 d4 0:4 xl7 hp74/74] GOTO path blocked at (8, 62): re-planning to (8, 61)
+[s11124 t8275 d4 0:4 xl7 hp74/74] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 48, in run
+    next(gen)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 307, in preempt
+    val = f.run()
+          ^^^^^^^
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 48, in run
+    next(gen)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/exploration_logic.py", line 520, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 2550, in go_to
+    raise AgentPanic('end point is no longer accessible')
+autoascend.exceptions.AgentPanic: end point is no longer accessible
+
+[s11148 t8285 d4 0:4 xl7 hp74/74] PANIC AgentPanic: agent position do not match after "move": expected (8, 61), got (9, 62)
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 309, in preempt
+    val = f()
+          ^^^
+  File "/sol/d_CleverShovel_e13ed40/autoascend/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/exploration_logic.py", line 520, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 2578, in go_to
+    self.move(y, x)
+  File "/sol/d_CleverShovel_e13ed40/autoascend/agent.py", line 2198, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+autoascend.exceptions.AgentPanic: agent position do not match after "move": expected (8, 61), got (9, 62)
+
+[s11261 t8367 d4 0:4 xl7 hp74/74] SURV hunger 1->2 food=['apple', 'pear', 'fortune cookie'] cn=140 gap=2575 pf=0 dv=1 rescue=0 pet=0 hostiles=[] eng=''
+[s11261 t8367 d4 0:4 xl7 hp74/74] SURV eat 'an apple' hu=2 hostiles=[]
+[s11263 t8368 d4 0:4 xl7 hp74/74] SURV hunger 2->1 food=['apple', 'pear', 'fortune cookie'] cn=140 gap=2576 pf=0 dv=1 rescue=0 pet=0 hostiles=[] eng=''
+[s11282 t8381 d4 0:4 xl7 hp74/74] DIVE digging down with 'a pick-axe' (try 1)
+[s11286 t8384 d4 0:4 xl7 hp74/74] DIVE digging down with 'a pick-axe (weapon in hand)' (try 2)
+[s11290 t8391 d4 0:4 xl7 hp74/74] SURV hunger 1->2 food=['pear', 'fortune cookie'] cn=90 gap=2599 pf=0 dv=1 rescue=0 pet=0 hostiles=[] eng=''
+[s11296 t8391 d4 0:4 xl7 hp74/74] SURV eat 'a pear' hu=2 hostiles=[]
+[s11298 t8391 d4 0:4 xl7 hp74/74] SURV hunger 2->1 food=['pear', 'fortune cookie'] cn=90 gap=2599 pf=0 dv=1 rescue=0 pet=0 hostiles=[] eng=''
+[s11298 t8391 d4 0:4 xl7 hp74/74] DIVE digging down with 'a pick-axe (weapon in hand)' (try 3)
+[s11303 t8399 d5 0:5 xl7 hp74/74] DIVE fell through a trap door at (np.int64(13), np.int64(46)) on (np.int64(0), np.int64(4)); remembered
+[s11303 t8399 d5 0:5 xl7 hp74/74] DIVE level (np.int64(0), np.int64(5)) depth 5
+[s11303 t8399 d5 0:5 xl7 hp74/74] DIVE digging down with 'a pick-axe (weapon in hand)' (try 1)
+[s11306 t8403 d5 0:5 xl7 hp74/74] DIVE digging down with 'a pick-axe (weapon in hand)' (try 2)
+[s11311 t8420 d6 0:6 xl7 hp74/74] DIVE fell through a trap door at (np.int64(16), np.int64(18)) on (np.int64(0), np.int64(5)); remembered
+[s11311 t8420 d6 0:6 xl7 hp74/74] DIVE level (np.int64(0), np.int64(6)) depth 6
+[s11311 t8420 d6 0:6 xl7 hp74/74] DIVE digging down with 'a pick-axe (weapon in hand)' (try 1)
+[s11314 t8425 d6 0:6 xl7 hp74/74] DIVE digging down with 'a pick-axe (weapon in hand)' (try 2)
+[s11319 t8439 d7 0:7 xl7 hp74/74] DIVE fell through a trap door at (np.int64(4), np.int64(30)) on (np.int64(0), np.int64(6)); remembered
+[s11319 t8439 d7 0:7 xl7 hp74/74] DIVE level (np.int64(0), np.int64(7)) depth 7
+[s11324 t8440 d7 0:7 xl7 hp70/74] DIVE Elbereth to scare ['snake'] before walking to a dig square
+[s11336 t8441 d7 0:7 xl7 hp70/74] SURV hunger 1->2 food=['fortune cookie'] cn=40 gap=2649 pf=0 dv=1 rescue=0 pet=0 hostiles=[('snake', np.int64(1))] eng=''
+[s11340 t8441 d7 0:7 xl7 hp70/74] DIVE walking to dig at (6, 3), hostiles at [('snake', 2)]
+[s11342 t8441 d7 0:7 xl7 hp70/74] DIVE digging out, hostiles at [('snake', 2)]
+[s11342 t8441 d7 0:7 xl7 hp70/74] DIVE Elbereth before digging: ['snake']
+[s11364 t8442 d7 0:7 xl7 hp70/74] DIVE digging out, hostiles at [('snake', 2)]
+[s11364 t8442 d7 0:7 xl7 hp70/74] DIVE digging down with 'a pick-axe (weapon in hand)' (try 1)
+[s11372 t8446 d7 0:7 xl7 hp71/74] DIVE Elbereth before digging in the pit: []
+[s11388 t8447 d7 0:7 xl7 hp71/74] DIVE digging down with 'a pick-axe (weapon in hand)' (try 2)
+[s11398 t8462 d8 0:8 xl7 hp74/74] DIVE fell through a trap door at (np.int64(6), np.int64(3)) on (np.int64(0), np.int64(7)); remembered
+[s11398 t8462 d8 0:8 xl7 hp74/74] DIVE level (np.int64(0), np.int64(8)) depth 8
+[s11398 t8462 d8 0:8 xl7 hp74/74] DIVE digging out, hostiles at [('sewer rat', 7), ('sewer rat', 8)]
+[s11398 t8462 d8 0:8 xl7 hp74/74] DIVE digging down with 'a pick-axe (weapon in hand)' (try 1)
+[s11401 t8463 d8 0:8 xl7 hp74/74] DIVE digging out, hostiles at [('sewer rat', 6), ('sewer rat', 8)]
+[s11401 t8463 d8 0:8 xl7 hp74/74] DIVE Elbereth before digging: ['sewer rat']
+[s11417 t8464 d8 0:8 xl7 hp74/74] DIVE digging out, hostiles at [('sewer rat', 5), ('sewer rat', 7)]
+[s11417 t8464 d8 0:8 xl7 hp74/74] DIVE digging down with 'a pick-axe (weapon in hand)' (try 1)
+[s11424 t8468 d8 0:8 xl7 hp74/74] DIVE digging out, hostiles at [('sewer rat', 1)]
+[s11424 t8468 d8 0:8 xl7 hp74/74] DIVE Elbereth before digging in the pit: ['sewer rat']
+[s11438 t8469 d8 0:8 xl7 hp74/74] DIVE digging out, hostiles at [('sewer rat', 1)]
+[s11438 t8469 d8 0:8 xl7 hp74/74] DIVE Elbereth before digging in the pit: ['sewer rat']
+[s11456 t8470 d8 0:8 xl7 hp74/74] DIVE digging out, hostiles at [('sewer rat', 2)]
+[s11456 t8470 d8 0:8 xl7 hp74/74] DIVE digging down with 'a pick-axe (weapon in hand)' (try 2)
+[s11465 t8484 d9 0:9 xl7 hp74/74] DIVE fell through a trap door at (np.int64(7), np.int64(42)) on (np.int64(0), np.int64(8)); remembered
+[s11465 t8484 d9 0:9 xl7 hp74/74] DIVE level (np.int64(0), np.int64(9)) depth 9
+[s11465 t8484 d9 0:9 xl7 hp74/74] PROUTE to the altar at (np.int64(15), np.int64(68)) to learn the BUC of 4 items
+[s11471 t8488 d9 0:9 xl7 hp74/74] PROUTE BUC test on the altar: ['a topaz ring', 'a topaz ring', '2 cyan potions', 'a black potion']
+[s11485 t8489 d9 0:9 xl7 hp74/74] PROUTE altar: ''
+[s11501 t8490 d9 0:9 xl7 hp74/74] PROUTE altar pickup: took 4 of 4 stacks back
+[s11501 t8490 d9 0:9 xl7 hp74/74] PROUTE putting on 'an uncursed topaz ring': wear test (a levitation ring names itself)
+[s11504 t8491 d9 0:9 xl7 hp74/74] PROUTE put on: 'What do you want to put on? [gi or ?*] Which ring-finger, Right or Left? [rl] g - an uncursed topaz ring (on left hand).'
+[s11505 t8491 d9 0:9 xl7 hp74/74] PROUTE remove 'an uncursed topaz ring (on left hand)': 'You were wearing an uncursed topaz ring (on left hand).'
+[s11506 t8492 d9 0:9 xl7 hp74/74] DIVE digging down with 'a pick-axe (weapon in hand)' (try 1)
+[s11515 t8496 d9 0:9 xl7 hp74/74] SURV eat 'a fortune cookie' hu=2 hostiles=[]
+[s11519 t8497 d9 0:9 xl7 hp74/74] DIVE digging down with 'a pick-axe (weapon in hand)' (try 2)
+[s11527 t8514 d10 0:10 xl7 hp74/74] SESSILE yellow mold at (7, 44) remembered
+[s11527 t8514 d10 0:10 xl7 hp74/74] SESSILE gelatinous cube at (14, 46) remembered
+[s11527 t8514 d10 0:10 xl7 hp74/74] STATUS milestone=BE_ON_FIRST_LEVEL diving=True hunger=2 pos=(np.int64(11), np.int64(31)) acts=[SPACE:127 SEARCH:102 E:52 SW:46 W:42] gotos=[open_visit_search(12, 42):6 open_visit_search(8, 61):4 descend(7, 25):3]
+[s11527 t8514 d10 0:10 xl7 hp74/74] DIVE fell through a trap door at (np.int64(14), np.int64(67)) on (np.int64(0), np.int64(9)); remembered
+[s11527 t8514 d10 0:10 xl7 hp74/74] DIVE level (np.int64(0), np.int64(10)) depth 10
+[s11527 t8514 d10 0:10 xl7 hp74/74] POWER kit at depth 10 XL 7 AC 1: P(passage)=0.07 certain=0 steps=2 scare_known=0 P(scare among candidates)=0.05 door_tools=0
+[s11527 t8514 d10 0:10 xl7 hp74/74] DIVE digging out, hostiles at [('yellow mold', -1), ('gelatinous cube', -1), ('large dog', 1)]
+[s11527 t8514 d10 0:10 xl7 hp74/74] DIVE Elbereth before digging: ['large dog', 'dwarf', 'cockatrice', 'paper golem', 'gnome lord', 'rope golem']
+[s11545 t8515 d10 0:10 xl7 hp70/74] DIVE digging out, hostiles at [('yellow mold', -1), ('gelatinous cube', -1), ('large dog', 1)]
+[s11545 t8515 d10 0:10 xl7 hp70/74] DIVE Elbereth before digging: ['large dog', 'paper golem', 'dwarf', 'gnome lord', 'cockatrice', 'rope golem', 'rust monster']
+[s11564 t8516 d10 0:10 xl7 hp68/74] RANGED hit: holds and Elbereth waits off for 8 turns
+[s11564 t8516 d10 0:10 xl7 hp68/74] DIG-SHOT at (11, 31) pit=False monsters=[('large dog', 9, 32), ('paper golem', 12, 33), ('dwarf', 10, 34), ('gnome lord', 14, 31), ('rope golem', 7, 31), ('cockatrice', 6, 29), ('rust monster', 16, 31)] stairs=[] origin=(5, 23) chars=['  ...............', '  ....c..........', "  ......'........", '  ...............', '  .......d.......', '  .........h.....', '  ......@........', "  ........'......", '  ...............', '  ......G........', '  ...............', '  ......R(.......', '  !..............'] msg='Something is written here in the dust.  You read: "Elbereth". You see here 2 daggers.'
+[s11564 t8516 d10 0:10 xl7 hp68/74] DIVE digging out, hostiles at [('yellow mold', -1), ('gelatinous cube', -1), ('large dog', 2)]
+[s11564 t8516 d10 0:10 xl7 hp68/74] DIVE digging down with 'a pick-axe (weapon in hand)' (try 1)
+[s11574 t8516 d10 0:10 xl7 hp66/74] DIG-SHOT at (11, 31) pit=False monsters=[('paper golem', 11, 32), ('gnome lord', 13, 31), ('rope golem', 8, 31), ('large dog', 8, 33), ('dwarf', 10, 34), ('rust monster', 15, 31), ('cockatrice', 6, 29), ('yeti', 11, 39)] stairs=[] origin=(5, 23) chars=['  ...............', '  ....c..........', '  ...............', "  ......'.d......", '  ...............', '  .........h.....', "  ......@'......Y", '  ...............', '  ......G........', '  ...............', '  ......R........', '  .......(.......', '  !..............'] msg='You start digging downward.  The paper golem turns to flee. The gnome lord throws 2 daggers!  You are hit by the 1st dagger. You stop digging.  The 2nd dagger misses you.'
+[s11574 t8516 d10 0:10 xl7 hp66/74] DIVE digging out, hostiles at [('yellow mold', -1), ('gelatinous cube', -1), ('paper golem', 1)]
+[s11574 t8516 d10 0:10 xl7 hp66/74] DIVE digging down with 'a pick-axe (weapon in hand)' (try 1)
+[s11588 t8517 d10 0:10 xl7 hp58/74] SESSILE gelatinous cube at (13, 45) remembered
+[s11588 t8517 d10 0:10 xl7 hp58/74] DIG-SHOT at (11, 31) pit=False monsters=[('rope golem', 9, 31), ('dwarf', 11, 33), ('paper golem', 12, 33), ('rust monster', 13, 30), ('gnome lord', 13, 31), ('cockatrice', 7, 30), ('large dog', 7, 34), ('yeti', 11, 38)] stairs=[] origin=(5, 23) chars=['  ...............', '  ...............', '  .....c...d.....', '  ...............', "  ......'........", '  ...............', '  ......@.h....Y.', "  ........'......", '  .....RG........', '  ...............', '  ...............', '  .......(.......', '  !..............'] msg='You continue digging downward.  The dwarf zaps a spiked wand! You stop digging.  The magic missile hits you! The gnome lord wields a dagger!'
+[s11588 t8517 d10 0:10 xl7 hp58/74] DIVE digging out, hostiles at [('yellow mold', -1), ('gelatinous cube', -1), ('rope golem', 2)]
+[s11588 t8517 d10 0:10 xl7 hp58/74] DIVE digging down with 'a pick-axe (weapon in hand)' (try 1)
+[s11599 t8521 d10 0:10 xl7 hp59/74] DIG-SHOT at (11, 31) pit=True monsters=[('yeti', 11, 32)] stairs=[] origin=(5, 23) chars=['  ...............', '  ...............', '  ...............', '  ...............', '  ...............', '  ...............', '  ......@Y.......', '  ...............', '  ...............', '  ...............', '  ...............', '  .......(.......', '  !..............'] msg='You continue digging downward.  The rust monster turns to flee. The paper golem turns to flee. The dwarf wields a dwarvish short sword! The gnome lord turns to flee.  The large dog turns to flee. The rope golem turns to flee.  You dig a pit in the floor.'
+[s11599 t8521 d10 0:10 xl7 hp59/74] DIVE digging out, hostiles at [('yeti', 1)]
+[s11599 t8521 d10 0:10 xl7 hp59/74] DIVE Elbereth before digging in the pit: ['yeti']
+[s11619 t8522 d10 0:10 xl7 hp59/74] DIG-SHOT at (11, 31) pit=True monsters=[('paper golem', 12, 31), ('dwarf', 10, 32)] stairs=[] origin=(5, 23) chars=['  ...............', '  ...............', '  ...............', '  ...............', '  ...............', '  .......h.......', '  ......@........', "  ......'........", '  ...............', '  ...............', '  ...............', '  .......(.......', '  !..............'] msg='There is a pit here.  Something is written here in the dust. You read: "Elbereth".  You see here 4 daggers.'
+[s11619 t8522 d10 0:10 xl7 hp59/74] DIVE digging out, hostiles at [('paper golem', 1), ('dwarf', 2)]
+[s11619 t8522 d10 0:10 xl7 hp59/74] DIVE digging down with 'a pick-axe (weapon in hand)' (try 2)
+[s11630 t8523 d10 0:10 xl7 hp53/74] DIG-SHOT at (11, 31) pit=True monsters=[('ice vortex', 11, 30)] stairs=[] origin=(5, 23) chars=['  ...............', '  ...............', '  ...............', '  ...............', '  ...............', '  ...............', '  .....v@........', '  ...............', '  ...............', '  ...............', '  ...............', '  .......(.......', '  !..............'] msg='You start digging downward.  The rust monster turns to flee. The large dog turns to flee.  You hear a nearby zap. The magic missile hits you!  You stop digging. The ice vortex turns to flee.'
+[s11630 t8523 d10 0:10 xl7 hp53/74] DIVE digging out, hostiles at [('ice vortex', 1)]
+[s11630 t8523 d10 0:10 xl7 hp53/74] DIVE digging down with 'a pick-axe (weapon in hand)' (try 2)
+[s11640 t8525 d10 0:10 xl7 hp54/74] DIG-SHOT at (11, 31) pit=True monsters=[('cockatrice', 10, 31)] stairs=[] origin=(5, 23) chars=['  ...............', '  ...............', '  ...............', '  ...............', '  ...............', '  ......c........', '  ......@........', '  ...............', '  ...............', '  ...............', '  ...............', '  .......(.......', '  !..............'] msg='You continue digging downward.  A dagger misses you. You stop digging.  The large dog turns to flee. The cockatrice turns to flee.'
+[s11640 t8525 d10 0:10 xl7 hp54/74] DIVE digging out, hostiles at [('cockatrice', 1)]
+[s11640 t8525 d10 0:10 xl7 hp54/74] DIVE digging down with 'a pick-axe (weapon in hand)' (try 2)
+[s11650 t8526 d10 0:10 xl7 hp44/74] DIG-SHOT at (11, 31) pit=True monsters=[('ice vortex', 12, 30)] stairs=[] origin=(5, 23) chars=['  ...............', '  ...............', '  ...............', '  ...............', '  ...............', '  ...............', '  ......@........', '  .....v.........', '  ...............', '  ...............', '  ...............', '  .......(.......', '  !..............'] msg='You continue digging downward.  You hear a nearby zap. The magic missile hits you!  You stop digging. The magic missile hits it.  The ice vortex turns to flee.'
+[s11650 t8526 d10 0:10 xl7 hp44/74] DIVE digging out, hostiles at [('ice vortex', 2)]
+[s11650 t8526 d10 0:10 xl7 hp44/74] DIVE digging down with 'a pick-axe (weapon in hand)' (try 2)
+[s11660 t8527 d10 0:10 xl7 hp39/74] DIG-SHOT at (11, 31) pit=True monsters=[('paper golem', 12, 32)] stairs=[] origin=(5, 23) chars=['  ...............', '  ...............', '  ...............', '  ...............', '  ...............', '  ...............', '  ......@........', "  .......'.......", '  ...............', '  ...............', '  ...............', '  .......(.......', '  !..............'] msg='You continue digging downward.  The paper golem turns to flee. You hear a distant zap.  The magic missile hits you! You stop digging.  The magic missile hits the ice vortex.'
+[s11660 t8527 d10 0:10 xl7 hp39/74] DIVE digging out, hostiles at [('paper golem', 2)]
+[s11660 t8527 d10 0:10 xl7 hp39/74] DIVE digging down with 'a pick-axe (weapon in hand)' (try 2)
+[s11675 t8536 d10 0:10 xl7 hp33/74] RANGED hit: holds and Elbereth waits off for 8 turns
+[s11675 t8536 d10 0:10 xl7 hp33/74] DIG-SHOT at (11, 31) pit=True monsters=[('cockatrice', 10, 31)] stairs=[] origin=(5, 23) chars=['  ...............', '  ...............', '  ...............', '  ...............', '  ...............', '  ......c........', '  ......@........', '  ...............', '  ...............', '  ...............', '  ...............', '  .......(.......', '  !..............'] msg='You continue digging downward.  The gnome lord turns to flee. The yeti turns to flee.  The cockatrice turns to flee. The leocrotta turns to flee.  The rope golem turns to flee. The large dog turns to flee.  The newt turns to flee.  Crash! The yeti turns to flee.  The cockatrice turns to flee. You hear a nearby zap.  The magic missile hits the cockatrice! The magic missile hits you!  You stop digging. You hear a chugging sound.'
+[s11675 t8536 d10 0:10 xl7 hp33/74] DIVE digging out, hostiles at [('cockatrice', 1)]
+[s11675 t8536 d10 0:10 xl7 hp33/74] DIVE digging down with 'a pick-axe (weapon in hand)' (try 2)
+[s11689 t8539 d10 0:10 xl7 hp33/74] DIG-SHOT at (11, 31) pit=True monsters=[('newt', 11, 30), ('dwarf', 10, 30), ('newt', 12, 30)] stairs=[] origin=(5, 23) chars=['  ...............', '  ...............', '  ...............', '  ...............', '  ...............', '  .....h)........', '  .....:@........', '  .....:.........', '  ...............', '  ...............', '  ...............', '  .......(.......', '  !..............'] msg='You continue digging downward.  The stout spear hits the cockatrice. The dwarf turns to flee.  The ice vortex turns to flee. The newt turns to flee.  The newt turns to flee.  It is hit! It is missed.  An elven arrow misses you.  You stop digging.'
+[s11689 t8539 d10 0:10 xl7 hp33/74] DIVE digging out, hostiles at [('newt', 1), ('dwarf', 2), ('newt', 2)]
+[s11689 t8539 d10 0:10 xl7 hp33/74] DIVE digging down with 'a pick-axe (weapon in hand)' (try 2)
+[s11704 t8540 d10 0:10 xl7 hp34/74] DIG-SHOT at (11, 31) pit=True monsters=[('Woodland-elf', 11, 32), ('Woodland-elf', 10, 32)] stairs=[] origin=(5, 23) chars=['  ...............', '  ...............', '  ...............', '  ...............', '  ...............', '  ......)@.......', '  ......@@.......', '  ...............', '  ...............', '  ...............', '  ...............', '  .......(.......', '  !..............'] msg='You continue digging downward.  You stop digging. The runed arrow hits the Woodland-elf. The runed arrow hits the Woodland-elf. The runed arrow hits the Woodland-elf. The runed arrow hits the Woodland-elf.'
+[s11712 t8540 d10 0:10 xl7 hp34/74] DIG-SHOT at (11, 31) pit=True monsters=[('Woodland-elf', 11, 32), ('Woodland-elf', 10, 32)] stairs=[] origin=(5, 23) chars=['  ...............', '  ...............', '  ...............', '  ...............', '  ...............', '  ......)@.......', '  ......@@.......', '  ...............', '  ...............', '  ...............', '  ...............', '  .......(.......', '  !..............'] msg=''
+[s11712 t8540 d10 0:10 xl7 hp34/74] PIT fight: in a pit beside an attacker, no stepping out
+[s11723 t8541 d10 0:10 xl7 hp23/74] DIG-SHOT at (11, 31) pit=True monsters=[('Woodland-elf', 11, 32), ('Woodland-elf', 10, 32), ('large dog', 12, 32)] stairs=[] origin=(5, 23) chars=['  ...............', '  ...............', '  ...............', '  ...............', '  ...............', '  ......)@.......', '  ......@@.......', '  .......d.......', '  ...............', '  ...............', '  ...............', '  .......(.......', '  !..............'] msg='a - a +0 katana (weapon in hand).  The large dog turns to flee. The Woodland-elf hits!  The Woodland-elf hits!'
+[s11723 t8541 d10 0:10 xl7 hp23/74] DIG-SHOT at (11, 31) pit=True monsters=[('Woodland-elf', 11, 32), ('Woodland-elf', 10, 32), ('large dog', 12, 32)] stairs=[] origin=(5, 23) chars=['  ...............', '  ...............', '  ...............', '  ...............', '  ...............', '  ......)@.......', '  ......@@.......', '  .......d.......', '  ...............', '  ...............', '  ...............', '  .......(.......', '  !..............'] msg='a - a +0 katana (weapon in hand).  The large dog turns to flee. The Woodland-elf hits!  The Woodland-elf hits!'
+[s11732 t8542 d10 0:10 xl7 hp16/74] KNOWN_ITEMS zap (known magic missile at the leocrotta): burst, hp 16/74, lost 18 in 2 turns, next to us ['leocrotta', 'rust monster', 'Woodland-elf', 'Woodland-elf'], depth 10 (use 1)
