@@ -1,0 +1,1443 @@
+9325 t25374 d1 0:1 xl8 hp53/55] SESSILE floating eye at (10, 35) remembered
+[s59333 t25379 d1 0:1 xl8 hp54/55] ENGRAVE re-test with text (the grind test said nothing): 'a jeweled wand'
+[s59339 t25380 d1 0:1 xl8 hp55/55] SESSILE floating eye at (8, 35) remembered
+[s59367 t25385 d1 0:1 xl8 hp55/55] ENGRAVE 'a jeweled wand': ['slow monster'] (text written: True)
+[s59371 t25386 d1 0:1 xl8 hp55/55] SESSILE red mold at (8, 8) remembered
+[s59421 t25403 d1 0:1 xl8 hp55/55] SESSILE floating eye at (8, 33) remembered
+[s59438 t25412 d1 0:1 xl8 hp55/55] SESSILE yellow mold at (13, 9) remembered
+[s59517 t25455 d1 0:1 xl8 hp55/55] SESSILE floating eye at (7, 30) remembered
+[s59578 t25495 d1 0:1 xl8 hp55/55] DIVE stairs cut off: walking through known traps
+[s59580 t25497 d1 0:1 xl8 hp55/55] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/hed/nhbot/strategy.py", line 190, in f
+    next(it)
+  File "/sol/hed/nhbot/strategy.py", line 165, in f
+    next(gen)
+  File "/sol/hed/nhbot/strategy.py", line 111, in f
+    next(v2)
+  File "/sol/hed/nhbot/utils.py", line 134, in f
+    next(it)
+  File "/sol/hed/nhbot/item/inventory.py", line 2081, in go_to_item_to_pickup
+    self.agent.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 0, 255), is_path=True))
+  File "/sol/hed/nhbot/agent.py", line 2503, in go_to
+    raise AgentPanic('end point is no longer accessible')
+nhbot.exceptions.AgentPanic: end point is no longer accessible
+
+[s59597 t25500 d1 0:1 xl8 hp55/55] STATUS milestone=BE_ON_FIRST_LEVEL diving=True hunger=1 pos=(np.int64(6), np.int64(10)) acts=[SPACE:260 LOOK:98 WHATIS:90 MOVEFAR:90 SEARCH:86] gotos=[_fight2_perform_action(8, 8):18 open_visit_search(10, 35):6 open_visit_search(6, 40):5]
+[s59633 t25510 d1 0:1 xl8 hp55/55] FIGHT stall of 48 turns ended (gap): ['floating eye', 'leprechaun', 'red mold']
+[s59654 t25522 d1 0:1 xl8 hp55/55] SESSILE floating eye at (7, 18) remembered
+[s59660 t25528 d1 0:1 xl8 hp55/55] SESSILE floating eye at (7, 25) remembered
+[s59664 t25529 d1 0:1 xl8 hp55/55] SESSILE floating eye at (6, 31) remembered
+[s59665 t25530 d1 0:1 xl8 hp55/55] SESSILE floating eye at (8, 30) remembered
+[s59670 t25532 d1 0:1 xl8 hp55/55] SESSILE floating eye at (8, 19) remembered
+[s59675 t25534 d1 0:1 xl8 hp55/55] SESSILE floating eye at (7, 24) remembered
+[s59680 t25536 d1 0:1 xl8 hp55/55] SESSILE floating eye at (6, 23) remembered
+[s59682 t25538 d1 0:1 xl8 hp55/55] SESSILE floating eye at (6, 30) remembered
+[s59687 t25540 d1 0:1 xl8 hp55/55] SESSILE floating eye at (5, 24) remembered
+[s59698 t25545 d1 0:1 xl8 hp55/55] SESSILE floating eye at (6, 34) remembered
+[s59698 t25545 d1 0:1 xl8 hp55/55] PANIC AgentPanic: Monster on a next tile when moving: (6,34)
+Traceback (most recent call last):
+  File "/sol/hed/nhbot/strategy.py", line 111, in f
+    next(v2)
+  File "/sol/hed/nhbot/dive_logic.py", line 1717, in strategy
+    self.plan_step()
+  File "/sol/hed/nhbot/dive_logic.py", line 1914, in plan_step
+    return self.descend()
+           ^^^^^^^^^^^^^^
+  File "/sol/hed/nhbot/dive_logic.py", line 6628, in descend
+    agent.go_to(y, x)
+  File "/sol/hed/nhbot/agent.py", line 2531, in go_to
+    self.move(y, x)
+  File "/sol/hed/nhbot/agent.py", line 2052, in move
+    raise AgentPanic(f'Monster on a next tile when moving: ({expected_y},{expected_x})')
+nhbot.exceptions.AgentPanic: Monster on a next tile when moving: (6,34)
+
+[s59719 t25552 d1 0:1 xl8 hp55/55] SESSILE floating eye at (6, 32) remembered
+[s59721 t25554 d1 0:1 xl8 hp55/55] SESSILE floating eye at (7, 29) remembered
+[s59725 t25555 d1 0:1 xl8 hp55/55] SESSILE floating eye at (8, 33) remembered
+[s59729 t25556 d1 0:1 xl8 hp55/55] SESSILE floating eye at (5, 31) remembered
+[s59734 t25558 d1 0:1 xl8 hp55/55] SESSILE floating eye at (8, 29) remembered
+[s59734 t25558 d1 0:1 xl8 hp55/55] SESSILE floating eye at (8, 34) remembered
+[s59738 t25559 d1 0:1 xl8 hp55/55] PANIC AgentPanic: Monster on a next tile when moving: (8,33)
+Traceback (most recent call last):
+  File "/sol/hed/nhbot/strategy.py", line 111, in f
+    next(v2)
+  File "/sol/hed/nhbot/dive_logic.py", line 1717, in strategy
+    self.plan_step()
+  File "/sol/hed/nhbot/dive_logic.py", line 1914, in plan_step
+    return self.descend()
+           ^^^^^^^^^^^^^^
+  File "/sol/hed/nhbot/dive_logic.py", line 6628, in descend
+    agent.go_to(y, x)
+  File "/sol/hed/nhbot/agent.py", line 2531, in go_to
+    self.move(y, x)
+  File "/sol/hed/nhbot/agent.py", line 2052, in move
+    raise AgentPanic(f'Monster on a next tile when moving: ({expected_y},{expected_x})')
+nhbot.exceptions.AgentPanic: Monster on a next tile when moving: (8,33)
+
+[s59752 t25559 d1 0:1 xl8 hp55/55] DIVE stairs cut off: walking through known traps
+[s59754 t25561 d1 0:1 xl8 hp55/55] SESSILE floating eye at (8, 30) remembered
+[s59758 t25562 d1 0:1 xl8 hp55/55] SESSILE floating eye at (6, 25) remembered
+[s59766 t25564 d1 0:1 xl8 hp55/55] SESSILE floating eye at (7, 29) remembered
+[s59774 t25572 d1 0:1 xl8 hp55/55] SESSILE floating eye at (7, 28) remembered
+[s59774 t25572 d1 0:1 xl8 hp55/55] SESSILE floating eye at (8, 31) remembered
+[s59775 t25573 d1 0:1 xl8 hp55/55] SESSILE floating eye at (8, 28) remembered
+[s59779 t25574 d1 0:1 xl8 hp55/55] SESSILE floating eye at (7, 21) remembered
+[s59779 t25574 d1 0:1 xl8 hp55/55] PANIC AgentPanic: Monster on a next tile when moving: (7,21)
+Traceback (most recent call last):
+  File "/sol/hed/nhbot/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/hed/nhbot/agent.py", line 300, in preempt
+    val = f()
+          ^^^
+  File "/sol/hed/nhbot/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/hed/nhbot/exploration_logic.py", line 523, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/hed/nhbot/agent.py", line 2531, in go_to
+    self.move(y, x)
+  File "/sol/hed/nhbot/agent.py", line 2052, in move
+    raise AgentPanic(f'Monster on a next tile when moving: ({expected_y},{expected_x})')
+nhbot.exceptions.AgentPanic: Monster on a next tile when moving: (7,21)
+
+[s59803 t25581 d1 0:1 xl8 hp55/55] SESSILE floating eye at (7, 25) remembered
+[s59809 t25587 d1 0:1 xl8 hp55/55] SESSILE floating eye at (7, 27) remembered
+[s59821 t25599 d1 0:1 xl8 hp55/55] SESSILE floating eye at (6, 26) remembered
+[s59821 t25599 d1 0:1 xl8 hp55/55] SESSILE floating eye at (7, 20) remembered
+[s59821 t25599 d1 0:1 xl8 hp55/55] SESSILE floating eye at (7, 24) remembered
+[s59821 t25599 d1 0:1 xl8 hp55/55] PANIC AgentPanic: Monster on a next tile when moving: (7,20)
+Traceback (most recent call last):
+  File "/sol/hed/nhbot/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/hed/nhbot/agent.py", line 300, in preempt
+    val = f()
+          ^^^
+  File "/sol/hed/nhbot/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/hed/nhbot/exploration_logic.py", line 523, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/hed/nhbot/agent.py", line 2531, in go_to
+    self.move(y, x)
+  File "/sol/hed/nhbot/agent.py", line 2052, in move
+    raise AgentPanic(f'Monster on a next tile when moving: ({expected_y},{expected_x})')
+nhbot.exceptions.AgentPanic: Monster on a next tile when moving: (7,20)
+
+[s59858 t25613 d1 0:1 xl8 hp55/55] SESSILE floating eye at (7, 19) remembered
+[s59879 t25634 d1 0:1 xl8 hp55/55] SESSILE floating eye at (7, 26) remembered
+[s59885 t25637 d1 0:1 xl8 hp55/55] SESSILE floating eye at (7, 17) remembered
+[s59886 t25638 d1 0:1 xl8 hp55/55] SESSILE floating eye at (7, 16) remembered
+[s59895 t25646 d1 0:1 xl8 hp55/55] PANIC AgentPanic: agent position do not match after "move": expected (9, 5), got (8, 6)
+Traceback (most recent call last):
+  File "/sol/hed/nhbot/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/hed/nhbot/agent.py", line 300, in preempt
+    val = f()
+          ^^^
+  File "/sol/hed/nhbot/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/hed/nhbot/exploration_logic.py", line 523, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/hed/nhbot/agent.py", line 2531, in go_to
+    self.move(y, x)
+  File "/sol/hed/nhbot/agent.py", line 2084, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+nhbot.exceptions.AgentPanic: agent position do not match after "move": expected (9, 5), got (8, 6)
+
+[s59909 t25646 d1 0:1 xl8 hp55/55] DIVE stairs cut off: walking through known traps
+[s59922 t25656 d1 0:1 xl8 hp55/55] SESSILE floating eye at (7, 15) remembered
+[s59924 t25658 d1 0:1 xl8 hp55/55] GOTO path blocked at (6, 8): re-planning to (5, 9)
+[s59928 t25659 d1 0:1 xl8 hp55/55] GOTO path blocked at (5, 8): re-planning to (5, 9)
+[s59929 t25660 d1 0:1 xl8 hp55/55] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/hed/nhbot/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/hed/nhbot/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/hed/nhbot/agent.py", line 300, in preempt
+    val = f()
+          ^^^
+  File "/sol/hed/nhbot/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/hed/nhbot/exploration_logic.py", line 523, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/hed/nhbot/agent.py", line 2503, in go_to
+    raise AgentPanic('end point is no longer accessible')
+nhbot.exceptions.AgentPanic: end point is no longer accessible
+
+[s59971 t25670 d1 0:1 xl8 hp55/55] GOTO path blocked at (14, 14): re-planning to (12, 15)
+[s59971 t25670 d1 0:1 xl8 hp55/55] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/hed/nhbot/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/hed/nhbot/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/hed/nhbot/agent.py", line 300, in preempt
+    val = f()
+          ^^^
+  File "/sol/hed/nhbot/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/hed/nhbot/exploration_logic.py", line 523, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/hed/nhbot/agent.py", line 2503, in go_to
+    raise AgentPanic('end point is no longer accessible')
+nhbot.exceptions.AgentPanic: end point is no longer accessible
+
+[s59997 t25676 d1 0:1 xl8 hp55/55] SESSILE floating eye at (6, 13) remembered
+[s60006 t25685 d1 0:1 xl8 hp55/55] SESSILE floating eye at (5, 12) remembered
+[s60010 t25686 d1 0:1 xl8 hp55/55] SESSILE floating eye at (8, 17) remembered
+[s60025 t25695 d1 0:1 xl8 hp55/55] GOTO path blocked at (14, 14): re-planning to (12, 15)
+[s60044 t25703 d1 0:1 xl8 hp55/55] DIVE stairs cut off: walking through known traps
+[s60056 t25715 d1 0:1 xl8 hp55/55] SESSILE floating eye at (10, 21) remembered
+[s60056 t25715 d1 0:1 xl8 hp55/55] PANIC AgentPanic: Monster on a next tile when moving: (10,21)
+Traceback (most recent call last):
+  File "/sol/hed/nhbot/strategy.py", line 111, in f
+    next(v2)
+  File "/sol/hed/nhbot/dive_logic.py", line 1717, in strategy
+    self.plan_step()
+  File "/sol/hed/nhbot/dive_logic.py", line 1914, in plan_step
+    return self.descend()
+           ^^^^^^^^^^^^^^
+  File "/sol/hed/nhbot/dive_logic.py", line 6628, in descend
+    agent.go_to(y, x)
+  File "/sol/hed/nhbot/agent.py", line 2531, in go_to
+    self.move(y, x)
+  File "/sol/hed/nhbot/agent.py", line 2052, in move
+    raise AgentPanic(f'Monster on a next tile when moving: ({expected_y},{expected_x})')
+nhbot.exceptions.AgentPanic: Monster on a next tile when moving: (10,21)
+
+[s60078 t25720 d1 0:1 xl8 hp55/55] GOTO path blocked at (15, 15): re-planning to (12, 10)
+[s60109 t25745 d1 0:1 xl8 hp55/55] SESSILE floating eye at (14, 17) remembered
+[s60128 t25760 d1 0:1 xl8 hp55/55] FEYE_TELE telepathic already: not meleeing the floating eye
+[s60142 t25768 d1 0:1 xl8 hp55/55] DIVE stairs cut off: walking through known traps
+[s60148 t25774 d1 0:1 xl8 hp55/55] SESSILE floating eye at (14, 16) remembered
+[s60185 t25791 d1 0:1 xl8 hp55/55] SESSILE floating eye at (13, 11) remembered
+[s60192 t25795 d1 0:1 xl8 hp55/55] SESSILE floating eye at (14, 15) remembered
+[s60198 t25798 d1 0:1 xl8 hp55/55] SESSILE floating eye at (13, 15) remembered
+[s60198 t25798 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s60217 t25800 d1 0:1 xl8 hp55/55] FEYE_TELE telepathic already: not meleeing the floating eye
+[s60247 t25808 d1 0:1 xl8 hp55/55] SESSILE floating eye at (15, 16) remembered
+[s60255 t25810 d1 0:1 xl8 hp55/55] SESSILE floating eye at (16, 17) remembered
+[s60292 t25817 d1 0:1 xl8 hp55/55] SESSILE floating eye at (14, 12) remembered
+[s60293 t25818 d1 0:1 xl8 hp55/55] SESSILE floating eye at (16, 16) remembered
+[s60310 t25829 d1 0:1 xl8 hp55/55] DIVE stairs cut off: walking through known traps
+[s60315 t25830 d1 0:1 xl8 hp55/55] SESSILE floating eye at (14, 13) remembered
+[s60353 t25844 d1 0:1 xl8 hp55/55] FIGHT stall of 25 turns ended (contact): ['floating eye', 'leprechaun', 'yellow mold']
+[s60357 t25845 d1 0:1 xl8 hp55/55] SESSILE floating eye at (15, 15) remembered
+[s60361 t25846 d1 0:1 xl8 hp55/55] SESSILE floating eye at (14, 16) remembered
+[s60362 t25847 d1 0:1 xl8 hp55/55] SESSILE floating eye at (13, 13) remembered
+[s60366 t25851 d1 0:1 xl8 hp55/55] SESSILE floating eye at (14, 15) remembered
+[s60373 t25855 d1 0:1 xl8 hp55/55] SESSILE floating eye at (9, 10) remembered
+[s60382 t25858 d1 0:1 xl8 hp55/55] PANIC AgentPanic: Monster on a next tile when moving: (9,10)
+Traceback (most recent call last):
+  File "/sol/hed/nhbot/strategy.py", line 111, in f
+    next(v2)
+  File "/sol/hed/nhbot/dive_logic.py", line 1717, in strategy
+    self.plan_step()
+  File "/sol/hed/nhbot/dive_logic.py", line 1914, in plan_step
+    return self.descend()
+           ^^^^^^^^^^^^^^
+  File "/sol/hed/nhbot/dive_logic.py", line 6628, in descend
+    agent.go_to(y, x)
+  File "/sol/hed/nhbot/agent.py", line 2531, in go_to
+    self.move(y, x)
+  File "/sol/hed/nhbot/agent.py", line 2052, in move
+    raise AgentPanic(f'Monster on a next tile when moving: ({expected_y},{expected_x})')
+nhbot.exceptions.AgentPanic: Monster on a next tile when moving: (9,10)
+
+[s60405 t25861 d1 0:1 xl8 hp55/55] GOTO path blocked at (14, 12): re-planning to (14, 14)
+[s60409 t25862 d1 0:1 xl8 hp55/55] GOTO path blocked at (15, 12): re-planning to (14, 14)
+[s60443 t25870 d1 0:1 xl8 hp55/55] SESSILE floating eye at (14, 14) remembered
+[s60455 t25873 d1 0:1 xl8 hp55/55] SESSILE floating eye at (14, 13) remembered
+[s60467 t25876 d1 0:1 xl8 hp55/55] SESSILE floating eye at (15, 14) remembered
+[s60480 t25880 d1 0:1 xl8 hp55/55] SESSILE floating eye at (16, 14) remembered
+[s60485 t25885 d1 0:1 xl8 hp55/55] DIVE stairs cut off: walking through known traps
+[s60488 t25891 d1 0:1 xl8 hp55/55] SESSILE floating eye at (15, 12) remembered
+[s60488 t25891 d1 0:1 xl8 hp55/55] SESSILE floating eye at (15, 13) remembered
+[s60489 t25892 d1 0:1 xl8 hp55/55] SESSILE floating eye at (16, 13) remembered
+[s60495 t25898 d1 0:1 xl8 hp55/55] SESSILE floating eye at (13, 11) remembered
+[s60498 t25904 d1 0:1 xl8 hp55/55] SESSILE floating eye at (14, 10) remembered
+[s60506 t25909 d1 0:1 xl8 hp55/55] SESSILE floating eye at (14, 12) remembered
+[s60506 t25909 d1 0:1 xl8 hp55/55] SESSILE floating eye at (15, 11) remembered
+[s60510 t25910 d1 0:1 xl8 hp55/55] SESSILE floating eye at (8, 10) remembered
+[s60515 t25915 d1 0:1 xl8 hp55/55] SESSILE floating eye at (14, 11) remembered
+[s60521 t25927 d1 0:1 xl8 hp55/55] SESSILE floating eye at (16, 12) remembered
+[s60530 t25939 d1 0:1 xl8 hp55/55] SESSILE floating eye at (15, 10) remembered
+[s60531 t25940 d1 0:1 xl8 hp55/55] SESSILE floating eye at (16, 11) remembered
+[s60534 t25946 d1 0:1 xl8 hp55/55] SESSILE floating eye at (14, 10) remembered
+[s60542 t25957 d1 0:1 xl8 hp55/55] SESSILE floating eye at (7, 10) remembered
+[s60542 t25957 d1 0:1 xl8 hp55/55] SESSILE floating eye at (16, 10) remembered
+[s60563 t25981 d1 0:1 xl8 hp55/55] SESSILE floating eye at (7, 11) remembered
+[s60565 t25986 d1 0:1 xl8 hp55/55] SESSILE floating eye at (15, 9) remembered
+[s60571 t25986 d1 0:1 xl8 hp55/55] FEYE_TELE telepathic already: not meleeing the floating eye
+[s60571 t25986 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s60607 t25992 d1 0:1 xl8 hp55/55] DIVE stairs cut off: walking through known traps
+[s60616 t26003 d1 0:1 xl8 hp55/55] STATUS milestone=BE_ON_FIRST_LEVEL diving=True hunger=3 pos=(np.int64(14), np.int64(10)) acts=[SPACE:195 WHATIS:122 MOVEFAR:122 SEARCH:99 NUM_5:48] gotos=[descend(16, 74):5 open_visit_search(7, 17):4 open_visit_search(12, 15):4]
+[s60617 t26004 d1 0:1 xl8 hp55/55] SESSILE floating eye at (12, 10) remembered
+[s60617 t26004 d1 0:1 xl8 hp55/55] SESSILE floating eye at (12, 11) remembered
+[s60622 t26007 d1 0:1 xl8 hp55/55] SESSILE floating eye at (15, 11) remembered
+[s60628 t26013 d1 0:1 xl8 hp55/55] SESSILE floating eye at (14, 10) remembered
+[s60640 t26025 d1 0:1 xl8 hp55/55] SESSILE floating eye at (14, 12) remembered
+[s60640 t26025 d1 0:1 xl8 hp55/55] SESSILE floating eye at (14, 14) remembered
+[s60653 t26038 d1 0:1 xl8 hp55/55] SESSILE floating eye at (14, 9) remembered
+[s60656 t26044 d1 0:1 xl8 hp55/55] SESSILE floating eye at (13, 11) remembered
+[s60661 t26057 d1 0:1 xl8 hp55/55] SESSILE floating eye at (15, 15) remembered
+[s60661 t26057 d1 0:1 xl8 hp55/55] SESSILE floating eye at (15, 16) remembered
+[s60661 t26057 d1 0:1 xl8 hp55/55] SESSILE floating eye at (16, 14) remembered
+[s60665 t26058 d1 0:1 xl8 hp55/55] PRAY hp=55/55 hunger=4 gap=909 reason=hunger-threat no-elbereth:giant ant est=None model[ok200=0.93 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=139 p_answered=0.93]
+[s60670 t26061 d1 0:1 xl8 hp55/55] PRAY result ok model[ok200=0.22 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=139] prayers=18 failures=0
+[s60676 t26061 d1 0:1 xl8 hp55/55] FEYE_TELE telepathic already: not meleeing the floating eye
+[s60681 t26067 d1 0:1 xl8 hp55/55] DIVE stuck in task 'descend' on level (np.int64(0), np.int64(1)) for 26066 turns; up stairs (y,x,dist)=[(6, 6, -1)]
+You finish eating the giant ant corpse.
+
+
+                                                                 -------
+                       #####                                     |..{..|
+    --------------     #--------    ######################     ##.).[..|
+    |............|     #........`   #------                    # |.....|
+    |.<..........|     #|.......###%#|)...|            ------  # ---%---
+    |.............######.......|  ` #|.*..|            |.%..%#%#    %
+    |.............######|.......#####.)...|            |....|       %
+    -|----.-------    # |......|  # #.%{..|            |....|       %
+     #  # #        #### |......|   * -)--.-          ##%....|       ###
+        ##%        #    --|-----      #  #           # ------      ---|-----
+         ### # #   #      #              #         ###             |.......|
+        -|-e-|-|--##                     #         #               +)..*)..|
+        |.h.e.....#                      #         #               |.......|
+        |e.....ee|      ##             ###         #               |...)...|
+        |.(e..e.@.###+###            --[----  ######               |.^....>|
+        ----------                   |.....|###                    ---------
+                                     |......#
+                                     -------
+
+Agent the Adept                St:10 Dx:14 Co:16 In:12 Wi:18 Ch:14 Lawful S:534
+Dlvl:1 $:0 HP:55(55) Pw:99(99) AC:3 Xp:8/1333 T:26067
+[s60681 t26067 d1 0:1 xl8 hp55/55] DIVE stairs cut off: walking through known traps
+[s60682 t26068 d1 0:1 xl8 hp55/55] SESSILE floating eye at (15, 13) remembered
+[s60682 t26068 d1 0:1 xl8 hp55/55] SESSILE floating eye at (16, 16) remembered
+[s60690 t26073 d1 0:1 xl8 hp55/55] SESSILE floating eye at (16, 15) remembered
+[s60699 t26091 d1 0:1 xl8 hp55/55] SESSILE floating eye at (16, 13) remembered
+[s60699 t26091 d1 0:1 xl8 hp55/55] SESSILE floating eye at (16, 17) remembered
+[s60742 t26146 d1 0:1 xl8 hp55/55] SESSILE floating eye at (16, 21) remembered
+[s60774 t26178 d1 0:1 xl8 hp55/55] SESSILE floating eye at (16, 22) remembered
+[s60774 t26178 d1 0:1 xl8 hp55/55] PANIC AgentPanic: Monster on a next tile when moving: (16,22)
+Traceback (most recent call last):
+  File "/sol/hed/nhbot/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/hed/nhbot/agent.py", line 300, in preempt
+    val = f()
+          ^^^
+  File "/sol/hed/nhbot/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/hed/nhbot/exploration_logic.py", line 523, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/hed/nhbot/agent.py", line 2531, in go_to
+    self.move(y, x)
+  File "/sol/hed/nhbot/agent.py", line 2052, in move
+    raise AgentPanic(f'Monster on a next tile when moving: ({expected_y},{expected_x})')
+nhbot.exceptions.AgentPanic: Monster on a next tile when moving: (16,22)
+
+[s60788 t26178 d1 0:1 xl8 hp55/55] DIVE stairs cut off: walking through known traps
+[s60796 t26186 d1 0:1 xl8 hp55/55] SESSILE floating eye at (16, 23) remembered
+[s60802 t26198 d1 0:1 xl8 hp55/55] SESSILE floating eye at (15, 24) remembered
+[s60839 t26232 d1 0:1 xl8 hp55/55] SESSILE floating eye at (16, 24) remembered
+[s60854 t26256 d1 0:1 xl8 hp55/55] SESSILE floating eye at (16, 22) remembered
+[s60880 t26288 d1 0:1 xl8 hp55/55] SESSILE floating eye at (16, 23) remembered
+[s60897 t26323 d1 0:1 xl8 hp55/55] SESSILE floating eye at (15, 24) remembered
+[s60903 t26323 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye for 451 turns: hitting it
+[s60904 t26324 d1 0:1 xl8 hp55/55] FEYE_TELE telepathic already: not meleeing the floating eye
+[s60904 t26324 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s60932 t26329 d1 0:1 xl8 hp55/55] DIVE stairs cut off: walking through known traps
+[s60970 t26377 d1 0:1 xl8 hp55/55] SESSILE floating eye at (16, 15) remembered
+[s61015 t26428 d1 0:1 xl8 hp55/55] SESSILE floating eye at (16, 21) remembered
+[s61015 t26428 d1 0:1 xl8 hp55/55] PANIC AgentPanic: Monster on a next tile when moving: (16,21)
+Traceback (most recent call last):
+  File "/sol/hed/nhbot/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/hed/nhbot/agent.py", line 300, in preempt
+    val = f()
+          ^^^
+  File "/sol/hed/nhbot/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/hed/nhbot/exploration_logic.py", line 523, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/hed/nhbot/agent.py", line 2531, in go_to
+    self.move(y, x)
+  File "/sol/hed/nhbot/agent.py", line 2052, in move
+    raise AgentPanic(f'Monster on a next tile when moving: ({expected_y},{expected_x})')
+nhbot.exceptions.AgentPanic: Monster on a next tile when moving: (16,21)
+
+[s61029 t26428 d1 0:1 xl8 hp55/55] DIVE stairs cut off: walking through known traps
+[s61038 t26443 d1 0:1 xl8 hp55/55] SESSILE floating eye at (16, 23) remembered
+[s61044 t26443 d1 0:1 xl8 hp55/55] FEYE_TELE telepathic already: not meleeing the floating eye
+[s61044 t26443 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s61058 t26444 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s61099 t26451 d1 0:1 xl8 hp55/55] SESSILE floating eye at (16, 20) remembered
+[s61103 t26461 d1 0:1 xl8 hp55/55] SESSILE floating eye at (16, 22) remembered
+[s61109 t26461 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s61154 t26470 d1 0:1 xl8 hp55/55] SESSILE floating eye at (16, 19) remembered
+[s61156 t26475 d1 0:1 xl8 hp55/55] SESSILE floating eye at (16, 21) remembered
+[s61162 t26475 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye for 151 turns: hitting it
+[s61170 t26602 d1 0:1 xl8 hp55/55] STATUS milestone=BE_ON_FIRST_LEVEL diving=True hunger=1 pos=(np.int64(16), np.int64(20)) acts=[SEARCH:90 SPACE:85 NUM_5:74 WHATIS:33 MOVEFAR:33] gotos=[open_visit_search(16, 23):14 open_visit_search(16, 24):14 open_visit_search(15, 25):12]
+[s61170 t26602 d1 0:1 xl8 hp55/55] FEYE_TELE telepathic already: not meleeing the floating eye
+[s61170 t26602 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s61187 t26603 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s61231 t26611 d1 0:1 xl8 hp55/55] DIVE stairs cut off: walking through known traps
+[s61249 t26622 d1 0:1 xl8 hp55/55] SESSILE floating eye at (16, 22) remembered
+[s61259 t26631 d1 0:1 xl8 hp55/55] SESSILE floating eye at (16, 20) remembered
+[s61265 t26631 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s61281 t26632 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s61353 t26652 d1 0:1 xl8 hp55/55] SESSILE floating eye at (16, 20) remembered
+[s61359 t26652 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s61420 t26664 d1 0:1 xl8 hp55/55] SESSILE floating eye at (16, 23) remembered
+[s61468 t26682 d1 0:1 xl8 hp55/55] SESSILE floating eye at (15, 25) remembered
+[s61496 t26703 d1 0:1 xl8 hp55/55] SESSILE floating eye at (16, 23) remembered
+[s61519 t26715 d1 0:1 xl8 hp55/55] SESSILE floating eye at (16, 22) remembered
+[s61588 t26742 d1 0:1 xl8 hp55/55] SESSILE floating eye at (16, 21) remembered
+[s61594 t26742 d1 0:1 xl8 hp55/55] FEYE_TELE telepathic already: not meleeing the floating eye
+[s61594 t26742 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s61613 t26743 d1 0:1 xl8 hp55/55] DIVE stairs cut off: walking through known traps
+[s61708 t26799 d1 0:1 xl8 hp55/55] SESSILE floating eye at (15, 14) remembered
+[s61708 t26799 d1 0:1 xl8 hp55/55] SESSILE floating eye at (16, 18) remembered
+[s61763 t26832 d1 0:1 xl8 hp55/55] SESSILE floating eye at (16, 20) remembered
+[s61769 t26832 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye for 230 turns: hitting it
+[s61770 t26833 d1 0:1 xl8 hp55/55] FEYE_TELE telepathic already: not meleeing the floating eye
+[s61770 t26833 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s61786 t26834 d1 0:1 xl8 hp55/55] DIVE stairs cut off: walking through known traps
+[s61892 t26903 d1 0:1 xl8 hp55/55] SESSILE floating eye at (16, 18) remembered
+[s61923 t26918 d1 0:1 xl8 hp55/55] SESSILE floating eye at (16, 22) remembered
+[s61929 t26924 d1 0:1 xl8 hp55/55] SESSILE floating eye at (16, 19) remembered
+[s61971 t26952 d1 0:1 xl8 hp55/55] SESSILE floating eye at (16, 20) remembered
+[s61977 t26952 d1 0:1 xl8 hp55/55] FEYE_TELE telepathic already: not meleeing the floating eye
+[s61977 t26952 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s62032 t26962 d1 0:1 xl8 hp55/55] SESSILE floating eye at (16, 16) remembered
+[s62032 t26962 d1 0:1 xl8 hp55/55] DIVE stairs cut off: walking through known traps
+[s62032 t26962 d1 0:1 xl8 hp55/55] STALL stairs > on (np.int64(0), np.int64(1)) cut off 1623 turns: clearing (16, 19) (glyph 2380) from (16, 20)
+[s62037 t26963 d1 0:1 xl8 hp55/55] STALL leaving (16, 19) on (np.int64(0), np.int64(1)) alone for 300 turns: a floating eye and no blindfold or missile
+[s62096 t26999 d1 0:1 xl8 hp55/55] SESSILE floating eye at (16, 21) remembered
+[s62103 t27000 d1 0:1 xl8 hp55/55] STATUS milestone=BE_ON_FIRST_LEVEL diving=True hunger=4 pos=(np.int64(16), np.int64(20)) acts=[SPACE:215 WHATIS:114 MOVEFAR:114 SEARCH:114 NUM_5:94] gotos=[open_visit_search(16, 20):26 open_visit_search(16, 21):21 open_visit_search(16, 19):20]
+[s62103 t27000 d1 0:1 xl8 hp55/55] FEYE_TELE telepathic already: not meleeing the floating eye
+[s62122 t27007 d1 0:1 xl8 hp55/55] SESSILE floating eye at (16, 15) remembered
+[s62211 t27100 d1 0:1 xl8 hp55/55] FEYE_TELE telepathic already: not meleeing the floating eye
+[s62236 t27137 d1 0:1 xl8 hp55/55] SESSILE floating eye at (16, 14) remembered
+[s62266 t27164 d1 0:1 xl8 hp55/55] PRAY hp=55/55 hunger=4 gap=1103 reason=None model[ok200=0.96 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=140 p_answered=0.96]
+[s62270 t27167 d1 0:1 xl8 hp55/55] PRAY result ok model[ok200=0.22 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=140] prayers=19 failures=0
+[s62276 t27167 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye for 334 turns: hitting it
+[s62287 t27272 d1 0:1 xl8 hp55/55] FEYE_TELE telepathic already: not meleeing the floating eye
+[s62287 t27272 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s62306 t27273 d1 0:1 xl8 hp55/55] DIVE stuck in task 'descend' on level (np.int64(0), np.int64(1)) for 27272 turns; up stairs (y,x,dist)=[(6, 6, -1)]
+
+
+
+                                                                 -------
+                       #####                                     |..{..|
+    --------------     #--------    ######################     ##.).[..|
+    |............|     #........`   #------                    # |.....|
+    |.<..........|     #|.......###%#|)...|            ------  # ---%---
+    |.............######.......|  ` #|.*..|            |.%..%#%#    %
+    |.............######|.......#####.)...|            |....|       %
+    -|----.-------    # |......|  # #.%{..|            |....|       %
+     #  # #        #### |......|   * -)--.-          ##%....|       ###
+        ##%        #    --|-----      #  #           # ------      ---|-----
+         ### # #   #      #              #         ###             |.......|
+        -|-.-|-|--##                     #         #               +)..*)..|
+        |.........#                      #         #               |.......|
+        |........|      ##             ###         #               |...)...|
+        |.(.h...ZY#e@+###            --[----  ######               |.^....>|
+        ----------                   |.....|###                    ---------
+                                     |......#
+                                     -------
+
+Agent the Adept                St:10 Dx:14 Co:16 In:12 Wi:18 Ch:14 Lawful S:534
+Dlvl:1 $:0 HP:55(55) Pw:99(99) AC:3 Xp:8/1333 T:27273
+[s62306 t27273 d1 0:1 xl8 hp55/55] DIVE stairs cut off: walking through known traps
+[s62306 t27273 d1 0:1 xl8 hp55/55] STALL leaving (16, 19) on (np.int64(0), np.int64(1)) alone for 300 turns: a floating eye and no blindfold or missile
+[s62311 t27274 d1 0:1 xl8 hp55/55] SESSILE floating eye at (16, 22) remembered
+[s62311 t27274 d1 0:1 xl8 hp55/55] PANIC AgentPanic: Monster on a next tile when moving: (16,22)
+Traceback (most recent call last):
+  File "/sol/hed/nhbot/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/hed/nhbot/agent.py", line 300, in preempt
+    val = f()
+          ^^^
+  File "/sol/hed/nhbot/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/hed/nhbot/exploration_logic.py", line 523, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/hed/nhbot/agent.py", line 2531, in go_to
+    self.move(y, x)
+  File "/sol/hed/nhbot/agent.py", line 2052, in move
+    raise AgentPanic(f'Monster on a next tile when moving: ({expected_y},{expected_x})')
+nhbot.exceptions.AgentPanic: Monster on a next tile when moving: (16,22)
+
+[s62330 t27276 d1 0:1 xl8 hp55/55] SESSILE floating eye at (16, 16) remembered
+[s62357 t27286 d1 0:1 xl8 hp55/55] SESSILE floating eye at (16, 20) remembered
+[s62363 t27286 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s62387 t27288 d1 0:1 xl8 hp55/55] SESSILE floating eye at (16, 23) remembered
+[s62387 t27288 d1 0:1 xl8 hp55/55] PANIC AgentPanic: Monster on a next tile when moving: (16,23)
+Traceback (most recent call last):
+  File "/sol/hed/nhbot/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/hed/nhbot/agent.py", line 300, in preempt
+    val = f()
+          ^^^
+  File "/sol/hed/nhbot/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/hed/nhbot/exploration_logic.py", line 523, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/hed/nhbot/agent.py", line 2531, in go_to
+    self.move(y, x)
+  File "/sol/hed/nhbot/agent.py", line 2052, in move
+    raise AgentPanic(f'Monster on a next tile when moving: ({expected_y},{expected_x})')
+nhbot.exceptions.AgentPanic: Monster on a next tile when moving: (16,23)
+
+[s62406 t27292 d1 0:1 xl8 hp55/55] SESSILE floating eye at (16, 21) remembered
+[s62411 t27294 d1 0:1 xl8 hp55/55] SESSILE floating eye at (15, 25) remembered
+[s62413 t27299 d1 0:1 xl8 hp55/55] SESSILE floating eye at (16, 24) remembered
+[s62425 t27316 d1 0:1 xl8 hp55/55] SESSILE floating eye at (16, 23) remembered
+[s62437 t27326 d1 0:1 xl8 hp55/55] SESSILE floating eye at (15, 24) remembered
+[s62450 t27338 d1 0:1 xl8 hp55/55] SESSILE floating eye at (16, 24) remembered
+[s62456 t27338 d1 0:1 xl8 hp55/55] FEYE_TELE telepathic already: not meleeing the floating eye
+[s62456 t27338 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s62478 t27339 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s62499 t27341 d1 0:1 xl8 hp55/55] DIVE stairs cut off: walking through known traps
+[s62516 t27365 d1 0:1 xl8 hp55/55] SESSILE floating eye at (16, 22) remembered
+[s62526 t27372 d1 0:1 xl8 hp55/55] SESSILE floating eye at (16, 14) remembered
+[s62532 t27380 d1 0:1 xl8 hp55/55] SESSILE floating eye at (16, 23) remembered
+[s62543 t27391 d1 0:1 xl8 hp55/55] SESSILE floating eye at (15, 24) remembered
+[s62549 t27391 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s62585 t27398 d1 0:1 xl8 hp55/55] DIVE stairs cut off: walking through known traps
+[s62592 t27404 d1 0:1 xl8 hp55/55] SESSILE floating eye at (15, 25) remembered
+[s62691 t27503 d1 0:1 xl8 hp55/55] STATUS milestone=BE_ON_FIRST_LEVEL diving=True hunger=1 pos=(np.int64(15), np.int64(24)) acts=[SPACE:112 SEARCH:101 WHATIS:67 MOVEFAR:67 NUM_5:46] gotos=[open_visit_search(15, 24):19 open_visit_search(16, 24):13 open_visit_search(16, 21):7]
+[s62719 t27526 d1 0:1 xl8 hp55/55] SESSILE floating eye at (16, 17) remembered
+[s62740 t27553 d1 0:1 xl8 hp55/55] SESSILE floating eye at (16, 15) remembered
+[s62968 t27784 d1 0:1 xl8 hp55/55] SESSILE floating eye at (16, 15) remembered
+[s63053 t27899 d1 0:1 xl8 hp55/55] DIVE replanning task 'descend' after 500 turns of exploring
+[s63053 t27899 d1 0:1 xl8 hp55/55] DIVE stairs cut off: walking through known traps
+[s63053 t27899 d1 0:1 xl8 hp55/55] STALL leaving (16, 23) on (np.int64(0), np.int64(1)) alone for 300 turns: a floating eye and no blindfold or missile
+[s63132 t28004 d1 0:1 xl8 hp55/55] STALL reachable=2 here_obj=2380 shop_here=0 refused=None nb=[(15, 23, 0, 2359, 2359, 0, 0), (15, 24, 1, 2380, 2380, 0, 0), (15, 25, 1, 2380, 28, 0, 0), (16, 23, 1, 2380, 28, 0, 0), (16, 25, 0, 2359, 2359, 0, 0), (17, 23, 0, 2359, 2359, 0, 0), (17, 24, 0, 2359, 2359, 0, 0), (17, 25, 0, 2359, 2359, 0, 0)]
+[s63132 t28004 d1 0:1 xl8 hp55/55] STATUS milestone=BE_ON_FIRST_LEVEL diving=True hunger=2 pos=(np.int64(16), np.int64(24)) acts=[NUM_5:98 SEARCH:98 SPACE:48 WHATIS:46 MOVEFAR:46] gotos=[open_visit_search(16, 24):50 open_visit_search(15, 24):49]
+[s63201 t28116 d1 0:1 xl8 hp55/55] SESSILE floating eye at (16, 15) remembered
+[s63279 t28284 d1 0:1 xl8 hp55/55] PRAY hp=55/55 hunger=4 gap=1117 reason=None model[ok200=0.96 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=140 p_answered=0.96]
+[s63283 t28287 d1 0:1 xl8 hp55/55] PRAY result ok model[ok200=0.22 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=140] prayers=20 failures=0
+[s63283 t28287 d1 0:1 xl8 hp55/55] DIVE stuck in task 'descend' on level (np.int64(0), np.int64(1)) for 28286 turns; up stairs (y,x,dist)=[(6, 6, -1)]
+Your stomach feels content.
+
+
+                                                                 -------
+                       #####                                     |..{..|
+    --------------     #--------    ######################     ##.).[..|
+    |............|     #........`   #------                    # |.....|
+    |.<..........|     #|.......###%#|)...|            ------  # ---%---
+    |.............######.......|  ` #|.*..|            |.%..%#%#    %
+    |.............######|.......#####.)...|            |....|       %
+    -|----.-------    # |......|  # #.%{..|            |....|       %
+     #  # #        #### |......|   * -)--.-          ##%....|       ###
+        ##%        #    --|-----      #  #           # ------      ---|-----
+         ### # #   #      #              #         ###             |.......|
+        -|-.-|-|--##                     #         #               +)..*)..|
+        |.........#                      #         #               |.......|
+        |........|      @e             ###         #               |...)...|
+        |.(.......###+#e#            --[----  ######               |.^....>|
+        ----------                   |.....|###                    ---------
+                                     |......#
+                                     -------
+
+Agent the Adept                St:10 Dx:14 Co:16 In:12 Wi:18 Ch:14 Lawful S:534
+Dlvl:1 $:0 HP:55(55) Pw:99(99) AC:3 Xp:8/1333 T:28287 Deaf
+[s63283 t28287 d1 0:1 xl8 hp55/55] DIVE stairs cut off: walking through known traps
+[s63283 t28287 d1 0:1 xl8 hp55/55] STALL leaving (16, 23) on (np.int64(0), np.int64(1)) alone for 300 turns: a floating eye and no blindfold or missile
+[s63296 t28299 d1 0:1 xl8 hp55/55] SESSILE floating eye at (16, 15) remembered
+[s63315 t28321 d1 0:1 xl8 hp55/55] SESSILE floating eye at (16, 17) remembered
+[s63493 t28500 d1 0:1 xl8 hp55/55] STATUS milestone=BE_ON_FIRST_LEVEL diving=True hunger=1 pos=(np.int64(15), np.int64(24)) acts=[NUM_5:73 SEARCH:73 SPACE:48 WHATIS:36 MOVEFAR:36] gotos=[open_visit_search(15, 24):38 open_visit_search(16, 24):36]
+[s63576 t28586 d1 0:1 xl8 hp55/55] SESSILE floating eye at (16, 14) remembered
+[s63582 t28586 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye for 1314 turns: hitting it
+[s63592 t28636 d1 0:1 xl8 hp55/55] DIVE stairs cut off: walking through known traps
+[s63592 t28636 d1 0:1 xl8 hp55/55] STALL leaving (16, 23) on (np.int64(0), np.int64(1)) alone for 300 turns: a floating eye and no blindfold or missile
+[s63609 t28643 d1 0:1 xl8 hp55/55] FEYE_TELE telepathic already: not meleeing the floating eye
+[s63609 t28643 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s63613 t28644 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s63633 t28656 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s63634 t28657 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s63664 t28669 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s63668 t28670 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s63686 t28682 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s63687 t28683 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s63719 t28691 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s63737 t28703 d1 0:1 xl8 hp55/55] FEYE_TELE telepathic already: not meleeing the floating eye
+[s63737 t28703 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s63738 t28704 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s63768 t28716 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s63772 t28717 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s63790 t28729 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s63791 t28730 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s63835 t28742 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s63839 t28743 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s63857 t28755 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s63858 t28756 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s63885 t28768 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s63889 t28769 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s63907 t28781 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s63908 t28782 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s63931 t28789 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s63932 t28790 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s63957 t28797 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye for 154 turns: hitting it
+[s63968 t28915 d1 0:1 xl8 hp55/55] DIVE stairs cut off: walking through known traps
+[s63984 t28931 d1 0:1 xl8 hp55/55] FEYE_TELE telepathic already: not meleeing the floating eye
+[s63984 t28931 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s63985 t28932 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s63997 t28938 d1 0:1 xl8 hp55/55] STALL leaving (16, 23) on (np.int64(0), np.int64(1)) alone for 300 turns: a floating eye and no blindfold or missile
+[s64008 t28939 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s64009 t28940 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s64033 t28947 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s64037 t28948 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s64057 t28965 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s64064 t28966 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s64072 t28968 d1 0:1 xl8 hp55/55] SESSILE floating eye at (16, 16) remembered
+[s64088 t28978 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s64092 t28979 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s64110 t28991 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s64111 t28992 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s64115 t28993 d1 0:1 xl8 hp55/55] SESSILE floating eye at (16, 17) remembered
+[s64131 t29001 d1 0:1 xl8 hp55/55] STATUS milestone=BE_ON_FIRST_LEVEL diving=True hunger=1 pos=(np.int64(16), np.int64(24)) acts=[SPACE:144 SEARCH:135 WHATIS:70 MOVEFAR:70 NUM_5:40] gotos=[open_visit_search(15, 24):29 open_visit_search(16, 24):29]
+[s64138 t29002 d1 0:1 xl8 hp55/55] FEYE_TELE telepathic already: not meleeing the floating eye
+[s64138 t29002 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s64142 t29003 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s64148 t29009 d1 0:1 xl8 hp55/55] DIVE stuck in task 'descend' on level (np.int64(0), np.int64(1)) for 29008 turns; up stairs (y,x,dist)=[(6, 6, -1)]
+You hear the splashing of a naiad.
+
+
+                                                                 -------
+                       #####                                     |..{..|
+    --------------     #--------    ######################     ##.).[..|
+    |............|     #........`   #------                    # |.....|
+    |.<..........|     #|.......###%#|)...|            ------  # ---%---
+    |.............######.......|  ` #|.*..|            |.%..%#%#    %
+    |.............######|.......#####.)...|            |....|       %
+    -|----.-------    # |......|  # #.%{..|            |....|       %
+     #  # #        #### |......|   * -)--.-          ##%....|       ###
+        ##%        #    --|-----      #  #           # ------      ---|-----
+         ### # #   #      #              #         ###             |.......|
+        -|-.-|-|--##                     #         #               +)..*)..|
+        |.........#                      #         #               |.......|
+        |........|      @e             ###         #               |...)...|
+        |.(.......###+#e#            --[----  ######               |.^....>|
+        ----------                   |.....|###                    ---------
+                                     |......#
+                                     -------
+
+Agent the Adept                St:10 Dx:14 Co:16 In:12 Wi:18 Ch:14 Lawful S:534
+Dlvl:1 $:0 HP:55(55) Pw:99(99) AC:3 Xp:8/1333 T:29009
+[s64160 t29015 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s64161 t29016 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s64190 t29023 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s64191 t29024 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s64207 t29031 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s64211 t29032 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s64231 t29049 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s64232 t29050 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s64248 t29055 d1 0:1 xl8 hp55/55] SESSILE floating eye at (16, 15) remembered
+[s64263 t29057 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s64264 t29058 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s64286 t29065 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s64290 t29066 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s64316 t29083 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye for 152 turns: hitting it
+[s64332 t29188 d1 0:1 xl8 hp55/55] DIVE stairs cut off: walking through known traps
+[s64348 t29191 d1 0:1 xl8 hp55/55] FEYE_TELE telepathic already: not meleeing the floating eye
+[s64348 t29191 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s64349 t29192 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s64357 t29194 d1 0:1 xl8 hp55/55] SESSILE floating eye at (16, 16) remembered
+[s64377 t29199 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s64381 t29200 d1 0:1 xl8 hp55/55] FEYE_TELE telepathic already: not meleeing the floating eye
+[s64381 t29200 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s64419 t29256 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s64420 t29257 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s64444 t29290 d1 0:1 xl8 hp55/55] STALL leaving (16, 23) on (np.int64(0), np.int64(1)) alone for 300 turns: a floating eye and no blindfold or missile
+[s64451 t29291 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s64470 t29322 d1 0:1 xl8 hp55/55] SESSILE floating eye at (16, 17) remembered
+[s64486 t29341 d1 0:1 xl8 hp55/55] FEYE_TELE telepathic already: not meleeing the floating eye
+[s64502 t29395 d1 0:1 xl8 hp55/55] PRAY hp=55/55 hunger=4 gap=1108 reason=None model[ok200=0.96 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=140 p_answered=0.96]
+[s64506 t29398 d1 0:1 xl8 hp55/55] PRAY result ok model[ok200=0.22 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=140] prayers=21 failures=0
+[s64506 t29398 d1 0:1 xl8 hp55/55] DIVE stairs cut off: walking through known traps
+[s64522 t29410 d1 0:1 xl8 hp55/55] SESSILE floating eye at (16, 15) remembered
+[s64528 t29410 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye for 219 turns: hitting it
+[s64539 t29500 d1 0:1 xl8 hp55/55] SESSILE floating eye at (16, 16) remembered
+[s64539 t29500 d1 0:1 xl8 hp55/55] STATUS milestone=BE_ON_FIRST_LEVEL diving=True hunger=1 pos=(np.int64(16), np.int64(24)) acts=[SPACE:100 SEARCH:76 WHATIS:43 MOVEFAR:43 ESC:22] gotos=[open_visit_search(15, 24):16 open_visit_search(16, 24):10]
+[s64539 t29500 d1 0:1 xl8 hp55/55] DIVE stairs cut off: walking through known traps
+[s64544 t29505 d1 0:1 xl8 hp55/55] SESSILE floating eye at (16, 17) remembered
+[s64555 t29506 d1 0:1 xl8 hp55/55] FEYE_TELE telepathic already: not meleeing the floating eye
+[s64555 t29506 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s64556 t29507 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s64581 t29514 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s64585 t29515 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s64605 t29532 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s64606 t29533 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s64632 t29540 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s64633 t29541 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s64657 t29548 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s64661 t29549 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s64687 t29566 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s64688 t29567 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s64720 t29574 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s64721 t29575 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s64749 t29582 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s64753 t29583 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s64773 t29600 d1 0:1 xl8 hp55/55] FEYE_TELE telepathic already: not meleeing the floating eye
+[s64773 t29600 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s64774 t29601 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s64792 t29607 d1 0:1 xl8 hp55/55] STALL leaving (16, 23) on (np.int64(0), np.int64(1)) alone for 300 turns: a floating eye and no blindfold or missile
+[s64803 t29609 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s64821 t29621 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s64822 t29622 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s64839 t29630 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s64859 t29642 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s64860 t29643 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s64877 t29651 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s64901 t29663 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye for 157 turns: hitting it
+[s64916 t29792 d1 0:1 xl8 hp55/55] DIVE stairs cut off: walking through known traps
+[s64918 t29797 d1 0:1 xl8 hp55/55] SESSILE floating eye at (16, 16) remembered
+[s64930 t29803 d1 0:1 xl8 hp55/55] FEYE_TELE telepathic already: not meleeing the floating eye
+[s64930 t29803 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s64934 t29804 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s64952 t29816 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s64953 t29817 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s64973 t29828 d1 0:1 xl8 hp55/55] SESSILE floating eye at (16, 15) remembered
+[s64980 t29829 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s64984 t29830 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s65002 t29842 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s65009 t29843 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s65036 t29855 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s65040 t29856 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s65060 t29868 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s65061 t29869 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s65071 t29873 d1 0:1 xl8 hp55/55] SESSILE floating eye at (16, 14) remembered
+[s65087 t29876 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s65088 t29877 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s65113 t29884 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s65117 t29885 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s65143 t29902 d1 0:1 xl8 hp55/55] FEYE_TELE telepathic already: not meleeing the floating eye
+[s65143 t29902 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s65144 t29903 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s65165 t29909 d1 0:1 xl8 hp55/55] STALL leaving (16, 23) on (np.int64(0), np.int64(1)) alone for 300 turns: a floating eye and no blindfold or missile
+[s65176 t29911 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s65194 t29923 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s65195 t29924 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s65225 t29935 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s65229 t29936 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s65253 t29948 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s65254 t29949 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s65288 t29956 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye for 153 turns: hitting it
+[s65302 t30068 d1 0:1 xl8 hp55/55] STATUS milestone=BE_ON_FIRST_LEVEL diving=True hunger=1 pos=(np.int64(16), np.int64(24)) acts=[SPACE:185 SEARCH:166 WHATIS:85 MOVEFAR:85 ESC:37] gotos=[open_visit_search(16, 24):27 open_visit_search(15, 24):24]
+[s65302 t30068 d1 0:1 xl8 hp55/55] DIVE stuck in task 'descend' on level (np.int64(0), np.int64(1)) for 30067 turns; up stairs (y,x,dist)=[(6, 6, -1)]
+
+
+
+                                                                 -------
+                       #####                                     |..{..|
+    --------------     #--------    ######################     ##.).[..|
+    |............|     #........`   #------                    # |.....|
+    |.<..........|     #|.......###%#|)...|            ------  # ---%---
+    |.............######.......|  ` #|.*..|            |.%..%#%#    %
+    |.............######|.......#####.)...|            |....|       %
+    -|----.-------    # |......|  # #.%{..|            |....|       %
+     #  # #        #### |......|   * -)--.-          ##%....|       ###
+        ##%        #    --|-----      #  #           # ------      ---|-----
+         ### # #   #      #              #         ###             |.......|
+        -|-.-|-|--##                     #         #               +)..*)..|
+        |.........#                      #         #               |.......|
+        |........|      #e             ###         #               |...)...|
+        |.(....F::###+#e@            --[----  ######               |.^....>|
+        ----------                   |.....|###                    ---------
+                                     |......#
+                                     -------
+
+Agent the Adept                St:10 Dx:14 Co:16 In:12 Wi:18 Ch:14 Lawful S:534
+Dlvl:1 $:0 HP:55(55) Pw:99(99) AC:3 Xp:8/1333 T:30068
+[s65302 t30068 d1 0:1 xl8 hp55/55] DIVE stairs cut off: walking through known traps
+[s65309 t30069 d1 0:1 xl8 hp55/55] FEYE_TELE telepathic already: not meleeing the floating eye
+[s65309 t30069 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s65313 t30070 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s65332 t30082 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s65333 t30083 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s65362 t30090 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s65363 t30091 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s65367 t30092 d1 0:1 xl8 hp55/55] SESSILE floating eye at (16, 14) remembered
+[s65376 t30095 d1 0:1 xl8 hp55/55] SESSILE floating eye at (16, 15) remembered
+[s65388 t30098 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s65392 t30099 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s65412 t30116 d1 0:1 xl8 hp55/55] FEYE_TELE telepathic already: not meleeing the floating eye
+[s65412 t30116 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s65413 t30117 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s65449 t30127 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s65453 t30128 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s65473 t30140 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s65474 t30141 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s65506 t30149 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s65524 t30161 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s65525 t30162 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s65563 t30170 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s65581 t30182 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s65582 t30183 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s65608 t30190 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s65609 t30191 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s65634 t30198 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s65638 t30199 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s65658 t30216 d1 0:1 xl8 hp55/55] FEYE_TELE telepathic already: not meleeing the floating eye
+[s65658 t30216 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s65659 t30217 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s65682 t30223 d1 0:1 xl8 hp55/55] STALL leaving (16, 23) on (np.int64(0), np.int64(1)) alone for 300 turns: a floating eye and no blindfold or missile
+[s65691 t30229 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye for 160 turns: hitting it
+[s65715 t30281 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s65716 t30282 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s65748 t30290 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s65767 t30320 d1 0:1 xl8 hp55/55] FEYE_TELE telepathic already: not meleeing the floating eye
+[s65767 t30320 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s65768 t30321 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s65772 t30322 d1 0:1 xl8 hp55/55] SESSILE floating eye at (16, 14) remembered
+[s65801 t30341 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s65805 t30342 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s65824 t30363 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s65825 t30364 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s65844 t30394 d1 0:1 xl8 hp55/55] SESSILE floating eye at (16, 13) remembered
+[s65862 t30411 d1 0:1 xl8 hp55/55] FEYE_TELE telepathic already: not meleeing the floating eye
+[s65862 t30411 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s65866 t30412 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s65880 t30475 d1 0:1 xl8 hp55/55] DIVE stairs cut off: walking through known traps
+[s65887 t30492 d1 0:1 xl8 hp55/55] SESSILE floating eye at (16, 15) remembered
+[s65909 t30512 d1 0:1 xl8 hp55/55] STATUS milestone=BE_ON_FIRST_LEVEL diving=True hunger=4 pos=(np.int64(16), np.int64(24)) acts=[SPACE:147 SEARCH:124 WHATIS:70 MOVEFAR:70 ESC:30] gotos=[open_visit_search(15, 24):20 open_visit_search(16, 24):19]
+[s65909 t30512 d1 0:1 xl8 hp55/55] PRAY hp=55/55 hunger=4 gap=1114 reason=None model[ok200=0.96 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=140 p_answered=0.96]
+[s65913 t30515 d1 0:1 xl8 hp55/55] PRAY result ok model[ok200=0.22 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=140] prayers=22 failures=0
+[s65925 t30517 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye for 236 turns: hitting it
+[s65936 t30647 d1 0:1 xl8 hp55/55] DIVE stairs cut off: walking through known traps
+[s65936 t30647 d1 0:1 xl8 hp55/55] STALL leaving (16, 23) on (np.int64(0), np.int64(1)) alone for 300 turns: a floating eye and no blindfold or missile
+[s65942 t30653 d1 0:1 xl8 hp55/55] SESSILE floating eye at (16, 14) remembered
+[s65948 t30653 d1 0:1 xl8 hp55/55] FEYE_TELE telepathic already: not meleeing the floating eye
+[s65948 t30653 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s65949 t30654 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s65971 t30661 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s65975 t30662 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s65985 t30669 d1 0:1 xl8 hp55/55] SESSILE floating eye at (16, 16) remembered
+[s65991 t30669 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s65992 t30670 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s66007 t30676 d1 0:1 xl8 hp55/55] SESSILE floating eye at (16, 17) remembered
+[s66014 t30677 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s66018 t30678 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s66034 t30685 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s66035 t30686 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s66049 t30691 d1 0:1 xl8 hp55/55] SESSILE floating eye at (16, 15) remembered
+[s66060 t30693 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s66064 t30694 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s66088 t30701 d1 0:1 xl8 hp55/55] FEYE_TELE telepathic already: not meleeing the floating eye
+[s66088 t30701 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s66089 t30702 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s66108 t30709 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s66112 t30710 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s66128 t30717 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s66129 t30718 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s66151 t30725 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s66155 t30726 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s66171 t30733 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s66172 t30734 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s66197 t30741 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s66201 t30742 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s66223 t30749 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s66224 t30750 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s66246 t30757 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s66250 t30758 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s66266 t30765 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s66267 t30766 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s66271 t30767 d1 0:1 xl8 hp55/55] FIGHT stalled (dance, no contact, kill or damage): letting go of [('floating eye', 15, 25), ('floating eye', 16, 23)]
+[s66503 t30963 d1 0:1 xl8 hp55/55] SESSILE floating eye at (16, 13) remembered
+[s66538 t31004 d1 0:1 xl8 hp55/55] STATUS milestone=BE_ON_FIRST_LEVEL diving=True hunger=1 pos=(np.int64(15), np.int64(24)) acts=[SPACE:131 SEARCH:120 WHATIS:74 MOVEFAR:74 NUM_5:45] gotos=[open_visit_search(15, 24):31 open_visit_search(16, 24):30]
+[s66629 t31068 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye for 415 turns: hitting it
+[s66647 t31217 d1 0:1 xl8 hp55/55] DIVE stuck in task 'descend' on level (np.int64(0), np.int64(1)) for 31216 turns; up stairs (y,x,dist)=[(6, 6, -1)]
+
+
+
+                                                                 -------
+                       #####                                     |..{..|
+    --------------     #--------    ######################     ##.).[..|
+    |............|     #........`   #------                    # |.....|
+    |.<..........|     #|.......###%#|)...|            ------  # ---%---
+    |.............######.......|  ` #|.*..|            |.%..%#%#    %
+    |.............######|.......#####.)...|            |....|       %
+    -|----.-------    # |......|  # #.%{..|            |....|       %
+     #  # #        #### |......|   * -)--.-          ##%....|       ###
+        ##%        #    --|-----      #  #           # ------      ---|-----
+         ### # #   #      #              #         ###             |.......|
+        -|-.-|-|--##                     #         #               +)..*)..|
+        |.........#                      #         #               |.......|
+        |........|      #e             ###         #               |...)...|
+        |.h.o.e.e.###+#e@            --[----  ######               |.^....>|
+        ----------                   |.....|###                    ---------
+                                     |......#
+                                     -------
+
+Agent the Adept                St:10 Dx:14 Co:16 In:12 Wi:18 Ch:14 Lawful S:534
+Dlvl:1 $:0 HP:55(55) Pw:99(99) AC:3 Xp:8/1333 T:31217
+[s66647 t31217 d1 0:1 xl8 hp55/55] DIVE stairs cut off: walking through known traps
+[s66647 t31217 d1 0:1 xl8 hp55/55] STALL leaving (16, 23) on (np.int64(0), np.int64(1)) alone for 300 turns: a floating eye and no blindfold or missile
+[s66659 t31223 d1 0:1 xl8 hp55/55] FEYE_TELE telepathic already: not meleeing the floating eye
+[s66659 t31223 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s66663 t31224 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s66679 t31231 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s66680 t31232 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s66713 t31239 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s66717 t31240 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s66733 t31247 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s66734 t31248 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s66762 t31255 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s66766 t31256 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s66782 t31263 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s66783 t31264 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s66817 t31271 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s66821 t31272 d1 0:1 xl8 hp55/55] SESSILE floating eye at (16, 12) remembered
+[s66821 t31272 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s66837 t31279 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s66838 t31280 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s66857 t31287 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s66861 t31288 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s66877 t31295 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s66878 t31296 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s66882 t31297 d1 0:1 xl8 hp55/55] SESSILE floating eye at (16, 15) remembered
+[s66908 t31303 d1 0:1 xl8 hp55/55] FEYE_TELE telepathic already: not meleeing the floating eye
+[s66908 t31303 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s66912 t31304 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s66928 t31311 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s66929 t31312 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s66963 t31319 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s66967 t31320 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s66983 t31327 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s66984 t31328 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s67009 t31335 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s67013 t31336 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s67014 t31337 d1 0:1 xl8 hp55/55] FIGHT stalled (dance, no contact, kill or damage): letting go of [('floating eye', 15, 25), ('floating eye', 16, 23)]
+[s67103 t31392 d1 0:1 xl8 hp55/55] SESSILE floating eye at (16, 17) remembered
+[s67196 t31512 d1 0:1 xl8 hp55/55] STATUS milestone=BE_ON_FIRST_LEVEL diving=True hunger=4 pos=(np.int64(16), np.int64(24)) acts=[SPACE:152 SEARCH:113 WHATIS:86 MOVEFAR:86 S:42] gotos=[open_visit_search(16, 24):28 open_visit_search(15, 24):26]
+[s67248 t31603 d1 0:1 xl8 hp55/55] PRAY hp=55/55 hunger=4 gap=1088 reason=starve-deadline est=-172.33333333333331 model[ok200=0.96 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=140 p_answered=0.96]
+[s67255 t31606 d1 0:1 xl8 hp55/55] PRAY result ok model[ok200=0.22 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=140] prayers=23 failures=0
+[s67255 t31606 d1 0:1 xl8 hp55/55] STALL leaving (16, 23) on (np.int64(0), np.int64(1)) alone for 300 turns: a floating eye and no blindfold or missile
+[s67300 t31638 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye for 415 turns: hitting it
+[s67308 t31709 d1 0:1 xl8 hp55/55] DIVE stairs cut off: walking through known traps
+[s67314 t31715 d1 0:1 xl8 hp55/55] SESSILE floating eye at (16, 15) remembered
+[s67320 t31715 d1 0:1 xl8 hp55/55] FEYE_TELE telepathic already: not meleeing the floating eye
+[s67320 t31715 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s67321 t31716 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s67349 t31723 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s67353 t31724 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s67369 t31731 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s67370 t31732 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s67395 t31739 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s67399 t31740 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s67412 t31747 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s67413 t31748 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s67438 t31755 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s67442 t31756 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s67464 t31763 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s67465 t31764 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s67487 t31771 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s67491 t31772 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s67509 t31779 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s67510 t31780 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s67532 t31787 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s67536 t31788 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s67552 t31795 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s67553 t31796 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s67565 t31802 d1 0:1 xl8 hp55/55] SESSILE floating eye at (16, 16) remembered
+[s67572 t31803 d1 0:1 xl8 hp55/55] FEYE_TELE telepathic already: not meleeing the floating eye
+[s67572 t31803 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s67576 t31804 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s67598 t31811 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s67599 t31812 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s67607 t31814 d1 0:1 xl8 hp55/55] SESSILE floating eye at (16, 14) remembered
+[s67624 t31819 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s67628 t31820 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s67644 t31827 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s67645 t31828 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s67649 t31829 d1 0:1 xl8 hp55/55] FIGHT stalled (dance, no contact, kill or damage): letting go of [('floating eye', 15, 25), ('floating eye', 16, 23)]
+[s67866 t32002 d1 0:1 xl8 hp55/55] STATUS milestone=BE_ON_FIRST_LEVEL diving=True hunger=1 pos=(np.int64(16), np.int64(24)) acts=[SPACE:143 SEARCH:120 WHATIS:85 MOVEFAR:85 N:45] gotos=[open_visit_search(15, 24):31 open_visit_search(16, 24):30]
+[s67905 t32036 d1 0:1 xl8 hp55/55] SESSILE floating eye at (16, 14) remembered
+[s67912 t32043 d1 0:1 xl8 hp55/55] SESSILE floating eye at (16, 13) remembered
+[s68023 t32130 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye for 415 turns: hitting it
+[s68037 t32250 d1 0:1 xl8 hp55/55] DIVE stuck in task 'descend' on level (np.int64(0), np.int64(1)) for 32249 turns; up stairs (y,x,dist)=[(6, 6, -1)]
+
+
+
+                                                                 -------
+                       #####                                     |..{..|
+    --------------     #--------    ######################     ##.).[..|
+    |............|     #........`   #------                    # |.....|
+    |.<..........|     #|.......###%#|)...|            ------  # ---%---
+    |.............######.......|  ` #|.*..|            |.%..%#%#    %
+    |.............######|.......#####.)...|            |....|       %
+    -|----.-------    # |......|  # #.%{..|            |....|       %
+     #  # #        #### |......|   * -)--.-          ##%....|       ###
+        ##%        #    --|-----      #  #           # ------      ---|-----
+         ### # #   #      #              #         ###             |.......|
+        -|-.-|-|--##                     #         #               +)..*)..|
+        |.........#                      #         #               |.......|
+        |........|      #e             ###         #               |...)...|
+        |.(.rZ.:o.###+#e@            --[----  ######               |.^....>|
+        ----------                   |.....|###                    ---------
+                                     |......#
+                                     -------
+
+Agent the Adept                St:10 Dx:14 Co:16 In:12 Wi:18 Ch:14 Lawful S:534
+Dlvl:1 $:0 HP:55(55) Pw:99(99) AC:3 Xp:8/1333 T:32250
+[s68037 t32250 d1 0:1 xl8 hp55/55] DIVE stairs cut off: walking through known traps
+[s68037 t32250 d1 0:1 xl8 hp55/55] STALL leaving (16, 23) on (np.int64(0), np.int64(1)) alone for 300 turns: a floating eye and no blindfold or missile
+[s68050 t32256 d1 0:1 xl8 hp55/55] FEYE_TELE telepathic already: not meleeing the floating eye
+[s68050 t32256 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s68054 t32257 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s68064 t32264 d1 0:1 xl8 hp55/55] SESSILE floating eye at (16, 17) remembered
+[s68070 t32264 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s68071 t32265 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s68099 t32272 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s68103 t32273 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s68113 t32280 d1 0:1 xl8 hp55/55] SESSILE acid blob at (16, 14) remembered
+[s68121 t32280 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s68122 t32281 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s68126 t32282 d1 0:1 xl8 hp55/55] SESSILE floating eye at (16, 15) remembered
+[s68150 t32288 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s68154 t32289 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s68170 t32296 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s68171 t32297 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s68199 t32304 d1 0:1 xl8 hp55/55] FEYE_TELE telepathic already: not meleeing the floating eye
+[s68199 t32304 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s68203 t32305 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s68219 t32312 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s68220 t32313 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s68245 t32320 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s68249 t32321 d1 0:1 xl8 hp55/55] SESSILE floating eye at (16, 13) remembered
+[s68249 t32321 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s68265 t32328 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s68266 t32329 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s68270 t32330 d1 0:1 xl8 hp55/55] SESSILE floating eye at (16, 12) remembered
+[s68294 t32336 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s68298 t32337 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s68314 t32344 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s68315 t32345 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s68351 t32352 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s68355 t32353 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s68371 t32360 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s68372 t32361 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s68397 t32368 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s68401 t32369 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s68402 t32370 d1 0:1 xl8 hp55/55] FIGHT stalled (dance, no contact, kill or damage): letting go of [('floating eye', 15, 25), ('floating eye', 16, 23)]
+[s68482 t32430 d1 0:1 xl8 hp55/55] SESSILE acid blob at (16, 11) remembered
+[s68533 t32464 d1 0:1 xl8 hp55/55] SESSILE acid blob at (16, 17) remembered
+[s68574 t32503 d1 0:1 xl8 hp55/55] STATUS milestone=BE_ON_FIRST_LEVEL diving=True hunger=3 pos=(np.int64(15), np.int64(24)) acts=[SPACE:151 SEARCH:125 WHATIS:93 MOVEFAR:93 NUM_5:50] gotos=[open_visit_search(15, 24):33 open_visit_search(16, 24):33]
+[s68649 t32600 d1 0:1 xl8 hp55/55] PRAY hp=55/55 hunger=4 gap=994 reason=starve-deadline est=-174.33333333333331 model[ok200=0.94 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=140 p_answered=0.94]
+[s68653 t32603 d1 0:1 xl8 hp55/55] PRAY result ok model[ok200=0.22 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=140] prayers=24 failures=0
+[s68653 t32603 d1 0:1 xl8 hp55/55] STALL leaving (16, 23) on (np.int64(0), np.int64(1)) alone for 300 turns: a floating eye and no blindfold or missile
+[s68657 t32604 d1 0:1 xl8 hp55/55] SESSILE acid blob at (16, 14) remembered
+[s68662 t32609 d1 0:1 xl8 hp55/55] SESSILE acid blob at (16, 13) remembered
+[s68743 t32673 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye for 417 turns: hitting it
+[s68744 t32674 d1 0:1 xl8 hp55/55] FEYE_TELE telepathic already: not meleeing the floating eye
+[s68744 t32674 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s68772 t32681 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s68776 t32682 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s68794 t32694 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s68795 t32695 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s68817 t32702 d1 0:1 xl8 hp55/55] FEYE_TELE telepathic already: not meleeing the floating eye
+[s68817 t32702 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s68821 t32703 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s68837 t32710 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s68838 t32711 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s68863 t32718 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s68873 t32719 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s68889 t32726 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s68890 t32727 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s68918 t32734 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s68922 t32735 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s68940 t32742 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s68941 t32743 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s68945 t32744 d1 0:1 xl8 hp55/55] SESSILE acid blob at (16, 16) remembered
+[s68966 t32750 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s68970 t32751 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s68986 t32758 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s68987 t32759 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s69009 t32766 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s69013 t32767 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s69035 t32774 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s69036 t32775 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s69067 t32782 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s69071 t32783 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s69087 t32790 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s69088 t32791 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s69113 t32798 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s69117 t32799 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s69133 t32806 d1 0:1 xl8 hp55/55] FEYE_TELE telepathic already: not meleeing the floating eye
+[s69133 t32806 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s69134 t32807 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s69164 t32814 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s69168 t32815 d1 0:1 xl8 hp55/55] FIGHT stalled (dance, no contact, kill or damage): letting go of [('floating eye', 15, 25), ('floating eye', 16, 23)]
+[s69427 t33001 d1 0:1 xl8 hp55/55] STATUS milestone=BE_ON_FIRST_LEVEL diving=True hunger=1 pos=(np.int64(16), np.int64(24)) acts=[SPACE:179 SEARCH:151 WHATIS:115 MOVEFAR:115 NUM_5:61] gotos=[open_visit_search(15, 24):41 open_visit_search(16, 24):38]
+[s69481 t33043 d1 0:1 xl8 hp55/55] SESSILE acid blob at (16, 13) remembered
+[s69583 t33120 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye for 446 turns: hitting it
+[s69597 t33250 d1 0:1 xl8 hp55/55] DIVE stuck in task 'descend' on level (np.int64(0), np.int64(1)) for 33249 turns; up stairs (y,x,dist)=[(6, 6, -1)]
+
+
+
+                                                                 -------
+                       #####                                     |..{..|
+    --------------     #--------    ######################     ##.).[..|
+    |............|     #........`   #------                    # |.....|
+    |.<..........|     #|.......###%#|)...|            ------  # ---%---
+    |.............######.......|  ` #|.*..|            |.%..%#%#    %
+    |.............######|.......#####.)...|            |....|       %
+    -|----.-------    # |......|  # #.%{..|            |....|       %
+     #  # #        #### |......|   * -)--.-          ##%....|       ###
+        ##%        #    --|-----      #  #           # ------      ---|-----
+         ### # #   #      #              #         ###             |.......|
+        -|-.-|-|--##                     #         #               +)..*)..|
+        |.........#                      #         #               |.......|
+        |........|      #e             ###         #               |...)...|
+        |.(...o...###+#e@            --[----  ######               |.^....>|
+        ----------                   |.....|###                    ---------
+                                     |......#
+                                     -------
+
+Agent the Adept                St:10 Dx:14 Co:16 In:12 Wi:18 Ch:14 Lawful S:534
+Dlvl:1 $:0 HP:55(55) Pw:99(99) AC:3 Xp:8/1333 T:33250
+[s69597 t33250 d1 0:1 xl8 hp55/55] DIVE stairs cut off: walking through known traps
+[s69597 t33250 d1 0:1 xl8 hp55/55] STALL leaving (16, 23) on (np.int64(0), np.int64(1)) alone for 300 turns: a floating eye and no blindfold or missile
+[s69609 t33252 d1 0:1 xl8 hp55/55] FEYE_TELE telepathic already: not meleeing the floating eye
+[s69609 t33252 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s69613 t33253 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s69629 t33260 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s69630 t33261 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s69649 t33268 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s69653 t33269 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s69663 t33276 d1 0:1 xl8 hp55/55] SESSILE floating eye at (16, 17) remembered
+[s69669 t33276 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s69670 t33277 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s69698 t33284 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s69702 t33285 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s69718 t33292 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s69719 t33293 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s69744 t33300 d1 0:1 xl8 hp55/55] FEYE_TELE telepathic already: not meleeing the floating eye
+[s69744 t33300 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s69754 t33301 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s69772 t33308 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s69773 t33309 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s69804 t33316 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s69808 t33317 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s69824 t33324 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s69825 t33325 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s69847 t33332 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s69851 t33333 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s69867 t33340 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s69868 t33341 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s69873 t33343 d1 0:1 xl8 hp55/55] SESSILE floating eye at (16, 16) remembered
+[s69893 t33348 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s69897 t33349 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s69913 t33356 d1 0:1 xl8 hp55/55] SESSILE acid blob at (16, 14) remembered
+[s69919 t33356 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s69920 t33357 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s69951 t33364 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s69955 t33365 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s69956 t33366 d1 0:1 xl8 hp55/55] FIGHT stalled (dance, no contact, kill or damage): letting go of [('floating eye', 15, 25), ('floating eye', 16, 23)]
+[s70003 t33401 d1 0:1 xl8 hp55/55] SESSILE acid blob at (16, 15) remembered
+[s70146 t33510 d1 0:1 xl8 hp55/55] STATUS milestone=BE_ON_FIRST_LEVEL diving=True hunger=4 pos=(np.int64(15), np.int64(24)) acts=[SPACE:153 SEARCH:127 WHATIS:95 MOVEFAR:95 NUM_5:52] gotos=[open_visit_search(15, 24):34 open_visit_search(16, 24):34]
+[s70163 t33530 d1 0:1 xl8 hp55/55] SESSILE acid blob at (16, 13) remembered
+[s70243 t33671 d1 0:1 xl8 hp55/55] FEYE_TELE telepathic already: not meleeing the floating eye
+[s70259 t33692 d1 0:1 xl8 hp55/55] STALL leaving (16, 23) on (np.int64(0), np.int64(1)) alone for 300 turns: a floating eye and no blindfold or missile
+[s70270 t33709 d1 0:1 xl8 hp55/55] PRAY hp=55/55 hunger=4 gap=1106 reason=None model[ok200=0.96 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=140 p_answered=0.96]
+[s70274 t33712 d1 0:1 xl8 hp55/55] PRAY result ok model[ok200=0.22 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=140] prayers=25 failures=0
+[s70284 t33713 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye for 461 turns: hitting it
+[s70308 t33764 d1 0:1 xl8 hp55/55] FEYE_TELE telepathic already: not meleeing the floating eye
+[s70308 t33764 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s70312 t33765 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s70328 t33772 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s70329 t33773 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s70347 t33779 d1 0:1 xl8 hp55/55] SESSILE floating eye at (16, 12) remembered
+[s70354 t33780 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s70358 t33781 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s70376 t33788 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s70377 t33789 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s70405 t33796 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s70409 t33797 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s70425 t33804 d1 0:1 xl8 hp55/55] FEYE_TELE telepathic already: not meleeing the floating eye
+[s70425 t33804 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s70426 t33805 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s70449 t33810 d1 0:1 xl8 hp55/55] SESSILE floating eye at (16, 11) remembered
+[s70457 t33812 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s70461 t33813 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s70471 t33820 d1 0:1 xl8 hp55/55] SESSILE floating eye at (16, 17) remembered
+[s70477 t33820 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s70478 t33821 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s70506 t33828 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s70510 t33829 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s70526 t33836 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s70527 t33837 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s70555 t33844 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s70559 t33845 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s70577 t33852 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s70578 t33853 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s70612 t33860 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s70616 t33861 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s70632 t33868 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s70633 t33869 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s70661 t33876 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s70665 t33877 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s70666 t33878 d1 0:1 xl8 hp55/55] FIGHT stalled (dance, no contact, kill or damage): letting go of [('floating eye', 15, 25), ('floating eye', 16, 23)]
+[s70829 t34001 d1 0:1 xl8 hp55/55] STATUS milestone=BE_ON_FIRST_LEVEL diving=True hunger=1 pos=(np.int64(15), np.int64(24)) acts=[SPACE:158 SEARCH:116 WHATIS:89 MOVEFAR:89 S:43] gotos=[open_visit_search(16, 24):28 open_visit_search(15, 24):26]
+[s71066 t34179 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye for 415 turns: hitting it
+[s71070 t34180 d1 0:1 xl8 hp55/55] FEYE_TELE telepathic already: not meleeing the floating eye
+[s71070 t34180 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s71076 t34186 d1 0:1 xl8 hp55/55] DIVE stuck in task 'descend' on level (np.int64(0), np.int64(1)) for 34185 turns; up stairs (y,x,dist)=[(6, 6, -1)]
+
+
+
+                                                                 -------
+                       #####                                     |..{..|
+    --------------     #--------    ######################     ##.).[..|
+    |............|     #........`   #------                    # |.....|
+    |.<..........|     #|.......###%#|)...|            ------  # ---%---
+    |.............######.......|  ` #|.*..|            |.%..%#%#    %
+    |.............######|.......#####.)...|            |....|       %
+    -|----.-------    # |......|  # #.%{..|            |....|       %
+     #  # #        #### |......|   * -)--.-          ##%....|       ###
+        ##%        #    --|-----      #  #           # ------      ---|-----
+         ### # #   #      #              #         ###             |.......|
+        -|-.-|-|--##                     #         #               +)..*)..|
+        |.........#                      #         #               |.......|
+        |........|      @e             ###         #               |...)...|
+        |.(.......###+#e#            --[----  ######               |.^....>|
+        ----------                   |.....|###                    ---------
+                                     |......#
+                                     -------
+
+Agent the Adept                St:10 Dx:14 Co:16 In:12 Wi:18 Ch:14 Lawful S:534
+Dlvl:1 $:0 HP:55(55) Pw:99(99) AC:3 Xp:8/1333 T:34186
+[s71076 t34186 d1 0:1 xl8 hp55/55] STALL leaving (16, 23) on (np.int64(0), np.int64(1)) alone for 300 turns: a floating eye and no blindfold or missile
+[s71086 t34187 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s71087 t34188 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s71120 t34198 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s71124 t34199 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s71140 t34206 d1 0:1 xl8 hp55/55] FEYE_TELE telepathic already: not meleeing the floating eye
+[s71140 t34206 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s71141 t34207 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s71166 t34214 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s71170 t34215 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s71194 t34222 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s71195 t34223 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s71226 t34230 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s71230 t34231 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s71246 t34238 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s71247 t34239 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s71275 t34246 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s71279 t34247 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s71295 t34254 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s71296 t34255 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s71324 t34262 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s71328 t34263 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s71350 t34270 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s71351 t34271 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s71379 t34278 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s71383 t34279 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s71401 t34286 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s71402 t34287 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s71433 t34294 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s71437 t34295 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s71453 t34302 d1 0:1 xl8 hp55/55] FEYE_TELE telepathic already: not meleeing the floating eye
+[s71453 t34302 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s71454 t34303 d1 0:1 xl8 hp55/55] FIGHT stalled (dance, no contact, kill or damage): letting go of [('floating eye', 15, 25), ('floating eye', 16, 23)]
+[s71731 t34496 d1 0:1 xl8 hp55/55] SESSILE floating eye at (16, 13) remembered
+[s71739 t34504 d1 0:1 xl8 hp55/55] STATUS milestone=BE_ON_FIRST_LEVEL diving=True hunger=2 pos=(np.int64(15), np.int64(24)) acts=[SPACE:181 SEARCH:158 WHATIS:129 MOVEFAR:129 NUM_5:78] gotos=[open_visit_search(16, 24):49 open_visit_search(15, 24):45]
+[s71797 t34540 d1 0:1 xl8 hp55/55] SESSILE floating eye at (16, 16) remembered
+[s71886 t34607 d1 0:1 xl8 hp55/55] SESSILE floating eye at (16, 12) remembered
+[s71892 t34607 d1 0:1 xl8 hp55/55] FEYE_TELE telepathic already: not meleeing the floating eye
+[s71917 t34623 d1 0:1 xl8 hp55/55] HOME digger heard/seen here 23 turns ago: searching (np.int64(0), np.int64(1)) for it first
+[s71917 t34623 d1 0:1 xl8 hp55/55] STALL leaving (16, 23) on (np.int64(0), np.int64(1)) alone for 300 turns: a floating eye and no blindfold or missile
+[s71941 t34642 d1 0:1 xl8 hp55/55] SESSILE floating eye at (16, 17) remembered
+[s72080 t34705 d1 0:1 xl8 hp55/55] FEYE_TELE telepathic already: not meleeing the floating eye
+[s72114 t34744 d1 0:1 xl8 hp55/55] FIGHT stall of 25 turns ended (gap): []
+[s72124 t34767 d1 0:1 xl8 hp55/55] SESSILE floating eye at (16, 14) remembered
+[s72146 t34805 d1 0:1 xl8 hp55/55] FEYE_TELE telepathic already: not meleeing the floating eye
+[s72148 t34824 d1 0:1 xl8 hp55/55] PRAY hp=55/55 hunger=4 gap=1112 reason=None model[ok200=0.96 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=140 p_answered=0.96]
+[s72152 t34827 d1 0:1 xl8 hp55/55] PRAY result ok model[ok200=0.22 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=140] prayers=26 failures=0
+[s72152 t34827 d1 0:1 xl8 hp55/55] DIVE task home level: search for its digger
+[s72152 t34827 d1 0:1 xl8 hp55/55] DIVE task home level: patrol for its digger
+[s72162 t34828 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye for 648 turns: hitting it
+[s72166 t34829 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s72172 t34835 d1 0:1 xl8 hp55/55] DIVE task home level: search for its digger
+[s72172 t34835 d1 0:1 xl8 hp55/55] DIVE task home level: patrol for its digger
+[s72182 t34836 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s72183 t34837 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s72204 t34843 d1 0:1 xl8 hp55/55] DIVE task home level: search for its digger
+[s72204 t34843 d1 0:1 xl8 hp55/55] DIVE task home level: patrol for its digger
+[s72455 t34937 d1 0:1 xl8 hp55/55] SESSILE acid blob at (16, 13) remembered
+[s72532 t34965 d1 0:1 xl8 hp55/55] SESSILE acid blob at (16, 15) remembered
+[s72547 t34971 d1 0:1 xl8 hp55/55] SESSILE acid blob at (16, 16) remembered
+[s72582 t34985 d1 0:1 xl8 hp55/55] SESSILE acid blob at (16, 14) remembered
+[s72620 t35000 d1 0:1 xl8 hp55/55] STATUS milestone=BE_ON_FIRST_LEVEL diving=True hunger=1 pos=(np.int64(15), np.int64(24)) acts=[SPACE:186 WHATIS:142 MOVEFAR:142 S:107 N:107] gotos=[patrol(16, 24):80 patrol(15, 24):79 open_visit_search(16, 24):18]
+[s72791 t35063 d1 0:1 xl8 hp55/55] SESSILE floating eye at (16, 17) remembered
+[s72994 t35141 d1 0:1 xl8 hp55/55] SESSILE floating eye at (16, 13) remembered
+[s73152 t35201 d1 0:1 xl8 hp55/55] SESSILE floating eye at (16, 12) remembered
+[s73213 t35223 d1 0:1 xl8 hp55/55] DIVE task descend
+[s73213 t35223 d1 0:1 xl8 hp55/55] DIVE stuck in task 'descend' on level (np.int64(0), np.int64(1)) for 35222 turns; up stairs (y,x,dist)=[(6, 6, -1)]
+
+
+
+                                                                 -------
+                       #####                                     |..{..|
+    --------------     #--------    ######################     ##.).[..|
+    |............|     #........`   #------                    # |.....|
+    |.<..........|     #|.......###%#|)...|            ------  # ---%---
+    |.............######.......|  ` #|.*..|            |.%..%#%#    %
+    |.............######|.......#####.)...|            |....|       %
+    -|----.-------    # |......|  # #.%{..|            |....|       %
+     #  # #        #### |......|   * -)--.-          ##%....|       ###
+        ##%        #    --|-----      #  #           # ------      ---|-----
+         ### # #   #      #              #         ###             |.......|
+        -|-.-|-|--##                     #         #               +)..*)..|
+        |.........#                      #         #               |.......|
+        |........|      #e             ###         #               |...)...|
+        |.(.e.@.Yk###+#e@            --[----  ######               |.^....>|
+        ----------                   |.....|###                    ---------
+                                     |......#
+                                     -------
+
+Agent the Adept                St:10 Dx:14 Co:16 In:12 Wi:18 Ch:14 Lawful S:534
+Dlvl:1 $:0 HP:55(55) Pw:99(99) AC:3 Xp:8/1333 T:35223
+[s73213 t35223 d1 0:1 xl8 hp55/55] DIVE stairs cut off: walking through known traps
+[s73213 t35223 d1 0:1 xl8 hp55/55] STALL leaving (16, 23) on (np.int64(0), np.int64(1)) alone for 300 turns: a floating eye and no blindfold or missile
+[s73225 t35227 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye for 398 turns: hitting it
+[s73226 t35228 d1 0:1 xl8 hp55/55] FEYE_TELE telepathic already: not meleeing the floating eye
+[s73226 t35228 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s73256 t35235 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s73260 t35236 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s73278 t35248 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s73279 t35249 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s73307 t35256 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s73311 t35257 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s73333 t35264 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s73334 t35265 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s73362 t35272 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s73366 t35273 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s73382 t35280 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s73383 t35281 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s73387 t35282 d1 0:1 xl8 hp55/55] SESSILE acid blob at (16, 11) remembered
+[s73414 t35288 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s73418 t35289 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s73436 t35296 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s73437 t35297 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s73465 t35304 d1 0:1 xl8 hp55/55] FEYE_TELE telepathic already: not meleeing the floating eye
+[s73465 t35304 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s73469 t35305 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s73485 t35312 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s73486 t35313 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s73520 t35320 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s73524 t35321 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s73540 t35328 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s73541 t35329 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s73572 t35336 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s73576 t35337 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s73592 t35344 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s73593 t35345 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s73602 t35348 d1 0:1 xl8 hp55/55] SESSILE floating eye at (16, 15) remembered
+[s73618 t35352 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s73622 t35353 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s73640 t35360 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s73641 t35361 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s73672 t35368 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s73676 t35369 d1 0:1 xl8 hp55/55] FIGHT stalled (dance, no contact, kill or damage): letting go of [('floating eye', 15, 25), ('floating eye', 16, 23)]
+[s73681 t35371 d1 0:1 xl8 hp55/55] SESSILE acid blob at (16, 16) remembered
+[s73743 t35417 d1 0:1 xl8 hp55/55] SESSILE acid blob at (16, 17) remembered
+[s73830 t35500 d1 0:1 xl8 hp55/55] STATUS milestone=BE_ON_FIRST_LEVEL diving=True hunger=1 pos=(np.int64(15), np.int64(24)) acts=[SPACE:256 WHATIS:197 MOVEFAR:197 S:149 N:149] gotos=[patrol(16, 24):112 patrol(15, 24):111 open_visit_search(15, 24):24]
+[s73928 t35565 d1 0:1 xl8 hp55/55] DIGGER dwarf in rock/tunnel at (17, 11)
+[s73941 t35572 d1 0:1 xl8 hp55/55] DIGGER dwarf in rock/tunnel at (17, 9)
+[s73946 t35575 d1 0:1 xl8 hp55/55] SESSILE acid blob at (16, 14) remembered
+[s73970 t35595 d1 0:1 xl8 hp55/55] SESSILE acid blob at (16, 13) remembered
+[s74024 t35628 d1 0:1 xl8 hp55/55] DIGGER dwarf in rock/tunnel at (15, 8)
+[s74088 t35673 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye for 445 turns: hitting it
+[s74092 t35674 d1 0:1 xl8 hp55/55] FEYE_TELE telepathic already: not meleeing the floating eye
+[s74092 t35674 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s74104 t35680 d1 0:1 xl8 hp55/55] STALL leaving (16, 23) on (np.int64(0), np.int64(1)) alone for 300 turns: a floating eye and no blindfold or missile
+[s74114 t35681 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s74115 t35682 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s74119 t35683 d1 0:1 xl8 hp55/55] SESSILE acid blob at (16, 17) remembered
+[s74148 t35690 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s74152 t35691 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s74168 t35698 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s74169 t35699 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s74200 t35706 d1 0:1 xl8 hp55/55] FEYE_TELE telepathic already: not meleeing the floating eye
+[s74200 t35706 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s74204 t35707 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s74220 t35714 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s74221 t35715 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s74254 t35722 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s74258 t35723 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s74271 t35734 d1 0:1 xl8 hp35/55] FIGHT stall of 59 turns ended (contact): []
+[s74294 t35740 d1 0:1 xl8 hp37/55] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/hed/nhbot/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/hed/nhbot/agent.py", line 311, in preempt
+    next(iterator)
+  File "/sol/hed/nhbot/strategy.py", line 68, in f
+    next(it)
+  File "/sol/hed/nhbot/utils.py", line 134, in f
+    next(it)
+  File "/sol/hed/nhbot/agent.py", line 3303, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/hed/nhbot/item/inventory.py", line 871, in eat
+    raise AgentPanic('no such food is lying here')
+nhbot.exceptions.AgentPanic: no such food is lying here
+
+[s74321 t35741 d1 0:1 xl8 hp37/55] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/hed/nhbot/item/inventory.py", line 602, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/hed/nhbot/agent.py", line 190, in atom_operation
+    self.update_state()
+  File "/sol/hed/nhbot/agent.py", line 700, in update_state
+    self.call_update_functions()
+  File "/sol/hed/nhbot/agent.py", line 711, in call_update_functions
+    func()
+  File "/sol/hed/nhbot/item/inventory.py", line 159, in f
+    raise AgentPanic('items below me changed')
+nhbot.exceptions.AgentPanic: items below me changed
+
+[s74380 t35758 d1 0:1 xl8 hp40/55] SESSILE acid blob at (16, 16) remembered
+[s74386 t35769 d1 0:1 xl8 hp42/55] SESSILE floating eye at (16, 27) remembered
+[s74392 t35769 d1 0:1 xl8 hp42/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s74587 t35800 d1 0:1 xl8 hp49/55] FEYE_TELE telepathic already: not meleeing the floating eye
+[s74614 t35818 d1 0:1 xl8 hp52/55] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s74643 t35833 d1 0:1 xl8 hp55/55] DIVE stairs cut off: walking through known traps
+[s74648 t35834 d1 0:1 xl8 hp55/55] SESSILE floating eye at (16, 26) remembered
+[s74648 t35834 d1 0:1 xl8 hp55/55] PANIC AgentPanic: Monster on a next tile when moving: (16,26)
+Traceback (most recent call last):
+  File "/sol/hed/nhbot/strategy.py", line 165, in f
+    next(gen)
+  File "/sol/hed/nhbot/strategy.py", line 100, in f
+    next(v1)
+  File "/sol/hed/nhbot/utils.py", line 134, in f
+    next(it)
+  File "/sol/hed/nhbot/item/inventory.py", line 1732, in check_items
+    self.agent.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 0, 255), is_path=True))
+  File "/sol/hed/nhbot/agent.py", line 2531, in go_to
+    self.move(y, x)
+  File "/sol/hed/nhbot/agent.py", line 2052, in move
+    raise AgentPanic(f'Monster on a next tile when moving: ({expected_y},{expected_x})')
+nhbot.exceptions.AgentPanic: Monster on a next tile when moving: (16,26)
+
+[s74711 t35935 d1 0:1 xl8 hp55/55] PRAY hp=55/55 hunger=4 gap=1108 reason=None model[ok200=0.96 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=145 p_answered=0.96]
+[s74718 t35938 d1 0:1 xl8 hp55/55] PRAY result ok model[ok200=0.22 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=145] prayers=27 failures=0
+[s74718 t35938 d1 0:1 xl8 hp55/55] DIVE stairs cut off: walking through known traps
+[s74718 t35938 d1 0:1 xl8 hp55/55] STALL leaving (16, 26) on (np.int64(0), np.int64(1)) alone for 300 turns: a floating eye and no blindfold or missile
+[s74732 t35945 d1 0:1 xl8 hp55/55] SESSILE floating eye at (16, 27) remembered
+[s74738 t35945 d1 0:1 xl8 hp55/55] FEYE_TELE boxed in by a floating eye for 271 turns: hitting it
