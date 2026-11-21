@@ -1,0 +1,164 @@
+diff --git a/nethackers.solution.json b/nethackers.solution.json
+index 4ea7938..84826c0 100644
+--- a/nethackers.solution.json
++++ b/nethackers.solution.json
+@@ -1,8 +1,9 @@
+ {
+   "schema": "nethackers.solution/v1",
+-  "name": "daglar-zV10cPetBoltCare",
++  "name": "Monk ink ward to release a couatl grab",
+   "root": ".",
+   "parents": [
++    "github.com/daglar-dragomirov/nethacker@d5c0ab12de563491224e684d4a69b749955dc723",
+     "github.com/zarutskiysy/nethack@14a3bbd871061d63bda57da6c82af91f46959d21",
+     "github.com/zarutskiysy/nethack@94c4c1cd21c51f9feec0eaabd9c63831a8ee3316",
+     "github.com/zarutskiysy/nethack@bb7def3548dcb618066c2c92b8bc3335631aaee1",
+diff --git a/nhbot/agent.py b/nhbot/agent.py
+index efe4635..e41442a 100644
+--- a/nhbot/agent.py
++++ b/nhbot/agent.py
+@@ -2159,9 +2159,10 @@ class Agent:
+         except Exception:
+             return False
+ 
+-    def engrave(self, text):
++    def engrave(self, text, *, marker=None):
+         assert '\r' not in text
+         ret = False
++        letter = '-' if marker is None else self.inventory.items.get_letter(marker)
+ 
+         def gen():
+             nonlocal ret
+@@ -2169,15 +2170,21 @@ class Agent:
+                 self._forbidden_engrave_position = (self.blstats.y, self.blstats.x)
+                 yield A.Command.ESC
+                 return
+-            yield '-'
++            yield letter
+             if 'Do you want to add to the current engraving?' in self.single_message:
+                 yield 'n'
+             while self._observation['misc'][2]:
+                 yield ' '
+-            if 'What do you want to write in the dust here?' not in self.single_message:
+-                self._forbidden_engrave_position = (self.blstats.y, self.blstats.x)
++            dust = 'What do you want to write in the dust here?' in self.single_message
++            ink = marker is not None and self.single_message.startswith('What do you want to scribble on ')
++            if not (dust or ink):
++                if marker is None:
++                    self._forbidden_engrave_position = (self.blstats.y, self.blstats.x)
+                 yield A.Command.ESC
+                 return
++            if marker is not None:
++                # A dried marker still gives the ordinary dust prompt. Use it without reopening the menu.
++                self.log('DIVE marker ward: ink prompt' if ink else 'DIVE marker ward: dust fallback')
+             yield from text
+             yield '\r'
+             ret = True
+diff --git a/nhbot/dive_logic.py b/nhbot/dive_logic.py
+index 19e4ceb..db80a1f 100644
+--- a/nhbot/dive_logic.py
++++ b/nhbot/dive_logic.py
+@@ -914,6 +914,8 @@ class DiveLogic:
+         self._last_update_turn = 0
+         self.pet_seen = {}                 # level key -> last turn a pet glyph was in view
+         self._last_pos = None              # (level key, (y, x)) at the previous update
++        self._couatl_wrap = None
++        self._couatl_marker_attempt = None
+         self._arrived = None               # (level key, turn) of the last stairs arrival
+         self._arrival_pending = None       # ARRIVAL_FIX: (level key, '>' position, turn) of a stairs descent
+         self._arrival_square = None        # ARRIVAL_FIX: (level key, position) of the '<' we arrived on
+@@ -1215,6 +1217,7 @@ class DiveLogic:
+         # A fall is instant, so the trap door's glyph is never seen and the map forgets it: a dive
+         # climbing out of the Mines fell through the same trap door twice. Remember where we fell.
+         pos = (agent.blstats.y, agent.blstats.x)
++        self._note_couatl_wrap(key, pos, turn)
+         prev = self._last_pos
+         if prev is not None and prev[0] != key and (self.diving or jf_config.LATE_FIXES):
+             msg_all = agent.message
+@@ -3580,6 +3583,10 @@ class DiveLogic:
+ 
+     def _escape_next(self):
+         """dig_first's next DIG_ESCAPE action: ('eel',) first, then _dig_escape_action(); None: not ours."""
++        if ESCAPE_V2:
++            marker = self._couatl_escape_marker()
++            if marker is not None:
++                return ('couatl_ward', marker)
+         if ESCAPE_V2 and self._eel_hold_escape_due():
+             # an eel has wrapped itself around us: its next hit drowns us (mhitu.c AD_WRAP with u.ustuck). An
+             # Elbereth makes it flee, and monflee() releases the hero -- the one action that saves us (harness
+@@ -3596,6 +3603,11 @@ class DiveLogic:
+         level = agent.current_level()
+         what, arg = action
+         monsters = agent.get_visible_monsters()
++        if what == 'couatl_ward':
++            self._couatl_marker_attempt = self._couatl_wrap
++            agent.log('DIVE using the magic marker to break a couatl grab')
++            agent.engrave('Elbereth', marker=arg)
++            return
+         if what == 'eel':
+             agent.log('DIVE held by an eel: Elbereth to make it let go')
+             self._eel_engraved = agent.blstats.time
+@@ -3921,6 +3933,40 @@ class DiveLogic:
+             return None
+         return ('raven_gap', spot)
+ 
++    def _note_couatl_wrap(self, key, pos, turn):
++        if self.agent.character.role != Character.MONK:
++            return
++        text = (self.agent.message or '').lower()
++        if 'you get released' in text or 'releases its grip' in text:
++            self._couatl_wrap = None
++        elif 'couatl swings itself around you' in text:
++            if self._couatl_wrap is None or self._couatl_wrap[:2] != (key, pos):
++                self._couatl_wrap = (key, pos, turn)
++        elif self._couatl_wrap is not None and self._couatl_wrap[:2] != (key, pos):
++            self._couatl_wrap = None
++
++    def _couatl_escape_marker(self):
++        agent = self.agent
++        wrap = self._couatl_wrap
++        if wrap is None or wrap == self._couatl_marker_attempt:
++            return None
++        bl = agent.blstats
++        level = agent.current_level()
++        prop = agent.character.prop
++        if wrap[:2] != (level.key(), (bl.y, bl.x)) or bl.time - wrap[2] > 3 or \
++                level.dungeon_number != Level.DUNGEONS_OF_DOOM or not self._in_own_pit() or self.levitating() or \
++                prop.hallu or prop.confusion or prop.stun or prop.polymorph or \
++                utils.any_in(agent.glyphs, G.SWALLOW) or not agent.can_engrave():
++            return None
++        for item in agent.inventory.items:
++            if item.category != nh.TOOL_CLASS or not item.is_unambiguous() or item.object.name != 'magic marker' or \
++                    item.status == Item.CURSED or item.shop_status != Item.NOT_SHOP:
++                continue
++            charges = (item.uses or '').rpartition(':')[2]
++            if charges.isdigit() and int(charges) >= 4:
++                return item
++        return None
++
+     def _eel_hold_escape_due(self):
+         """Held by an eel (or kraken) and not yet on an Elbereth written since the grab (a typo'd one is
+         rewritten: the drowning comes with the eel's next hit)."""
+@@ -4043,7 +4089,7 @@ class DiveLogic:
+         return None
+ 
+     # MEDUSA_BLIND_DIG: what dig_first may do blind with nothing in view -- all at our own square, no walk
+-    _BLIND_DIG_ACTIONS = frozenset(('dig', 'zap', 'freeze', 'blind_engrave', 'wait_sight', 'eel'))
++    _BLIND_DIG_ACTIONS = frozenset(('dig', 'zap', 'freeze', 'blind_engrave', 'wait_sight', 'eel', 'couatl_ward'))
+     _LIFT_ACTIONS = frozenset(('lift_on', 'float', 'lift_off', 'hover'))
+ 
+     def _blind_dig_due(self):
+diff --git a/nhbot/item/inventory.py b/nhbot/item/inventory.py
+index 89f4cf3..b0701ec 100644
+--- a/nhbot/item/inventory.py
++++ b/nhbot/item/inventory.py
+@@ -607,7 +607,8 @@ class Inventory:
+                     # LOOK is necessary even when 'Things that are here' popup is present for some very rare cases
+                     self.agent.step(A.Command.LOOK)
+ 
+-                if 'Something is ' in self.agent.message and 'You read: "' in self.agent.message:
++                if ('Something is ' in self.agent.message or "There's some graffiti on " in self.agent.message) and \
++                        'You read: "' in self.agent.message:
+                     index = self.agent.message.index('You read: "') + len('You read: "')
+                     assert '"' in self.agent.message[index:]
+                     engraving = self.agent.message[index: index + self.agent.message[index:].index('"')]
