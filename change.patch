@@ -1,0 +1,42 @@
+diff --git a/base/nhbot/dive_logic.py b/base/nhbot/dive_logic.py
+index 19e4ceb..c0a7321 100644
+--- a/base/nhbot/dive_logic.py
++++ b/base/nhbot/dive_logic.py
+@@ -2106,7 +2106,21 @@ class DiveLogic:
+         wiz-gno-neu-mal s201 (a lone rothe after the force bolts ran out, 10-11 HP to dead, no engraving), p0
+         wiz-hum-neu-mal s202 (a hobbit from 13 HP), tr0 bar-hum-cha-mal s211 (a rothe at 7-9 HP)."""
+         if not jf_config.LONE_WEAK_THREAT:
+-            return False
++            agent = self.agent
++            char = agent.character
++            if self.diving or char.role != Character.RANGER or char.race != Character.GNOME or \
++                    getattr(monster[3], 'difficulty', 0) <= 2:
++                return False
++            holding = self._elbereth_resting and \
++                (agent.inventory.engraving_below_me or '').lower() == 'elbereth'
++            if not holding:
++                bl = agent.blstats
++                if not utils.adjacent(monster[1:3], (bl.y, bl.x)):
++                    return False
++                # A low-level attacker that can repeat the last exchange is not a small threat.
++                if not any(hp - bl.hitpoints >= bl.hitpoints for t, hp in self._hp_history
++                           if t >= bl.time - jf_config.KNOWN_ITEMS_BURST_TURNS):
++                    return False
+         try:
+             import math
+             from .nhmodel.prayer import _phi, monster_turn_damage
+diff --git a/nethackers.solution.json b/nethackers.solution.json
+index 5c88336..cd2fe25 100644
+--- a/nethackers.solution.json
++++ b/nethackers.solution.json
+@@ -1,8 +1,9 @@
+ {
+   "schema": "nethackers.solution/v1",
+-  "name": "daglar-zLeadersBest3453190",
++  "name": "Gnome Ranger ward after a severe lone melee hit",
+   "root": ".",
+   "parents": [
++    "github.com/daglar-dragomirov/nethacker@9c7f87e1d9d3e859e895246f85c5e4d2ac870c25",
+     "github.com/daglar-dragomirov/nethacker@ccfb1251179bad749ece88d384956363ffb2db56",
+     "github.com/daglar-dragomirov/nethacker@44b29b9299c5dcfb76e3fc6081004727c58db19a",
+     "github.com/DT6A/nethacker@37f9da35d0dbf98ed15bf89735bd601f0c0eac02",
