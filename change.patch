@@ -1,0 +1,66 @@
+diff --git a/base/nhbot_v2/agent.py b/base/nhbot_v2/agent.py
+index b7ee83b..ddb6d6c 100644
+--- a/base/nhbot_v2/agent.py
++++ b/base/nhbot_v2/agent.py
+@@ -2768,6 +2768,33 @@ class Agent:
+             return self.inventory.items.boots is None
+         return self.inventory.items.gloves is None and self.inventory.items.main_hand is None
+ 
++    def _retreat_after_crowded_landing(self):
++        """Leave a melee crowd when a new level still offers a clear step out of reach."""
++        bl = self.blstats
++        dive = self.global_logic.dive
++        prop = self.character.prop
++        if self.character.role != Character.BARBARIAN or self.character.race != Character.HUMAN or \
++                not dive.diving or not dive._fast_hp_loss() or self.in_pit() or dive._in_own_pit() or \
++                prop.blind or prop.hallu or prop.confusion or prop.stun or prop.polymorph:
++            return None
++        level = self.current_level()
++        visit = dive._visit_start
++        if level.dungeon_number != Level.DUNGEONS_OF_DOOM or visit[0] != level.key() or bl.time - visit[1] > 3 or \
++                getattr(self, '_crowd_retreat_visit', None) == visit:
++            return None
++        hostiles = [(int(y), int(x)) for _, y, x, _, _ in self.get_visible_monsters()]
++        if sum(max(abs(y - bl.y), abs(x - bl.x)) <= 1 for y, x in hostiles) < 2:
++            return None
++        safe = []
++        for y, x in zip(*(self.bfs() == 1).nonzero()):
++            pos = (int(y), int(x))
++            if level.objects[pos] not in (SS.S_room, SS.S_corr, SS.S_litcorr) or level.shop[pos] or \
++                    level.shop_interior[pos] or self.monster_tracker.monster_mask[pos] or self.glyphs[pos] in G.PETS:
++                continue
++            if all(max(abs(my - y), abs(mx - x)) > 1 for my, mx in hostiles):
++                safe.append((abs(y - bl.y) + abs(x - bl.x), pos))
++        return min(safe)[1] if safe else None
++
+     def _fight2_perform_action(self, best_action, wait_counter):
+         if best_action[0] == 'move':
+             _, dy, dx = best_action
+@@ -2781,6 +2808,12 @@ class Agent:
+             _, dy, dx = best_action
+             target_y = self.blstats.y + dy
+             target_x = self.blstats.x + dx
++            step = self._retreat_after_crowded_landing()
++            if step is not None:
++                self._crowd_retreat_visit = self.global_logic.dive._visit_start
++                self.log(f'LANDING RETREAT: stepping out of the melee crowd to {step}')
++                self.move(*step)
++                return wait_counter
+             if not self._keep_digging_tool_wielded() and self.wield_best_melee_weapon():
+                 return wait_counter
+             with self.env.debug_tiles([[self.blstats.y, self.blstats.x],
+diff --git a/nethackers.solution.json b/nethackers.solution.json
+index 9cbb924..5000edc 100644
+--- a/nethackers.solution.json
++++ b/nethackers.solution.json
+@@ -1,8 +1,9 @@
+ {
+   "schema": "nethackers.solution/v1",
+-  "name": "daglar-zLeadersBest3402696",
++  "name": "Barbarian step clear of a crowded landing",
+   "root": ".",
+   "parents": [
++    "github.com/daglar-dragomirov/nethacker@5e1355a85349b0f031d0ad5d5799c68673a22398",
+     "github.com/daglar-dragomirov/nethacker@ccfb1251179bad749ece88d384956363ffb2db56",
+     "github.com/daglar-dragomirov/nethacker@44b29b9299c5dcfb76e3fc6081004727c58db19a",
+     "github.com/DT6A/nethacker@37f9da35d0dbf98ed15bf89735bd601f0c0eac02",
