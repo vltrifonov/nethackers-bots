@@ -1,0 +1,60 @@
+diff --git a/nethackers.solution.json b/nethackers.solution.json
+index 1e984dc..78908d4 100644
+--- a/nethackers.solution.json
++++ b/nethackers.solution.json
+@@ -1,8 +1,9 @@
+ {
+   "schema": "nethackers.solution/v1",
+-  "name": "daglar-zRayMissSafety",
++  "name": "Priest teleport after a blocked retreat",
+   "root": ".",
+   "parents": [
++    "github.com/daglar-dragomirov/nethacker@7c4e395c441f2f71299720676fa7e2600b806bcf",
+     "github.com/zarutskiysy/nethack@9c1cc902b6d9d88e6a14e0c9e5dc7494d9882bcd",
+     "github.com/zarutskiysy/nethack@00cf417f05ec9c20846b848cd70243af67695c54",
+     "github.com/zarutskiysy/nethack@14a3bbd871061d63bda57da6c82af91f46959d21",
+diff --git a/nhbot/dive_logic.py b/nhbot/dive_logic.py
+index 19e4ceb..163ed22 100644
+--- a/nhbot/dive_logic.py
++++ b/nhbot/dive_logic.py
+@@ -2659,6 +2659,26 @@ class DiveLogic:
+         agent.step(A.Command.FIGHT)
+         agent.direction(y, x)
+ 
++    def _teleport_after_blocked_retreat(self, error):
++        """Use an identified scroll when hallucination leaves a fleeing Priest's stairs cut off."""
++        agent = self.agent
++        bl = agent.blstats
++        prop = agent.character.prop
++        if not str(error).startswith('Monster on a next tile when moving:') or not self.diving or \
++                agent.character.role != Character.PRIEST or not prop.hallu or prop.blind or \
++                prop.confusion or prop.stun or prop.polymorph or bl.hitpoints >= RETREAT_BELOW * bl.max_hitpoints or \
++                agent.current_level().dungeon_number != Level.DUNGEONS_OF_DOOM:
++            return False
++        known = agent.global_logic.known
++        if not known._teleport_ok() or known._unpaid():
++            return False
++        scroll = known._tele_scroll()
++        if scroll is None:
++            return False
++        known._act(('read', scroll, 'known teleport scroll after a blocked retreat',
++                    (self._near_hostiles(radius=1), 'blocked retreat', 0)))
++        return True
++
+     @Strategy.wrap
+     def retreat_upstairs(self):
+         """Low or fast-falling HP (or a crowded arrival): take the up stairs if they are close."""
+@@ -2723,7 +2743,12 @@ class DiveLogic:
+         start = (bl.y, bl.x, level.key())
+         try:
+             if (bl.y, bl.x) != (y, x):
+-                agent.go_to(y, x, max_steps=1)
++                try:
++                    agent.go_to(y, x, max_steps=1)
++                except AgentPanic as error:
++                    if not self._teleport_after_blocked_retreat(error):
++                        raise
++                    return
+             if (agent.blstats.y, agent.blstats.x) == (y, x):
+                 agent.move('<')
+         finally:
