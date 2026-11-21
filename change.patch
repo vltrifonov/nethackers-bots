@@ -1,0 +1,61 @@
+diff --git a/base/nhbot/dive_logic.py b/base/nhbot/dive_logic.py
+index 19e4ceb..9de4d7e 100644
+--- a/base/nhbot/dive_logic.py
++++ b/base/nhbot/dive_logic.py
+@@ -909,6 +909,7 @@ class DiveLogic:
+         self._guard_hold_until = -1        # keep holding the faint guard's Elbereth until this turn (IDLE)
+         self._ranged_hit_turn = -10 ** 9   # last turn a missile, wand or ray hit us (RANGED_ON_ELB)
+         self._hold_squares = set()         # (level key, y, x) where a hold (faint guard, Elbereth rest) stood
++        self._fire_ward_steps = set()
+         self._durable_sq = {}              # DURABLE_ELBERETH: level key -> (y, x) of our engraved Elbereth there
+         self._durable_walk_blocked_until = -1
+         self._last_update_turn = 0
+@@ -2122,6 +2123,33 @@ class DiveLogic:
+         except Exception:
+             return False
+ 
++    def _passive_fire_ward_step(self, near):
++        """Leave a pit edge whose bottom cannot be engraved after dangerous fire contact."""
++        agent = self.agent
++        bl = agent.blstats
++        level = agent.current_level()
++        prop = agent.character.prop
++        here = (bl.y, bl.x)
++        if not self.diving or level.key() in self._fire_ward_steps or bl.hitpoints * 3 >= bl.max_hitpoints or \
++                level.objects[here] not in PITS or agent.in_pit() or self._in_own_pit() or self.levitating() or \
++                prop.confusion or prop.stun or prop.hallu or len(near) != 1:
++            return None
++        distance, y, x, monster, glyph = near[0]
++        dy, dx = y - bl.y, x - bl.x
++        if distance != 1 or abs(dy) + abs(dx) != 1 or not nh.glyph_is_monster(glyph) or \
++                monster.mname != 'fire elemental' or 'You are suddenly very hot!' not in agent.message or \
++                'the fire elemental.' not in agent.message:
++            return None
++        target = (bl.y - dy, bl.x - dx)
++        if not (0 <= target[0] < agent.glyphs.shape[0] and 0 <= target[1] < agent.glyphs.shape[1]):
++            return None
++        target_glyph = agent.glyphs[target]
++        if not level.seen[target] or level.objects[target] not in G.VISIBLE_FLOOR or \
++                (target_glyph not in G.VISIBLE_FLOOR and not nh.glyph_is_object(target_glyph)) or \
++                agent.monster_tracker.monster_mask[target] or agent.bfs()[target] != 1:
++            return None
++        return target
++
+     @Strategy.wrap
+     @_hold_loop
+     def elbereth_rest(self):
+@@ -2168,7 +2196,14 @@ class DiveLogic:
+         if engraving != 'elbereth' and not agent.can_engrave():
+             self._elbereth_resting = False
+             yield False
++        ward_step = self._passive_fire_ward_step(near) if engraving != 'elbereth' else None
+         yield True
++        if ward_step is not None:
++            self._fire_ward_steps.add(agent.current_level().key())
++            self._elbereth_resting = False
++            agent.log(f'FIRE CONTACT WARD: stepping off the pit edge to {ward_step}')
++            agent.move(*ward_step)
++            return
+         if not self._elbereth_resting:
+             agent.log(f'ELBERETH rest start: {[m[3].mname for m in near]}')
+         self._elbereth_resting = True
