@@ -1,0 +1,75 @@
+diff --git a/base/nhbot_v2/dive_logic.py b/base/nhbot_v2/dive_logic.py
+index 4b45f91..e0a75e9 100644
+--- a/base/nhbot_v2/dive_logic.py
++++ b/base/nhbot_v2/dive_logic.py
+@@ -8356,6 +8356,46 @@ class DiveLogic:
+             agent.log(f'STALL a {MON.permonst(glyph).mname} on the stairs at {p} for {now - since} turns: clearing it')
+         return self._stall_clear(p, 'stairs')
+ 
++    def _break_boxing_boulder(self):
++        agent = self.agent
++        level = agent.current_level()
++        bl = agent.blstats
++        char = agent.character
++        prop = char.prop
++        here = (int(bl.y), int(bl.x))
++        if not self.diving or char.role != Character.BARBARIAN or char.race != Character.HUMAN or \
++                level.dungeon_number != Level.DUNGEONS_OF_DOOM or bl.depth < jf_config.CASTLE_SCARE_DEPTH or \
++                prop.blind or prop.hallu or prop.confusion or prop.stun or prop.polymorph or \
++                level.objects[here] not in PITS or bl.time < self._dig_blocked_until or \
++                self.turns_on_level() < jf_config.STALL_MIN_TURNS:
++            return False
++        if (agent.bfs() >= 0).sum() != 1 or self._near_hostiles(radius=2):
++            return False
++        tool = self.digging_tool()
++        if tool is None or tool is not agent.inventory.items.main_hand:
++            return False
++        stairs = list(zip(*utils.isin(level.objects, G.STAIR_UP).nonzero()))
++        if not stairs:
++            return False
++
++        # Breaking one rock is useful only when its square alone reopens a known exit.
++        key = level.key()
++        for dest in agent.neighbors(*here, shuffle=False, diagonal=False):
++            attempt = (key, dest)
++            if agent.glyphs[dest] not in G.BOULDER or level.objects[dest] not in PLAIN_FLOOR or \
++                    agent.monster_tracker.monster_mask[dest] or \
++                    self._stall_tries.get(attempt, 0) >= jf_config.STALL_MAX_TRIES:
++                continue
++            opening = np.zeros(level.walkable.shape, dtype=bool)
++            opening[dest] = True
++            distance = agent.bfs(open_mask=opening)
++            if any(distance[stair] >= 0 for stair in stairs):
++                self._stall_tries[attempt] = self._stall_tries.get(attempt, 0) + 1
++                agent.log(f'STALL breaking adjacent boulder at {dest} to reconnect to the stairs')
++                self._dig_at_boulder(tool, dest)
++                return True
++        return False
++
+     def _stall_descend(self):
+         """descend() found no way down. STALL_SESSILE/STALL_BOULDER: a known main-line '>' cut off -> clear the way.
+         STALL_DOWNSEARCH: no '>' ever seen here after STALL_DOWNSEARCH_TURNS of this dive -> search the walls next to
+@@ -8368,6 +8408,8 @@ class DiveLogic:
+                  if self._stairs_ok(level, y, x)]
+         if downs:
+             return self._stall_unblock(downs, 'stairs >')
++        if self._break_boxing_boulder():
++            return True
+         # shallow levels only: below Dlvl 10 the maze levels, Medusa's and the castle (no '>' at all) have their own logic
+         # (ga-b1 jf43 s1 fired on Dlvl 28)
+         if not jf_config.STALL_DOWNSEARCH_TURNS or level.dungeon_number != Level.DUNGEONS_OF_DOOM or \
+diff --git a/nethackers.solution.json b/nethackers.solution.json
+index 84b612f..a9a945f 100644
+--- a/nethackers.solution.json
++++ b/nethackers.solution.json
+@@ -1,8 +1,9 @@
+ {
+   "schema": "nethackers.solution/v1",
+-  "name": "daglar-zLeadersBest2291828",
++  "name": "Barbarian escape from a boxed pit",
+   "root": ".",
+   "parents": [
++    "github.com/daglar-dragomirov/nethacker@32b00bbb7aee564569aceea086906ad1e17cc2aa",
+     "github.com/daglar-dragomirov/nethacker@ccfb1251179bad749ece88d384956363ffb2db56",
+     "github.com/daglar-dragomirov/nethacker@44b29b9299c5dcfb76e3fc6081004727c58db19a",
+     "github.com/DT6A/nethacker@37f9da35d0dbf98ed15bf89735bd601f0c0eac02",
