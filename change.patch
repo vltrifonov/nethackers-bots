@@ -1,0 +1,70 @@
+diff --git a/nethackers.solution.json b/nethackers.solution.json
+index e085089..5bcd60a 100644
+--- a/nethackers.solution.json
++++ b/nethackers.solution.json
+@@ -1,8 +1,9 @@
+ {
+   "schema": "nethackers.solution/v1",
+-  "name": "daglar-zV10cThreatCare",
++  "name": "Monk take a clear adjacent quest portal",
+   "root": ".",
+   "parents": [
++    "github.com/daglar-dragomirov/nethacker@b049ad40a7acb4da86492c245027efb1538adb6f",
+     "github.com/zarutskiysy/nethack@14a3bbd871061d63bda57da6c82af91f46959d21",
+     "github.com/zarutskiysy/nethack@94c4c1cd21c51f9feec0eaabd9c63831a8ee3316",
+     "github.com/zarutskiysy/nethack@bb7def3548dcb618066c2c92b8bc3335631aaee1",
+diff --git a/nhbot/dive_logic.py b/nhbot/dive_logic.py
+index 19e4ceb..4eb8bd2 100644
+--- a/nhbot/dive_logic.py
++++ b/nhbot/dive_logic.py
+@@ -8959,6 +8959,36 @@ class DiveLogic:
+             agent.bfs()[p] != -1 for p in zip(*utils.isin(agent.current_level().objects,
+                                                            stairs).nonzero())))).run()
+ 
++    @Strategy.wrap
++    def escape_quest_portal(self):
++        """Take a visible, adjacent return portal before fighting on the Monk's Quest home."""
++        agent = self.agent
++        level = agent.current_level()
++        bl = agent.blstats
++        if (not self.diving or agent.character.role != Character.MONK
++                or level.dungeon_number != Level.QUEST or level.level_number != 1):
++            yield False
++        portal = self.quest_arrival
++        pos = (bl.y, bl.x)
++        prop = agent.character.prop
++        attempt = (level.key(), pos, bl.time)
++        if (portal is None or not utils.adjacent(pos, portal) or prop.blind or prop.confusion or prop.stun
++                or prop.hallu or prop.polymorph or agent.in_pit() or getattr(agent, '_beartrap_at', None) ==
++                (*level.key(), *pos) or getattr(self, '_quest_portal_attempt', None) == attempt):
++            yield False
++        if (agent.glyphs[portal] not in PORTAL or not level.walkable[portal] or level.forbidden[portal]
++                or (jf_config.TEMP_FORBID and level.forbidden_until[portal] > bl.time)
++                or agent.monster_tracker.monster_mask[portal] or not self._near_hostiles(radius=2)):
++            yield False
++        # The ordinary BFS excludes trap squares. Open just the visible, unoccupied portal.
++        portal_mask = np.zeros_like(level.walkable)
++        portal_mask[portal] = True
++        if agent.bfs(open_mask=portal_mask)[portal] != 1:
++            yield False
++        yield True
++        self._quest_portal_attempt = attempt
++        self.step_onto(*portal, 'magic portal')
++
+     def leave_quest(self):
+         """Home 1 is banked on arrival; walk back through the portal and keep diving."""
+         agent = self.agent
+diff --git a/nhbot/global_logic.py b/nhbot/global_logic.py
+index 6af74e7..d17b542 100644
+--- a/nhbot/global_logic.py
++++ b/nhbot/global_logic.py
+@@ -1086,6 +1086,9 @@ class GlobalLogic:
+             .preempt(self.agent, [
+                 self.dive.elbereth_rest().condition(lambda: self.dive.diving or jf_config.SURVIVAL_IN_TOUR),
+             ])
++            .preempt(self.agent, [
++                self.dive.escape_quest_portal(),
++            ])
+             .preempt(self.agent, [
+                 # Medusa-3 only (RAVEN_CYCLE): off the raven island to heal, back for a fresh dig
+                 self.dive.raven_cycle(),
