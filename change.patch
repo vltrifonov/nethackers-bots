@@ -1,0 +1,116 @@
+diff --git a/bot.py b/bot.py
+index ade573b..8cf71bd 100644
+--- a/bot.py
++++ b/bot.py
+@@ -8,9 +8,13 @@ One arena episode is one process: exactly one program is imported per game, unde
+ from __future__ import annotations
+ 
+ import importlib.util
++import re
+ import sys
+ from pathlib import Path
+ 
++from nle import nethack
++from nle.nethack import actions as A
++
+ _HERE = Path(__file__).resolve().parent
+ ROUTES = {
+  "arc-dwa-law-fem": "d_kefirski_91cc604",
+@@ -59,6 +63,11 @@ _ROLES = {
+ _RACES = {"human": "hum", "elven": "elf", "dwarvish": "dwa", "gnomish": "gno", "orcish": "orc"}
+ _ALIGNS = {"lawful": "law", "neutral": "neu", "chaotic": "cha"}
+ _GENDERS = {"male": "mal", "female": "fem"}
++_SAMURAI_ATTRIBUTES = re.compile(
++    r"\bYou are an? [^,]+, a level \d+ female human Samurai\.\s+You are lawful\b"
++)
++_ATTRIBUTES = tuple(nethack.ACTIONS).index(A.Command.ATTRIBUTES)
++_ESCAPE = tuple(nethack.ACTIONS).index(A.Command.ESC)
+ 
+ 
+ def identity_of(observation) -> str | None:
+@@ -81,6 +90,26 @@ def identity_of(observation) -> str | None:
+     return f"{role}-{race}-{align}-{gender}"
+ 
+ 
++def _can_check_samurai_attributes(observation) -> bool:
++    try:
++        stats = observation['blstats']
++        if int(stats[nethack.NLE_BL_TIME]) != 1 or any(observation['misc']):
++            return False
++        y, x = int(stats[nethack.NLE_BL_Y]), int(stats[nethack.NLE_BL_X])
++        glyph = int(observation['glyphs'][y, x])
++    except (KeyError, IndexError, TypeError, ValueError):
++        return False
++    return nethack.glyph_is_monster(glyph) and nethack.permonst(nethack.glyph_to_mon(glyph)).mname == 'samurai'
++
++
++def _samurai_attributes_identity(observation) -> str | None:
++    try:
++        text = bytes(observation['tty_chars']).decode('latin-1')
++    except (KeyError, TypeError, ValueError):
++        return None
++    return 'sam-hum-law-fem' if _SAMURAI_ATTRIBUTES.search(text) else None
++
++
+ def _load(name: str):
+     root = _HERE / name
+     sys.path.insert(0, str(root))
+@@ -94,18 +123,42 @@ def _load(name: str):
+ class Bot:
+     def __init__(self) -> None:
+         self._agent = None
++        self._attributes_stage = None
++        self._attributes_identity = None
++        self._startup_observation = None
+ 
+     def reset(self, initial_observation) -> None:
++        self._attributes_stage = None
+         ident = None
+         try:
+             ident = identity_of(initial_observation)
+         except Exception:  # noqa: BLE001
+             pass
+         if self._agent is None:
++            if ident is None and _can_check_samurai_attributes(initial_observation):
++                # NLE may reuse its arrays. Keep the starting message for the selected engine.
++                self._startup_observation = {
++                    key: value.copy() if hasattr(value, 'copy') else value
++                    for key, value in initial_observation.items()
++                }
++                self._attributes_stage = 0
++                return
+             self._agent = _load(ROUTES.get(ident, "base"))
+         self._agent.reset(initial_observation)
+ 
+     def act(self, observation) -> int:
++        if self._attributes_stage == 0:
++            self._attributes_stage = 1
++            return _ATTRIBUTES
++        if self._attributes_stage == 1:
++            self._attributes_identity = _samurai_attributes_identity(observation)
++            self._attributes_stage = 2
++            return _ESCAPE
++        if self._attributes_stage == 2:
++            self._agent = _load(ROUTES.get(self._attributes_identity, 'base'))
++            self._agent.reset(self._startup_observation)
++            self._startup_observation = None
++            self._attributes_stage = None
+         return self._agent.act(observation)
+ 
+     def close(self) -> None:
+diff --git a/nethackers.solution.json b/nethackers.solution.json
+index 591a72c..a47b1b2 100644
+--- a/nethackers.solution.json
++++ b/nethackers.solution.json
+@@ -1,8 +1,10 @@
+ {
+   "schema": "nethackers.solution/v1",
+-  "name": "daglar-zLeadersSeed407717",
++  "name": "Samurai identity from visible attributes",
+   "root": ".",
+   "parents": [
++    "github.com/daglar-dragomirov/nethacker@9a387c4fb6b8c166e2e6e63617bd6e588f40fddc",
++    "github.com/vltrifonov/nethackers-bots@13c140c8dd78affe13eb2411c227b18412a33a46",
+     "github.com/daglar-dragomirov/nethacker@ccfb1251179bad749ece88d384956363ffb2db56",
+     "github.com/daglar-dragomirov/nethacker@44b29b9299c5dcfb76e3fc6081004727c58db19a",
+     "github.com/DT6A/nethacker@37f9da35d0dbf98ed15bf89735bd601f0c0eac02",
