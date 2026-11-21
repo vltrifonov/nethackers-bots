@@ -1,0 +1,39 @@
+diff --git a/base/nhbot/dive_logic.py b/base/nhbot/dive_logic.py
+index 19e4ceb..15d8715 100644
+--- a/base/nhbot/dive_logic.py
++++ b/base/nhbot/dive_logic.py
+@@ -2122,11 +2122,34 @@ class DiveLogic:
+         except Exception:
+             return False
+ 
++    def _trace_rothe_ward(self):
++        agent = self.agent
++        bl = agent.blstats
++        if bl.depth > 4 or bl.hitpoints * 2 > bl.max_hitpoints:
++            return
++        key = (agent.current_level().key(), bl.time)
++        if getattr(self, '_trace_rothe_ward_key', None) == key:
++            return
++        near = self._near_hostiles()
++        ward = agent.inventory.engraving_below_me
++        if not any(m[3].mname == 'rothe' for m in near) and (ward or '').lower() != 'elbereth':
++            return
++        self._trace_rothe_ward_key = key
++        pos = (int(bl.y), int(bl.x))
++        samples = [(int(t), int(hp)) for t, hp in self._hp_history[-5:]]
++        hostiles = [(m[3].mname, int(m[1]), int(m[2]), getattr(m[3], 'mlevel', None), getattr(m[3], 'difficulty', 0))
++                    for m in near[:8]]
++        agent.log(f'ROTHE_WARD_DIAG pos={pos} word={ward!r} history={samples} near={hostiles} '
++                  f'diving={self.diving} resting={self._elbereth_resting} falling={self._fast_hp_loss()} '
++                  f'shot={self.shot_recently()} model={jf_config.LONE_WEAK_THREAT}')
++
+     @Strategy.wrap
+     @_hold_loop
+     def elbereth_rest(self):
+         agent = self.agent
+         bl = agent.blstats
++        if jf_log.enabled():
++            self._trace_rothe_ward()
+         if self.shot_recently():
+             self._elbereth_resting = False
+             yield False
