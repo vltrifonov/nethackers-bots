@@ -1,0 +1,80 @@
+diff --git a/base/nhbot_v2/agent.py b/base/nhbot_v2/agent.py
+index 1e2525b..5b01746 100644
+--- a/base/nhbot_v2/agent.py
++++ b/base/nhbot_v2/agent.py
+@@ -2768,6 +2768,51 @@ class Agent:
+             return self.inventory.items.boots is None
+         return self.inventory.items.gloves is None and self.inventory.items.main_hand is None
+ 
++    def _deflect_blind_raven_with_mirror(self, y, x):
++        bl = self.blstats
++        char = self.character
++        prop = char.prop
++        dive = self.global_logic.dive
++        if char.role != Character.BARBARIAN or char.race != Character.HUMAN or not dive.diving or \
++                not prop.blind or prop.hallu or prop.confusion or prop.stun or prop.polymorph or \
++                bl.hitpoints * 3 > bl.max_hitpoints or bl.carrying_capacity >= 4 or not dive.on_medusa_level():
++            return False
++        level = self.current_level()
++        key = level.key()
++        target = (y, x)
++        here = (bl.y, bl.x)
++        previous = getattr(self, '_attack_ctx', None)
++        if getattr(self, '_blind_raven_mirror_level', None) == key or \
++                abs(y - bl.y) + abs(x - bl.x) != 1 or level.objects[target] in G.DOOR_CLOSED or \
++                previous is None or previous[1] != target or previous[3] != here or \
++                not 0 <= bl.time - previous[0] <= 1 or not self._hurt_recently(1):
++            return False
++        near = [m for m in self.get_visible_monsters() if max(abs(m[1] - bl.y), abs(m[2] - bl.x)) <= 2]
++        if len(near) != 1 or near[0][1:3] != target or near[0][3].mname != 'raven':
++            return False
++        mirror = next((it for it in self.inventory.items if it.category == nh.TOOL_CLASS and it.is_unambiguous() and
++                       it.object.name == 'mirror' and it.status != Item.CURSED and it.shop_status == Item.NOT_SHOP),
++                      None)
++        if mirror is None:
++            return False
++
++        # The mirror ray starts at the adjacent raven's tile, including over a pool.
++        # The monster sees its own reflection even while the hero is blind.
++        letter = self.inventory.items.get_letter(mirror)
++        self._blind_raven_mirror_level = key
++        with self.atom_operation():
++            self.step(A.Command.APPLY)
++            if 'What do you want to use or apply?' not in self.single_message:
++                return False
++            self.type_text(letter)
++            if 'In what direction?' not in self.single_message:
++                if 'What do you want to use or apply?' in self.single_message:
++                    self.step(A.Command.ESC)
++                return False
++            self.log(f'MEDUSA aiming a mirror at the adjacent raven at {target}')
++            self.direction(y, x)
++        return True
++
+     def _fight2_perform_action(self, best_action, wait_counter):
+         if best_action[0] == 'move':
+             _, dy, dx = best_action
+@@ -2781,6 +2826,8 @@ class Agent:
+             _, dy, dx = best_action
+             target_y = self.blstats.y + dy
+             target_x = self.blstats.x + dx
++            if self._deflect_blind_raven_with_mirror(target_y, target_x):
++                return 0
+             if not self._keep_digging_tool_wielded() and self.wield_best_melee_weapon():
+                 return wait_counter
+             with self.env.debug_tiles([[self.blstats.y, self.blstats.x],
+diff --git a/nethackers.solution.json b/nethackers.solution.json
+index 84b612f..c4b8a23 100644
+--- a/nethackers.solution.json
++++ b/nethackers.solution.json
+@@ -1,8 +1,9 @@
+ {
+   "schema": "nethackers.solution/v1",
+-  "name": "daglar-zLeadersBest2291828",
++  "name": "Barbarian mirror against a raven",
+   "root": ".",
+   "parents": [
++    "github.com/daglar-dragomirov/nethacker@32b00bbb7aee564569aceea086906ad1e17cc2aa",
+     "github.com/daglar-dragomirov/nethacker@ccfb1251179bad749ece88d384956363ffb2db56",
+     "github.com/daglar-dragomirov/nethacker@44b29b9299c5dcfb76e3fc6081004727c58db19a",
+     "github.com/DT6A/nethacker@37f9da35d0dbf98ed15bf89735bd601f0c0eac02",
