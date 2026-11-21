@@ -1,0 +1,26 @@
+diff --git a/nhbot/agent.py b/nhbot/agent.py
+index efe4635..7210593 100644
+--- a/nhbot/agent.py
++++ b/nhbot/agent.py
+@@ -2972,6 +2972,21 @@ class Agent:
+                 return wait_counter
+         elif best_action[0] == 'melee':
+             _, dy, dx = best_action
++            bl = self.blstats
++            nearby = [(int(y), int(x), mon.mname) for _, y, x, mon, _ in self.get_visible_monsters()
++                      if max(abs(y - bl.y), abs(x - bl.x)) <= 2]
++            if bl.hitpoints < 0.8 * bl.max_hitpoints and any(
++                    name in ('Aleax', 'mind flayer', 'master mind flayer') for _, _, name in nearby):
++                known = self.global_logic.known
++                level = self.current_level()
++                items = [(i.text, i.status, i.shop_status) for i in self.inventory.items
++                         if i.category in (nh.SCROLL_CLASS, nh.POTION_CLASS, nh.WAND_CLASS)]
++                steps = [(int(y), int(x), int(level.objects[y, x]), bool(self.monster_tracker.monster_mask[y, x]))
++                         for y, x in zip(*(self.bfs() == 1).nonzero())]
++                self.log(f'MONK_THREAT_DIAG pos={(bl.y, bl.x)} near={nearby} steps={steps} '
++                         f'scope={known._in_scope()} danger={known._danger() is not None} '
++                         f'can_teleport={known._teleport_ok()} prayer={known.mino._prayer_first()} '
++                         f'pit={self.in_pit()} items={items}')
+             target_y = self.blstats.y + dy
+             target_x = self.blstats.x + dx
+             if not self._keep_digging_tool_wielded() and self.wield_best_melee_weapon():
