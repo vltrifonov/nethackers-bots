@@ -1,0 +1,31 @@
+diff --git a/base/nhbot/dive_logic.py b/base/nhbot/dive_logic.py
+index 19e4ceb..06d61c0 100644
+--- a/base/nhbot/dive_logic.py
++++ b/base/nhbot/dive_logic.py
+@@ -4777,6 +4777,26 @@ class DiveLogic:
+         # of a Medusa-3 island, searching, until an invisible stalker killed it)
+         if not (DIG_ESCAPE and self.on_medusa_level()):
+             return None
++        agent = self.agent
++        bl = agent.blstats
++        if self.medusa_level in self._raven_levels and 0 <= bl.time - self._raven_flood_turn <= 3:
++            try:
++                level = agent.current_level()
++                pos = (int(bl.y), int(bl.x))
++                stamp = (bl.time, pos)
++                if stamp != getattr(self, '_traced_raven_flood_stair', None):
++                    self._traced_raven_flood_stair = stamp
++                    threats = [(int(m[1]), int(m[2]), m[3].mname, getattr(m[3], 'mflags2', 0))
++                               for m in self._near_hostiles(radius=2)]
++                    agent.log(f'RAVEN FLOOD STAIR TRACE pos={pos} glyph={int(agent.glyphs[pos])} '
++                              f'memory={int(level.objects[pos])} known_up={level.objects[pos] in G.STAIR_UP} '
++                              f'max_wet={max_wet} floods={self._medusa_floods} flood_turn={self._raven_flood_turn} '
++                              f'rerolls={self._medusa_rerolls} blocked_until={self._medusa_reroll_blocked_until} '
++                              f'pit={agent.in_pit()} own_pit={self._in_own_pit()} levitating={self.levitating()} '
++                              f'blind={agent.character.prop.blind} eel_hold_turn={self._eel_hold_turn} '
++                              f'threats={threats} text={agent._message_history[-8:]!r}')
++            except Exception as error:
++                agent.log(f'RAVEN FLOOD STAIR TRACE unavailable: {error}')
+         stranded = jf_config.MEDUSA_STRANDED_REROLL and max_wet is None
+         if jf_config.MEDUSA_STRANDED_REROLL:
+             # (see MEDUSA_STRANDED_REROLL) remembered for a climb some other strategy makes from here (update())
