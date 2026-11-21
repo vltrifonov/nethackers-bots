@@ -1,0 +1,451 @@
+[s22 t1 d1 0:1 xl1 hp10/10] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(3), np.int64(58)) acts=[SPACE:6 ESC:3 AUTOPICKUP:2 ATTRIBUTES:1 ENHANCE:1] gotos=[]
+[s22 t1 d1 0:1 xl1 hp10/10] DIVE level (np.int64(0), np.int64(1)) depth 1
+[s181 t126 d1 0:1 xl1 hp10/10] PANIC AgentPanic: agent position do not match after "move": expected (16, 57), got (15, 56)
+Traceback (most recent call last):
+  File "/sol/pf_dtad7a/strategy.py", line 165, in f
+    next(gen)
+  File "/sol/pf_dtad7a/strategy.py", line 100, in f
+    next(v1)
+  File "/sol/pf_dtad7a/utils.py", line 134, in f
+    next(it)
+  File "/sol/pf_dtad7a/item/inventory.py", line 1410, in check_items
+    self.agent.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 0, 255), is_path=True))
+  File "/sol/pf_dtad7a/agent.py", line 1699, in go_to
+    self.move(y, x)
+  File "/sol/pf_dtad7a/agent.py", line 1424, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_dtad7a.exceptions.AgentPanic: agent position do not match after "move": expected (16, 57), got (15, 56)
+
+[s241 t150 d1 0:1 xl1 hp7/14] PANIC AgentPanic: agent position do not match after "move": expected (14, 46), got (14, 45)
+Traceback (most recent call last):
+  File "/sol/pf_dtad7a/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_dtad7a/agent.py", line 295, in preempt
+    next(iterator)
+  File "/sol/pf_dtad7a/utils.py", line 134, in f
+    next(it)
+  File "/sol/pf_dtad7a/agent.py", line 1943, in fight2
+    wait_counter = self._fight2_perform_action(best_action, wait_counter)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_dtad7a/agent.py", line 2007, in _fight2_perform_action
+    self.move(target_y, target_x)
+  File "/sol/pf_dtad7a/agent.py", line 1424, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_dtad7a.exceptions.AgentPanic: agent position do not match after "move": expected (14, 46), got (14, 45)
+
+[s327 t195 d1 0:1 xl1 hp5/14] ELBERETH rest start: ['newt']
+[s353 t200 d1 0:1 xl1 hp4/14] ELBERETH rest start: ['newt']
+[s402 t204 d1 0:1 xl1 hp4/14] ELBERETH rest start: ['newt']
+[s422 t207 d1 0:1 xl1 hp4/14] ELBERETH rest start: ['newt']
+[s605 t235 d1 0:1 xl1 hp4/14] ELBERETH rest start: ['goblin']
+[s669 t240 d1 0:1 xl1 hp5/14] ELBERETH rest start: ['goblin']
+[s712 t252 d1 0:1 xl1 hp5/14] ELBERETH rest start: ['fox']
+[s740 t264 d1 0:1 xl1 hp6/14] PANIC AgentPanic: agent position do not match after "move": expected (10, 35), got (10, 36)
+Traceback (most recent call last):
+  File "/sol/pf_dtad7a/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_dtad7a/agent.py", line 284, in preempt
+    val = f()
+          ^^^
+  File "/sol/pf_dtad7a/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/pf_dtad7a/exploration_logic.py", line 490, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/pf_dtad7a/agent.py", line 1699, in go_to
+    self.move(y, x)
+  File "/sol/pf_dtad7a/agent.py", line 1424, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_dtad7a.exceptions.AgentPanic: agent position do not match after "move": expected (10, 35), got (10, 36)
+
+[s772 t276 d1 0:1 xl1 hp5/14] ELBERETH rest start: ['fox']
+[s811 t301 d1 0:1 xl1 hp7/14] PRAY hp=7/14 hunger=1 gap=None reason=None
+[s1067 t500 d1 0:1 xl1 hp14/14] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(10), np.int64(5)) acts=[SEARCH:190 SPACE:156 W:116 LOOK:83 E:70] gotos=[open_visit_search(3, 46):14 check_items(18, 57):13 check_items(3, 54):4]
+[s1173 t592 d1 0:1 xl1 hp6/14] PANIC AgentPanic: agent position do not match after "move": expected (11, 22), got (11, 23)
+Traceback (most recent call last):
+  File "/sol/pf_dtad7a/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_dtad7a/agent.py", line 295, in preempt
+    next(iterator)
+  File "/sol/pf_dtad7a/utils.py", line 134, in f
+    next(it)
+  File "/sol/pf_dtad7a/agent.py", line 1943, in fight2
+    wait_counter = self._fight2_perform_action(best_action, wait_counter)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_dtad7a/agent.py", line 2007, in _fight2_perform_action
+    self.move(target_y, target_x)
+  File "/sol/pf_dtad7a/agent.py", line 1424, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_dtad7a.exceptions.AgentPanic: agent position do not match after "move": expected (11, 22), got (11, 23)
+
+[s1191 t593 d1 0:1 xl1 hp5/14] LAST RESORT: grind desperate prayer
+[s1191 t593 d1 0:1 xl1 hp5/14] PRAY hp=5/14 hunger=1 gap=289 reason=None
+[s1288 t659 d1 0:1 xl1 hp18/18] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/pf_dtad7a/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_dtad7a/agent.py", line 295, in preempt
+    next(iterator)
+  File "/sol/pf_dtad7a/strategy.py", line 68, in f
+    next(it)
+  File "/sol/pf_dtad7a/utils.py", line 134, in f
+    next(it)
+  File "/sol/pf_dtad7a/agent.py", line 2304, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/pf_dtad7a/item/inventory.py", line 797, in eat
+    raise AgentPanic('no such food is lying here')
+pf_dtad7a.exceptions.AgentPanic: no such food is lying here
+
+[s1357 t707 d1 0:1 xl1 hp18/18] PANIC AgentPanic: agent position do not match after "move": expected (7, 20), got (8, 19)
+Traceback (most recent call last):
+  File "/sol/pf_dtad7a/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_dtad7a/agent.py", line 284, in preempt
+    val = f()
+          ^^^
+  File "/sol/pf_dtad7a/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/pf_dtad7a/exploration_logic.py", line 490, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/pf_dtad7a/agent.py", line 1699, in go_to
+    self.move(y, x)
+  File "/sol/pf_dtad7a/agent.py", line 1424, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_dtad7a.exceptions.AgentPanic: agent position do not match after "move": expected (7, 20), got (8, 19)
+
+[s1599 t909 d1 0:1 xl1 hp18/18] PANIC AgentPanic: agent position do not match after "move": expected (9, 69), got (10, 70)
+Traceback (most recent call last):
+  File "/sol/pf_dtad7a/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_dtad7a/agent.py", line 284, in preempt
+    val = f()
+          ^^^
+  File "/sol/pf_dtad7a/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/pf_dtad7a/exploration_logic.py", line 490, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/pf_dtad7a/agent.py", line 1699, in go_to
+    self.move(y, x)
+  File "/sol/pf_dtad7a/agent.py", line 1424, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_dtad7a.exceptions.AgentPanic: agent position do not match after "move": expected (9, 69), got (10, 70)
+
+[s1640 t942 d1 0:1 xl1 hp18/18] PANIC AgentPanic: agent position do not match after "move": expected (11, 56), got (12, 56)
+Traceback (most recent call last):
+  File "/sol/pf_dtad7a/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_dtad7a/agent.py", line 284, in preempt
+    val = f()
+          ^^^
+  File "/sol/pf_dtad7a/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/pf_dtad7a/exploration_logic.py", line 490, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/pf_dtad7a/agent.py", line 1699, in go_to
+    self.move(y, x)
+  File "/sol/pf_dtad7a/agent.py", line 1424, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_dtad7a.exceptions.AgentPanic: agent position do not match after "move": expected (11, 56), got (12, 56)
+
+[s1693 t988 d1 0:1 xl1 hp18/18] PANIC AgentPanic: agent position do not match after "move": expected (15, 61), got (14, 61)
+Traceback (most recent call last):
+  File "/sol/pf_dtad7a/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_dtad7a/agent.py", line 284, in preempt
+    val = f()
+          ^^^
+  File "/sol/pf_dtad7a/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/pf_dtad7a/exploration_logic.py", line 490, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/pf_dtad7a/agent.py", line 1699, in go_to
+    self.move(y, x)
+  File "/sol/pf_dtad7a/agent.py", line 1424, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_dtad7a.exceptions.AgentPanic: agent position do not match after "move": expected (15, 61), got (14, 61)
+
+[s1713 t1000 d1 0:1 xl1 hp18/18] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(16), np.int64(61)) acts=[SEARCH:132 E:87 SPACE:53 SE:33 SW:32] gotos=[open_visit_search(11, 55):5 open_visit_search(8, 9):4 open_visit_search(8, 14):4]
+[s1876 t1247 d1 0:1 xl1 hp18/18] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/pf_dtad7a/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_dtad7a/agent.py", line 295, in preempt
+    next(iterator)
+  File "/sol/pf_dtad7a/strategy.py", line 68, in f
+    next(it)
+  File "/sol/pf_dtad7a/utils.py", line 134, in f
+    next(it)
+  File "/sol/pf_dtad7a/agent.py", line 2304, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/pf_dtad7a/item/inventory.py", line 797, in eat
+    raise AgentPanic('no such food is lying here')
+pf_dtad7a.exceptions.AgentPanic: no such food is lying here
+
+[s1900 t1249 d1 0:1 xl1 hp18/18] PANIC AgentPanic: agent position do not match after "move": expected (7, 52), got (8, 52)
+Traceback (most recent call last):
+  File "/sol/pf_dtad7a/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_dtad7a/agent.py", line 295, in preempt
+    next(iterator)
+  File "/sol/pf_dtad7a/utils.py", line 134, in f
+    next(it)
+  File "/sol/pf_dtad7a/agent.py", line 1943, in fight2
+    wait_counter = self._fight2_perform_action(best_action, wait_counter)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_dtad7a/agent.py", line 2007, in _fight2_perform_action
+    self.move(target_y, target_x)
+  File "/sol/pf_dtad7a/agent.py", line 1424, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_dtad7a.exceptions.AgentPanic: agent position do not match after "move": expected (7, 52), got (8, 52)
+
+[s2009 t1378 d1 0:1 xl1 hp18/18] PANIC AgentPanic: agent position do not match after "move": expected (10, 67), got (9, 67)
+Traceback (most recent call last):
+  File "/sol/pf_dtad7a/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_dtad7a/agent.py", line 282, in preempt
+    val = f.run()
+          ^^^^^^^
+  File "/sol/pf_dtad7a/strategy.py", line 48, in run
+    next(gen)
+  File "/sol/pf_dtad7a/exploration_logic.py", line 490, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/pf_dtad7a/agent.py", line 1699, in go_to
+    self.move(y, x)
+  File "/sol/pf_dtad7a/agent.py", line 1424, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_dtad7a.exceptions.AgentPanic: agent position do not match after "move": expected (10, 67), got (9, 67)
+
+[s2027 t1385 d1 0:1 xl1 hp18/18] PANIC AgentPanic: agent position do not match after "move": expected (9, 68), got (8, 68)
+Traceback (most recent call last):
+  File "/sol/pf_dtad7a/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_dtad7a/agent.py", line 284, in preempt
+    val = f()
+          ^^^
+  File "/sol/pf_dtad7a/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/pf_dtad7a/exploration_logic.py", line 490, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/pf_dtad7a/agent.py", line 1699, in go_to
+    self.move(y, x)
+  File "/sol/pf_dtad7a/agent.py", line 1424, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_dtad7a.exceptions.AgentPanic: agent position do not match after "move": expected (9, 68), got (8, 68)
+
+[s2116 t1502 d1 0:1 xl1 hp18/18] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(16), np.int64(53)) acts=[SEARCH:84 NUM_5:79 E:29 SW:26 SPACE:26] gotos=[open_visit_search(17, 61):2 open_visit_search(18, 61):2 open_visit_search(18, 60):2]
+[s2520 t2000 d1 0:1 xl2 hp19/24] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(11), np.int64(32)) acts=[SEARCH:95 NUM_5:71 W:49 SPACE:27 SW:18] gotos=[open_visit_search(15, 40):2 open_visit_search(14, 40):2 open_visit_search(13, 39):2]
+[s2624 t2128 d1 0:1 xl2 hp23/24] PRAY hp=23/24 hunger=3 gap=1532 reason=None
+[s2886 t2480 d1 0:1 xl2 hp24/24] PANIC AgentPanic: agent position do not match after "move": expected (16, 11), got (17, 12)
+Traceback (most recent call last):
+  File "/sol/pf_dtad7a/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_dtad7a/agent.py", line 284, in preempt
+    val = f()
+          ^^^
+  File "/sol/pf_dtad7a/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/pf_dtad7a/exploration_logic.py", line 490, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/pf_dtad7a/agent.py", line 1699, in go_to
+    self.move(y, x)
+  File "/sol/pf_dtad7a/agent.py", line 1424, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_dtad7a.exceptions.AgentPanic: agent position do not match after "move": expected (16, 11), got (17, 12)
+
+[s2912 t2487 d1 0:1 xl2 hp22/24] PANIC AgentPanic: agent position do not match after "move": expected (16, 15), got (16, 14)
+Traceback (most recent call last):
+  File "/sol/pf_dtad7a/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_dtad7a/agent.py", line 295, in preempt
+    next(iterator)
+  File "/sol/pf_dtad7a/utils.py", line 134, in f
+    next(it)
+  File "/sol/pf_dtad7a/agent.py", line 1943, in fight2
+    wait_counter = self._fight2_perform_action(best_action, wait_counter)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_dtad7a/agent.py", line 2007, in _fight2_perform_action
+    self.move(target_y, target_x)
+  File "/sol/pf_dtad7a/agent.py", line 1424, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_dtad7a.exceptions.AgentPanic: agent position do not match after "move": expected (16, 15), got (16, 14)
+
+[s2939 t2500 d1 0:1 xl2 hp23/24] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(16), np.int64(16)) acts=[NUM_5:78 SEARCH:78 W:40 SPACE:39 E:32] gotos=[open_visit_search(18, 19):2 open_visit_search(18, 18):2 open_visit_search(19, 21):2]
+[s3045 t2624 d1 0:1 xl2 hp24/24] PANIC AgentPanic: agent position do not match after "move": expected (4, 22), got (4, 21)
+Traceback (most recent call last):
+  File "/sol/pf_dtad7a/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_dtad7a/agent.py", line 284, in preempt
+    val = f()
+          ^^^
+  File "/sol/pf_dtad7a/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/pf_dtad7a/exploration_logic.py", line 490, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/pf_dtad7a/agent.py", line 1699, in go_to
+    self.move(y, x)
+  File "/sol/pf_dtad7a/agent.py", line 1424, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_dtad7a.exceptions.AgentPanic: agent position do not match after "move": expected (4, 22), got (4, 21)
+
+[s3130 t2737 d1 0:1 xl2 hp24/24] PANIC AgentPanic: agent position do not match after "move": expected (4, 20), got (4, 19)
+Traceback (most recent call last):
+  File "/sol/pf_dtad7a/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_dtad7a/agent.py", line 284, in preempt
+    val = f()
+          ^^^
+  File "/sol/pf_dtad7a/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/pf_dtad7a/exploration_logic.py", line 490, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/pf_dtad7a/agent.py", line 1699, in go_to
+    self.move(y, x)
+  File "/sol/pf_dtad7a/agent.py", line 1424, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_dtad7a.exceptions.AgentPanic: agent position do not match after "move": expected (4, 20), got (4, 19)
+
+[s3393 t3000 d1 0:1 xl3 hp33/33] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(14), np.int64(9)) acts=[SEARCH:84 NUM_5:70 SPACE:37 W:32 E:29] gotos=[open_visit_search(17, 31):5 open_visit_search(4, 22):3 open_visit_search(16, 19):2]
+[s3744 t3424 d1 0:1 xl3 hp33/33] PANIC AgentPanic: agent position do not match after "move": expected (11, 18), got (10, 19)
+Traceback (most recent call last):
+  File "/sol/pf_dtad7a/strategy.py", line 165, in f
+    next(gen)
+  File "/sol/pf_dtad7a/strategy.py", line 100, in f
+    next(v1)
+  File "/sol/pf_dtad7a/utils.py", line 134, in f
+    next(it)
+  File "/sol/pf_dtad7a/item/inventory.py", line 1410, in check_items
+    self.agent.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 0, 255), is_path=True))
+  File "/sol/pf_dtad7a/agent.py", line 1699, in go_to
+    self.move(y, x)
+  File "/sol/pf_dtad7a/agent.py", line 1424, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_dtad7a.exceptions.AgentPanic: agent position do not match after "move": expected (11, 18), got (10, 19)
+
+[s3788 t3441 d1 0:1 xl3 hp33/33] PANIC AgentPanic: agent position do not match after "move": expected (15, 12), got (16, 11)
+Traceback (most recent call last):
+  File "/sol/pf_dtad7a/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_dtad7a/agent.py", line 282, in preempt
+    val = f.run()
+          ^^^^^^^
+  File "/sol/pf_dtad7a/strategy.py", line 48, in run
+    next(gen)
+  File "/sol/pf_dtad7a/exploration_logic.py", line 490, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/pf_dtad7a/agent.py", line 1699, in go_to
+    self.move(y, x)
+  File "/sol/pf_dtad7a/agent.py", line 1424, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_dtad7a.exceptions.AgentPanic: agent position do not match after "move": expected (15, 12), got (16, 11)
+
+[s3847 t3501 d1 0:1 xl3 hp33/33] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(15), np.int64(8)) acts=[SEARCH:83 NUM_5:68 SPACE:36 E:35 W:28] gotos=[open_visit_search(1, 4):4 check_items(16, 14):4 open_visit_search(8, 4):2]
+[s4057 t3781 d1 0:1 xl3 hp33/33] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/pf_dtad7a/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_dtad7a/agent.py", line 295, in preempt
+    next(iterator)
+  File "/sol/pf_dtad7a/strategy.py", line 68, in f
+    next(it)
+  File "/sol/pf_dtad7a/utils.py", line 134, in f
+    next(it)
+  File "/sol/pf_dtad7a/agent.py", line 2304, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/pf_dtad7a/item/inventory.py", line 797, in eat
+    raise AgentPanic('no such food is lying here')
+pf_dtad7a.exceptions.AgentPanic: no such food is lying here
+
+[s4140 t3873 d1 0:1 xl3 hp31/33] PRAY hp=31/33 hunger=3 gap=1742 reason=None
+[s4274 t4000 d1 0:1 xl3 hp30/33] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(5), np.int64(45)) acts=[SEARCH:73 NUM_5:72 SPACE:39 E:30 NE:20] gotos=[open_visit_search(18, 17):3 open_visit_search(8, 20):3 open_visit_search(13, 8):2]
+[s4432 t4109 d1 0:1 xl4 hp35/37] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/pf_dtad7a/item/inventory.py", line 546, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/pf_dtad7a/agent.py", line 174, in atom_operation
+    self.update_state()
+  File "/sol/pf_dtad7a/agent.py", line 586, in update_state
+    self.call_update_functions()
+  File "/sol/pf_dtad7a/agent.py", line 597, in call_update_functions
+    func()
+  File "/sol/pf_dtad7a/item/inventory.py", line 148, in f
+    raise AgentPanic('items below me changed')
+pf_dtad7a.exceptions.AgentPanic: items below me changed
+
+[s4739 t4375 d1 0:1 xl4 hp13/37] ELBERETH rest start: ['sewer rat', 'grid bug']
+[s4779 t4382 d1 0:1 xl4 hp11/37] PRAY hp=11/37 hunger=1 gap=506 reason=None
+[s4841 t4402 d1 0:1 xl4 hp10/37] ELBERETH rest start: ['lichen', 'sewer rat']
+[s4882 t4408 d1 0:1 xl4 hp11/37] ELBERETH rest start: ['lichen', 'gecko']
+[s4978 t4432 d1 0:1 xl4 hp8/37] ELBERETH rest start: ['lichen', 'jackal']
+[s5064 t4450 d1 0:1 xl4 hp10/37] ELBERETH rest start: ['jackal', 'gecko']
+[s5155 t4479 d1 0:1 xl4 hp9/37] ELBERETH rest start: ['grid bug', 'gecko']
+[s5184 t4482 d1 0:1 xl4 hp9/37] ELBERETH rest start: ['grid bug', 'sewer rat']
+[s5211 t4484 d1 0:1 xl4 hp9/37] ELBERETH rest start: ['sewer rat', 'grid bug']
+[s5228 t4487 d1 0:1 xl4 hp9/37] ELBERETH rest start: ['gecko', 'sewer rat']
+[s5287 t4500 d1 0:1 xl4 hp8/37] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(13), np.int64(40)) acts=[SPACE:218 SEARCH:118 LOOK:101 W:74 E:52] gotos=[open_visit_search(12, 38):5 open_visit_search(14, 44):3 check_items(4, 51):2]
+[s5341 t4518 d1 0:1 xl4 hp10/37] ELBERETH rest start: ['sewer rat', 'sewer rat']
+[s5355 t4520 d1 0:1 xl4 hp11/37] ELBERETH rest start: ['jackal', 'sewer rat']
+[s5390 t4527 d1 0:1 xl4 hp11/37] ELBERETH rest start: ['sewer rat', 'gecko']
+[s5447 t4536 d1 0:1 xl4 hp13/37] ELBERETH rest start: ['jackal', 'gecko']
+[s5490 t4543 d1 0:1 xl4 hp13/37] ELBERETH rest start: ['jackal', 'gecko']
+[s5756 t4651 d1 0:1 xl4 hp21/37] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/pf_dtad7a/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_dtad7a/agent.py", line 295, in preempt
+    next(iterator)
+  File "/sol/pf_dtad7a/strategy.py", line 68, in f
+    next(it)
+  File "/sol/pf_dtad7a/utils.py", line 134, in f
+    next(it)
+  File "/sol/pf_dtad7a/agent.py", line 2304, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/pf_dtad7a/item/inventory.py", line 797, in eat
+    raise AgentPanic('no such food is lying here')
+pf_dtad7a.exceptions.AgentPanic: no such food is lying here
+
+[s6088 t5000 d1 0:1 xl4 hp37/37] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=2 pos=(np.int64(8), np.int64(35)) acts=[SPACE:185 SEARCH:152 LOOK:126 NUM_5:49 S:34] gotos=[open_visit_search(10, 28):2 check_items(14, 37):1 check_items(16, 39):1]
+[s6472 t5318 d1 0:1 xl4 hp25/37] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/pf_dtad7a/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_dtad7a/agent.py", line 295, in preempt
+    next(iterator)
+  File "/sol/pf_dtad7a/strategy.py", line 68, in f
+    next(it)
+  File "/sol/pf_dtad7a/utils.py", line 134, in f
+    next(it)
+  File "/sol/pf_dtad7a/agent.py", line 2304, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/pf_dtad7a/item/inventory.py", line 797, in eat
+    raise AgentPanic('no such food is lying here')
+pf_dtad7a.exceptions.AgentPanic: no such food is lying here
+
+[s6653 t5503 d1 0:1 xl5 hp43/43] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(9), np.int64(69)) acts=[E:72 SPACE:61 SEARCH:48 W:45 NUM_5:43] gotos=[check_items(12, 18):5 check_items(16, 17):3 open_visit_search(11, 29):3]
+[s6879 t5756 d1 0:1 xl5 hp43/43] PRAY hp=43/43 hunger=3 gap=1371 reason=None
+[s7065 t5914 d1 0:1 xl5 hp18/43] LYCAN infected (kind rat)
+[s7072 t5916 d1 0:1 xl5 hp8/43] LAST RESORT: quaffing unknown 'an effervescent potion'
+[s7079 t5917 d1 0:1 xl5 hp7/7] POLY changed form; HP before: (np.int64(8), np.int64(43)) now 7/7
+[s7082 t5917 d1 0:1 xl5 hp7/7] LYCAN summoning allies against: ['wererat']
+[s7086 t5918 d1 0:1 xl5 hp4/7] LYCAN summoning allies against: ['wererat']
+[s7095 t5920 d1 0:1 xl5 hp4/43] ELBERETH rest start: ['wererat']
