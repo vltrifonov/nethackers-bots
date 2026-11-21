@@ -1,0 +1,70 @@
+[s25 t1 d1 0:1 xl1 hp14/14] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(17), np.int64(58)) acts=[SPACE:7 ESC:4 AUTOPICKUP:2 ATTRIBUTES:1 ENHANCE:1] gotos=[]
+[s25 t1 d1 0:1 xl1 hp14/14] DIVE level (np.int64(0), np.int64(1)) depth 1
+[s379 t500 d1 0:1 xl1 hp14/14] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(18), np.int64(49)) acts=[SEARCH:89 NUM_5:80 W:46 E:34 ESC:14] gotos=[open_visit_search(18, 56):11 open_visit_search(18, 55):11 open_visit_search(18, 54):11]
+[s422 t533 d1 0:1 xl1 hp14/14] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/nhbot/item/inventory.py", line 602, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/nhbot/agent.py", line 190, in atom_operation
+    self.update_state()
+  File "/sol/nhbot/agent.py", line 700, in update_state
+    self.call_update_functions()
+  File "/sol/nhbot/agent.py", line 711, in call_update_functions
+    func()
+  File "/sol/nhbot/item/inventory.py", line 159, in f
+    raise AgentPanic('items below me changed')
+nhbot.exceptions.AgentPanic: items below me changed
+
+[s740 t1001 d1 0:1 xl1 hp14/14] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(18), np.int64(52)) acts=[NUM_5:84 SEARCH:84 E:45 W:37 SPACE:22] gotos=[open_visit_search(18, 49):11 open_visit_search(18, 50):11 open_visit_search(18, 51):11]
+[s951 t1333 d1 0:1 xl1 hp14/14] PRAY hp=14/14 hunger=3 gap=None reason=None model[ok200=1.00 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=0 p_answered=1.00]
+[s958 t1336 d1 0:1 xl1 hp14/14] PRAY result ok model[ok200=0.22 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=0] prayers=1 failures=0
+[s1029 t1446 d1 0:1 xl1 hp14/14] FAINT guard (Weak, idle): Elbereth vs [] hp=14/14
+[s1051 t1450 d1 0:1 xl1 hp14/14] FAINT guard (Weak, idle): Elbereth vs [] hp=14/14
+[s1067 t1451 d1 0:1 xl1 hp14/14] FAINT guard (Weak, idle): Elbereth vs [] hp=14/14
+[s1157 t1500 d1 0:1 xl1 hp14/14] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=4 pos=(np.int64(18), np.int64(49)) acts=[SEARCH:97 NUM_5:76 W:38 SPACE:38 E:35] gotos=[open_visit_search(18, 53):10 open_visit_search(18, 54):10 open_visit_search(18, 55):10]
+[s1217 t1551 d1 0:1 xl1 hp14/14] FAINT guard (Fainting, idle): Elbereth vs [] hp=14/14
+[s1292 t1621 d1 0:1 xl1 hp14/14] FAINT guard (Fainting, idle): Elbereth vs [] hp=14/14
+[s1308 t1622 d1 0:1 xl1 hp14/14] FAINT guard (Fainting, idle): Elbereth vs [] hp=14/14
+[s1393 t1767 d1 0:1 xl1 hp14/14] FAINT guard (Fainting, idle): Elbereth vs [] hp=14/14
+[s1409 t1768 d1 0:1 xl1 hp14/14] FAINT guard (Fainting, idle): Elbereth vs [] hp=14/14
+[s1478 t1893 d1 0:1 xl1 hp1/14] PRAY hp=1/14 hunger=4 gap=557 reason=hp model[ok200=0.88 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=0 p_answered=0.88]
+[s1486 t1896 d1 0:1 xl1 hp1/14] PRAY result ok model[ok200=0.22 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=0] prayers=2 failures=0
+[s1486 t1896 d1 0:1 xl1 hp1/14] ELBERETH rest start: ['sewer rat']
+[s1598 t2000 d1 0:1 xl1 hp8/14] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(18), np.int64(52)) acts=[SPACE:115 SEARCH:72 LOOK:66 EAT:22 E:17] gotos=[open_visit_search(18, 52):4 open_visit_search(18, 50):3 open_visit_search(18, 51):3]
+[s1599 t2000 d1 0:1 xl1 hp8/14] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/nhbot/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/nhbot/agent.py", line 311, in preempt
+    next(iterator)
+  File "/sol/nhbot/strategy.py", line 68, in f
+    next(it)
+  File "/sol/nhbot/utils.py", line 134, in f
+    next(it)
+  File "/sol/nhbot/agent.py", line 3303, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/nhbot/item/inventory.py", line 871, in eat
+    raise AgentPanic('no such food is lying here')
+nhbot.exceptions.AgentPanic: no such food is lying here
+
+[s1928 t2503 d1 0:1 xl1 hp14/14] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(18), np.int64(54)) acts=[NUM_5:86 SEARCH:86 E:41 W:37 ESC:13] gotos=[open_visit_search(18, 53):13 open_visit_search(18, 54):13 open_visit_search(18, 55):12]
+[s1970 t2531 d1 0:1 xl1 hp5/14] PRAY hp=5/14 hunger=1 gap=635 reason=hp model[ok200=0.89 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=0 p_answered=0.89]
+[s1977 t2534 d1 0:1 xl1 hp5/14] PRAY result ok model[ok200=0.22 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=0] prayers=3 failures=0
+[s1977 t2534 d1 0:1 xl1 hp5/14] ELBERETH rest start: ['jackal']
+[s2180 t2787 d1 0:1 xl1 hp14/14] FAINT guard (Weak, idle): Elbereth vs [] hp=14/14
+[s2242 t2820 d1 0:1 xl1 hp14/14] FAINT guard (Fainting, idle): Elbereth vs [] hp=14/14
+[s2381 t2929 d1 0:1 xl1 hp14/14] FAINT guard (Fainting, idle): Elbereth vs [] hp=14/14
+[s2403 t2944 d1 0:1 xl1 hp14/14] FAINT guard (Fainting, idle): Elbereth vs [] hp=14/14
+[s2456 t2986 d1 0:1 xl1 hp14/14] FAINT guard (Fainting, idle): Elbereth vs [] hp=14/14
+[s2513 t2998 d1 0:1 xl1 hp14/14] FAINT guard (Fainting, idle): Elbereth vs [] hp=14/14
+[s2529 t3016 d1 0:1 xl1 hp14/14] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=4 pos=(np.int64(18), np.int64(54)) acts=[SPACE:115 SEARCH:114 LOOK:85 E:46 NUM_5:45] gotos=[open_visit_search(18, 55):6 open_visit_search(18, 56):6 open_visit_search(18, 50):6]
+[s2529 t3016 d1 0:1 xl1 hp14/14] FAINT guard (Fainting, idle): Elbereth vs [] hp=14/14
+[s2545 t3017 d1 0:1 xl1 hp14/14] FAINT guard (Fainting, idle): Elbereth vs [] hp=14/14
+[s2561 t3018 d1 0:1 xl1 hp14/14] FAINT guard (Fainting, idle): Elbereth vs [] hp=14/14
+[s2637 t3072 d1 0:1 xl1 hp14/14] FAINT guard (Fainting, idle): Elbereth vs [] hp=14/14
+[s2673 t3079 d1 0:1 xl1 hp14/14] FAINT guard (Fainting, idle): Elbereth vs [] hp=14/14
+[s2689 t3080 d1 0:1 xl1 hp14/14] FAINT guard (Fainting, idle): Elbereth vs [] hp=14/14
+[s2705 t3081 d1 0:1 xl1 hp14/14] FAINT guard (Fainting, idle): Elbereth vs [] hp=14/14
