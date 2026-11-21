@@ -1,0 +1,33 @@
+diff --git a/nethackers.solution.json b/nethackers.solution.json
+index cb2017a..653e90c 100644
+--- a/nethackers.solution.json
++++ b/nethackers.solution.json
+@@ -1,8 +1,9 @@
+ {
+   "schema": "nethackers.solution/v1",
+-  "name": "daglar-zPublicElfPriest6ceSignedWeaponEnchantment",
++  "name": "vltrifonov-tourist-tour-prayer",
+   "root": ".",
+   "parents": [
++    "github.com/daglar-dragomirov/nethacker@ffb38451e38b1a710b010f8968f669a9baab387b",
+     "github.com/daglar-dragomirov/nethacker@fe113de697444a78a9a753c13eb5b7b75d573d83",
+     "github.com/tabt/nethacker@6ce02d551ef901e1541c1fb0c2717b18dcc6cd74",
+     "github.com/daglar-dragomirov/nethacker@4759120c5c40c2964c7f2e549e6c552cc1e907dc",
+diff --git a/pf_dtad7a/agent.py b/pf_dtad7a/agent.py
+index 8bed6bf..dad9e6b 100644
+--- a/pf_dtad7a/agent.py
++++ b/pf_dtad7a/agent.py
+@@ -2398,9 +2398,10 @@ class Agent:
+             self.inventory.quaff(items[0])
+             return
+ 
+-        # LOWHP_EXACT: only where pray.c sees TROUBLE_HIT -- the DT6A 'HP < 12' rule prayed at 10/49 HP (no HP
+-        # trouble: base2-jf26 s8 got its lycanthropy cured, stayed at 10 HP with the timeout reset, and died)
+-        if jf_config.EARLY_FIXES or jf_config.EXACT_PRAYER or jf_config.LOWHP_EXACT:
++        # Save the tour's healing prayer for pray.c's TROUBLE_HIT. A minor injury can spend the
++        # cooldown without a heal. The dive keeps its configured HP threshold.
++        if (not self.global_logic.dive.diving or jf_config.EARLY_FIXES or
++                jf_config.EXACT_PRAYER or jf_config.LOWHP_EXACT):
+             low_hp = self._critically_low_hp()
+         else:
+             # DT6A's absolute 'HP < 12' never at full HP or polymorphed: turned into a wererat (8 max HP), an
