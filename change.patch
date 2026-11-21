@@ -1,0 +1,80 @@
+diff --git a/base/nhbot_orc_800e/agent.py b/base/nhbot_orc_800e/agent.py
+index da887ae..ae0b5b5 100644
+--- a/base/nhbot_orc_800e/agent.py
++++ b/base/nhbot_orc_800e/agent.py
+@@ -18,7 +18,7 @@ from . import prep_log
+ from . import objects as O
+ from . import utils
+ from .character import Character
+-from .exceptions import AgentPanic, AgentFinished, AgentChangeStrategy
++from .exceptions import AgentPanic, AgentFinished, AgentChangeStrategy, GroundFoodUnavailable
+ from .exploration_logic import ExplorationLogic
+ from .global_logic import GlobalLogic
+ from .glyph import MON, C, Hunger, G, SHOP, SS
+@@ -3300,7 +3300,13 @@ class Agent:
+                         if not yielded:
+                             yielded = True
+                             yield True
+-                        self.inventory.eat(item)
++                        try:
++                            self.inventory.eat(item)
++                        except GroundFoodUnavailable:
++                            target = (target_y, target_x)
++                            if self.current_level() is level and (self.blstats.y, self.blstats.x) == target:
++                                level.corpses_to_eat.get(target, {}).pop(monster_id, None)
++                            raise
+ 
+             if not yielded:
+                 del level.corpses_to_eat[target_y, target_x][monster_id]
+diff --git a/base/nhbot_orc_800e/exceptions.py b/base/nhbot_orc_800e/exceptions.py
+index 8617331..4d513eb 100644
+--- a/base/nhbot_orc_800e/exceptions.py
++++ b/base/nhbot_orc_800e/exceptions.py
+@@ -6,5 +6,9 @@ class AgentPanic(Exception):
+     pass
+ 
+ 
++class GroundFoodUnavailable(AgentPanic):
++    """The floor-eating prompt offered no match for the requested item."""
++
++
+ class AgentChangeStrategy(Exception):
+     pass
+diff --git a/base/nhbot_orc_800e/item/inventory.py b/base/nhbot_orc_800e/item/inventory.py
+index c5e7fda..3b548d6 100644
+--- a/base/nhbot_orc_800e/item/inventory.py
++++ b/base/nhbot_orc_800e/item/inventory.py
+@@ -10,7 +10,7 @@ from nle.nethack import actions as A
+ from nhbot_orc_800e import objects as O, utils
+ from nhbot_orc_800e import power
+ from nhbot_orc_800e.character import Character
+-from nhbot_orc_800e.exceptions import AgentPanic
++from nhbot_orc_800e.exceptions import AgentPanic, GroundFoodUnavailable
+ from nhbot_orc_800e.glyph import G, MON, Hunger
+ from nhbot_orc_800e import jf_config
+ from nhbot_orc_800e.item import ItemManager, Item, ContainerContent, check_if_triggered_container_trap, \
+@@ -868,8 +868,7 @@ class Inventory:
+                         self.agent.type_text('n')
+                     # if "What do you want to eat?" in self.agent.message or \
+                     #         "You don't have anything to eat." in self.agent.message:
+-                    raise AgentPanic('no such food is lying here')
+-                    assert 0, self.agent.message
++                    raise GroundFoodUnavailable('no such food is lying here')
+ 
+             # TODO: eat directly from ground if possible
+             item = self.move_to_inventory(item)
+diff --git a/nethackers.solution.json b/nethackers.solution.json
+index c34794a..b354d49 100644
+--- a/nethackers.solution.json
++++ b/nethackers.solution.json
+@@ -1,8 +1,9 @@
+ {
+   "schema": "nethackers.solution/v1",
+-  "name": "daglar-zLeadersSeed382441",
++  "name": "vltrifonov-orc-rogue-stale-corpse-memory",
+   "root": ".",
+   "parents": [
++    "github.com/daglar-dragomirov/nethacker@dd4b5fe3e9098163e520a3e4413642f6430bfca0",
+     "github.com/daglar-dragomirov/nethacker@ccfb1251179bad749ece88d384956363ffb2db56",
+     "github.com/daglar-dragomirov/nethacker@44b29b9299c5dcfb76e3fc6081004727c58db19a",
+     "github.com/DT6A/nethacker@37f9da35d0dbf98ed15bf89735bd601f0c0eac02",
