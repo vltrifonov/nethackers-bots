@@ -1,0 +1,1689 @@
+[s24 t1 d1 0:1 xl1 hp12/12] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(15), np.int64(51)) acts=[SPACE:6 ESC:4 AUTOPICKUP:2 ATTRIBUTES:1 ENHANCE:1] gotos=[]
+[s24 t1 d1 0:1 xl1 hp12/12] DIVE level (np.int64(0), np.int64(1)) depth 1
+[s116 t60 d1 0:1 xl1 hp17/17] PANIC AgentPanic: agent position do not match after "move": expected (15, 47), got (14, 46)
+Traceback (most recent call last):
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 285, in preempt
+    val = f()
+          ^^^
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/pf_vlom_9ef4063/exploration_logic.py", line 490, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/pf_vlom_9ef4063/agent.py", line 1913, in go_to
+    self.move(y, x)
+  File "/sol/pf_vlom_9ef4063/agent.py", line 1622, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_vlom_9ef4063.exceptions.AgentPanic: agent position do not match after "move": expected (15, 47), got (14, 46)
+
+[s310 t187 d1 0:1 xl1 hp15/17] PANIC AgentPanic: agent position do not match after "move": expected (4, 37), got (3, 37)
+Traceback (most recent call last):
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 165, in f
+    next(gen)
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 100, in f
+    next(v1)
+  File "/sol/pf_vlom_9ef4063/utils.py", line 134, in f
+    next(it)
+  File "/sol/pf_vlom_9ef4063/item/inventory.py", line 1414, in check_items
+    self.agent.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 0, 255), is_path=True))
+  File "/sol/pf_vlom_9ef4063/agent.py", line 1913, in go_to
+    self.move(y, x)
+  File "/sol/pf_vlom_9ef4063/agent.py", line 1622, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_vlom_9ef4063.exceptions.AgentPanic: agent position do not match after "move": expected (4, 37), got (3, 37)
+
+[s399 t246 d1 0:1 xl1 hp17/17] PANIC AgentPanic: agent position do not match after "move": expected (5, 32), got (5, 31)
+Traceback (most recent call last):
+  File "/sol/pf_vlom_9ef4063/agent.py", line 296, in preempt
+    next(iterator)
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 68, in f
+    next(it)
+  File "/sol/pf_vlom_9ef4063/utils.py", line 134, in f
+    next(it)
+  File "/sol/pf_vlom_9ef4063/agent.py", line 2519, in eat_corpses_from_ground
+    self.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 255, 0), is_path=True))
+  File "/sol/pf_vlom_9ef4063/agent.py", line 1913, in go_to
+    self.move(y, x)
+  File "/sol/pf_vlom_9ef4063/agent.py", line 1622, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_vlom_9ef4063.exceptions.AgentPanic: agent position do not match after "move": expected (5, 32), got (5, 31)
+
+[s456 t274 d1 0:1 xl1 hp17/17] PANIC AgentPanic: agent position do not match after "move": expected (9, 23), got (8, 23)
+Traceback (most recent call last):
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 285, in preempt
+    val = f()
+          ^^^
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/pf_vlom_9ef4063/exploration_logic.py", line 490, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/pf_vlom_9ef4063/agent.py", line 1913, in go_to
+    self.move(y, x)
+  File "/sol/pf_vlom_9ef4063/agent.py", line 1622, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_vlom_9ef4063.exceptions.AgentPanic: agent position do not match after "move": expected (9, 23), got (8, 23)
+
+[s762 t491 d1 0:1 xl1 hp14/17] RANGED hit: holds and Elbereth waits off for 8 turns
+[s789 t507 d1 0:1 xl1 hp15/19] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(16), np.int64(56)) acts=[SEARCH:151 W:81 SPACE:78 E:75 ESC:35] gotos=[open_visit_search(3, 36):5 open_visit_search(4, 43):5 open_visit_search(11, 27):4]
+[s790 t507 d1 0:1 xl1 hp15/19] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/pf_vlom_9ef4063/item/inventory.py", line 548, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/pf_vlom_9ef4063/agent.py", line 175, in atom_operation
+    self.update_state()
+  File "/sol/pf_vlom_9ef4063/agent.py", line 602, in update_state
+    self.call_update_functions()
+  File "/sol/pf_vlom_9ef4063/agent.py", line 613, in call_update_functions
+    func()
+  File "/sol/pf_vlom_9ef4063/item/inventory.py", line 152, in f
+    raise AgentPanic('items below me changed')
+pf_vlom_9ef4063.exceptions.AgentPanic: items below me changed
+
+[s892 t583 d1 0:1 xl1 hp19/19] PANIC AgentPanic: agent position do not match after "move": expected (18, 60), got (17, 59)
+Traceback (most recent call last):
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 285, in preempt
+    val = f()
+          ^^^
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/pf_vlom_9ef4063/exploration_logic.py", line 490, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/pf_vlom_9ef4063/agent.py", line 1913, in go_to
+    self.move(y, x)
+  File "/sol/pf_vlom_9ef4063/agent.py", line 1622, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_vlom_9ef4063.exceptions.AgentPanic: agent position do not match after "move": expected (18, 60), got (17, 59)
+
+[s1160 t866 d1 0:1 xl2 hp22/22] PANIC NameError: name 'O' is not defined
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/pf_vlom_9ef4063/agent.py", line 175, in atom_operation
+    self.update_state()
+  File "/sol/pf_vlom_9ef4063/agent.py", line 602, in update_state
+    self.call_update_functions()
+  File "/sol/pf_vlom_9ef4063/agent.py", line 613, in call_update_functions
+    func()
+  File "/sol/pf_vlom_9ef4063/agent.py", line 250, in f
+    if next(it):
+       ^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 2729, in astra_boulder_food
+    item.object.metal not in (O.IRON, O.METAL, O.COPPER, O.SILVER, O.GOLD, O.MITHRIL) or \
+                              ^
+NameError: name 'O' is not defined
+
+[s1178 t866 d1 0:1 xl2 hp22/22] PANIC NameError: name 'O' is not defined
+Traceback (most recent call last):
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 279, in preempt
+    self.call_update_functions(list(id2fun.values()))
+  File "/sol/pf_vlom_9ef4063/agent.py", line 613, in call_update_functions
+    func()
+  File "/sol/pf_vlom_9ef4063/agent.py", line 250, in f
+    if next(it):
+       ^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 2729, in astra_boulder_food
+    item.object.metal not in (O.IRON, O.METAL, O.COPPER, O.SILVER, O.GOLD, O.MITHRIL) or \
+                              ^
+NameError: name 'O' is not defined
+
+[s1196 t866 d1 0:1 xl2 hp22/22] PANIC NameError: name 'O' is not defined
+Traceback (most recent call last):
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 279, in preempt
+    self.call_update_functions(list(id2fun.values()))
+  File "/sol/pf_vlom_9ef4063/agent.py", line 613, in call_update_functions
+    func()
+  File "/sol/pf_vlom_9ef4063/agent.py", line 250, in f
+    if next(it):
+       ^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 2729, in astra_boulder_food
+    item.object.metal not in (O.IRON, O.METAL, O.COPPER, O.SILVER, O.GOLD, O.MITHRIL) or \
+                              ^
+NameError: name 'O' is not defined
+
+[s1214 t866 d1 0:1 xl2 hp22/22] PANIC NameError: name 'O' is not defined
+Traceback (most recent call last):
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 279, in preempt
+    self.call_update_functions(list(id2fun.values()))
+  File "/sol/pf_vlom_9ef4063/agent.py", line 613, in call_update_functions
+    func()
+  File "/sol/pf_vlom_9ef4063/agent.py", line 250, in f
+    if next(it):
+       ^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 2729, in astra_boulder_food
+    item.object.metal not in (O.IRON, O.METAL, O.COPPER, O.SILVER, O.GOLD, O.MITHRIL) or \
+                              ^
+NameError: name 'O' is not defined
+
+[s1232 t866 d1 0:1 xl2 hp22/22] PANIC NameError: name 'O' is not defined
+Traceback (most recent call last):
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 279, in preempt
+    self.call_update_functions(list(id2fun.values()))
+  File "/sol/pf_vlom_9ef4063/agent.py", line 613, in call_update_functions
+    func()
+  File "/sol/pf_vlom_9ef4063/agent.py", line 250, in f
+    if next(it):
+       ^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 2729, in astra_boulder_food
+    item.object.metal not in (O.IRON, O.METAL, O.COPPER, O.SILVER, O.GOLD, O.MITHRIL) or \
+                              ^
+NameError: name 'O' is not defined
+
+[s1250 t866 d1 0:1 xl2 hp22/22] PANIC NameError: name 'O' is not defined
+Traceback (most recent call last):
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 279, in preempt
+    self.call_update_functions(list(id2fun.values()))
+  File "/sol/pf_vlom_9ef4063/agent.py", line 613, in call_update_functions
+    func()
+  File "/sol/pf_vlom_9ef4063/agent.py", line 250, in f
+    if next(it):
+       ^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 2729, in astra_boulder_food
+    item.object.metal not in (O.IRON, O.METAL, O.COPPER, O.SILVER, O.GOLD, O.MITHRIL) or \
+                              ^
+NameError: name 'O' is not defined
+
+[s1269 t867 d1 0:1 xl2 hp22/22] PANIC NameError: name 'O' is not defined
+Traceback (most recent call last):
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 279, in preempt
+    self.call_update_functions(list(id2fun.values()))
+  File "/sol/pf_vlom_9ef4063/agent.py", line 613, in call_update_functions
+    func()
+  File "/sol/pf_vlom_9ef4063/agent.py", line 250, in f
+    if next(it):
+       ^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 2729, in astra_boulder_food
+    item.object.metal not in (O.IRON, O.METAL, O.COPPER, O.SILVER, O.GOLD, O.MITHRIL) or \
+                              ^
+NameError: name 'O' is not defined
+
+[s1287 t867 d1 0:1 xl2 hp22/22] PANIC NameError: name 'O' is not defined
+Traceback (most recent call last):
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 279, in preempt
+    self.call_update_functions(list(id2fun.values()))
+  File "/sol/pf_vlom_9ef4063/agent.py", line 613, in call_update_functions
+    func()
+  File "/sol/pf_vlom_9ef4063/agent.py", line 250, in f
+    if next(it):
+       ^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 2729, in astra_boulder_food
+    item.object.metal not in (O.IRON, O.METAL, O.COPPER, O.SILVER, O.GOLD, O.MITHRIL) or \
+                              ^
+NameError: name 'O' is not defined
+
+[s1305 t867 d1 0:1 xl2 hp22/22] PANIC NameError: name 'O' is not defined
+Traceback (most recent call last):
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 279, in preempt
+    self.call_update_functions(list(id2fun.values()))
+  File "/sol/pf_vlom_9ef4063/agent.py", line 613, in call_update_functions
+    func()
+  File "/sol/pf_vlom_9ef4063/agent.py", line 250, in f
+    if next(it):
+       ^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 2729, in astra_boulder_food
+    item.object.metal not in (O.IRON, O.METAL, O.COPPER, O.SILVER, O.GOLD, O.MITHRIL) or \
+                              ^
+NameError: name 'O' is not defined
+
+[s1323 t867 d1 0:1 xl2 hp22/22] PANIC NameError: name 'O' is not defined
+Traceback (most recent call last):
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 279, in preempt
+    self.call_update_functions(list(id2fun.values()))
+  File "/sol/pf_vlom_9ef4063/agent.py", line 613, in call_update_functions
+    func()
+  File "/sol/pf_vlom_9ef4063/agent.py", line 250, in f
+    if next(it):
+       ^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 2729, in astra_boulder_food
+    item.object.metal not in (O.IRON, O.METAL, O.COPPER, O.SILVER, O.GOLD, O.MITHRIL) or \
+                              ^
+NameError: name 'O' is not defined
+
+[s1341 t867 d1 0:1 xl2 hp22/22] PANIC NameError: name 'O' is not defined
+Traceback (most recent call last):
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 279, in preempt
+    self.call_update_functions(list(id2fun.values()))
+  File "/sol/pf_vlom_9ef4063/agent.py", line 613, in call_update_functions
+    func()
+  File "/sol/pf_vlom_9ef4063/agent.py", line 250, in f
+    if next(it):
+       ^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 2729, in astra_boulder_food
+    item.object.metal not in (O.IRON, O.METAL, O.COPPER, O.SILVER, O.GOLD, O.MITHRIL) or \
+                              ^
+NameError: name 'O' is not defined
+
+[s1360 t868 d1 0:1 xl2 hp22/22] PANIC NameError: name 'O' is not defined
+Traceback (most recent call last):
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 279, in preempt
+    self.call_update_functions(list(id2fun.values()))
+  File "/sol/pf_vlom_9ef4063/agent.py", line 613, in call_update_functions
+    func()
+  File "/sol/pf_vlom_9ef4063/agent.py", line 250, in f
+    if next(it):
+       ^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 2729, in astra_boulder_food
+    item.object.metal not in (O.IRON, O.METAL, O.COPPER, O.SILVER, O.GOLD, O.MITHRIL) or \
+                              ^
+NameError: name 'O' is not defined
+
+[s1378 t868 d1 0:1 xl2 hp22/22] PANIC NameError: name 'O' is not defined
+Traceback (most recent call last):
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 279, in preempt
+    self.call_update_functions(list(id2fun.values()))
+  File "/sol/pf_vlom_9ef4063/agent.py", line 613, in call_update_functions
+    func()
+  File "/sol/pf_vlom_9ef4063/agent.py", line 250, in f
+    if next(it):
+       ^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 2729, in astra_boulder_food
+    item.object.metal not in (O.IRON, O.METAL, O.COPPER, O.SILVER, O.GOLD, O.MITHRIL) or \
+                              ^
+NameError: name 'O' is not defined
+
+[s1396 t868 d1 0:1 xl2 hp22/22] PANIC NameError: name 'O' is not defined
+Traceback (most recent call last):
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 279, in preempt
+    self.call_update_functions(list(id2fun.values()))
+  File "/sol/pf_vlom_9ef4063/agent.py", line 613, in call_update_functions
+    func()
+  File "/sol/pf_vlom_9ef4063/agent.py", line 250, in f
+    if next(it):
+       ^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 2729, in astra_boulder_food
+    item.object.metal not in (O.IRON, O.METAL, O.COPPER, O.SILVER, O.GOLD, O.MITHRIL) or \
+                              ^
+NameError: name 'O' is not defined
+
+[s1414 t868 d1 0:1 xl2 hp22/22] PANIC NameError: name 'O' is not defined
+Traceback (most recent call last):
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 279, in preempt
+    self.call_update_functions(list(id2fun.values()))
+  File "/sol/pf_vlom_9ef4063/agent.py", line 613, in call_update_functions
+    func()
+  File "/sol/pf_vlom_9ef4063/agent.py", line 250, in f
+    if next(it):
+       ^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 2729, in astra_boulder_food
+    item.object.metal not in (O.IRON, O.METAL, O.COPPER, O.SILVER, O.GOLD, O.MITHRIL) or \
+                              ^
+NameError: name 'O' is not defined
+
+[s1432 t868 d1 0:1 xl2 hp22/22] PANIC NameError: name 'O' is not defined
+Traceback (most recent call last):
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 279, in preempt
+    self.call_update_functions(list(id2fun.values()))
+  File "/sol/pf_vlom_9ef4063/agent.py", line 613, in call_update_functions
+    func()
+  File "/sol/pf_vlom_9ef4063/agent.py", line 250, in f
+    if next(it):
+       ^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 2729, in astra_boulder_food
+    item.object.metal not in (O.IRON, O.METAL, O.COPPER, O.SILVER, O.GOLD, O.MITHRIL) or \
+                              ^
+NameError: name 'O' is not defined
+
+[s1451 t869 d1 0:1 xl2 hp22/22] PANIC NameError: name 'O' is not defined
+Traceback (most recent call last):
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 279, in preempt
+    self.call_update_functions(list(id2fun.values()))
+  File "/sol/pf_vlom_9ef4063/agent.py", line 613, in call_update_functions
+    func()
+  File "/sol/pf_vlom_9ef4063/agent.py", line 250, in f
+    if next(it):
+       ^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 2729, in astra_boulder_food
+    item.object.metal not in (O.IRON, O.METAL, O.COPPER, O.SILVER, O.GOLD, O.MITHRIL) or \
+                              ^
+NameError: name 'O' is not defined
+
+[s1469 t869 d1 0:1 xl2 hp22/22] PANIC NameError: name 'O' is not defined
+Traceback (most recent call last):
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 279, in preempt
+    self.call_update_functions(list(id2fun.values()))
+  File "/sol/pf_vlom_9ef4063/agent.py", line 613, in call_update_functions
+    func()
+  File "/sol/pf_vlom_9ef4063/agent.py", line 250, in f
+    if next(it):
+       ^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 2729, in astra_boulder_food
+    item.object.metal not in (O.IRON, O.METAL, O.COPPER, O.SILVER, O.GOLD, O.MITHRIL) or \
+                              ^
+NameError: name 'O' is not defined
+
+[s1487 t869 d1 0:1 xl2 hp22/22] PANIC NameError: name 'O' is not defined
+Traceback (most recent call last):
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 279, in preempt
+    self.call_update_functions(list(id2fun.values()))
+  File "/sol/pf_vlom_9ef4063/agent.py", line 613, in call_update_functions
+    func()
+  File "/sol/pf_vlom_9ef4063/agent.py", line 250, in f
+    if next(it):
+       ^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 2729, in astra_boulder_food
+    item.object.metal not in (O.IRON, O.METAL, O.COPPER, O.SILVER, O.GOLD, O.MITHRIL) or \
+                              ^
+NameError: name 'O' is not defined
+
+[s1505 t869 d1 0:1 xl2 hp22/22] PANIC NameError: name 'O' is not defined
+Traceback (most recent call last):
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 279, in preempt
+    self.call_update_functions(list(id2fun.values()))
+  File "/sol/pf_vlom_9ef4063/agent.py", line 613, in call_update_functions
+    func()
+  File "/sol/pf_vlom_9ef4063/agent.py", line 250, in f
+    if next(it):
+       ^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 2729, in astra_boulder_food
+    item.object.metal not in (O.IRON, O.METAL, O.COPPER, O.SILVER, O.GOLD, O.MITHRIL) or \
+                              ^
+NameError: name 'O' is not defined
+
+[s1523 t869 d1 0:1 xl2 hp22/22] PANIC NameError: name 'O' is not defined
+Traceback (most recent call last):
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 279, in preempt
+    self.call_update_functions(list(id2fun.values()))
+  File "/sol/pf_vlom_9ef4063/agent.py", line 613, in call_update_functions
+    func()
+  File "/sol/pf_vlom_9ef4063/agent.py", line 250, in f
+    if next(it):
+       ^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 2729, in astra_boulder_food
+    item.object.metal not in (O.IRON, O.METAL, O.COPPER, O.SILVER, O.GOLD, O.MITHRIL) or \
+                              ^
+NameError: name 'O' is not defined
+
+[s1542 t870 d1 0:1 xl2 hp22/22] PANIC NameError: name 'O' is not defined
+Traceback (most recent call last):
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 279, in preempt
+    self.call_update_functions(list(id2fun.values()))
+  File "/sol/pf_vlom_9ef4063/agent.py", line 613, in call_update_functions
+    func()
+  File "/sol/pf_vlom_9ef4063/agent.py", line 250, in f
+    if next(it):
+       ^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 2729, in astra_boulder_food
+    item.object.metal not in (O.IRON, O.METAL, O.COPPER, O.SILVER, O.GOLD, O.MITHRIL) or \
+                              ^
+NameError: name 'O' is not defined
+
+[s1560 t870 d1 0:1 xl2 hp22/22] PANIC NameError: name 'O' is not defined
+Traceback (most recent call last):
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 279, in preempt
+    self.call_update_functions(list(id2fun.values()))
+  File "/sol/pf_vlom_9ef4063/agent.py", line 613, in call_update_functions
+    func()
+  File "/sol/pf_vlom_9ef4063/agent.py", line 250, in f
+    if next(it):
+       ^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 2729, in astra_boulder_food
+    item.object.metal not in (O.IRON, O.METAL, O.COPPER, O.SILVER, O.GOLD, O.MITHRIL) or \
+                              ^
+NameError: name 'O' is not defined
+
+[s1578 t870 d1 0:1 xl2 hp22/22] PANIC NameError: name 'O' is not defined
+Traceback (most recent call last):
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 279, in preempt
+    self.call_update_functions(list(id2fun.values()))
+  File "/sol/pf_vlom_9ef4063/agent.py", line 613, in call_update_functions
+    func()
+  File "/sol/pf_vlom_9ef4063/agent.py", line 250, in f
+    if next(it):
+       ^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 2729, in astra_boulder_food
+    item.object.metal not in (O.IRON, O.METAL, O.COPPER, O.SILVER, O.GOLD, O.MITHRIL) or \
+                              ^
+NameError: name 'O' is not defined
+
+[s1596 t870 d1 0:1 xl2 hp22/22] PANIC NameError: name 'O' is not defined
+Traceback (most recent call last):
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 279, in preempt
+    self.call_update_functions(list(id2fun.values()))
+  File "/sol/pf_vlom_9ef4063/agent.py", line 613, in call_update_functions
+    func()
+  File "/sol/pf_vlom_9ef4063/agent.py", line 250, in f
+    if next(it):
+       ^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 2729, in astra_boulder_food
+    item.object.metal not in (O.IRON, O.METAL, O.COPPER, O.SILVER, O.GOLD, O.MITHRIL) or \
+                              ^
+NameError: name 'O' is not defined
+
+[s1596 t870 d1 0:1 xl2 hp22/22] panic loop: random walk (NameError:name 'O' is not defined)
+[s1640 t885 d1 0:1 xl2 hp22/22] PANIC NameError: name 'O' is not defined
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/pf_vlom_9ef4063/agent.py", line 175, in atom_operation
+    self.update_state()
+  File "/sol/pf_vlom_9ef4063/agent.py", line 602, in update_state
+    self.call_update_functions()
+  File "/sol/pf_vlom_9ef4063/agent.py", line 613, in call_update_functions
+    func()
+  File "/sol/pf_vlom_9ef4063/agent.py", line 250, in f
+    if next(it):
+       ^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 2729, in astra_boulder_food
+    item.object.metal not in (O.IRON, O.METAL, O.COPPER, O.SILVER, O.GOLD, O.MITHRIL) or \
+                              ^
+NameError: name 'O' is not defined
+
+[s1658 t885 d1 0:1 xl2 hp22/22] PANIC NameError: name 'O' is not defined
+Traceback (most recent call last):
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 279, in preempt
+    self.call_update_functions(list(id2fun.values()))
+  File "/sol/pf_vlom_9ef4063/agent.py", line 613, in call_update_functions
+    func()
+  File "/sol/pf_vlom_9ef4063/agent.py", line 250, in f
+    if next(it):
+       ^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 2729, in astra_boulder_food
+    item.object.metal not in (O.IRON, O.METAL, O.COPPER, O.SILVER, O.GOLD, O.MITHRIL) or \
+                              ^
+NameError: name 'O' is not defined
+
+[s1676 t885 d1 0:1 xl2 hp22/22] PANIC NameError: name 'O' is not defined
+Traceback (most recent call last):
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 279, in preempt
+    self.call_update_functions(list(id2fun.values()))
+  File "/sol/pf_vlom_9ef4063/agent.py", line 613, in call_update_functions
+    func()
+  File "/sol/pf_vlom_9ef4063/agent.py", line 250, in f
+    if next(it):
+       ^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 2729, in astra_boulder_food
+    item.object.metal not in (O.IRON, O.METAL, O.COPPER, O.SILVER, O.GOLD, O.MITHRIL) or \
+                              ^
+NameError: name 'O' is not defined
+
+[s1694 t885 d1 0:1 xl2 hp22/22] PANIC NameError: name 'O' is not defined
+Traceback (most recent call last):
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 279, in preempt
+    self.call_update_functions(list(id2fun.values()))
+  File "/sol/pf_vlom_9ef4063/agent.py", line 613, in call_update_functions
+    func()
+  File "/sol/pf_vlom_9ef4063/agent.py", line 250, in f
+    if next(it):
+       ^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 2729, in astra_boulder_food
+    item.object.metal not in (O.IRON, O.METAL, O.COPPER, O.SILVER, O.GOLD, O.MITHRIL) or \
+                              ^
+NameError: name 'O' is not defined
+
+[s1712 t885 d1 0:1 xl2 hp22/22] PANIC NameError: name 'O' is not defined
+Traceback (most recent call last):
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 279, in preempt
+    self.call_update_functions(list(id2fun.values()))
+  File "/sol/pf_vlom_9ef4063/agent.py", line 613, in call_update_functions
+    func()
+  File "/sol/pf_vlom_9ef4063/agent.py", line 250, in f
+    if next(it):
+       ^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 2729, in astra_boulder_food
+    item.object.metal not in (O.IRON, O.METAL, O.COPPER, O.SILVER, O.GOLD, O.MITHRIL) or \
+                              ^
+NameError: name 'O' is not defined
+
+[s1730 t885 d1 0:1 xl2 hp22/22] PANIC NameError: name 'O' is not defined
+Traceback (most recent call last):
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 279, in preempt
+    self.call_update_functions(list(id2fun.values()))
+  File "/sol/pf_vlom_9ef4063/agent.py", line 613, in call_update_functions
+    func()
+  File "/sol/pf_vlom_9ef4063/agent.py", line 250, in f
+    if next(it):
+       ^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 2729, in astra_boulder_food
+    item.object.metal not in (O.IRON, O.METAL, O.COPPER, O.SILVER, O.GOLD, O.MITHRIL) or \
+                              ^
+NameError: name 'O' is not defined
+
+[s1749 t886 d1 0:1 xl2 hp22/22] PANIC NameError: name 'O' is not defined
+Traceback (most recent call last):
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 279, in preempt
+    self.call_update_functions(list(id2fun.values()))
+  File "/sol/pf_vlom_9ef4063/agent.py", line 613, in call_update_functions
+    func()
+  File "/sol/pf_vlom_9ef4063/agent.py", line 250, in f
+    if next(it):
+       ^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 2729, in astra_boulder_food
+    item.object.metal not in (O.IRON, O.METAL, O.COPPER, O.SILVER, O.GOLD, O.MITHRIL) or \
+                              ^
+NameError: name 'O' is not defined
+
+[s1767 t886 d1 0:1 xl2 hp22/22] PANIC NameError: name 'O' is not defined
+Traceback (most recent call last):
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 279, in preempt
+    self.call_update_functions(list(id2fun.values()))
+  File "/sol/pf_vlom_9ef4063/agent.py", line 613, in call_update_functions
+    func()
+  File "/sol/pf_vlom_9ef4063/agent.py", line 250, in f
+    if next(it):
+       ^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 2729, in astra_boulder_food
+    item.object.metal not in (O.IRON, O.METAL, O.COPPER, O.SILVER, O.GOLD, O.MITHRIL) or \
+                              ^
+NameError: name 'O' is not defined
+
+[s1785 t886 d1 0:1 xl2 hp22/22] PANIC NameError: name 'O' is not defined
+Traceback (most recent call last):
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 279, in preempt
+    self.call_update_functions(list(id2fun.values()))
+  File "/sol/pf_vlom_9ef4063/agent.py", line 613, in call_update_functions
+    func()
+  File "/sol/pf_vlom_9ef4063/agent.py", line 250, in f
+    if next(it):
+       ^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 2729, in astra_boulder_food
+    item.object.metal not in (O.IRON, O.METAL, O.COPPER, O.SILVER, O.GOLD, O.MITHRIL) or \
+                              ^
+NameError: name 'O' is not defined
+
+[s1803 t886 d1 0:1 xl2 hp22/22] PANIC NameError: name 'O' is not defined
+Traceback (most recent call last):
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 279, in preempt
+    self.call_update_functions(list(id2fun.values()))
+  File "/sol/pf_vlom_9ef4063/agent.py", line 613, in call_update_functions
+    func()
+  File "/sol/pf_vlom_9ef4063/agent.py", line 250, in f
+    if next(it):
+       ^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 2729, in astra_boulder_food
+    item.object.metal not in (O.IRON, O.METAL, O.COPPER, O.SILVER, O.GOLD, O.MITHRIL) or \
+                              ^
+NameError: name 'O' is not defined
+
+[s1821 t886 d1 0:1 xl2 hp22/22] PANIC NameError: name 'O' is not defined
+Traceback (most recent call last):
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 279, in preempt
+    self.call_update_functions(list(id2fun.values()))
+  File "/sol/pf_vlom_9ef4063/agent.py", line 613, in call_update_functions
+    func()
+  File "/sol/pf_vlom_9ef4063/agent.py", line 250, in f
+    if next(it):
+       ^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 2729, in astra_boulder_food
+    item.object.metal not in (O.IRON, O.METAL, O.COPPER, O.SILVER, O.GOLD, O.MITHRIL) or \
+                              ^
+NameError: name 'O' is not defined
+
+[s1840 t887 d1 0:1 xl2 hp22/22] PANIC NameError: name 'O' is not defined
+Traceback (most recent call last):
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 279, in preempt
+    self.call_update_functions(list(id2fun.values()))
+  File "/sol/pf_vlom_9ef4063/agent.py", line 613, in call_update_functions
+    func()
+  File "/sol/pf_vlom_9ef4063/agent.py", line 250, in f
+    if next(it):
+       ^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 2729, in astra_boulder_food
+    item.object.metal not in (O.IRON, O.METAL, O.COPPER, O.SILVER, O.GOLD, O.MITHRIL) or \
+                              ^
+NameError: name 'O' is not defined
+
+[s1858 t887 d1 0:1 xl2 hp22/22] PANIC NameError: name 'O' is not defined
+Traceback (most recent call last):
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 279, in preempt
+    self.call_update_functions(list(id2fun.values()))
+  File "/sol/pf_vlom_9ef4063/agent.py", line 613, in call_update_functions
+    func()
+  File "/sol/pf_vlom_9ef4063/agent.py", line 250, in f
+    if next(it):
+       ^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 2729, in astra_boulder_food
+    item.object.metal not in (O.IRON, O.METAL, O.COPPER, O.SILVER, O.GOLD, O.MITHRIL) or \
+                              ^
+NameError: name 'O' is not defined
+
+[s1876 t887 d1 0:1 xl2 hp22/22] PANIC NameError: name 'O' is not defined
+Traceback (most recent call last):
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 279, in preempt
+    self.call_update_functions(list(id2fun.values()))
+  File "/sol/pf_vlom_9ef4063/agent.py", line 613, in call_update_functions
+    func()
+  File "/sol/pf_vlom_9ef4063/agent.py", line 250, in f
+    if next(it):
+       ^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 2729, in astra_boulder_food
+    item.object.metal not in (O.IRON, O.METAL, O.COPPER, O.SILVER, O.GOLD, O.MITHRIL) or \
+                              ^
+NameError: name 'O' is not defined
+
+[s1894 t887 d1 0:1 xl2 hp22/22] PANIC NameError: name 'O' is not defined
+Traceback (most recent call last):
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 279, in preempt
+    self.call_update_functions(list(id2fun.values()))
+  File "/sol/pf_vlom_9ef4063/agent.py", line 613, in call_update_functions
+    func()
+  File "/sol/pf_vlom_9ef4063/agent.py", line 250, in f
+    if next(it):
+       ^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 2729, in astra_boulder_food
+    item.object.metal not in (O.IRON, O.METAL, O.COPPER, O.SILVER, O.GOLD, O.MITHRIL) or \
+                              ^
+NameError: name 'O' is not defined
+
+[s1912 t887 d1 0:1 xl2 hp22/22] PANIC NameError: name 'O' is not defined
+Traceback (most recent call last):
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 279, in preempt
+    self.call_update_functions(list(id2fun.values()))
+  File "/sol/pf_vlom_9ef4063/agent.py", line 613, in call_update_functions
+    func()
+  File "/sol/pf_vlom_9ef4063/agent.py", line 250, in f
+    if next(it):
+       ^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 2729, in astra_boulder_food
+    item.object.metal not in (O.IRON, O.METAL, O.COPPER, O.SILVER, O.GOLD, O.MITHRIL) or \
+                              ^
+NameError: name 'O' is not defined
+
+[s1931 t888 d1 0:1 xl2 hp22/22] PANIC NameError: name 'O' is not defined
+Traceback (most recent call last):
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 279, in preempt
+    self.call_update_functions(list(id2fun.values()))
+  File "/sol/pf_vlom_9ef4063/agent.py", line 613, in call_update_functions
+    func()
+  File "/sol/pf_vlom_9ef4063/agent.py", line 250, in f
+    if next(it):
+       ^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 2729, in astra_boulder_food
+    item.object.metal not in (O.IRON, O.METAL, O.COPPER, O.SILVER, O.GOLD, O.MITHRIL) or \
+                              ^
+NameError: name 'O' is not defined
+
+[s1949 t888 d1 0:1 xl2 hp22/22] PANIC NameError: name 'O' is not defined
+Traceback (most recent call last):
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 279, in preempt
+    self.call_update_functions(list(id2fun.values()))
+  File "/sol/pf_vlom_9ef4063/agent.py", line 613, in call_update_functions
+    func()
+  File "/sol/pf_vlom_9ef4063/agent.py", line 250, in f
+    if next(it):
+       ^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 2729, in astra_boulder_food
+    item.object.metal not in (O.IRON, O.METAL, O.COPPER, O.SILVER, O.GOLD, O.MITHRIL) or \
+                              ^
+NameError: name 'O' is not defined
+
+[s1967 t888 d1 0:1 xl2 hp22/22] PANIC NameError: name 'O' is not defined
+Traceback (most recent call last):
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 279, in preempt
+    self.call_update_functions(list(id2fun.values()))
+  File "/sol/pf_vlom_9ef4063/agent.py", line 613, in call_update_functions
+    func()
+  File "/sol/pf_vlom_9ef4063/agent.py", line 250, in f
+    if next(it):
+       ^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 2729, in astra_boulder_food
+    item.object.metal not in (O.IRON, O.METAL, O.COPPER, O.SILVER, O.GOLD, O.MITHRIL) or \
+                              ^
+NameError: name 'O' is not defined
+
+[s1985 t888 d1 0:1 xl2 hp22/22] PANIC NameError: name 'O' is not defined
+Traceback (most recent call last):
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 279, in preempt
+    self.call_update_functions(list(id2fun.values()))
+  File "/sol/pf_vlom_9ef4063/agent.py", line 613, in call_update_functions
+    func()
+  File "/sol/pf_vlom_9ef4063/agent.py", line 250, in f
+    if next(it):
+       ^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 2729, in astra_boulder_food
+    item.object.metal not in (O.IRON, O.METAL, O.COPPER, O.SILVER, O.GOLD, O.MITHRIL) or \
+                              ^
+NameError: name 'O' is not defined
+
+[s2003 t888 d1 0:1 xl2 hp22/22] PANIC NameError: name 'O' is not defined
+Traceback (most recent call last):
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 279, in preempt
+    self.call_update_functions(list(id2fun.values()))
+  File "/sol/pf_vlom_9ef4063/agent.py", line 613, in call_update_functions
+    func()
+  File "/sol/pf_vlom_9ef4063/agent.py", line 250, in f
+    if next(it):
+       ^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 2729, in astra_boulder_food
+    item.object.metal not in (O.IRON, O.METAL, O.COPPER, O.SILVER, O.GOLD, O.MITHRIL) or \
+                              ^
+NameError: name 'O' is not defined
+
+[s2039 t893 d1 0:1 xl2 hp20/22] PANIC NameError: name 'O' is not defined
+Traceback (most recent call last):
+  File "/sol/pf_vlom_9ef4063/agent.py", line 440, in step
+    self.update(observation, additional_action_iterator)
+  File "/sol/pf_vlom_9ef4063/agent.py", line 561, in update
+    self.update_state(allow_update=self._atom_operation_allow_update or not self.in_atom_operation,
+  File "/sol/pf_vlom_9ef4063/agent.py", line 602, in update_state
+    self.call_update_functions()
+  File "/sol/pf_vlom_9ef4063/agent.py", line 613, in call_update_functions
+    func()
+  File "/sol/pf_vlom_9ef4063/agent.py", line 250, in f
+    if next(it):
+       ^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 2729, in astra_boulder_food
+    item.object.metal not in (O.IRON, O.METAL, O.COPPER, O.SILVER, O.GOLD, O.MITHRIL) or \
+                              ^
+NameError: name 'O' is not defined
+
+[s2057 t893 d1 0:1 xl2 hp20/22] PANIC NameError: name 'O' is not defined
+Traceback (most recent call last):
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 279, in preempt
+    self.call_update_functions(list(id2fun.values()))
+  File "/sol/pf_vlom_9ef4063/agent.py", line 613, in call_update_functions
+    func()
+  File "/sol/pf_vlom_9ef4063/agent.py", line 250, in f
+    if next(it):
+       ^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 2729, in astra_boulder_food
+    item.object.metal not in (O.IRON, O.METAL, O.COPPER, O.SILVER, O.GOLD, O.MITHRIL) or \
+                              ^
+NameError: name 'O' is not defined
+
+[s2075 t893 d1 0:1 xl2 hp20/22] PANIC NameError: name 'O' is not defined
+Traceback (most recent call last):
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 279, in preempt
+    self.call_update_functions(list(id2fun.values()))
+  File "/sol/pf_vlom_9ef4063/agent.py", line 613, in call_update_functions
+    func()
+  File "/sol/pf_vlom_9ef4063/agent.py", line 250, in f
+    if next(it):
+       ^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 2729, in astra_boulder_food
+    item.object.metal not in (O.IRON, O.METAL, O.COPPER, O.SILVER, O.GOLD, O.MITHRIL) or \
+                              ^
+NameError: name 'O' is not defined
+
+[s2093 t893 d1 0:1 xl2 hp20/22] PANIC NameError: name 'O' is not defined
+Traceback (most recent call last):
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 279, in preempt
+    self.call_update_functions(list(id2fun.values()))
+  File "/sol/pf_vlom_9ef4063/agent.py", line 613, in call_update_functions
+    func()
+  File "/sol/pf_vlom_9ef4063/agent.py", line 250, in f
+    if next(it):
+       ^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 2729, in astra_boulder_food
+    item.object.metal not in (O.IRON, O.METAL, O.COPPER, O.SILVER, O.GOLD, O.MITHRIL) or \
+                              ^
+NameError: name 'O' is not defined
+
+[s2093 t893 d1 0:1 xl2 hp20/22] panic loop: random walk (NameError:name 'O' is not defined)
+[s2150 t927 d1 0:1 xl2 hp22/22] PRAY hp=22/22 hunger=3 gap=None reason=None
+[s2154 t930 d1 0:1 xl2 hp22/22] PRAY_RESULT Are you sure you want to pray? [yn] (n) You begin praying to Hermes. You are surrounded by a shimmering light.  You finish your prayer. You feel that Hermes is well-pleased.  Your stomach feels content. Are you sure you want to pray? [yn] (n) You begin praying to Hermes. You are surrounded by a shimmering light.  You finish your prayer. You feel that Hermes is well-pleased.  Your stomach feels content.
+[s2204 t1004 d1 0:1 xl2 hp22/22] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(11), np.int64(53)) acts=[ESC:187 SPACE:181 SEARCH:118 LOOK:111 WHATIS:110] gotos=[astra_boulder_food(16, 57):10 check_items(16, 53):7 astra_boulder_food(13, 60):6]
+[s2573 t1504 d1 0:1 xl2 hp22/22] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(9), np.int64(49)) acts=[SEARCH:83 NUM_5:77 W:36 E:34 SPACE:18] gotos=[open_visit_search(8, 41):4 open_visit_search(7, 41):3 open_visit_search(16, 51):2]
+[s2628 t1583 d1 0:1 xl2 hp22/22] PANIC AgentPanic: agent position do not match after "move": expected (6, 57), got (7, 57)
+Traceback (most recent call last):
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 285, in preempt
+    val = f()
+          ^^^
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/pf_vlom_9ef4063/exploration_logic.py", line 490, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/pf_vlom_9ef4063/agent.py", line 1913, in go_to
+    self.move(y, x)
+  File "/sol/pf_vlom_9ef4063/agent.py", line 1622, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_vlom_9ef4063.exceptions.AgentPanic: agent position do not match after "move": expected (6, 57), got (7, 57)
+
+[s2680 t1619 d1 0:1 xl2 hp21/22] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/pf_vlom_9ef4063/item/inventory.py", line 548, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/pf_vlom_9ef4063/agent.py", line 175, in atom_operation
+    self.update_state()
+  File "/sol/pf_vlom_9ef4063/agent.py", line 602, in update_state
+    self.call_update_functions()
+  File "/sol/pf_vlom_9ef4063/agent.py", line 613, in call_update_functions
+    func()
+  File "/sol/pf_vlom_9ef4063/item/inventory.py", line 152, in f
+    raise AgentPanic('items below me changed')
+pf_vlom_9ef4063.exceptions.AgentPanic: items below me changed
+
+[s2851 t1821 d1 0:1 xl2 hp22/22] PANIC AgentPanic: agent position do not match after "move": expected (15, 63), got (15, 64)
+Traceback (most recent call last):
+  File "/sol/pf_vlom_9ef4063/agent.py", line 296, in preempt
+    next(iterator)
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 68, in f
+    next(it)
+  File "/sol/pf_vlom_9ef4063/utils.py", line 134, in f
+    next(it)
+  File "/sol/pf_vlom_9ef4063/agent.py", line 2519, in eat_corpses_from_ground
+    self.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 255, 0), is_path=True))
+  File "/sol/pf_vlom_9ef4063/agent.py", line 1913, in go_to
+    self.move(y, x)
+  File "/sol/pf_vlom_9ef4063/agent.py", line 1622, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_vlom_9ef4063.exceptions.AgentPanic: agent position do not match after "move": expected (15, 63), got (15, 64)
+
+[s2958 t1917 d1 0:1 xl2 hp22/22] PANIC AgentPanic: agent position do not match after "move": expected (8, 59), got (7, 59)
+Traceback (most recent call last):
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 296, in preempt
+    next(iterator)
+  File "/sol/pf_vlom_9ef4063/agent.py", line 2710, in astra_boulder_food
+    self.go_to(*approach, max_steps=1)
+  File "/sol/pf_vlom_9ef4063/agent.py", line 1913, in go_to
+    self.move(y, x)
+  File "/sol/pf_vlom_9ef4063/agent.py", line 1622, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_vlom_9ef4063.exceptions.AgentPanic: agent position do not match after "move": expected (8, 59), got (7, 59)
+
+[s3081 t1994 d1 0:1 xl2 hp22/22] PANIC NameError: name 'O' is not defined
+Traceback (most recent call last):
+  File "/sol/pf_vlom_9ef4063/agent.py", line 440, in step
+    self.update(observation, additional_action_iterator)
+  File "/sol/pf_vlom_9ef4063/agent.py", line 561, in update
+    self.update_state(allow_update=self._atom_operation_allow_update or not self.in_atom_operation,
+  File "/sol/pf_vlom_9ef4063/agent.py", line 602, in update_state
+    self.call_update_functions()
+  File "/sol/pf_vlom_9ef4063/agent.py", line 613, in call_update_functions
+    func()
+  File "/sol/pf_vlom_9ef4063/agent.py", line 250, in f
+    if next(it):
+       ^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 2729, in astra_boulder_food
+    item.object.metal not in (O.IRON, O.METAL, O.COPPER, O.SILVER, O.GOLD, O.MITHRIL) or \
+                              ^
+NameError: name 'O' is not defined
+
+[s3099 t1994 d1 0:1 xl2 hp22/22] PANIC NameError: name 'O' is not defined
+Traceback (most recent call last):
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 279, in preempt
+    self.call_update_functions(list(id2fun.values()))
+  File "/sol/pf_vlom_9ef4063/agent.py", line 613, in call_update_functions
+    func()
+  File "/sol/pf_vlom_9ef4063/agent.py", line 250, in f
+    if next(it):
+       ^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 2729, in astra_boulder_food
+    item.object.metal not in (O.IRON, O.METAL, O.COPPER, O.SILVER, O.GOLD, O.MITHRIL) or \
+                              ^
+NameError: name 'O' is not defined
+
+[s3117 t1994 d1 0:1 xl2 hp22/22] PANIC NameError: name 'O' is not defined
+Traceback (most recent call last):
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 279, in preempt
+    self.call_update_functions(list(id2fun.values()))
+  File "/sol/pf_vlom_9ef4063/agent.py", line 613, in call_update_functions
+    func()
+  File "/sol/pf_vlom_9ef4063/agent.py", line 250, in f
+    if next(it):
+       ^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 2729, in astra_boulder_food
+    item.object.metal not in (O.IRON, O.METAL, O.COPPER, O.SILVER, O.GOLD, O.MITHRIL) or \
+                              ^
+NameError: name 'O' is not defined
+
+[s3135 t1994 d1 0:1 xl2 hp22/22] PANIC NameError: name 'O' is not defined
+Traceback (most recent call last):
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 279, in preempt
+    self.call_update_functions(list(id2fun.values()))
+  File "/sol/pf_vlom_9ef4063/agent.py", line 613, in call_update_functions
+    func()
+  File "/sol/pf_vlom_9ef4063/agent.py", line 250, in f
+    if next(it):
+       ^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 2729, in astra_boulder_food
+    item.object.metal not in (O.IRON, O.METAL, O.COPPER, O.SILVER, O.GOLD, O.MITHRIL) or \
+                              ^
+NameError: name 'O' is not defined
+
+[s3153 t1994 d1 0:1 xl2 hp22/22] PANIC NameError: name 'O' is not defined
+Traceback (most recent call last):
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 279, in preempt
+    self.call_update_functions(list(id2fun.values()))
+  File "/sol/pf_vlom_9ef4063/agent.py", line 613, in call_update_functions
+    func()
+  File "/sol/pf_vlom_9ef4063/agent.py", line 250, in f
+    if next(it):
+       ^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 2729, in astra_boulder_food
+    item.object.metal not in (O.IRON, O.METAL, O.COPPER, O.SILVER, O.GOLD, O.MITHRIL) or \
+                              ^
+NameError: name 'O' is not defined
+
+[s3171 t1994 d1 0:1 xl2 hp22/22] PANIC NameError: name 'O' is not defined
+Traceback (most recent call last):
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 279, in preempt
+    self.call_update_functions(list(id2fun.values()))
+  File "/sol/pf_vlom_9ef4063/agent.py", line 613, in call_update_functions
+    func()
+  File "/sol/pf_vlom_9ef4063/agent.py", line 250, in f
+    if next(it):
+       ^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 2729, in astra_boulder_food
+    item.object.metal not in (O.IRON, O.METAL, O.COPPER, O.SILVER, O.GOLD, O.MITHRIL) or \
+                              ^
+NameError: name 'O' is not defined
+
+[s3190 t1995 d1 0:1 xl2 hp22/22] PANIC NameError: name 'O' is not defined
+Traceback (most recent call last):
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 279, in preempt
+    self.call_update_functions(list(id2fun.values()))
+  File "/sol/pf_vlom_9ef4063/agent.py", line 613, in call_update_functions
+    func()
+  File "/sol/pf_vlom_9ef4063/agent.py", line 250, in f
+    if next(it):
+       ^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 2729, in astra_boulder_food
+    item.object.metal not in (O.IRON, O.METAL, O.COPPER, O.SILVER, O.GOLD, O.MITHRIL) or \
+                              ^
+NameError: name 'O' is not defined
+
+[s3208 t1995 d1 0:1 xl2 hp22/22] PANIC NameError: name 'O' is not defined
+Traceback (most recent call last):
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 279, in preempt
+    self.call_update_functions(list(id2fun.values()))
+  File "/sol/pf_vlom_9ef4063/agent.py", line 613, in call_update_functions
+    func()
+  File "/sol/pf_vlom_9ef4063/agent.py", line 250, in f
+    if next(it):
+       ^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 2729, in astra_boulder_food
+    item.object.metal not in (O.IRON, O.METAL, O.COPPER, O.SILVER, O.GOLD, O.MITHRIL) or \
+                              ^
+NameError: name 'O' is not defined
+
+[s3226 t1995 d1 0:1 xl2 hp22/22] PANIC NameError: name 'O' is not defined
+Traceback (most recent call last):
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 279, in preempt
+    self.call_update_functions(list(id2fun.values()))
+  File "/sol/pf_vlom_9ef4063/agent.py", line 613, in call_update_functions
+    func()
+  File "/sol/pf_vlom_9ef4063/agent.py", line 250, in f
+    if next(it):
+       ^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 2729, in astra_boulder_food
+    item.object.metal not in (O.IRON, O.METAL, O.COPPER, O.SILVER, O.GOLD, O.MITHRIL) or \
+                              ^
+NameError: name 'O' is not defined
+
+[s3244 t1995 d1 0:1 xl2 hp22/22] PANIC NameError: name 'O' is not defined
+Traceback (most recent call last):
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 279, in preempt
+    self.call_update_functions(list(id2fun.values()))
+  File "/sol/pf_vlom_9ef4063/agent.py", line 613, in call_update_functions
+    func()
+  File "/sol/pf_vlom_9ef4063/agent.py", line 250, in f
+    if next(it):
+       ^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 2729, in astra_boulder_food
+    item.object.metal not in (O.IRON, O.METAL, O.COPPER, O.SILVER, O.GOLD, O.MITHRIL) or \
+                              ^
+NameError: name 'O' is not defined
+
+[s3262 t1995 d1 0:1 xl2 hp22/22] PANIC NameError: name 'O' is not defined
+Traceback (most recent call last):
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 279, in preempt
+    self.call_update_functions(list(id2fun.values()))
+  File "/sol/pf_vlom_9ef4063/agent.py", line 613, in call_update_functions
+    func()
+  File "/sol/pf_vlom_9ef4063/agent.py", line 250, in f
+    if next(it):
+       ^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 2729, in astra_boulder_food
+    item.object.metal not in (O.IRON, O.METAL, O.COPPER, O.SILVER, O.GOLD, O.MITHRIL) or \
+                              ^
+NameError: name 'O' is not defined
+
+[s3281 t1996 d1 0:1 xl2 hp22/22] PANIC NameError: name 'O' is not defined
+Traceback (most recent call last):
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 279, in preempt
+    self.call_update_functions(list(id2fun.values()))
+  File "/sol/pf_vlom_9ef4063/agent.py", line 613, in call_update_functions
+    func()
+  File "/sol/pf_vlom_9ef4063/agent.py", line 250, in f
+    if next(it):
+       ^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 2729, in astra_boulder_food
+    item.object.metal not in (O.IRON, O.METAL, O.COPPER, O.SILVER, O.GOLD, O.MITHRIL) or \
+                              ^
+NameError: name 'O' is not defined
+
+[s3299 t1996 d1 0:1 xl2 hp22/22] PANIC NameError: name 'O' is not defined
+Traceback (most recent call last):
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 279, in preempt
+    self.call_update_functions(list(id2fun.values()))
+  File "/sol/pf_vlom_9ef4063/agent.py", line 613, in call_update_functions
+    func()
+  File "/sol/pf_vlom_9ef4063/agent.py", line 250, in f
+    if next(it):
+       ^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 2729, in astra_boulder_food
+    item.object.metal not in (O.IRON, O.METAL, O.COPPER, O.SILVER, O.GOLD, O.MITHRIL) or \
+                              ^
+NameError: name 'O' is not defined
+
+[s3317 t1996 d1 0:1 xl2 hp22/22] PANIC NameError: name 'O' is not defined
+Traceback (most recent call last):
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 279, in preempt
+    self.call_update_functions(list(id2fun.values()))
+  File "/sol/pf_vlom_9ef4063/agent.py", line 613, in call_update_functions
+    func()
+  File "/sol/pf_vlom_9ef4063/agent.py", line 250, in f
+    if next(it):
+       ^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 2729, in astra_boulder_food
+    item.object.metal not in (O.IRON, O.METAL, O.COPPER, O.SILVER, O.GOLD, O.MITHRIL) or \
+                              ^
+NameError: name 'O' is not defined
+
+[s3335 t1996 d1 0:1 xl2 hp22/22] PANIC NameError: name 'O' is not defined
+Traceback (most recent call last):
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 279, in preempt
+    self.call_update_functions(list(id2fun.values()))
+  File "/sol/pf_vlom_9ef4063/agent.py", line 613, in call_update_functions
+    func()
+  File "/sol/pf_vlom_9ef4063/agent.py", line 250, in f
+    if next(it):
+       ^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 2729, in astra_boulder_food
+    item.object.metal not in (O.IRON, O.METAL, O.COPPER, O.SILVER, O.GOLD, O.MITHRIL) or \
+                              ^
+NameError: name 'O' is not defined
+
+[s3353 t1996 d1 0:1 xl2 hp22/22] PANIC NameError: name 'O' is not defined
+Traceback (most recent call last):
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 279, in preempt
+    self.call_update_functions(list(id2fun.values()))
+  File "/sol/pf_vlom_9ef4063/agent.py", line 613, in call_update_functions
+    func()
+  File "/sol/pf_vlom_9ef4063/agent.py", line 250, in f
+    if next(it):
+       ^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 2729, in astra_boulder_food
+    item.object.metal not in (O.IRON, O.METAL, O.COPPER, O.SILVER, O.GOLD, O.MITHRIL) or \
+                              ^
+NameError: name 'O' is not defined
+
+[s3372 t1997 d1 0:1 xl2 hp22/22] PANIC NameError: name 'O' is not defined
+Traceback (most recent call last):
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 279, in preempt
+    self.call_update_functions(list(id2fun.values()))
+  File "/sol/pf_vlom_9ef4063/agent.py", line 613, in call_update_functions
+    func()
+  File "/sol/pf_vlom_9ef4063/agent.py", line 250, in f
+    if next(it):
+       ^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 2729, in astra_boulder_food
+    item.object.metal not in (O.IRON, O.METAL, O.COPPER, O.SILVER, O.GOLD, O.MITHRIL) or \
+                              ^
+NameError: name 'O' is not defined
+
+[s3390 t1997 d1 0:1 xl2 hp22/22] PANIC NameError: name 'O' is not defined
+Traceback (most recent call last):
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 279, in preempt
+    self.call_update_functions(list(id2fun.values()))
+  File "/sol/pf_vlom_9ef4063/agent.py", line 613, in call_update_functions
+    func()
+  File "/sol/pf_vlom_9ef4063/agent.py", line 250, in f
+    if next(it):
+       ^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 2729, in astra_boulder_food
+    item.object.metal not in (O.IRON, O.METAL, O.COPPER, O.SILVER, O.GOLD, O.MITHRIL) or \
+                              ^
+NameError: name 'O' is not defined
+
+[s3408 t1997 d1 0:1 xl2 hp22/22] PANIC NameError: name 'O' is not defined
+Traceback (most recent call last):
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 279, in preempt
+    self.call_update_functions(list(id2fun.values()))
+  File "/sol/pf_vlom_9ef4063/agent.py", line 613, in call_update_functions
+    func()
+  File "/sol/pf_vlom_9ef4063/agent.py", line 250, in f
+    if next(it):
+       ^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 2729, in astra_boulder_food
+    item.object.metal not in (O.IRON, O.METAL, O.COPPER, O.SILVER, O.GOLD, O.MITHRIL) or \
+                              ^
+NameError: name 'O' is not defined
+
+[s3426 t1997 d1 0:1 xl2 hp22/22] PANIC NameError: name 'O' is not defined
+Traceback (most recent call last):
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 279, in preempt
+    self.call_update_functions(list(id2fun.values()))
+  File "/sol/pf_vlom_9ef4063/agent.py", line 613, in call_update_functions
+    func()
+  File "/sol/pf_vlom_9ef4063/agent.py", line 250, in f
+    if next(it):
+       ^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 2729, in astra_boulder_food
+    item.object.metal not in (O.IRON, O.METAL, O.COPPER, O.SILVER, O.GOLD, O.MITHRIL) or \
+                              ^
+NameError: name 'O' is not defined
+
+[s3444 t1997 d1 0:1 xl2 hp22/22] PANIC NameError: name 'O' is not defined
+Traceback (most recent call last):
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/pf_vlom_9ef4063/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 279, in preempt
+    self.call_update_functions(list(id2fun.values()))
+  File "/sol/pf_vlom_9ef4063/agent.py", line 613, in call_update_functions
+    func()
+  File "/sol/pf_vlom_9ef4063/agent.py", line 250, in f
+    if next(it):
+       ^^^^^^^^
+  File "/sol/pf_vlom_9ef4063/agent.py", line 2729, in astra_boulder_food
+    item.object.metal not in (O.IRON, O.METAL, O.COPPER, O.SILVER, O.GOLD, O.MITHRIL) or \
+                              ^
+NameError: name 'O' is not defined
+
+[s3472 t2000 d1 0:1 xl2 hp22/22] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=2 pos=(np.int64(14), np.int64(61)) acts=[SPACE:105 ESC:87 SEARCH:75 LOOK:66 NUM_5:56] gotos=[astra_boulder_food(12, 60):39 open_visit_search(6, 59):15 go_to_item_to_pickup(11, 59):14]
+[s3480 t2008 d1 0:1 xl2 hp20/22] PRAY hp=20/22 hunger=3 gap=1078 reason=None
+[s3484 t2011 d1 0:1 xl2 hp20/22] PRAY_RESULT Are you sure you want to pray? [yn] (n) You begin praying to Hermes. You are surrounded by a shimmering light.  You finish your prayer. You feel that Hermes is well-pleased.  Your stomach feels content. Are you sure you want to pray? [yn] (n) You begin praying to Hermes. You are surrounded by a shimmering light.  You finish your prayer. You feel that Hermes is well-pleased.  Your stomach feels content.
+[s3709 t2211 d1 0:1 xl3 hp30/30] DIVE phase starts (milestone BE_ON_FIRST_LEVEL, early)
+[s3709 t2211 d1 0:1 xl3 hp30/30] DIVE task descend
+[s3709 t2211 d1 0:1 xl3 hp30/30] DIVE stuck in task 'descend' on level (np.int64(0), np.int64(1)) for 2210 turns; up stairs (y,x,dist)=[(15, 51, 15)]
+You kill the kobold!  Welcome to experience level 3.
+
+
+                                    --------
+                                ####-....+.|      ---------          ------
+                 --|---         +   |.......##    |.......-#        #.....|
+                 |....|        ##   |....d.| #    |.......|#        #|....|
+                 |....|#############-....@.)##### |.{.....|#    #####|*...|
+                 |....|      #      -----+-- #  ##|.......|#    #    |....|
+                 |....|#######           #   #   #--.--.-.-#    #    |....|
+                 |.....#                     #   # ##  ### #    #    |.>..|
+                 ------                      #   ###     # #    #    ------
+                           ############################  # [    #
+                                             ##--|--.-#  ####`# #
+                                              #|.....|#  #--.-.-#
+                                              #|.....|#  #|....|#
+                                              #....<.|####.....-#
+                                               |......####|..[.|
+                                               -------   #`....|
+                                                          --|---
+
+
+Agent the Empiric              St:10 Dx:9 Co:15 In:10 Wi:16 Ch:17 Neutral S:170
+Dlvl:1 $:1152 HP:30(30) Pw:25(25) AC:7 Xp:3/41 T:2211
+[s3769 t2259 d1 0:1 xl3 hp30/30] DIVE going down stairs at (np.int64(9), np.int64(71))
+[s3771 t2260 d2 0:2 xl3 hp30/30] DIVE level (np.int64(0), np.int64(2)) depth 2
+[s3771 t2260 d2 0:2 xl3 hp30/30] DIVE task search mines branch
+[s3856 t2326 d2 0:2 xl3 hp30/30] DIVE digging out, hostiles at [('jackal', 4)]
+[s3856 t2326 d2 0:2 xl3 hp30/30] DIVE Elbereth before digging: ['jackal']
+[s3874 t2327 d2 0:2 xl3 hp30/30] DIVE digging out, hostiles at [('jackal', 3)]
+[s3874 t2327 d2 0:2 xl3 hp30/30] DIVE digging down with 'a broad pick' (try 1)
+[s3880 t2332 d2 0:2 xl3 hp30/30] DIVE task descend
+[s3880 t2332 d2 0:2 xl3 hp30/30] DIVE Elbereth before digging in the pit: []
+[s3896 t2333 d2 0:2 xl3 hp30/30] DIVE digging down with 'a broad pick (weapon in hands)' (try 2)
+[s3902 t2354 d3 0:3 xl3 hp30/30] DIVE fell through a trap door at (np.int64(2), np.int64(67)) on (np.int64(0), np.int64(2)); remembered
+[s3902 t2354 d3 0:3 xl3 hp30/30] DIVE level (np.int64(0), np.int64(3)) depth 3
+[s3904 t2356 d3 0:3 xl3 hp30/30] DIVE going down stairs at (np.int64(6), np.int64(24))
+[s3906 t2357 d4 0:4 xl3 hp30/30] DIVE level (np.int64(0), np.int64(4)) depth 4
+[s3907 t2358 d4 0:4 xl3 hp30/30] DIVE digging down with 'a broad pick (weapon in hands)' (try 1)
+[s3910 t2364 d4 0:4 xl3 hp30/30] DIVE digging down with 'a broad pick (weapon in hands)' (try 2)
+[s3921 t2385 d5 0:5 xl3 hp30/30] DIVE fell through a trap door at (np.int64(16), np.int64(71)) on (np.int64(0), np.int64(4)); remembered
+[s3921 t2385 d5 0:5 xl3 hp30/30] DIVE level (np.int64(0), np.int64(5)) depth 5
+[s3925 t2389 d5 0:5 xl3 hp30/30] DIVE going down stairs at (np.int64(18), np.int64(67))
+[s3927 t2390 d6 0:6 xl3 hp30/30] DIVE level (np.int64(0), np.int64(6)) depth 6
+[s3928 t2391 d6 0:6 xl3 hp30/30] DIVE digging down with 'a broad pick (weapon in hands)' (try 1)
+[s3931 t2396 d6 0:6 xl3 hp30/30] DIVE digging down with 'a broad pick (weapon in hands)' (try 2)
+[s3939 t2416 d7 0:7 xl3 hp30/30] DIVE fell through a trap door at (np.int64(5), np.int64(66)) on (np.int64(0), np.int64(6)); remembered
+[s3939 t2416 d7 0:7 xl3 hp30/30] DIVE level (np.int64(0), np.int64(7)) depth 7
+[s3939 t2416 d7 0:7 xl3 hp30/30] DIVE digging out, hostiles at [('shrieker', 9)]
+[s3939 t2416 d7 0:7 xl3 hp30/30] DIVE digging down with 'a broad pick (weapon in hands)' (try 1)
+[s3942 t2422 d7 0:7 xl3 hp30/30] DIVE digging down with 'a broad pick (weapon in hands)' (try 2)
+[s3953 t2443 d8 0:8 xl3 hp30/30] DIVE fell through a trap door at (np.int64(5), np.int64(46)) on (np.int64(0), np.int64(7)); remembered
+[s3953 t2443 d8 0:8 xl3 hp30/30] DIVE level (np.int64(0), np.int64(8)) depth 8
+[s3956 t2446 d8 0:8 xl3 hp30/30] DIVE going down stairs at (np.int64(6), np.int64(38))
+[s3958 t2447 d9 0:9 xl3 hp30/30] DIVE level (np.int64(0), np.int64(9)) depth 9
+[s3959 t2448 d9 0:9 xl3 hp30/30] DIVE digging down with 'a broad pick (weapon in hands)' (try 1)
+[s3962 t2453 d9 0:9 xl3 hp30/30] DIVE digging down with 'a broad pick (weapon in hands)' (try 2)
+[s3967 t2474 d10 0:10 xl3 hp30/30] DIVE fell through a trap door at (np.int64(16), np.int64(3)) on (np.int64(0), np.int64(9)); remembered
+[s3967 t2474 d10 0:10 xl3 hp30/30] DIVE level (np.int64(0), np.int64(10)) depth 10
+[s3967 t2474 d10 0:10 xl3 hp30/30] POWER kit at depth 10 XL 3 AC 7: P(passage)=0.05 certain=0 steps=1 scare_known=0 P(scare among candidates)=0.04 door_tools=0
+[s3967 t2474 d10 0:10 xl3 hp30/30] DIVE digging down with 'a broad pick (weapon in hands)' (try 1)
+[s3970 t2479 d10 0:10 xl3 hp30/30] DIVE digging down with 'a broad pick (weapon in hands)' (try 2)
+[s3981 t2500 d11 0:11 xl3 hp30/30] STATUS milestone=BE_ON_FIRST_LEVEL diving=True hunger=1 pos=(np.int64(12), np.int64(66)) acts=[SEARCH:54 SPACE:49 E:41 N:37 SW:34] gotos=[_fight2_perform_action(6, 37):4 check_items(2, 67):4 eat_corpses_from_ground(15, 62):3]
+[s3981 t2500 d11 0:11 xl3 hp30/30] DIVE fell through a trap door at (np.int64(2), np.int64(27)) on (np.int64(0), np.int64(10)); remembered
+[s3981 t2500 d11 0:11 xl3 hp30/30] DIVE level (np.int64(0), np.int64(11)) depth 11
+[s3981 t2500 d11 0:11 xl3 hp30/30] DIVE digging down with 'a broad pick (weapon in hands)' (try 1)
+[s3984 t2505 d11 0:11 xl3 hp30/30] DIVE digging down with 'a broad pick (weapon in hands)' (try 2)
+[s3992 t2526 d12 0:12 xl3 hp30/30] DIVE fell through a trap door at (np.int64(12), np.int64(66)) on (np.int64(0), np.int64(11)); remembered
+[s3992 t2526 d12 0:12 xl3 hp30/30] DIVE level (np.int64(0), np.int64(12)) depth 12
+[s3996 t2527 d12 0:12 xl3 hp30/30] DIVE digging out, hostiles at [('giant spider', 1), ('rock piercer', 4)]
+[s3996 t2527 d12 0:12 xl3 hp30/30] DIVE Elbereth before digging: ['giant spider', 'rock piercer']
+[s4012 t2528 d12 0:12 xl3 hp30/30] DIVE digging out, hostiles at [('giant spider', 1), ('rock piercer', 4)]
+[s4012 t2528 d12 0:12 xl3 hp30/30] DIVE digging down with 'a broad pick (weapon in hands)' (try 1)
+[s4016 t2533 d12 0:12 xl3 hp30/30] DIVE digging out, hostiles at [('giant spider', 1)]
+[s4016 t2533 d12 0:12 xl3 hp30/30] DIVE Elbereth before digging in the pit: ['giant spider']
+[s4030 t2534 d12 0:12 xl3 hp30/30] DIVE digging out, hostiles at [('giant spider', 1)]
+[s4030 t2534 d12 0:12 xl3 hp30/30] DIVE Elbereth before digging in the pit: ['giant spider']
+[s4046 t2535 d12 0:12 xl3 hp30/30] DIVE digging out, hostiles at [('giant spider', 1)]
+[s4046 t2535 d12 0:12 xl3 hp30/30] DIVE Elbereth before digging in the pit: ['giant spider']
+[s4064 t2536 d12 0:12 xl3 hp30/30] DIVE digging out, hostiles at [('giant spider', 1)]
+[s4064 t2536 d12 0:12 xl3 hp30/30] DIVE digging down with 'a broad pick (weapon in hands)' (try 2)
+[s4082 t2556 d13 0:13 xl3 hp30/30] DIVE fell through a trap door at (np.int64(16), np.int64(70)) on (np.int64(0), np.int64(12)); remembered
+[s4082 t2556 d13 0:13 xl3 hp30/30] DIVE level (np.int64(0), np.int64(13)) depth 13
+[s4082 t2556 d13 0:13 xl3 hp30/30] DIVE quest portal level detected: (np.int64(0), np.int64(13))
+[s4082 t2556 d13 0:13 xl3 hp30/30] DIVE digging down with 'a broad pick (weapon in hands)' (try 1)
+[s4087 t2561 d13 0:13 xl3 hp30/30] DIVE digging down with 'a broad pick (weapon in hands)' (try 2)
+[s4096 t2582 d14 0:14 xl3 hp30/30] DIVE fell through a trap door at (np.int64(4), np.int64(60)) on (np.int64(0), np.int64(13)); remembered
+[s4096 t2582 d14 0:14 xl3 hp30/30] DIVE level (np.int64(0), np.int64(14)) depth 14
+[s4096 t2582 d14 0:14 xl3 hp30/30] DIVE digging out, hostiles at [('kobold mummy', 1)]
+[s4096 t2582 d14 0:14 xl3 hp30/30] DIVE Elbereth before digging: ['kobold mummy']
+[s4112 t2583 d14 0:14 xl3 hp30/30] DIVE digging out, hostiles at [('kobold mummy', 1)]
+[s4112 t2583 d14 0:14 xl3 hp30/30] DIVE digging down with 'a broad pick (weapon in hands)' (try 1)
+[s4117 t2588 d14 0:14 xl3 hp30/30] DIVE Elbereth before digging in the pit: []
+[s4133 t2589 d14 0:14 xl3 hp30/30] DIVE digging down with 'a broad pick (weapon in hands)' (try 2)
+[s4149 t2610 d15 0:15 xl3 hp30/30] DIVE fell through a trap door at (np.int64(4), np.int64(40)) on (np.int64(0), np.int64(14)); remembered
+[s4149 t2610 d15 0:15 xl3 hp30/30] DIVE level (np.int64(0), np.int64(15)) depth 15
+[s4149 t2610 d15 0:15 xl3 hp30/30] DIVE digging down with 'a broad pick (weapon in hands)' (try 1)
+[s4152 t2615 d15 0:15 xl3 hp30/30] DIVE digging down with 'a broad pick (weapon in hands)' (try 2)
+[s4157 t2636 d16 0:16 xl3 hp30/30] DIVE fell through a trap door at (np.int64(17), np.int64(43)) on (np.int64(0), np.int64(15)); remembered
+[s4157 t2636 d16 0:16 xl3 hp30/30] DIVE level (np.int64(0), np.int64(16)) depth 16
+[s4157 t2636 d16 0:16 xl3 hp30/30] DIVE digging down with 'a broad pick (weapon in hands)' (try 1)
+[s4160 t2641 d16 0:16 xl3 hp30/30] DIVE digging down with 'a broad pick (weapon in hands)' (try 2)
+[s4175 t2662 d17 0:17 xl3 hp30/30] DIVE fell through a trap door at (np.int64(5), np.int64(10)) on (np.int64(0), np.int64(16)); remembered
+[s4175 t2662 d17 0:17 xl3 hp30/30] DIVE level (np.int64(0), np.int64(17)) depth 17
+[s4175 t2662 d17 0:17 xl3 hp30/30] DIVE digging down with 'a broad pick (weapon in hands)' (try 1)
+[s4181 t2667 d17 0:17 xl3 hp30/30] DIVE digging down with 'a broad pick (weapon in hands)' (try 2)
+[s4189 t2687 d18 0:18 xl3 hp30/30] DIVE fell through a trap door at (np.int64(4), np.int64(52)) on (np.int64(0), np.int64(17)); remembered
+[s4189 t2687 d18 0:18 xl3 hp30/30] DIVE level (np.int64(0), np.int64(18)) depth 18
+[s4189 t2687 d18 0:18 xl3 hp30/30] DIVE digging out, hostiles at [('rock mole', 3)]
+[s4189 t2687 d18 0:18 xl3 hp30/30] DIVE Elbereth before digging: ['rock mole']
+[s4205 t2688 d18 0:18 xl3 hp30/30] DIVE digging out, hostiles at [('rock mole', 3)]
+[s4205 t2688 d18 0:18 xl3 hp30/30] DIVE digging down with 'a broad pick (weapon in hands)' (try 1)
+[s4210 t2693 d18 0:18 xl3 hp30/30] DIVE Elbereth before digging in the pit: []
+[s4234 t2695 d18 0:18 xl3 hp30/30] DIVE Elbereth before digging in the pit: []
+[s4250 t2696 d18 0:18 xl3 hp30/30] DIVE digging down with 'a broad pick (weapon in hands)' (try 2)
+[s4263 t2716 d19 0:19 xl3 hp30/30] DIVE fell through a trap door at (np.int64(4), np.int64(68)) on (np.int64(0), np.int64(18)); remembered
+[s4263 t2716 d19 0:19 xl3 hp30/30] DIVE level (np.int64(0), np.int64(19)) depth 19
+[s4341 t2780 d19 0:19 xl3 hp30/30] DIVE going down stairs at (np.int64(8), np.int64(69))
+[s4343 t2781 d20 0:20 xl3 hp30/30] DIVE level (np.int64(0), np.int64(20)) depth 20
+[s4343 t2781 d20 0:20 xl3 hp30/30] POWER kit at depth 20 XL 3 AC 7: P(passage)=0.05 certain=0 steps=1 scare_known=0 P(scare among candidates)=0.04 door_tools=0
+[s4344 t2782 d20 0:20 xl3 hp30/30] DIVE digging down with 'a broad pick (weapon in hands)' (try 1)
+[s4347 t2787 d20 0:20 xl3 hp30/30] DIVE digging down with 'a broad pick (weapon in hands)' (try 2)
+[s4352 t2808 d21 0:21 xl3 hp30/30] DIVE fell through a trap door at (np.int64(5), np.int64(4)) on (np.int64(0), np.int64(20)); remembered
+[s4352 t2808 d21 0:21 xl3 hp30/30] DIVE level (np.int64(0), np.int64(21)) depth 21
+[s4352 t2808 d21 0:21 xl3 hp30/30] DIVE digging down with 'a broad pick (weapon in hands)' (try 1)
+[s4355 t2813 d21 0:21 xl3 hp30/30] DIVE digging down with 'a broad pick (weapon in hands)' (try 2)
+[s4365 t2821 d21 0:21 xl3 hp30/30] DIVE digging down with 'a broad pick (weapon in hands)' (try 2)
+[s4370 t2835 d22 0:22 xl3 hp30/30] DIVE fell through a trap door at (np.int64(15), np.int64(74)) on (np.int64(0), np.int64(21)); remembered
+[s4370 t2835 d22 0:22 xl3 hp30/30] DIVE level (np.int64(0), np.int64(22)) depth 22
+[s4370 t2835 d22 0:22 xl3 hp30/30] DIVE digging down with 'a broad pick (weapon in hands)' (try 1)
+[s4373 t2840 d22 0:22 xl3 hp30/30] DIVE digging down with 'a broad pick (weapon in hands)' (try 2)
+[s4379 t2860 d22 0:22 xl3 hp30/30] DIVE digging out, hostiles at [('jabberwock', 1)]
+[s4379 t2860 d22 0:22 xl3 hp30/30] DIVE Elbereth before digging in the pit: ['jabberwock']
+[s4395 t2861 d22 0:22 xl3 hp30/30] DIVE digging down with 'a broad pick (weapon in hands)' (try 3)
+[s4401 t2863 d23 0:23 xl3 hp30/30] DIVE fell through a trap door at (np.int64(9), np.int64(25)) on (np.int64(0), np.int64(22)); remembered
+[s4401 t2863 d23 0:23 xl3 hp30/30] DIVE level (np.int64(0), np.int64(23)) depth 23
+[s4403 t2864 d23 0:23 xl3 hp30/30] DIVE digging down with 'a broad pick (weapon in hands)' (try 1)
+[s4406 t2869 d23 0:23 xl3 hp30/30] DIVE digging down with 'a broad pick (weapon in hands)' (try 2)
+[s4410 t2871 d23 0:23 xl3 hp30/30] DIVE digging down with 'a broad pick (weapon in hands)' (try 2)
+[s4421 t2890 d24 0:24 xl3 hp30/30] DIVE fell through a trap door at (np.int64(9), np.int64(42)) on (np.int64(0), np.int64(23)); remembered
+[s4421 t2890 d24 0:24 xl3 hp30/30] DIVE level (np.int64(0), np.int64(24)) depth 24
+[s4421 t2890 d24 0:24 xl3 hp30/30] DIVE digging down with 'a broad pick (weapon in hands)' (try 1)
+[s4424 t2896 d24 0:24 xl3 hp30/30] DIVE digging down with 'a broad pick (weapon in hands)' (try 2)
+[s4431 t2913 d24 0:24 xl3 hp30/30] DIVE digging out, hostiles at [('ice vortex', 1)]
+[s4431 t2913 d24 0:24 xl3 hp30/30] DIVE Elbereth before digging in the pit: ['ice vortex']
+[s4447 t2914 d24 0:24 xl3 hp30/30] DIVE digging down with 'a broad pick (weapon in hands)' (try 3)
+[s4456 t2919 d25 0:25 xl3 hp30/30] DIVE Medusa level detected: (np.int64(0), np.int64(25)) depth 25
+[s4456 t2919 d25 0:25 xl3 hp30/30] DIVE Medusa-3 (ravens)
+[s4456 t2919 d25 0:25 xl3 hp30/30] DIVE fell through a trap door at (np.int64(2), np.int64(37)) on (np.int64(0), np.int64(24)); remembered
+[s4456 t2919 d25 0:25 xl3 hp30/30] DIVE level (np.int64(0), np.int64(25)) depth 25
+[s4461 t2920 d25 0:25 xl3 hp30/30] DIVE Elbereth before digging: []
+[s4478 t2921 d25 0:25 xl3 hp30/30] DIVE digging out, hostiles at [('raven', 1)]
+[s4478 t2921 d25 0:25 xl3 hp30/30] DIVE Elbereth before digging: ['raven']
+[s4505 t2923 d25 0:25 xl3 hp30/30] DIVE digging out, hostiles at [('raven', -1), ('raven', -1), ('raven', 1)]
+[s4505 t2923 d25 0:25 xl3 hp30/30] DIVE digging down with 'a broad pick (weapon in hands)' (try 1)
+[s4518 t2930 d25 0:25 xl3 hp15/30] SCARE drop 1: ['a scroll labeled LEP GEX VEN ZEA'] at (np.int64(4), np.int64(35)) hp 15/30, adjacent ['unknown', 'unknown', 'unknown']
+[s4528 t2932 d25 0:25 xl3 hp2/32] SCARE no scare monster in the pile at (np.int64(4), np.int64(35)): 'You feel much better.  You can see again.  The raven bites! The raven blinds you'
+[s4534 t2933 d25 0:25 xl3 hp6/32] DIVE digging out, hostiles at [('unknown', -1), ('unknown', -1), ('unknown', -1)]
+[s4534 t2933 d25 0:25 xl3 hp6/32] DIVE Elbereth before digging (blind): ['unknown', 'unknown', 'unknown', 'unknown']
