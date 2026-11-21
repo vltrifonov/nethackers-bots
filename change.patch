@@ -1,0 +1,76 @@
+diff --git a/base/nhbot_priest6ce_v3_enchant/known_items.py b/base/nhbot_priest6ce_v3_enchant/known_items.py
+index 3b33212..2523750 100644
+--- a/base/nhbot_priest6ce_v3_enchant/known_items.py
++++ b/base/nhbot_priest6ce_v3_enchant/known_items.py
+@@ -44,6 +44,8 @@ next to the mumak, then the castle), jf52 s9 0.075 -> 0.466 (read blind at 27/75
+ 0.126 -> 0.393, jf49 s7 0.379 -> 0.466; jf54 s1 unchanged (5 striking zaps killed the sergeant and a soldier, then the
+ wand was empty); jf50 s14 unchanged (its wand of fire was known empty).
+ """
++import re
++
+ import nle.nethack as nh
+ 
+ from . import castle_power, jf_config, utils
+@@ -59,6 +61,9 @@ RANGED_REACH = 7          # a burst with nothing next to us counts when a hostil
+ _TELE = O.from_name('teleportation', nh.SCROLL_CLASS)
+ _W = castle_power._W
+ _NOTELEPORT = 'A mysterious force prevents you from teleporting'
++_ARROW_VOLLEY_HIT = re.compile(
++    r'\bshoots (?:an|\d+) arrows?!.*\bYou are hit by (?:an arrow|the \d+(?:st|nd|rd|th) arrow)[.!]'
++)
+ 
+ 
+ def _cheb(a, b):
+@@ -294,14 +299,34 @@ class KnownItemsGuard:
+         if not jf_config.KNOWN_ITEMS or not self._in_scope():
+             return None
+         danger = self._danger()
+-        if danger is None or self.mino._prayer_first():
+-            return None
+         turn = self.agent.blstats.time
+-        for plan in self._candidates(*danger):
++        if danger is None:
++            escape = self._critical_arrow_escape()
++            if escape is None or self._attempts.get(self._block_key(escape), (None, 0))[0] == turn:
++                return None
++            # A counted rest may skip the HP history window even though the volley is in the messages.
++            danger = ([], 'critical arrow volley', 0)
++            candidates = (escape,)
++        else:
++            candidates = self._candidates(*danger)
++        if self.mino._prayer_first():
++            return None
++        for plan in candidates:
+             if self._blocked.get(self._block_key(plan), -1) < turn:
+                 return plan + (danger,)
+         return None
+ 
++    def _critical_arrow_escape(self):
++        """A fresh enemy volley can be lethal even when the shooter is outside the visible threat list."""
++        agent = self.agent
++        if not agent._critically_low_hp() or self.dive._ranged_hit_turn != agent.blstats.time:
++            return None
++        messages = ' '.join(agent._message_history[-4:] + [agent.message or ''])
++        if not _ARROW_VOLLEY_HIT.search(messages) or not self._teleport_ok() or self._unpaid():
++            return None
++        scroll = self._tele_scroll()
++        return ('read', scroll, 'known scroll of teleportation') if scroll is not None else None
++
+     # ------------------------------------------------------------------ acting
+ 
+     def _act(self, plan):
+diff --git a/nethackers.solution.json b/nethackers.solution.json
+index 591a72c..8f574dd 100644
+--- a/nethackers.solution.json
++++ b/nethackers.solution.json
+@@ -1,8 +1,9 @@
+ {
+   "schema": "nethackers.solution/v1",
+-  "name": "daglar-zLeadersSeed407717",
++  "name": "Priest teleport after critical arrow damage",
+   "root": ".",
+   "parents": [
++    "github.com/daglar-dragomirov/nethacker@9a387c4fb6b8c166e2e6e63617bd6e588f40fddc",
+     "github.com/daglar-dragomirov/nethacker@ccfb1251179bad749ece88d384956363ffb2db56",
+     "github.com/daglar-dragomirov/nethacker@44b29b9299c5dcfb76e3fc6081004727c58db19a",
+     "github.com/DT6A/nethacker@37f9da35d0dbf98ed15bf89735bd601f0c0eac02",
