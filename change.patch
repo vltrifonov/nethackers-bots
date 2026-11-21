@@ -1,0 +1,39 @@
+diff --git a/hed/nhbot/agent.py b/hed/nhbot/agent.py
+index 2e2be9f..f7d654d 100644
+--- a/hed/nhbot/agent.py
++++ b/hed/nhbot/agent.py
+@@ -2961,6 +2961,25 @@ class Agent:
+             return self.inventory.items.boots is None
+         return self.inventory.items.gloves is None and self.inventory.items.main_hand is None
+ 
++    def _trace_post_prayer_stairs(self):
++        bl = self.blstats
++        dive = self.global_logic.dive
++        if self.character.role != Character.BARBARIAN or not dive.diving or \
++                self.prayer_failed or self.last_prayer_turn != bl.time or bl.hitpoints != bl.max_hitpoints:
++            return
++        level = self.current_level()
++        key = (level.key(), bl.time)
++        if getattr(self, '_prayer_stair_trace_key', None) == key:
++            return
++        self._prayer_stair_trace_key = key
++        monsters = [(m[3].mname, int(m[1]), int(m[2]), bool(getattr(m[3], 'mflags2', 0) & MON.M2_STALK))
++                    for m in self.get_visible_monsters()]
++        stairs = [(int(d), int(y), int(x), bool(self.monster_tracker.monster_mask[y, x]),
++                   level.stair_destination.get((y, x))) for d, y, x, kind in dive.down_targets()
++                  if d <= 1 and kind == 'stairs']
++        self.log(f'PRAYER_STAIR_DIAG at={(int(bl.y), int(bl.x))} stairs={stairs} '
++                 f'hostiles={monsters[:12]} pit={self.in_pit()} levitating={dive.levitating()}')
++
+     def _fight2_perform_action(self, best_action, wait_counter):
+         if best_action[0] == 'move':
+             _, dy, dx = best_action
+@@ -2971,6 +2990,8 @@ class Agent:
+                 self.move(target_y, target_x)
+                 return wait_counter
+         elif best_action[0] == 'melee':
++            if jf_log.enabled():
++                self._trace_post_prayer_stairs()
+             _, dy, dx = best_action
+             target_y = self.blstats.y + dy
+             target_x = self.blstats.x + dx
