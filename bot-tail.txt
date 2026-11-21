@@ -1,0 +1,1212 @@
+[s25 t1 d1 0:1 xl1 hp14/14] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(17), np.int64(49)) acts=[SPACE:7 ESC:4 AUTOPICKUP:2 ATTRIBUTES:1 ENHANCE:1] gotos=[]
+[s25 t1 d1 0:1 xl1 hp14/14] DIVE level (np.int64(0), np.int64(1)) depth 1
+[s51 t7 d1 0:1 xl1 hp14/14] PANIC AgentPanic: agent position do not match after "move": expected (14, 51), got (14, 52)
+Traceback (most recent call last):
+  File "/sol/nhbot/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/nhbot/agent.py", line 300, in preempt
+    val = f()
+          ^^^
+  File "/sol/nhbot/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/nhbot/exploration_logic.py", line 523, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/nhbot/agent.py", line 2538, in go_to
+    self.move(y, x)
+  File "/sol/nhbot/agent.py", line 2091, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+nhbot.exceptions.AgentPanic: agent position do not match after "move": expected (14, 51), got (14, 52)
+
+[s456 t235 d1 0:1 xl1 hp14/14] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/nhbot/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/nhbot/agent.py", line 311, in preempt
+    next(iterator)
+  File "/sol/nhbot/strategy.py", line 68, in f
+    next(it)
+  File "/sol/nhbot/utils.py", line 134, in f
+    next(it)
+  File "/sol/nhbot/agent.py", line 3310, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/nhbot/item/inventory.py", line 871, in eat
+    raise AgentPanic('no such food is lying here')
+nhbot.exceptions.AgentPanic: no such food is lying here
+
+[s623 t326 d1 0:1 xl2 hp21/21] UNSEEN PET may be at (13, 34): last seen [(16, 37)] 1 turns ago, no throw
+[s765 t399 d1 0:1 xl2 hp21/21] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/nhbot/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/nhbot/agent.py", line 311, in preempt
+    next(iterator)
+  File "/sol/nhbot/strategy.py", line 68, in f
+    next(it)
+  File "/sol/nhbot/utils.py", line 134, in f
+    next(it)
+  File "/sol/nhbot/agent.py", line 3310, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/nhbot/item/inventory.py", line 871, in eat
+    raise AgentPanic('no such food is lying here')
+nhbot.exceptions.AgentPanic: no such food is lying here
+
+[s881 t500 d1 0:1 xl2 hp21/21] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(18), np.int64(16)) acts=[SEARCH:188 W:76 SPACE:65 SW:61 E:59] gotos=[check_items(6, 13):10 check_items(17, 6):7 open_visit_search(16, 49):4]
+[s1161 t796 d1 0:1 xl2 hp21/21] PANIC AgentPanic: agent position do not match after "move": expected (12, 19), got (11, 18)
+Traceback (most recent call last):
+  File "/sol/nhbot/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/nhbot/agent.py", line 300, in preempt
+    val = f()
+          ^^^
+  File "/sol/nhbot/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/nhbot/exploration_logic.py", line 523, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/nhbot/agent.py", line 2538, in go_to
+    self.move(y, x)
+  File "/sol/nhbot/agent.py", line 2091, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+nhbot.exceptions.AgentPanic: agent position do not match after "move": expected (12, 19), got (11, 18)
+
+[s1301 t919 d1 0:1 xl2 hp21/21] PANIC AgentPanic: agent position do not match after "move": expected (4, 36), got (3, 35)
+Traceback (most recent call last):
+  File "/sol/nhbot/agent.py", line 311, in preempt
+    next(iterator)
+  File "/sol/nhbot/strategy.py", line 68, in f
+    next(it)
+  File "/sol/nhbot/utils.py", line 134, in f
+    next(it)
+  File "/sol/nhbot/agent.py", line 3294, in eat_corpses_from_ground
+    self.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 255, 0), is_path=True))
+  File "/sol/nhbot/agent.py", line 2538, in go_to
+    self.move(y, x)
+  File "/sol/nhbot/agent.py", line 2091, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+nhbot.exceptions.AgentPanic: agent position do not match after "move": expected (4, 36), got (3, 35)
+
+[s1374 t983 d1 0:1 xl2 hp21/21] UNSEEN PET may be at (12, 34): last seen [(12, 34)] 4 turns ago, no throw
+[s1374 t983 d1 0:1 xl2 hp21/21] UNSEEN PET may be at (16, 34): last seen [(12, 34)] 4 turns ago, no throw
+[s1387 t987 d1 0:1 xl2 hp21/21] UNSEEN PET may be at (13, 34): last seen [(14, 34)] 3 turns ago, no throw
+[s1388 t988 d1 0:1 xl2 hp21/21] UNSEEN PET may be at (13, 34): last seen [(14, 34)] 4 turns ago, no throw
+[s1390 t988 d1 0:1 xl2 hp21/21] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/nhbot/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/nhbot/agent.py", line 311, in preempt
+    next(iterator)
+  File "/sol/nhbot/strategy.py", line 68, in f
+    next(it)
+  File "/sol/nhbot/utils.py", line 134, in f
+    next(it)
+  File "/sol/nhbot/agent.py", line 3310, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/nhbot/item/inventory.py", line 871, in eat
+    raise AgentPanic('no such food is lying here')
+nhbot.exceptions.AgentPanic: no such food is lying here
+
+[s1424 t1000 d1 0:1 xl2 hp20/21] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(15), np.int64(36)) acts=[SEARCH:111 NUM_5:99 SPACE:46 E:30 ESC:26] gotos=[check_items(16, 20):3 open_visit_search(18, 6):2 open_visit_search(17, 5):2]
+[s1526 t1121 d1 0:1 xl2 hp21/21] PANIC AgentPanic: agent position do not match after "move": expected (14, 44), got (13, 44)
+Traceback (most recent call last):
+  File "/sol/nhbot/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/nhbot/agent.py", line 300, in preempt
+    val = f()
+          ^^^
+  File "/sol/nhbot/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/nhbot/exploration_logic.py", line 523, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/nhbot/agent.py", line 2538, in go_to
+    self.move(y, x)
+  File "/sol/nhbot/agent.py", line 2091, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+nhbot.exceptions.AgentPanic: agent position do not match after "move": expected (14, 44), got (13, 44)
+
+[s1616 t1195 d1 0:1 xl2 hp21/21] PANIC AgentPanic: agent position do not match after "move": expected (16, 48), got (17, 49)
+Traceback (most recent call last):
+  File "/sol/nhbot/agent.py", line 311, in preempt
+    next(iterator)
+  File "/sol/nhbot/strategy.py", line 68, in f
+    next(it)
+  File "/sol/nhbot/utils.py", line 134, in f
+    next(it)
+  File "/sol/nhbot/agent.py", line 3294, in eat_corpses_from_ground
+    self.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 255, 0), is_path=True))
+  File "/sol/nhbot/agent.py", line 2538, in go_to
+    self.move(y, x)
+  File "/sol/nhbot/agent.py", line 2091, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+nhbot.exceptions.AgentPanic: agent position do not match after "move": expected (16, 48), got (17, 49)
+
+[s1812 t1381 d1 0:1 xl2 hp21/21] PRAY hp=21/21 hunger=3 gap=None reason=None model[ok200=1.00 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=8 p_answered=1.00]
+[s1825 t1384 d1 0:1 xl2 hp21/21] PRAY result ok model[ok200=0.22 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=8] prayers=1 failures=0
+[s1833 t1384 d1 0:1 xl2 hp21/21] UNSEEN PET may be at (4, 37): last seen [(4, 40)] 3 turns ago, no throw
+[s1833 t1384 d1 0:1 xl2 hp21/21] UNSEEN PET may be at (4, 41): last seen [(4, 40)] 3 turns ago, no throw
+[s1860 t1405 d1 0:1 xl3 hp29/29] UNSEEN PET may be at (2, 37): last seen [(3, 37)] 0 turns ago, no throw
+[s1928 t1469 d1 0:1 xl3 hp29/29] UNSEEN PET may be at (4, 29): last seen [(3, 32)] 2 turns ago, no throw
+[s1928 t1469 d1 0:1 xl3 hp29/29] UNSEEN PET may be at (6, 29): last seen [(3, 32)] 2 turns ago, no throw
+[s1928 t1469 d1 0:1 xl3 hp29/29] UNSEEN PET may be at (8, 27): last seen [(3, 32)] 2 turns ago, no throw
+[s1967 t1503 d1 0:1 xl3 hp29/29] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=0 pos=(np.int64(5), np.int64(23)) acts=[SEARCH:123 NUM_5:91 W:47 SPACE:35 E:30] gotos=[open_visit_search(17, 50):3 open_visit_search(12, 38):2 open_visit_search(16, 39):2]
+[s2356 t1851 d1 0:1 xl3 hp29/29] UNSEEN PET may be at (14, 68): last seen [(14, 68)] 1 turns ago, no throw
+[s2408 t1871 d1 0:1 xl3 hp29/29] PANIC AgentPanic: agent position do not match after "move": expected (14, 70), got (13, 70)
+Traceback (most recent call last):
+  File "/sol/nhbot/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/nhbot/agent.py", line 298, in preempt
+    val = f.run()
+          ^^^^^^^
+  File "/sol/nhbot/strategy.py", line 48, in run
+    next(gen)
+  File "/sol/nhbot/exploration_logic.py", line 523, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/nhbot/agent.py", line 2538, in go_to
+    self.move(y, x)
+  File "/sol/nhbot/agent.py", line 2091, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+nhbot.exceptions.AgentPanic: agent position do not match after "move": expected (14, 70), got (13, 70)
+
+[s2443 t1880 d1 0:1 xl3 hp29/29] UNSEEN PET may be at (7, 60): last seen [(14, 68)] 6 turns ago, no throw
+[s2443 t1880 d1 0:1 xl3 hp29/29] UNSEEN PET may be at (9, 64): last seen [(14, 68)] 6 turns ago, no throw
+[s2542 t2001 d1 0:1 xl3 hp29/29] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(15), np.int64(76)) acts=[SEARCH:130 NUM_5:79 E:75 W:34 SPACE:34] gotos=[open_visit_search(6, 59):5 open_visit_search(4, 12):4 open_visit_search(6, 11):4]
+[s2670 t2116 d1 0:1 xl3 hp29/29] PANIC AgentPanic: agent position do not match after "move": expected (14, 69), got (15, 70)
+Traceback (most recent call last):
+  File "/sol/nhbot/agent.py", line 311, in preempt
+    next(iterator)
+  File "/sol/nhbot/strategy.py", line 68, in f
+    next(it)
+  File "/sol/nhbot/utils.py", line 134, in f
+    next(it)
+  File "/sol/nhbot/agent.py", line 3294, in eat_corpses_from_ground
+    self.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 255, 0), is_path=True))
+  File "/sol/nhbot/agent.py", line 2538, in go_to
+    self.move(y, x)
+  File "/sol/nhbot/agent.py", line 2091, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+nhbot.exceptions.AgentPanic: agent position do not match after "move": expected (14, 69), got (15, 70)
+
+[s2767 t2141 d1 0:1 xl3 hp27/29] UNSEEN PET may be at (7, 61): last seen [(14, 70)] 11 turns ago, no throw
+[s2775 t2150 d1 0:1 xl3 hp28/29] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/nhbot/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/nhbot/agent.py", line 311, in preempt
+    next(iterator)
+  File "/sol/nhbot/strategy.py", line 68, in f
+    next(it)
+  File "/sol/nhbot/utils.py", line 134, in f
+    next(it)
+  File "/sol/nhbot/agent.py", line 3310, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/nhbot/item/inventory.py", line 871, in eat
+    raise AgentPanic('no such food is lying here')
+nhbot.exceptions.AgentPanic: no such food is lying here
+
+[s2885 t2246 d1 0:1 xl3 hp29/29] PANIC AgentPanic: agent position do not match after "move": expected (5, 54), got (4, 53)
+Traceback (most recent call last):
+  File "/sol/nhbot/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/nhbot/agent.py", line 300, in preempt
+    val = f()
+          ^^^
+  File "/sol/nhbot/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/nhbot/exploration_logic.py", line 523, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/nhbot/agent.py", line 2538, in go_to
+    self.move(y, x)
+  File "/sol/nhbot/agent.py", line 2091, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+nhbot.exceptions.AgentPanic: agent position do not match after "move": expected (5, 54), got (4, 53)
+
+[s2936 t2282 d1 0:1 xl3 hp29/29] UNSEEN PET may be at (7, 46): last seen [(6, 46)] 1 turns ago, no throw
+[s2977 t2308 d1 0:1 xl4 hp37/37] UNSEEN PET may be at (4, 45): last seen [(4, 47)] 0 turns ago, no throw
+[s3189 t2501 d1 0:1 xl4 hp37/37] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(11), np.int64(25)) acts=[SEARCH:112 NUM_5:90 SPACE:74 W:62 SW:29] gotos=[open_visit_search(9, 71):4 open_visit_search(14, 76):3 open_visit_search(16, 76):2]
+[s3226 t2511 d1 0:1 xl4 hp36/37] UNSEEN PET may be at (5, 26): last seen [(5, 26)] 0 turns ago, no throw
+[s3227 t2512 d1 0:1 xl4 hp37/37] UNSEEN PET may be at (8, 23): last seen [(5, 26)] 1 turns ago, no throw
+[s3231 t2513 d1 0:1 xl4 hp37/37] UNSEEN PET may be at (9, 23): last seen [(5, 26)] 2 turns ago, no throw
+[s3418 t2701 d1 0:1 xl4 hp37/37] PANIC AgentPanic: agent position do not match after "move": expected (18, 6), got (17, 5)
+Traceback (most recent call last):
+  File "/sol/nhbot/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/nhbot/agent.py", line 298, in preempt
+    val = f.run()
+          ^^^^^^^
+  File "/sol/nhbot/strategy.py", line 48, in run
+    next(gen)
+  File "/sol/nhbot/exploration_logic.py", line 523, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/nhbot/agent.py", line 2538, in go_to
+    self.move(y, x)
+  File "/sol/nhbot/agent.py", line 2091, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+nhbot.exceptions.AgentPanic: agent position do not match after "move": expected (18, 6), got (17, 5)
+
+[s3534 t2796 d1 0:1 xl4 hp37/37] PANIC AgentPanic: agent position do not match after "move": expected (16, 12), got (15, 12)
+Traceback (most recent call last):
+  File "/sol/nhbot/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/nhbot/agent.py", line 300, in preempt
+    val = f()
+          ^^^
+  File "/sol/nhbot/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/nhbot/exploration_logic.py", line 523, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/nhbot/agent.py", line 2538, in go_to
+    self.move(y, x)
+  File "/sol/nhbot/agent.py", line 2091, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+nhbot.exceptions.AgentPanic: agent position do not match after "move": expected (16, 12), got (15, 12)
+
+[s3572 t2817 d1 0:1 xl4 hp37/37] UNSEEN PET may be at (18, 15): last seen [(18, 15)] 5 turns ago, no throw
+[s3572 t2817 d1 0:1 xl4 hp37/37] UNSEEN PET may be at (18, 19): last seen [(18, 15)] 5 turns ago, no throw
+[s3587 t2823 d1 0:1 xl4 hp37/37] UNSEEN PET may be at (18, 15): last seen [(18, 15)] 2 turns ago, no throw
+[s3587 t2823 d1 0:1 xl4 hp37/37] UNSEEN PET may be at (18, 19): last seen [(18, 15)] 2 turns ago, no throw
+[s3602 t2829 d1 0:1 xl4 hp37/37] UNSEEN PET may be at (18, 15): last seen [(18, 15)] 2 turns ago, no throw
+[s3602 t2829 d1 0:1 xl4 hp37/37] UNSEEN PET may be at (18, 19): last seen [(18, 15)] 2 turns ago, no throw
+[s3649 t2843 d1 0:1 xl4 hp37/37] UNSEEN PET may be at (18, 17): last seen [(18, 17)] 5 turns ago, no throw
+[s3649 t2843 d1 0:1 xl4 hp37/37] UNSEEN PET may be at (18, 21): last seen [(18, 17)] 5 turns ago, no throw
+[s3663 t2850 d1 0:1 xl4 hp37/37] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/nhbot/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/nhbot/agent.py", line 311, in preempt
+    next(iterator)
+  File "/sol/nhbot/strategy.py", line 68, in f
+    next(it)
+  File "/sol/nhbot/utils.py", line 134, in f
+    next(it)
+  File "/sol/nhbot/agent.py", line 3310, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/nhbot/item/inventory.py", line 871, in eat
+    raise AgentPanic('no such food is lying here')
+nhbot.exceptions.AgentPanic: no such food is lying here
+
+[s3757 t2929 d1 0:1 xl4 hp37/37] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/nhbot/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/nhbot/agent.py", line 311, in preempt
+    next(iterator)
+  File "/sol/nhbot/strategy.py", line 68, in f
+    next(it)
+  File "/sol/nhbot/utils.py", line 134, in f
+    next(it)
+  File "/sol/nhbot/agent.py", line 3310, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/nhbot/item/inventory.py", line 871, in eat
+    raise AgentPanic('no such food is lying here')
+nhbot.exceptions.AgentPanic: no such food is lying here
+
+[s3852 t3004 d1 0:1 xl4 hp37/37] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=2 pos=(np.int64(7), np.int64(37)) acts=[SEARCH:107 NUM_5:86 SPACE:70 E:43 W:42] gotos=[open_visit_search(18, 17):5 open_visit_search(5, 25):3 open_visit_search(19, 5):3]
+[s3893 t3041 d1 0:1 xl4 hp37/37] UNSEEN PET may be at (13, 38): last seen [(11, 34)] 3 turns ago, no throw
+[s3894 t3042 d1 0:1 xl4 hp37/37] UNSEEN PET may be at (12, 40): last seen [(11, 34)] 4 turns ago, no throw
+[s3894 t3042 d1 0:1 xl4 hp37/37] UNSEEN PET may be at (16, 34): last seen [(11, 34)] 4 turns ago, no throw
+[s3895 t3042 d1 0:1 xl4 hp36/37] UNSEEN PET may be at (12, 40): last seen [(11, 34)] 4 turns ago, no throw
+[s3895 t3042 d1 0:1 xl4 hp36/37] UNSEEN PET may be at (16, 34): last seen [(11, 34)] 4 turns ago, no throw
+[s4043 t3166 d1 0:1 xl4 hp37/37] UNSEEN PET may be at (16, 34): last seen [(16, 35)] 2 turns ago, no throw
+[s4063 t3180 d1 0:1 xl4 hp37/37] UNSEEN PET may be at (15, 34): last seen [(16, 35)] 10 turns ago, no throw
+[s4069 t3183 d1 0:1 xl4 hp37/37] UNSEEN PET may be at (16, 34): last seen [(16, 35)] 13 turns ago, no throw
+[s4090 t3189 d1 0:1 xl4 hp37/37] UNSEEN PET may be at (16, 34): last seen [(16, 34)] 1 turns ago, no throw
+[s4106 t3195 d1 0:1 xl4 hp37/37] PANIC AgentPanic: agent position do not match after "move": expected (15, 36), got (16, 35)
+Traceback (most recent call last):
+  File "/sol/nhbot/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/nhbot/agent.py", line 311, in preempt
+    next(iterator)
+  File "/sol/nhbot/utils.py", line 134, in f
+    next(it)
+  File "/sol/nhbot/agent.py", line 2875, in fight2
+    wait_counter = self._fight2_perform_action(best_action, wait_counter)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/nhbot/agent.py", line 2978, in _fight2_perform_action
+    self.move(target_y, target_x)
+  File "/sol/nhbot/agent.py", line 2091, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+nhbot.exceptions.AgentPanic: agent position do not match after "move": expected (15, 36), got (16, 35)
+
+[s4218 t3291 d1 0:1 xl4 hp37/37] PANIC AgentPanic: agent position do not match after "move": expected (13, 52), got (14, 51)
+Traceback (most recent call last):
+  File "/sol/nhbot/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/nhbot/agent.py", line 298, in preempt
+    val = f.run()
+          ^^^^^^^
+  File "/sol/nhbot/strategy.py", line 48, in run
+    next(gen)
+  File "/sol/nhbot/exploration_logic.py", line 523, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/nhbot/agent.py", line 2538, in go_to
+    self.move(y, x)
+  File "/sol/nhbot/agent.py", line 2091, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+nhbot.exceptions.AgentPanic: agent position do not match after "move": expected (13, 52), got (14, 51)
+
+[s4494 t3502 d1 0:1 xl4 hp37/37] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(11), np.int64(71)) acts=[SEARCH:120 NUM_5:87 SPACE:57 E:51 S:35] gotos=[open_visit_search(14, 34):3 open_visit_search(16, 36):2 eat_corpses_from_ground(15, 36):2]
+[s4674 t3635 d1 0:1 xl4 hp37/37] UNSEEN PET may be at (11, 66): last seen [(14, 70)] 5 turns ago, no throw
+[s4675 t3636 d1 0:1 xl4 hp37/37] UNSEEN PET may be at (11, 67): last seen [(14, 70)] 6 turns ago, no throw
+[s4680 t3637 d1 0:1 xl4 hp37/37] UNSEEN PET may be at (11, 68): last seen [(14, 70)] 7 turns ago, no throw
+[s4695 t3642 d1 0:1 xl4 hp37/37] UNSEEN PET may be at (11, 68): last seen [(14, 70)] 12 turns ago, no throw
+[s4710 t3648 d1 0:1 xl4 hp37/37] UNSEEN PET may be at (11, 68): last seen [(14, 70)] 18 turns ago, no throw
+[s4800 t3674 d1 0:1 xl4 hp37/37] FIGHT stall of 40 turns ended (kill): ['gas spore']
+[s4852 t3695 d1 0:1 xl4 hp37/37] UNSEEN PET may be at (5, 54): last seen [(14, 70)] 13 turns ago, no throw
+[s4853 t3696 d1 0:1 xl4 hp37/37] UNSEEN PET may be at (5, 50): last seen [(14, 70)] 14 turns ago, no throw
+[s4854 t3697 d1 0:1 xl4 hp37/37] UNSEEN PET may be at (5, 50): last seen [(14, 70)] 15 turns ago, no throw
+[s4854 t3697 d1 0:1 xl4 hp37/37] UNSEEN PET may be at (5, 56): last seen [(14, 70)] 15 turns ago, no throw
+[s4855 t3698 d1 0:1 xl4 hp37/37] UNSEEN PET may be at (5, 50): last seen [(14, 70)] 16 turns ago, no throw
+[s4856 t3699 d1 0:1 xl4 hp37/37] UNSEEN PET may be at (5, 50): last seen [(14, 70)] 17 turns ago, no throw
+[s4856 t3699 d1 0:1 xl4 hp37/37] UNSEEN PET may be at (5, 56): last seen [(14, 70)] 17 turns ago, no throw
+[s4857 t3700 d1 0:1 xl4 hp37/37] UNSEEN PET may be at (5, 50): last seen [(14, 70)] 18 turns ago, no throw
+[s4857 t3700 d1 0:1 xl4 hp37/37] UNSEEN PET may be at (5, 55): last seen [(14, 70)] 18 turns ago, no throw
+[s4943 t3788 d1 0:1 xl4 hp37/37] PANIC AgentPanic: agent position do not match after "move": expected (4, 47), got (5, 48)
+Traceback (most recent call last):
+  File "/sol/nhbot/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/nhbot/agent.py", line 298, in preempt
+    val = f.run()
+          ^^^^^^^
+  File "/sol/nhbot/strategy.py", line 48, in run
+    next(gen)
+  File "/sol/nhbot/exploration_logic.py", line 523, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/nhbot/agent.py", line 2538, in go_to
+    self.move(y, x)
+  File "/sol/nhbot/agent.py", line 2091, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+nhbot.exceptions.AgentPanic: agent position do not match after "move": expected (4, 47), got (5, 48)
+
+[s5076 t3901 d1 0:1 xl4 hp37/37] PRAY hp=37/37 hunger=3 gap=2517 reason=None model[ok200=1.00 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=28 p_answered=1.00]
+[s5081 t3904 d1 0:1 xl4 hp37/37] PRAY result ok model[ok200=0.22 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=28] prayers=2 failures=0
+[s5212 t4003 d1 0:1 xl4 hp37/37] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(7), np.int64(14)) acts=[SEARCH:121 W:87 SPACE:73 NUM_5:71 E:48] gotos=[open_visit_search(5, 56):7 _fight2_perform_action(7, 12):7 _fight2_perform_action(6, 50):3]
+[s5257 t4048 d1 0:1 xl4 hp37/37] PANIC AgentPanic: agent position do not match after "move": expected (8, 23), got (7, 22)
+Traceback (most recent call last):
+  File "/sol/nhbot/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/nhbot/agent.py", line 300, in preempt
+    val = f()
+          ^^^
+  File "/sol/nhbot/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/nhbot/exploration_logic.py", line 523, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/nhbot/agent.py", line 2538, in go_to
+    self.move(y, x)
+  File "/sol/nhbot/agent.py", line 2091, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+nhbot.exceptions.AgentPanic: agent position do not match after "move": expected (8, 23), got (7, 22)
+
+[s5333 t4091 d2 0:2 xl5 hp46/46] DIVE level (np.int64(0), np.int64(2)) depth 2
+[s5583 t4239 d2 0:2 xl5 hp46/46] INTRINSIC telepathy
+[s5585 t4240 d2 0:2 xl5 hp46/46] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/nhbot/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/nhbot/agent.py", line 311, in preempt
+    next(iterator)
+  File "/sol/nhbot/strategy.py", line 68, in f
+    next(it)
+  File "/sol/nhbot/utils.py", line 134, in f
+    next(it)
+  File "/sol/nhbot/agent.py", line 3310, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/nhbot/item/inventory.py", line 871, in eat
+    raise AgentPanic('no such food is lying here')
+nhbot.exceptions.AgentPanic: no such food is lying here
+
+[s5763 t4347 d3 0:3 xl5 hp46/46] DIVE level (np.int64(0), np.int64(3)) depth 3
+[s6041 t4500 d3 0:3 xl5 hp46/46] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(3), np.int64(27)) acts=[SEARCH:195 E:85 SPACE:59 N:55 W:47] gotos=[open_visit_search(16, 24):12 open_visit_search(3, 10):8 open_visit_search(5, 27):5]
+[s6159 t4576 d3 0:3 xl5 hp43/46] FIGHT stall of 68 turns ended (gap): ['leprechaun']
+[s6194 t4585 d3 0:3 xl5 hp45/46] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/nhbot/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/nhbot/agent.py", line 311, in preempt
+    next(iterator)
+  File "/sol/nhbot/strategy.py", line 68, in f
+    next(it)
+  File "/sol/nhbot/utils.py", line 134, in f
+    next(it)
+  File "/sol/nhbot/agent.py", line 3310, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/nhbot/item/inventory.py", line 871, in eat
+    raise AgentPanic('no such food is lying here')
+nhbot.exceptions.AgentPanic: no such food is lying here
+
+[s6218 t4590 d3 0:3 xl5 hp45/46] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/nhbot/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/nhbot/agent.py", line 311, in preempt
+    next(iterator)
+  File "/sol/nhbot/strategy.py", line 68, in f
+    next(it)
+  File "/sol/nhbot/utils.py", line 134, in f
+    next(it)
+  File "/sol/nhbot/agent.py", line 3310, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/nhbot/item/inventory.py", line 871, in eat
+    raise AgentPanic('no such food is lying here')
+nhbot.exceptions.AgentPanic: no such food is lying here
+
+[s6242 t4599 d3 0:3 xl5 hp46/46] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/nhbot/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/nhbot/agent.py", line 311, in preempt
+    next(iterator)
+  File "/sol/nhbot/strategy.py", line 68, in f
+    next(it)
+  File "/sol/nhbot/utils.py", line 134, in f
+    next(it)
+  File "/sol/nhbot/agent.py", line 3310, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/nhbot/item/inventory.py", line 871, in eat
+    raise AgentPanic('no such food is lying here')
+nhbot.exceptions.AgentPanic: no such food is lying here
+
+[s6521 t4723 d3 0:3 xl5 hp46/46] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/nhbot/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/nhbot/agent.py", line 311, in preempt
+    next(iterator)
+  File "/sol/nhbot/strategy.py", line 68, in f
+    next(it)
+  File "/sol/nhbot/utils.py", line 134, in f
+    next(it)
+  File "/sol/nhbot/agent.py", line 3310, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/nhbot/item/inventory.py", line 871, in eat
+    raise AgentPanic('no such food is lying here')
+nhbot.exceptions.AgentPanic: no such food is lying here
+
+[s6590 t4763 d3 0:3 xl5 hp45/46] PANIC AgentPanic: agent position do not match after "move": expected (12, 64), got (13, 65)
+Traceback (most recent call last):
+  File "/sol/nhbot/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/nhbot/agent.py", line 300, in preempt
+    val = f()
+          ^^^
+  File "/sol/nhbot/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/nhbot/exploration_logic.py", line 523, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/nhbot/agent.py", line 2538, in go_to
+    self.move(y, x)
+  File "/sol/nhbot/agent.py", line 2091, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+nhbot.exceptions.AgentPanic: agent position do not match after "move": expected (12, 64), got (13, 65)
+
+[s6606 t4764 d3 0:3 xl5 hp45/46] PANIC AgentPanic: agent position do not match after "move": expected (13, 64), got (13, 65)
+Traceback (most recent call last):
+  File "/sol/nhbot/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/nhbot/agent.py", line 300, in preempt
+    val = f()
+          ^^^
+  File "/sol/nhbot/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/nhbot/exploration_logic.py", line 523, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/nhbot/agent.py", line 2538, in go_to
+    self.move(y, x)
+  File "/sol/nhbot/agent.py", line 2091, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+nhbot.exceptions.AgentPanic: agent position do not match after "move": expected (13, 64), got (13, 65)
+
+[s6996 t5001 d3 0:3 xl5 hp46/46] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(11), np.int64(11)) acts=[SEARCH:191 W:101 E:99 SPACE:93 SW:46] gotos=[check_items(13, 25):6 open_visit_search(9, 12):6 open_visit_search(16, 45):5]
+[s7357 t5383 d3 0:3 xl5 hp46/46] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/nhbot/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/nhbot/agent.py", line 311, in preempt
+    next(iterator)
+  File "/sol/nhbot/strategy.py", line 68, in f
+    next(it)
+  File "/sol/nhbot/utils.py", line 134, in f
+    next(it)
+  File "/sol/nhbot/agent.py", line 3310, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/nhbot/item/inventory.py", line 871, in eat
+    raise AgentPanic('no such food is lying here')
+nhbot.exceptions.AgentPanic: no such food is lying here
+
+[s7539 t5475 d3 0:3 xl5 hp46/46] FIGHT stall of 41 turns ended (contact): ['gray ooze']
+[s7589 t5500 d3 0:3 xl5 hp46/46] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(13), np.int64(28)) acts=[SEARCH:117 NUM_5:86 E:60 SPACE:49 S:35] gotos=[open_visit_search(7, 14):2 open_visit_search(7, 13):2 open_visit_search(7, 12):2]
+[s7819 t5634 d3 0:3 xl5 hp46/46] PANIC AgentPanic: agent position do not match after "move": expected (16, 44), got (15, 45)
+Traceback (most recent call last):
+  File "/sol/nhbot/strategy.py", line 165, in f
+    next(gen)
+  File "/sol/nhbot/strategy.py", line 100, in f
+    next(v1)
+  File "/sol/nhbot/utils.py", line 134, in f
+    next(it)
+  File "/sol/nhbot/item/inventory.py", line 1732, in check_items
+    self.agent.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 0, 255), is_path=True))
+  File "/sol/nhbot/agent.py", line 2538, in go_to
+    self.move(y, x)
+  File "/sol/nhbot/agent.py", line 2091, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+nhbot.exceptions.AgentPanic: agent position do not match after "move": expected (16, 44), got (15, 45)
+
+[s8145 t5916 d3 0:3 xl5 hp46/46] PANIC AgentPanic: agent position do not match after "move": expected (8, 16), got (9, 15)
+Traceback (most recent call last):
+  File "/sol/nhbot/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/nhbot/agent.py", line 298, in preempt
+    val = f.run()
+          ^^^^^^^
+  File "/sol/nhbot/strategy.py", line 48, in run
+    next(gen)
+  File "/sol/nhbot/exploration_logic.py", line 523, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/nhbot/agent.py", line 2538, in go_to
+    self.move(y, x)
+  File "/sol/nhbot/agent.py", line 2091, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+nhbot.exceptions.AgentPanic: agent position do not match after "move": expected (8, 16), got (9, 15)
+
+[s8200 t5960 d3 0:3 xl5 hp43/46] RANGED hit: holds and Elbereth waits off for 8 turns
+[s8212 t5962 d3 0:3 xl5 hp43/46] ALIGN estimate 27 (cap 39) after -12
+[s8212 t5962 d3 0:3 xl5 hp43/46] DWARF died near [(4, 34)]: piles to check
+[s8226 t5963 d3 0:3 xl5 hp43/46] DIVE checked the pile at (4, 34): tool None
+[s8276 t6001 d3 0:3 xl5 hp46/46] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(5), np.int64(40)) acts=[SEARCH:112 NUM_5:94 SPACE:68 E:62 W:43] gotos=[open_visit_search(14, 42):4 check_items(16, 44):3 open_visit_search(10, 13):3]
+[s8392 t6077 d3 0:3 xl5 hp45/46] FIGHT stall of 29 turns ended (contact): ['leprechaun', 'monkey']
+[s8469 t6124 d3 0:3 xl5 hp46/46] PRAY hp=46/46 hunger=3 gap=2220 reason=None model[ok200=1.00 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=40 p_answered=1.00]
+[s8474 t6127 d3 0:3 xl5 hp46/46] PRAY result ok model[ok200=0.22 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=40] prayers=3 failures=0
+[s8612 t6230 d3 0:3 xl6 hp49/49] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/nhbot/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/nhbot/agent.py", line 311, in preempt
+    next(iterator)
+  File "/sol/nhbot/strategy.py", line 68, in f
+    next(it)
+  File "/sol/nhbot/utils.py", line 134, in f
+    next(it)
+  File "/sol/nhbot/agent.py", line 3310, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/nhbot/item/inventory.py", line 871, in eat
+    raise AgentPanic('no such food is lying here')
+nhbot.exceptions.AgentPanic: no such food is lying here
+
+[s8662 t6241 d3 0:3 xl6 hp49/49] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/nhbot/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/nhbot/agent.py", line 311, in preempt
+    next(iterator)
+  File "/sol/nhbot/strategy.py", line 68, in f
+    next(it)
+  File "/sol/nhbot/utils.py", line 134, in f
+    next(it)
+  File "/sol/nhbot/agent.py", line 3310, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/nhbot/item/inventory.py", line 871, in eat
+    raise AgentPanic('no such food is lying here')
+nhbot.exceptions.AgentPanic: no such food is lying here
+
+[s8797 t6305 d3 0:3 xl6 hp47/49] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/nhbot/item/inventory.py", line 602, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/nhbot/agent.py", line 190, in atom_operation
+    self.update_state()
+  File "/sol/nhbot/agent.py", line 700, in update_state
+    self.call_update_functions()
+  File "/sol/nhbot/agent.py", line 711, in call_update_functions
+    func()
+  File "/sol/nhbot/item/inventory.py", line 159, in f
+    raise AgentPanic('items below me changed')
+nhbot.exceptions.AgentPanic: items below me changed
+
+[s8938 t6449 d3 0:3 xl6 hp49/49] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/nhbot/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/nhbot/agent.py", line 311, in preempt
+    next(iterator)
+  File "/sol/nhbot/strategy.py", line 68, in f
+    next(it)
+  File "/sol/nhbot/utils.py", line 134, in f
+    next(it)
+  File "/sol/nhbot/agent.py", line 3310, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/nhbot/item/inventory.py", line 871, in eat
+    raise AgentPanic('no such food is lying here')
+nhbot.exceptions.AgentPanic: no such food is lying here
+
+[s9020 t6500 d3 0:3 xl6 hp49/49] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(14), np.int64(61)) acts=[SEARCH:123 SPACE:88 NUM_5:86 E:56 ESC:34] gotos=[check_items(4, 53):3 eat_corpses_from_ground(9, 53):3 open_visit_search(10, 55):3]
+[s9448 t6777 d3 0:3 xl6 hp49/49] FIGHT stall of 264 turns ended (contact): ['homunculus', 'leprechaun']
+[s9509 t6812 d3 0:3 xl6 hp49/49] FEYE_TELE telepathic already: not meleeing the floating eye
+[s9813 t6987 d3 0:3 xl6 hp49/49] FIGHT stall of 209 turns ended (contact): ['floating eye', 'kobold zombie', 'leprechaun']
+[s9831 t7000 d3 0:3 xl6 hp49/49] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(13), np.int64(62)) acts=[S:160 E:144 N:111 NW:103 SW:88] gotos=[check_items(15, 62):3 _fight2_perform_action(16, 69):2 _fight2_perform_action(16, 70):2]
+[s9947 t7074 d3 0:3 xl6 hp49/49] FEYE_TELE telepathic already: not meleeing the floating eye
+[s9985 t7100 d3 0:3 xl6 hp49/49] FEYE_TELE telepathic already: not meleeing the floating eye
+[s10126 t7200 d3 0:3 xl6 hp49/49] FEYE_TELE telepathic already: not meleeing the floating eye
+[s10272 t7300 d3 0:3 xl6 hp49/49] FEYE_TELE telepathic already: not meleeing the floating eye
+[s10347 t7347 d3 0:3 xl6 hp49/49] FIGHT stall of 359 turns ended (contact): ['floating eye', 'garter snake', 'leprechaun']
+[s10437 t7401 d3 0:3 xl6 hp49/49] FEYE_TELE telepathic already: not meleeing the floating eye
+[s10455 t7414 d3 0:3 xl6 hp42/49] FIGHT stall of 25 turns ended (gap): ['floating eye', 'leprechaun']
+[s10485 t7455 d3 0:3 xl6 hp45/49] PRAY hp=45/49 hunger=4 gap=1328 reason=hunger-threat no-elbereth:iguana est=None model[ok200=0.98 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=46 p_answered=0.98]
+[s10492 t7458 d3 0:3 xl6 hp45/49] PRAY result ok model[ok200=0.22 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=46] prayers=4 failures=0
+[s10575 t7500 d3 0:3 xl6 hp49/49] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(13), np.int64(61)) acts=[S:145 E:121 N:109 NW:93 SW:71] gotos=[_fight2_perform_action(14, 60):2 eat_corpses_from_ground(10, 61):2 check_items(13, 58):2]
+[s10603 t7515 d3 0:3 xl6 hp49/49] FIGHT stall of 55 turns ended (contact): ['leprechaun', 'rothe']
+[s11025 t7792 d3 0:3 xl6 hp49/49] FIGHT stall of 276 turns ended (contact): ['grid bug', 'leprechaun']
+[s11106 t7845 d3 0:3 xl6 hp49/49] FEYE_TELE telepathic already: not meleeing the floating eye
+[s11118 t7852 d3 0:3 xl6 hp49/49] FIGHT stall of 60 turns ended (contact): ['floating eye', 'grid bug', 'leprechaun']
+[s11172 t7884 d3 0:3 xl6 hp49/49] FIGHT stall of 22 turns ended (contact): ['floating eye', 'grid bug', 'leprechaun']
+[s11196 t7900 d3 0:3 xl6 hp49/49] FEYE_TELE telepathic already: not meleeing the floating eye
+[s11227 t7916 d3 0:3 xl6 hp46/49] FIGHT stall of 31 turns ended (contact): ['floating eye', 'leprechaun']
+[s11355 t8000 d3 0:3 xl6 hp49/49] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(13), np.int64(69)) acts=[E:184 S:124 NW:100 N:94 SW:94] gotos=[_fight2_perform_action(13, 61):11 _fight2_perform_action(14, 65):10 _fight2_perform_action(13, 67):9]
+[s11355 t8000 d3 0:3 xl6 hp49/49] FEYE_TELE telepathic already: not meleeing the floating eye
+[s11383 t8020 d3 0:3 xl6 hp49/49] FIGHT stall of 101 turns ended (contact): ['floating eye', 'leprechaun', 'newt']
+[s11502 t8100 d3 0:3 xl6 hp49/49] FEYE_TELE telepathic already: not meleeing the floating eye
+[s11657 t8203 d3 0:3 xl6 hp49/49] FEYE_TELE telepathic already: not meleeing the floating eye
+[s11659 t8205 d3 0:3 xl6 hp49/49] FIGHT stall of 184 turns ended (contact): ['floating eye', 'garter snake', 'leprechaun', 'rock mole']
+[s11870 t8300 d3 0:3 xl6 hp49/49] FEYE_TELE telepathic already: not meleeing the floating eye
+[s11991 t8384 d3 0:3 xl6 hp49/49] FIGHT stall of 131 turns ended (contact): ['floating eye', 'lichen', 'little dog', 'rothe']
+[s12057 t8418 d3 0:3 xl6 hp49/49] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/nhbot/item/inventory.py", line 602, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/nhbot/agent.py", line 190, in atom_operation
+    self.update_state()
+  File "/sol/nhbot/agent.py", line 700, in update_state
+    self.call_update_functions()
+  File "/sol/nhbot/agent.py", line 711, in call_update_functions
+    func()
+  File "/sol/nhbot/item/inventory.py", line 159, in f
+    raise AgentPanic('items below me changed')
+nhbot.exceptions.AgentPanic: items below me changed
+
+[s12098 t8427 d3 0:3 xl6 hp49/49] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/nhbot/item/inventory.py", line 602, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/nhbot/agent.py", line 190, in atom_operation
+    self.update_state()
+  File "/sol/nhbot/agent.py", line 700, in update_state
+    self.call_update_functions()
+  File "/sol/nhbot/agent.py", line 711, in call_update_functions
+    func()
+  File "/sol/nhbot/item/inventory.py", line 159, in f
+    raise AgentPanic('items below me changed')
+nhbot.exceptions.AgentPanic: items below me changed
+
+[s12151 t8435 d3 0:3 xl6 hp49/49] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/nhbot/item/inventory.py", line 602, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/nhbot/agent.py", line 190, in atom_operation
+    self.update_state()
+  File "/sol/nhbot/agent.py", line 700, in update_state
+    self.call_update_functions()
+  File "/sol/nhbot/agent.py", line 711, in call_update_functions
+    func()
+  File "/sol/nhbot/item/inventory.py", line 159, in f
+    raise AgentPanic('items below me changed')
+nhbot.exceptions.AgentPanic: items below me changed
+
+[s12178 t8437 d3 0:3 xl6 hp49/49] FIGHT stall of 40 turns ended (kill): ['floating eye', 'rothe']
+[s12218 t8454 d3 0:3 xl6 hp49/49] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/nhbot/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/nhbot/agent.py", line 311, in preempt
+    next(iterator)
+  File "/sol/nhbot/strategy.py", line 68, in f
+    next(it)
+  File "/sol/nhbot/utils.py", line 134, in f
+    next(it)
+  File "/sol/nhbot/agent.py", line 3310, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/nhbot/item/inventory.py", line 871, in eat
+    raise AgentPanic('no such food is lying here')
+nhbot.exceptions.AgentPanic: no such food is lying here
+
+[s12320 t8502 d3 0:3 xl6 hp49/49] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(16), np.int64(69)) acts=[NW:201 SE:141 SPACE:109 E:88 S:77] gotos=[_fight2_perform_action(13, 65):9 _fight2_perform_action(13, 68):5 _fight2_perform_action(15, 67):3]
+[s12490 t8673 d3 0:3 xl6 hp49/49] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/nhbot/item/inventory.py", line 602, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/nhbot/agent.py", line 190, in atom_operation
+    self.update_state()
+  File "/sol/nhbot/agent.py", line 700, in update_state
+    self.call_update_functions()
+  File "/sol/nhbot/agent.py", line 711, in call_update_functions
+    func()
+  File "/sol/nhbot/item/inventory.py", line 159, in f
+    raise AgentPanic('items below me changed')
+nhbot.exceptions.AgentPanic: items below me changed
+
+[s12512 t8677 d3 0:3 xl6 hp49/49] PANIC AgentPanic: agent position do not match after "move": expected (12, 50), got (13, 50)
+Traceback (most recent call last):
+  File "/sol/nhbot/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/nhbot/agent.py", line 300, in preempt
+    val = f()
+          ^^^
+  File "/sol/nhbot/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/nhbot/exploration_logic.py", line 523, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/nhbot/agent.py", line 2538, in go_to
+    self.move(y, x)
+  File "/sol/nhbot/agent.py", line 2091, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+nhbot.exceptions.AgentPanic: agent position do not match after "move": expected (12, 50), got (13, 50)
+
+[s12638 t8741 d3 0:3 xl6 hp49/49] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/nhbot/item/inventory.py", line 602, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/nhbot/agent.py", line 190, in atom_operation
+    self.update_state()
+  File "/sol/nhbot/agent.py", line 700, in update_state
+    self.call_update_functions()
+  File "/sol/nhbot/agent.py", line 711, in call_update_functions
+    func()
+  File "/sol/nhbot/item/inventory.py", line 159, in f
+    raise AgentPanic('items below me changed')
+nhbot.exceptions.AgentPanic: items below me changed
+
+[s12712 t8767 d3 0:3 xl6 hp49/49] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/nhbot/item/inventory.py", line 602, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/nhbot/agent.py", line 190, in atom_operation
+    self.update_state()
+  File "/sol/nhbot/agent.py", line 700, in update_state
+    self.call_update_functions()
+  File "/sol/nhbot/agent.py", line 711, in call_update_functions
+    func()
+  File "/sol/nhbot/item/inventory.py", line 159, in f
+    raise AgentPanic('items below me changed')
+nhbot.exceptions.AgentPanic: items below me changed
+
+[s12734 t8769 d3 0:3 xl6 hp49/49] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/nhbot/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/nhbot/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/nhbot/agent.py", line 298, in preempt
+    val = f.run()
+          ^^^^^^^
+  File "/sol/nhbot/strategy.py", line 48, in run
+    next(gen)
+  File "/sol/nhbot/exploration_logic.py", line 523, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/nhbot/agent.py", line 2510, in go_to
+    raise AgentPanic('end point is no longer accessible')
+nhbot.exceptions.AgentPanic: end point is no longer accessible
+
+[s12772 t8782 d3 0:3 xl6 hp49/49] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/nhbot/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/nhbot/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/nhbot/agent.py", line 300, in preempt
+    val = f()
+          ^^^
+  File "/sol/nhbot/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/nhbot/exploration_logic.py", line 523, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/nhbot/agent.py", line 2510, in go_to
+    raise AgentPanic('end point is no longer accessible')
+nhbot.exceptions.AgentPanic: end point is no longer accessible
+
+[s13094 t8930 d3 0:3 xl7 hp54/54] FEYE_TELE telepathic already: not meleeing the floating eye
+[s13130 t8938 d3 0:3 xl7 hp54/54] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/nhbot/item/inventory.py", line 602, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/nhbot/agent.py", line 190, in atom_operation
+    self.update_state()
+  File "/sol/nhbot/agent.py", line 700, in update_state
+    self.call_update_functions()
+  File "/sol/nhbot/agent.py", line 711, in call_update_functions
+    func()
+  File "/sol/nhbot/item/inventory.py", line 159, in f
+    raise AgentPanic('items below me changed')
+nhbot.exceptions.AgentPanic: items below me changed
+
+[s13262 t8985 d3 0:3 xl7 hp38/54] RANGED hit: holds and Elbereth waits off for 8 turns
+[s13292 t8996 d3 0:3 xl7 hp37/54] RANGED hit: holds and Elbereth waits off for 8 turns
+[s13297 t9000 d3 0:3 xl7 hp37/54] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(13), np.int64(59)) acts=[SPACE:141 SEARCH:89 W:63 NUM_5:62 E:58] gotos=[open_visit_search(13, 50):4 open_visit_search(13, 43):3 go_to_strategy(13, 14):3]
+[s13486 t9087 d3 0:3 xl7 hp53/54] PANIC AgentPanic: agent position do not match after "move": expected (13, 24), got (14, 25)
+Traceback (most recent call last):
+  File "/sol/nhbot/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/nhbot/agent.py", line 298, in preempt
+    val = f.run()
+          ^^^^^^^
+  File "/sol/nhbot/strategy.py", line 48, in run
+    next(gen)
+  File "/sol/nhbot/exploration_logic.py", line 246, in go_to_strategy
+    return self.agent.go_to(y, x, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/nhbot/agent.py", line 2538, in go_to
+    self.move(y, x)
+  File "/sol/nhbot/agent.py", line 2091, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+nhbot.exceptions.AgentPanic: agent position do not match after "move": expected (13, 24), got (14, 25)
+
+[s13612 t9137 d3 0:3 xl7 hp54/54] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/nhbot/item/inventory.py", line 602, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/nhbot/agent.py", line 190, in atom_operation
+    self.update_state()
+  File "/sol/nhbot/agent.py", line 700, in update_state
+    self.call_update_functions()
+  File "/sol/nhbot/agent.py", line 711, in call_update_functions
+    func()
+  File "/sol/nhbot/item/inventory.py", line 159, in f
+    raise AgentPanic('items below me changed')
+nhbot.exceptions.AgentPanic: items below me changed
+
+[s13759 t9171 d3 0:3 xl7 hp35/54] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/nhbot/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/nhbot/agent.py", line 311, in preempt
+    next(iterator)
+  File "/sol/nhbot/strategy.py", line 68, in f
+    next(it)
+  File "/sol/nhbot/utils.py", line 134, in f
+    next(it)
+  File "/sol/nhbot/agent.py", line 3310, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/nhbot/item/inventory.py", line 871, in eat
+    raise AgentPanic('no such food is lying here')
+nhbot.exceptions.AgentPanic: no such food is lying here
+
+[s13800 t9197 d3 0:3 xl7 hp40/54] ALIGN estimate 43 (cap 55) after -12
+[s13800 t9197 d3 0:3 xl7 hp40/54] DWARF died near [(12, 55)]: piles to check
+[s13801 t9197 d3 0:3 xl7 hp40/54] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/nhbot/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/nhbot/agent.py", line 311, in preempt
+    next(iterator)
+  File "/sol/nhbot/strategy.py", line 68, in f
+    next(it)
+  File "/sol/nhbot/utils.py", line 134, in f
+    next(it)
+  File "/sol/nhbot/agent.py", line 3310, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/nhbot/item/inventory.py", line 871, in eat
+    raise AgentPanic('no such food is lying here')
+nhbot.exceptions.AgentPanic: no such food is lying here
+
+[s13835 t9199 d3 0:3 xl7 hp40/54] DIVE checked the pile at (12, 55): tool a pick-axe
+[s13835 t9199 d3 0:3 xl7 hp40/54] DIVE phase starts (milestone BE_ON_FIRST_LEVEL)
+[s13835 t9199 d3 0:3 xl7 hp40/54] DIVE task descend
+[s13835 t9199 d3 0:3 xl7 hp40/54] DIVE stuck in task 'descend' on level (np.int64(0), np.int64(3)) for 4852 turns; up stairs (y,x,dist)=[(13, 14, 42)]
+
+
+
+    --------------     -------
+    |............-##  #-.....|              ---------------            -----
+    |............| #  #|.....-####[#        |.............|       #####-...|
+    |............-#####-.....|     #########-.............|      ##  # |...|
+    |............|  ## |.....|              |.............|      #   # |...|
+    |............|  ## ----|--##############..............|      # ####....|
+    --------|---|-  ##     #  #             -.-------------     ## ##  -----
+            #  ##   ##                       ##1#####[#        #####
+             ###    ##    #                           ###########
+         #####      ##  --.---                         [#########
+       --.--------- ####|.....#####               *    @--------.-------
+       |......<....#####-.....################`   # ## #.....>...).....|
+       |......[....###*#.....|##*#  ########..-..##[####|.......%......|
+       |..........-##   ------             #|....##   ##|..........[...|
+       |..........|                        #-...| ##### |..............|
+       ------------                         |....##     ----------------
+                                            |..^|
+                                            -----
+
+Agent the Initiate             St:18/02 Dx:9 Co:16 In:10 Wi:15 Ch:10 Neutral S:
+Dlvl:3 $:0 HP:40(54) Pw:42(42) AC:-1 Xp:7/859 T:9199
+[s13841 t9203 d3 0:3 xl7 hp41/54] DIVE going down stairs at (np.int64(13), np.int64(61))
+[s13846 t9203 d4 0:4 xl7 hp41/54] DIVE level (np.int64(0), np.int64(4)) depth 4
+[s13846 t9203 d4 0:4 xl7 hp41/54] DIVE walking to dig at (15, 60), hostiles at [('kobold', 6)]
+[s13847 t9204 d4 0:4 xl7 hp41/54] DIVE digging out, hostiles at [('kobold', 6)]
+[s13847 t9204 d4 0:4 xl7 hp41/54] DIVE Elbereth before digging: ['kobold']
+[s13861 t9204 d4 0:4 xl7 hp41/54] DIVE digging out, hostiles at [('kobold', 6)]
+[s13861 t9204 d4 0:4 xl7 hp41/54] DIVE Elbereth before digging: ['kobold']
+[s13879 t9205 d4 0:4 xl7 hp42/54] DIVE digging out, hostiles at [('kobold', 6)]
+[s13879 t9205 d4 0:4 xl7 hp42/54] DIVE digging down with 'a pick-axe' (try 1)
+[s13884 t9210 d4 0:4 xl7 hp43/54] DIVE Elbereth before digging in the pit: []
+[s13900 t9211 d4 0:4 xl7 hp43/54] DIVE digging down with 'a pick-axe (weapon in hand)' (try 2)
+[s13910 t9227 d5 0:5 xl7 hp46/54] DIVE fell through a trap door at (np.int64(15), np.int64(60)) on (np.int64(0), np.int64(4)); remembered
+[s13910 t9227 d5 0:5 xl7 hp46/54] DIVE level (np.int64(0), np.int64(5)) depth 5
+[s13910 t9227 d5 0:5 xl7 hp46/54] DIVE digging out, hostiles at [('iguana', 4)]
+[s13910 t9227 d5 0:5 xl7 hp46/54] DIVE Elbereth before digging: ['iguana']
+[s13926 t9228 d5 0:5 xl7 hp46/54] DIVE digging out, hostiles at [('iguana', 2)]
+[s13926 t9228 d5 0:5 xl7 hp46/54] DIVE digging down with 'a pick-axe (weapon in hand)' (try 1)
+[s13930 t9232 d5 0:5 xl7 hp47/54] DIVE digging out, hostiles at [('iguana', 1)]
+[s13930 t9232 d5 0:5 xl7 hp47/54] DIVE Elbereth before digging in the pit: ['iguana']
+[s13946 t9233 d5 0:5 xl7 hp47/54] DIVE digging down with 'a pick-axe (weapon in hand)' (try 2)
+[s13952 t9247 d6 0:6 xl7 hp50/54] DIVE fell through a trap door at (np.int64(6), np.int64(48)) on (np.int64(0), np.int64(5)); remembered
+[s13952 t9247 d6 0:6 xl7 hp50/54] DIVE level (np.int64(0), np.int64(6)) depth 6
+[s13952 t9247 d6 0:6 xl7 hp50/54] DIVE digging down with 'a pick-axe (weapon in hand)' (try 1)
+[s13961 t9251 d6 0:6 xl7 hp51/54] DIVE digging down with 'a pick-axe (weapon in hand)' (try 2)
+[s13966 t9267 d7 0:7 xl7 hp54/54] DIVE fell through a trap door at (np.int64(15), np.int64(56)) on (np.int64(0), np.int64(6)); remembered
+[s13966 t9267 d7 0:7 xl7 hp54/54] DIVE level (np.int64(0), np.int64(7)) depth 7
+[s13968 t9268 d7 0:7 xl7 hp54/54] DIVE going down stairs at (np.int64(13), np.int64(50))
+[s13973 t9268 d8 0:8 xl7 hp54/54] DIVE level (np.int64(0), np.int64(8)) depth 8
+[s13974 t9269 d8 0:8 xl7 hp54/54] DIVE digging down with 'a pick-axe (weapon in hand)' (try 1)
+[s13977 t9271 d8 0:8 xl7 hp54/54] DIVE digging down with 'a pick-axe (weapon in hand)' (try 2)
+[s13985 t9284 d8 0:8 xl7 hp43/54] RANGED hit: holds and Elbereth waits off for 8 turns
+[s13985 t9284 d8 0:8 xl7 hp43/54] DIVE digging down with 'a pick-axe (weapon in hand)' (try 2)
+[s13996 t9285 d8 0:8 xl7 hp44/54] PIT fight: in a pit beside an attacker, no stepping out
+[s14009 t9289 d8 0:8 xl7 hp31/54] DIVE digging out, hostiles at [('orc mummy', 1)]
+[s14009 t9289 d8 0:8 xl7 hp31/54] DIVE Elbereth before digging in the pit: ['orc mummy']
+[s14031 t9290 d8 0:8 xl7 hp32/54] DIVE digging out, hostiles at [('black light', 1)]
+[s14031 t9290 d8 0:8 xl7 hp32/54] DIVE digging down with 'a pick-axe' (try 3)
+[s14038 t9295 d9 0:9 xl7 hp33/54] DIVE fell through a trap door at (np.int64(3), np.int64(56)) on (np.int64(0), np.int64(8)); remembered
+[s14038 t9295 d9 0:9 xl7 hp33/54] DIVE level (np.int64(0), np.int64(9)) depth 9
+[s14038 t9295 d9 0:9 xl7 hp33/54] DIVE digging down with 'a pick-axe (weapon in hand)' (try 1)
+[s14041 t9299 d9 0:9 xl7 hp33/54] DIVE digging down with 'a pick-axe (weapon in hand)' (try 2)
+[s14052 t9314 d10 0:10 xl7 hp36/54] DIVE fell through a trap door at (np.int64(17), np.int64(5)) on (np.int64(0), np.int64(9)); remembered
+[s14052 t9314 d10 0:10 xl7 hp36/54] DIVE level (np.int64(0), np.int64(10)) depth 10
+[s14052 t9314 d10 0:10 xl7 hp36/54] POWER kit at depth 10 XL 7 AC -1: P(passage)=0.29 certain=0 steps=7 scare_known=0 P(scare among candidates)=0.11 door_tools=0
+[s14052 t9314 d10 0:10 xl7 hp36/54] DIVE digging down with 'a pick-axe (weapon in hand)' (try 1)
+[s14055 t9317 d10 0:10 xl7 hp37/54] DIVE digging down with 'a pick-axe (weapon in hand)' (try 2)
+[s14060 t9331 d11 0:11 xl7 hp40/54] DIVE fell through a trap door at (np.int64(5), np.int64(57)) on (np.int64(0), np.int64(10)); remembered
+[s14060 t9331 d11 0:11 xl7 hp40/54] DIVE level (np.int64(0), np.int64(11)) depth 11
+[s14060 t9331 d11 0:11 xl7 hp40/54] DIVE digging down with 'a pick-axe (weapon in hand)' (try 1)
+[s14063 t9335 d11 0:11 xl7 hp41/54] DIVE digging down with 'a pick-axe (weapon in hand)' (try 2)
+[s14068 t9352 d12 0:12 xl7 hp44/54] DIVE fell through a trap door at (np.int64(7), np.int64(8)) on (np.int64(0), np.int64(11)); remembered
+[s14068 t9352 d12 0:12 xl7 hp44/54] DIVE level (np.int64(0), np.int64(12)) depth 12
+[s14068 t9352 d12 0:12 xl7 hp44/54] DIVE digging down with 'a pick-axe (weapon in hand)' (try 1)
+[s14071 t9356 d12 0:12 xl7 hp45/54] DIVE digging down with 'a pick-axe (weapon in hand)' (try 2)
+[s14082 t9370 d13 0:13 xl7 hp48/54] DIVE fell through a trap door at (np.int64(5), np.int64(21)) on (np.int64(0), np.int64(12)); remembered
+[s14082 t9370 d13 0:13 xl7 hp48/54] DIVE level (np.int64(0), np.int64(13)) depth 13
+[s14082 t9370 d13 0:13 xl7 hp48/54] DIVE digging down with 'a pick-axe (weapon in hand)' (try 1)
+[s14085 t9374 d13 0:13 xl7 hp48/54] DIVE digging down with 'a pick-axe (weapon in hand)' (try 2)
+[s14093 t9388 d14 0:14 xl7 hp51/54] DIVE fell through a trap door at (np.int64(14), np.int64(64)) on (np.int64(0), np.int64(13)); remembered
+[s14093 t9388 d14 0:14 xl7 hp51/54] DIVE level (np.int64(0), np.int64(14)) depth 14
+[s14093 t9388 d14 0:14 xl7 hp51/54] DIVE quest portal level detected: (np.int64(0), np.int64(14))
+[s14093 t9388 d14 0:14 xl7 hp51/54] DIVE digging down with 'a pick-axe (weapon in hand)' (try 1)
+[s14099 t9389 d14 0:14 xl7 hp51/54] DIVE digging out, hostiles at [('hobgoblin', 1)]
+[s14099 t9389 d14 0:14 xl7 hp51/54] DIVE Elbereth before digging: ['hobgoblin']
+[s14115 t9390 d14 0:14 xl7 hp52/54] DIVE digging out, hostiles at [('hobgoblin', 1)]
+[s14115 t9390 d14 0:14 xl7 hp52/54] DIVE digging down with 'a pick-axe (weapon in hand)' (try 2)
+[s14120 t9394 d14 0:14 xl7 hp52/54] DIVE Elbereth before digging in the pit: []
+[s14136 t9395 d14 0:14 xl7 hp53/54] DIVE digging down with 'a pick-axe (weapon in hand)' (try 3)
+[s14143 t9411 d15 0:15 xl7 hp54/54] DIVE fell through a trap door at (np.int64(18), np.int64(43)) on (np.int64(0), np.int64(14)); remembered
+[s14143 t9411 d15 0:15 xl7 hp54/54] DIVE level (np.int64(0), np.int64(15)) depth 15
+[s14143 t9411 d15 0:15 xl7 hp54/54] DIVE digging down with 'a pick-axe (weapon in hand)' (try 1)
+[s14146 t9415 d15 0:15 xl7 hp54/54] DIVE digging down with 'a pick-axe (weapon in hand)' (try 2)
+[s14158 t9430 d16 0:16 xl7 hp54/54] DIVE fell through a trap door at (np.int64(5), np.int64(21)) on (np.int64(0), np.int64(15)); remembered
+[s14158 t9430 d16 0:16 xl7 hp54/54] DIVE level (np.int64(0), np.int64(16)) depth 16
+[s14158 t9430 d16 0:16 xl7 hp54/54] DIVE digging down with 'a pick-axe (weapon in hand)' (try 1)
+[s14161 t9435 d16 0:16 xl7 hp54/54] DIVE digging down with 'a pick-axe (weapon in hand)' (try 2)
+[s14166 t9452 d17 0:17 xl7 hp54/54] DIVE fell through a trap door at (np.int64(4), np.int64(72)) on (np.int64(0), np.int64(16)); remembered
+[s14166 t9452 d17 0:17 xl7 hp54/54] DIVE level (np.int64(0), np.int64(17)) depth 17
+[s14166 t9452 d17 0:17 xl7 hp54/54] DIVE digging down with 'a pick-axe (weapon in hand)' (try 1)
+[s14169 t9455 d17 0:17 xl7 hp54/54] DIVE digging down with 'a pick-axe (weapon in hand)' (try 2)
+[s14174 t9472 d18 0:18 xl7 hp54/54] DIVE fell through a trap door at (np.int64(11), np.int64(70)) on (np.int64(0), np.int64(17)); remembered
+[s14174 t9472 d18 0:18 xl7 hp54/54] DIVE level (np.int64(0), np.int64(18)) depth 18
+[s14174 t9472 d18 0:18 xl7 hp54/54] DIVE digging down with 'a pick-axe (weapon in hand)' (try 1)
+[s14177 t9476 d18 0:18 xl7 hp54/54] DIVE digging down with 'a pick-axe (weapon in hand)' (try 2)
+[s14191 t9491 d19 0:19 xl7 hp54/54] DIVE fell through a trap door at (np.int64(14), np.int64(9)) on (np.int64(0), np.int64(18)); remembered
+[s14191 t9491 d19 0:19 xl7 hp54/54] DIVE level (np.int64(0), np.int64(19)) depth 19
+[s14191 t9491 d19 0:19 xl7 hp54/54] DIVE digging down with 'a pick-axe (weapon in hand)' (try 1)
+[s14194 t9495 d19 0:19 xl7 hp54/54] DIVE digging down with 'a pick-axe (weapon in hand)' (try 2)
+[s14202 t9510 d20 0:20 xl7 hp54/54] STATUS milestone=BE_ON_FIRST_LEVEL diving=True hunger=1 pos=(np.int64(6), np.int64(64)) acts=[SPACE:205 E:50 N:49 LOOK:46 WHATIS:44] gotos=[eat_corpses_from_ground(12, 55):4 open_visit_search(13, 70):3 check_items(13, 64):3]
+[s14202 t9510 d20 0:20 xl7 hp54/54] DIVE fell through a trap door at (np.int64(17), np.int64(30)) on (np.int64(0), np.int64(19)); remembered
+[s14202 t9510 d20 0:20 xl7 hp54/54] DIVE level (np.int64(0), np.int64(20)) depth 20
+[s14202 t9510 d20 0:20 xl7 hp54/54] POWER kit at depth 20 XL 7 AC -1: P(passage)=0.29 certain=0 steps=7 scare_known=0 P(scare among candidates)=0.11 door_tools=0
+[s14202 t9510 d20 0:20 xl7 hp54/54] MINO kit d20 last_prayer=7458: B - a +1 pair of iron shoes (being worn); D - a dark potion; E - 2 food rations; F - a purple-red potion; G - 2 tripe rations; H - a crude dagger; I - a scroll labeled VERR YED HORRE; J - a candle; K - a pick-axe (weapon in hand); a - an uncursed +2 pair of leather gloves (being worn); b - a blessed +1 robe (being worn); d - an uncursed scroll of create monster; e - 3 uncursed potions of healing; g - 7 uncursed apples; h - 6 uncursed oranges; i - 3 uncursed fortune cookies; j - an uncursed oil lamp; k - a +2 Hawaiian shirt (being worn); l - an agate ring; n - a crude dagger (at the ready); o - a cursed -1 orcish helm (being worn); p - a clear potion; q - a scroll labeled DAIYEN FOOELS; t - an effervescent potion; v - a white potion; w - a golden potion; x - a scroll labeled XIXAXA XOXAXA XUXAXA; y - an effervescent potion; z - an orcish helm
+[s14202 t9510 d20 0:20 xl7 hp54/54] DIVE digging out, hostiles at [('yellow light', 2), ('giant spider', 4)]
+[s14202 t9510 d20 0:20 xl7 hp54/54] DIVE Elbereth before digging: ['yellow light', 'giant spider']
+[s14218 t9510 d20 0:20 xl7 hp54/54] DIVE digging out, hostiles at [('yellow light', 2), ('giant spider', 3)]
+[s14218 t9510 d20 0:20 xl7 hp54/54] DIVE digging down with 'a pick-axe (weapon in hand)' (try 1)
+[s14224 t9514 d20 0:20 xl7 hp54/54] DIVE digging out, hostiles at [('giant spider', 2), ('yellow light', 3)]
+[s14224 t9514 d20 0:20 xl7 hp54/54] DIVE Elbereth before digging: ['giant spider', 'yellow light']
+[s14245 t9515 d20 0:20 xl7 hp54/54] DIVE digging out, hostiles at [('giant spider', 3), ('yellow light', 4)]
+[s14245 t9515 d20 0:20 xl7 hp54/54] DIVE digging down with 'a pick-axe (weapon in hand)' (try 1)
+[s14252 t9517 d20 0:20 xl7 hp54/54] DIVE Elbereth before digging in the pit: []
+[s14268 t9518 d20 0:20 xl7 hp54/54] DIVE digging down with 'a pick-axe (weapon in hand)' (try 2)
+[s14275 t9533 d21 0:21 xl7 hp54/54] DIVE fell through a trap door at (np.int64(6), np.int64(64)) on (np.int64(0), np.int64(20)); remembered
+[s14275 t9533 d21 0:21 xl7 hp54/54] DIVE level (np.int64(0), np.int64(21)) depth 21
+[s14275 t9533 d21 0:21 xl7 hp54/54] MINO kit d21 last_prayer=7458: B - a +1 pair of iron shoes (being worn); D - a dark potion; E - 2 food rations; F - a purple-red potion; G - 2 tripe rations; H - a crude dagger; I - a scroll labeled VERR YED HORRE; J - a candle; K - a pick-axe (weapon in hand); a - an uncursed +2 pair of leather gloves (being worn); b - a blessed +1 robe (being worn); d - an uncursed scroll of create monster; e - 3 uncursed potions of healing; g - 7 uncursed apples; h - 6 uncursed oranges; i - 3 uncursed fortune cookies; j - an uncursed oil lamp; k - a +2 Hawaiian shirt (being worn); l - an agate ring; n - a crude dagger (at the ready); o - a cursed -1 orcish helm (being worn); p - a clear potion; q - a scroll labeled DAIYEN FOOELS; t - an effervescent potion; v - a white potion; w - a golden potion; x - a scroll labeled XIXAXA XOXAXA XUXAXA; y - an effervescent potion; z - an orcish helm
+[s14275 t9533 d21 0:21 xl7 hp54/54] DIVE digging down with 'a pick-axe (weapon in hand)' (try 1)
+[s14281 t9537 d21 0:21 xl7 hp54/54] DIVE digging down with 'a pick-axe (weapon in hand)' (try 2)
+[s14292 t9552 d22 0:22 xl7 hp54/54] DIVE fell through a trap door at (np.int64(4), np.int64(69)) on (np.int64(0), np.int64(21)); remembered
+[s14292 t9552 d22 0:22 xl7 hp54/54] DIVE level (np.int64(0), np.int64(22)) depth 22
+[s14292 t9552 d22 0:22 xl7 hp54/54] MINO kit d22 last_prayer=7458: B - a +1 pair of iron shoes (being worn); D - a dark potion; E - 2 food rations; F - a purple-red potion; G - 2 tripe rations; H - a crude dagger; I - a scroll labeled VERR YED HORRE; J - a candle; K - a pick-axe (weapon in hand); a - an uncursed +2 pair of leather gloves (being worn); b - a blessed +1 robe (being worn); d - an uncursed scroll of create monster; e - 3 uncursed potions of healing; g - 7 uncursed apples; h - 6 uncursed oranges; i - 3 uncursed fortune cookies; j - an uncursed oil lamp; k - a +2 Hawaiian shirt (being worn); l - an agate ring; n - a crude dagger (at the ready); o - a cursed -1 orcish helm (being worn); p - a clear potion; q - a scroll labeled DAIYEN FOOELS; t - an effervescent potion; v - a white potion; w - a golden potion; x - a scroll labeled XIXAXA XOXAXA XUXAXA; y - an effervescent potion; z - an orcish helm
+[s14292 t9552 d22 0:22 xl7 hp54/54] DIVE digging down with 'a pick-axe (weapon in hand)' (try 1)
+[s14295 t9556 d22 0:22 xl7 hp54/54] DIVE digging down with 'a pick-axe (weapon in hand)' (try 2)
+[s14303 t9572 d23 0:23 xl7 hp54/54] DIVE fell through a trap door at (np.int64(2), np.int64(57)) on (np.int64(0), np.int64(22)); remembered
+[s14303 t9572 d23 0:23 xl7 hp54/54] DIVE level (np.int64(0), np.int64(23)) depth 23
+[s14303 t9572 d23 0:23 xl7 hp54/54] MINO kit d23 last_prayer=7458: B - a +1 pair of iron shoes (being worn); D - a dark potion; E - 2 food rations; F - a purple-red potion; G - 2 tripe rations; H - a crude dagger; I - a scroll labeled VERR YED HORRE; J - a candle; K - a pick-axe (weapon in hand); a - an uncursed +2 pair of leather gloves (being worn); b - a blessed +1 robe (being worn); d - an uncursed scroll of create monster; e - 3 uncursed potions of healing; g - 7 uncursed apples; h - 6 uncursed oranges; i - 3 uncursed fortune cookies; j - an uncursed oil lamp; k - a +2 Hawaiian shirt (being worn); l - an agate ring; n - a crude dagger (at the ready); o - a cursed -1 orcish helm (being worn); p - a clear potion; q - a scroll labeled DAIYEN FOOELS; t - an effervescent potion; v - a white potion; w - a golden potion; x - a scroll labeled XIXAXA XOXAXA XUXAXA; y - an effervescent potion; z - an orcish helm
+[s14303 t9572 d23 0:23 xl7 hp54/54] DIVE digging out, hostiles at [('warg', 3)]
+[s14303 t9572 d23 0:23 xl7 hp54/54] DIVE Elbereth before digging: ['warg']
+[s14319 t9573 d23 0:23 xl7 hp54/54] DIVE digging out, hostiles at [('warg', 1)]
+[s14319 t9573 d23 0:23 xl7 hp54/54] DIVE digging down with 'a pick-axe (weapon in hand)' (try 1)
+[s14326 t9577 d23 0:23 xl7 hp54/54] DIVE Elbereth before digging in the pit: []
+[s14342 t9577 d23 0:23 xl7 hp54/54] DIVE digging down with 'a pick-axe (weapon in hand)' (try 2)
+[s14349 t9594 d24 0:24 xl7 hp54/54] DIVE fell through a trap door at (np.int64(4), np.int64(11)) on (np.int64(0), np.int64(23)); remembered
+[s14349 t9594 d24 0:24 xl7 hp54/54] DIVE level (np.int64(0), np.int64(24)) depth 24
+[s14349 t9594 d24 0:24 xl7 hp54/54] MINO kit d24 last_prayer=7458: B - a +1 pair of iron shoes (being worn); D - a dark potion; E - 2 food rations; F - a purple-red potion; G - 2 tripe rations; H - a crude dagger; I - a scroll labeled VERR YED HORRE; J - a candle; K - a pick-axe (weapon in hand); a - an uncursed +2 pair of leather gloves (being worn); b - a blessed +1 robe (being worn); d - an uncursed scroll of create monster; e - 3 uncursed potions of healing; g - 7 uncursed apples; h - 6 uncursed oranges; i - 3 uncursed fortune cookies; j - an uncursed oil lamp; k - a +2 Hawaiian shirt (being worn); l - an agate ring; n - a crude dagger (at the ready); o - a cursed -1 orcish helm (being worn); p - a clear potion; q - a scroll labeled DAIYEN FOOELS; t - an effervescent potion; v - a white potion; w - a golden potion; x - a scroll labeled XIXAXA XOXAXA XUXAXA; y - an effervescent potion; z - an orcish helm
+[s14349 t9594 d24 0:24 xl7 hp54/54] DIVE digging down with 'a pick-axe (weapon in hand)' (try 1)
+[s14352 t9599 d24 0:24 xl7 hp54/54] DIVE digging down with 'a pick-axe (weapon in hand)' (try 2)
+[s14366 t9615 d25 0:25 xl7 hp54/54] DIVE Medusa level detected: (np.int64(0), np.int64(25)) depth 25
+[s14366 t9615 d25 0:25 xl7 hp54/54] DIVE MEDUSA_MAP: this is medusa-4 (0 of 665 seen squares disagree)
+[s14366 t9615 d25 0:25 xl7 hp54/54] DIVE fell through a trap door at (np.int64(5), np.int64(75)) on (np.int64(0), np.int64(24)); remembered
+[s14366 t9615 d25 0:25 xl7 hp54/54] DIVE level (np.int64(0), np.int64(25)) depth 25
+[s14366 t9615 d25 0:25 xl7 hp54/54] MINO kit d25 last_prayer=7458: B - a +1 pair of iron shoes (being worn); D - a dark potion; E - 2 food rations; F - a purple-red potion; G - 2 tripe rations; H - a crude dagger; I - a scroll labeled VERR YED HORRE; J - a candle; K - a pick-axe (weapon in hand); a - an uncursed +2 pair of leather gloves (being worn); b - a blessed +1 robe (being worn); d - an uncursed scroll of create monster; e - 3 uncursed potions of healing; g - 7 uncursed apples; h - 6 uncursed oranges; i - 3 uncursed fortune cookies; j - an uncursed oil lamp; k - a +2 Hawaiian shirt (being worn); l - an agate ring; n - a crude dagger (at the ready); o - a cursed -1 orcish helm (being worn); p - a clear potion; q - a scroll labeled DAIYEN FOOELS; t - an effervescent potion; v - a white potion; w - a golden potion; x - a scroll labeled XIXAXA XOXAXA XUXAXA; y - an effervescent potion; z - an orcish helm
+[s14366 t9615 d25 0:25 xl7 hp54/54] DIVE walking to dig at (14, 70), hostiles at [('black naga hatchling', 2)]
+[s14367 t9616 d25 0:25 xl7 hp54/54] DIVE digging out, hostiles at [('black naga hatchling', 1)]
+[s14367 t9616 d25 0:25 xl7 hp54/54] DIVE Elbereth before digging: ['black naga hatchling']
+[s14383 t9616 d25 0:25 xl7 hp54/54] DIVE digging out, hostiles at [('black naga hatchling', 2)]
+[s14383 t9616 d25 0:25 xl7 hp54/54] DIVE digging down with 'a pick-axe (weapon in hand)' (try 1)
+[s14392 t9617 d25 0:25 xl7 hp54/54] DIVE digging out, hostiles at [('black naga hatchling', 2)]
+[s14392 t9617 d25 0:25 xl7 hp54/54] DIVE digging down with 'a pick-axe (weapon in hand)' (try 1)
+[s14398 t9618 d25 0:25 xl7 hp54/54] DIVE digging out, hostiles at [('black naga hatchling', 2)]
+[s14398 t9618 d25 0:25 xl7 hp54/54] DIVE digging down with 'a pick-axe (weapon in hand)' (try 1)
+[s14408 t9619 d25 0:25 xl7 hp54/54] RANGED hit: holds and Elbereth waits off for 8 turns
+[s14408 t9619 d25 0:25 xl7 hp54/54] DIVE digging out, hostiles at [('black naga hatchling', 1)]
+[s14408 t9619 d25 0:25 xl7 hp54/54] DIVE digging down with 'a pick-axe (weapon in hand)' (try 1)
+[s14412 t9620 d25 0:25 xl7 hp54/54] DIVE digging out, hostiles at [('black naga hatchling', 2)]
+[s14412 t9620 d25 0:25 xl7 hp54/54] DIVE digging down with 'a pick-axe (weapon in hand)' (try 1)
+[s14420 t9622 d25 0:25 xl7 hp54/54] DIVE digging out, hostiles at [('black naga hatchling', 1)]
+[s14420 t9622 d25 0:25 xl7 hp54/54] DIVE digging down with 'a pick-axe (weapon in hand)' (try 1)
+[s14436 t9625 d25 0:25 xl7 hp54/54] DIVE Medusa islet too wet: up the stairs to dig down again (reroll 1)
+[s14443 t9626 d24 0:24 xl7 hp50/54] DIVE level (np.int64(0), np.int64(24)) depth 24
+[s14443 t9626 d24 0:24 xl7 hp50/54] MINO kit d24 last_prayer=7458: B - a rusty +1 pair of iron shoes (being worn); D - a diluted dark potion; E - 2 food rations; F - a diluted purple-red potion; G - 2 tripe rations; H - a crude dagger; I - a scroll labeled VERR YED HORRE; J - a candle; K - a rusty pick-axe (weapon in hand); a - an uncursed +2 pair of leather gloves (being worn); b - a blessed +1 robe (being worn); d - an uncursed scroll; e - 3 uncursed diluted potions of healing; g - 7 uncursed apples; h - 6 uncursed oranges; i - 3 uncursed fortune cookies; j - an uncursed oil lamp; k - a +2 Hawaiian shirt (being worn); l - an agate ring; n - a rusty crude dagger (at the ready); o - a cursed rusty -1 orcish helm (being worn); p - a clear potion; q - a scroll labeled DAIYEN FOOELS; t - an effervescent potion; w - a golden potion; x - a scroll; y - a diluted effervescent potion; z - a rusty orcish helm
+[s14472 t9630 d24 0:24 xl7 hp36/54] DIVE digging down with 'a rusty pick-axe' (try 3)
+[s14479 t9635 d24 0:24 xl7 hp37/54] DIVE digging down with 'a rusty pick-axe (weapon in hand)' (try 4)
+[s14487 t9650 d25 0:25 xl7 hp40/54] DIVE fell through a trap door at (np.int64(3), np.int64(5)) on (np.int64(0), np.int64(24)); remembered
+[s14487 t9650 d25 0:25 xl7 hp40/54] DIVE level (np.int64(0), np.int64(25)) depth 25
+[s14487 t9650 d25 0:25 xl7 hp40/54] MINO kit d25 last_prayer=7458: B - a rusty +1 pair of iron shoes (being worn); D - a diluted dark potion; E - 2 food rations; F - a diluted purple-red potion; G - 2 tripe rations; H - a crude dagger; I - a scroll labeled VERR YED HORRE; J - a candle; K - a rusty pick-axe (weapon in hand); a - an uncursed +2 pair of leather gloves (being worn); b - a blessed +1 robe (being worn); d - an uncursed unlabeled scroll; e - 3 uncursed diluted potions of healing; g - 7 uncursed apples; h - 6 uncursed oranges; i - 3 uncursed fortune cookies; j - an uncursed oil lamp; k - a +2 Hawaiian shirt (being worn); l - an agate ring; n - a rusty crude dagger (at the ready); o - a cursed rusty -1 orcish helm (being worn); p - a clear potion; q - a scroll labeled DAIYEN FOOELS; t - an effervescent potion; w - a golden potion; x - an unlabeled scroll; y - a diluted effervescent potion; z - a rusty orcish helm
+[s14487 t9650 d25 0:25 xl7 hp40/54] DIVE task medusa hop: to the channel
+[s14487 t9650 d25 0:25 xl7 hp40/54] DIVE MEDUSA_HOP: walking to (7, 70) beside a moat channel toward dry land
+[s14492 t9650 d25 0:25 xl7 hp34/54] RANGED hit: holds and Elbereth waits off for 8 turns
+[s14492 t9650 d25 0:25 xl7 hp34/54] DIVE walking to dig at (8, 69), hostiles at [('snake', -1)]
+[s14497 t9651 d25 0:25 xl7 hp34/54] DIVE digging out, hostiles at [('snake', -1)]
+[s14497 t9651 d25 0:25 xl7 hp34/54] DIVE Elbereth before digging: ['snake']
+[s14514 t9652 d25 0:25 xl7 hp30/54] DIVE digging out, hostiles at [('snake', 1)]
+[s14514 t9652 d25 0:25 xl7 hp30/54] DIVE Elbereth before digging (blind): ['snake']
+[s14529 t9653 d25 0:25 xl7 hp38/54] DIVE digging out, hostiles at [('snake', 1)]
+[s14529 t9653 d25 0:25 xl7 hp38/54] DIVE digging down with 'a rusty pick-axe (weapon in hand)' (try 1)
+[s14533 t9654 d25 0:25 xl7 hp37/54] DIVE digging out, hostiles at [('snake', 1)]
+[s14533 t9654 d25 0:25 xl7 hp37/54] DIVE Elbereth before digging (blind): ['snake']
+[s14545 t9654 d25 0:25 xl7 hp37/54] DIVE digging out, hostiles at [('snake', 1)]
+[s14545 t9654 d25 0:25 xl7 hp37/54] DIVE digging down with 'a rusty pick-axe (weapon in hand)' (try 1)
+[s14548 t9655 d25 0:25 xl7 hp34/54] DIVE digging out, hostiles at [('snake', -1), ('cobra', -1), ('snake', 1)]
+[s14548 t9655 d25 0:25 xl7 hp34/54] DIVE Elbereth before digging (blind): ['snake', 'cobra', 'snake']
+[s14560 t9656 d25 0:25 xl7 hp34/54] DIVE digging out, hostiles at [('snake', -1), ('cobra', -1), ('snake', 1)]
+[s14560 t9656 d25 0:25 xl7 hp34/54] DIVE digging down with 'a rusty pick-axe (weapon in hand)' (try 1)
+[s14563 t9656 d25 0:25 xl7 hp29/54] DIVE digging out, hostiles at [('snake', -1), ('cobra', -1), ('snake', 1)]
+[s14563 t9656 d25 0:25 xl7 hp29/54] DIVE Elbereth before digging (blind): ['snake', 'cobra', 'snake']
+[s14578 t9657 d25 0:25 xl7 hp28/54] DIVE digging out, hostiles at [('snake', -1), ('cobra', -1), ('snake', 1)]
+[s14578 t9657 d25 0:25 xl7 hp28/54] DIVE Elbereth before digging (blind): ['snake', 'cobra', 'snake']
+[s14590 t9658 d25 0:25 xl7 hp28/54] DIVE digging out, hostiles at [('snake', -1), ('cobra', -1), ('snake', 2)]
+[s14590 t9658 d25 0:25 xl7 hp28/54] DIVE digging down with 'a rusty pick-axe (weapon in hand)' (try 1)
+[s14598 t9660 d25 0:25 xl7 hp28/54] DIVE digging out, hostiles at [('giant eel', -1), ('cobra', -1), ('snake', 1)]
+[s14598 t9660 d25 0:25 xl7 hp28/54] DIVE digging down with 'a rusty pick-axe (weapon in hand)' (try 2)
+[s14605 t9661 d25 0:25 xl7 hp28/54] DIVE digging out, hostiles at [('giant eel', -1), ('cobra', -1), ('garter snake', -1)]
+[s14605 t9661 d25 0:25 xl7 hp28/54] DIVE digging down with 'a rusty pick-axe (weapon in hand)' (try 3)
+[s14612 t9662 d25 0:25 xl7 hp36/54] DIVE digging out, hostiles at [('snake', -1), ('giant eel', -1), ('cobra', -1)]
+[s14612 t9662 d25 0:25 xl7 hp36/54] DIVE digging down with 'a rusty pick-axe (weapon in hand)' (try 4)
+[s14619 t9663 d25 0:25 xl7 hp38/54] DIVE digging out, hostiles at [('giant eel', -1), ('snake', -1), ('garter snake', -1)]
+[s14619 t9663 d25 0:25 xl7 hp38/54] DIVE digging down with 'a rusty pick-axe (weapon in hand)' (try 5)
+[s14627 t9665 d25 0:25 xl7 hp32/54] DIVE digging out, hostiles at [('giant eel', -1), ('garter snake', -1), ('cobra', -1)]
+[s14627 t9665 d25 0:25 xl7 hp32/54] DIVE digging down with 'a rusty pick-axe (weapon in hand)' (try 6)
+[s14640 t9666 d25 0:25 xl7 hp25/54] DIVE digging out, hostiles at [('giant eel', -1), ('garter snake', -1), ('cobra', -1)]
+[s14640 t9666 d25 0:25 xl7 hp25/54] DIVE digging down with 'a rusty pick-axe (weapon in hand)' (try 7)
+[s14663 t9668 d25 0:25 xl7 hp22/54] DIVE Elbereth to scare ['snake', 'cobra', 'garter snake'] before walking to a dig square
+[s14679 t9669 d25 0:25 xl7 hp22/54] DIVE walking to dig at (6, 66), hostiles at [('snake', 1), ('cobra', 1), ('garter snake', 2)]
+[s14679 t9669 d25 0:25 xl7 hp22/54] PANIC AgentPanic: Monster on a next tile when moving: (8,69)
+Traceback (most recent call last):
+  File "/sol/nhbot/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/nhbot/agent.py", line 311, in preempt
+    next(iterator)
+  File "/sol/nhbot/dive_logic.py", line 3555, in dig_first
+    self._escape_act(action)
+  File "/sol/nhbot/dive_logic.py", line 3743, in _escape_act
+    agent.go_to(*arg, max_steps=1)
+  File "/sol/nhbot/agent.py", line 2538, in go_to
+    self.move(y, x)
+  File "/sol/nhbot/agent.py", line 2059, in move
+    raise AgentPanic(f'Monster on a next tile when moving: ({expected_y},{expected_x})')
+nhbot.exceptions.AgentPanic: Monster on a next tile when moving: (8,69)
+
+[s14740 t9674 d25 0:25 xl7 hp23/54] DIVE walking to dig at (8, 69), hostiles at [('cobra', -1), ('snake', -1)]
+[s14787 t9678 d25 0:25 xl7 hp15/54] DIVE digging out, hostiles at [('snake', -1), ('cobra', -1), ('snake', 1)]
+[s14787 t9678 d25 0:25 xl7 hp15/54] DIVE digging down with 'a rusty pick-axe (weapon in hand)' (try 8)
+[s14798 t9679 d25 0:25 xl7 hp15/54] RANGED hit: holds and Elbereth waits off for 8 turns
+[s14798 t9679 d25 0:25 xl7 hp15/54] DIVE digging out, hostiles at [('snake', -1), ('giant eel', -1), ('snake', -1)]
+[s14798 t9679 d25 0:25 xl7 hp15/54] DIVE digging down with 'a rusty pick-axe (weapon in hand)' (try 8)
+[s14815 t9681 d25 0:25 xl7 hp32/54] DIVE digging out, hostiles at [('giant eel', -1), ('snake', -1), ('snake', 4)]
+[s14815 t9681 d25 0:25 xl7 hp32/54] DIVE digging down with 'a rusty pick-axe (weapon in hand)' (try 9)
+[s14823 t9682 d25 0:25 xl7 hp32/54] DIVE digging out, hostiles at [('cobra', -1), ('giant eel', -1), ('snake', 3)]
+[s14823 t9682 d25 0:25 xl7 hp32/54] DIVE digging down with 'a rusty pick-axe (weapon in hand)' (try 9)
+[s14833 t9685 d25 0:25 xl7 hp27/54] DIVE digging out, hostiles at [('cobra', -1), ('snake', -1), ('giant eel', -1)]
+[s14833 t9685 d25 0:25 xl7 hp27/54] DIVE digging down with 'a rusty pick-axe (weapon in hand)' (try 9)
+[s14838 t9685 d25 0:25 xl7 hp11/54] DIVE digging out, hostiles at [('cobra', -1), ('snake', -1), ('snake', 1)]
+[s14838 t9685 d25 0:25 xl7 hp11/54] DIVE digging down with 'a rusty pick-axe (weapon in hand)' (try 9)
