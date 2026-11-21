@@ -1,0 +1,43 @@
+diff --git a/base/pf_s25p8/dive_logic.py b/base/pf_s25p8/dive_logic.py
+index e6934c1..8dacbe0 100644
+--- a/base/pf_s25p8/dive_logic.py
++++ b/base/pf_s25p8/dive_logic.py
+@@ -2130,6 +2130,14 @@ class DiveLogic:
+         # monster still kills before starvation does (base2-jf25 s0/s3: fainted on Dlvl 2-3 of the rescue among
+         # a wererat pack / a dwarf zombie and kobold mummy); hold only while the threat is close (no idle hold)
+         rescue_guard = jf_config.FAINT_GUARD_RESCUE and agent.prayer_failed and self.rescue
++        imminent_rescue_faint = False
++        if not rescue_guard and agent.prayer_failed and self.rescue and \
++                agent.character.role == Character.RANGER and agent.character.race == Character.HUMAN:
++            # A Ranger can still have plenty of HP when the first faint hands an adjacent melee threat
++            # several free rounds. Let the guard shelter on that turn and resume the rescue after the faint.
++            nutrition = agent.uhunger_weak_estimate()
++            imminent_rescue_faint = nutrition is not None and nutrition <= jf_config.THREAT_WEAK_MARGIN
++        rescue_guard = rescue_guard or imminent_rescue_faint
+         # CAMP_GUARD: a tool-less planned dive (the Mines camp) is guarded like the grind, idle hold included
+         camp_guard = jf_config.CAMP_GUARD and self.diving and not self.rescue and not agent.prayer_failed and \
+             self.digging_tool() is None
+@@ -2186,6 +2194,8 @@ class DiveLogic:
+                 idle = False   # a meal underfoot: let the eating strategy (below us) have it
+         if (not near and not idle) or any(self._ignores_elbereth(m[3]) for m in near):
+             yield False
++        if imminent_rescue_faint:
++            near = [m for m in near if utils.adjacent((m[1], m[2]), (y0, x0))]
+ 
+         def difficulty(m):
+             return getattr(m[3], 'difficulty', 99)
+diff --git a/nethackers.solution.json b/nethackers.solution.json
+index fad77f7..25e9bdf 100644
+--- a/nethackers.solution.json
++++ b/nethackers.solution.json
+@@ -1,8 +1,9 @@
+ {
+   "schema": "nethackers.solution/v1",
+-  "name": "daglar-zLeadersBest2089852",
++  "name": "Ranger ward before imminent fainting",
+   "root": ".",
+   "parents": [
++    "github.com/daglar-dragomirov/nethacker@0b3dfd05cfbfd52356cc2d10fe2b55857d2821f6",
+     "github.com/daglar-dragomirov/nethacker@ccfb1251179bad749ece88d384956363ffb2db56",
+     "github.com/daglar-dragomirov/nethacker@44b29b9299c5dcfb76e3fc6081004727c58db19a",
+     "github.com/DT6A/nethacker@37f9da35d0dbf98ed15bf89735bd601f0c0eac02",
