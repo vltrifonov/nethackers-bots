@@ -1,0 +1,84 @@
+diff --git a/base/nhbot/dive_logic.py b/base/nhbot/dive_logic.py
+index 19e4ceb..a2c886d 100644
+--- a/base/nhbot/dive_logic.py
++++ b/base/nhbot/dive_logic.py
+@@ -1044,6 +1044,7 @@ class DiveLogic:
+         self._raven_cycles = 0             # RAVEN_CYCLE climbs off the raven island
+         self._raven_arrival_turn = -1      # turn we last arrived on the current level
+         self._raven_flood_turn = -10       # turn a hole last filled with water on Medusa's level
++        self._raven_flood_stair_sighting = None
+         self._raven_contact_turn = -100    # last turn a hostile was next to us / hurt us on the raven island
+         self._last_level_key = None
+         self._medusa_floods = 0            # holes that flooded on Medusa's level (MEDUSA_SKIP)
+@@ -1111,6 +1112,9 @@ class DiveLogic:
+             if utils.isin(agent.glyphs, [DiveLogic.RAVEN]).any():
+                 self._raven_levels.add(key)   # Medusa-3 (medusa.des: 30 hostile ravens)
+                 agent.log('DIVE Medusa-3 (ravens)')
++        if key in self._raven_levels and 0 <= turn - self._raven_flood_turn <= 2 and \
++                'There is a staircase up here.' in agent.message:
++            self._raven_flood_stair_sighting = (key, (agent.blstats.y, agent.blstats.x), turn)
+         if MEDUSA_MAP and key == self.medusa_level and self._medusa_variant_name() is not None:
+             # a never-seen square the fixed map calls moat is no floor to walk or dig on (agent.update_level marks a
+             # square first seen under a monster walkable, and on the islands those are the eels' and ravens' water)
+@@ -4766,6 +4770,33 @@ class DiveLogic:
+         elif agent.blstats.time == turn:
+             self._medusa_reroll_blocked_until = turn + 3
+ 
++    def _raven_flood_reroll_here(self):
++        """A recent flood left us directly on an up stair before the ravens can blind us."""
++        agent = self.agent
++        bl = agent.blstats
++        level = agent.current_level()
++        key = level.key()
++        pos = (bl.y, bl.x)
++        prop = agent.character.prop
++        if not self.diving or self._medusa_rerolls or not self._medusa_floods or \
++                self._raven_flood_turn < self._raven_arrival_turn or not 0 <= bl.time - self._raven_flood_turn <= 2 or \
++                prop.blind or prop.confusion or prop.stun or prop.hallu or prop.polymorph or self.levitating() or \
++                agent.in_pit() or self._in_own_pit() or getattr(agent, '_beartrap_at', None) == (*key, *pos) or \
++                bl.time - self._eel_hold_turn <= 3 or self._EEL_GRAB.search(agent.message) or \
++                self._PYTHON_GRAB.search(agent.message) or utils.any_in(agent.glyphs, G.SWALLOW):
++            return None
++        sighting = self._raven_flood_stair_sighting
++        if sighting is None or sighting[:2] != (key, pos) or not 0 <= bl.time - sighting[2] <= 1 or \
++                level.objects[pos] not in G.STAIR_UP:
++            return None
++        glyph = agent.glyphs[pos]
++        if glyph not in G.STAIR_UP and glyph != agent.character.self_glyph:
++            return None
++        near = self._near_hostiles(radius=2)
++        if near and all(m[3].mname == 'raven' for m in near):
++            return pos
++        return None
++
+     def _medusa_reroll_stairs(self, max_wet):
+         """DIG_ESCAPE on Medusa's level, stranded where every reachable square has >= MEDUSA_REROLL_WET moat
+         neighbours: a hole there floods with odds n/(n+1) at the pit and again at the hole (dig.c fillholetyp:
+@@ -4808,10 +4839,9 @@ class DiveLogic:
+         else:
+             if (max_wet is not None and max_wet < MEDUSA_REROLL_WET) or self._medusa_rerolls >= MEDUSA_REROLLS:
+                 return None
+-            # not on Medusa-3 (its 30 ravens): its '<' and its fall region are the same island, so a reroll only
+-            # ping-pongs between the ravens and the level above (dsafe-A jf14 s3 met a leocrotta up there, blind)
++            # Medusa-3's '<' and fall region share the raven island. Leave once if a flood puts the hero on the stair.
+             if self.medusa_level in self._raven_levels:
+-                return None
++                return self._raven_flood_reroll_here()
+         agent = self.agent
+         level = agent.current_level()
+         dis = agent.bfs()
+diff --git a/nethackers.solution.json b/nethackers.solution.json
+index 3b153e2..9382d2c 100644
+--- a/nethackers.solution.json
++++ b/nethackers.solution.json
+@@ -1,8 +1,9 @@
+ {
+   "schema": "nethackers.solution/v1",
+-  "name": "daglar-zLeadersBest5498197",
++  "name": "Archaeologist reroll from the stair after a flood",
+   "root": ".",
+   "parents": [
++    "github.com/daglar-dragomirov/nethacker@0013e4fee1088f915a5208471e52c835ab260ddb",
+     "github.com/daglar-dragomirov/nethacker@ccfb1251179bad749ece88d384956363ffb2db56",
+     "github.com/daglar-dragomirov/nethacker@44b29b9299c5dcfb76e3fc6081004727c58db19a",
+     "github.com/DT6A/nethacker@37f9da35d0dbf98ed15bf89735bd601f0c0eac02",
