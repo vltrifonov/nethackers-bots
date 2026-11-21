@@ -12,4 +12,15 @@ All listed scores use direct local evaluator c487/NLE1.3 and are ineligible as o
 
 The later fixed45–59 Wizard comparison qualifies the earlier30–44 result: rawP17 means were .0361784566 female/.0345932845 male, versus .0359466330/.0343614609 for the older source. The gain was only .0002318236 for each, below the separate .0005 contribution threshold; each source/body had one price-inference error on the same correlated trajectory54. The cumulative reliability/P17 composition tied rawP17 in all210 new paired games, adding no measured benefit. These later results must accompany the earlier stronger sample; they do not establish a general or official winner.
 
+These additional roots have source review and bounded native diagnostic evidence. Their fixed utility studies are pending, so they are not selected competition submissions:
+
+| Candidate root | Repair and bounded observation |
+| --- | --- |
+| samurai-cache-4bc96bf29ac8 | Include squeeze state and graph content in the path cache key. Rogue4 continued to8000 actions; the captured same-step squeeze change caused an actual compiled BFS call. The fixed300 comparison is incomplete because its coordinator is stopped. |
+| healer-capacity-ball-05ee62068790 | Compose the reviewed parser with early-Healer capacity behavior. HumanF14 returned the heavy iron ball Item at3231 and continued64 actions; fixed150 comparison pending. |
+| caveman-glob-49803836f9df | Recognize native glob names/free-weight suffix while preserving the10000-weight pickup exclusion. Caveman11 returned the formerly crashing glob Item at35379 and continued64 actions; fixed75 comparison pending. |
+| barbarian-containers-56c02fa7f743 | Defer unsupported multiple-floor-container inspection and cached sources. Barbarian4 returnedFalse for two ordinary underfoot possible-container classifications at13437 and continued64 actions; fixed105 comparison pending. This was a preflight deferral, not a native LOOT/ESC cancellation witness. |
+
+All four preserve the42 reviewed source files exactly. Diagnostic continuation is selected development evidence, not a complete game, independent score improvement or current frontier advance. The conservative parser/container policies and historical cache-runtime metadata limits remain; no unsupported official-image claim is made.
+
 The branch is prepared locally while network access is blocked. It has not been pushed or registered. Later combined/cache/parser experiments may supersede these descriptive candidates after their own reviews and completed evaluations.
