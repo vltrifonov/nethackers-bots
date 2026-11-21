@@ -1,0 +1,104 @@
+diff --git a/hed/nhbot/dive_logic.py b/hed/nhbot/dive_logic.py
+index 57990c3..d1d7adb 100644
+--- a/hed/nhbot/dive_logic.py
++++ b/hed/nhbot/dive_logic.py
+@@ -8703,7 +8703,7 @@ class DiveLogic:
+         self.agent.log(f'STALL leaving {p} on {key} alone for 300 turns: {why}')
+         self.agent.last_bfs_step = -1
+ 
+-    def _stall_clear(self, p, what):
++    def _stall_clear(self, p, what, *, probe_unknown=False):
+         """Next to the blocking square p: push its boulder or hit its sessile monster. True: acted."""
+         agent = self.agent
+         level = agent.current_level()
+@@ -8717,12 +8717,13 @@ class DiveLogic:
+         self._stall_tries[(key, p)] = tries + 1
+         glyph = int(agent.glyphs[p])
+         if glyph in G.BOULDER:
+-            if not jf_config.STALL_BOULDER:
++            if not (jf_config.STALL_BOULDER or probe_unknown):
+                 return False
+             # hack.c moverock: the boulder moves one square on in our direction unless rock, a wall, another boulder,
+             # a monster or iron bars is there, or the push is diagonal through a doorway (or squeezes past two)
+             ty, tx = 2 * p[0] - y0, 2 * p[1] - x0
+-            beyond_ok = 0 <= ty < C.SIZE_Y and 0 <= tx < C.SIZE_X and level.walkable[ty, tx] and \
++            beyond_ok = 0 <= ty < C.SIZE_Y and 0 <= tx < C.SIZE_X and \
++                (level.walkable[ty, tx] or (probe_unknown and level.objects[ty, tx] == -1)) and \
+                 int(agent.glyphs[ty, tx]) not in G.BOULDER and not agent.monster_tracker.monster_mask[ty, tx]
+             if not beyond_ok:
+                 self._stall_give_up(key, p, f'nothing free behind it from {(y0, x0)}')
+@@ -8803,6 +8804,50 @@ class DiveLogic:
+             agent.log(f'STALL a {MON.permonst(glyph).mname} on the stairs at {p} for {now - since} turns: clearing it')
+         return self._stall_clear(p, 'stairs')
+ 
++    def _stall_probe_boulder(self, stairs):
++        """Try a corridor boulder whose far side is unseen when a shallow rescue cannot reach known stairs."""
++        agent = self.agent
++        level = agent.current_level()
++        prop = agent.character.prop
++        if not self.rescue or level.dungeon_number != Level.DUNGEONS_OF_DOOM or \
++                agent.blstats.depth > jf_config.STALL_DOWNSEARCH_MAX_DEPTH or \
++                self.turns_on_level() < jf_config.STALL_MIN_TURNS or prop.blind or prop.hallu or \
++                prop.confusion or prop.stun or prop.polymorph or self.levitating() or self._near_hostiles(radius=1):
++            return False
++
++        dis = agent.bfs()
++        if any(dis[stairs_pos] >= 0 for stairs_pos in stairs):
++            return False
++
++        key = level.key()
++        pushes = []
++        for y, x in zip(*utils.isin(agent.glyphs, G.BOULDER).nonzero()):
++            boulder = (int(y), int(x))
++            if level.objects[boulder] not in CORRIDORS or level.shop[boulder]:
++                continue
++            for py, px in agent.neighbors(*boulder, shuffle=False, diagonal=False):
++                before = (int(py), int(px))
++                if dis[before] < 0 or level.objects[before] not in CORRIDORS or \
++                        (key, boulder, before) in self._boulder_push_failed:
++                    continue
++                ty, tx = 2 * y - py, 2 * x - px
++                if 0 <= ty < C.SIZE_Y and 0 <= tx < C.SIZE_X and level.objects[ty, tx] == -1 and \
++                        int(agent.glyphs[ty, tx]) in G.STONE and not agent.monster_tracker.monster_mask[ty, tx]:
++                    pushes.append((int(dis[before]), boulder, before))
++
++        if not pushes:
++            return False
++        distance, boulder, before = min(pushes)
++        attempt = (key, boulder, before)
++        if distance > 0:
++            try:
++                agent.go_to(*before, max_steps=1)
++            except AgentPanic:
++                self._boulder_push_failed.add(attempt)
++            return True
++        self._boulder_push_failed.add(attempt)
++        return self._stall_clear(boulder, 'unseen corridor beyond boulder', probe_unknown=True)
++
+     def _stall_descend(self):
+         """descend() found no way down. STALL_SESSILE/STALL_BOULDER: a known main-line '>' cut off -> clear the way.
+         STALL_DOWNSEARCH: no '>' ever seen here after STALL_DOWNSEARCH_TURNS of this dive -> search the walls next to
+@@ -8814,7 +8859,7 @@ class DiveLogic:
+         downs = [(int(y), int(x)) for y, x in zip(*utils.isin(level.objects, G.STAIR_DOWN).nonzero())
+                  if self._stairs_ok(level, y, x)]
+         if downs:
+-            return self._stall_unblock(downs, 'stairs >')
++            return self._stall_unblock(downs, 'stairs >') or self._stall_probe_boulder(downs)
+         # shallow levels only: below Dlvl 10 the maze levels, Medusa's and the castle (no '>' at all) have their own logic
+         # (ga-b1 jf43 s1 fired on Dlvl 28)
+         if not jf_config.STALL_DOWNSEARCH_TURNS or level.dungeon_number != Level.DUNGEONS_OF_DOOM or \
+diff --git a/nethackers.solution.json b/nethackers.solution.json
+index 0dee073..302ae17 100644
+--- a/nethackers.solution.json
++++ b/nethackers.solution.json
+@@ -1,8 +1,9 @@
+ {
+   "schema": "nethackers.solution/v1",
+-  "name": "vltrifonov-human-rogue-weak-threat",
++  "name": "vltrifonov-human-rogue-boulder-recovery",
+   "root": ".",
+   "parents": [
++    "github.com/vltrifonov/nethackers-bots@2e7471b8cad5f02d3f63673d07e0a4e8b101a3f6",
+     "github.com/daglar-dragomirov/nethacker@5619c6e840249bcea2ab40aae8d8fd830567548e",
+     "github.com/daglar-dragomirov/nethacker@ccfb1251179bad749ece88d384956363ffb2db56",
+     "github.com/daglar-dragomirov/nethacker@44b29b9299c5dcfb76e3fc6081004727c58db19a",
