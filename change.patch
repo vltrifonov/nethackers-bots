@@ -1,0 +1,70 @@
+diff --git a/base/nhbot_knight_c48_abi/agent.py b/base/nhbot_knight_c48_abi/agent.py
+index 86ea8b6..7736679 100644
+--- a/base/nhbot_knight_c48_abi/agent.py
++++ b/base/nhbot_knight_c48_abi/agent.py
+@@ -2896,24 +2896,45 @@ class Agent:
+     @utils.debug_log('engulfed_fight')
+     @Strategy.wrap
+     def engulfed_fight(self):
+-        if not utils.any_in(self.glyphs, G.SWALLOW):
++        swallowed = utils.isin(self.glyphs, G.SWALLOW)
++        if not swallowed.any():
+             yield False
+         yield True
++        main = self.inventory.items.main_hand
+         if jf_config.ENGULF_WIELD:
+             # a dig-diver is swallowed with the pick-axe in hand (base-jf25 s13: 'You begin bashing monsters
+             # with your pick-axe' inside a fire vortex, dead 2 turns later): every blow from inside hits, so
+             # one turn to take up the real weapon pays for itself
+             best = self.inventory.get_best_melee_weapon()
+-            main = self.inventory.items.main_hand
+-            if best is not None and main is not best and (main is None or main.status != Item.CURSED):
+-                self.log(f'ENGULFED: wielding {best.text!r} instead of {main.text if main else None!r}')
+-                self.inventory.wield(best)
++        else:
++            best = self._air_elemental_weapon(main, swallowed)
++        if best is not None and main is not best and (main is None or main.status != Item.CURSED):
++            self.log(f'ENGULFED: wielding {best.text!r} instead of {main.text if main else None!r}')
++            self.inventory.wield(best)
+         while True:
+             mask = utils.isin(self.glyphs, G.SWALLOW)
+             if not mask.any():
+                 break
+             assert self.melee_attack(*list(zip(*mask.nonzero()))[0])
+ 
++    def _air_elemental_weapon(self, main, swallowed):
++        prop = self.character.prop
++        if self.current_level().dungeon_number != Level.DUNGEONS_OF_DOOM or \
++                prop.blind or prop.hallu or prop.polymorph or main is None or main.status == Item.CURSED or \
++                not main.is_unambiguous() or main.object.name not in ('pick-axe', 'dwarvish mattock'):
++            return None
++        # An ordinary air elemental gets three 1d10 engulf attacks per turn.
++        if self.blstats.hitpoints <= 30:
++            return None
++        # Swallow glyphs contain eight consecutive tiles per species.
++        mnum = (int(self.glyphs[swallowed][0]) - nh.GLYPH_SWALLOW_OFF) // 8
++        if nh.permonst(mnum).mname != 'air elemental':
++            return None
++        return next((item for item in self.inventory.items
++                     if item.is_unambiguous() and item.object.name == 'long sword' and item.dmg_bonus and
++                     'Excalibur' in (item.text or '') and item.status in (Item.UNCURSED, Item.BLESSED) and
++                     item.shop_status == Item.NOT_SHOP), None)
++
+     def _is_corpse_editable(self, monster_id, age_turn):
+         permonst = MON.permonst(monster_id)
+ 
+diff --git a/nethackers.solution.json b/nethackers.solution.json
+index 899e548..39ab962 100644
+--- a/nethackers.solution.json
++++ b/nethackers.solution.json
+@@ -1,8 +1,9 @@
+ {
+   "schema": "nethackers.solution/v1",
+-  "name": "daglar-zLeadersBest4412576",
++  "name": "Knight wield Excalibur in an air elemental",
+   "root": ".",
+   "parents": [
++    "github.com/daglar-dragomirov/nethacker@4f803662c2608bf8d165175ab771cae77006e35b",
+     "github.com/daglar-dragomirov/nethacker@ccfb1251179bad749ece88d384956363ffb2db56",
+     "github.com/daglar-dragomirov/nethacker@44b29b9299c5dcfb76e3fc6081004727c58db19a",
+     "github.com/DT6A/nethacker@37f9da35d0dbf98ed15bf89735bd601f0c0eac02",
