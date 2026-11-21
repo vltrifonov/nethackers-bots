@@ -1,0 +1,55 @@
+diff --git a/d_vlomshakov_ca58a0e/pf_hh/agent.py b/d_vlomshakov_ca58a0e/pf_hh/agent.py
+index 0c9ee11..4b45a7a 100644
+--- a/d_vlomshakov_ca58a0e/pf_hh/agent.py
++++ b/d_vlomshakov_ca58a0e/pf_hh/agent.py
+@@ -1121,13 +1121,21 @@ class Agent:
+             return 0
+         return jf_config.DIVE_TOOL_HUNGER_GAP
+ 
++    def _early_healer_hunger_gap(self, gap):
++        bl = self.blstats
++        if self.character.role == Character.HEALER and self.character.race == Character.HUMAN and \
++                bl.depth == 1 and bl.experience_level <= 3 and not self.global_logic.dive.diving and \
++                self.current_level().dungeon_number == Level.DUNGEONS_OF_DOOM:
++            # Let the tour's faint guard shelter through the short prayer window.
++            # Urgent threat, HP and starvation prayers have their own admission checks.
++            return max(gap, 1100)
++        return gap
++
+     def _faint_prayer_gap(self):
+         if not self.global_logic.dive.diving:
+             by_xl = self._tour_gaps_by_xl()
+-            if by_xl is not None:
+-                return by_xl[2]
+-            if jf_config.TOUR_FAINT_PRAYER_GAP:
+-                return jf_config.TOUR_FAINT_PRAYER_GAP
++            gap = by_xl[2] if by_xl is not None else jf_config.TOUR_FAINT_PRAYER_GAP or jf_config.FAINT_PRAYER_GAP
++            return self._early_healer_hunger_gap(gap)
+         elif self._dive_tool_hunger_gap():
+             return self._dive_tool_hunger_gap()
+         elif jf_config.DIVE_FAINT_PRAYER_GAP and self.blstats.depth >= jf_config.DIVE_GAP_MIN_DEPTH:
+@@ -1329,7 +1337,8 @@ class Agent:
+         # left every Dlvl-1 grind Fainting for hundreds of turns and praying at Fainting on a 400-turn
+         # gap (failures, level drain, starvation). With EARLY_FIXES pray at Weak from a 900-turn gap
+         # (rnz(350) failure risk ~6%) instead of fainting first.
+-        return 900 if jf_config.EARLY_FIXES else self.SAFE_HUNGER_PRAYER_GAP
++        gap = 900 if jf_config.EARLY_FIXES else self.SAFE_HUNGER_PRAYER_GAP
++        return self._early_healer_hunger_gap(gap)
+ 
+     def _food_first(self):
+         """Plenty of food carried (e.g. bought): eat it rather than risk a hunger prayer below FOOD_FIRST_GAP
+diff --git a/nethackers.solution.json b/nethackers.solution.json
+index 5f5b00b..d49c48b 100644
+--- a/nethackers.solution.json
++++ b/nethackers.solution.json
+@@ -1,8 +1,9 @@
+ {
+   "schema": "nethackers.solution/v1",
+-  "name": "daglar-zPubPoint101",
++  "name": "Healer first-level hunger prayer timing",
+   "root": ".",
+   "parents": [
++    "github.com/daglar-dragomirov/nethacker@d09613e36253d56d18a0c975c94faed4de80eb22",
+     "github.com/daglar-dragomirov/nethacker@ccfb1251179bad749ece88d384956363ffb2db56",
+     "github.com/daglar-dragomirov/nethacker@44b29b9299c5dcfb76e3fc6081004727c58db19a",
+     "github.com/DT6A/nethacker@37f9da35d0dbf98ed15bf89735bd601f0c0eac02",
