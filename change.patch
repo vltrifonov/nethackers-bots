@@ -1,0 +1,21 @@
+diff --git a/d_CleverShovel_e13ed40/autoascend/dive_logic.py b/d_CleverShovel_e13ed40/autoascend/dive_logic.py
+index a758bef..a687328 100755
+--- a/d_CleverShovel_e13ed40/autoascend/dive_logic.py
++++ b/d_CleverShovel_e13ed40/autoascend/dive_logic.py
+@@ -4622,6 +4622,16 @@ class DiveLogic:
+         bl = agent.blstats
+         monsters = agent.get_visible_monsters()
+         adjacent = [m for m in monsters if max(abs(m[1] - bl.y), abs(m[2] - bl.x)) <= 1]
++        if self.shot_recently():
++            gy, gx = int(bl.y), int(bl.x)
++            char_grid = agent.last_observation['chars']
++            y0, x0 = max(0, gy - 6), max(0, gx - 8)
++            local = [''.join(chr(int(c)) for c in row) for row in char_grid[y0:gy + 7, x0:gx + 9]]
++            seen = [(m[3].mname, int(m[1]), int(m[2])) for m in monsters
++                    if max(abs(m[1] - gy), abs(m[2] - gx)) <= 8]
++            stairs = [(int(p[0]), int(p[1])) for p in level.stair_destination]
++            agent.log(f'DIG-SHOT at {(gy, gx)} pit={self._in_own_pit()} monsters={seen} stairs={stairs} '
++                      f'origin={(y0, x0)} chars={local} msg={agent.message!r}')
+         # a known wand of digging zapped down holes the floor at once (zap.c zap_dig -> dighole): the escape
+         # where the pick-axe can't work, and one flood roll instead of the pick's two on Medusa's islands
+         # (top-level only: a wand inside a bag has no letter to zap it by)
