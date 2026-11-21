@@ -1,0 +1,42 @@
+diff --git a/base/nhbot_v2/agent.py b/base/nhbot_v2/agent.py
+index 1e2525b..5017c83 100644
+--- a/base/nhbot_v2/agent.py
++++ b/base/nhbot_v2/agent.py
+@@ -2768,6 +2768,28 @@ class Agent:
+             return self.inventory.items.boots is None
+         return self.inventory.items.gloves is None and self.inventory.items.main_hand is None
+ 
++    def _trace_raven_mirror(self, y, x):
++        bl = self.blstats
++        dive = self.global_logic.dive
++        if self.character.role != Character.BARBARIAN or not self.character.prop.blind or \
++                bl.hitpoints * 3 > bl.max_hitpoints or not dive.on_medusa_level():
++            return
++        key = (self.current_level().key(), bl.time)
++        if getattr(self, '_mirror_probe_key', None) == key:
++            return
++        mirrors = [(item.text, item.status) for item in self.inventory.items
++                   if item.is_unambiguous() and item.object.name == 'mirror']
++        if not mirrors:
++            return
++        self._mirror_probe_key = key
++        level = self.current_level()
++        targets = [(m[3].mname, int(m[1]), int(m[2]), int(m[4])) for m in self.get_visible_monsters()]
++        recent = [msg for msg in self._message_history[-24:] if 'raven' in msg.lower()][-4:]
++        self.log(f'RAVEN_MIRROR_DIAG at={(int(bl.y), int(bl.x))} target={(int(y), int(x))} '
++                 f'glyph={int(self.glyphs[y, x])} terrain={int(level.objects[y, x])} '
++                 f'closed={level.objects[y, x] in G.DOOR_CLOSED} near={targets[:8]} '
++                 f'mirrors={mirrors[:2]} recent={recent!r}')
++
+     def _fight2_perform_action(self, best_action, wait_counter):
+         if best_action[0] == 'move':
+             _, dy, dx = best_action
+@@ -2781,6 +2803,8 @@ class Agent:
+             _, dy, dx = best_action
+             target_y = self.blstats.y + dy
+             target_x = self.blstats.x + dx
++            if jf_log.enabled():
++                self._trace_raven_mirror(target_y, target_x)
+             if not self._keep_digging_tool_wielded() and self.wield_best_melee_weapon():
+                 return wait_counter
+             with self.env.debug_tiles([[self.blstats.y, self.blstats.x],
