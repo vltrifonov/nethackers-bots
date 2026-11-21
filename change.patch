@@ -1,0 +1,47 @@
+diff --git a/base/pf_dt448_s25/dive_logic.py b/base/pf_dt448_s25/dive_logic.py
+index e6934c1..faf2ad9 100644
+--- a/base/pf_dt448_s25/dive_logic.py
++++ b/base/pf_dt448_s25/dive_logic.py
+@@ -2441,8 +2441,26 @@ class DiveLogic:
+                 ups.append(p)
+         if not ups:
+             yield False
+-        yield True
+         y, x = min(ups, key=lambda p: dis[p])
++        hold_at = (level.key(), bl.y, bl.x)
++        prior, since = getattr(self, '_retreat_ward_hold', (None, bl.time))
++        if prior != hold_at:
++            since = bl.time
++        # A freshly verified ward can be safer than several walking turns beside a fast foe.
++        hold = (crowd is None and dis[y, x] > 1 and self._elbereth_resting and bl.time - since < 5
++                and bl.hitpoints < RETREAT_BELOW * bl.max_hitpoints and agent.character.role == Character.RANGER
++                and agent.character.race == Character.ELF and not agent.character.prop.blind
++                and not agent.character.prop.polymorph and not self.shot_recently()
++                and bl.time - getattr(self, '_hurt_on_elbereth', -100) > 2
++                and (agent.inventory.engraving_below_me or '').lower() == 'elbereth'
++                and not any(self._ignores_elbereth(m[3]) for m in self._near_hostiles(radius=3)))
++        yield True
++        if hold:
++            if prior != hold_at:
++                agent.log('RETREAT briefly holding on a verified Elbereth')
++            self._retreat_ward_hold = (hold_at, since)
++            agent.search(1)
++            return
+         agent.log(f'RETREAT upstairs at hp {bl.hitpoints}/{bl.max_hitpoints}')
+         # don't come straight back down the same staircase into the same fight
+         if self._arrived is not None and self._arrived[0] == level.key():
+diff --git a/nethackers.solution.json b/nethackers.solution.json
+index d8365e8..82f6420 100644
+--- a/nethackers.solution.json
++++ b/nethackers.solution.json
+@@ -1,8 +1,9 @@
+ {
+   "schema": "nethackers.solution/v1",
+-  "name": "daglar-zLeadersBest3655166",
++  "name": "Elf Ranger holds a working ward before retreating",
+   "root": ".",
+   "parents": [
++    "github.com/daglar-dragomirov/nethacker@8757665d9655ea940b60e9029b8f2e08baf394e5",
+     "github.com/daglar-dragomirov/nethacker@ccfb1251179bad749ece88d384956363ffb2db56",
+     "github.com/daglar-dragomirov/nethacker@44b29b9299c5dcfb76e3fc6081004727c58db19a",
+     "github.com/DT6A/nethacker@37f9da35d0dbf98ed15bf89735bd601f0c0eac02",
