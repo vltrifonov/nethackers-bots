@@ -1,0 +1,93 @@
+diff --git a/base/pf_v37/agent.py b/base/pf_v37/agent.py
+index b3d68c0..76053cd 100644
+--- a/base/pf_v37/agent.py
++++ b/base/pf_v37/agent.py
+@@ -626,11 +626,16 @@ class Agent:
+     def _update_level_items(self):
+         level = self.current_level()
+ 
+-        level.items[self.blstats.y, self.blstats.x] = self.inventory.items_below_me
+-        level.item_count[self.blstats.y, self.blstats.x] = len(self.inventory.items_below_me)
++        y, x = self.blstats.y, self.blstats.x
++        skipped = self.inventory._blind_look_skipped
++        if not skipped:
++            level.items[y, x] = self.inventory.items_below_me
++            level.item_count[y, x] = len(self.inventory.items_below_me)
+ 
+         # TODO: optimize
+         ignore_mask = utils.isin(self.glyphs, G.MONS, G.PETS)  # TODO: effects, etc
++        if skipped:
++            ignore_mask[y, x] = True
+         item_mask = level.item_count != 0
+         mask = item_mask & ~ignore_mask
+         level.item_disagreement_counter[~mask] = 0
+@@ -734,6 +739,8 @@ class Agent:
+                     self.log(f'CORPSE kill {mname} recorded={recorded} was_at={was} bodies_now={body} '
+                              f'me={(self.blstats.y, self.blstats.x)}')
+ 
++        if self.inventory._blind_look_skipped:
++            return
+         old_possible_corpses = level.corpses_to_eat[self.blstats.y, self.blstats.x].copy()
+         del level.corpses_to_eat[self.blstats.y, self.blstats.x]
+ 
+diff --git a/base/pf_v37/item/inventory.py b/base/pf_v37/item/inventory.py
+index b0ce9b8..752147a 100644
+--- a/base/pf_v37/item/inventory.py
++++ b/base/pf_v37/item/inventory.py
+@@ -47,6 +47,7 @@ class Inventory:
+         self.items_below_me = None
+         self.letters_below_me = None
+         self.engraving_below_me = None
++        self._blind_look_skipped = False
+ 
+         self.skip_engrave_counter = 0
+         self.scare_labels = set()     # scroll labels known to be scare monster in this game (power.note_dust_prompt)
+@@ -120,13 +121,15 @@ class Inventory:
+         self.item_manager.update()
+         self.items.update()
+ 
+-        if self._previous_blstats is None or \
++        sight_returned = self._blind_look_skipped and not self.agent.character.prop.blind
++        if sight_returned or self._previous_blstats is None or \
+                 (self._previous_blstats.y, self._previous_blstats.x, \
+                  self._previous_blstats.level_number, self._previous_blstats.dungeon_number) != \
+                 (self.agent.blstats.y, self.agent.blstats.x, \
+                  self.agent.blstats.level_number, self.agent.blstats.dungeon_number) or \
+                 (self.engraving_below_me is None or self.engraving_below_me.lower() == 'elbereth'):
+-            assume_appropriate_message = self._previous_blstats is not None and not self.engraving_below_me
++            assume_appropriate_message = not sight_returned and self._previous_blstats is not None and \
++                not self.engraving_below_me
+ 
+             self._previous_blstats = self.agent.blstats
+             self.items_below_me = None
+@@ -533,6 +536,15 @@ class Inventory:
+         assert not items
+ 
+     def get_items_below_me(self, assume_appropriate_message=False):
++        # A blind floor look takes a turn and cannot read an Elbereth in dust.
++        dive = getattr(getattr(self.agent, 'global_logic', None), 'dive', None)
++        self._blind_look_skipped = bool(self.agent.character.prop.blind and
++                                        dive is not None and dive.diving and dive.on_medusa_level())
++        if self._blind_look_skipped:
++            self.items_below_me = []
++            self.letters_below_me = []
++            self.engraving_below_me = ''
++            return self.items_below_me
+         with self.agent.panic_if_position_changes():
+             with self.agent.atom_operation():
+                 if not assume_appropriate_message:
+diff --git a/nethackers.solution.json b/nethackers.solution.json
+index 591a72c..294e877 100644
+--- a/nethackers.solution.json
++++ b/nethackers.solution.json
+@@ -1,8 +1,9 @@
+ {
+   "schema": "nethackers.solution/v1",
+-  "name": "daglar-zLeadersSeed407717",
++  "name": "Samurai blind floor refresh",
+   "root": ".",
+   "parents": [
++    "github.com/daglar-dragomirov/nethacker@9a387c4fb6b8c166e2e6e63617bd6e588f40fddc",
+     "github.com/daglar-dragomirov/nethacker@ccfb1251179bad749ece88d384956363ffb2db56",
+     "github.com/daglar-dragomirov/nethacker@44b29b9299c5dcfb76e3fc6081004727c58db19a",
+     "github.com/DT6A/nethacker@37f9da35d0dbf98ed15bf89735bd601f0c0eac02",
