@@ -1,0 +1,62 @@
+diff --git a/base/nhbot_v3/dive_logic.py b/base/nhbot_v3/dive_logic.py
+index ec01d32..a5c7345 100644
+--- a/base/nhbot_v3/dive_logic.py
++++ b/base/nhbot_v3/dive_logic.py
+@@ -3777,11 +3777,27 @@ class DiveLogic:
+         if ESCAPE_V2 and adjacent and not agent.character.prop.blind and \
+                 (agent.inventory.engraving_below_me or '').lower() != 'elbereth' and \
+                 not agent.character.prop.polymorph and agent.can_engrave():
++            if self._step_away_from_wrapping_monster(target, monsters):
++                return ('step', target)
+             spot = (level.key(), bl.y, bl.x, 'scare')
+             if self.__dict__.get('_elbereth_tries', {}).get(spot, 0) < 2:
+                 return ('scare', spot)   # (counted when done: this also runs as a mere condition check)
+         return ('step', target)
+ 
++    def _step_away_from_wrapping_monster(self, target, monsters):
++        """Take a clear dry step away from a known aquatic grab before it can close."""
++        agent = self.agent
++        bl = agent.blstats
++        eels = [(m[1], m[2]) for m in monsters if m[3].mname in ('giant eel', 'electric eel', 'kraken')]
++        if not any(max(abs(y - bl.y), abs(x - bl.x)) <= 1 for y, x in eels):
++            return False
++        if bl.time - self._eel_hold_turn <= 3 or self._EEL_GRAB.search(agent.message) or \
++                'loosens its grip slightly' in agent.message:
++            return False
++        return (max(abs(target[0] - bl.y), abs(target[1] - bl.x)) == 1 and agent.bfs()[target] == 1
++                and agent.current_level().objects[target] not in WET and not agent.monster_tracker.monster_mask[target]
++                and all(max(abs(y - target[0]), abs(x - target[1])) > 1 for y, x in eels))
++
+     _EEL_GRAB = re.compile(r'(eel|kraken) swings itself around you|You cannot escape from the [a-z ]*(eel|kraken)')
+ 
+     def _raven_gap_wait(self):
+@@ -6385,6 +6401,14 @@ class DiveLogic:
+         for _ in range(3):
+             tries = self._dig_tries.get(key, 0) + 1
+             self._dig_tries[key] = tries
++            if jf_log.enabled() and self._wet_neighbours(*spot) > 0:
++                level = agent.current_level()
++                dis = agent.bfs()
++                land = [(int(y), int(x), int(dis[y, x]), self._wet_neighbours(y, x), self._crawl_exits(y, x))
++                        for y, x in zip(*((dis > 0) & (dis <= 4)).nonzero())
++                        if level.walkable[y, x] and not agent.monster_tracker.monster_mask[y, x]]
++                agent.log(f'FLOOD CHOICE pos={spot} pit={self._in_own_pit()} wet={self._wet_neighbours(*spot)} '
++                          f'crawl={self._crawl_exits(*spot)} alternatives={land}')
+             agent.log(f'DIVE digging down with {tool.text!r} (try {tries})')
+             if DIG_BOULDER_FIX:
+                 self._dig_mark = (key, spot, len(agent._message_history))
+diff --git a/nethackers.solution.json b/nethackers.solution.json
+index 584a3d6..9245a31 100644
+--- a/nethackers.solution.json
++++ b/nethackers.solution.json
+@@ -1,8 +1,9 @@
+ {
+   "schema": "nethackers.solution/v1",
+-  "name": "vltrifonov-priest-unblocked-loot",
++  "name": "vltrifonov-priest-dry-step-from-eel",
+   "root": ".",
+   "parents": [
++    "github.com/vltrifonov/nethackers-bots@ffe67f7dba206f4aa0fdf2d52414b6c5eec44dec",
+     "github.com/daglar-dragomirov/nethacker@e23b8ff9d54e5952feca4561d69367802a189471",
+     "github.com/daglar-dragomirov/nethacker@ccfb1251179bad749ece88d384956363ffb2db56",
+     "github.com/daglar-dragomirov/nethacker@44b29b9299c5dcfb76e3fc6081004727c58db19a",
