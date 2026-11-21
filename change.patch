@@ -1,0 +1,136 @@
+diff --git a/base/nhbot_ranger_a687_enchant/agent.py b/base/nhbot_ranger_a687_enchant/agent.py
+index 677a9e8..dc6e151 100644
+--- a/base/nhbot_ranger_a687_enchant/agent.py
++++ b/base/nhbot_ranger_a687_enchant/agent.py
+@@ -2192,7 +2192,7 @@ class Agent:
+ 
+     # DURABLE_ELBERETH (jf_config): engrave.c ENGRAVE text has no 1-in-25 letter typos and loses a letter to a wipe only
+     # ~1 time in 13-26 (wipe_engr_at), where a dust Elbereth garbles 28% of writes and smudges every ~85 turns
+-    _DURABLE_PROMPT = re.compile(r'What do you want to (engrave|add to the engraving)')
++    _DURABLE_PROMPT = re.compile(r'What do you want to (engrave|add to the engraving|burn into)')
+ 
+     def durable_engrave_tool(self):
+         """DURABLE_ELBERETH: the item to engrave a lasting Elbereth with, or None: an athame (not known cursed: one
+@@ -2226,7 +2226,7 @@ class Agent:
+         return None if best is None else best[1]
+ 
+     def _engrave_piece(self, letter, text, add):
+-        """One engraving with the item at `letter`: 'ok', 'dust' (it only writes in the dust), 'dull' or 'fail'."""
++        """Result of one attempt: 'ok', 'dust', 'dull', 'empty' or 'fail'."""
+         result = 'fail'
+ 
+         def gen():
+@@ -2243,6 +2243,9 @@ class Agent:
+                 if 'too dull for engraving' in msg:
+                     result = 'dull'
+                     return
++                if 'too worn out to engrave' in msg:
++                    result = 'empty'
++                    return
+                 if 'write in the dust' in msg:
+                     result = 'dust'
+                     break
+@@ -2270,15 +2273,17 @@ class Agent:
+         return result
+ 
+     def engrave_durable(self, item):
+-        """DURABLE_ELBERETH: engrave Elbereth with `item` (see durable_engrave_tool) -- an athame in one piece, any
+-        other blade in three ('Elb', 'ere', 'th'): engrave.c dulls a weapon by len/2 per engraving and allows
+-        (spe+3)*2+1 letters, so a +0 blade writes the three pieces and ends at -3 (one 8-letter piece would need +1);
+-        each piece takes len helpless turns. True when it reads back as Elbereth."""
++        """Write the full ward with a fire wand or athame, or in three pieces with another blade.
++
++        A +0 blade can write only seven letters at once and dulls as it writes.
++        Return whether the resulting engraving reads back as Elbereth.
++        """
+         letter = self.inventory.items.get_letter(item)
+-        athame = item.object == O.from_name('athame') and item.status != Item.CURSED
+-        pieces = ['Elbereth'] if athame else ['Elb', 'ere', 'th']
++        fire = item.category == nh.WAND_CLASS and item.object.name == 'fire'
++        athame = not fire and item.object == O.from_name('athame') and item.status != Item.CURSED
++        pieces = ['Elbereth'] if fire or athame else ['Elb', 'ere', 'th']
+         self.log(f'DURABLE Elbereth with {item.text!r} ({len(pieces)} pieces)')
+-        if not athame:
++        if not (fire or athame):
+             # the blade ends ~3 points duller (its enchantment may not be known): one Elbereth per blade
+             self._durable_bad_letters = getattr(self, '_durable_bad_letters', set()) | {letter}
+         # one atom: a strategy switch between the pieces (a prayer preempted after 'Elb') would leave a partial
+@@ -2288,7 +2293,10 @@ class Agent:
+                 res = self._engrave_piece(letter, piece, 'n' if k == 0 else 'y')
+                 if res != 'ok':
+                     self.log(f'DURABLE Elbereth stopped at {piece!r}: {res}')
+-                    self._durable_bad_letters = getattr(self, '_durable_bad_letters', set()) | {letter}
++                    if fire and res == 'empty':
++                        self.inventory.empty_wands.add(item.text)
++                    elif not fire:
++                        self._durable_bad_letters = getattr(self, '_durable_bad_letters', set()) | {letter}
+                     break
+             self.inventory.get_items_below_me()
+         text = self.inventory.engraving_below_me or ''
+diff --git a/base/nhbot_ranger_a687_enchant/dive_logic.py b/base/nhbot_ranger_a687_enchant/dive_logic.py
+index 4edca38..a0a044f 100644
+--- a/base/nhbot_ranger_a687_enchant/dive_logic.py
++++ b/base/nhbot_ranger_a687_enchant/dive_logic.py
+@@ -6397,7 +6397,8 @@ class DiveLogic:
+                 spot = (agent.current_level().key(), bl.y, bl.x, self._in_own_pit())
+                 held[spot] = tries.get(spot, 0)
+             return False
+-        near = [m for m in agent.get_visible_monsters()
++        monsters = agent.get_visible_monsters()
++        near = [m for m in monsters
+                 if max(abs(m[1] - bl.y), abs(m[2] - bl.x)) <= ELBERETH_DIG_RADIUS and
+                 not self._melee_ignores_elbereth(m[3])]
+         # Weak or Fainting: a faint leaves us helpless for turns in the middle of a dig (base-jf14 s8: a troll,
+@@ -6426,6 +6427,23 @@ class DiveLogic:
+         self.__dict__.setdefault('_engrave_turn', {})[spot] = bl.time
+         agent.log(f'DIVE Elbereth before digging{" (blind)" if blind else ""}'
+                   f'{" in the pit" if spot[3] else ""}: {[m[3].mname for m in near]}')
++        # A fire wand can make a ward that survives ordinary wipes while we cannot act.
++        # Try it once in the pit and use dust on later attempts if it did not take.
++        prop = agent.character.prop
++        level = agent.current_level()
++        if (spot[3] and tries[spot] == 1 and agent.character.role == Character.RANGER
++                and not (blind or prop.hallu or prop.confusion or prop.stun or self.levitating())
++                and level.dungeon_number == Level.DUNGEONS_OF_DOOM and level.objects[bl.y, bl.x] != SS.S_ice
++                and not self._wet_neighbours(bl.y, bl.x)):
++            adjacent = [m for m in monsters if utils.adjacent((m[1], m[2]), (bl.y, bl.x))]
++            if len(adjacent) >= 2 and all(not self._melee_ignores_elbereth(m[3]) for m in adjacent):
++                fire = next((i for i in agent.inventory.items if i.category == nh.WAND_CLASS
++                             and i.is_unambiguous() and i.object.name == 'fire' and i.is_offensive_usable_wand()
++                             and not agent.inventory.is_known_empty(i) and i.status != Item.CURSED
++                             and i.shop_status == Item.NOT_SHOP), None)
++                if fire is not None:
++                    agent.engrave_durable(fire)
++                    return True
+         agent.engrave('Elbereth')
+         return True
+ 
+diff --git a/base/nhbot_ranger_a687_enchant/item/inventory.py b/base/nhbot_ranger_a687_enchant/item/inventory.py
+index f50b809..b297626 100644
+--- a/base/nhbot_ranger_a687_enchant/item/inventory.py
++++ b/base/nhbot_ranger_a687_enchant/item/inventory.py
+@@ -607,7 +607,8 @@ class Inventory:
+                     # LOOK is necessary even when 'Things that are here' popup is present for some very rare cases
+                     self.agent.step(A.Command.LOOK)
+ 
+-                if 'Something is ' in self.agent.message and 'You read: "' in self.agent.message:
++                if ('Something is ' in self.agent.message or 'Some text has been burned into ' in self.agent.message) \
++                        and 'You read: "' in self.agent.message:
+                     index = self.agent.message.index('You read: "') + len('You read: "')
+                     assert '"' in self.agent.message[index:]
+                     engraving = self.agent.message[index: index + self.agent.message[index:].index('"')]
+diff --git a/nethackers.solution.json b/nethackers.solution.json
+index fe4a7b6..86684de 100644
+--- a/nethackers.solution.json
++++ b/nethackers.solution.json
+@@ -1,8 +1,9 @@
+ {
+   "schema": "nethackers.solution/v1",
+-  "name": "daglar-zLeadersBest2014111",
++  "name": "Ranger durable ward in a dry pit",
+   "root": ".",
+   "parents": [
++    "github.com/daglar-dragomirov/nethacker@36fdaf5677f657cb36b2a0f988578de7a014d31c",
+     "github.com/daglar-dragomirov/nethacker@ccfb1251179bad749ece88d384956363ffb2db56",
+     "github.com/daglar-dragomirov/nethacker@44b29b9299c5dcfb76e3fc6081004727c58db19a",
+     "github.com/DT6A/nethacker@37f9da35d0dbf98ed15bf89735bd601f0c0eac02",
