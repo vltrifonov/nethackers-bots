@@ -1,0 +1,1673 @@
+ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 294, in preempt
+    val = f.run()
+          ^^^^^^^
+  File "/sol/d_CleverShovel_911c949/pf_base/strategy.py", line 48, in run
+    next(gen)
+  File "/sol/d_CleverShovel_911c949/pf_base/exploration_logic.py", line 520, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 2339, in go_to
+    self.move(y, x)
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 2008, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_base.exceptions.AgentPanic: agent position do not match after "move": expected (4, 42), got (5, 41)
+
+[s14151 t11976 d1 0:1 xl6 hp48/48] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_911c949/pf_base/item/inventory.py", line 602, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 186, in atom_operation
+    self.update_state()
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 694, in update_state
+    self.call_update_functions()
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 705, in call_update_functions
+    func()
+  File "/sol/d_CleverShovel_911c949/pf_base/item/inventory.py", line 159, in f
+    raise AgentPanic('items below me changed')
+pf_base.exceptions.AgentPanic: items below me changed
+
+[s14184 t11977 d1 0:1 xl6 hp48/48] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_911c949/pf_base/item/inventory.py", line 602, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 186, in atom_operation
+    self.update_state()
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 694, in update_state
+    self.call_update_functions()
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 705, in call_update_functions
+    func()
+  File "/sol/d_CleverShovel_911c949/pf_base/item/inventory.py", line 159, in f
+    raise AgentPanic('items below me changed')
+pf_base.exceptions.AgentPanic: items below me changed
+
+[s14224 t12000 d1 0:1 xl6 hp44/48] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(6), np.int64(32)) acts=[SPACE:67 SEARCH:48 SW:46 NW:46 NUM_5:45] gotos=[open_visit_search(2, 44):4 check_items(7, 24):3 open_visit_search(16, 55):2]
+[s14481 t12219 d1 0:1 xl6 hp48/48] PANIC AgentPanic: agent position do not match after "move": expected (8, 30), got (7, 31)
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_911c949/pf_base/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 294, in preempt
+    val = f.run()
+          ^^^^^^^
+  File "/sol/d_CleverShovel_911c949/pf_base/strategy.py", line 48, in run
+    next(gen)
+  File "/sol/d_CleverShovel_911c949/pf_base/exploration_logic.py", line 520, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 2339, in go_to
+    self.move(y, x)
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 2008, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_base.exceptions.AgentPanic: agent position do not match after "move": expected (8, 30), got (7, 31)
+
+[s14506 t12227 d1 0:1 xl6 hp48/48] PANIC AgentPanic: agent position do not match after "move": expected (9, 29), got (9, 28)
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_911c949/pf_base/strategy.py", line 165, in f
+    next(gen)
+  File "/sol/d_CleverShovel_911c949/pf_base/strategy.py", line 100, in f
+    next(v1)
+  File "/sol/d_CleverShovel_911c949/pf_base/utils.py", line 134, in f
+    next(it)
+  File "/sol/d_CleverShovel_911c949/pf_base/item/inventory.py", line 1679, in check_items
+    self.agent.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 0, 255), is_path=True))
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 2339, in go_to
+    self.move(y, x)
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 2008, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_base.exceptions.AgentPanic: agent position do not match after "move": expected (9, 29), got (9, 28)
+
+[s14608 t12263 d1 0:1 xl6 hp48/48] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_911c949/pf_base/item/inventory.py", line 602, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 186, in atom_operation
+    self.update_state()
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 694, in update_state
+    self.call_update_functions()
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 705, in call_update_functions
+    func()
+  File "/sol/d_CleverShovel_911c949/pf_base/item/inventory.py", line 159, in f
+    raise AgentPanic('items below me changed')
+pf_base.exceptions.AgentPanic: items below me changed
+
+[s14823 t12498 d1 0:1 xl6 hp48/48] FAINT guard (Weak, idle): Elbereth vs [] hp=48/48
+[s14843 t12502 d1 0:1 xl6 hp48/48] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=3 pos=(np.int64(4), np.int64(23)) acts=[W:70 SW:56 E:54 SEARCH:53 SPACE:48] gotos=[check_items(7, 31):21 open_visit_search(6, 19):15 open_visit_search(9, 36):4]
+[s14926 t12574 d1 0:1 xl6 hp48/48] PRAY hp=48/48 hunger=4 gap=1601 reason=None model[ok200=0.99 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=70 p_answered=0.99]
+[s14938 t12577 d1 0:1 xl6 hp48/48] PRAY result ok model[ok200=0.22 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=70] prayers=9 failures=0
+[s14938 t12577 d1 0:1 xl6 hp48/48] HOLD over: wiping our Elbereth at (np.int64(4), np.int64(23))
+[s15065 t12607 d1 0:1 xl6 hp48/48] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_911c949/pf_base/item/inventory.py", line 602, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 186, in atom_operation
+    self.update_state()
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 694, in update_state
+    self.call_update_functions()
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 705, in call_update_functions
+    func()
+  File "/sol/d_CleverShovel_911c949/pf_base/item/inventory.py", line 159, in f
+    raise AgentPanic('items below me changed')
+pf_base.exceptions.AgentPanic: items below me changed
+
+[s15326 t12791 d1 0:1 xl6 hp48/48] FIGHT stall of 33 turns ended (contact): ['jackal', 'manes', 'yellow mold']
+[s15373 t12801 d1 0:1 xl6 hp48/48] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_911c949/pf_base/item/inventory.py", line 602, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 186, in atom_operation
+    self.update_state()
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 694, in update_state
+    self.call_update_functions()
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 705, in call_update_functions
+    func()
+  File "/sol/d_CleverShovel_911c949/pf_base/item/inventory.py", line 159, in f
+    raise AgentPanic('items below me changed')
+pf_base.exceptions.AgentPanic: items below me changed
+
+[s15410 t12804 d1 0:1 xl6 hp48/48] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_911c949/pf_base/item/inventory.py", line 602, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 186, in atom_operation
+    self.update_state()
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 694, in update_state
+    self.call_update_functions()
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 705, in call_update_functions
+    func()
+  File "/sol/d_CleverShovel_911c949/pf_base/item/inventory.py", line 159, in f
+    raise AgentPanic('items below me changed')
+pf_base.exceptions.AgentPanic: items below me changed
+
+[s15694 t12983 d1 0:1 xl6 hp48/48] PANIC AgentPanic: agent position do not match after "move": expected (4, 58), got (3, 59)
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_911c949/pf_base/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 294, in preempt
+    val = f.run()
+          ^^^^^^^
+  File "/sol/d_CleverShovel_911c949/pf_base/strategy.py", line 48, in run
+    next(gen)
+  File "/sol/d_CleverShovel_911c949/pf_base/exploration_logic.py", line 520, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 2339, in go_to
+    self.move(y, x)
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 2008, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_base.exceptions.AgentPanic: agent position do not match after "move": expected (4, 58), got (3, 59)
+
+[s15720 t13004 d1 0:1 xl6 hp48/48] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(3), np.int64(55)) acts=[SPACE:154 SEARCH:88 E:74 LOOK:70 THROW:61] gotos=[check_items(9, 27):3 open_visit_search(4, 24):2 eat_corpses_from_ground(7, 17):2]
+[s15994 t13292 d1 0:1 xl6 hp45/48] RANGED hit: holds and Elbereth waits off for 8 turns
+[s16131 t13348 d1 0:1 xl6 hp48/48] INTRINSIC telepathy
+[s16141 t13348 d1 0:1 xl6 hp48/48] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_911c949/pf_base/item/inventory.py", line 602, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 186, in atom_operation
+    self.update_state()
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 694, in update_state
+    self.call_update_functions()
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 705, in call_update_functions
+    func()
+  File "/sol/d_CleverShovel_911c949/pf_base/item/inventory.py", line 159, in f
+    raise AgentPanic('items below me changed')
+pf_base.exceptions.AgentPanic: items below me changed
+
+[s16360 t13503 d1 0:1 xl6 hp48/48] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(4), np.int64(35)) acts=[SPACE:91 SEARCH:59 NUM_5:54 W:49 NW:38] gotos=[open_visit_search(4, 60):2 eat_corpses_from_ground(3, 55):2 check_items(5, 34):2]
+[s16576 t13793 d1 0:1 xl6 hp48/48] PANIC AgentPanic: agent position do not match after "move": expected (14, 55), got (15, 55)
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_911c949/pf_base/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 294, in preempt
+    val = f.run()
+          ^^^^^^^
+  File "/sol/d_CleverShovel_911c949/pf_base/strategy.py", line 48, in run
+    next(gen)
+  File "/sol/d_CleverShovel_911c949/pf_base/exploration_logic.py", line 520, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 2339, in go_to
+    self.move(y, x)
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 2008, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_base.exceptions.AgentPanic: agent position do not match after "move": expected (14, 55), got (15, 55)
+
+[s16594 t13800 d1 0:1 xl6 hp48/48] PANIC AgentPanic: agent position do not match after "move": expected (13, 55), got (14, 55)
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_911c949/pf_base/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 296, in preempt
+    val = f()
+          ^^^
+  File "/sol/d_CleverShovel_911c949/pf_base/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/d_CleverShovel_911c949/pf_base/exploration_logic.py", line 520, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 2339, in go_to
+    self.move(y, x)
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 2008, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_base.exceptions.AgentPanic: agent position do not match after "move": expected (13, 55), got (14, 55)
+
+[s16726 t13926 d1 0:1 xl6 hp48/48] FEYE_TELE telepathic already: not meleeing the floating eye
+[s16790 t14000 d1 0:1 xl6 hp48/48] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(10), np.int64(33)) acts=[NUM_5:70 SEARCH:70 N:29 SPACE:29 S:25] gotos=[open_visit_search(14, 55):2 open_visit_search(13, 55):2 open_visit_search(2, 57):2]
+[s16889 t14052 d1 0:1 xl6 hp48/48] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_911c949/pf_base/item/inventory.py", line 602, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 186, in atom_operation
+    self.update_state()
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 694, in update_state
+    self.call_update_functions()
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 705, in call_update_functions
+    func()
+  File "/sol/d_CleverShovel_911c949/pf_base/item/inventory.py", line 159, in f
+    raise AgentPanic('items below me changed')
+pf_base.exceptions.AgentPanic: items below me changed
+
+[s16941 t14067 d1 0:1 xl6 hp48/48] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_911c949/pf_base/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 307, in preempt
+    next(iterator)
+  File "/sol/d_CleverShovel_911c949/pf_base/strategy.py", line 68, in f
+    next(it)
+  File "/sol/d_CleverShovel_911c949/pf_base/utils.py", line 134, in f
+    next(it)
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 3038, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/d_CleverShovel_911c949/pf_base/item/inventory.py", line 857, in eat
+    raise AgentPanic('no such food is lying here')
+pf_base.exceptions.AgentPanic: no such food is lying here
+
+[s16967 t14076 d1 0:1 xl6 hp48/48] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_911c949/pf_base/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 307, in preempt
+    next(iterator)
+  File "/sol/d_CleverShovel_911c949/pf_base/strategy.py", line 68, in f
+    next(it)
+  File "/sol/d_CleverShovel_911c949/pf_base/utils.py", line 134, in f
+    next(it)
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 3038, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/d_CleverShovel_911c949/pf_base/item/inventory.py", line 857, in eat
+    raise AgentPanic('no such food is lying here')
+pf_base.exceptions.AgentPanic: no such food is lying here
+
+[s17067 t14134 d1 0:1 xl6 hp47/48] RANGED hit: holds and Elbereth waits off for 8 turns
+[s17387 t14386 d1 0:1 xl6 hp48/48] PANIC AgentPanic: agent position do not match after "move": expected (3, 44), got (4, 45)
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_911c949/pf_base/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 294, in preempt
+    val = f.run()
+          ^^^^^^^
+  File "/sol/d_CleverShovel_911c949/pf_base/strategy.py", line 48, in run
+    next(gen)
+  File "/sol/d_CleverShovel_911c949/pf_base/exploration_logic.py", line 520, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 2339, in go_to
+    self.move(y, x)
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 2008, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_base.exceptions.AgentPanic: agent position do not match after "move": expected (3, 44), got (4, 45)
+
+[s17462 t14466 d1 0:1 xl6 hp48/48] PRAY hp=48/48 hunger=3 gap=1889 reason=None model[ok200=1.00 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=80 p_answered=1.00]
+[s17466 t14469 d1 0:1 xl6 hp48/48] PRAY result ok model[ok200=0.22 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=80] prayers=10 failures=0
+[s17494 t14503 d1 0:1 xl6 hp48/48] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(9), np.int64(39)) acts=[SPACE:102 E:70 W:55 N:39 SW:38] gotos=[open_visit_search(15, 12):4 eat_corpses_from_ground(18, 22):3 check_items(9, 27):2]
+[s17510 t14528 d1 0:1 xl6 hp48/48] PANIC AgentPanic: agent position do not match after "move": expected (5, 45), got (6, 45)
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_911c949/pf_base/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 296, in preempt
+    val = f()
+          ^^^
+  File "/sol/d_CleverShovel_911c949/pf_base/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/d_CleverShovel_911c949/pf_base/exploration_logic.py", line 520, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 2339, in go_to
+    self.move(y, x)
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 2008, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_base.exceptions.AgentPanic: agent position do not match after "move": expected (5, 45), got (6, 45)
+
+[s17534 t14538 d1 0:1 xl6 hp48/48] PANIC AgentPanic: agent position do not match after "move": expected (12, 47), got (11, 47)
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_911c949/pf_base/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 296, in preempt
+    val = f()
+          ^^^
+  File "/sol/d_CleverShovel_911c949/pf_base/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/d_CleverShovel_911c949/pf_base/exploration_logic.py", line 520, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 2339, in go_to
+    self.move(y, x)
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 2008, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_base.exceptions.AgentPanic: agent position do not match after "move": expected (12, 47), got (11, 47)
+
+[s17889 t15003 d1 0:1 xl6 hp48/48] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(17), np.int64(53)) acts=[SEARCH:75 NUM_5:70 S:38 N:29 E:20] gotos=[open_visit_search(14, 48):3 open_visit_search(14, 51):2 open_visit_search(4, 42):1]
+[s17988 t15139 d1 0:1 xl6 hp48/48] FEYE_TELE telepathic already: not meleeing the floating eye
+[s18131 t15211 d1 0:1 xl6 hp47/48] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_911c949/pf_base/item/inventory.py", line 602, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 186, in atom_operation
+    self.update_state()
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 694, in update_state
+    self.call_update_functions()
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 705, in call_update_functions
+    func()
+  File "/sol/d_CleverShovel_911c949/pf_base/item/inventory.py", line 159, in f
+    raise AgentPanic('items below me changed')
+pf_base.exceptions.AgentPanic: items below me changed
+
+[s18166 t15220 d1 0:1 xl6 hp48/48] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_911c949/pf_base/item/inventory.py", line 602, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 186, in atom_operation
+    self.update_state()
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 694, in update_state
+    self.call_update_functions()
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 705, in call_update_functions
+    func()
+  File "/sol/d_CleverShovel_911c949/pf_base/item/inventory.py", line 159, in f
+    raise AgentPanic('items below me changed')
+pf_base.exceptions.AgentPanic: items below me changed
+
+[s18241 t15263 d1 0:1 xl6 hp48/48] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_911c949/pf_base/item/inventory.py", line 602, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 186, in atom_operation
+    self.update_state()
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 694, in update_state
+    self.call_update_functions()
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 705, in call_update_functions
+    func()
+  File "/sol/d_CleverShovel_911c949/pf_base/item/inventory.py", line 159, in f
+    raise AgentPanic('items below me changed')
+pf_base.exceptions.AgentPanic: items below me changed
+
+[s18518 t15504 d1 0:1 xl6 hp48/48] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(8), np.int64(29)) acts=[SPACE:92 SEARCH:71 NUM_5:61 W:45 LOOK:38] gotos=[open_visit_search(6, 19):4 eat_corpses_from_ground(7, 17):2 eat_corpses_from_ground(4, 20):2]
+[s19028 t16000 d1 0:1 xl7 hp54/54] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(6), np.int64(36)) acts=[SW:49 NUM_5:46 SEARCH:46 NE:45 SPACE:44] gotos=[check_items(9, 32):20 open_visit_search(4, 35):5 open_visit_search(11, 37):3]
+[s19043 t16020 d1 0:1 xl7 hp54/54] PANIC AgentPanic: agent position do not match after "move": expected (6, 42), got (5, 43)
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_911c949/pf_base/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 296, in preempt
+    val = f()
+          ^^^
+  File "/sol/d_CleverShovel_911c949/pf_base/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/d_CleverShovel_911c949/pf_base/exploration_logic.py", line 520, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 2339, in go_to
+    self.move(y, x)
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 2008, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_base.exceptions.AgentPanic: agent position do not match after "move": expected (6, 42), got (5, 43)
+
+[s19199 t16120 d1 0:1 xl7 hp54/54] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_911c949/pf_base/item/inventory.py", line 602, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 186, in atom_operation
+    self.update_state()
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 694, in update_state
+    self.call_update_functions()
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 705, in call_update_functions
+    func()
+  File "/sol/d_CleverShovel_911c949/pf_base/item/inventory.py", line 159, in f
+    raise AgentPanic('items below me changed')
+pf_base.exceptions.AgentPanic: items below me changed
+
+[s19457 t16356 d1 0:1 xl7 hp54/54] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_911c949/pf_base/item/inventory.py", line 602, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 186, in atom_operation
+    self.update_state()
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 694, in update_state
+    self.call_update_functions()
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 705, in call_update_functions
+    func()
+  File "/sol/d_CleverShovel_911c949/pf_base/item/inventory.py", line 159, in f
+    raise AgentPanic('items below me changed')
+pf_base.exceptions.AgentPanic: items below me changed
+
+[s19627 t16486 d1 0:1 xl7 hp54/54] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_911c949/pf_base/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/d_CleverShovel_911c949/pf_base/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 294, in preempt
+    val = f.run()
+          ^^^^^^^
+  File "/sol/d_CleverShovel_911c949/pf_base/strategy.py", line 48, in run
+    next(gen)
+  File "/sol/d_CleverShovel_911c949/pf_base/exploration_logic.py", line 520, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 2311, in go_to
+    raise AgentPanic('end point is no longer accessible')
+pf_base.exceptions.AgentPanic: end point is no longer accessible
+
+[s19652 t16500 d1 0:1 xl7 hp54/54] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(9), np.int64(64)) acts=[SPACE:70 W:55 SEARCH:51 E:50 SE:50] gotos=[open_visit_search(4, 19):4 check_items(8, 17):2 open_visit_search(7, 15):2]
+[s19681 t16529 d1 0:1 xl7 hp54/54] PANIC AgentPanic: agent position do not match after "move": expected (17, 53), got (18, 54)
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_911c949/pf_base/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 296, in preempt
+    val = f()
+          ^^^
+  File "/sol/d_CleverShovel_911c949/pf_base/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/d_CleverShovel_911c949/pf_base/exploration_logic.py", line 520, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 2339, in go_to
+    self.move(y, x)
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 2008, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_base.exceptions.AgentPanic: agent position do not match after "move": expected (17, 53), got (18, 54)
+
+[s19759 t16602 d1 0:1 xl7 hp54/54] PANIC AgentPanic: agent position do not match after "move": expected (4, 30), got (4, 29)
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_911c949/pf_base/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 296, in preempt
+    val = f()
+          ^^^
+  File "/sol/d_CleverShovel_911c949/pf_base/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/d_CleverShovel_911c949/pf_base/exploration_logic.py", line 520, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 2339, in go_to
+    self.move(y, x)
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 2008, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_base.exceptions.AgentPanic: agent position do not match after "move": expected (4, 30), got (4, 29)
+
+[s19838 t16677 d1 0:1 xl7 hp54/54] PANIC AgentPanic: agent position do not match after "move": expected (9, 35), got (9, 36)
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_911c949/pf_base/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 307, in preempt
+    next(iterator)
+  File "/sol/d_CleverShovel_911c949/pf_base/utils.py", line 134, in f
+    next(it)
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 2659, in fight2
+    wait_counter = self._fight2_perform_action(best_action, wait_counter)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 2730, in _fight2_perform_action
+    self.move(target_y, target_x)
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 2008, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_base.exceptions.AgentPanic: agent position do not match after "move": expected (9, 35), got (9, 36)
+
+[s19990 t16714 d1 0:1 xl7 hp54/54] PANIC AgentPanic: agent position do not match after "move": expected (8, 32), got (9, 31)
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_911c949/pf_base/strategy.py", line 165, in f
+    next(gen)
+  File "/sol/d_CleverShovel_911c949/pf_base/strategy.py", line 111, in f
+    next(v2)
+  File "/sol/d_CleverShovel_911c949/pf_base/utils.py", line 134, in f
+    next(it)
+  File "/sol/d_CleverShovel_911c949/pf_base/item/inventory.py", line 2028, in go_to_item_to_pickup
+    self.agent.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 0, 255), is_path=True))
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 2339, in go_to
+    self.move(y, x)
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 2008, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_base.exceptions.AgentPanic: agent position do not match after "move": expected (8, 32), got (9, 31)
+
+[s20033 t16730 d1 0:1 xl7 hp54/54] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_911c949/pf_base/item/inventory.py", line 602, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 186, in atom_operation
+    self.update_state()
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 694, in update_state
+    self.call_update_functions()
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 705, in call_update_functions
+    func()
+  File "/sol/d_CleverShovel_911c949/pf_base/item/inventory.py", line 159, in f
+    raise AgentPanic('items below me changed')
+pf_base.exceptions.AgentPanic: items below me changed
+
+[s20175 t16786 d1 0:1 xl7 hp54/54] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_911c949/pf_base/item/inventory.py", line 602, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 186, in atom_operation
+    self.update_state()
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 694, in update_state
+    self.call_update_functions()
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 705, in call_update_functions
+    func()
+  File "/sol/d_CleverShovel_911c949/pf_base/item/inventory.py", line 159, in f
+    raise AgentPanic('items below me changed')
+pf_base.exceptions.AgentPanic: items below me changed
+
+[s20250 t16805 d1 0:1 xl7 hp48/54] PRAY hp=48/54 hunger=3 gap=2336 reason=None model[ok200=1.00 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=93 p_answered=1.00]
+[s20255 t16808 d1 0:1 xl7 hp48/54] PRAY result ok model[ok200=0.22 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=93] prayers=11 failures=0
+[s20260 t16810 d1 0:1 xl7 hp49/54] ALIGN estimate 81 (cap 94) after -12
+[s20260 t16810 d1 0:1 xl7 hp49/54] DWARF died near [(11, 36)]: piles to check
+[s20277 t16815 d1 0:1 xl7 hp50/54] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_911c949/pf_base/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 307, in preempt
+    next(iterator)
+  File "/sol/d_CleverShovel_911c949/pf_base/strategy.py", line 68, in f
+    next(it)
+  File "/sol/d_CleverShovel_911c949/pf_base/utils.py", line 134, in f
+    next(it)
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 3038, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/d_CleverShovel_911c949/pf_base/item/inventory.py", line 857, in eat
+    raise AgentPanic('no such food is lying here')
+pf_base.exceptions.AgentPanic: no such food is lying here
+
+[s20317 t16824 d1 0:1 xl7 hp51/54] DIVE checked the pile at (11, 36): tool None
+[s20567 t17000 d1 0:1 xl7 hp54/54] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(4), np.int64(53)) acts=[SPACE:182 W:78 E:69 LOOK:55 SEARCH:54] gotos=[open_visit_search(14, 48):5 check_items(11, 37):4 go_to_item_to_pickup(7, 35):3]
+[s20640 t17075 d1 0:1 xl7 hp54/54] PANIC AgentPanic: agent position do not match after "move": expected (11, 67), got (12, 68)
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 307, in preempt
+    next(iterator)
+  File "/sol/d_CleverShovel_911c949/pf_base/strategy.py", line 68, in f
+    next(it)
+  File "/sol/d_CleverShovel_911c949/pf_base/utils.py", line 134, in f
+    next(it)
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 3022, in eat_corpses_from_ground
+    self.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 255, 0), is_path=True))
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 2339, in go_to
+    self.move(y, x)
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 2008, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_base.exceptions.AgentPanic: agent position do not match after "move": expected (11, 67), got (12, 68)
+
+[s20694 t17109 d1 0:1 xl7 hp54/54] FIGHT stall of 44 turns ended (gap): ['gas spore']
+[s20736 t17134 d1 0:1 xl7 hp50/54] RANGED hit: holds and Elbereth waits off for 8 turns
+[s20888 t17214 d1 0:1 xl7 hp49/54] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_911c949/pf_base/item/inventory.py", line 602, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 186, in atom_operation
+    self.update_state()
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 694, in update_state
+    self.call_update_functions()
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 705, in call_update_functions
+    func()
+  File "/sol/d_CleverShovel_911c949/pf_base/item/inventory.py", line 159, in f
+    raise AgentPanic('items below me changed')
+pf_base.exceptions.AgentPanic: items below me changed
+
+[s21244 t17501 d1 0:1 xl7 hp54/54] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(8), np.int64(22)) acts=[SPACE:98 W:59 SEARCH:57 NW:47 LOOK:42] gotos=[open_visit_search(9, 23):9 check_items(18, 22):8 open_visit_search(6, 20):7]
+[s21437 t17728 d1 0:1 xl7 hp54/54] PANIC AgentPanic: agent position do not match after "move": expected (13, 14), got (14, 14)
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_911c949/pf_base/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 307, in preempt
+    next(iterator)
+  File "/sol/d_CleverShovel_911c949/pf_base/utils.py", line 134, in f
+    next(it)
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 2659, in fight2
+    wait_counter = self._fight2_perform_action(best_action, wait_counter)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 2730, in _fight2_perform_action
+    self.move(target_y, target_x)
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 2008, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_base.exceptions.AgentPanic: agent position do not match after "move": expected (13, 14), got (14, 14)
+
+[s21590 t17859 d1 0:1 xl7 hp54/54] FAINT guard (Weak, idle): Elbereth vs [] hp=54/54
+[s21626 t17875 d1 0:1 xl7 hp54/54] FAINT guard (Weak, idle): Elbereth vs [] hp=54/54
+[s21642 t17876 d1 0:1 xl7 hp54/54] FAINT guard (Weak, idle): Elbereth vs [] hp=54/54
+[s21777 t17972 d1 0:1 xl7 hp54/54] FAINT guard (Fainting, idle): Elbereth vs [] hp=54/54
+[s21793 t17973 d1 0:1 xl7 hp54/54] FAINT guard (Fainting, idle): Elbereth vs [] hp=54/54
+[s21814 t17988 d1 0:1 xl7 hp54/54] FAINT guard (Fainting, idle): Elbereth vs [] hp=54/54
+[s21871 t18012 d1 0:1 xl7 hp54/54] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=4 pos=(np.int64(7), np.int64(15)) acts=[SPACE:115 SEARCH:97 LOOK:58 NUM_5:44 W:39] gotos=[open_visit_search(15, 15):3 open_visit_search(6, 20):2 open_visit_search(5, 11):2]
+[s21942 t18078 d1 0:1 xl7 hp54/54] FAINT guard (Fainting, idle): Elbereth vs [] hp=54/54
+[s21958 t18079 d1 0:1 xl7 hp54/54] FAINT guard (Fainting, idle): Elbereth vs [] hp=54/54
+[s21989 t18101 d1 0:1 xl7 hp54/54] FAINT guard (Fainting, idle): Elbereth vs [] hp=54/54
+[s22062 t18202 d1 0:1 xl7 hp54/54] FAINT guard (Fainting, idle): Elbereth vs [] hp=54/54
+[s22084 t18222 d1 0:1 xl7 hp54/54] FAINT guard (Fainting, idle): Elbereth vs [] hp=54/54
+[s22100 t18223 d1 0:1 xl7 hp54/54] FAINT guard (Fainting, idle): Elbereth vs [] hp=54/54
+[s22136 t18244 d1 0:1 xl7 hp54/54] PRAY hp=54/54 hunger=4 gap=1436 reason=faint-long spell=356 model[ok200=0.98 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=95 p_answered=0.98]
+[s22142 t18247 d1 0:1 xl7 hp54/54] PRAY result ok model[ok200=0.22 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=95] prayers=12 failures=0
+[s22142 t18247 d1 0:1 xl7 hp54/54] HOLD over: wiping our Elbereth at (np.int64(7), np.int64(15))
+[s22171 t18254 d1 0:1 xl7 hp48/54] RANGED hit: holds and Elbereth waits off for 8 turns
+[s22491 t18435 d1 0:1 xl7 hp54/54] FIGHT stall of 20 turns ended (gap): ['green mold', 'rock piercer']
+[s22498 t18437 d1 0:1 xl7 hp54/54] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_911c949/pf_base/item/inventory.py", line 602, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 186, in atom_operation
+    self.update_state()
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 694, in update_state
+    self.call_update_functions()
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 705, in call_update_functions
+    func()
+  File "/sol/d_CleverShovel_911c949/pf_base/item/inventory.py", line 159, in f
+    raise AgentPanic('items below me changed')
+pf_base.exceptions.AgentPanic: items below me changed
+
+[s22573 t18460 d1 0:1 xl7 hp54/54] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_911c949/pf_base/item/inventory.py", line 602, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 186, in atom_operation
+    self.update_state()
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 694, in update_state
+    self.call_update_functions()
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 705, in call_update_functions
+    func()
+  File "/sol/d_CleverShovel_911c949/pf_base/item/inventory.py", line 159, in f
+    raise AgentPanic('items below me changed')
+pf_base.exceptions.AgentPanic: items below me changed
+
+[s22624 t18504 d1 0:1 xl7 hp54/54] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(9), np.int64(28)) acts=[SPACE:175 LOOK:89 SEARCH:70 E:49 THROW:42] gotos=[_fight2_perform_action(9, 37):4 check_items(5, 17):2 eat_corpses_from_ground(6, 16):1]
+[s23027 t18914 d1 0:1 xl7 hp54/54] PANIC AgentPanic: agent position do not match after "move": expected (5, 45), got (5, 46)
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_911c949/pf_base/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 296, in preempt
+    val = f()
+          ^^^
+  File "/sol/d_CleverShovel_911c949/pf_base/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/d_CleverShovel_911c949/pf_base/exploration_logic.py", line 520, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 2339, in go_to
+    self.move(y, x)
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 2008, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_base.exceptions.AgentPanic: agent position do not match after "move": expected (5, 45), got (5, 46)
+
+[s23099 t19002 d1 0:1 xl7 hp54/54] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(12), np.int64(47)) acts=[SEARCH:71 NUM_5:66 SPACE:43 E:42 W:30] gotos=[open_visit_search(5, 19):2 open_visit_search(5, 29):2 eat_corpses_from_ground(5, 44):2]
+[s23202 t19134 d1 0:1 xl7 hp54/54] FAINT guard (Weak, idle): Elbereth vs [] hp=54/54
+[s23216 t19135 d1 0:1 xl7 hp54/54] FAINT guard (Weak, idle): Elbereth vs [] hp=54/54
+[s23232 t19136 d1 0:1 xl7 hp54/54] FAINT guard (Weak, idle): Elbereth vs [] hp=54/54
+[s23250 t19137 d1 0:1 xl7 hp54/54] FAINT guard (Weak, idle): Elbereth vs [] hp=54/54
+[s23266 t19138 d1 0:1 xl7 hp54/54] FAINT guard (Weak, idle): Elbereth vs [] hp=54/54
+[s23304 t19163 d1 0:1 xl7 hp54/54] FAINT guard (Fainting, idle): Elbereth vs [] hp=54/54
+[s23622 t19510 d1 0:1 xl7 hp54/54] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=4 pos=(np.int64(7), np.int64(53)) acts=[SPACE:139 SEARCH:97 LOOK:87 EAT:21 NUM_5:20] gotos=[open_visit_search(12, 51):1 open_visit_search(12, 52):1 open_visit_search(17, 53):1]
+[s23622 t19510 d1 0:1 xl7 hp54/54] FAINT guard (Fainting, idle): Elbereth vs [] hp=54/54
+[s23648 t19531 d1 0:1 xl7 hp54/54] PRAY hp=54/54 hunger=4 gap=1284 reason=hunger-threat no-elbereth:orc zombie est=None model[ok200=0.98 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=103 p_answered=0.98]
+[s23652 t19534 d1 0:1 xl7 hp54/54] PRAY result ok model[ok200=0.22 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=103] prayers=13 failures=0
+[s23970 t19817 d1 0:1 xl7 hp54/54] PANIC AgentPanic: agent position do not match after "move": expected (7, 48), got (7, 47)
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_911c949/pf_base/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 294, in preempt
+    val = f.run()
+          ^^^^^^^
+  File "/sol/d_CleverShovel_911c949/pf_base/strategy.py", line 48, in run
+    next(gen)
+  File "/sol/d_CleverShovel_911c949/pf_base/exploration_logic.py", line 520, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 2339, in go_to
+    self.move(y, x)
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 2008, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_base.exceptions.AgentPanic: agent position do not match after "move": expected (7, 48), got (7, 47)
+
+[s23987 t19820 d1 0:1 xl7 hp54/54] PANIC AgentPanic: agent position do not match after "move": expected (7, 48), got (7, 49)
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_911c949/pf_base/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 294, in preempt
+    val = f.run()
+          ^^^^^^^
+  File "/sol/d_CleverShovel_911c949/pf_base/strategy.py", line 48, in run
+    next(gen)
+  File "/sol/d_CleverShovel_911c949/pf_base/exploration_logic.py", line 520, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 2339, in go_to
+    self.move(y, x)
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 2008, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_base.exceptions.AgentPanic: agent position do not match after "move": expected (7, 48), got (7, 49)
+
+[s24040 t19856 d1 0:1 xl7 hp54/54] PANIC AgentPanic: agent position do not match after "move": expected (8, 52), got (8, 51)
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_911c949/pf_base/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 294, in preempt
+    val = f.run()
+          ^^^^^^^
+  File "/sol/d_CleverShovel_911c949/pf_base/strategy.py", line 48, in run
+    next(gen)
+  File "/sol/d_CleverShovel_911c949/pf_base/exploration_logic.py", line 520, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 2339, in go_to
+    self.move(y, x)
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 2008, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_base.exceptions.AgentPanic: agent position do not match after "move": expected (8, 52), got (8, 51)
+
+[s24172 t20000 d1 0:1 xl7 hp54/54] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(7), np.int64(28)) acts=[W:67 E:66 SEARCH:60 SPACE:55 SW:40] gotos=[check_items(6, 52):4 open_visit_search(8, 52):4 open_visit_search(9, 51):4]
+[s24531 t20317 d1 0:1 xl7 hp54/54] PANIC AgentPanic: agent position do not match after "move": expected (4, 13), got (3, 12)
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_911c949/pf_base/strategy.py", line 165, in f
+    next(gen)
+  File "/sol/d_CleverShovel_911c949/pf_base/strategy.py", line 100, in f
+    next(v1)
+  File "/sol/d_CleverShovel_911c949/pf_base/utils.py", line 134, in f
+    next(it)
+  File "/sol/d_CleverShovel_911c949/pf_base/item/inventory.py", line 1679, in check_items
+    self.agent.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 0, 255), is_path=True))
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 2339, in go_to
+    self.move(y, x)
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 2008, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_base.exceptions.AgentPanic: agent position do not match after "move": expected (4, 13), got (3, 12)
+
+[s24568 t20330 d1 0:1 xl7 hp54/54] FIGHT stall of 44 turns ended (gap): ['iguana', 'leprechaun']
+[s24666 t20414 d1 0:1 xl7 hp54/54] PANIC AgentPanic: agent position do not match after "move": expected (10, 22), got (10, 21)
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_911c949/pf_base/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 296, in preempt
+    val = f()
+          ^^^
+  File "/sol/d_CleverShovel_911c949/pf_base/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/d_CleverShovel_911c949/pf_base/exploration_logic.py", line 520, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 2339, in go_to
+    self.move(y, x)
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 2008, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_base.exceptions.AgentPanic: agent position do not match after "move": expected (10, 22), got (10, 21)
+
+[s24764 t20491 d1 0:1 xl7 hp54/54] PANIC AgentPanic: agent position do not match after "move": expected (7, 27), got (7, 26)
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_911c949/pf_base/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 294, in preempt
+    val = f.run()
+          ^^^^^^^
+  File "/sol/d_CleverShovel_911c949/pf_base/strategy.py", line 48, in run
+    next(gen)
+  File "/sol/d_CleverShovel_911c949/pf_base/exploration_logic.py", line 520, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 2339, in go_to
+    self.move(y, x)
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 2008, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_base.exceptions.AgentPanic: agent position do not match after "move": expected (7, 27), got (7, 26)
+
+[s24784 t20503 d1 0:1 xl7 hp54/54] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(7), np.int64(28)) acts=[SPACE:74 E:64 W:57 SEARCH:55 SW:48] gotos=[open_visit_search(10, 22):7 open_visit_search(7, 27):4 check_items(5, 45):4]
+[s24846 t20569 d1 0:1 xl7 hp54/54] PANIC AgentPanic: agent position do not match after "move": expected (7, 41), got (7, 40)
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_911c949/pf_base/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 294, in preempt
+    val = f.run()
+          ^^^^^^^
+  File "/sol/d_CleverShovel_911c949/pf_base/strategy.py", line 48, in run
+    next(gen)
+  File "/sol/d_CleverShovel_911c949/pf_base/exploration_logic.py", line 520, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 2339, in go_to
+    self.move(y, x)
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 2008, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_base.exceptions.AgentPanic: agent position do not match after "move": expected (7, 41), got (7, 40)
+
+[s25171 t20892 d1 0:1 xl7 hp54/54] FAINT guard (Weak, idle): Elbereth vs [] hp=54/54
+[s25318 t21000 d1 0:1 xl7 hp54/54] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=4 pos=(np.int64(7), np.int64(43)) acts=[SPACE:75 SEARCH:68 W:54 E:53 LOOK:43] gotos=[open_visit_search(7, 37):4 open_visit_search(7, 41):3 open_visit_search(7, 48):3]
+[s25420 t21100 d1 0:1 xl7 hp54/54] FAINT guard (Fainting, idle): Elbereth vs [] hp=54/54
+[s25437 t21117 d1 0:1 xl7 hp54/54] FAINT guard (Fainting, idle): Elbereth vs [] hp=54/54
+[s25461 t21137 d1 0:1 xl7 hp54/54] PRAY hp=54/54 hunger=4 gap=1603 reason=None model[ok200=0.99 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=111 p_answered=0.99]
+[s25469 t21140 d1 0:1 xl7 hp54/54] PRAY result ok model[ok200=0.22 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=111] prayers=14 failures=0
+[s25469 t21140 d1 0:1 xl7 hp54/54] HOLD over: wiping our Elbereth at (np.int64(7), np.int64(43))
+[s25520 t21169 d1 0:1 xl7 hp54/54] PANIC AgentPanic: agent position do not match after "move": expected (5, 40), got (6, 39)
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_911c949/pf_base/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 294, in preempt
+    val = f.run()
+          ^^^^^^^
+  File "/sol/d_CleverShovel_911c949/pf_base/strategy.py", line 48, in run
+    next(gen)
+  File "/sol/d_CleverShovel_911c949/pf_base/exploration_logic.py", line 520, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 2339, in go_to
+    self.move(y, x)
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 2008, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_base.exceptions.AgentPanic: agent position do not match after "move": expected (5, 40), got (6, 39)
+
+[s25559 t21197 d1 0:1 xl7 hp54/54] PANIC AgentPanic: agent position do not match after "move": expected (7, 50), got (7, 51)
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_911c949/pf_base/strategy.py", line 165, in f
+    next(gen)
+  File "/sol/d_CleverShovel_911c949/pf_base/strategy.py", line 100, in f
+    next(v1)
+  File "/sol/d_CleverShovel_911c949/pf_base/utils.py", line 134, in f
+    next(it)
+  File "/sol/d_CleverShovel_911c949/pf_base/item/inventory.py", line 1679, in check_items
+    self.agent.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 0, 255), is_path=True))
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 2339, in go_to
+    self.move(y, x)
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 2008, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_base.exceptions.AgentPanic: agent position do not match after "move": expected (7, 50), got (7, 51)
+
+[s25896 t21420 d1 0:1 xl7 hp54/54] PANIC AgentPanic: agent position do not match after "move": expected (6, 43), got (6, 42)
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_911c949/pf_base/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 294, in preempt
+    val = f.run()
+          ^^^^^^^
+  File "/sol/d_CleverShovel_911c949/pf_base/strategy.py", line 48, in run
+    next(gen)
+  File "/sol/d_CleverShovel_911c949/pf_base/exploration_logic.py", line 520, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 2339, in go_to
+    self.move(y, x)
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 2008, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_base.exceptions.AgentPanic: agent position do not match after "move": expected (6, 43), got (6, 42)
+
+[s25925 t21440 d1 0:1 xl7 hp54/54] PANIC AgentPanic: agent position do not match after "move": expected (7, 48), got (7, 49)
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_911c949/pf_base/strategy.py", line 165, in f
+    next(gen)
+  File "/sol/d_CleverShovel_911c949/pf_base/strategy.py", line 100, in f
+    next(v1)
+  File "/sol/d_CleverShovel_911c949/pf_base/utils.py", line 134, in f
+    next(it)
+  File "/sol/d_CleverShovel_911c949/pf_base/item/inventory.py", line 1679, in check_items
+    self.agent.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 0, 255), is_path=True))
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 2339, in go_to
+    self.move(y, x)
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 2008, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_base.exceptions.AgentPanic: agent position do not match after "move": expected (7, 48), got (7, 49)
+
+[s25941 t21442 d1 0:1 xl7 hp54/54] PANIC AgentPanic: agent position do not match after "move": expected (7, 47), got (7, 48)
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_911c949/pf_base/strategy.py", line 165, in f
+    next(gen)
+  File "/sol/d_CleverShovel_911c949/pf_base/strategy.py", line 100, in f
+    next(v1)
+  File "/sol/d_CleverShovel_911c949/pf_base/utils.py", line 134, in f
+    next(it)
+  File "/sol/d_CleverShovel_911c949/pf_base/item/inventory.py", line 1679, in check_items
+    self.agent.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 0, 255), is_path=True))
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 2339, in go_to
+    self.move(y, x)
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 2008, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_base.exceptions.AgentPanic: agent position do not match after "move": expected (7, 47), got (7, 48)
+
+[s26018 t21496 d1 0:1 xl7 hp54/54] PANIC AgentPanic: agent position do not match after "move": expected (7, 49), got (7, 50)
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 307, in preempt
+    next(iterator)
+  File "/sol/d_CleverShovel_911c949/pf_base/utils.py", line 134, in f
+    next(it)
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 2659, in fight2
+    wait_counter = self._fight2_perform_action(best_action, wait_counter)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 2804, in _fight2_perform_action
+    self.go_to(target_y, target_x, stop_one_before=True, max_steps=1,
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 2339, in go_to
+    self.move(y, x)
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 2008, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_base.exceptions.AgentPanic: agent position do not match after "move": expected (7, 49), got (7, 50)
+
+[s26036 t21497 d1 0:1 xl7 hp54/54] PANIC AgentPanic: agent position do not match after "move": expected (7, 49), got (7, 50)
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 307, in preempt
+    next(iterator)
+  File "/sol/d_CleverShovel_911c949/pf_base/utils.py", line 134, in f
+    next(it)
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 2659, in fight2
+    wait_counter = self._fight2_perform_action(best_action, wait_counter)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 2804, in _fight2_perform_action
+    self.go_to(target_y, target_x, stop_one_before=True, max_steps=1,
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 2339, in go_to
+    self.move(y, x)
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 2008, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_base.exceptions.AgentPanic: agent position do not match after "move": expected (7, 49), got (7, 50)
+
+[s26056 t21500 d1 0:1 xl7 hp54/54] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(7), np.int64(47)) acts=[SPACE:129 W:67 E:60 SEARCH:55 LOOK:55] gotos=[open_visit_search(7, 46):5 _fight2_perform_action(7, 29):5 open_visit_search(10, 21):4]
+[s26123 t21545 d1 0:1 xl7 hp54/54] FIGHT stall of 24 turns ended (gap): ['floating eye']
+[s26183 t21572 d1 0:1 xl7 hp54/54] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_911c949/pf_base/item/inventory.py", line 602, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 186, in atom_operation
+    self.update_state()
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 694, in update_state
+    self.call_update_functions()
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 705, in call_update_functions
+    func()
+  File "/sol/d_CleverShovel_911c949/pf_base/item/inventory.py", line 159, in f
+    raise AgentPanic('items below me changed')
+pf_base.exceptions.AgentPanic: items below me changed
+
+[s26314 t21640 d1 0:1 xl7 hp46/54] PANIC AgentPanic: Monster on a next tile when moving: (5,44)
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_911c949/pf_base/strategy.py", line 165, in f
+    next(gen)
+  File "/sol/d_CleverShovel_911c949/pf_base/strategy.py", line 100, in f
+    next(v1)
+  File "/sol/d_CleverShovel_911c949/pf_base/utils.py", line 134, in f
+    next(it)
+  File "/sol/d_CleverShovel_911c949/pf_base/item/inventory.py", line 1679, in check_items
+    self.agent.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 0, 255), is_path=True))
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 2339, in go_to
+    self.move(y, x)
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 1976, in move
+    raise AgentPanic(f'Monster on a next tile when moving: ({expected_y},{expected_x})')
+pf_base.exceptions.AgentPanic: Monster on a next tile when moving: (5,44)
+
+[s26355 t21646 d1 0:1 xl7 hp47/54] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_911c949/pf_base/item/inventory.py", line 602, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 186, in atom_operation
+    self.update_state()
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 694, in update_state
+    self.call_update_functions()
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 705, in call_update_functions
+    func()
+  File "/sol/d_CleverShovel_911c949/pf_base/item/inventory.py", line 159, in f
+    raise AgentPanic('items below me changed')
+pf_base.exceptions.AgentPanic: items below me changed
+
+[s26490 t21712 d1 0:1 xl7 hp50/54] ALIGN estimate 106 (cap 118) after -12
+[s26490 t21712 d1 0:1 xl7 hp50/54] DWARF died near [(9, 20)]: piles to check
+[s26527 t21715 d1 0:1 xl7 hp51/54] DIVE checked the pile at (9, 20): tool None
+[s26714 t22001 d1 0:1 xl7 hp54/54] STALL reachable=1 here_obj=2380 shop_here=0 refused=None nb=[(8, 19, 1, 2371, 1978, 0, 0), (8, 20, 0, 2365, 2365, 0, 0), (8, 21, 0, 2359, 2359, 0, 0), (9, 19, 0, 2359, 2359, 0, 0), (9, 21, 0, 2359, 2359, 0, 0), (10, 19, 0, 2359, 2359, 0, 0), (10, 20, 0, 2359, 2359, 0, 0), (10, 21, 1, 2380, 418, 0, 0)]
+[s26714 t22001 d1 0:1 xl7 hp54/54] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=3 pos=(np.int64(9), np.int64(20)) acts=[SPACE:111 SEARCH:80 W:64 NUM_5:64 SW:33] gotos=[open_visit_search(9, 20):59 _fight2_perform_action(7, 33):13 _fight2_perform_action(7, 30):5]
+[s26721 t22011 d1 0:1 xl7 hp54/54] FAINT guard (Weak, idle): Elbereth vs [] hp=54/54
+[s26739 t22012 d1 0:1 xl7 hp54/54] FAINT guard (Weak, idle): Elbereth vs [] hp=54/54
+[s26863 t22044 d1 0:1 xl7 hp51/54] RANGED hit: holds and Elbereth waits off for 8 turns
+[s26964 t22061 d1 0:1 xl7 hp54/54] FAINT guard (Fainting, idle): Elbereth vs [] hp=54/54
+[s27036 t22067 d1 0:1 xl7 hp52/54] RANGED hit: holds and Elbereth waits off for 8 turns
+[s27052 t22079 d1 0:1 xl7 hp53/54] RANGED hit: holds and Elbereth waits off for 8 turns
+[s27273 t22196 d1 0:1 xl7 hp54/54] FAINT guard (Fainting, idle): Elbereth vs [] hp=54/54
+[s27406 t22257 d1 0:1 xl7 hp54/54] FAINT guard (Fainting, idle): Elbereth vs [] hp=54/54
+[s27426 t22258 d1 0:1 xl7 hp54/54] FAINT guard (Fainting, idle): Elbereth vs [] hp=54/54
+[s27591 t22369 d1 0:1 xl7 hp54/54] PRAY hp=54/54 hunger=4 gap=1229 reason=starve-deadline est=-180.0 model[ok200=0.98 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=119 p_answered=0.98]
+[s27601 t22372 d1 0:1 xl7 hp54/54] PRAY result ok model[ok200=0.22 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=119] prayers=15 failures=0
+[s27601 t22372 d1 0:1 xl7 hp54/54] HOLD over: wiping our Elbereth at (np.int64(9), np.int64(20))
+[s27699 t22504 d1 0:1 xl7 hp54/54] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(9), np.int64(20)) acts=[SPACE:471 PICKUP:107 SEARCH:102 LOOK:102 NUM_5:32] gotos=[open_visit_search(9, 20):32]
+[s27816 t22714 d1 0:1 xl7 hp54/54] FEYE_TELE telepathic already: not meleeing the floating eye
+[s27816 t22714 d1 0:1 xl7 hp54/54] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s27821 t22715 d1 0:1 xl7 hp54/54] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s27824 t22716 d1 0:1 xl7 hp54/54] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s27827 t22717 d1 0:1 xl7 hp54/54] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s27831 t22718 d1 0:1 xl7 hp54/54] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s27840 t22719 d1 0:1 xl7 hp54/54] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_911c949/pf_base/item/inventory.py", line 602, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 186, in atom_operation
+    self.update_state()
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 694, in update_state
+    self.call_update_functions()
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 705, in call_update_functions
+    func()
+  File "/sol/d_CleverShovel_911c949/pf_base/item/inventory.py", line 159, in f
+    raise AgentPanic('items below me changed')
+pf_base.exceptions.AgentPanic: items below me changed
+
+[s28024 t23000 d1 0:1 xl7 hp54/54] STALL reachable=1 here_obj=2380 shop_here=0 refused=None nb=[(8, 19, 1, 2371, 1925, 0, 0), (8, 20, 0, 2365, 2365, 0, 0), (8, 21, 0, 2359, 2359, 0, 0), (9, 19, 0, 2359, 2359, 0, 0), (9, 21, 0, 2359, 2359, 0, 0), (10, 19, 0, 2359, 2359, 0, 0), (10, 20, 0, 2359, 2359, 0, 0), (10, 21, 1, 2380, 2352, 0, 0)]
+[s28024 t23000 d1 0:1 xl7 hp54/54] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(9), np.int64(20)) acts=[NUM_5:98 SEARCH:98 SPACE:32 THROW:15 ESC:12] gotos=[open_visit_search(9, 20):98]
+[s28190 t23248 d1 0:1 xl7 hp54/54] FAINT guard (Weak, idle): Elbereth vs [] hp=54/54
+[s28403 t23304 d1 0:1 xl7 hp54/54] FAINT guard (Fainting, idle): Elbereth vs [] hp=54/54
+[s28710 t23503 d1 0:1 xl7 hp54/54] STALL reachable=1 here_obj=2380 shop_here=0 refused=None nb=[(8, 19, 1, 2371, 1925, 0, 0), (8, 20, 0, 2365, 2365, 0, 0), (8, 21, 0, 2359, 2359, 0, 0), (9, 19, 0, 2359, 2359, 0, 0), (9, 21, 0, 2359, 2359, 0, 0), (10, 19, 0, 2359, 2359, 0, 0), (10, 20, 0, 2359, 2359, 0, 0), (10, 21, 1, 2380, 418, 0, 0)]
+[s28710 t23503 d1 0:1 xl7 hp54/54] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=4 pos=(np.int64(9), np.int64(20)) acts=[SPACE:290 SEARCH:111 LOOK:64 PICKUP:64 NUM_5:52] gotos=[open_visit_search(9, 20):52]
+[s28710 t23503 d1 0:1 xl7 hp54/54] FAINT guard (Fainting, idle): Elbereth vs [] hp=54/54
+[s28894 t23641 d1 0:1 xl7 hp54/54] PRAY hp=54/54 hunger=4 gap=1269 reason=faint-long spell=365 model[ok200=0.98 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=119 p_answered=0.98]
+[s28904 t23644 d1 0:1 xl7 hp54/54] PRAY result ok model[ok200=0.22 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=119] prayers=16 failures=0
+[s28904 t23644 d1 0:1 xl7 hp54/54] HOLD over: wiping our Elbereth at (np.int64(9), np.int64(20))
+[s28993 t23751 d1 0:1 xl7 hp54/54] FEYE_TELE telepathic already: not meleeing the floating eye
+[s28993 t23751 d1 0:1 xl7 hp54/54] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s28996 t23752 d1 0:1 xl7 hp54/54] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s28999 t23753 d1 0:1 xl7 hp54/54] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s29002 t23754 d1 0:1 xl7 hp54/54] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s29005 t23755 d1 0:1 xl7 hp54/54] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s29161 t24003 d1 0:1 xl7 hp42/54] STALL reachable=1 here_obj=2380 shop_here=0 refused=None nb=[(8, 19, 1, 2371, 62, 0, 0), (8, 20, 0, 2365, 2365, 0, 0), (8, 21, 0, 2359, 2359, 0, 0), (9, 19, 0, 2359, 2359, 0, 0), (9, 21, 0, 2359, 2359, 0, 0), (10, 19, 0, 2359, 2359, 0, 0), (10, 20, 0, 2359, 2359, 0, 0), (10, 21, 1, 2380, 418, 0, 0)]
+[s29161 t24003 d1 0:1 xl7 hp42/54] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(9), np.int64(20)) acts=[SPACE:140 SEARCH:88 NUM_5:71 PICKUP:24 LOOK:23] gotos=[open_visit_search(9, 20):71]
+[s29446 t24450 d1 0:1 xl7 hp54/54] FEYE_TELE telepathic already: not meleeing the floating eye
+[s29446 t24450 d1 0:1 xl7 hp54/54] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s29449 t24451 d1 0:1 xl7 hp54/54] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s29452 t24452 d1 0:1 xl7 hp54/54] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s29458 t24453 d1 0:1 xl7 hp54/54] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s29461 t24454 d1 0:1 xl7 hp54/54] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s29479 t24455 d1 0:1 xl7 hp54/54] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s29500 t24456 d1 0:1 xl7 hp54/54] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s29503 t24457 d1 0:1 xl7 hp54/54] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s29506 t24458 d1 0:1 xl7 hp54/54] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s29509 t24459 d1 0:1 xl7 hp54/54] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s29536 t24488 d1 0:1 xl7 hp52/54] FAINT guard (Weak): Elbereth vs ['imp'] hp=52/54
+[s29604 t24502 d1 0:1 xl7 hp54/54] STALL reachable=1 here_obj=2380 shop_here=0 refused=None nb=[(8, 19, 1, 2371, 1172, 0, 0), (8, 20, 0, 2365, 2365, 0, 0), (8, 21, 0, 2359, 2359, 0, 0), (9, 19, 0, 2359, 2359, 0, 0), (9, 21, 0, 2359, 2359, 0, 0), (10, 19, 0, 2359, 2359, 0, 0), (10, 20, 0, 2359, 2359, 0, 0), (10, 21, 1, 2380, 418, 0, 0)]
+[s29604 t24502 d1 0:1 xl7 hp54/54] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=3 pos=(np.int64(9), np.int64(20)) acts=[SEARCH:104 NUM_5:99 SPACE:78 THROW:20 NW:19] gotos=[open_visit_search(9, 20):99]
+[s29647 t24515 d1 0:1 xl7 hp54/54] FAINT guard (Weak, idle): Elbereth vs [] hp=54/54
+[s29676 t24516 d1 0:1 xl7 hp54/54] FAINT guard (Weak, idle): Elbereth vs [] hp=54/54
+[s29711 t24518 d1 0:1 xl7 hp54/54] FAINT guard (Weak, idle): Elbereth vs [] hp=54/54
+[s30153 t24679 d1 0:1 xl7 hp43/54] PRAY hp=43/54 hunger=4 gap=1035 reason=hunger-threat werejackal est=None model[ok200=0.95 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=131 p_answered=0.95]
+[s30172 t24682 d1 0:1 xl7 hp43/54] PRAY result ok model[ok200=0.22 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=131] prayers=17 failures=0
+[s30417 t25004 d1 0:1 xl7 hp54/54] STALL reachable=1 here_obj=2380 shop_here=0 refused=None nb=[(8, 19, 1, 2371, 2152, 0, 0), (8, 20, 0, 2365, 2365, 0, 0), (8, 21, 0, 2359, 2359, 0, 0), (9, 19, 0, 2359, 2359, 0, 0), (9, 21, 0, 2359, 2359, 0, 0), (10, 19, 0, 2359, 2359, 0, 0), (10, 20, 0, 2359, 2359, 0, 0), (10, 21, 1, 2380, 2316, 0, 0)]
+[s30417 t25004 d1 0:1 xl7 hp54/54] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(9), np.int64(20)) acts=[SPACE:328 SEARCH:123 NUM_5:66 LOOK:65 PICKUP:65] gotos=[open_visit_search(9, 20):66]
+[s30707 t25502 d1 0:1 xl7 hp54/54] STALL reachable=1 here_obj=2380 shop_here=0 refused=None nb=[(8, 19, 1, 2371, 2152, 0, 0), (8, 20, 0, 2365, 2365, 0, 0), (8, 21, 0, 2359, 2359, 0, 0), (9, 19, 0, 2359, 2359, 0, 0), (9, 21, 0, 2359, 2359, 0, 0), (10, 19, 0, 2359, 2359, 0, 0), (10, 20, 0, 2359, 2359, 0, 0), (10, 21, 1, 2380, 418, 0, 0)]
+[s30707 t25502 d1 0:1 xl7 hp54/54] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=2 pos=(np.int64(9), np.int64(20)) acts=[NUM_5:101 SEARCH:101 SPACE:17 EXTCMD:9 THROW:9] gotos=[open_visit_search(9, 20):101]
+[s30732 t25542 d1 0:1 xl7 hp54/54] FAINT guard (Weak, idle): Elbereth vs [] hp=54/54
+[s30990 t25656 d1 0:1 xl7 hp52/54] FAINT guard (Fainting, idle): Elbereth vs ['imp'] hp=52/54
+[s31423 t25911 d1 0:1 xl7 hp54/54] PRAY hp=54/54 hunger=4 gap=1229 reason=starve-deadline est=-170.66666666666663 model[ok200=0.98 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=136 p_answered=0.98]
+[s31433 t25914 d1 0:1 xl7 hp54/54] PRAY result ok model[ok200=0.22 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=136] prayers=18 failures=0
+[s31433 t25914 d1 0:1 xl7 hp54/54] HOLD over: wiping our Elbereth at (np.int64(9), np.int64(20))
+[s31507 t26001 d1 0:1 xl7 hp54/54] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(9), np.int64(20)) acts=[SPACE:382 SEARCH:103 LOOK:84 PICKUP:84 NUM_5:25] gotos=[open_visit_search(9, 20):25]
+[s31788 t26504 d1 0:1 xl7 hp54/54] STALL reachable=1 here_obj=2380 shop_here=0 refused=None nb=[(8, 19, 1, 2371, 2152, 0, 0), (8, 20, 0, 2365, 2365, 0, 0), (8, 21, 0, 2359, 2359, 0, 0), (9, 19, 0, 2359, 2359, 0, 0), (9, 21, 0, 2359, 2359, 0, 0), (10, 19, 0, 2359, 2359, 0, 0), (10, 20, 0, 2359, 2359, 0, 0), (10, 21, 1, 2380, 2352, 0, 0)]
+[s31788 t26504 d1 0:1 xl7 hp54/54] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(9), np.int64(20)) acts=[NUM_5:103 SEARCH:103 SPACE:11 EXTCMD:9 THROW:9] gotos=[open_visit_search(9, 20):103]
+[s31818 t26549 d1 0:1 xl7 hp54/54] FEYE_TELE telepathic already: not meleeing the floating eye
+[s31818 t26549 d1 0:1 xl7 hp54/54] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s31821 t26550 d1 0:1 xl7 hp54/54] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s31824 t26551 d1 0:1 xl7 hp54/54] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s31827 t26552 d1 0:1 xl7 hp54/54] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s31830 t26553 d1 0:1 xl7 hp54/54] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s31833 t26554 d1 0:1 xl7 hp54/54] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s31836 t26555 d1 0:1 xl7 hp54/54] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s31839 t26556 d1 0:1 xl7 hp54/54] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s31842 t26557 d1 0:1 xl7 hp54/54] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s32148 t26784 d1 0:1 xl7 hp54/54] FAINT guard (Weak, idle): Elbereth vs [] hp=54/54
+[s32240 t26813 d1 0:1 xl7 hp54/54] FAINT guard (Fainting, idle): Elbereth vs [] hp=54/54
+[s32535 t26906 d1 0:1 xl7 hp54/54] FAINT guard (Fainting, idle): Elbereth vs [] hp=54/54
+[s32555 t26907 d1 0:1 xl7 hp54/54] FAINT guard (Fainting, idle): Elbereth vs [] hp=54/54
+[s32575 t26908 d1 0:1 xl7 hp54/54] FAINT guard (Fainting, idle): Elbereth vs [] hp=54/54
+[s32749 t27000 d1 0:1 xl7 hp54/54] STALL reachable=1 here_obj=2380 shop_here=0 refused=None nb=[(8, 19, 1, 2371, 1913, 0, 0), (8, 20, 0, 2365, 2365, 0, 0), (8, 21, 0, 2359, 2359, 0, 0), (9, 19, 0, 2359, 2359, 0, 0), (9, 21, 0, 2359, 2359, 0, 0), (10, 19, 0, 2359, 2359, 0, 0), (10, 20, 0, 2359, 2359, 0, 0), (10, 21, 1, 2380, 418, 0, 0)]
+[s32749 t27000 d1 0:1 xl7 hp54/54] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=4 pos=(np.int64(9), np.int64(20)) acts=[SPACE:417 SEARCH:133 LOOK:97 PICKUP:97 NUM_5:50] gotos=[open_visit_search(9, 20):50]
+[s32950 t27115 d1 0:1 xl7 hp54/54] PRAY hp=54/54 hunger=4 gap=1201 reason=starve-deadline est=-180.0 model[ok200=0.98 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=139 p_answered=0.98]
+[s32954 t27118 d1 0:1 xl7 hp54/54] PRAY result ok model[ok200=0.22 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=139] prayers=19 failures=0
+[s33107 t27369 d1 0:1 xl7 hp54/54] FEYE_TELE telepathic already: not meleeing the floating eye
+[s33107 t27369 d1 0:1 xl7 hp54/54] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s33127 t27370 d1 0:1 xl7 hp54/54] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s33358 t27400 d1 0:1 xl7 hp54/54] FEYE_TELE telepathic already: not meleeing the floating eye
+[s33535 t27503 d1 0:1 xl7 hp54/54] STALL reachable=1 here_obj=2380 shop_here=0 refused=None nb=[(8, 19, 1, 2371, 1913, 0, 0), (8, 20, 0, 2365, 2365, 0, 0), (8, 21, 0, 2359, 2359, 0, 0), (9, 19, 0, 2359, 2359, 0, 0), (9, 21, 0, 2359, 2359, 0, 0), (10, 19, 0, 2359, 2359, 0, 0), (10, 20, 0, 2359, 2359, 0, 0), (10, 21, 1, 2380, 2352, 0, 0)]
+[s33535 t27503 d1 0:1 xl7 hp54/54] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(9), np.int64(20)) acts=[SPACE:331 SEARCH:137 LOOK:76 PICKUP:76 NUM_5:70] gotos=[open_visit_search(9, 20):70]
+[s33741 t27860 d1 0:1 xl7 hp54/54] FEYE_TELE telepathic already: not meleeing the floating eye
+[s33741 t27860 d1 0:1 xl7 hp54/54] FEYE_TELE boxed in by a floating eye: Elbereth to scare it off
+[s34122 t27972 d1 0:1 xl7 hp54/54] FEYE_TELE telepathic already: not meleeing the floating eye
+[s34220 t27995 d1 0:1 xl7 hp54/54] FAINT guard (Weak, idle): Elbereth vs [] hp=54/54
+[s34264 t28002 d1 0:1 xl7 hp54/54] STALL reachable=1 here_obj=2380 shop_here=0 refused=None nb=[(8, 19, 1, 2371, 1913, 0, 0), (8, 20, 0, 2365, 2365, 0, 0), (8, 21, 0, 2359, 2359, 0, 0), (9, 19, 0, 2359, 2359, 0, 0), (9, 21, 0, 2359, 2359, 0, 0), (10, 19, 0, 2359, 2359, 0, 0), (10, 20, 0, 2359, 2359, 0, 0), (10, 21, 1, 2380, 2352, 0, 0)]
+[s34264 t28002 d1 0:1 xl7 hp54/54] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=3 pos=(np.int64(9), np.int64(20)) acts=[SPACE:277 SEARCH:129 NUM_5:92 LOOK:63 PICKUP:63] gotos=[open_visit_search(9, 20):92]
+[s34502 t28073 d1 0:1 xl7 hp49/54] RANGED hit: holds and Elbereth waits off for 8 turns
+[s34562 t28087 d1 0:1 xl7 hp31/54] FAINT guard (Fainting, idle): Elbereth vs ['cave spider', 'gnome', 'homunculus'] hp=31/54
+[s34697 t28161 d1 0:1 xl7 hp46/54] FAINT guard (Fainting, idle): Elbereth vs [] hp=46/54
+[s34715 t28162 d1 0:1 xl7 hp46/54] FAINT guard (Fainting, idle): Elbereth vs [] hp=46/54
+[s34765 t28194 d1 0:1 xl7 hp52/54] FAINT guard (Fainting, idle): Elbereth vs [] hp=52/54
+[s34805 t28198 d1 0:1 xl7 hp53/54] PRAY hp=53/54 hunger=4 gap=1080 reason=hunger-threat werejackal est=None model[ok200=0.96 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=139 p_answered=0.96]
+[s34819 t28201 d1 0:1 xl7 hp53/54] PRAY result ok model[ok200=0.22 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=139] prayers=20 failures=0
+[s34819 t28201 d1 0:1 xl7 hp53/54] HOLD over: wiping our Elbereth at (np.int64(9), np.int64(21))
+[s34833 t28202 d1 0:1 xl7 hp53/54] FEYE_TELE telepathic already: not meleeing the floating eye
+[s34886 t28220 d1 0:1 xl8 hp58/60] DIVE phase starts (milestone BE_ON_FIRST_LEVEL)
+[s34886 t28220 d1 0:1 xl8 hp58/60] ENGRAVE re-test with text (the grind test said nothing): 'a curved wand'
+[s34887 t28220 d1 0:1 xl8 hp58/60] DIVE task descend
+[s34887 t28220 d1 0:1 xl8 hp58/60] DIVE stuck in task 'descend' on level (np.int64(0), np.int64(1)) for 28219 turns; up stairs (y,x,dist)=[(16, 16, 19)]
+You see here a blessed spellbook of force bolt.
+
+                                                      -------
+          -----------                       #        #......|
+          |......*..|       ----------    --|--      #|.....|
+          |.........-####  #.........|   #-...|      #|.....-#
+          |.........|   #   |.........####|.[.*#     #|.....|##
+          |.*........   ##  |........| ###*..*|#    ##------- #
+          |.........|# *@#*#)....*....*#%#.v...#***#`*#       #
+          -------|-.- %#[#  |........| #       *   *# #       ###------
+                #)  )##)#*##-.........##       #   *  #         #.....|
+                #    %#     -----.----         #      #          |....|
+                #                ######[#####  #      #          |....|
+               ##                           ######### ##         |....|
+              #[                               #----.--#         |.>..|
+        ------.-----                           #......|#         ------
+        |..........|                            |.....|#
+        |.......<..|                            |.....|#
+        |..........|                            |.....|#
+        |..........-########                    |......#
+        ------------                            ----|--
+                                                    #
+Agent the Thaumaturge          St:11 Dx:15 Co:16 In:18 Wi:13 Ch:10 Neutral S:51
+Dlvl:1 $:0 HP:58(60) Pw:92(92) AC:-4 Xp:8/1294 T:28220
+[s34888 t28221 d1 0:1 xl8 hp58/60] ENGRAVE re-test with text (the grind test said nothing): 'a curved wand'
+[s34910 t28223 d1 0:1 xl8 hp58/60] ENGRAVE 'a curved wand': ['striking'] (text written: True)
+[s34914 t28224 d1 0:1 xl8 hp58/60] SESSILE floating eye at (8, 31) remembered
+[s34921 t28225 d1 0:1 xl8 hp59/60] SESSILE brown mold at (6, 31) remembered
+[s34921 t28225 d1 0:1 xl8 hp59/60] SESSILE floating eye at (9, 30) remembered
+[s34956 t28232 d1 0:1 xl8 hp60/60] SESSILE floating eye at (8, 29) remembered
+[s34966 t28238 d1 0:1 xl8 hp53/60] SESSILE floating eye at (7, 28) remembered
+[s34976 t28242 d1 0:1 xl8 hp54/60] SESSILE floating eye at (6, 29) remembered
+[s34979 t28245 d1 0:1 xl8 hp55/60] SESSILE floating eye at (5, 29) remembered
+[s35000 t28266 d1 0:1 xl8 hp59/60] FIGHT stalled (dance, no contact, kill or damage): letting go of [('floating eye', 5, 29), ('brown mold', 6, 31), ('rock piercer', 9, 35)]
+[s35010 t28273 d1 0:1 xl8 hp60/60] SESSILE floating eye at (5, 30) remembered
+[s35023 t28280 d1 0:1 xl8 hp60/60] SESSILE floating eye at (4, 31) remembered
+[s35028 t28285 d1 0:1 xl8 hp60/60] SESSILE floating eye at (4, 32) remembered
+[s35073 t28303 d1 0:1 xl8 hp60/60] SESSILE yellow mold at (12, 47) remembered
+[s35156 t28350 d1 0:1 xl8 hp60/60] FIGHT stall of 50 turns ended (contact): ['leprechaun', 'rothe', 'yellow mold']
+[s35275 t28416 d1 0:1 xl8 hp60/60] SESSILE yellow mold at (13, 67) remembered
+[s35278 t28419 d1 0:1 xl8 hp60/60] PANIC AgentPanic: Monster on a next tile when moving: (13,67)
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_911c949/pf_base/strategy.py", line 111, in f
+    next(v2)
+  File "/sol/d_CleverShovel_911c949/pf_base/dive_logic.py", line 1643, in strategy
+    self.plan_step()
+  File "/sol/d_CleverShovel_911c949/pf_base/dive_logic.py", line 1840, in plan_step
+    return self.descend()
+           ^^^^^^^^^^^^^^
+  File "/sol/d_CleverShovel_911c949/pf_base/dive_logic.py", line 6032, in descend
+    agent.go_to(y, x)
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 2339, in go_to
+    self.move(y, x)
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 1976, in move
+    raise AgentPanic(f'Monster on a next tile when moving: ({expected_y},{expected_x})')
+pf_base.exceptions.AgentPanic: Monster on a next tile when moving: (13,67)
+
+[s35292 t28419 d1 0:1 xl8 hp60/60] DIVE stairs cut off: walking through known traps
+[s35393 t28485 d1 0:1 xl8 hp60/60] SESSILE floating eye at (8, 47) remembered
+[s35400 t28486 d1 0:1 xl8 hp60/60] FEYE_TELE telepathic already: not meleeing the floating eye
+[s35403 t28488 d1 0:1 xl8 hp59/60] DIVE stairs cut off: walking through known traps
+[s35415 t28500 d1 0:1 xl8 hp60/60] STATUS milestone=BE_ON_FIRST_LEVEL diving=True hunger=1 pos=(np.int64(15), np.int64(55)) acts=[SPACE:360 SEARCH:101 LOOK:81 PICKUP:71 SE:71] gotos=[descend(13, 67):13 _fight2_perform_action(6, 31):3 check_items(7, 47):3]
+[s35442 t28510 d1 0:1 xl8 hp60/60] PANIC AgentPanic: agent position do not match after "move": expected (8, 52), got (7, 51)
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_911c949/pf_base/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 307, in preempt
+    next(iterator)
+  File "/sol/d_CleverShovel_911c949/pf_base/utils.py", line 134, in f
+    next(it)
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 2659, in fight2
+    wait_counter = self._fight2_perform_action(best_action, wait_counter)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 2730, in _fight2_perform_action
+    self.move(target_y, target_x)
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 2008, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_base.exceptions.AgentPanic: agent position do not match after "move": expected (8, 52), got (7, 51)
+
+[s35469 t28514 d1 0:1 xl8 hp60/60] ALIGN estimate 140 (cap 152) after -12
+[s35469 t28514 d1 0:1 xl8 hp60/60] DWARF died near [(7, 53)]: piles to check
+[s35469 t28514 d1 0:1 xl8 hp60/60] DIVE fetching the digging tool at (7, 53) on (np.int64(0), np.int64(1))
+[s35469 t28514 d1 0:1 xl8 hp60/60] DIVE task fetch digging tool
+[s35488 t28518 d1 0:1 xl8 hp60/60] DIVE no usable digging tool at (7, 53) on (np.int64(0), np.int64(1))
+[s35488 t28518 d1 0:1 xl8 hp60/60] DIVE task descend
+[s35534 t28544 d1 0:1 xl8 hp60/60] DIVE stairs cut off: walking through known traps
+[s35576 t28562 d1 0:1 xl8 hp60/60] FIGHT stall of 39 turns ended (contact): ['rock piercer']
+[s35738 t28643 d1 0:1 xl8 hp60/60] DIVE stairs cut off: walking through known traps
+[s35745 t28647 d1 0:1 xl8 hp60/60] SESSILE floating eye at (12, 48) remembered
+[s35748 t28647 d1 0:1 xl8 hp60/60] FEYE_TELE telepathic already: not meleeing the floating eye
+[s35874 t28708 d1 0:1 xl8 hp60/60] DIVE stairs cut off: walking through known traps
+[s35961 t28765 d1 0:1 xl8 hp60/60] DIVE stairs cut off: walking through known traps
+[s35963 t28765 d1 0:1 xl8 hp60/60] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_911c949/pf_base/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 307, in preempt
+    next(iterator)
+  File "/sol/d_CleverShovel_911c949/pf_base/strategy.py", line 68, in f
+    next(it)
+  File "/sol/d_CleverShovel_911c949/pf_base/utils.py", line 134, in f
+    next(it)
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 3038, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/d_CleverShovel_911c949/pf_base/item/inventory.py", line 857, in eat
+    raise AgentPanic('no such food is lying here')
+pf_base.exceptions.AgentPanic: no such food is lying here
+
+[s36079 t28819 d1 0:1 xl8 hp60/60] PANIC AgentPanic: agent position do not match after "move": expected (10, 39), got (9, 40)
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_911c949/pf_base/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 296, in preempt
+    val = f()
+          ^^^
+  File "/sol/d_CleverShovel_911c949/pf_base/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/d_CleverShovel_911c949/pf_base/exploration_logic.py", line 520, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 2339, in go_to
+    self.move(y, x)
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 2008, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_base.exceptions.AgentPanic: agent position do not match after "move": expected (10, 39), got (9, 40)
+
+[s36094 t28819 d1 0:1 xl8 hp60/60] DIVE stairs cut off: walking through known traps
+[s36155 t28886 d1 0:1 xl8 hp60/60] DIVE stairs cut off: walking through known traps
+[s36245 t29004 d1 0:1 xl8 hp60/60] STATUS milestone=BE_ON_FIRST_LEVEL diving=True hunger=1 pos=(np.int64(6), np.int64(61)) acts=[SPACE:134 SEARCH:75 E:56 SE:54 NW:53] gotos=[check_items(7, 47):5 _fight2_perform_action(6, 31):5 open_visit_search(9, 40):5]
+[s36377 t29149 d1 0:1 xl8 hp59/60] DIVE stuck in task 'descend' on level (np.int64(0), np.int64(1)) for 29148 turns; up stairs (y,x,dist)=[(16, 16, 21)]
+You kill the goblin!
+
+                                                      -------
+          -----------                       #        #......|
+          |......*..|       ----------    --|--      #|.....|  ##
+          |.........-####  #.........|   #-...|      #|.....-##*
+          |.........|   #   |.........####|...-#     #|.....|#^ $
+          |.*........   ##  |........| ###-...|#    ##-----.-##
+          |.........|# *+###..........####.....#####`[#    ## #
+          -------|-.- *#[#* .........| #       #   ## #    #  ###------
+                #)  !#)@####f.........###`#########*##*####     #.....|
+                #    +#**#  -----.---- *       #      #          |....|
+                #     *###       ############  ##     #          |....|
+               ##      **#               #  ######### ##         |....|
+              #[        #*                #  # #--.-.--#         |.>..|
+        ------.-----                        #  #......|#         ------
+        |..........|                            |.....|#
+        |.......<..|                            |.....|#
+        |..........|                            |.....|#
+        |..........-########                    |......#
+        ------------                            ----|--
+                                                    #
+Agent the Thaumaturge          St:11 Dx:16 Co:17 In:18 Wi:13 Ch:10 Neutral S:58
+Dlvl:1 $:75 HP:59(60) Pw:92(92) AC:-4 Xp:8/1441 T:29149 Hungry
+[s36377 t29149 d1 0:1 xl8 hp59/60] DIVE stairs cut off: walking through known traps
+[s36423 t29155 d1 0:1 xl8 hp60/60] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_911c949/pf_base/item/inventory.py", line 602, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 186, in atom_operation
+    self.update_state()
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 694, in update_state
+    self.call_update_functions()
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 705, in call_update_functions
+    func()
+  File "/sol/d_CleverShovel_911c949/pf_base/item/inventory.py", line 159, in f
+    raise AgentPanic('items below me changed')
+pf_base.exceptions.AgentPanic: items below me changed
+
+[s36527 t29210 d1 0:1 xl8 hp60/60] DIVE stairs cut off: walking through known traps
+[s36572 t29222 d1 0:1 xl8 hp60/60] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_911c949/pf_base/item/inventory.py", line 602, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 186, in atom_operation
+    self.update_state()
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 694, in update_state
+    self.call_update_functions()
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 705, in call_update_functions
+    func()
+  File "/sol/d_CleverShovel_911c949/pf_base/item/inventory.py", line 159, in f
+    raise AgentPanic('items below me changed')
+pf_base.exceptions.AgentPanic: items below me changed
+
+[s36667 t29272 d1 0:1 xl8 hp60/60] PANIC AgentPanic: agent position do not match after "move": expected (12, 24), got (13, 24)
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_911c949/pf_base/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 294, in preempt
+    val = f.run()
+          ^^^^^^^
+  File "/sol/d_CleverShovel_911c949/pf_base/strategy.py", line 48, in run
+    next(gen)
+  File "/sol/d_CleverShovel_911c949/pf_base/exploration_logic.py", line 520, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 2339, in go_to
+    self.move(y, x)
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 2008, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+pf_base.exceptions.AgentPanic: agent position do not match after "move": expected (12, 24), got (13, 24)
+
+[s36682 t29272 d1 0:1 xl8 hp60/60] DIVE stairs cut off: walking through known traps
+[s36770 t29361 d1 0:1 xl8 hp60/60] DIVE stairs cut off: walking through known traps
+[s36808 t29400 d1 0:1 xl8 hp60/60] SESSILE floating eye at (9, 48) remembered
+[s36811 t29400 d1 0:1 xl8 hp60/60] FEYE_TELE telepathic already: not meleeing the floating eye
+[s36844 t29417 d1 0:1 xl8 hp60/60] DIVE stairs cut off: walking through known traps
+[s36889 t29452 d1 0:1 xl8 hp60/60] DIVE going down stairs at (np.int64(13), np.int64(67))
+[s36894 t29453 d2 0:2 xl8 hp60/60] DIVE level (np.int64(0), np.int64(2)) depth 2
+[s36930 t29468 d2 0:2 xl8 hp60/60] DIVE task explore fully
+[s37005 t29501 d2 0:2 xl8 hp60/60] STATUS milestone=BE_ON_FIRST_LEVEL diving=True hunger=1 pos=(np.int64(11), np.int64(38)) acts=[SPACE:137 SEARCH:60 W:49 PICKUP:43 NUM_5:42] gotos=[open_visit_search(9, 49):4 open_visit_search(8, 28):3 open_visit_search(10, 39):3]
+[s37536 t29949 d2 0:2 xl8 hp60/60] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_911c949/pf_base/item/inventory.py", line 602, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 186, in atom_operation
+    self.update_state()
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 694, in update_state
+    self.call_update_functions()
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 705, in call_update_functions
+    func()
+  File "/sol/d_CleverShovel_911c949/pf_base/item/inventory.py", line 159, in f
+    raise AgentPanic('items below me changed')
+pf_base.exceptions.AgentPanic: items below me changed
+
+[s37617 t30000 d2 0:2 xl8 hp60/60] STATUS milestone=BE_ON_FIRST_LEVEL diving=True hunger=1 pos=(np.int64(14), np.int64(59)) acts=[SEARCH:124 WAIT:123 E:48 W:46 SPACE:35] gotos=[check_items(14, 49):6 open_visit_search(5, 30):6 check_items(16, 32):5]
+[s37786 t30140 d2 0:2 xl8 hp59/60] RANGED hit: holds and Elbereth waits off for 8 turns
+[s38160 t30394 d2 0:2 xl8 hp60/60] PRAY hp=60/60 hunger=3 gap=2193 reason=None model[ok200=1.00 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=160 p_answered=1.00]
+[s38165 t30397 d2 0:2 xl8 hp60/60] PRAY result ok model[ok200=0.22 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=160] prayers=21 failures=0
+[s38239 t30468 d2 0:2 xl8 hp60/60] DIVE stuck in task 'explore fully' on level (np.int64(0), np.int64(2)) for 1015 turns; up stairs (y,x,dist)=[(8, 35, 27)]
+
+
+          -------                                                     -----
+          |......##################                                   |..>|
+          |.....|                                                     |...|
+          |.....|             ----------                    ##########-...|
+          |...^..#         ###).........#                             ---.-
+          |.....|#            |........|                                 #
+          |.....|#            |........|                                 #
+          -|--.--##           |....<....####                             #
+           #  #   #           -.-|----.-   #    --------                 #
+         ###  #   #        #######    #    #####-...[..|                 #
+         #    #   #        #  ##      #         |......|                 #
+      ####    #   #        #      #####     ####.......|                 #
+     ##     ###   #     ###` ######        ##   |......|                 #
+     #      #     @##   #    #         #########........##########       #
+     #      #       # --.----|------   #`#      |......|         ##------.--
+    -.------|--     ##-.............#####       --------          #|.......|
+    |.........|       |............|  ##                          #..[.....|
+    |.........|       |............-###                            |.......|
+    -----------       --------------                               ---------
+
+Agent the Thaumaturge          St:11 Dx:16 Co:17 In:18 Wi:13 Ch:10 Neutral S:63
+Dlvl:2 $:96 HP:60(60) Pw:92(92) AC:-4 Xp:8/1544 T:30468
+[s38239 t30468 d2 0:2 xl8 hp60/60] DIVE task descend
+[s38277 t30500 d2 0:2 xl8 hp60/60] STATUS milestone=BE_ON_FIRST_LEVEL diving=True hunger=1 pos=(np.int64(14), np.int64(48)) acts=[SEARCH:147 W:81 E:74 SPACE:46 SW:36] gotos=[open_visit_search(15, 24):6 open_visit_search(17, 12):6 open_visit_search(15, 73):4]
+[s38321 t30538 d2 0:2 xl8 hp60/60] DIVE going down stairs at (np.int64(2), np.int64(73))
+[s38323 t30539 d3 0:3 xl8 hp60/60] DIVE level (np.int64(0), np.int64(3)) depth 3
+[s38323 t30539 d3 0:3 xl8 hp60/60] DIVE task explore fully
+[s38451 t30628 d4 0:4 xl8 hp60/60] DIVE fell through a trap door at (np.int64(11), np.int64(35)) on (np.int64(0), np.int64(3)); remembered
+[s38451 t30628 d4 0:4 xl8 hp60/60] DIVE level (np.int64(0), np.int64(4)) depth 4
+[s38921 t31000 d4 0:4 xl8 hp60/60] STATUS milestone=BE_ON_FIRST_LEVEL diving=True hunger=1 pos=(np.int64(17), np.int64(35)) acts=[SEARCH:155 E:66 SPACE:51 W:42 S:39] gotos=[open_visit_search(2, 19):14 check_items(10, 61):6 check_items(7, 74):6]
+[s39157 t31149 d4 0:4 xl8 hp60/60] DIVE task descend
+[s39176 t31165 d4 0:4 xl8 hp60/60] DIVE stepping onto trap door at (np.int64(5), np.int64(23))
+[s39178 t31166 d5 0:5 xl8 hp60/60] DIVE fell through a trap door at (np.int64(5), np.int64(22)) on (np.int64(0), np.int64(4)); remembered
+[s39178 t31166 d5 0:5 xl8 hp60/60] DIVE level (np.int64(0), np.int64(5)) depth 5
+[s39251 t31198 d5 0:5 xl8 hp58/60] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_911c949/pf_base/item/inventory.py", line 602, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 186, in atom_operation
+    self.update_state()
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 694, in update_state
+    self.call_update_functions()
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 705, in call_update_functions
+    func()
+  File "/sol/d_CleverShovel_911c949/pf_base/item/inventory.py", line 159, in f
+    raise AgentPanic('items below me changed')
+pf_base.exceptions.AgentPanic: items below me changed
+
+[s39427 t31291 d5 0:5 xl8 hp57/60] FIGHT stall of 20 turns ended (contact): ['baby long worm', 'quivering blob', 'snake']
+[s39466 t31304 d5 0:5 xl8 hp31/60] ELBERETH rest start: ['snake']
+[s39549 t31330 d5 0:5 xl8 hp21/60] ELBERETH rest start: ['quivering blob']
+[s39934 t31453 d5 0:5 xl8 hp45/60] PRAY hp=45/60 hunger=4 gap=1056 reason=hunger-threat no-elbereth:kitten est=None model[ok200=0.95 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=166 p_answered=0.95]
+[s39941 t31456 d5 0:5 xl8 hp45/60] PRAY result ok model[ok200=0.22 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=166] prayers=22 failures=0
+[s39996 t31489 d5 0:5 xl8 hp50/60] FIGHT stall of 29 turns ended (contact): ['quivering blob', 'wood nymph']
+[s40027 t31500 d5 0:5 xl8 hp44/60] STATUS milestone=BE_ON_FIRST_LEVEL diving=True hunger=1 pos=(np.int64(8), np.int64(41)) acts=[SPACE:234 SEARCH:206 LOOK:153 E:81 THROW:39] gotos=[open_visit_search(16, 10):9 check_items(9, 16):6 open_visit_search(12, 40):4]
+[s40054 t31518 d5 0:5 xl8 hp47/60] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_911c949/pf_base/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 307, in preempt
+    next(iterator)
+  File "/sol/d_CleverShovel_911c949/pf_base/strategy.py", line 68, in f
+    next(it)
+  File "/sol/d_CleverShovel_911c949/pf_base/utils.py", line 134, in f
+    next(it)
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 3038, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/d_CleverShovel_911c949/pf_base/item/inventory.py", line 857, in eat
+    raise AgentPanic('no such food is lying here')
+pf_base.exceptions.AgentPanic: no such food is lying here
+
+[s40166 t31580 d5 0:5 xl8 hp31/60] ELBERETH rest start: ['gold golem']
+[s40182 t31581 d5 0:5 xl8 hp31/60] DIVE task rest
+[s40203 t31641 d5 0:5 xl8 hp43/60] DIVE task descend
+[s40225 t31653 d5 0:5 xl8 hp39/60] DIVE task rest
+[s40234 t31673 d5 0:5 xl8 hp43/60] DIVE task descend
+[s40284 t31718 d5 0:5 xl8 hp52/60] DIVE task rest before descending
+[s40293 t31738 d5 0:5 xl8 hp56/60] DIVE task descend
+[s40293 t31738 d5 0:5 xl8 hp56/60] DIVE task rest before descending
+[s40466 t31879 d5 0:5 xl8 hp60/60] DIVE task descend
+[s40473 t31883 d5 0:5 xl8 hp60/60] DIVE going down stairs at (np.int64(4), np.int64(59))
+[s40475 t31884 d6 0:6 xl8 hp60/60] DIVE level (np.int64(0), np.int64(6)) depth 6
+[s40503 t31897 d6 0:6 xl8 hp56/60] LYCAN infected (kind wolf)
+[s40508 t31899 d6 0:6 xl8 hp38/60] ELBERETH rest start: ['werewolf']
+[s40524 t31900 d6 0:6 xl8 hp39/60] DIVE task rest
+[s40529 t31920 d6 0:6 xl8 hp43/60] DIVE task descend
+[s40547 t31931 d6 0:6 xl8 hp22/60] ELBERETH rest start: ['werewolf']
+[s40563 t31932 d6 0:6 xl8 hp22/60] DIVE task rest
+[s40567 t31932 d6 0:6 xl8 hp22/60] CFP form: werewolf
+[s40577 t31946 d6 0:6 xl8 hp24/24] POLY changed form; HP before: (np.int64(22), np.int64(60)) now 24/24
+[s40594 t31958 d6 0:6 xl8 hp6/24] RETREAT upstairs at hp 6/24
+[s40594 t31958 d6 0:6 xl8 hp6/24] PANIC AgentPanic: Monster on a next tile when moving: (18,45)
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_911c949/pf_base/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 307, in preempt
+    next(iterator)
+  File "/sol/d_CleverShovel_911c949/pf_base/strategy.py", line 68, in f
+    next(it)
+  File "/sol/d_CleverShovel_911c949/pf_base/dive_logic.py", line 2453, in retreat_upstairs
+    agent.go_to(y, x, max_steps=1)
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 2339, in go_to
+    self.move(y, x)
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 1976, in move
+    raise AgentPanic(f'Monster on a next tile when moving: ({expected_y},{expected_x})')
+pf_base.exceptions.AgentPanic: Monster on a next tile when moving: (18,45)
+
+[s40615 t31958 d6 0:6 xl8 hp6/24] CFP form: back in our own form
+[s40616 t31958 d6 0:6 xl8 hp6/24] CFP form: werewolf
+[s40619 t31959 d6 0:6 xl8 hp18/18] CFP form: back in our own form
+[s40623 t31961 d6 0:6 xl8 hp22/60] ELBERETH rest start: ['werewolf', 'wolf']
+[s40681 t31981 d6 0:6 xl8 hp20/60] RETREAT upstairs at hp 20/60
+[s40681 t31981 d6 0:6 xl8 hp20/60] PANIC AgentPanic: Monster on a next tile when moving: (18,45)
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_911c949/pf_base/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 307, in preempt
+    next(iterator)
+  File "/sol/d_CleverShovel_911c949/pf_base/strategy.py", line 68, in f
+    next(it)
+  File "/sol/d_CleverShovel_911c949/pf_base/dive_logic.py", line 2453, in retreat_upstairs
+    agent.go_to(y, x, max_steps=1)
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 2339, in go_to
+    self.move(y, x)
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 1976, in move
+    raise AgentPanic(f'Monster on a next tile when moving: ({expected_y},{expected_x})')
+pf_base.exceptions.AgentPanic: Monster on a next tile when moving: (18,45)
+
+[s40718 t31987 d6 0:6 xl8 hp19/60] KNOWN_ITEMS zap (known striking at the werewolf): burst, hp 19/60, lost 19 in 2 turns, next to us ['werewolf', 'wolf'], depth 6 (use 1)
+[s40722 t31988 d6 0:6 xl8 hp14/60] KNOWN_ITEMS zap -> 'The wand hits the werewolf!  You kill the werewolf! The wand misses it.  The wand hits it.  The wolf bites!'
+[s40722 t31988 d6 0:6 xl8 hp14/60] ELBERETH rest start: ['wolf']
+[s40738 t31989 d6 0:6 xl8 hp10/60] PRAY hp=10/60 hunger=1 gap=533 reason=hp model[ok200=0.88 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=169 p_answered=0.88]
+[s40745 t31992 d6 0:6 xl8 hp60/60] LYCAN cured
+[s40745 t31992 d6 0:6 xl8 hp60/60] PRAY result ok model[ok200=0.22 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=169] prayers=23 failures=0
+[s40758 t31999 d6 0:6 xl8 hp22/60] ELBERETH rest start: ['wolf']
+[s40774 t32000 d6 0:6 xl8 hp23/60] STATUS milestone=BE_ON_FIRST_LEVEL diving=True hunger=1 pos=(np.int64(18), np.int64(44)) acts=[SPACE:121 WAIT:105 SEARCH:82 W:47 E:40] gotos=[check_items(14, 39):6 check_items(15, 34):5 check_items(15, 44):4]
+[s40794 t32004 d6 0:6 xl8 hp23/60] ELBERETH rest start: ['wolf']
+[s40942 t32040 d6 0:6 xl8 hp21/60] ELBERETH rest start: ['wolf']
+[s41005 t32052 d6 0:6 xl8 hp23/60] ELBERETH rest start: ['wolf']
+[s41105 t32106 d6 0:6 xl8 hp18/60] RETREAT upstairs at hp 18/60
+[s41105 t32106 d6 0:6 xl8 hp18/60] PANIC AgentPanic: Monster on a next tile when moving: (18,44)
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_911c949/pf_base/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 307, in preempt
+    next(iterator)
+  File "/sol/d_CleverShovel_911c949/pf_base/strategy.py", line 68, in f
+    next(it)
+  File "/sol/d_CleverShovel_911c949/pf_base/dive_logic.py", line 2453, in retreat_upstairs
+    agent.go_to(y, x, max_steps=1)
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 2339, in go_to
+    self.move(y, x)
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 1976, in move
+    raise AgentPanic(f'Monster on a next tile when moving: ({expected_y},{expected_x})')
+pf_base.exceptions.AgentPanic: Monster on a next tile when moving: (18,44)
+
+[s41121 t32106 d6 0:6 xl8 hp18/60] ELBERETH rest start: ['wolf', 'wolf']
+[s41174 t32115 d6 0:6 xl8 hp20/60] DIVE task descend
+[s41183 t32117 d6 0:6 xl8 hp20/60] ELBERETH rest start: ['wolf']
+[s41222 t32122 d6 0:6 xl8 hp21/60] ELBERETH rest start: ['wolf']
+[s41236 t32125 d6 0:6 xl8 hp22/60] DIVE task rest
+[s41254 t32144 d6 0:6 xl8 hp15/60] RETREAT upstairs at hp 15/60
+[s41254 t32144 d6 0:6 xl8 hp15/60] PANIC AgentPanic: Monster on a next tile when moving: (18,45)
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_911c949/pf_base/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 307, in preempt
+    next(iterator)
+  File "/sol/d_CleverShovel_911c949/pf_base/strategy.py", line 68, in f
+    next(it)
+  File "/sol/d_CleverShovel_911c949/pf_base/dive_logic.py", line 2453, in retreat_upstairs
+    agent.go_to(y, x, max_steps=1)
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 2339, in go_to
+    self.move(y, x)
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 1976, in move
+    raise AgentPanic(f'Monster on a next tile when moving: ({expected_y},{expected_x})')
+pf_base.exceptions.AgentPanic: Monster on a next tile when moving: (18,45)
+
+[s41270 t32144 d6 0:6 xl8 hp15/60] ELBERETH rest start: ['wolf', 'wolf']
+[s41339 t32173 d6 0:6 xl8 hp21/60] ELBERETH rest start: ['wolf']
+[s41359 t32176 d6 0:6 xl8 hp22/60] ELBERETH rest start: ['wolf']
+[s41385 t32181 d6 0:6 xl8 hp23/60] ELBERETH rest start: ['wolf']
+[s41450 t32214 d6 0:6 xl8 hp23/60] ELBERETH rest start: ['wolf']
+[s41472 t32215 d6 0:6 xl8 hp18/60] RETREAT upstairs at hp 18/60
+[s41472 t32215 d6 0:6 xl8 hp18/60] PANIC AgentPanic: Monster on a next tile when moving: (18,44)
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_911c949/pf_base/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 307, in preempt
+    next(iterator)
+  File "/sol/d_CleverShovel_911c949/pf_base/strategy.py", line 68, in f
+    next(it)
+  File "/sol/d_CleverShovel_911c949/pf_base/dive_logic.py", line 2453, in retreat_upstairs
+    agent.go_to(y, x, max_steps=1)
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 2339, in go_to
+    self.move(y, x)
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 1976, in move
+    raise AgentPanic(f'Monster on a next tile when moving: ({expected_y},{expected_x})')
+pf_base.exceptions.AgentPanic: Monster on a next tile when moving: (18,44)
+
+[s41523 t32219 d6 0:6 xl8 hp18/60] ELBERETH rest start: ['wolf']
+[s41543 t32224 d6 0:6 xl8 hp19/60] ELBERETH rest start: ['wolf']
+[s41570 t32227 d6 0:6 xl8 hp20/60] DIVE task descend
+[s41583 t32229 d6 0:6 xl8 hp20/60] ELBERETH rest start: ['wolf']
+[s41639 t32237 d6 0:6 xl8 hp22/60] ELBERETH rest start: ['barrow wight']
+[s41673 t32248 d6 0:6 xl8 hp19/60] RETREAT upstairs at hp 19/60
+[s41673 t32248 d6 0:6 xl8 hp19/60] PANIC AgentPanic: Monster on a next tile when moving: (18,42)
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_911c949/pf_base/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 307, in preempt
+    next(iterator)
+  File "/sol/d_CleverShovel_911c949/pf_base/strategy.py", line 68, in f
+    next(it)
+  File "/sol/d_CleverShovel_911c949/pf_base/dive_logic.py", line 2453, in retreat_upstairs
+    agent.go_to(y, x, max_steps=1)
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 2339, in go_to
+    self.move(y, x)
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 1976, in move
+    raise AgentPanic(f'Monster on a next tile when moving: ({expected_y},{expected_x})')
+pf_base.exceptions.AgentPanic: Monster on a next tile when moving: (18,42)
+
+[s41688 t32248 d6 0:6 xl8 hp19/60] ELBERETH rest start: ['wolf', 'wolf']
+[s41740 t32259 d6 0:6 xl8 hp21/60] ELBERETH rest start: ['wolf']
+[s41768 t32262 d6 0:6 xl8 hp16/60] ELBERETH rest start: ['wolf']
+[s41795 t32264 d6 0:6 xl8 hp16/60] RETREAT upstairs at hp 16/60
+[s41795 t32264 d6 0:6 xl8 hp16/60] PANIC AgentPanic: Monster on a next tile when moving: (18,44)
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_911c949/pf_base/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 307, in preempt
+    next(iterator)
+  File "/sol/d_CleverShovel_911c949/pf_base/strategy.py", line 68, in f
+    next(it)
+  File "/sol/d_CleverShovel_911c949/pf_base/dive_logic.py", line 2453, in retreat_upstairs
+    agent.go_to(y, x, max_steps=1)
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 2339, in go_to
+    self.move(y, x)
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 1976, in move
+    raise AgentPanic(f'Monster on a next tile when moving: ({expected_y},{expected_x})')
+pf_base.exceptions.AgentPanic: Monster on a next tile when moving: (18,44)
+
+[s41819 t32264 d6 0:6 xl8 hp16/60] ELBERETH rest start: ['wolf']
+[s41833 t32266 d6 0:6 xl8 hp17/60] ELBERETH rest start: ['wolf']
+[s41847 t32269 d6 0:6 xl8 hp17/60] DIVE task rest
+[s41870 t32291 d6 0:6 xl8 hp22/60] ELBERETH rest start: ['wolf']
+[s41890 t32294 d6 0:6 xl8 hp22/60] ELBERETH rest start: ['wolf']
+[s41949 t32328 d6 0:6 xl8 hp29/60] DIVE task descend
+[s41977 t32337 d6 0:6 xl8 hp18/60] RETREAT upstairs at hp 18/60
+[s41977 t32337 d6 0:6 xl8 hp18/60] PANIC AgentPanic: Monster on a next tile when moving: (18,42)
+Traceback (most recent call last):
+  File "/sol/d_CleverShovel_911c949/pf_base/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 307, in preempt
+    next(iterator)
+  File "/sol/d_CleverShovel_911c949/pf_base/strategy.py", line 68, in f
+    next(it)
+  File "/sol/d_CleverShovel_911c949/pf_base/dive_logic.py", line 2453, in retreat_upstairs
+    agent.go_to(y, x, max_steps=1)
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 2339, in go_to
+    self.move(y, x)
+  File "/sol/d_CleverShovel_911c949/pf_base/agent.py", line 1976, in move
+    raise AgentPanic(f'Monster on a next tile when moving: ({expected_y},{expected_x})')
+pf_base.exceptions.AgentPanic: Monster on a next tile when moving: (18,42)
+
+[s41993 t32337 d6 0:6 xl8 hp18/60] ELBERETH rest start: ['wolf', 'wolf']
+[s42009 t32338 d6 0:6 xl8 hp7/60] DOOM prayer: gap 346 p_hp=0.71 p_die3=1.00
+[s42009 t32338 d6 0:6 xl8 hp7/60] PRAY hp=7/60 hunger=2 gap=346 reason=hp-doom p_hp=0.71 p_die3=1.00 model[ok200=0.71 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=169 p_answered=0.71]
+[s42019 t32341 d6 0:6 xl8 hp60/60] PRAY result ok model[ok200=0.22 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=169] prayers=24 failures=0
+[s42024 t32343 d6 0:6 xl8 hp34/60] ELBERETH rest start: ['wolf', 'wolf']
+[s42059 t32345 d6 0:6 xl8 hp16/60] KNOWN_ITEMS zap (known striking at the wolf): burst, hp 16/60, lost 18 in 2 turns, next to us ['wolf', 'wolf'], depth 6 (use 2)
+[s42062 t32346 d6 0:6 xl8 hp5/60] KNOWN_ITEMS zap -> 'The wand hits the wolf!  The wolf bites!  The wolf bites!'
+[s42062 t32346 d6 0:6 xl8 hp5/60] LAST RESORT: quaffing unknown 'a dark potion'
