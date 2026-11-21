@@ -1,0 +1,95 @@
+diff --git a/base/nhbot/dive_logic.py b/base/nhbot/dive_logic.py
+index 19e4ceb..3aa587a 100644
+--- a/base/nhbot/dive_logic.py
++++ b/base/nhbot/dive_logic.py
+@@ -1045,6 +1045,7 @@ class DiveLogic:
+         self._raven_arrival_turn = -1      # turn we last arrived on the current level
+         self._raven_flood_turn = -10       # turn a hole last filled with water on Medusa's level
+         self._raven_contact_turn = -100    # last turn a hostile was next to us / hurt us on the raven island
++        self._last_raven_blinding = None
+         self._last_level_key = None
+         self._medusa_floods = 0            # holes that flooded on Medusa's level (MEDUSA_SKIP)
+         self._medusa_hops = 0              # moat steps toward dry land on Medusa's level (MEDUSA_HOP)
+@@ -1105,6 +1106,8 @@ class DiveLogic:
+             self._raven_arrival_turn = turn   # RAVEN_CYCLE: floods count per visit
+         if key == self.medusa_level and 'fills with water' in agent.message:
+             self._raven_flood_turn = turn
++        if key == self.medusa_level and 'raven blinds you!' in agent.message.lower():
++            self._last_raven_blinding = (key, turn)
+         if key == self.medusa_level and key not in self._raven_levels:
+             if DiveLogic.RAVEN is None:
+                 DiveLogic.RAVEN = MON.from_name('raven')
+@@ -2659,6 +2662,24 @@ class DiveLogic:
+         agent.step(A.Command.FIGHT)
+         agent.direction(y, x)
+ 
++    def _blind_raven_retreat_due(self):
++        """A blind dust ward already failed under a known raven attack, before the dig could resume."""
++        agent = self.agent
++        bl = agent.blstats
++        prop = agent.character.prop
++        key = agent.current_level().key()
++        if not self.on_medusa_level() or key not in self._raven_levels or not prop.blind or \
++                prop.confusion or prop.stun or prop.hallu or prop.polymorph or agent.in_pit() or self.levitating():
++            return False
++        if self._last_raven_blinding is None:
++            return False
++        blinded_level, blinded_turn = self._last_raven_blinding
++        if blinded_level != key or bl.time - blinded_turn > RETREAT_WINDOW:
++            return False
++        last_ward = self.__dict__.get('_engrave_turn', {}).get((key, bl.y, bl.x, False))
++        return last_ward is not None and last_ward >= blinded_turn and self._hurt_since(last_ward) and \
++            not any(getattr(m[3], 'mflags2', 0) & MON.M2_STALK for m in self._near_hostiles(radius=2))
++
+     @Strategy.wrap
+     def retreat_upstairs(self):
+         """Low or fast-falling HP (or a crowded arrival): take the up stairs if they are close."""
+@@ -2685,7 +2706,8 @@ class DiveLogic:
+         in_trouble = bl.hitpoints < RETREAT_BELOW * bl.max_hitpoints or self._fast_hp_loss()
+         if crowd is None and (RETREAT_BELOW <= 0 or not in_trouble or not self._near_hostiles(radius=3)):
+             yield False
+-        if DIG_ESCAPE and crowd is None and self._dig_escape_action() is not None:
++        digging = DIG_ESCAPE and crowd is None and self._dig_escape_action() is not None
++        if digging and not self._blind_raven_retreat_due():
+             # digging out under Elbereth beats walking to a '<' with the monsters following (base-jf14 s3 ping-
+             # ponged between Medusa-3's ravens and a fire giant upstairs until it died)
+             yield False
+@@ -2712,6 +2734,11 @@ class DiveLogic:
+             p = self._arrival_square[1]
+             if 0 <= dis[p] <= reach and p not in ups:
+                 ups.append(p)
++        if digging:
++            here = (bl.y, bl.x)
++            ups = [p for p in ups if p == here or
++                   (dis[p] == 1 and abs(p[0] - bl.y) + abs(p[1] - bl.x) == 1 and
++                    agent.glyphs[p] in G.STAIR_UP and not agent.monster_tracker.monster_mask[p])]
+         if not ups:
+             yield False
+         yield True
+@@ -2723,7 +2750,10 @@ class DiveLogic:
+         start = (bl.y, bl.x, level.key())
+         try:
+             if (bl.y, bl.x) != (y, x):
+-                agent.go_to(y, x, max_steps=1)
++                if digging:
++                    agent.move(y, x)
++                else:
++                    agent.go_to(y, x, max_steps=1)
+             if (agent.blstats.y, agent.blstats.x) == (y, x):
+                 agent.move('<')
+         finally:
+diff --git a/nethackers.solution.json b/nethackers.solution.json
+index 3b153e2..6463f33 100644
+--- a/nethackers.solution.json
++++ b/nethackers.solution.json
+@@ -1,8 +1,9 @@
+ {
+   "schema": "nethackers.solution/v1",
+-  "name": "daglar-zLeadersBest5498197",
++  "name": "Archaeologist use a nearby stair after raven blinding",
+   "root": ".",
+   "parents": [
++    "github.com/daglar-dragomirov/nethacker@0013e4fee1088f915a5208471e52c835ab260ddb",
+     "github.com/daglar-dragomirov/nethacker@ccfb1251179bad749ece88d384956363ffb2db56",
+     "github.com/daglar-dragomirov/nethacker@44b29b9299c5dcfb76e3fc6081004727c58db19a",
+     "github.com/DT6A/nethacker@37f9da35d0dbf98ed15bf89735bd601f0c0eac02",
