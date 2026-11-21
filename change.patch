@@ -1,0 +1,60 @@
+diff --git a/base/nhbot_dt448_main/dive_logic.py b/base/nhbot_dt448_main/dive_logic.py
+index d6d8622..16314f7 100644
+--- a/base/nhbot_dt448_main/dive_logic.py
++++ b/base/nhbot_dt448_main/dive_logic.py
+@@ -3795,7 +3795,55 @@ class DiveLogic:
+                     self._dig_walk_blocked_until = agent.blstats.time + 5
+             return
+         agent.log(f'DIVE digging out, hostiles at {[(m[3].mname, int(m[0])) for m in monsters[:3]]}')
++        self._trace_lieutenant_dig('before', monsters)
+         self.dig_with_tool(arg)
++        if jf_log.enabled() and any(m[3].mname == 'lieutenant' for m in monsters):
++            self._trace_lieutenant_dig('after', agent.get_visible_monsters())
++
++    def _trace_lieutenant_dig(self, phase, monsters):
++        if not jf_log.enabled():
++            return
++        agent = self.agent
++        level = agent.current_level()
++        bl = agent.blstats
++        y, x = int(bl.y), int(bl.x)
++        targets = [(int(d), int(my), int(mx), mon.mname) for d, my, mx, mon, _ in monsters
++                   if mon.mname == 'lieutenant' and max(abs(my - y), abs(mx - x)) <= 3]
++        marker = (level.key(), bl.time)
++        if not targets or getattr(self, '_trace_lieutenant_turn', None) == marker:
++            return
++        self._trace_lieutenant_turn = marker
++
++        from .combat import fight_heur
++
++        y0, x0 = max(0, y - 3), max(0, x - 3)
++        region = (slice(y0, y + 4), slice(x0, x + 4))
++        wands = [item for item in agent.inventory.items if item.is_wand() and item.is_unambiguous()
++                 and item.object.name in ('lightning', 'magic missile', 'digging')][:8]
++        directions = {((dy > 0) - (dy < 0), (dx > 0) - (dx < 0))
++                      for _, my, mx, _ in targets for dy, dx in ((my - y, mx - x),)
++                      if (dy or dx) and (not dy or not dx or abs(dy) == abs(dx))}
++        rays = []
++        scores = []
++        for dy, dx in sorted(directions):
++            for item in wands:
++                hits = [
++                    (int(ty), int(tx), hit if isinstance(hit, str) else hit[3].mname, round(float(p), 4))
++                    for ty, tx, hit, p in fight_heur.simulate_wand_path(agent, item, monsters, dy, dx)
++                    if hit is not None
++                ]
++                rays.append((item.text, (dy, dx), hits))
++            scores.extend((plan[3].text, float(score)) for score, plan in
++                          fight_heur.get_potential_wand_usages(agent, monsters, dy, dx) if plan[3] in wands)
++        record = {
++            'phase': phase, 'at': (y, x), 'origin': (y0, x0), 'targets': targets,
++            'glyphs': agent.glyphs[region].tolist(), 'objects': level.objects[region].tolist(),
++            'walkable': level.walkable[region].tolist(), 'bfs': agent.bfs()[region].tolist(),
++            'doors': level.intact_doors[region].tolist(), 'forbidden': level.forbidden[region].tolist(),
++            'wands': [(w.text, w.uses, w.status, agent.inventory.is_known_empty(w)) for w in wands],
++            'rays': rays, 'scores': scores,
++        }
++        agent.log(f'DIG_LIEUTENANT_DIAG {record}')
+ 
+     def _dig_escape_action(self):
+         """DIG_ESCAPE: what digging out would do right now -- ('dig', tool), ('step', (y, x)) onto a diggable
