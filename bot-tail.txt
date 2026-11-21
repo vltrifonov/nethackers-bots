@@ -1,0 +1,1172 @@
+[s22 t1 d1 0:1 xl1 hp14/14] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(3), np.int64(43)) acts=[SPACE:6 ESC:3 AUTOPICKUP:2 ATTRIBUTES:1 ENHANCE:1] gotos=[]
+[s22 t1 d1 0:1 xl1 hp14/14] DIVE level (np.int64(0), np.int64(1)) depth 1
+[s80 t31 d1 0:1 xl1 hp11/14] RANGED hit: holds and Elbereth waits off for 8 turns
+[s151 t94 d1 0:1 xl1 hp14/14] PANIC AgentPanic: agent position do not match after "move": expected (5, 16), got (6, 16)
+Traceback (most recent call last):
+  File "/sol/base/nhbot/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/nhbot/agent.py", line 298, in preempt
+    val = f.run()
+          ^^^^^^^
+  File "/sol/base/nhbot/strategy.py", line 48, in run
+    next(gen)
+  File "/sol/base/nhbot/exploration_logic.py", line 523, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/base/nhbot/agent.py", line 2531, in go_to
+    self.move(y, x)
+  File "/sol/base/nhbot/agent.py", line 2084, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+nhbot.exceptions.AgentPanic: agent position do not match after "move": expected (5, 16), got (6, 16)
+
+[s242 t152 d1 0:1 xl1 hp11/14] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/base/nhbot/item/inventory.py", line 602, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/base/nhbot/agent.py", line 190, in atom_operation
+    self.update_state()
+  File "/sol/base/nhbot/agent.py", line 700, in update_state
+    self.call_update_functions()
+  File "/sol/base/nhbot/agent.py", line 711, in call_update_functions
+    func()
+  File "/sol/base/nhbot/item/inventory.py", line 159, in f
+    raise AgentPanic('items below me changed')
+nhbot.exceptions.AgentPanic: items below me changed
+
+[s272 t158 d1 0:1 xl1 hp11/14] PANIC AgentPanic: agent position do not match after "move": expected (18, 14), got (18, 15)
+Traceback (most recent call last):
+  File "/sol/base/nhbot/agent.py", line 311, in preempt
+    next(iterator)
+  File "/sol/base/nhbot/utils.py", line 134, in f
+    next(it)
+  File "/sol/base/nhbot/agent.py", line 2868, in fight2
+    wait_counter = self._fight2_perform_action(best_action, wait_counter)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/nhbot/agent.py", line 3050, in _fight2_perform_action
+    self.go_to(target_y, target_x, stop_one_before=True, max_steps=1,
+  File "/sol/base/nhbot/agent.py", line 2531, in go_to
+    self.move(y, x)
+  File "/sol/base/nhbot/agent.py", line 2084, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+nhbot.exceptions.AgentPanic: agent position do not match after "move": expected (18, 14), got (18, 15)
+
+[s464 t303 d1 0:1 xl1 hp14/14] PANIC AgentPanic: agent position do not match after "move": expected (2, 15), got (2, 14)
+Traceback (most recent call last):
+  File "/sol/base/nhbot/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/nhbot/agent.py", line 300, in preempt
+    val = f()
+          ^^^
+  File "/sol/base/nhbot/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/base/nhbot/exploration_logic.py", line 523, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/base/nhbot/agent.py", line 2531, in go_to
+    self.move(y, x)
+  File "/sol/base/nhbot/agent.py", line 2084, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+nhbot.exceptions.AgentPanic: agent position do not match after "move": expected (2, 15), got (2, 14)
+
+[s487 t321 d1 0:1 xl1 hp14/14] PANIC AgentPanic: agent position do not match after "move": expected (3, 14), got (2, 15)
+Traceback (most recent call last):
+  File "/sol/base/nhbot/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/nhbot/agent.py", line 300, in preempt
+    val = f()
+          ^^^
+  File "/sol/base/nhbot/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/base/nhbot/exploration_logic.py", line 523, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/base/nhbot/agent.py", line 2531, in go_to
+    self.move(y, x)
+  File "/sol/base/nhbot/agent.py", line 2084, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+nhbot.exceptions.AgentPanic: agent position do not match after "move": expected (3, 14), got (2, 15)
+
+[s545 t355 d1 0:1 xl1 hp14/14] PANIC AgentPanic: agent position do not match after "move": expected (2, 28), got (1, 28)
+Traceback (most recent call last):
+  File "/sol/base/nhbot/agent.py", line 311, in preempt
+    next(iterator)
+  File "/sol/base/nhbot/utils.py", line 134, in f
+    next(it)
+  File "/sol/base/nhbot/agent.py", line 2868, in fight2
+    wait_counter = self._fight2_perform_action(best_action, wait_counter)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/nhbot/agent.py", line 3050, in _fight2_perform_action
+    self.go_to(target_y, target_x, stop_one_before=True, max_steps=1,
+  File "/sol/base/nhbot/agent.py", line 2531, in go_to
+    self.move(y, x)
+  File "/sol/base/nhbot/agent.py", line 2084, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+nhbot.exceptions.AgentPanic: agent position do not match after "move": expected (2, 28), got (1, 28)
+
+[s631 t385 d1 0:1 xl1 hp14/14] PANIC AgentPanic: agent position do not match after "move": expected (4, 27), got (5, 28)
+Traceback (most recent call last):
+  File "/sol/base/nhbot/agent.py", line 311, in preempt
+    next(iterator)
+  File "/sol/base/nhbot/strategy.py", line 68, in f
+    next(it)
+  File "/sol/base/nhbot/utils.py", line 134, in f
+    next(it)
+  File "/sol/base/nhbot/agent.py", line 3287, in eat_corpses_from_ground
+    self.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 255, 0), is_path=True))
+  File "/sol/base/nhbot/agent.py", line 2531, in go_to
+    self.move(y, x)
+  File "/sol/base/nhbot/agent.py", line 2084, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+nhbot.exceptions.AgentPanic: agent position do not match after "move": expected (4, 27), got (5, 28)
+
+[s670 t397 d1 0:1 xl1 hp14/14] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/base/nhbot/item/inventory.py", line 602, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/base/nhbot/agent.py", line 190, in atom_operation
+    self.update_state()
+  File "/sol/base/nhbot/agent.py", line 700, in update_state
+    self.call_update_functions()
+  File "/sol/base/nhbot/agent.py", line 711, in call_update_functions
+    func()
+  File "/sol/base/nhbot/item/inventory.py", line 159, in f
+    raise AgentPanic('items below me changed')
+nhbot.exceptions.AgentPanic: items below me changed
+
+[s724 t427 d1 0:1 xl1 hp14/14] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/base/nhbot/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/nhbot/agent.py", line 311, in preempt
+    next(iterator)
+  File "/sol/base/nhbot/strategy.py", line 68, in f
+    next(it)
+  File "/sol/base/nhbot/utils.py", line 134, in f
+    next(it)
+  File "/sol/base/nhbot/agent.py", line 3303, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/base/nhbot/item/inventory.py", line 871, in eat
+    raise AgentPanic('no such food is lying here')
+nhbot.exceptions.AgentPanic: no such food is lying here
+
+[s817 t500 d1 0:1 xl1 hp14/14] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(9), np.int64(53)) acts=[SEARCH:174 SPACE:79 E:54 W:47 S:46] gotos=[open_visit_search(3, 49):8 check_items(16, 8):6 open_visit_search(18, 13):5]
+[s1118 t835 d1 0:1 xl1 hp14/14] PANIC AgentPanic: agent position do not match after "move": expected (18, 4), got (18, 3)
+Traceback (most recent call last):
+  File "/sol/base/nhbot/agent.py", line 311, in preempt
+    next(iterator)
+  File "/sol/base/nhbot/utils.py", line 134, in f
+    next(it)
+  File "/sol/base/nhbot/agent.py", line 2868, in fight2
+    wait_counter = self._fight2_perform_action(best_action, wait_counter)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/nhbot/agent.py", line 3050, in _fight2_perform_action
+    self.go_to(target_y, target_x, stop_one_before=True, max_steps=1,
+  File "/sol/base/nhbot/agent.py", line 2531, in go_to
+    self.move(y, x)
+  File "/sol/base/nhbot/agent.py", line 2084, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+nhbot.exceptions.AgentPanic: agent position do not match after "move": expected (18, 4), got (18, 3)
+
+[s1264 t1003 d1 0:1 xl1 hp14/14] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(6), np.int64(14)) acts=[SEARCH:87 NUM_5:60 W:35 NW:30 S:28] gotos=[open_visit_search(13, 16):6 open_visit_search(11, 28):4 open_visit_search(10, 31):3]
+[s1438 t1240 d1 0:1 xl1 hp14/14] PANIC AgentPanic: agent position do not match after "move": expected (5, 19), got (6, 18)
+Traceback (most recent call last):
+  File "/sol/base/nhbot/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/nhbot/agent.py", line 300, in preempt
+    val = f()
+          ^^^
+  File "/sol/base/nhbot/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/base/nhbot/exploration_logic.py", line 523, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/base/nhbot/agent.py", line 2531, in go_to
+    self.move(y, x)
+  File "/sol/base/nhbot/agent.py", line 2084, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+nhbot.exceptions.AgentPanic: agent position do not match after "move": expected (5, 19), got (6, 18)
+
+[s1514 t1300 d1 0:1 xl1 hp14/14] PRAY hp=14/14 hunger=3 gap=None reason=None model[ok200=1.00 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=10 p_answered=1.00]
+[s1518 t1303 d1 0:1 xl1 hp14/14] PRAY result ok model[ok200=0.22 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=10] prayers=1 failures=0
+[s1617 t1383 d1 0:1 xl2 hp20/20] PANIC AgentPanic: agent position do not match after "move": expected (9, 30), got (8, 29)
+Traceback (most recent call last):
+  File "/sol/base/nhbot/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/nhbot/agent.py", line 300, in preempt
+    val = f()
+          ^^^
+  File "/sol/base/nhbot/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/base/nhbot/exploration_logic.py", line 523, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/base/nhbot/agent.py", line 2531, in go_to
+    self.move(y, x)
+  File "/sol/base/nhbot/agent.py", line 2084, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+nhbot.exceptions.AgentPanic: agent position do not match after "move": expected (9, 30), got (8, 29)
+
+[s1710 t1504 d1 0:1 xl2 hp20/20] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(16), np.int64(28)) acts=[SEARCH:86 NUM_5:70 SPACE:38 E:36 W:24] gotos=[open_visit_search(4, 21):3 open_visit_search(5, 14):2 open_visit_search(4, 17):2]
+[s1821 t1687 d1 0:1 xl2 hp20/20] PANIC AgentPanic: agent position do not match after "move": expected (3, 48), got (3, 47)
+Traceback (most recent call last):
+  File "/sol/base/nhbot/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/nhbot/agent.py", line 300, in preempt
+    val = f()
+          ^^^
+  File "/sol/base/nhbot/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/base/nhbot/exploration_logic.py", line 523, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/base/nhbot/agent.py", line 2531, in go_to
+    self.move(y, x)
+  File "/sol/base/nhbot/agent.py", line 2084, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+nhbot.exceptions.AgentPanic: agent position do not match after "move": expected (3, 48), got (3, 47)
+
+[s1923 t1797 d1 0:1 xl2 hp20/20] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/base/nhbot/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/nhbot/agent.py", line 311, in preempt
+    next(iterator)
+  File "/sol/base/nhbot/strategy.py", line 68, in f
+    next(it)
+  File "/sol/base/nhbot/utils.py", line 134, in f
+    next(it)
+  File "/sol/base/nhbot/agent.py", line 3303, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/base/nhbot/item/inventory.py", line 871, in eat
+    raise AgentPanic('no such food is lying here')
+nhbot.exceptions.AgentPanic: no such food is lying here
+
+[s2150 t2000 d1 0:1 xl3 hp27/27] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(10), np.int64(61)) acts=[SEARCH:94 NUM_5:70 E:44 SPACE:43 W:22] gotos=[open_visit_search(11, 59):3 open_visit_search(15, 28):2 open_visit_search(3, 48):2]
+[s2171 t2011 d1 0:1 xl3 hp27/27] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/base/nhbot/item/inventory.py", line 602, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/base/nhbot/agent.py", line 190, in atom_operation
+    self.update_state()
+  File "/sol/base/nhbot/agent.py", line 700, in update_state
+    self.call_update_functions()
+  File "/sol/base/nhbot/agent.py", line 711, in call_update_functions
+    func()
+  File "/sol/base/nhbot/item/inventory.py", line 159, in f
+    raise AgentPanic('items below me changed')
+nhbot.exceptions.AgentPanic: items below me changed
+
+[s2634 t2390 d1 0:1 xl3 hp27/27] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/base/nhbot/item/inventory.py", line 602, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/base/nhbot/agent.py", line 190, in atom_operation
+    self.update_state()
+  File "/sol/base/nhbot/agent.py", line 700, in update_state
+    self.call_update_functions()
+  File "/sol/base/nhbot/agent.py", line 711, in call_update_functions
+    func()
+  File "/sol/base/nhbot/item/inventory.py", line 159, in f
+    raise AgentPanic('items below me changed')
+nhbot.exceptions.AgentPanic: items below me changed
+
+[s2738 t2503 d1 0:1 xl3 hp27/27] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(9), np.int64(58)) acts=[SEARCH:75 SPACE:67 W:58 NUM_5:54 LOOK:34] gotos=[open_visit_search(3, 27):5 open_visit_search(4, 48):3 open_visit_search(5, 48):2]
+[s3187 t3000 d1 0:1 xl3 hp27/27] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=3 pos=(np.int64(11), np.int64(34)) acts=[SEARCH:83 NUM_5:68 SPACE:45 W:31 SW:28] gotos=[check_items(11, 64):2 open_visit_search(9, 65):2 open_visit_search(11, 59):2]
+[s3285 t3117 d1 0:1 xl3 hp25/27] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/base/nhbot/item/inventory.py", line 602, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/base/nhbot/agent.py", line 190, in atom_operation
+    self.update_state()
+  File "/sol/base/nhbot/agent.py", line 700, in update_state
+    self.call_update_functions()
+  File "/sol/base/nhbot/agent.py", line 711, in call_update_functions
+    func()
+  File "/sol/base/nhbot/item/inventory.py", line 159, in f
+    raise AgentPanic('items below me changed')
+nhbot.exceptions.AgentPanic: items below me changed
+
+[s3404 t3172 d1 0:1 xl3 hp27/27] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/base/nhbot/item/inventory.py", line 602, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/base/nhbot/agent.py", line 190, in atom_operation
+    self.update_state()
+  File "/sol/base/nhbot/agent.py", line 700, in update_state
+    self.call_update_functions()
+  File "/sol/base/nhbot/agent.py", line 711, in call_update_functions
+    func()
+  File "/sol/base/nhbot/item/inventory.py", line 159, in f
+    raise AgentPanic('items below me changed')
+nhbot.exceptions.AgentPanic: items below me changed
+
+[s3595 t3299 d1 0:1 xl4 hp29/29] PANIC AgentPanic: agent position do not match after "move": expected (4, 30), got (4, 31)
+Traceback (most recent call last):
+  File "/sol/base/nhbot/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/nhbot/agent.py", line 298, in preempt
+    val = f.run()
+          ^^^^^^^
+  File "/sol/base/nhbot/strategy.py", line 48, in run
+    next(gen)
+  File "/sol/base/nhbot/exploration_logic.py", line 523, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/base/nhbot/agent.py", line 2531, in go_to
+    self.move(y, x)
+  File "/sol/base/nhbot/agent.py", line 2084, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+nhbot.exceptions.AgentPanic: agent position do not match after "move": expected (4, 30), got (4, 31)
+
+[s3621 t3309 d1 0:1 xl4 hp29/29] PANIC AgentPanic: agent position do not match after "move": expected (3, 28), got (2, 28)
+Traceback (most recent call last):
+  File "/sol/base/nhbot/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/nhbot/agent.py", line 300, in preempt
+    val = f()
+          ^^^
+  File "/sol/base/nhbot/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/base/nhbot/exploration_logic.py", line 523, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/base/nhbot/agent.py", line 2531, in go_to
+    self.move(y, x)
+  File "/sol/base/nhbot/agent.py", line 2084, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+nhbot.exceptions.AgentPanic: agent position do not match after "move": expected (3, 28), got (2, 28)
+
+[s3686 t3345 d1 0:1 xl4 hp29/29] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/base/nhbot/item/inventory.py", line 602, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/base/nhbot/agent.py", line 190, in atom_operation
+    self.update_state()
+  File "/sol/base/nhbot/agent.py", line 700, in update_state
+    self.call_update_functions()
+  File "/sol/base/nhbot/agent.py", line 711, in call_update_functions
+    func()
+  File "/sol/base/nhbot/item/inventory.py", line 159, in f
+    raise AgentPanic('items below me changed')
+nhbot.exceptions.AgentPanic: items below me changed
+
+[s3862 t3502 d1 0:1 xl4 hp29/29] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(18), np.int64(8)) acts=[SPACE:83 SEARCH:63 W:54 NUM_5:51 LOOK:49] gotos=[_fight2_perform_action(3, 46):4 open_visit_search(7, 38):3 open_visit_search(10, 33):2]
+[s4003 t3719 d1 0:1 xl4 hp29/29] PANIC AgentPanic: agent position do not match after "move": expected (4, 14), got (4, 15)
+Traceback (most recent call last):
+  File "/sol/base/nhbot/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/nhbot/agent.py", line 300, in preempt
+    val = f()
+          ^^^
+  File "/sol/base/nhbot/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/base/nhbot/exploration_logic.py", line 523, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/base/nhbot/agent.py", line 2531, in go_to
+    self.move(y, x)
+  File "/sol/base/nhbot/agent.py", line 2084, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+nhbot.exceptions.AgentPanic: agent position do not match after "move": expected (4, 14), got (4, 15)
+
+[s4117 t3806 d1 0:1 xl4 hp29/29] PRAY hp=29/29 hunger=3 gap=2503 reason=None model[ok200=1.00 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=26 p_answered=1.00]
+[s4121 t3809 d1 0:1 xl4 hp29/29] PRAY result ok model[ok200=0.22 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=26] prayers=2 failures=0
+[s4150 t3824 d1 0:1 xl4 hp27/29] RANGED hit: holds and Elbereth waits off for 8 turns
+[s4178 t3845 d1 0:1 xl4 hp29/29] PANIC AgentPanic: agent position do not match after "move": expected (5, 17), got (4, 17)
+Traceback (most recent call last):
+  File "/sol/base/nhbot/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/nhbot/agent.py", line 298, in preempt
+    val = f.run()
+          ^^^^^^^
+  File "/sol/base/nhbot/strategy.py", line 48, in run
+    next(gen)
+  File "/sol/base/nhbot/exploration_logic.py", line 523, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/base/nhbot/agent.py", line 2531, in go_to
+    self.move(y, x)
+  File "/sol/base/nhbot/agent.py", line 2084, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+nhbot.exceptions.AgentPanic: agent position do not match after "move": expected (5, 17), got (4, 17)
+
+[s4367 t4002 d1 0:1 xl4 hp29/29] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(16), np.int64(6)) acts=[SEARCH:77 NUM_5:72 SPACE:58 LOOK:29 W:25] gotos=[open_visit_search(4, 9):3 open_visit_search(4, 14):2 open_visit_search(5, 16):2]
+[s4432 t4023 d1 0:1 xl4 hp29/29] PANIC AgentPanic: agent position do not match after "move": expected (16, 12), got (17, 13)
+Traceback (most recent call last):
+  File "/sol/base/nhbot/agent.py", line 311, in preempt
+    next(iterator)
+  File "/sol/base/nhbot/strategy.py", line 68, in f
+    next(it)
+  File "/sol/base/nhbot/utils.py", line 134, in f
+    next(it)
+  File "/sol/base/nhbot/agent.py", line 3287, in eat_corpses_from_ground
+    self.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 255, 0), is_path=True))
+  File "/sol/base/nhbot/agent.py", line 2531, in go_to
+    self.move(y, x)
+  File "/sol/base/nhbot/agent.py", line 2084, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+nhbot.exceptions.AgentPanic: agent position do not match after "move": expected (16, 12), got (17, 13)
+
+[s4581 t4161 d1 0:1 xl4 hp29/29] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/base/nhbot/item/inventory.py", line 602, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/base/nhbot/agent.py", line 190, in atom_operation
+    self.update_state()
+  File "/sol/base/nhbot/agent.py", line 700, in update_state
+    self.call_update_functions()
+  File "/sol/base/nhbot/agent.py", line 711, in call_update_functions
+    func()
+  File "/sol/base/nhbot/item/inventory.py", line 159, in f
+    raise AgentPanic('items below me changed')
+nhbot.exceptions.AgentPanic: items below me changed
+
+[s4769 t4297 d1 0:1 xl4 hp29/29] PANIC AgentPanic: agent position do not match after "move": expected (4, 30), got (4, 31)
+Traceback (most recent call last):
+  File "/sol/base/nhbot/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/nhbot/agent.py", line 298, in preempt
+    val = f.run()
+          ^^^^^^^
+  File "/sol/base/nhbot/strategy.py", line 48, in run
+    next(gen)
+  File "/sol/base/nhbot/exploration_logic.py", line 523, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/base/nhbot/agent.py", line 2531, in go_to
+    self.move(y, x)
+  File "/sol/base/nhbot/agent.py", line 2084, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+nhbot.exceptions.AgentPanic: agent position do not match after "move": expected (4, 30), got (4, 31)
+
+[s4955 t4500 d1 0:1 xl4 hp29/29] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(3), np.int64(48)) acts=[SPACE:72 SEARCH:67 NUM_5:57 E:51 LOOK:39] gotos=[check_items(16, 13):2 eat_corpses_from_ground(15, 11):2 open_visit_search(4, 5):2]
+[s5177 t4579 d1 0:1 xl4 hp29/29] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/base/nhbot/item/inventory.py", line 602, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/base/nhbot/agent.py", line 190, in atom_operation
+    self.update_state()
+  File "/sol/base/nhbot/agent.py", line 700, in update_state
+    self.call_update_functions()
+  File "/sol/base/nhbot/agent.py", line 711, in call_update_functions
+    func()
+  File "/sol/base/nhbot/item/inventory.py", line 159, in f
+    raise AgentPanic('items below me changed')
+nhbot.exceptions.AgentPanic: items below me changed
+
+[s5305 t4727 d1 0:1 xl4 hp29/29] PANIC AgentPanic: agent position do not match after "move": expected (4, 50), got (5, 50)
+Traceback (most recent call last):
+  File "/sol/base/nhbot/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/nhbot/agent.py", line 298, in preempt
+    val = f.run()
+          ^^^^^^^
+  File "/sol/base/nhbot/strategy.py", line 48, in run
+    next(gen)
+  File "/sol/base/nhbot/exploration_logic.py", line 523, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/base/nhbot/agent.py", line 2531, in go_to
+    self.move(y, x)
+  File "/sol/base/nhbot/agent.py", line 2084, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+nhbot.exceptions.AgentPanic: agent position do not match after "move": expected (4, 50), got (5, 50)
+
+[s5375 t4808 d1 0:1 xl4 hp29/29] PANIC AgentPanic: agent position do not match after "move": expected (5, 51), got (4, 50)
+Traceback (most recent call last):
+  File "/sol/base/nhbot/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/nhbot/agent.py", line 300, in preempt
+    val = f()
+          ^^^
+  File "/sol/base/nhbot/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/base/nhbot/exploration_logic.py", line 523, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/base/nhbot/agent.py", line 2531, in go_to
+    self.move(y, x)
+  File "/sol/base/nhbot/agent.py", line 2084, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+nhbot.exceptions.AgentPanic: agent position do not match after "move": expected (5, 51), got (4, 50)
+
+[s5671 t5000 d1 0:1 xl4 hp29/29] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(4), np.int64(21)) acts=[SPACE:121 SEARCH:75 NUM_5:60 LOOK:58 W:53] gotos=[_fight2_perform_action(11, 57):3 open_visit_search(9, 56):2 open_visit_search(11, 63):2]
+[s5782 t5085 d1 0:1 xl4 hp29/29] PANIC AgentPanic: agent position do not match after "move": expected (5, 18), got (6, 18)
+Traceback (most recent call last):
+  File "/sol/base/nhbot/agent.py", line 311, in preempt
+    next(iterator)
+  File "/sol/base/nhbot/strategy.py", line 68, in f
+    next(it)
+  File "/sol/base/nhbot/utils.py", line 134, in f
+    next(it)
+  File "/sol/base/nhbot/agent.py", line 3287, in eat_corpses_from_ground
+    self.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 255, 0), is_path=True))
+  File "/sol/base/nhbot/agent.py", line 2531, in go_to
+    self.move(y, x)
+  File "/sol/base/nhbot/agent.py", line 2084, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+nhbot.exceptions.AgentPanic: agent position do not match after "move": expected (5, 18), got (6, 18)
+
+[s6026 t5319 d1 0:1 xl4 hp29/29] PANIC AgentPanic: agent position do not match after "move": expected (7, 4), got (8, 5)
+Traceback (most recent call last):
+  File "/sol/base/nhbot/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/nhbot/agent.py", line 298, in preempt
+    val = f.run()
+          ^^^^^^^
+  File "/sol/base/nhbot/strategy.py", line 48, in run
+    next(gen)
+  File "/sol/base/nhbot/exploration_logic.py", line 523, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/base/nhbot/agent.py", line 2531, in go_to
+    self.move(y, x)
+  File "/sol/base/nhbot/agent.py", line 2084, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+nhbot.exceptions.AgentPanic: agent position do not match after "move": expected (7, 4), got (8, 5)
+
+[s6106 t5381 d1 0:1 xl4 hp29/29] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/base/nhbot/item/inventory.py", line 602, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/base/nhbot/agent.py", line 190, in atom_operation
+    self.update_state()
+  File "/sol/base/nhbot/agent.py", line 700, in update_state
+    self.call_update_functions()
+  File "/sol/base/nhbot/agent.py", line 711, in call_update_functions
+    func()
+  File "/sol/base/nhbot/item/inventory.py", line 159, in f
+    raise AgentPanic('items below me changed')
+nhbot.exceptions.AgentPanic: items below me changed
+
+[s6185 t5404 d2 0:2 xl5 hp36/36] DIVE level (np.int64(0), np.int64(2)) depth 2
+[s6339 t5500 d2 0:2 xl5 hp36/36] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(13), np.int64(33)) acts=[SEARCH:100 SPACE:98 E:52 NUM_5:51 LOOK:45] gotos=[go_to_strategy(7, 18):3 check_items(17, 33):3 open_visit_search(5, 16):2]
+[s6616 t5729 d2 0:2 xl5 hp36/36] PRAY hp=36/36 hunger=3 gap=1920 reason=None model[ok200=1.00 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=34 p_answered=1.00]
+[s6620 t5732 d2 0:2 xl5 hp36/36] PRAY result ok model[ok200=0.22 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=34] prayers=3 failures=0
+[s7075 t5904 d2 0:2 xl5 hp35/36] RANGED hit: holds and Elbereth waits off for 8 turns
+[s7082 t5904 d2 0:2 xl5 hp35/36] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/base/nhbot/item/inventory.py", line 602, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/base/nhbot/agent.py", line 190, in atom_operation
+    self.update_state()
+  File "/sol/base/nhbot/agent.py", line 700, in update_state
+    self.call_update_functions()
+  File "/sol/base/nhbot/agent.py", line 711, in call_update_functions
+    func()
+  File "/sol/base/nhbot/item/inventory.py", line 159, in f
+    raise AgentPanic('items below me changed')
+nhbot.exceptions.AgentPanic: items below me changed
+
+[s7296 t6004 d2 0:2 xl5 hp36/36] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(9), np.int64(55)) acts=[SEARCH:164 SPACE:158 E:100 W:79 LOOK:77] gotos=[open_visit_search(2, 12):7 open_visit_search(18, 38):6 check_items(15, 43):6]
+[s7541 t6160 d2 0:2 xl5 hp36/36] PANIC AgentPanic: agent position do not match after "move": expected (15, 44), got (16, 45)
+Traceback (most recent call last):
+  File "/sol/base/nhbot/strategy.py", line 165, in f
+    next(gen)
+  File "/sol/base/nhbot/strategy.py", line 100, in f
+    next(v1)
+  File "/sol/base/nhbot/utils.py", line 134, in f
+    next(it)
+  File "/sol/base/nhbot/item/inventory.py", line 1732, in check_items
+    self.agent.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 0, 255), is_path=True))
+  File "/sol/base/nhbot/agent.py", line 2531, in go_to
+    self.move(y, x)
+  File "/sol/base/nhbot/agent.py", line 2084, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+nhbot.exceptions.AgentPanic: agent position do not match after "move": expected (15, 44), got (16, 45)
+
+[s7777 t6325 d3 0:3 xl5 hp36/36] DIVE level (np.int64(0), np.int64(3)) depth 3
+[s7888 t6397 d3 0:3 xl5 hp36/36] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/base/nhbot/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/nhbot/agent.py", line 311, in preempt
+    next(iterator)
+  File "/sol/base/nhbot/strategy.py", line 68, in f
+    next(it)
+  File "/sol/base/nhbot/utils.py", line 134, in f
+    next(it)
+  File "/sol/base/nhbot/agent.py", line 3303, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/base/nhbot/item/inventory.py", line 871, in eat
+    raise AgentPanic('no such food is lying here')
+nhbot.exceptions.AgentPanic: no such food is lying here
+
+[s8075 t6500 d3 0:3 xl5 hp36/36] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(14), np.int64(40)) acts=[SEARCH:152 W:95 SPACE:88 SW:55 E:47] gotos=[check_items(8, 76):10 open_visit_search(17, 56):9 open_visit_search(4, 66):9]
+[s8109 t6541 d3 0:3 xl5 hp36/36] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/base/nhbot/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/nhbot/agent.py", line 311, in preempt
+    next(iterator)
+  File "/sol/base/nhbot/strategy.py", line 68, in f
+    next(it)
+  File "/sol/base/nhbot/utils.py", line 134, in f
+    next(it)
+  File "/sol/base/nhbot/agent.py", line 3303, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/base/nhbot/item/inventory.py", line 871, in eat
+    raise AgentPanic('no such food is lying here')
+nhbot.exceptions.AgentPanic: no such food is lying here
+
+[s8414 t6768 d3 0:3 xl5 hp36/36] PANIC AgentPanic: agent position do not match after "move": expected (13, 24), got (14, 25)
+Traceback (most recent call last):
+  File "/sol/base/nhbot/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/nhbot/agent.py", line 300, in preempt
+    val = f()
+          ^^^
+  File "/sol/base/nhbot/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/base/nhbot/exploration_logic.py", line 523, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/base/nhbot/agent.py", line 2531, in go_to
+    self.move(y, x)
+  File "/sol/base/nhbot/agent.py", line 2084, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+nhbot.exceptions.AgentPanic: agent position do not match after "move": expected (13, 24), got (14, 25)
+
+[s8703 t7000 d3 0:3 xl5 hp36/36] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(5), np.int64(19)) acts=[SEARCH:156 W:69 SPACE:61 E:58 SW:32] gotos=[open_visit_search(5, 11):5 open_visit_search(13, 24):4 open_visit_search(7, 12):4]
+[s9057 t7249 d3 0:3 xl5 hp36/36] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/base/nhbot/item/inventory.py", line 602, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/base/nhbot/agent.py", line 190, in atom_operation
+    self.update_state()
+  File "/sol/base/nhbot/agent.py", line 700, in update_state
+    self.call_update_functions()
+  File "/sol/base/nhbot/agent.py", line 711, in call_update_functions
+    func()
+  File "/sol/base/nhbot/item/inventory.py", line 159, in f
+    raise AgentPanic('items below me changed')
+nhbot.exceptions.AgentPanic: items below me changed
+
+[s9149 t7331 d3 0:3 xl5 hp36/36] PANIC AgentPanic: agent position do not match after "move": expected (15, 14), got (14, 13)
+Traceback (most recent call last):
+  File "/sol/base/nhbot/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/nhbot/agent.py", line 300, in preempt
+    val = f()
+          ^^^
+  File "/sol/base/nhbot/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/base/nhbot/exploration_logic.py", line 523, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/base/nhbot/agent.py", line 2531, in go_to
+    self.move(y, x)
+  File "/sol/base/nhbot/agent.py", line 2084, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+nhbot.exceptions.AgentPanic: agent position do not match after "move": expected (15, 14), got (14, 13)
+
+[s9271 t7500 d3 0:3 xl5 hp36/36] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=2 pos=(np.int64(12), np.int64(17)) acts=[SEARCH:102 SPACE:89 NUM_5:71 LOOK:35 SW:24] gotos=[open_visit_search(17, 8):4 check_items(11, 11):3 check_items(11, 13):3]
+[s9314 t7529 d3 0:3 xl5 hp36/36] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/base/nhbot/item/inventory.py", line 602, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/base/nhbot/agent.py", line 190, in atom_operation
+    self.update_state()
+  File "/sol/base/nhbot/agent.py", line 700, in update_state
+    self.call_update_functions()
+  File "/sol/base/nhbot/agent.py", line 711, in call_update_functions
+    func()
+  File "/sol/base/nhbot/item/inventory.py", line 159, in f
+    raise AgentPanic('items below me changed')
+nhbot.exceptions.AgentPanic: items below me changed
+
+[s9457 t7560 d3 0:3 xl5 hp36/36] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/base/nhbot/item/inventory.py", line 602, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/base/nhbot/agent.py", line 190, in atom_operation
+    self.update_state()
+  File "/sol/base/nhbot/agent.py", line 700, in update_state
+    self.call_update_functions()
+  File "/sol/base/nhbot/agent.py", line 711, in call_update_functions
+    func()
+  File "/sol/base/nhbot/item/inventory.py", line 159, in f
+    raise AgentPanic('items below me changed')
+nhbot.exceptions.AgentPanic: items below me changed
+
+[s9636 t7668 d3 0:3 xl6 hp34/39] PRAY hp=34/39 hunger=3 gap=1936 reason=None model[ok200=1.00 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=47 p_answered=1.00]
+[s9640 t7671 d3 0:3 xl6 hp34/39] PRAY result ok model[ok200=0.22 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=47] prayers=4 failures=0
+[s10051 t8002 d3 0:3 xl6 hp39/39] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(15), np.int64(72)) acts=[SPACE:171 SEARCH:79 LOOK:76 E:71 NUM_5:67] gotos=[eat_corpses_from_ground(9, 25):2 open_visit_search(12, 42):2 eat_corpses_from_ground(12, 46):2]
+[s10194 t8044 d3 0:3 xl6 hp39/39] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/base/nhbot/item/inventory.py", line 602, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/base/nhbot/agent.py", line 190, in atom_operation
+    self.update_state()
+  File "/sol/base/nhbot/agent.py", line 700, in update_state
+    self.call_update_functions()
+  File "/sol/base/nhbot/agent.py", line 711, in call_update_functions
+    func()
+  File "/sol/base/nhbot/item/inventory.py", line 159, in f
+    raise AgentPanic('items below me changed')
+nhbot.exceptions.AgentPanic: items below me changed
+
+[s10490 t8270 d3 0:3 xl6 hp39/39] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/base/nhbot/item/inventory.py", line 602, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/base/nhbot/agent.py", line 190, in atom_operation
+    self.update_state()
+  File "/sol/base/nhbot/agent.py", line 700, in update_state
+    self.call_update_functions()
+  File "/sol/base/nhbot/agent.py", line 711, in call_update_functions
+    func()
+  File "/sol/base/nhbot/item/inventory.py", line 159, in f
+    raise AgentPanic('items below me changed')
+nhbot.exceptions.AgentPanic: items below me changed
+
+[s10792 t8435 d3 0:3 xl6 hp39/39] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/base/nhbot/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/nhbot/agent.py", line 311, in preempt
+    next(iterator)
+  File "/sol/base/nhbot/strategy.py", line 68, in f
+    next(it)
+  File "/sol/base/nhbot/utils.py", line 134, in f
+    next(it)
+  File "/sol/base/nhbot/agent.py", line 3303, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/base/nhbot/item/inventory.py", line 871, in eat
+    raise AgentPanic('no such food is lying here')
+nhbot.exceptions.AgentPanic: no such food is lying here
+
+[s10878 t8500 d3 0:3 xl6 hp39/39] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(8), np.int64(48)) acts=[SPACE:172 SEARCH:102 LOOK:71 NUM_5:55 W:41] gotos=[_fight2_perform_action(9, 34):7 check_items(16, 66):4 open_visit_search(10, 57):4]
+[s10999 t8557 d3 0:3 xl6 hp39/39] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/base/nhbot/item/inventory.py", line 602, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/base/nhbot/agent.py", line 190, in atom_operation
+    self.update_state()
+  File "/sol/base/nhbot/agent.py", line 700, in update_state
+    self.call_update_functions()
+  File "/sol/base/nhbot/agent.py", line 711, in call_update_functions
+    func()
+  File "/sol/base/nhbot/item/inventory.py", line 159, in f
+    raise AgentPanic('items below me changed')
+nhbot.exceptions.AgentPanic: items below me changed
+
+[s11073 t8572 d3 0:3 xl6 hp20/39] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/base/nhbot/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/nhbot/agent.py", line 311, in preempt
+    next(iterator)
+  File "/sol/base/nhbot/strategy.py", line 68, in f
+    next(it)
+  File "/sol/base/nhbot/utils.py", line 134, in f
+    next(it)
+  File "/sol/base/nhbot/agent.py", line 3303, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/base/nhbot/item/inventory.py", line 871, in eat
+    raise AgentPanic('no such food is lying here')
+nhbot.exceptions.AgentPanic: no such food is lying here
+
+[s11114 t8575 d3 0:3 xl6 hp21/39] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/base/nhbot/item/inventory.py", line 602, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/base/nhbot/agent.py", line 190, in atom_operation
+    self.update_state()
+  File "/sol/base/nhbot/agent.py", line 700, in update_state
+    self.call_update_functions()
+  File "/sol/base/nhbot/agent.py", line 711, in call_update_functions
+    func()
+  File "/sol/base/nhbot/item/inventory.py", line 159, in f
+    raise AgentPanic('items below me changed')
+nhbot.exceptions.AgentPanic: items below me changed
+
+[s11758 t8875 d3 0:3 xl6 hp39/39] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/base/nhbot/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/nhbot/agent.py", line 311, in preempt
+    next(iterator)
+  File "/sol/base/nhbot/strategy.py", line 68, in f
+    next(it)
+  File "/sol/base/nhbot/utils.py", line 134, in f
+    next(it)
+  File "/sol/base/nhbot/agent.py", line 3303, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/base/nhbot/item/inventory.py", line 871, in eat
+    raise AgentPanic('no such food is lying here')
+nhbot.exceptions.AgentPanic: no such food is lying here
+
+[s11951 t8961 d3 0:3 xl6 hp39/39] PANIC AgentPanic: agent position do not match after "move": expected (9, 38), got (12, 40)
+Traceback (most recent call last):
+  File "/sol/base/nhbot/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/nhbot/agent.py", line 311, in preempt
+    next(iterator)
+  File "/sol/base/nhbot/utils.py", line 134, in f
+    next(it)
+  File "/sol/base/nhbot/agent.py", line 2868, in fight2
+    wait_counter = self._fight2_perform_action(best_action, wait_counter)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/nhbot/agent.py", line 2971, in _fight2_perform_action
+    self.move(target_y, target_x)
+  File "/sol/base/nhbot/agent.py", line 2084, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+nhbot.exceptions.AgentPanic: agent position do not match after "move": expected (9, 38), got (12, 40)
+
+[s12126 t9000 d3 0:3 xl6 hp39/39] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(9), np.int64(40)) acts=[SPACE:332 LOOK:110 SEARCH:85 APPLY:72 PAY:62] gotos=[check_items(11, 58):3 eat_corpses_from_ground(11, 47):3 open_visit_search(6, 53):3]
+[s12348 t9135 d2 0:2 xl7 hp47/47] DIVE level (np.int64(0), np.int64(2)) depth 2
+[s12596 t9354 d2 0:2 xl7 hp44/47] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/base/nhbot/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/nhbot/agent.py", line 311, in preempt
+    next(iterator)
+  File "/sol/base/nhbot/strategy.py", line 68, in f
+    next(it)
+  File "/sol/base/nhbot/utils.py", line 134, in f
+    next(it)
+  File "/sol/base/nhbot/agent.py", line 3303, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/base/nhbot/item/inventory.py", line 871, in eat
+    raise AgentPanic('no such food is lying here')
+nhbot.exceptions.AgentPanic: no such food is lying here
+
+[s12645 t9362 d2 0:2 xl7 hp46/47] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/base/nhbot/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/nhbot/agent.py", line 311, in preempt
+    next(iterator)
+  File "/sol/base/nhbot/strategy.py", line 68, in f
+    next(it)
+  File "/sol/base/nhbot/utils.py", line 134, in f
+    next(it)
+  File "/sol/base/nhbot/agent.py", line 3303, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/base/nhbot/item/inventory.py", line 871, in eat
+    raise AgentPanic('no such food is lying here')
+nhbot.exceptions.AgentPanic: no such food is lying here
+
+[s12836 t9464 d2 0:2 xl7 hp47/47] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/base/nhbot/item/inventory.py", line 602, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/base/nhbot/agent.py", line 190, in atom_operation
+    self.update_state()
+  File "/sol/base/nhbot/agent.py", line 700, in update_state
+    self.call_update_functions()
+  File "/sol/base/nhbot/agent.py", line 711, in call_update_functions
+    func()
+  File "/sol/base/nhbot/item/inventory.py", line 159, in f
+    raise AgentPanic('items below me changed')
+nhbot.exceptions.AgentPanic: items below me changed
+
+[s12959 t9502 d2 0:2 xl7 hp47/47] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(2), np.int64(17)) acts=[SPACE:176 SEARCH:88 NUM_5:65 LOOK:64 APPLY:38] gotos=[check_items(9, 3):3 check_items(7, 39):2 open_visit_search(10, 39):2]
+[s13050 t9560 d2 0:2 xl7 hp47/47] PANIC AgentPanic: agent position do not match after "move": expected (5, 20), got (6, 19)
+Traceback (most recent call last):
+  File "/sol/base/nhbot/agent.py", line 311, in preempt
+    next(iterator)
+  File "/sol/base/nhbot/strategy.py", line 68, in f
+    next(it)
+  File "/sol/base/nhbot/utils.py", line 134, in f
+    next(it)
+  File "/sol/base/nhbot/agent.py", line 3287, in eat_corpses_from_ground
+    self.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 255, 0), is_path=True))
+  File "/sol/base/nhbot/agent.py", line 2531, in go_to
+    self.move(y, x)
+  File "/sol/base/nhbot/agent.py", line 2084, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+nhbot.exceptions.AgentPanic: agent position do not match after "move": expected (5, 20), got (6, 19)
+
+[s13204 t9650 d2 0:2 xl7 hp47/47] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/base/nhbot/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/nhbot/agent.py", line 311, in preempt
+    next(iterator)
+  File "/sol/base/nhbot/strategy.py", line 68, in f
+    next(it)
+  File "/sol/base/nhbot/utils.py", line 134, in f
+    next(it)
+  File "/sol/base/nhbot/agent.py", line 3287, in eat_corpses_from_ground
+    self.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 255, 0), is_path=True))
+  File "/sol/base/nhbot/agent.py", line 2503, in go_to
+    raise AgentPanic('end point is no longer accessible')
+nhbot.exceptions.AgentPanic: end point is no longer accessible
+
+[s13233 t9660 d2 0:2 xl7 hp47/47] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/base/nhbot/item/inventory.py", line 602, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/base/nhbot/agent.py", line 190, in atom_operation
+    self.update_state()
+  File "/sol/base/nhbot/agent.py", line 700, in update_state
+    self.call_update_functions()
+  File "/sol/base/nhbot/agent.py", line 711, in call_update_functions
+    func()
+  File "/sol/base/nhbot/item/inventory.py", line 159, in f
+    raise AgentPanic('items below me changed')
+nhbot.exceptions.AgentPanic: items below me changed
+
+[s13307 t9678 d2 0:2 xl7 hp47/47] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/base/nhbot/strategy.py", line 190, in f
+    next(it)
+  File "/sol/base/nhbot/strategy.py", line 165, in f
+    next(gen)
+  File "/sol/base/nhbot/strategy.py", line 100, in f
+    next(v1)
+  File "/sol/base/nhbot/utils.py", line 134, in f
+    next(it)
+  File "/sol/base/nhbot/item/inventory.py", line 1732, in check_items
+    self.agent.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 0, 255), is_path=True))
+  File "/sol/base/nhbot/agent.py", line 2503, in go_to
+    raise AgentPanic('end point is no longer accessible')
+nhbot.exceptions.AgentPanic: end point is no longer accessible
+
+[s13737 t9982 d2 0:2 xl7 hp47/47] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/base/nhbot/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/nhbot/agent.py", line 311, in preempt
+    next(iterator)
+  File "/sol/base/nhbot/strategy.py", line 68, in f
+    next(it)
+  File "/sol/base/nhbot/utils.py", line 134, in f
+    next(it)
+  File "/sol/base/nhbot/agent.py", line 3303, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/base/nhbot/item/inventory.py", line 871, in eat
+    raise AgentPanic('no such food is lying here')
+nhbot.exceptions.AgentPanic: no such food is lying here
+
+[s13798 t10000 d2 0:2 xl7 hp47/47] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(6), np.int64(18)) acts=[SPACE:149 SEARCH:90 LOOK:64 W:60 E:58] gotos=[open_visit_search(4, 19):4 check_items(5, 20):3 eat_corpses_from_ground(5, 20):3]
+[s13904 t10124 d2 0:2 xl7 hp47/47] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/base/nhbot/item/inventory.py", line 602, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/base/nhbot/agent.py", line 190, in atom_operation
+    self.update_state()
+  File "/sol/base/nhbot/agent.py", line 700, in update_state
+    self.call_update_functions()
+  File "/sol/base/nhbot/agent.py", line 711, in call_update_functions
+    func()
+  File "/sol/base/nhbot/item/inventory.py", line 159, in f
+    raise AgentPanic('items below me changed')
+nhbot.exceptions.AgentPanic: items below me changed
+
+[s14026 t10224 d2 0:2 xl7 hp47/47] PRAY hp=47/47 hunger=3 gap=2553 reason=None model[ok200=1.00 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=60 p_answered=1.00]
+[s14036 t10227 d2 0:2 xl7 hp47/47] PRAY result ok model[ok200=0.22 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=60] prayers=5 failures=0
+[s14283 t10501 d2 0:2 xl7 hp43/47] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(13), np.int64(33)) acts=[SEARCH:97 NUM_5:71 SPACE:54 E:41 W:32] gotos=[open_visit_search(1, 53):4 open_visit_search(3, 33):2 open_visit_search(4, 33):2]
+[s14296 t10516 d2 0:2 xl7 hp45/47] RANGED hit: holds and Elbereth waits off for 8 turns
+[s14343 t10532 d2 0:2 xl7 hp32/47] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/base/nhbot/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/nhbot/agent.py", line 311, in preempt
+    next(iterator)
+  File "/sol/base/nhbot/strategy.py", line 68, in f
+    next(it)
+  File "/sol/base/nhbot/utils.py", line 134, in f
+    next(it)
+  File "/sol/base/nhbot/agent.py", line 3303, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/base/nhbot/item/inventory.py", line 871, in eat
+    raise AgentPanic('no such food is lying here')
+nhbot.exceptions.AgentPanic: no such food is lying here
+
+[s14428 t10548 d2 0:2 xl7 hp25/47] RANGED hit: holds and Elbereth waits off for 8 turns
+[s14742 t10740 d2 0:2 xl7 hp44/47] RANGED hit: holds and Elbereth waits off for 8 turns
+[s15332 t11002 d2 0:2 xl7 hp47/47] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(13), np.int64(52)) acts=[SPACE:232 LOOK:96 E:66 SEARCH:54 W:53] gotos=[check_items(14, 30):5 open_visit_search(14, 36):4 eat_corpses_from_ground(15, 29):3]
+[s15470 t11150 d2 0:2 xl7 hp47/47] DIVE attacking a peaceful dwarf at (8, 69) for its digging tool (digger=False, align~65)
+[s15474 t11151 d2 0:2 xl7 hp47/47] ALIGN estimate 64 (cap 65) after -1
+[s15527 t11160 d2 0:2 xl7 hp47/47] DIVE killed a dwarf (1); piles to check: [(np.int64(6), np.int64(67)), (np.int64(6), np.int64(68)), (np.int64(6), np.int64(69)), (np.int64(7), np.int64(69))]
+[s15527 t11160 d2 0:2 xl7 hp47/47] ALIGN estimate 52 (cap 65) after -12
+[s15527 t11160 d2 0:2 xl7 hp47/47] DWARF died near [(6, 68), (6, 69), (7, 69)]: piles to check
+[s15592 t11166 d2 0:2 xl7 hp47/47] ALIGN estimate 40 (cap 65) after -12
+[s15592 t11166 d2 0:2 xl7 hp47/47] DWARF died near [(6, 76)]: piles to check
+[s15598 t11184 d2 0:2 xl7 hp47/47] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/base/nhbot/item/inventory.py", line 602, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/base/nhbot/agent.py", line 190, in atom_operation
+    self.update_state()
+  File "/sol/base/nhbot/agent.py", line 700, in update_state
+    self.call_update_functions()
+  File "/sol/base/nhbot/agent.py", line 711, in call_update_functions
+    func()
+  File "/sol/base/nhbot/item/inventory.py", line 159, in f
+    raise AgentPanic('items below me changed')
+nhbot.exceptions.AgentPanic: items below me changed
+
+[s15633 t11185 d2 0:2 xl7 hp47/47] DIVE checked the pile at (np.int64(6), np.int64(69)): tool None
+[s15650 t11190 d2 0:2 xl7 hp47/47] DIVE checked the pile at (np.int64(6), np.int64(67)): tool None
+[s15661 t11194 d2 0:2 xl7 hp47/47] DIVE checked the pile at (np.int64(7), np.int64(69)): tool None
+[s15737 t11241 d2 0:2 xl7 hp47/47] DIVE checked the pile at (6, 76): tool None
+[s15916 t11502 d2 0:2 xl7 hp47/47] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(12), np.int64(62)) acts=[SPACE:84 SEARCH:72 NUM_5:59 LOOK:37 E:31] gotos=[_visit_tool_spot(6, 68):20 check_items(6, 76):20 go_to_item_to_pickup(6, 68):5]
+[s16452 t11838 d2 0:2 xl7 hp47/47] PANIC AgentPanic: items below me changed
+Traceback (most recent call last):
+  File "/sol/base/nhbot/item/inventory.py", line 602, in get_items_below_me
+    with self.agent.atom_operation():
+  File "/usr/local/lib/python3.11/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/sol/base/nhbot/agent.py", line 190, in atom_operation
+    self.update_state()
+  File "/sol/base/nhbot/agent.py", line 700, in update_state
+    self.call_update_functions()
+  File "/sol/base/nhbot/agent.py", line 711, in call_update_functions
+    func()
+  File "/sol/base/nhbot/item/inventory.py", line 159, in f
+    raise AgentPanic('items below me changed')
+nhbot.exceptions.AgentPanic: items below me changed
+
+[s16596 t11932 d2 0:2 xl7 hp47/47] DIVE attacking a peaceful dwarf at (16, 24) for its digging tool (digger=False, align~56)
+[s16598 t11933 d2 0:2 xl7 hp47/47] ALIGN estimate 55 (cap 69) after -1
+[s16623 t11938 d2 0:2 xl7 hp47/47] DIVE killed a dwarf (2); piles to check: [(np.int64(16), np.int64(25))]
+[s16623 t11938 d2 0:2 xl7 hp47/47] ALIGN estimate 43 (cap 69) after -12
+[s16623 t11938 d2 0:2 xl7 hp47/47] DWARF died near [(16, 25)]: piles to check
+[s16651 t11940 d2 0:2 xl7 hp47/47] DIVE checked the pile at (np.int64(16), np.int64(25)): tool None
+[s16852 t12000 d2 0:2 xl7 hp47/47] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(18), np.int64(35)) acts=[SPACE:201 W:83 LOOK:70 SEARCH:67 NUM_5:53] gotos=[open_visit_search(18, 36):4 _fight2_perform_action(16, 30):3 open_visit_search(17, 47):2]
+[s16895 t12047 d2 0:2 xl7 hp47/47] PANIC AgentPanic: end point is no longer accessible
+Traceback (most recent call last):
+  File "/sol/base/nhbot/strategy.py", line 139, in f2
+    next(gen)
+  File "/sol/base/nhbot/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/nhbot/agent.py", line 298, in preempt
+    val = f.run()
+          ^^^^^^^
+  File "/sol/base/nhbot/strategy.py", line 48, in run
+    next(gen)
+  File "/sol/base/nhbot/exploration_logic.py", line 523, in open_visit_search
+    self.agent.go_to(target_y, target_x, fast=fast_go_to, debug_tiles_args=dict(
+  File "/sol/base/nhbot/agent.py", line 2503, in go_to
+    raise AgentPanic('end point is no longer accessible')
+nhbot.exceptions.AgentPanic: end point is no longer accessible
+
+[s16967 t12088 d2 0:2 xl7 hp47/47] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/base/nhbot/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/nhbot/agent.py", line 311, in preempt
+    next(iterator)
+  File "/sol/base/nhbot/strategy.py", line 68, in f
+    next(it)
+  File "/sol/base/nhbot/utils.py", line 134, in f
+    next(it)
+  File "/sol/base/nhbot/agent.py", line 3303, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/base/nhbot/item/inventory.py", line 871, in eat
+    raise AgentPanic('no such food is lying here')
+nhbot.exceptions.AgentPanic: no such food is lying here
+
+[s17201 t12293 d2 0:2 xl7 hp27/47] ELBERETH rest start: ['hill orc', 'hill orc']
+[s17287 t12309 d2 0:2 xl7 hp27/47] RANGED hit: holds and Elbereth waits off for 8 turns
+[s17317 t12329 d2 0:2 xl7 hp30/47] PANIC AgentPanic: no such food is lying here
+Traceback (most recent call last):
+  File "/sol/base/nhbot/strategy.py", line 144, in f
+    return agent.preempt(strategies, self, first_func=f2, continue_after_preemption=continue_after_preemption)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sol/base/nhbot/agent.py", line 311, in preempt
+    next(iterator)
+  File "/sol/base/nhbot/strategy.py", line 68, in f
+    next(it)
+  File "/sol/base/nhbot/utils.py", line 134, in f
+    next(it)
+  File "/sol/base/nhbot/agent.py", line 3303, in eat_corpses_from_ground
+    self.inventory.eat(item)
+  File "/sol/base/nhbot/item/inventory.py", line 871, in eat
+    raise AgentPanic('no such food is lying here')
+nhbot.exceptions.AgentPanic: no such food is lying here
+
+[s17385 t12339 d2 0:2 xl7 hp32/47] PANIC AgentPanic: agent position do not match after "move": expected (2, 53), got (3, 52)
+Traceback (most recent call last):
+  File "/sol/base/nhbot/strategy.py", line 165, in f
+    next(gen)
+  File "/sol/base/nhbot/strategy.py", line 100, in f
+    next(v1)
+  File "/sol/base/nhbot/utils.py", line 134, in f
+    next(it)
+  File "/sol/base/nhbot/item/inventory.py", line 1732, in check_items
+    self.agent.go_to(target_y, target_x, debug_tiles_args=dict(color=(255, 0, 255), is_path=True))
+  File "/sol/base/nhbot/agent.py", line 2531, in go_to
+    self.move(y, x)
+  File "/sol/base/nhbot/agent.py", line 2084, in move
+    raise AgentPanic(f'agent position do not match after "move": '
+nhbot.exceptions.AgentPanic: agent position do not match after "move": expected (2, 53), got (3, 52)
+
+[s17649 t12504 d2 0:2 xl7 hp47/47] STATUS milestone=BE_ON_FIRST_LEVEL diving=False hunger=1 pos=(np.int64(9), np.int64(36)) acts=[SPACE:154 SEARCH:70 LOOK:68 NUM_5:61 W:40] gotos=[open_visit_search(9, 37):4 check_items(1, 53):3 eat_corpses_from_ground(13, 33):2]
+[s17734 t12571 d2 0:2 xl7 hp26/47] ELBERETH rest start: ['hill orc', 'hill orc']
+[s17762 t12575 d2 0:2 xl7 hp25/47] RANGED hit: holds and Elbereth waits off for 8 turns
+[s17842 t12593 d2 0:2 xl7 hp17/47] ELBERETH rest start: ['hill orc', 'hill orc', 'manes']
+[s17953 t12619 d2 0:2 xl7 hp17/47] ELBERETH rest start: ['hill orc', 'rothe', 'hill orc']
+[s18150 t12674 d2 0:2 xl7 hp16/47] PRAY hp=16/47 hunger=3 gap=2447 reason=None model[ok200=1.00 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=73 p_answered=1.00]
+[s18158 t12677 d2 0:2 xl7 hp16/47] PRAY result ok model[ok200=0.22 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=73] prayers=6 failures=0
+[s18158 t12677 d2 0:2 xl7 hp16/47] ELBERETH rest start: ['hill orc', 'garter snake']
+[s18217 t12688 d2 0:2 xl7 hp15/47] RANGED hit: holds and Elbereth waits off for 8 turns
+[s18267 t12700 d2 0:2 xl7 hp18/47] ELBERETH rest start: ['hill orc', 'hill orc']
+[s18310 t12703 d2 0:2 xl7 hp18/47] ELBERETH rest start: ['hill orc', 'hill orc']
+[s18372 t12714 d2 0:2 xl7 hp10/47] LOWHP_CRIT no prayer at 10/47 XL 7 (pray.c sees no HP trouble)
+[s18374 t12715 d2 0:2 xl7 hp3/47] DOOM prayer: gap 38 p_hp=0.33 p_die3=1.00
+[s18374 t12715 d2 0:2 xl7 hp3/47] PRAY hp=3/47 hunger=1 gap=38 reason=hp-doom p_hp=0.33 p_die3=1.00 model[ok200=0.33 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=73 p_answered=0.33]
+[s18376 t12715 d2 0:2 xl7 hp3/47] PRAY result ok model[ok200=0.22 naughty=0.00 ugangr=0.00 luck>=0=1.00 record=73] prayers=7 failures=0
