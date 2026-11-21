@@ -1,0 +1,60 @@
+diff --git a/CHANGES.md b/CHANGES.md
+index 4d6cbb5..c78dd38 100644
+--- a/CHANGES.md
++++ b/CHANGES.md
+@@ -1,3 +1,10 @@
++# Gnome Archaeologist digging beside lichens
++
++The fallback engine lets a critically hurt Gnome Archaeologist resume digging
++from its own pit when the sole visible monster is a lichen beyond contact
++range. Recent damage, other monsters, and existing shelter conditions retain
++the original protection policy.
++
+ # zLeadersSeed407717 (Claude, 2026-10-26)
+ 
+ Identity router. Default base/ = github.com/daglar-dragomirov/nethacker@eab9a9c4f4e09bce096d5762e895fec51b63784d (unmodified).
+diff --git a/base/pf_v36/dive_logic.py b/base/pf_v36/dive_logic.py
+index 792c5c4..8b831f9 100644
+--- a/base/pf_v36/dive_logic.py
++++ b/base/pf_v36/dive_logic.py
+@@ -3874,13 +3874,24 @@ class DiveLogic:
+         if not blind and (agent.inventory.engraving_below_me or '').lower() == 'elbereth':
+             return False
+         bl = agent.blstats
+-        near = [m for m in agent.get_visible_monsters()
++        monsters = agent.get_visible_monsters()
++        near = [m for m in monsters
+                 if max(abs(m[1] - bl.y), abs(m[2] - bl.x)) <= ELBERETH_DIG_RADIUS and
+                 not self._melee_ignores_elbereth(m[3])]
+         # Weak or Fainting: a faint leaves us helpless for turns in the middle of a dig (base-jf14 s8: a troll,
+         # base-jf16 s13: a giant ant, base-jf16 s9: a panther -- all Elbereth-respecting -- killed fainted
+         # diggers); the engraving holds them off while we're out
+         spot = (agent.current_level().key(), bl.y, bl.x, self._in_own_pit())
++        if (spot[3] and len(monsters) == 1 and near and not blind and not agent.character.prop.hallu
++                and agent.character.role == Character.ARCHEOLOGIST and agent.character.race == Character.GNOME
++                and bl.hitpoints < RETREAT_BELOW * bl.max_hitpoints and bl.hunger_state < Hunger.WEAK
++                and not ELBERETH_ALWAYS and not self.on_medusa_level() and not agent._hurt_recently()):
++            _, y, x, monster, _ = near[0]
++            # The lichen's movement rate is 1, and its zero-damage grip
++            # requires contact. A lone lichen two or more squares away can
++            # wait while we use this turn to resume the hole.
++            if monster.mname == 'lichen' and max(abs(y - bl.y), abs(x - bl.x)) > 1:
++                return False
+         tries = self.__dict__.setdefault('_elbereth_tries', {})
+         # the pit erased the Elbereth we needed before it: the monsters that made us engrave are still around
+         # even if out of sight now (base-public s14: an invisible ogre king hit us in the fresh pit; s1: a
+diff --git a/nethackers.solution.json b/nethackers.solution.json
+index 591a72c..de0a640 100644
+--- a/nethackers.solution.json
++++ b/nethackers.solution.json
+@@ -1,8 +1,9 @@
+ {
+   "schema": "nethackers.solution/v1",
+-  "name": "daglar-zLeadersSeed407717",
++  "name": "gnome-archaeologist-distant-lichen-ward",
+   "root": ".",
+   "parents": [
++    "github.com/daglar-dragomirov/nethacker@9a387c4fb6b8c166e2e6e63617bd6e588f40fddc",
+     "github.com/daglar-dragomirov/nethacker@ccfb1251179bad749ece88d384956363ffb2db56",
+     "github.com/daglar-dragomirov/nethacker@44b29b9299c5dcfb76e3fc6081004727c58db19a",
+     "github.com/DT6A/nethacker@37f9da35d0dbf98ed15bf89735bd601f0c0eac02",
